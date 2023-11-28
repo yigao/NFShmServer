@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Ranking_s.h"
 
-#define MAX_RANKING_RANKING_NUM 16
+#define MAX_RANKING_RANKING_NUM 32
 
 class RankingRankingDesc : public NFIDescTemplate<RankingRankingDesc, proto_ff_s::E_RankingRanking_s, EOT_CONST_RANKING_RANKING_DESC_ID, MAX_RANKING_RANKING_NUM>
 {

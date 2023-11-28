@@ -604,6 +604,43 @@ void AoPlatProto_s::read_from_pbmsg(const ::proto_ff::AoPlatProto & msg) {
 	platform_tag = msg.platform_tag();
 }
 
+FactionMagRecordProto_s::FactionMagRecordProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionMagRecordProto_s::CreateInit() {
+	mag_id = (int32_t)0;
+	lamp_id = (int32_t)0;
+	guard_id = (int32_t)0;
+	reel_id = (int32_t)0;
+	point = (int32_t)0;
+	return 0;
+}
+
+int FactionMagRecordProto_s::ResumeInit() {
+	return 0;
+}
+
+void FactionMagRecordProto_s::write_to_pbmsg(::proto_ff::FactionMagRecordProto & msg) const {
+	msg.set_mag_id((int32_t)mag_id);
+	msg.set_lamp_id((int32_t)lamp_id);
+	msg.set_guard_id((int32_t)guard_id);
+	msg.set_reel_id((int32_t)reel_id);
+	msg.set_point((int32_t)point);
+}
+
+void FactionMagRecordProto_s::read_from_pbmsg(const ::proto_ff::FactionMagRecordProto & msg) {
+	mag_id = msg.mag_id();
+	lamp_id = msg.lamp_id();
+	guard_id = msg.guard_id();
+	reel_id = msg.reel_id();
+	point = msg.point();
+}
+
 LoginSyncProto_s::LoginSyncProto_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -642,6 +679,8 @@ void LoginSyncProto_s::write_to_pbmsg(::proto_ff::LoginSyncProto & msg) const {
 	marry.write_to_pbmsg(*temp_marry);
 	::proto_ff::AoPlatProto* temp_plat = msg.mutable_plat();
 	plat.write_to_pbmsg(*temp_plat);
+	::proto_ff::FactionMagRecordProto* temp_mag = msg.mutable_mag();
+	mag.write_to_pbmsg(*temp_mag);
 }
 
 void LoginSyncProto_s::read_from_pbmsg(const ::proto_ff::LoginSyncProto & msg) {
@@ -658,6 +697,8 @@ void LoginSyncProto_s::read_from_pbmsg(const ::proto_ff::LoginSyncProto & msg) {
 	marry.read_from_pbmsg(temp_marry);
 	const ::proto_ff::AoPlatProto & temp_plat = msg.plat();
 	plat.read_from_pbmsg(temp_plat);
+	const ::proto_ff::FactionMagRecordProto & temp_mag = msg.mag();
+	mag.read_from_pbmsg(temp_mag);
 }
 
 CenterRoleProto_s::CenterRoleProto_s() {
@@ -2397,6 +2438,7 @@ RelationDBInfo_s::RelationDBInfo_s() {
 
 int RelationDBInfo_s::CreateInit() {
 	friends_add = (uint32_t)0;
+	charm_value = (uint32_t)0;
 	return 0;
 }
 
@@ -2429,6 +2471,7 @@ void RelationDBInfo_s::write_to_pbmsg(::proto_ff::RelationDBInfo & msg) const {
 		::proto_ff::ArenaChallResult* temp_arena_result = msg.add_arena_result();
 		arena_result[i].write_to_pbmsg(*temp_arena_result);
 	}
+	msg.set_charm_value((uint32_t)charm_value);
 }
 
 void RelationDBInfo_s::read_from_pbmsg(const ::proto_ff::RelationDBInfo & msg) {
@@ -2462,6 +2505,7 @@ void RelationDBInfo_s::read_from_pbmsg(const ::proto_ff::RelationDBInfo & msg) {
 		const ::proto_ff::ArenaChallResult & temp_arena_result = msg.arena_result(i);
 		arena_result[i].read_from_pbmsg(temp_arena_result);
 	}
+	charm_value = msg.charm_value();
 }
 
 DigPerfor_s::DigPerfor_s() {
@@ -4769,6 +4813,100 @@ void DeityEquipSuitData_s::read_from_pbmsg(const ::proto_ff::DeityEquipSuitData 
 	state = msg.state();
 }
 
+DeityGodHoodEquipData_s::DeityGodHoodEquipData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DeityGodHoodEquipData_s::CreateInit() {
+	pos = (int32_t)0;
+	item_id = (int64_t)0;
+	return 0;
+}
+
+int DeityGodHoodEquipData_s::ResumeInit() {
+	return 0;
+}
+
+void DeityGodHoodEquipData_s::write_to_pbmsg(::proto_ff::DeityGodHoodEquipData & msg) const {
+	msg.set_pos((int32_t)pos);
+	msg.set_item_id((int64_t)item_id);
+}
+
+void DeityGodHoodEquipData_s::read_from_pbmsg(const ::proto_ff::DeityGodHoodEquipData & msg) {
+	pos = msg.pos();
+	item_id = msg.item_id();
+}
+
+DeityGodHoodEquip_s::DeityGodHoodEquip_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DeityGodHoodEquip_s::CreateInit() {
+	return 0;
+}
+
+int DeityGodHoodEquip_s::ResumeInit() {
+	return 0;
+}
+
+void DeityGodHoodEquip_s::write_to_pbmsg(::proto_ff::DeityGodHoodEquip & msg) const {
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		::proto_ff::DeityGodHoodEquipData* temp_infos = msg.add_infos();
+		infos[i].write_to_pbmsg(*temp_infos);
+	}
+}
+
+void DeityGodHoodEquip_s::read_from_pbmsg(const ::proto_ff::DeityGodHoodEquip & msg) {
+	infos.resize((int)msg.infos_size() > (int)infos.max_size() ? infos.max_size() : msg.infos_size());
+	for(int32_t i = 0; i < (int32_t)infos.size(); ++i) {
+		const ::proto_ff::DeityGodHoodEquipData & temp_infos = msg.infos(i);
+		infos[i].read_from_pbmsg(temp_infos);
+	}
+}
+
+DeityGodHoodData_s::DeityGodHoodData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int DeityGodHoodData_s::CreateInit() {
+	lv = (uint32_t)0;
+	star = (uint32_t)0;
+	stage = (uint32_t)0;
+	return 0;
+}
+
+int DeityGodHoodData_s::ResumeInit() {
+	return 0;
+}
+
+void DeityGodHoodData_s::write_to_pbmsg(::proto_ff::DeityGodHoodData & msg) const {
+	msg.set_lv((uint32_t)lv);
+	msg.set_star((uint32_t)star);
+	msg.set_stage((uint32_t)stage);
+	::proto_ff::DeityGodHoodEquip* temp_equip = msg.mutable_equip();
+	equip.write_to_pbmsg(*temp_equip);
+}
+
+void DeityGodHoodData_s::read_from_pbmsg(const ::proto_ff::DeityGodHoodData & msg) {
+	lv = msg.lv();
+	star = msg.star();
+	stage = msg.stage();
+	const ::proto_ff::DeityGodHoodEquip & temp_equip = msg.equip();
+	equip.read_from_pbmsg(temp_equip);
+}
+
 DeityFantasyData_s::DeityFantasyData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -4806,6 +4944,8 @@ void DeityFantasyData_s::write_to_pbmsg(::proto_ff::DeityFantasyData & msg) cons
 		::proto_ff::DeityEquipSuitData* temp_equip_suit_data = msg.add_equip_suit_data();
 		equip_suit_data[i].write_to_pbmsg(*temp_equip_suit_data);
 	}
+	::proto_ff::DeityGodHoodData* temp_godhood_data = msg.mutable_godhood_data();
+	godhood_data.write_to_pbmsg(*temp_godhood_data);
 }
 
 void DeityFantasyData_s::read_from_pbmsg(const ::proto_ff::DeityFantasyData & msg) {
@@ -4826,6 +4966,8 @@ void DeityFantasyData_s::read_from_pbmsg(const ::proto_ff::DeityFantasyData & ms
 		const ::proto_ff::DeityEquipSuitData & temp_equip_suit_data = msg.equip_suit_data(i);
 		equip_suit_data[i].read_from_pbmsg(temp_equip_suit_data);
 	}
+	const ::proto_ff::DeityGodHoodData & temp_godhood_data = msg.godhood_data();
+	godhood_data.read_from_pbmsg(temp_godhood_data);
 }
 
 DeityFragmentData_s::DeityFragmentData_s() {
@@ -6298,6 +6440,7 @@ int MarrySelfInfo_s::CreateInit() {
 	card_surplus_day = (int32_t)0;
 	recv_self_box_days = (int32_t)0;
 	task_state = (int32_t)0;
+	express_exp_sum = (int32_t)0;
 	return 0;
 }
 
@@ -6336,6 +6479,7 @@ void MarrySelfInfo_s::write_to_pbmsg(::proto_ff::MarrySelfInfo & msg) const {
 	msg.set_card_surplus_day((int32_t)card_surplus_day);
 	msg.set_recv_self_box_days((int32_t)recv_self_box_days);
 	msg.set_task_state((int32_t)task_state);
+	msg.set_express_exp_sum((int32_t)express_exp_sum);
 }
 
 void MarrySelfInfo_s::read_from_pbmsg(const ::proto_ff::MarrySelfInfo & msg) {
@@ -6372,6 +6516,7 @@ void MarrySelfInfo_s::read_from_pbmsg(const ::proto_ff::MarrySelfInfo & msg) {
 	card_surplus_day = msg.card_surplus_day();
 	recv_self_box_days = msg.recv_self_box_days();
 	task_state = msg.task_state();
+	express_exp_sum = msg.express_exp_sum();
 }
 
 MarryWeddingInfo_s::MarryWeddingInfo_s() {
@@ -9941,6 +10086,160 @@ void FestRankDBData_s::read_from_pbmsg(const ::proto_ff::FestRankDBData & msg) {
 	}
 }
 
+FestRechargePrizeTaskData_s::FestRechargePrizeTaskData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FestRechargePrizeTaskData_s::CreateInit() {
+	task_id = (int32_t)0;
+	task_status = (int32_t)0;
+	return 0;
+}
+
+int FestRechargePrizeTaskData_s::ResumeInit() {
+	return 0;
+}
+
+void FestRechargePrizeTaskData_s::write_to_pbmsg(::proto_ff::FestRechargePrizeTaskData & msg) const {
+	msg.set_task_id((int32_t)task_id);
+	msg.set_task_status((int32_t)task_status);
+}
+
+void FestRechargePrizeTaskData_s::read_from_pbmsg(const ::proto_ff::FestRechargePrizeTaskData & msg) {
+	task_id = msg.task_id();
+	task_status = msg.task_status();
+}
+
+FestRechargePrizeRecord_s::FestRechargePrizeRecord_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FestRechargePrizeRecord_s::CreateInit() {
+	jiang_num = (int32_t)0;
+	time = (int64_t)0;
+	return 0;
+}
+
+int FestRechargePrizeRecord_s::ResumeInit() {
+	return 0;
+}
+
+void FestRechargePrizeRecord_s::write_to_pbmsg(::proto_ff::FestRechargePrizeRecord & msg) const {
+	msg.set_jiang_num((int32_t)jiang_num);
+	msg.set_time((int64_t)time);
+}
+
+void FestRechargePrizeRecord_s::read_from_pbmsg(const ::proto_ff::FestRechargePrizeRecord & msg) {
+	jiang_num = msg.jiang_num();
+	time = msg.time();
+}
+
+FestRechargePrizeData_s::FestRechargePrizeData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FestRechargePrizeData_s::CreateInit() {
+	left_pool_num = (uint32_t)0;
+	left_prize = (uint32_t)0;
+	free_status = (uint32_t)0;
+	return 0;
+}
+
+int FestRechargePrizeData_s::ResumeInit() {
+	return 0;
+}
+
+void FestRechargePrizeData_s::write_to_pbmsg(::proto_ff::FestRechargePrizeData & msg) const {
+	msg.set_left_pool_num((uint32_t)left_pool_num);
+	msg.set_left_prize((uint32_t)left_prize);
+	msg.set_free_status((uint32_t)free_status);
+	for(int32_t i = 0; i < (int32_t)task.size(); ++i) {
+		::proto_ff::FestRechargePrizeTaskData* temp_task = msg.add_task();
+		task[i].write_to_pbmsg(*temp_task);
+	}
+}
+
+void FestRechargePrizeData_s::read_from_pbmsg(const ::proto_ff::FestRechargePrizeData & msg) {
+	left_pool_num = msg.left_pool_num();
+	left_prize = msg.left_prize();
+	free_status = msg.free_status();
+	task.resize((int)msg.task_size() > (int)task.max_size() ? task.max_size() : msg.task_size());
+	for(int32_t i = 0; i < (int32_t)task.size(); ++i) {
+		const ::proto_ff::FestRechargePrizeTaskData & temp_task = msg.task(i);
+		task[i].read_from_pbmsg(temp_task);
+	}
+}
+
+FestRechargePrizeDBData_s::FestRechargePrizeDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FestRechargePrizeDBData_s::CreateInit() {
+	left_pool_num = (uint32_t)0;
+	left_prize = (uint32_t)0;
+	free_status = (uint32_t)0;
+	flush_time = (uint64_t)0;
+	cur_choujiang_num = (uint32_t)0;
+	acc_recharge_num = (uint32_t)0;
+	return 0;
+}
+
+int FestRechargePrizeDBData_s::ResumeInit() {
+	return 0;
+}
+
+void FestRechargePrizeDBData_s::write_to_pbmsg(::proto_ff::FestRechargePrizeDBData & msg) const {
+	msg.set_left_pool_num((uint32_t)left_pool_num);
+	msg.set_left_prize((uint32_t)left_prize);
+	msg.set_free_status((uint32_t)free_status);
+	for(int32_t i = 0; i < (int32_t)task.size(); ++i) {
+		::proto_ff::FestRechargePrizeTaskData* temp_task = msg.add_task();
+		task[i].write_to_pbmsg(*temp_task);
+	}
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
+		::proto_ff::FestRechargePrizeRecord* temp_record = msg.add_record();
+		record[i].write_to_pbmsg(*temp_record);
+	}
+	msg.set_flush_time((uint64_t)flush_time);
+	msg.set_cur_choujiang_num((uint32_t)cur_choujiang_num);
+	msg.set_acc_recharge_num((uint32_t)acc_recharge_num);
+}
+
+void FestRechargePrizeDBData_s::read_from_pbmsg(const ::proto_ff::FestRechargePrizeDBData & msg) {
+	left_pool_num = msg.left_pool_num();
+	left_prize = msg.left_prize();
+	free_status = msg.free_status();
+	task.resize((int)msg.task_size() > (int)task.max_size() ? task.max_size() : msg.task_size());
+	for(int32_t i = 0; i < (int32_t)task.size(); ++i) {
+		const ::proto_ff::FestRechargePrizeTaskData & temp_task = msg.task(i);
+		task[i].read_from_pbmsg(temp_task);
+	}
+	record.resize((int)msg.record_size() > (int)record.max_size() ? record.max_size() : msg.record_size());
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
+		const ::proto_ff::FestRechargePrizeRecord & temp_record = msg.record(i);
+		record[i].read_from_pbmsg(temp_record);
+	}
+	flush_time = msg.flush_time();
+	cur_choujiang_num = msg.cur_choujiang_num();
+	acc_recharge_num = msg.acc_recharge_num();
+}
+
 NotifyWorldInfo_s::NotifyWorldInfo_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -10764,6 +11063,8 @@ int SoulEntry_s::CreateInit() {
 	id = (int32_t)0;
 	lv = (int32_t)0;
 	steplv = (int32_t)0;
+	auto_skill = (int32_t)0;
+	quality_prot = (int32_t)0;
 	return 0;
 }
 
@@ -10775,12 +11076,124 @@ void SoulEntry_s::write_to_pbmsg(::proto_ff::SoulEntry & msg) const {
 	msg.set_id((int32_t)id);
 	msg.set_lv((int32_t)lv);
 	msg.set_steplv((int32_t)steplv);
+	msg.set_auto_skill((int32_t)auto_skill);
+	msg.set_quality_prot((int32_t)quality_prot);
 }
 
 void SoulEntry_s::read_from_pbmsg(const ::proto_ff::SoulEntry & msg) {
 	id = msg.id();
 	lv = msg.lv();
 	steplv = msg.steplv();
+	auto_skill = msg.auto_skill();
+	quality_prot = msg.quality_prot();
+}
+
+SoulSpirit_s::SoulSpirit_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SoulSpirit_s::CreateInit() {
+	slot_pos = (int32_t)0;
+	bag_pos = (int32_t)0;
+	strong_lv = (int32_t)0;
+	break_lv = (int32_t)0;
+	return 0;
+}
+
+int SoulSpirit_s::ResumeInit() {
+	return 0;
+}
+
+void SoulSpirit_s::write_to_pbmsg(::proto_ff::SoulSpirit & msg) const {
+	msg.set_slot_pos((int32_t)slot_pos);
+	msg.set_bag_pos((int32_t)bag_pos);
+	msg.set_strong_lv((int32_t)strong_lv);
+	msg.set_break_lv((int32_t)break_lv);
+}
+
+void SoulSpirit_s::read_from_pbmsg(const ::proto_ff::SoulSpirit & msg) {
+	slot_pos = msg.slot_pos();
+	bag_pos = msg.bag_pos();
+	strong_lv = msg.strong_lv();
+	break_lv = msg.break_lv();
+}
+
+SoulBone_s::SoulBone_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SoulBone_s::CreateInit() {
+	slot_pos = (int32_t)0;
+	bag_pos = (int32_t)0;
+	is_wake = (int32_t)0;
+	progress = (int32_t)0;
+	wake_lv = (int32_t)0;
+	fix_id = (int32_t)0;
+	return 0;
+}
+
+int SoulBone_s::ResumeInit() {
+	return 0;
+}
+
+void SoulBone_s::write_to_pbmsg(::proto_ff::SoulBone & msg) const {
+	msg.set_slot_pos((int32_t)slot_pos);
+	msg.set_bag_pos((int32_t)bag_pos);
+	msg.set_is_wake((int32_t)is_wake);
+	msg.set_progress((int32_t)progress);
+	msg.set_wake_lv((int32_t)wake_lv);
+	msg.set_fix_id((int32_t)fix_id);
+}
+
+void SoulBone_s::read_from_pbmsg(const ::proto_ff::SoulBone & msg) {
+	slot_pos = msg.slot_pos();
+	bag_pos = msg.bag_pos();
+	is_wake = msg.is_wake();
+	progress = msg.progress();
+	wake_lv = msg.wake_lv();
+	fix_id = msg.fix_id();
+}
+
+SoulGuwen_s::SoulGuwen_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int SoulGuwen_s::CreateInit() {
+	suit_id = (int32_t)0;
+	bone_pos = (int32_t)0;
+	slot_pos = (int32_t)0;
+	bag_pos = (int32_t)0;
+	return 0;
+}
+
+int SoulGuwen_s::ResumeInit() {
+	return 0;
+}
+
+void SoulGuwen_s::write_to_pbmsg(::proto_ff::SoulGuwen & msg) const {
+	msg.set_suit_id((int32_t)suit_id);
+	msg.set_bone_pos((int32_t)bone_pos);
+	msg.set_slot_pos((int32_t)slot_pos);
+	msg.set_bag_pos((int32_t)bag_pos);
+}
+
+void SoulGuwen_s::read_from_pbmsg(const ::proto_ff::SoulGuwen & msg) {
+	suit_id = msg.suit_id();
+	bone_pos = msg.bone_pos();
+	slot_pos = msg.slot_pos();
+	bag_pos = msg.bag_pos();
 }
 
 SoulPool_s::SoulPool_s() {
@@ -10994,6 +11407,202 @@ void RuneEntry_s::read_from_pbmsg(const ::proto_ff::RuneEntry & msg) {
 	}
 	bd_id = msg.bd_id();
 	jueji_id = msg.jueji_id();
+}
+
+FestBossProto_s::FestBossProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FestBossProto_s::CreateInit() {
+	tplid = (int32_t)0;
+	time = (uint64_t)0;
+	return 0;
+}
+
+int FestBossProto_s::ResumeInit() {
+	return 0;
+}
+
+void FestBossProto_s::write_to_pbmsg(::proto_ff::FestBossProto & msg) const {
+	msg.set_tplid((int32_t)tplid);
+	msg.set_time((uint64_t)time);
+}
+
+void FestBossProto_s::read_from_pbmsg(const ::proto_ff::FestBossProto & msg) {
+	tplid = msg.tplid();
+	time = msg.time();
+}
+
+NGTBoxOpened_s::NGTBoxOpened_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int NGTBoxOpened_s::CreateInit() {
+	idx = (uint32_t)0;
+	itemId = (uint32_t)0;
+	itemIdx = (uint32_t)0;
+	return 0;
+}
+
+int NGTBoxOpened_s::ResumeInit() {
+	return 0;
+}
+
+void NGTBoxOpened_s::write_to_pbmsg(::proto_ff::NGTBoxOpened & msg) const {
+	msg.set_idx((uint32_t)idx);
+	msg.set_itemid((uint32_t)itemId);
+	msg.set_itemidx((uint32_t)itemIdx);
+}
+
+void NGTBoxOpened_s::read_from_pbmsg(const ::proto_ff::NGTBoxOpened & msg) {
+	idx = msg.idx();
+	itemId = msg.itemid();
+	itemIdx = msg.itemidx();
+}
+
+NGTBoxItem_s::NGTBoxItem_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int NGTBoxItem_s::CreateInit() {
+	itemId = (uint32_t)0;
+	itemCount = (uint32_t)0;
+	return 0;
+}
+
+int NGTBoxItem_s::ResumeInit() {
+	return 0;
+}
+
+void NGTBoxItem_s::write_to_pbmsg(::proto_ff::NGTBoxItem & msg) const {
+	msg.set_itemid((uint32_t)itemId);
+	msg.set_itemcount((uint32_t)itemCount);
+}
+
+void NGTBoxItem_s::read_from_pbmsg(const ::proto_ff::NGTBoxItem & msg) {
+	itemId = msg.itemid();
+	itemCount = msg.itemcount();
+}
+
+NGStorePurchaseLog_s::NGStorePurchaseLog_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int NGStorePurchaseLog_s::CreateInit() {
+	cfgId = (uint32_t)0;
+	times = (uint32_t)0;
+	return 0;
+}
+
+int NGStorePurchaseLog_s::ResumeInit() {
+	return 0;
+}
+
+void NGStorePurchaseLog_s::write_to_pbmsg(::proto_ff::NGStorePurchaseLog & msg) const {
+	msg.set_cfgid((uint32_t)cfgId);
+	msg.set_times((uint32_t)times);
+}
+
+void NGStorePurchaseLog_s::read_from_pbmsg(const ::proto_ff::NGStorePurchaseLog & msg) {
+	cfgId = msg.cfgid();
+	times = msg.times();
+}
+
+NGDbDatas_s::NGDbDatas_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int NGDbDatas_s::CreateInit() {
+	layers = (uint32_t)0;
+	weekTime = (uint64_t)0;
+	battleWeekTimes = (uint32_t)0;
+	battleId = (uint64_t)0;
+	privilege = (uint32_t)0;
+	payAcc = (uint32_t)0;
+	return 0;
+}
+
+int NGDbDatas_s::ResumeInit() {
+	return 0;
+}
+
+void NGDbDatas_s::write_to_pbmsg(::proto_ff::NGDbDatas & msg) const {
+	msg.set_layers((uint32_t)layers);
+	for(int32_t i = 0; i < (int32_t)openedList.size(); ++i) {
+		::proto_ff::NGTBoxOpened* temp_openedlist = msg.add_openedlist();
+		openedList[i].write_to_pbmsg(*temp_openedlist);
+	}
+	msg.set_weektime((uint64_t)weekTime);
+	msg.set_battleweektimes((uint32_t)battleWeekTimes);
+	msg.set_battleid((uint64_t)battleId);
+	for(int32_t i = 0; i < (int32_t)itemsLog.size(); ++i) {
+		::proto_ff::NGTBoxItem* temp_itemslog = msg.add_itemslog();
+		itemsLog[i].write_to_pbmsg(*temp_itemslog);
+	}
+	msg.set_privilege((uint32_t)privilege);
+	for(int32_t i = 0; i < (int32_t)privilegeRecvLog.size(); ++i) {
+		msg.add_privilegerecvlog((uint32_t)privilegeRecvLog[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)storePurchaseLog.size(); ++i) {
+		::proto_ff::NGStorePurchaseLog* temp_storepurchaselog = msg.add_storepurchaselog();
+		storePurchaseLog[i].write_to_pbmsg(*temp_storepurchaselog);
+	}
+	msg.set_payacc((uint32_t)payAcc);
+	for(int32_t i = 0; i < (int32_t)payAccRecvLog.size(); ++i) {
+		msg.add_payaccrecvlog((uint32_t)payAccRecvLog[i]);
+	}
+}
+
+void NGDbDatas_s::read_from_pbmsg(const ::proto_ff::NGDbDatas & msg) {
+	layers = msg.layers();
+	openedList.resize((int)msg.openedlist_size() > (int)openedList.max_size() ? openedList.max_size() : msg.openedlist_size());
+	for(int32_t i = 0; i < (int32_t)openedList.size(); ++i) {
+		const ::proto_ff::NGTBoxOpened & temp_openedlist = msg.openedlist(i);
+		openedList[i].read_from_pbmsg(temp_openedlist);
+	}
+	weekTime = msg.weektime();
+	battleWeekTimes = msg.battleweektimes();
+	battleId = msg.battleid();
+	itemsLog.resize((int)msg.itemslog_size() > (int)itemsLog.max_size() ? itemsLog.max_size() : msg.itemslog_size());
+	for(int32_t i = 0; i < (int32_t)itemsLog.size(); ++i) {
+		const ::proto_ff::NGTBoxItem & temp_itemslog = msg.itemslog(i);
+		itemsLog[i].read_from_pbmsg(temp_itemslog);
+	}
+	privilege = msg.privilege();
+	privilegeRecvLog.resize((int)msg.privilegerecvlog_size() > (int)privilegeRecvLog.max_size() ? privilegeRecvLog.max_size() : msg.privilegerecvlog_size());
+	for(int32_t i = 0; i < (int32_t)privilegeRecvLog.size(); ++i) {
+		privilegeRecvLog[i] = msg.privilegerecvlog(i);
+	}
+	storePurchaseLog.resize((int)msg.storepurchaselog_size() > (int)storePurchaseLog.max_size() ? storePurchaseLog.max_size() : msg.storepurchaselog_size());
+	for(int32_t i = 0; i < (int32_t)storePurchaseLog.size(); ++i) {
+		const ::proto_ff::NGStorePurchaseLog & temp_storepurchaselog = msg.storepurchaselog(i);
+		storePurchaseLog[i].read_from_pbmsg(temp_storepurchaselog);
+	}
+	payAcc = msg.payacc();
+	payAccRecvLog.resize((int)msg.payaccrecvlog_size() > (int)payAccRecvLog.max_size() ? payAccRecvLog.max_size() : msg.payaccrecvlog_size());
+	for(int32_t i = 0; i < (int32_t)payAccRecvLog.size(); ++i) {
+		payAccRecvLog[i] = msg.payaccrecvlog(i);
+	}
 }
 
 }

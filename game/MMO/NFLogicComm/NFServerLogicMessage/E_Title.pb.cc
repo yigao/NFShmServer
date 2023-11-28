@@ -92,7 +92,7 @@ void protobuf_AssignDesc_E_5fTitle_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_TitleTitleAttributeDesc));
   E_TitleTitle_descriptor_ = file->message_type(3);
-  static const int E_TitleTitle_offsets_[16] = {
+  static const int E_TitleTitle_offsets_[17] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_type_),
@@ -108,6 +108,7 @@ void protobuf_AssignDesc_E_5fTitle_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_starnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_starup_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_starber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_broadcast_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TitleTitle, m_attribute_),
   };
   E_TitleTitle_reflection_ =
@@ -189,7 +190,7 @@ void protobuf_AddDesc_E_5fTitle_2eproto() {
     "eType_List\030\001 \003(\0132\025.proto_ff.E_TitleTypeB"
     "\004\210\301\024\010\"Q\n\031E_TitleTitleAttributeDesc\022\030\n\007m_"
     "value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377"
-    "\024\006\347\261\273\345\236\213\"\327\005\n\014E_TitleTitle\022\032\n\004m_id\030\001 \001(\003B"
+    "\024\006\347\261\273\345\236\213\"\376\005\n\014E_TitleTitle\022\032\n\004m_id\030\001 \001(\003B"
     "\014\302\377\024\010\347\247\260\345\217\267ID\022$\n\006m_name\030\002 \001(\tB\024\302\377\024\014\347\247\260\345\217"
     "\267\345\220\215\347\247\260\220\301\024@\022 \n\006m_type\030\003 \001(\005B\020\302\377\024\014\347\247\260\345\217\267\347"
     "\261\273\345\236\213\022)\n\tm_subType\030\004 \001(\005B\026\302\377\024\022\350\216\267\345\217\226\346\235\241\344"
@@ -205,11 +206,12 @@ void protobuf_AddDesc_E_5fTitle_2eproto() {
     "Num\030\r \001(\tB\033\302\377\024\022\345\215\207\346\230\237\351\201\223\345\205\267\346\225\260\351\207\217\220\301\024\200\002\022("
     "\n\010m_starUp\030\016 \001(\005B\026\302\377\024\022\345\215\207\346\230\237\347\255\211\347\272\247\344\270\212\351\231\220"
     "\022>\n\tm_starBer\030\017 \001(\005B+\302\377\024\'\346\257\217\346\254\241\345\215\207\346\230\237\345\261\236"
-    "\346\200\247\345\242\236\345\212\240\347\232\204\344\270\207\345\210\206\346\257\224\345\200\274\022H\n\013m_attribute\030"
-    "\020 \003(\0132#.proto_ff.E_TitleTitleAttributeDe"
-    "scB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"L\n\020Sheet_TitleTitle\0228"
-    "\n\021E_TitleTitle_List\030\001 \003(\0132\026.proto_ff.E_T"
-    "itleTitleB\005\210\301\024\200\001", 1056);
+    "\346\200\247\345\242\236\345\212\240\347\232\204\344\270\207\345\210\206\346\257\224\345\200\274\022%\n\013m_broadcast\030"
+    "\020 \001(\005B\020\302\377\024\014\346\230\257\345\220\246\344\274\240\351\227\273\022H\n\013m_attribute\030\021"
+    " \003(\0132#.proto_ff.E_TitleTitleAttributeDes"
+    "cB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\006\"L\n\020Sheet_TitleTitle\0228\n"
+    "\021E_TitleTitle_List\030\001 \003(\0132\026.proto_ff.E_Ti"
+    "tleTitleB\005\210\301\024\200\001", 1095);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Title.proto", &protobuf_RegisterTypes);
   E_TitleType::default_instance_ = new E_TitleType();
@@ -909,6 +911,7 @@ const int E_TitleTitle::kMStarIdFieldNumber;
 const int E_TitleTitle::kMStarNumFieldNumber;
 const int E_TitleTitle::kMStarUpFieldNumber;
 const int E_TitleTitle::kMStarBerFieldNumber;
+const int E_TitleTitle::kMBroadcastFieldNumber;
 const int E_TitleTitle::kMAttributeFieldNumber;
 #endif  // !_MSC_VER
 
@@ -943,6 +946,7 @@ void E_TitleTitle::SharedCtor() {
   m_starnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_starup_ = 0;
   m_starber_ = 0;
+  m_broadcast_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1023,6 +1027,7 @@ void E_TitleTitle::Clear() {
     }
     m_starup_ = 0;
     m_starber_ = 0;
+    m_broadcast_ = 0;
   }
   m_attribute_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1274,12 +1279,28 @@ bool E_TitleTitle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_m_attribute;
+        if (input->ExpectTag(128)) goto parse_m_broadcast;
         break;
       }
 
-      // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 16;
+      // optional int32 m_broadcast = 16;
       case 16: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_broadcast:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_broadcast_)));
+          set_has_m_broadcast();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(138)) goto parse_m_attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 17;
+      case 17: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_attribute:
@@ -1288,7 +1309,7 @@ bool E_TitleTitle::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_m_attribute;
+        if (input->ExpectTag(138)) goto parse_m_attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1402,10 +1423,15 @@ void E_TitleTitle::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_starber(), output);
   }
 
-  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 16;
+  // optional int32 m_broadcast = 16;
+  if (has_m_broadcast()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_broadcast(), output);
+  }
+
+  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 17;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      16, this->m_attribute(i), output);
+      17, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1511,11 +1537,16 @@ void E_TitleTitle::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_starber(), target);
   }
 
-  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 16;
+  // optional int32 m_broadcast = 16;
+  if (has_m_broadcast()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_broadcast(), target);
+  }
+
+  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 17;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        16, this->m_attribute(i), target);
+        17, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1636,8 +1667,15 @@ int E_TitleTitle::ByteSize() const {
           this->m_starber());
     }
 
+    // optional int32 m_broadcast = 16;
+    if (has_m_broadcast()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_broadcast());
+    }
+
   }
-  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 16;
+  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 17;
   total_size += 2 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -1719,6 +1757,9 @@ void E_TitleTitle::MergeFrom(const E_TitleTitle& from) {
     if (from.has_m_starber()) {
       set_m_starber(from.m_starber());
     }
+    if (from.has_m_broadcast()) {
+      set_m_broadcast(from.m_broadcast());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1757,6 +1798,7 @@ void E_TitleTitle::Swap(E_TitleTitle* other) {
     std::swap(m_starnum_, other->m_starnum_);
     std::swap(m_starup_, other->m_starup_);
     std::swap(m_starber_, other->m_starber_);
+    std::swap(m_broadcast_, other->m_broadcast_);
     m_attribute_.Swap(&other->m_attribute_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

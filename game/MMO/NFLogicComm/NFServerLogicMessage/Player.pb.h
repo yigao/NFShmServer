@@ -381,6 +381,15 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 is_merge() const;
   inline void set_is_merge(::google::protobuf::int32 value);
 
+  // optional .proto_ff.NGDbDatas ng_datas = 34;
+  inline bool has_ng_datas() const;
+  inline void clear_ng_datas();
+  static const int kNgDatasFieldNumber = 34;
+  inline const ::proto_ff::NGDbDatas& ng_datas() const;
+  inline ::proto_ff::NGDbDatas* mutable_ng_datas();
+  inline ::proto_ff::NGDbDatas* release_ng_datas();
+  inline void set_allocated_ng_datas(::proto_ff::NGDbDatas* ng_datas);
+
   // @@protoc_insertion_point(class_scope:proto_ff.PlayerInfoRsp)
  private:
   inline void set_has_cid();
@@ -445,6 +454,8 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   inline void clear_has_world_lv_16();
   inline void set_has_is_merge();
   inline void clear_has_is_merge();
+  inline void set_has_ng_datas();
+  inline void clear_has_ng_datas();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -466,9 +477,9 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   ::google::protobuf::int32 killvalue_;
   ::google::protobuf::int32 is_yellow_;
   ::std::string* marry_dst_name_;
+  ::proto_ff::RechargeProto* recharge_;
   ::google::protobuf::int32 tour_state_;
   ::google::protobuf::uint32 anger_value_;
-  ::proto_ff::RechargeProto* recharge_;
   ::proto_ff::WPPState* wpp_state_;
   ::std::string* strguidelines_;
   ::google::protobuf::int32 fetch_war_;
@@ -480,10 +491,11 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   ::google::protobuf::int32 world_lv_4_;
   ::google::protobuf::int32 world_lv_8_;
   ::google::protobuf::int32 world_lv_16_;
+  ::proto_ff::NGDbDatas* ng_datas_;
   ::google::protobuf::int32 is_merge_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(34 + 31) / 32];
 
   friend void  protobuf_AddDesc_Player_2eproto();
   friend void protobuf_AssignDesc_Player_2eproto();
@@ -3089,6 +3101,44 @@ inline ::google::protobuf::int32 PlayerInfoRsp::is_merge() const {
 inline void PlayerInfoRsp::set_is_merge(::google::protobuf::int32 value) {
   set_has_is_merge();
   is_merge_ = value;
+}
+
+// optional .proto_ff.NGDbDatas ng_datas = 34;
+inline bool PlayerInfoRsp::has_ng_datas() const {
+  return (_has_bits_[1] & 0x00000002u) != 0;
+}
+inline void PlayerInfoRsp::set_has_ng_datas() {
+  _has_bits_[1] |= 0x00000002u;
+}
+inline void PlayerInfoRsp::clear_has_ng_datas() {
+  _has_bits_[1] &= ~0x00000002u;
+}
+inline void PlayerInfoRsp::clear_ng_datas() {
+  if (ng_datas_ != NULL) ng_datas_->::proto_ff::NGDbDatas::Clear();
+  clear_has_ng_datas();
+}
+inline const ::proto_ff::NGDbDatas& PlayerInfoRsp::ng_datas() const {
+  return ng_datas_ != NULL ? *ng_datas_ : *default_instance_->ng_datas_;
+}
+inline ::proto_ff::NGDbDatas* PlayerInfoRsp::mutable_ng_datas() {
+  set_has_ng_datas();
+  if (ng_datas_ == NULL) ng_datas_ = new ::proto_ff::NGDbDatas;
+  return ng_datas_;
+}
+inline ::proto_ff::NGDbDatas* PlayerInfoRsp::release_ng_datas() {
+  clear_has_ng_datas();
+  ::proto_ff::NGDbDatas* temp = ng_datas_;
+  ng_datas_ = NULL;
+  return temp;
+}
+inline void PlayerInfoRsp::set_allocated_ng_datas(::proto_ff::NGDbDatas* ng_datas) {
+  delete ng_datas_;
+  ng_datas_ = ng_datas;
+  if (ng_datas) {
+    set_has_ng_datas();
+  } else {
+    clear_has_ng_datas();
+  }
 }
 
 // -------------------------------------------------------------------

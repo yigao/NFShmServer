@@ -17,7 +17,7 @@
 #define DEFINE_SHEET_GUILDDONATE_E_GUILDDONATE_LIST_MAX_NUM 4
 #define DEFINE_SHEET_GUILDPACKET_E_GUILDPACKET_LIST_MAX_NUM 128
 #define DEFINE_SHEET_GUILDPRESTIGETASK_E_GUILDPRESTIGETASK_LIST_MAX_NUM 16
-#define DEFINE_SHEET_GUILDLVREWARD_E_GUILDLVREWARD_LIST_MAX_NUM 512
+#define DEFINE_SHEET_GUILDLVREWARD_E_GUILDLVREWARD_LIST_MAX_NUM 2048
 #define DEFINE_E_GUILDCOLLEGE_M_ATTRIBUTE_MAX_NUM 2
 #define DEFINE_SHEET_GUILDCOLLEGE_E_GUILDCOLLEGE_LIST_MAX_NUM 16384
 #define DEFINE_SHEET_GUILDANSWER_E_GUILDANSWER_LIST_MAX_NUM 64
@@ -28,6 +28,10 @@
 #define DEFINE_SHEET_GUILDGWREWARD_E_GUILDGWREWARD_LIST_MAX_NUM 128
 #define DEFINE_SHEET_GUILDGWWINSTREAK_E_GUILDGWWINSTREAK_LIST_MAX_NUM 32
 #define DEFINE_SHEET_GUILDTTOWER_E_GUILDTTOWER_LIST_MAX_NUM 128
+#define DEFINE_E_GUILDTTOWERDEVELOP_M_ATTRIBUTE_MAX_NUM 8
+#define DEFINE_SHEET_GUILDTTOWERDEVELOP_E_GUILDTTOWERDEVELOP_LIST_MAX_NUM 64
+#define DEFINE_E_GUILDTTOWERDEVELOP_DATA_M_ATTRIBUTE_MAX_NUM 8
+#define DEFINE_SHEET_GUILDTTOWERDEVELOP_DATA_E_GUILDTTOWERDEVELOP_DATA_LIST_MAX_NUM 32
 
 
 namespace proto_ff_s {
@@ -191,6 +195,7 @@ namespace proto_ff_s {
 		int32_t m_changeName;//改名权限
 		int32_t m_recruitChat;//发布招贤纳士
 		int32_t m_guildPacket;//发送公会玩法红包
+		int32_t m_UpGuard;//升级守护
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildPosition & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildPosition & msg);
@@ -382,9 +387,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_lv;//等级
-		int32_t m_partyExp;//晚宴经验
+		int64_t m_partyExp;//晚宴经验
 		int32_t m_partyEontribution;//晚宴贡献
-		int32_t m_linkExp;//链接经验
+		int64_t m_linkExp;//链接经验
 
 		virtual void write_to_pbmsg(::proto_ff::E_GuildLvreward & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GuildLvreward & msg);
@@ -664,6 +669,99 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_GuildTtower make_pbmsg(){ return ::proto_ff::Sheet_GuildTtower(); }
 	};
 	typedef struct Sheet_GuildTtower_s Sheet_GuildTtower_t;
+
+	struct E_GuildTtowerdevelopAttributeDesc_s : public NFDescStoreSeqOP {
+		E_GuildTtowerdevelopAttributeDesc_s();
+		virtual ~E_GuildTtowerdevelopAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_GuildTtowerdevelopAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelopAttributeDesc & msg);
+		static ::proto_ff::E_GuildTtowerdevelopAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_GuildTtowerdevelopAttributeDesc(); }
+		static ::proto_ff::E_GuildTtowerdevelopAttributeDesc make_pbmsg(){ return ::proto_ff::E_GuildTtowerdevelopAttributeDesc(); }
+	};
+	typedef struct E_GuildTtowerdevelopAttributeDesc_s E_GuildTtowerdevelopAttributeDesc_t;
+
+	struct E_GuildTtowerdevelop_s : public NFDescStoreSeqOP {
+		E_GuildTtowerdevelop_s();
+		virtual ~E_GuildTtowerdevelop_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_type;//类型
+		int32_t m_dataGroup;//数据组id
+		NFShmVector<struct E_GuildTtowerdevelopAttributeDesc_s, DEFINE_E_GUILDTTOWERDEVELOP_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_GuildTtowerdevelop & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelop & msg);
+		static ::proto_ff::E_GuildTtowerdevelop* new_pbmsg(){ return new ::proto_ff::E_GuildTtowerdevelop(); }
+		static ::proto_ff::E_GuildTtowerdevelop make_pbmsg(){ return ::proto_ff::E_GuildTtowerdevelop(); }
+	};
+	typedef struct E_GuildTtowerdevelop_s E_GuildTtowerdevelop_t;
+
+	struct Sheet_GuildTtowerdevelop_s : public NFDescStoreSeqOP {
+		Sheet_GuildTtowerdevelop_s();
+		virtual ~Sheet_GuildTtowerdevelop_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_GuildTtowerdevelop_s, DEFINE_SHEET_GUILDTTOWERDEVELOP_E_GUILDTTOWERDEVELOP_LIST_MAX_NUM> E_GuildTtowerdevelop_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildTtowerdevelop & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildTtowerdevelop & msg);
+		static ::proto_ff::Sheet_GuildTtowerdevelop* new_pbmsg(){ return new ::proto_ff::Sheet_GuildTtowerdevelop(); }
+		static ::proto_ff::Sheet_GuildTtowerdevelop make_pbmsg(){ return ::proto_ff::Sheet_GuildTtowerdevelop(); }
+	};
+	typedef struct Sheet_GuildTtowerdevelop_s Sheet_GuildTtowerdevelop_t;
+
+	struct E_GuildTtowerdevelop_dataAttributeDesc_s : public NFDescStoreSeqOP {
+		E_GuildTtowerdevelop_dataAttributeDesc_s();
+		virtual ~E_GuildTtowerdevelop_dataAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc & msg);
+		static ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc(); }
+		static ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc make_pbmsg(){ return ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc(); }
+	};
+	typedef struct E_GuildTtowerdevelop_dataAttributeDesc_s E_GuildTtowerdevelop_dataAttributeDesc_t;
+
+	struct E_GuildTtowerdevelop_data_s : public NFDescStoreSeqOP {
+		E_GuildTtowerdevelop_data_s();
+		virtual ~E_GuildTtowerdevelop_data_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_groupID;//组id
+		int32_t m_costItem;//消耗道具
+		int32_t m_costnum;//消耗数量
+		NFShmVector<struct E_GuildTtowerdevelop_dataAttributeDesc_s, DEFINE_E_GUILDTTOWERDEVELOP_DATA_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_GuildTtowerdevelop_data & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelop_data & msg);
+		static ::proto_ff::E_GuildTtowerdevelop_data* new_pbmsg(){ return new ::proto_ff::E_GuildTtowerdevelop_data(); }
+		static ::proto_ff::E_GuildTtowerdevelop_data make_pbmsg(){ return ::proto_ff::E_GuildTtowerdevelop_data(); }
+	};
+	typedef struct E_GuildTtowerdevelop_data_s E_GuildTtowerdevelop_data_t;
+
+	struct Sheet_GuildTtowerdevelop_data_s : public NFDescStoreSeqOP {
+		Sheet_GuildTtowerdevelop_data_s();
+		virtual ~Sheet_GuildTtowerdevelop_data_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_GuildTtowerdevelop_data_s, DEFINE_SHEET_GUILDTTOWERDEVELOP_DATA_E_GUILDTTOWERDEVELOP_DATA_LIST_MAX_NUM> E_GuildTtowerdevelop_data_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_GuildTtowerdevelop_data & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_GuildTtowerdevelop_data & msg);
+		static ::proto_ff::Sheet_GuildTtowerdevelop_data* new_pbmsg(){ return new ::proto_ff::Sheet_GuildTtowerdevelop_data(); }
+		static ::proto_ff::Sheet_GuildTtowerdevelop_data make_pbmsg(){ return ::proto_ff::Sheet_GuildTtowerdevelop_data(); }
+	};
+	typedef struct Sheet_GuildTtowerdevelop_data_s Sheet_GuildTtowerdevelop_data_t;
 
 }
 

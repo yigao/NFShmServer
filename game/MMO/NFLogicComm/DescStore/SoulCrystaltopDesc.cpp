@@ -52,7 +52,7 @@ int SoulCrystaltopDesc::Load(NFResDB *pDB)
 	for (int i = 0; i < (int)table.e_soulcrystaltop_list_size(); i++)
 	{
 		const proto_ff::E_SoulCrystaltop& desc = table.e_soulcrystaltop_list(i);
-		if (desc.has_m_toplv() == false && desc.ByteSize() == 0)
+		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
@@ -60,36 +60,36 @@ int SoulCrystaltopDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_toplv();
+			m_minId = desc.has_m_id();
 		}
 		else
 		{
-			if (desc.has_m_toplv() < m_minId)
+			if (desc.has_m_id() < m_minId)
 			{
-				m_minId = desc.has_m_toplv();
+				m_minId = desc.has_m_id();
 			}
 		}
 
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
-		if (m_astDescMap.find(desc.m_toplv()) != m_astDescMap.end())
+		if (m_astDescMap.find(desc.m_id()) != m_astDescMap.end())
 		{
 			if (IsReloading())
 			{
-				auto pDesc = GetDesc(desc.m_toplv());
-				NF_ASSERT_MSG(pDesc, "the desc:{} Reload, GetDesc Failed!, id:{}", GetClassName(), desc.m_toplv());
+				auto pDesc = GetDesc(desc.m_id());
+				NF_ASSERT_MSG(pDesc, "the desc:{} Reload, GetDesc Failed!, id:{}", GetClassName(), desc.m_id());
 				pDesc->read_from_pbmsg(desc);
 			}
 			else
 			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc:{} id:{} exist", GetClassName(), desc.m_toplv());
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc:{} id:{} exist", GetClassName(), desc.m_id());
 			}
 			continue;
 		}
 		CHECK_EXPR_ASSERT(m_astDescMap.size() < m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
-		auto pDesc = &m_astDescMap[desc.m_toplv()];
-		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_toplv());
+		auto pDesc = &m_astDescMap[desc.m_id()];
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
-		CHECK_EXPR_ASSERT(GetDesc(desc.m_toplv()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_toplv());
+		CHECK_EXPR_ASSERT(GetDesc(desc.m_id()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_id());
 	}
 
 	for(int i = 0; i < (int)m_astDescIndex.size(); i++)

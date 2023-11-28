@@ -56,6 +56,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_TianxiafirstRefine_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_TianxiafirstRefine_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_TianxiafirstSqskill_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_TianxiafirstSqskill_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_TianxiafirstSqskill_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_TianxiafirstSqskill_reflection_ = NULL;
 
 }  // namespace
 
@@ -266,6 +272,41 @@ void protobuf_AssignDesc_E_5fTianxiafirst_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_TianxiafirstRefine));
+  E_TianxiafirstSqskill_descriptor_ = file->message_type(12);
+  static const int E_TianxiafirstSqskill_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, m_artifactid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, m_skillid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, m_level_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, m_condition_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, m_score_),
+  };
+  E_TianxiafirstSqskill_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_TianxiafirstSqskill_descriptor_,
+      E_TianxiafirstSqskill::default_instance_,
+      E_TianxiafirstSqskill_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_TianxiafirstSqskill, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_TianxiafirstSqskill));
+  Sheet_TianxiafirstSqskill_descriptor_ = file->message_type(13);
+  static const int Sheet_TianxiafirstSqskill_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_TianxiafirstSqskill, e_tianxiafirstsqskill_list_),
+  };
+  Sheet_TianxiafirstSqskill_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_TianxiafirstSqskill_descriptor_,
+      Sheet_TianxiafirstSqskill::default_instance_,
+      Sheet_TianxiafirstSqskill_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_TianxiafirstSqskill, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_TianxiafirstSqskill, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_TianxiafirstSqskill));
 }
 
 namespace {
@@ -302,6 +343,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_TianxiafirstRefine_descriptor_, &E_TianxiafirstRefine::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_TianxiafirstRefine_descriptor_, &Sheet_TianxiafirstRefine::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_TianxiafirstSqskill_descriptor_, &E_TianxiafirstSqskill::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_TianxiafirstSqskill_descriptor_, &Sheet_TianxiafirstSqskill::default_instance());
 }
 
 }  // namespace
@@ -331,6 +376,10 @@ void protobuf_ShutdownFile_E_5fTianxiafirst_2eproto() {
   delete E_TianxiafirstRefine_reflection_;
   delete Sheet_TianxiafirstRefine::default_instance_;
   delete Sheet_TianxiafirstRefine_reflection_;
+  delete E_TianxiafirstSqskill::default_instance_;
+  delete E_TianxiafirstSqskill_reflection_;
+  delete Sheet_TianxiafirstSqskill::default_instance_;
+  delete Sheet_TianxiafirstSqskill_reflection_;
 }
 
 void protobuf_AddDesc_E_5fTianxiafirst_2eproto() {
@@ -372,7 +421,7 @@ void protobuf_AddDesc_E_5fTianxiafirst_2eproto() {
     "(\005B\026\302\377\024\022\345\242\236\345\212\240\345\274\272\345\214\226\347\273\217\351\252\214\"o\n\034Sheet_Tian"
     "xiafirstStrongitem\022O\n\035E_TianxiafirstStro"
     "ngitem_List\030\001 \003(\0132\".proto_ff.E_Tianxiafi"
-    "rstStrongitemB\004\210\301\024\002\"K\n\033E_TianxiafirstRef"
+    "rstStrongitemB\004\210\301\024\004\"K\n\033E_TianxiafirstRef"
     "ineAttDesc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\004m_"
     "id\030\002 \001(\005B\006\302\377\024\002id\"\371\002\n\024E_TianxiafirstRefin"
     "e\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\014m_artifactId\030"
@@ -386,7 +435,15 @@ void protobuf_AddDesc_E_5fTianxiafirst_2eproto() {
     "tRefineAttDescB\024\302\377\024\014\347\262\276\347\202\274\345\261\236\346\200\247\210\301\024\005\"d\n\030"
     "Sheet_TianxiafirstRefine\022H\n\031E_Tianxiafir"
     "stRefine_List\030\001 \003(\0132\036.proto_ff.E_Tianxia"
-    "firstRefineB\005\210\301\024\200\001", 1818);
+    "firstRefineB\005\210\301\024\200\001\"\346\001\n\025E_TianxiafirstSqs"
+    "kill\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\014m_artifact"
+    "Id\030\002 \001(\005B\014\302\377\024\010\347\245\236\345\231\250id\022\037\n\tm_skillId\030\003 \001("
+    "\005B\014\302\377\024\010\346\212\200\350\203\275id\022!\n\007m_level\030\004 \001(\005B\020\302\377\024\014\346\212"
+    "\200\350\203\275\347\255\211\347\272\247\022,\n\013m_condition\030\005 \001(\005B\027\302\377\024\023\346\277\200"
+    "\346\264\273/\345\215\207\347\272\247\346\235\241\344\273\266\022!\n\007m_score\030\006 \001(\005B\020\302\377\024\014\346"
+    "\212\200\350\203\275\350\257\204\345\210\206\"f\n\031Sheet_TianxiafirstSqskill"
+    "\022I\n\032E_TianxiafirstSqskill_List\030\001 \003(\0132\037.p"
+    "roto_ff.E_TianxiafirstSqskillB\004\210\301\024@", 2155);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Tianxiafirst.proto", &protobuf_RegisterTypes);
   E_TianxiafirstActivateAttDesc::default_instance_ = new E_TianxiafirstActivateAttDesc();
@@ -401,6 +458,8 @@ void protobuf_AddDesc_E_5fTianxiafirst_2eproto() {
   E_TianxiafirstRefineAttDesc::default_instance_ = new E_TianxiafirstRefineAttDesc();
   E_TianxiafirstRefine::default_instance_ = new E_TianxiafirstRefine();
   Sheet_TianxiafirstRefine::default_instance_ = new Sheet_TianxiafirstRefine();
+  E_TianxiafirstSqskill::default_instance_ = new E_TianxiafirstSqskill();
+  Sheet_TianxiafirstSqskill::default_instance_ = new Sheet_TianxiafirstSqskill();
   E_TianxiafirstActivateAttDesc::default_instance_->InitAsDefaultInstance();
   E_TianxiafirstActivateModelDesc::default_instance_->InitAsDefaultInstance();
   E_TianxiafirstActivate::default_instance_->InitAsDefaultInstance();
@@ -413,6 +472,8 @@ void protobuf_AddDesc_E_5fTianxiafirst_2eproto() {
   E_TianxiafirstRefineAttDesc::default_instance_->InitAsDefaultInstance();
   E_TianxiafirstRefine::default_instance_->InitAsDefaultInstance();
   Sheet_TianxiafirstRefine::default_instance_->InitAsDefaultInstance();
+  E_TianxiafirstSqskill::default_instance_->InitAsDefaultInstance();
+  Sheet_TianxiafirstSqskill::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_E_5fTianxiafirst_2eproto);
 }
 
@@ -3729,6 +3790,617 @@ void Sheet_TianxiafirstRefine::Swap(Sheet_TianxiafirstRefine* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_TianxiafirstRefine_descriptor_;
   metadata.reflection = Sheet_TianxiafirstRefine_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_TianxiafirstSqskill::kMIdFieldNumber;
+const int E_TianxiafirstSqskill::kMArtifactIdFieldNumber;
+const int E_TianxiafirstSqskill::kMSkillIdFieldNumber;
+const int E_TianxiafirstSqskill::kMLevelFieldNumber;
+const int E_TianxiafirstSqskill::kMConditionFieldNumber;
+const int E_TianxiafirstSqskill::kMScoreFieldNumber;
+#endif  // !_MSC_VER
+
+E_TianxiafirstSqskill::E_TianxiafirstSqskill()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_TianxiafirstSqskill::InitAsDefaultInstance() {
+}
+
+E_TianxiafirstSqskill::E_TianxiafirstSqskill(const E_TianxiafirstSqskill& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_TianxiafirstSqskill::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_artifactid_ = 0;
+  m_skillid_ = 0;
+  m_level_ = 0;
+  m_condition_ = 0;
+  m_score_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_TianxiafirstSqskill::~E_TianxiafirstSqskill() {
+  SharedDtor();
+}
+
+void E_TianxiafirstSqskill::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_TianxiafirstSqskill::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_TianxiafirstSqskill::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_TianxiafirstSqskill_descriptor_;
+}
+
+const E_TianxiafirstSqskill& E_TianxiafirstSqskill::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fTianxiafirst_2eproto();
+  return *default_instance_;
+}
+
+E_TianxiafirstSqskill* E_TianxiafirstSqskill::default_instance_ = NULL;
+
+E_TianxiafirstSqskill* E_TianxiafirstSqskill::New() const {
+  return new E_TianxiafirstSqskill;
+}
+
+void E_TianxiafirstSqskill::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_artifactid_ = 0;
+    m_skillid_ = 0;
+    m_level_ = 0;
+    m_condition_ = 0;
+    m_score_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_TianxiafirstSqskill::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_artifactId;
+        break;
+      }
+
+      // optional int32 m_artifactId = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_artifactId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_artifactid_)));
+          set_has_m_artifactid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_skillId;
+        break;
+      }
+
+      // optional int32 m_skillId = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_skillId:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_skillid_)));
+          set_has_m_skillid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_level;
+        break;
+      }
+
+      // optional int32 m_level = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_level:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_level_)));
+          set_has_m_level();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_condition;
+        break;
+      }
+
+      // optional int32 m_condition = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_condition:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_condition_)));
+          set_has_m_condition();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_score;
+        break;
+      }
+
+      // optional int32 m_score = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_score:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_score_)));
+          set_has_m_score();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_TianxiafirstSqskill::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_artifactId = 2;
+  if (has_m_artifactid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_artifactid(), output);
+  }
+
+  // optional int32 m_skillId = 3;
+  if (has_m_skillid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_skillid(), output);
+  }
+
+  // optional int32 m_level = 4;
+  if (has_m_level()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_level(), output);
+  }
+
+  // optional int32 m_condition = 5;
+  if (has_m_condition()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_condition(), output);
+  }
+
+  // optional int32 m_score = 6;
+  if (has_m_score()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_score(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_TianxiafirstSqskill::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_artifactId = 2;
+  if (has_m_artifactid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_artifactid(), target);
+  }
+
+  // optional int32 m_skillId = 3;
+  if (has_m_skillid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_skillid(), target);
+  }
+
+  // optional int32 m_level = 4;
+  if (has_m_level()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_level(), target);
+  }
+
+  // optional int32 m_condition = 5;
+  if (has_m_condition()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_condition(), target);
+  }
+
+  // optional int32 m_score = 6;
+  if (has_m_score()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_score(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_TianxiafirstSqskill::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_artifactId = 2;
+    if (has_m_artifactid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_artifactid());
+    }
+
+    // optional int32 m_skillId = 3;
+    if (has_m_skillid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_skillid());
+    }
+
+    // optional int32 m_level = 4;
+    if (has_m_level()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_level());
+    }
+
+    // optional int32 m_condition = 5;
+    if (has_m_condition()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_condition());
+    }
+
+    // optional int32 m_score = 6;
+    if (has_m_score()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_score());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_TianxiafirstSqskill::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_TianxiafirstSqskill* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_TianxiafirstSqskill*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_TianxiafirstSqskill::MergeFrom(const E_TianxiafirstSqskill& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_artifactid()) {
+      set_m_artifactid(from.m_artifactid());
+    }
+    if (from.has_m_skillid()) {
+      set_m_skillid(from.m_skillid());
+    }
+    if (from.has_m_level()) {
+      set_m_level(from.m_level());
+    }
+    if (from.has_m_condition()) {
+      set_m_condition(from.m_condition());
+    }
+    if (from.has_m_score()) {
+      set_m_score(from.m_score());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_TianxiafirstSqskill::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_TianxiafirstSqskill::CopyFrom(const E_TianxiafirstSqskill& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_TianxiafirstSqskill::IsInitialized() const {
+
+  return true;
+}
+
+void E_TianxiafirstSqskill::Swap(E_TianxiafirstSqskill* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_artifactid_, other->m_artifactid_);
+    std::swap(m_skillid_, other->m_skillid_);
+    std::swap(m_level_, other->m_level_);
+    std::swap(m_condition_, other->m_condition_);
+    std::swap(m_score_, other->m_score_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_TianxiafirstSqskill::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_TianxiafirstSqskill_descriptor_;
+  metadata.reflection = E_TianxiafirstSqskill_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_TianxiafirstSqskill::kETianxiafirstSqskillListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_TianxiafirstSqskill::Sheet_TianxiafirstSqskill()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_TianxiafirstSqskill::InitAsDefaultInstance() {
+}
+
+Sheet_TianxiafirstSqskill::Sheet_TianxiafirstSqskill(const Sheet_TianxiafirstSqskill& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_TianxiafirstSqskill::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_TianxiafirstSqskill::~Sheet_TianxiafirstSqskill() {
+  SharedDtor();
+}
+
+void Sheet_TianxiafirstSqskill::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_TianxiafirstSqskill::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_TianxiafirstSqskill::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_TianxiafirstSqskill_descriptor_;
+}
+
+const Sheet_TianxiafirstSqskill& Sheet_TianxiafirstSqskill::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fTianxiafirst_2eproto();
+  return *default_instance_;
+}
+
+Sheet_TianxiafirstSqskill* Sheet_TianxiafirstSqskill::default_instance_ = NULL;
+
+Sheet_TianxiafirstSqskill* Sheet_TianxiafirstSqskill::New() const {
+  return new Sheet_TianxiafirstSqskill;
+}
+
+void Sheet_TianxiafirstSqskill::Clear() {
+  e_tianxiafirstsqskill_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_TianxiafirstSqskill::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_TianxiafirstSqskill_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_tianxiafirstsqskill_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_TianxiafirstSqskill_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_TianxiafirstSqskill::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1;
+  for (int i = 0; i < this->e_tianxiafirstsqskill_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_tianxiafirstsqskill_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_TianxiafirstSqskill::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1;
+  for (int i = 0; i < this->e_tianxiafirstsqskill_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_tianxiafirstsqskill_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_TianxiafirstSqskill::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1;
+  total_size += 1 * this->e_tianxiafirstsqskill_list_size();
+  for (int i = 0; i < this->e_tianxiafirstsqskill_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_tianxiafirstsqskill_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_TianxiafirstSqskill::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_TianxiafirstSqskill* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_TianxiafirstSqskill*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_TianxiafirstSqskill::MergeFrom(const Sheet_TianxiafirstSqskill& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_tianxiafirstsqskill_list_.MergeFrom(from.e_tianxiafirstsqskill_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_TianxiafirstSqskill::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_TianxiafirstSqskill::CopyFrom(const Sheet_TianxiafirstSqskill& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_TianxiafirstSqskill::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_TianxiafirstSqskill::Swap(Sheet_TianxiafirstSqskill* other) {
+  if (other != this) {
+    e_tianxiafirstsqskill_list_.Swap(&other->e_tianxiafirstsqskill_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_TianxiafirstSqskill::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_TianxiafirstSqskill_descriptor_;
+  metadata.reflection = Sheet_TianxiafirstSqskill_reflection_;
   return metadata;
 }
 

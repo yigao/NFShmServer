@@ -27,4 +27,12 @@ ${PROTOCGEN_FILE_PATH}/module_avatar_bin:${PROTOCGEN_FILE_PATH}/avatar.proto.ds 
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarSkillDesc.h ${PROTOCGEN_FILE_PATH}/AvatarSkillDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarEquipsuit.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarEquipsuitDesc.h ${PROTOCGEN_FILE_PATH}/AvatarEquipsuitDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarMyth.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarMythDesc.h ${PROTOCGEN_FILE_PATH}/AvatarMythDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarMythway.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarMythwayDesc.h ${PROTOCGEN_FILE_PATH}/AvatarMythwayDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarMythcore.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarMythcoreDesc.h ${PROTOCGEN_FILE_PATH}/AvatarMythcoreDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarMythequip.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarMythequipDesc.h ${PROTOCGEN_FILE_PATH}/AvatarMythequipDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_avatar_bin

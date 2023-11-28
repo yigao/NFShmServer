@@ -105,14 +105,14 @@ void protobuf_AddDesc_E_5fGmcommand_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021E_Gmcommand.proto\022\010proto_ff\032\025yd_fieldo"
-    "ptions.proto\"\245\001\n\024E_GmcommandGmcommand\022\036\n"
+    "ptions.proto\"\246\001\n\024E_GmcommandGmcommand\022\036\n"
     "\004m_ID\030\001 \001(\005B\020\302\377\024\014\345\221\275\344\273\244\347\264\242\345\274\225\022&\n\005m_Key\030\002"
     " \001(\tB\027\302\377\024\017\345\221\275\344\273\244\345\205\263\351\224\256\345\255\227\220\301\024@\022&\n\014m_Param"
-    "Count\030\003 \001(\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207\217\022\035\n\005m_Des\030\004"
-    " \001(\tB\016\302\377\024\006\346\217\217\350\277\260\220\301\024@\"c\n\030Sheet_GmcommandG"
-    "mcommand\022G\n\031E_GmcommandGmcommand_List\030\001 "
-    "\003(\0132\036.proto_ff.E_GmcommandGmcommandB\004\210\301\024"
-    "@", 321);
+    "Count\030\003 \001(\005B\020\302\377\024\014\345\217\202\346\225\260\346\225\260\351\207\217\022\036\n\005m_Des\030\004"
+    " \001(\tB\017\302\377\024\006\346\217\217\350\277\260\220\301\024\200\001\"c\n\030Sheet_Gmcommand"
+    "Gmcommand\022G\n\031E_GmcommandGmcommand_List\030\001"
+    " \003(\0132\036.proto_ff.E_GmcommandGmcommandB\004\210\301"
+    "\024@", 322);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Gmcommand.proto", &protobuf_RegisterTypes);
   E_GmcommandGmcommand::default_instance_ = new E_GmcommandGmcommand();

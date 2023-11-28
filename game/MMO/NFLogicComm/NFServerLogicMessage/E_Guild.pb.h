@@ -68,6 +68,12 @@ class E_GuildGwwinstreak;
 class Sheet_GuildGwwinstreak;
 class E_GuildTtower;
 class Sheet_GuildTtower;
+class E_GuildTtowerdevelopAttributeDesc;
+class E_GuildTtowerdevelop;
+class Sheet_GuildTtowerdevelop;
+class E_GuildTtowerdevelop_dataAttributeDesc;
+class E_GuildTtowerdevelop_data;
+class Sheet_GuildTtowerdevelop_data;
 
 // ===================================================================
 
@@ -1400,6 +1406,13 @@ class E_GuildPosition : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_guildpacket() const;
   inline void set_m_guildpacket(::google::protobuf::int32 value);
 
+  // optional int32 m_UpGuard = 19;
+  inline bool has_m_upguard() const;
+  inline void clear_m_upguard();
+  static const int kMUpGuardFieldNumber = 19;
+  inline ::google::protobuf::int32 m_upguard() const;
+  inline void set_m_upguard(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_GuildPosition)
  private:
   inline void set_has_m_positionid();
@@ -1438,6 +1451,8 @@ class E_GuildPosition : public ::google::protobuf::Message {
   inline void clear_has_m_recruitchat();
   inline void set_has_m_guildpacket();
   inline void clear_has_m_guildpacket();
+  inline void set_has_m_upguard();
+  inline void clear_has_m_upguard();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1459,9 +1474,10 @@ class E_GuildPosition : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_changename_;
   ::google::protobuf::int32 m_recruitchat_;
   ::google::protobuf::int32 m_guildpacket_;
+  ::google::protobuf::int32 m_upguard_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(18 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(19 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fGuild_2eproto();
   friend void protobuf_AssignDesc_E_5fGuild_2eproto();
@@ -2686,12 +2702,12 @@ class E_GuildLvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_lv() const;
   inline void set_m_lv(::google::protobuf::int32 value);
 
-  // optional int32 m_partyExp = 2;
+  // optional int64 m_partyExp = 2;
   inline bool has_m_partyexp() const;
   inline void clear_m_partyexp();
   static const int kMPartyExpFieldNumber = 2;
-  inline ::google::protobuf::int32 m_partyexp() const;
-  inline void set_m_partyexp(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 m_partyexp() const;
+  inline void set_m_partyexp(::google::protobuf::int64 value);
 
   // optional int32 m_partyEontribution = 3;
   inline bool has_m_partyeontribution() const;
@@ -2700,12 +2716,12 @@ class E_GuildLvreward : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_partyeontribution() const;
   inline void set_m_partyeontribution(::google::protobuf::int32 value);
 
-  // optional int32 m_linkExp = 4;
+  // optional int64 m_linkExp = 4;
   inline bool has_m_linkexp() const;
   inline void clear_m_linkexp();
   static const int kMLinkExpFieldNumber = 4;
-  inline ::google::protobuf::int32 m_linkexp() const;
-  inline void set_m_linkexp(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 m_linkexp() const;
+  inline void set_m_linkexp(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_GuildLvreward)
  private:
@@ -2720,10 +2736,10 @@ class E_GuildLvreward : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::int64 m_partyexp_;
   ::google::protobuf::int32 m_lv_;
-  ::google::protobuf::int32 m_partyexp_;
   ::google::protobuf::int32 m_partyeontribution_;
-  ::google::protobuf::int32 m_linkexp_;
+  ::google::protobuf::int64 m_linkexp_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -4526,6 +4542,600 @@ class Sheet_GuildTtower : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_GuildTtower* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildTtowerdevelopAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_GuildTtowerdevelopAttributeDesc();
+  virtual ~E_GuildTtowerdevelopAttributeDesc();
+
+  E_GuildTtowerdevelopAttributeDesc(const E_GuildTtowerdevelopAttributeDesc& from);
+
+  inline E_GuildTtowerdevelopAttributeDesc& operator=(const E_GuildTtowerdevelopAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildTtowerdevelopAttributeDesc& default_instance();
+
+  void Swap(E_GuildTtowerdevelopAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildTtowerdevelopAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildTtowerdevelopAttributeDesc& from);
+  void MergeFrom(const E_GuildTtowerdevelopAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildTtowerdevelopAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fGuild_2eproto();
+  friend void protobuf_AssignDesc_E_5fGuild_2eproto();
+  friend void protobuf_ShutdownFile_E_5fGuild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildTtowerdevelopAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildTtowerdevelop : public ::google::protobuf::Message {
+ public:
+  E_GuildTtowerdevelop();
+  virtual ~E_GuildTtowerdevelop();
+
+  E_GuildTtowerdevelop(const E_GuildTtowerdevelop& from);
+
+  inline E_GuildTtowerdevelop& operator=(const E_GuildTtowerdevelop& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildTtowerdevelop& default_instance();
+
+  void Swap(E_GuildTtowerdevelop* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildTtowerdevelop* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildTtowerdevelop& from);
+  void MergeFrom(const E_GuildTtowerdevelop& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // optional int32 m_dataGroup = 3;
+  inline bool has_m_datagroup() const;
+  inline void clear_m_datagroup();
+  static const int kMDataGroupFieldNumber = 3;
+  inline ::google::protobuf::int32 m_datagroup() const;
+  inline void set_m_datagroup(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_GuildTtowerdevelopAttributeDesc m_attribute = 4;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 4;
+  inline const ::proto_ff::E_GuildTtowerdevelopAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_GuildTtowerdevelopAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_GuildTtowerdevelopAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelopAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelopAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildTtowerdevelop)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+  inline void set_has_m_datagroup();
+  inline void clear_has_m_datagroup();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelopAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_datagroup_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fGuild_2eproto();
+  friend void protobuf_AssignDesc_E_5fGuild_2eproto();
+  friend void protobuf_ShutdownFile_E_5fGuild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildTtowerdevelop* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GuildTtowerdevelop : public ::google::protobuf::Message {
+ public:
+  Sheet_GuildTtowerdevelop();
+  virtual ~Sheet_GuildTtowerdevelop();
+
+  Sheet_GuildTtowerdevelop(const Sheet_GuildTtowerdevelop& from);
+
+  inline Sheet_GuildTtowerdevelop& operator=(const Sheet_GuildTtowerdevelop& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GuildTtowerdevelop& default_instance();
+
+  void Swap(Sheet_GuildTtowerdevelop* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GuildTtowerdevelop* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GuildTtowerdevelop& from);
+  void MergeFrom(const Sheet_GuildTtowerdevelop& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1;
+  inline int e_guildttowerdevelop_list_size() const;
+  inline void clear_e_guildttowerdevelop_list();
+  static const int kEGuildTtowerdevelopListFieldNumber = 1;
+  inline const ::proto_ff::E_GuildTtowerdevelop& e_guildttowerdevelop_list(int index) const;
+  inline ::proto_ff::E_GuildTtowerdevelop* mutable_e_guildttowerdevelop_list(int index);
+  inline ::proto_ff::E_GuildTtowerdevelop* add_e_guildttowerdevelop_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop >&
+      e_guildttowerdevelop_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop >*
+      mutable_e_guildttowerdevelop_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GuildTtowerdevelop)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop > e_guildttowerdevelop_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fGuild_2eproto();
+  friend void protobuf_AssignDesc_E_5fGuild_2eproto();
+  friend void protobuf_ShutdownFile_E_5fGuild_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GuildTtowerdevelop* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildTtowerdevelop_dataAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_GuildTtowerdevelop_dataAttributeDesc();
+  virtual ~E_GuildTtowerdevelop_dataAttributeDesc();
+
+  E_GuildTtowerdevelop_dataAttributeDesc(const E_GuildTtowerdevelop_dataAttributeDesc& from);
+
+  inline E_GuildTtowerdevelop_dataAttributeDesc& operator=(const E_GuildTtowerdevelop_dataAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildTtowerdevelop_dataAttributeDesc& default_instance();
+
+  void Swap(E_GuildTtowerdevelop_dataAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildTtowerdevelop_dataAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildTtowerdevelop_dataAttributeDesc& from);
+  void MergeFrom(const E_GuildTtowerdevelop_dataAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildTtowerdevelop_dataAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fGuild_2eproto();
+  friend void protobuf_AssignDesc_E_5fGuild_2eproto();
+  friend void protobuf_ShutdownFile_E_5fGuild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildTtowerdevelop_dataAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_GuildTtowerdevelop_data : public ::google::protobuf::Message {
+ public:
+  E_GuildTtowerdevelop_data();
+  virtual ~E_GuildTtowerdevelop_data();
+
+  E_GuildTtowerdevelop_data(const E_GuildTtowerdevelop_data& from);
+
+  inline E_GuildTtowerdevelop_data& operator=(const E_GuildTtowerdevelop_data& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_GuildTtowerdevelop_data& default_instance();
+
+  void Swap(E_GuildTtowerdevelop_data* other);
+
+  // implements Message ----------------------------------------------
+
+  E_GuildTtowerdevelop_data* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_GuildTtowerdevelop_data& from);
+  void MergeFrom(const E_GuildTtowerdevelop_data& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_costItem = 3;
+  inline bool has_m_costitem() const;
+  inline void clear_m_costitem();
+  static const int kMCostItemFieldNumber = 3;
+  inline ::google::protobuf::int32 m_costitem() const;
+  inline void set_m_costitem(::google::protobuf::int32 value);
+
+  // optional int32 m_costnum = 4;
+  inline bool has_m_costnum() const;
+  inline void clear_m_costnum();
+  static const int kMCostnumFieldNumber = 4;
+  inline ::google::protobuf::int32 m_costnum() const;
+  inline void set_m_costnum(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 5;
+  inline const ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_GuildTtowerdevelop_data)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_costitem();
+  inline void clear_has_m_costitem();
+  inline void set_has_m_costnum();
+  inline void clear_has_m_costnum();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_costitem_;
+  ::google::protobuf::int32 m_costnum_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc > m_attribute_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fGuild_2eproto();
+  friend void protobuf_AssignDesc_E_5fGuild_2eproto();
+  friend void protobuf_ShutdownFile_E_5fGuild_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_GuildTtowerdevelop_data* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_GuildTtowerdevelop_data : public ::google::protobuf::Message {
+ public:
+  Sheet_GuildTtowerdevelop_data();
+  virtual ~Sheet_GuildTtowerdevelop_data();
+
+  Sheet_GuildTtowerdevelop_data(const Sheet_GuildTtowerdevelop_data& from);
+
+  inline Sheet_GuildTtowerdevelop_data& operator=(const Sheet_GuildTtowerdevelop_data& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_GuildTtowerdevelop_data& default_instance();
+
+  void Swap(Sheet_GuildTtowerdevelop_data* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_GuildTtowerdevelop_data* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_GuildTtowerdevelop_data& from);
+  void MergeFrom(const Sheet_GuildTtowerdevelop_data& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1;
+  inline int e_guildttowerdevelop_data_list_size() const;
+  inline void clear_e_guildttowerdevelop_data_list();
+  static const int kEGuildTtowerdevelopDataListFieldNumber = 1;
+  inline const ::proto_ff::E_GuildTtowerdevelop_data& e_guildttowerdevelop_data_list(int index) const;
+  inline ::proto_ff::E_GuildTtowerdevelop_data* mutable_e_guildttowerdevelop_data_list(int index);
+  inline ::proto_ff::E_GuildTtowerdevelop_data* add_e_guildttowerdevelop_data_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_data >&
+      e_guildttowerdevelop_data_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_data >*
+      mutable_e_guildttowerdevelop_data_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_GuildTtowerdevelop_data)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_data > e_guildttowerdevelop_data_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fGuild_2eproto();
+  friend void protobuf_AssignDesc_E_5fGuild_2eproto();
+  friend void protobuf_ShutdownFile_E_5fGuild_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_GuildTtowerdevelop_data* default_instance_;
 };
 // ===================================================================
 
@@ -6944,6 +7554,28 @@ inline void E_GuildPosition::set_m_guildpacket(::google::protobuf::int32 value) 
   m_guildpacket_ = value;
 }
 
+// optional int32 m_UpGuard = 19;
+inline bool E_GuildPosition::has_m_upguard() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void E_GuildPosition::set_has_m_upguard() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void E_GuildPosition::clear_has_m_upguard() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void E_GuildPosition::clear_m_upguard() {
+  m_upguard_ = 0;
+  clear_has_m_upguard();
+}
+inline ::google::protobuf::int32 E_GuildPosition::m_upguard() const {
+  return m_upguard_;
+}
+inline void E_GuildPosition::set_m_upguard(::google::protobuf::int32 value) {
+  set_has_m_upguard();
+  m_upguard_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Sheet_GuildPosition
@@ -7783,7 +8415,7 @@ inline void E_GuildLvreward::set_m_lv(::google::protobuf::int32 value) {
   m_lv_ = value;
 }
 
-// optional int32 m_partyExp = 2;
+// optional int64 m_partyExp = 2;
 inline bool E_GuildLvreward::has_m_partyexp() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -7794,13 +8426,13 @@ inline void E_GuildLvreward::clear_has_m_partyexp() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void E_GuildLvreward::clear_m_partyexp() {
-  m_partyexp_ = 0;
+  m_partyexp_ = GOOGLE_LONGLONG(0);
   clear_has_m_partyexp();
 }
-inline ::google::protobuf::int32 E_GuildLvreward::m_partyexp() const {
+inline ::google::protobuf::int64 E_GuildLvreward::m_partyexp() const {
   return m_partyexp_;
 }
-inline void E_GuildLvreward::set_m_partyexp(::google::protobuf::int32 value) {
+inline void E_GuildLvreward::set_m_partyexp(::google::protobuf::int64 value) {
   set_has_m_partyexp();
   m_partyexp_ = value;
 }
@@ -7827,7 +8459,7 @@ inline void E_GuildLvreward::set_m_partyeontribution(::google::protobuf::int32 v
   m_partyeontribution_ = value;
 }
 
-// optional int32 m_linkExp = 4;
+// optional int64 m_linkExp = 4;
 inline bool E_GuildLvreward::has_m_linkexp() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -7838,13 +8470,13 @@ inline void E_GuildLvreward::clear_has_m_linkexp() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_GuildLvreward::clear_m_linkexp() {
-  m_linkexp_ = 0;
+  m_linkexp_ = GOOGLE_LONGLONG(0);
   clear_has_m_linkexp();
 }
-inline ::google::protobuf::int32 E_GuildLvreward::m_linkexp() const {
+inline ::google::protobuf::int64 E_GuildLvreward::m_linkexp() const {
   return m_linkexp_;
 }
-inline void E_GuildLvreward::set_m_linkexp(::google::protobuf::int32 value) {
+inline void E_GuildLvreward::set_m_linkexp(::google::protobuf::int64 value) {
   set_has_m_linkexp();
   m_linkexp_ = value;
 }
@@ -9310,6 +9942,372 @@ Sheet_GuildTtower::e_guildttower_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtower >*
 Sheet_GuildTtower::mutable_e_guildttower_list() {
   return &e_guildttower_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildTtowerdevelopAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_GuildTtowerdevelopAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelopAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_GuildTtowerdevelopAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelopAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_GuildTtowerdevelopAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildTtowerdevelop
+
+// optional int32 m_id = 1;
+inline bool E_GuildTtowerdevelop::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildTtowerdevelop::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildTtowerdevelop::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildTtowerdevelop::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop::m_id() const {
+  return m_id_;
+}
+inline void E_GuildTtowerdevelop::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_GuildTtowerdevelop::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildTtowerdevelop::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildTtowerdevelop::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildTtowerdevelop::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop::m_type() const {
+  return m_type_;
+}
+inline void E_GuildTtowerdevelop::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// optional int32 m_dataGroup = 3;
+inline bool E_GuildTtowerdevelop::has_m_datagroup() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_GuildTtowerdevelop::set_has_m_datagroup() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_GuildTtowerdevelop::clear_has_m_datagroup() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildTtowerdevelop::clear_m_datagroup() {
+  m_datagroup_ = 0;
+  clear_has_m_datagroup();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop::m_datagroup() const {
+  return m_datagroup_;
+}
+inline void E_GuildTtowerdevelop::set_m_datagroup(::google::protobuf::int32 value) {
+  set_has_m_datagroup();
+  m_datagroup_ = value;
+}
+
+// repeated .proto_ff.E_GuildTtowerdevelopAttributeDesc m_attribute = 4;
+inline int E_GuildTtowerdevelop::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_GuildTtowerdevelop::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_GuildTtowerdevelopAttributeDesc& E_GuildTtowerdevelop::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelopAttributeDesc* E_GuildTtowerdevelop::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelopAttributeDesc* E_GuildTtowerdevelop::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelopAttributeDesc >&
+E_GuildTtowerdevelop::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelopAttributeDesc >*
+E_GuildTtowerdevelop::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GuildTtowerdevelop
+
+// repeated .proto_ff.E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1;
+inline int Sheet_GuildTtowerdevelop::e_guildttowerdevelop_list_size() const {
+  return e_guildttowerdevelop_list_.size();
+}
+inline void Sheet_GuildTtowerdevelop::clear_e_guildttowerdevelop_list() {
+  e_guildttowerdevelop_list_.Clear();
+}
+inline const ::proto_ff::E_GuildTtowerdevelop& Sheet_GuildTtowerdevelop::e_guildttowerdevelop_list(int index) const {
+  return e_guildttowerdevelop_list_.Get(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelop* Sheet_GuildTtowerdevelop::mutable_e_guildttowerdevelop_list(int index) {
+  return e_guildttowerdevelop_list_.Mutable(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelop* Sheet_GuildTtowerdevelop::add_e_guildttowerdevelop_list() {
+  return e_guildttowerdevelop_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop >&
+Sheet_GuildTtowerdevelop::e_guildttowerdevelop_list() const {
+  return e_guildttowerdevelop_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop >*
+Sheet_GuildTtowerdevelop::mutable_e_guildttowerdevelop_list() {
+  return &e_guildttowerdevelop_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildTtowerdevelop_dataAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_GuildTtowerdevelop_dataAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop_dataAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_GuildTtowerdevelop_dataAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop_dataAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_GuildTtowerdevelop_dataAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_GuildTtowerdevelop_data
+
+// optional int32 m_id = 1;
+inline bool E_GuildTtowerdevelop_data::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_GuildTtowerdevelop_data::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_GuildTtowerdevelop_data::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_GuildTtowerdevelop_data::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop_data::m_id() const {
+  return m_id_;
+}
+inline void E_GuildTtowerdevelop_data::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_GuildTtowerdevelop_data::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_GuildTtowerdevelop_data::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_GuildTtowerdevelop_data::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_GuildTtowerdevelop_data::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop_data::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_GuildTtowerdevelop_data::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_costItem = 3;
+inline bool E_GuildTtowerdevelop_data::has_m_costitem() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_GuildTtowerdevelop_data::set_has_m_costitem() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_GuildTtowerdevelop_data::clear_has_m_costitem() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GuildTtowerdevelop_data::clear_m_costitem() {
+  m_costitem_ = 0;
+  clear_has_m_costitem();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop_data::m_costitem() const {
+  return m_costitem_;
+}
+inline void E_GuildTtowerdevelop_data::set_m_costitem(::google::protobuf::int32 value) {
+  set_has_m_costitem();
+  m_costitem_ = value;
+}
+
+// optional int32 m_costnum = 4;
+inline bool E_GuildTtowerdevelop_data::has_m_costnum() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_GuildTtowerdevelop_data::set_has_m_costnum() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_GuildTtowerdevelop_data::clear_has_m_costnum() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_GuildTtowerdevelop_data::clear_m_costnum() {
+  m_costnum_ = 0;
+  clear_has_m_costnum();
+}
+inline ::google::protobuf::int32 E_GuildTtowerdevelop_data::m_costnum() const {
+  return m_costnum_;
+}
+inline void E_GuildTtowerdevelop_data::set_m_costnum(::google::protobuf::int32 value) {
+  set_has_m_costnum();
+  m_costnum_ = value;
+}
+
+// repeated .proto_ff.E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5;
+inline int E_GuildTtowerdevelop_data::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_GuildTtowerdevelop_data::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc& E_GuildTtowerdevelop_data::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc* E_GuildTtowerdevelop_data::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc* E_GuildTtowerdevelop_data::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc >&
+E_GuildTtowerdevelop_data::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc >*
+E_GuildTtowerdevelop_data::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_GuildTtowerdevelop_data
+
+// repeated .proto_ff.E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1;
+inline int Sheet_GuildTtowerdevelop_data::e_guildttowerdevelop_data_list_size() const {
+  return e_guildttowerdevelop_data_list_.size();
+}
+inline void Sheet_GuildTtowerdevelop_data::clear_e_guildttowerdevelop_data_list() {
+  e_guildttowerdevelop_data_list_.Clear();
+}
+inline const ::proto_ff::E_GuildTtowerdevelop_data& Sheet_GuildTtowerdevelop_data::e_guildttowerdevelop_data_list(int index) const {
+  return e_guildttowerdevelop_data_list_.Get(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelop_data* Sheet_GuildTtowerdevelop_data::mutable_e_guildttowerdevelop_data_list(int index) {
+  return e_guildttowerdevelop_data_list_.Mutable(index);
+}
+inline ::proto_ff::E_GuildTtowerdevelop_data* Sheet_GuildTtowerdevelop_data::add_e_guildttowerdevelop_data_list() {
+  return e_guildttowerdevelop_data_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_data >&
+Sheet_GuildTtowerdevelop_data::e_guildttowerdevelop_data_list() const {
+  return e_guildttowerdevelop_data_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_GuildTtowerdevelop_data >*
+Sheet_GuildTtowerdevelop_data::mutable_e_guildttowerdevelop_data_list() {
+  return &e_guildttowerdevelop_data_list_;
 }
 
 

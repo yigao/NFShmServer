@@ -24,31 +24,176 @@ message E_FestivalFestival
 
 message Sheet_FestivalFestival
 {
-	repeated E_FestivalFestival E_FestivalFestival_List = 1[(yd_fieldoptions.field_arysize)=8];
+	repeated E_FestivalFestival E_FestivalFestival_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
 message E_FestivalTemplate
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "活动ID"];
 	optional string m_name = 2[(yd_fieldoptions.field_cname) = "模板名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_festivalId = 3[(yd_fieldoptions.field_cname) = "引用主体"];
-	optional int32 m_timeType = 4[(yd_fieldoptions.field_cname) = "时间类型"];
-	optional int32 m_level = 5[(yd_fieldoptions.field_cname) = "等级要求"];
-	optional int32 m_vipLevel = 6[(yd_fieldoptions.field_cname) = "vip等级要求"];
-	optional int32 m_rechange = 7[(yd_fieldoptions.field_cname) = "充值要求高级运营活动计数"];
-	optional int32 m_severType = 8[(yd_fieldoptions.field_cname) = "服务器活动类型"];
-	optional string m_typeArg = 9[(yd_fieldoptions.field_cname) = "模板特殊参数", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_periodType = 10[(yd_fieldoptions.field_cname) = "期数类型"];
-	optional int32 m_period = 11[(yd_fieldoptions.field_cname) = "期数参数"];
-	optional int32 m_ifOpen = 12[(yd_fieldoptions.field_cname) = "活动开关"];
-	optional int32 m_activeID = 13[(yd_fieldoptions.field_cname) = "激活活动ID"];
-	repeated string m_timeArg = 14[(yd_fieldoptions.field_cname) = "时间参数", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_actionName = 3[(yd_fieldoptions.field_cname) = "动态名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_festivalId = 4[(yd_fieldoptions.field_cname) = "引用主体"];
+	optional string m_actionFestivalId = 5[(yd_fieldoptions.field_cname) = "动态引用主体", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_timeType = 6[(yd_fieldoptions.field_cname) = "时间类型"];
+	optional int32 m_level = 7[(yd_fieldoptions.field_cname) = "等级要求"];
+	optional int32 m_vipLevel = 8[(yd_fieldoptions.field_cname) = "vip等级要求"];
+	optional int32 m_rechange = 9[(yd_fieldoptions.field_cname) = "充值要求高级运营活动计数"];
+	optional int32 m_severType = 10[(yd_fieldoptions.field_cname) = "服务器活动类型"];
+	optional string m_typeArg = 11[(yd_fieldoptions.field_cname) = "模板特殊参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_periodType = 12[(yd_fieldoptions.field_cname) = "期数类型"];
+	optional int32 m_period = 13[(yd_fieldoptions.field_cname) = "期数参数"];
+	optional int32 m_ifOpen = 14[(yd_fieldoptions.field_cname) = "活动开关"];
+	optional int32 m_activeID = 15[(yd_fieldoptions.field_cname) = "激活活动ID"];
+	repeated string m_timeArg = 16[(yd_fieldoptions.field_cname) = "时间参数", (yd_fieldoptions.field_arysize) = 3, (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
 message Sheet_FestivalTemplate
 {
-	repeated E_FestivalTemplate E_FestivalTemplate_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_FestivalTemplate E_FestivalTemplate_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_FestivalMuban_eggsdraw
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional int32 m_costItem = 3[(yd_fieldoptions.field_cname) = "抽奖道具id"];
+	optional string m_costNum = 4[(yd_fieldoptions.field_cname) = "物品数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_poolGroupID = 5[(yd_fieldoptions.field_cname) = "奖池组id"];
+	optional int32 m_showType = 6[(yd_fieldoptions.field_cname) = "表现形式"];
+	optional string m_baseImage = 7[(yd_fieldoptions.field_cname) = "蛋底图", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_eggImage = 8[(yd_fieldoptions.field_cname) = "蛋资源", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_clickDesc = 9[(yd_fieldoptions.field_cname) = "点击描述", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_costDesc = 10[(yd_fieldoptions.field_cname) = "消耗描述", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_residueDesc = 11[(yd_fieldoptions.field_cname) = "剩余描述", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_restartItem = 12[(yd_fieldoptions.field_cname) = "重置消耗道具"];
+	optional int32 m_restartCost = 13[(yd_fieldoptions.field_cname) = "重置消耗数量"];
+	optional int32 m_dailyRestart = 14[(yd_fieldoptions.field_cname) = "每日重置"];
+	optional int32 m_free = 15[(yd_fieldoptions.field_cname) = "免费每日重置次数"];
+	optional int32 m_taskGroupID = 16[(yd_fieldoptions.field_cname) = "任务组ID"];
+	optional int32 m_dailyTaskRestart = 17[(yd_fieldoptions.field_cname) = "任务是否每日重置"];
+}
+
+
+message Sheet_FestivalMuban_eggsdraw
+{
+	repeated E_FestivalMuban_eggsdraw E_FestivalMuban_eggsdraw_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_FestivalMuban_eggsdraw_pool
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组ID"];
+	optional int64 m_itemid = 3[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_prof = 5[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 m_weights = 6[(yd_fieldoptions.field_cname) = "掉落权重"];
+	optional int32 m_Record = 7[(yd_fieldoptions.field_cname) = "奖励记录稀有度"];
+	optional int32 m_poolLv = 8[(yd_fieldoptions.field_cname) = "奖池等级"];
+}
+
+
+message Sheet_FestivalMuban_eggsdraw_pool
+{
+	repeated E_FestivalMuban_eggsdraw_pool E_FestivalMuban_eggsdraw_pool_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_FestivalMuban_eggsdraw_task
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_eventType = 3[(yd_fieldoptions.field_cname) = "事件类型"];
+	optional int32 m_reachPrice = 4[(yd_fieldoptions.field_cname) = "达成值"];
+	optional int32 m_rewardItem = 5[(yd_fieldoptions.field_cname) = "奖励道具ID"];
+	optional int32 m_rewardNum = 6[(yd_fieldoptions.field_cname) = "奖励数量"];
+	optional int32 m_link = 7[(yd_fieldoptions.field_cname) = "连接"];
+	repeated int32 m_param = 8[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_FestivalMuban_eggsdraw_task
+{
+	repeated E_FestivalMuban_eggsdraw_task E_FestivalMuban_eggsdraw_task_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_FestivalMuban_ftreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional string m_FTID = 3[(yd_fieldoptions.field_cname) = "抽奖组id", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_addItemID = 4[(yd_fieldoptions.field_cname) = "额外奖励道具"];
+	optional string m_showReward = 5[(yd_fieldoptions.field_cname) = "奖励展示", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_linkid = 6[(yd_fieldoptions.field_cname) = "跳转"];
+	optional int32 m_functionID = 7[(yd_fieldoptions.field_cname) = "功能开放ID"];
+}
+
+
+message Sheet_FestivalMuban_ftreward
+{
+	repeated E_FestivalMuban_ftreward E_FestivalMuban_ftreward_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_FestivalMuban_challenge
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional string m_name = 3[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_joinBox = 4[(yd_fieldoptions.field_cname) = "参与奖励"];
+	optional int32 m_killBoxShow = 5[(yd_fieldoptions.field_cname) = "完成展示奖励"];
+	optional int32 m_monster = 6[(yd_fieldoptions.field_cname) = "怪物ID"];
+	optional int32 m_point = 7[(yd_fieldoptions.field_cname) = "刷新点"];
+	optional string m_showTime = 8[(yd_fieldoptions.field_cname) = "显示时间点", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_faceid = 9[(yd_fieldoptions.field_cname) = "显示外观"];
+	optional string m_scalle = 10[(yd_fieldoptions.field_cname) = "缩放", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_linkid = 11[(yd_fieldoptions.field_cname) = "linkID"];
+}
+
+
+message Sheet_FestivalMuban_challenge
+{
+	repeated E_FestivalMuban_challenge E_FestivalMuban_challenge_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_FestivalMuban_mystmallOpenDesc
+{
+	optional int32 m_dur = 1[(yd_fieldoptions.field_cname) = "持续时间"];
+	optional int32 m_mallID = 2[(yd_fieldoptions.field_cname) = "商店组"];
+	optional string m_time = 3[(yd_fieldoptions.field_cname) = "时间点", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_ID = 4[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_FestivalMuban_mystmall
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional int32 m_day = 3[(yd_fieldoptions.field_cname) = "天数"];
+	repeated E_FestivalMuban_mystmallOpenDesc m_open = 4[(yd_fieldoptions.field_cname) = "开放", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_FestivalMuban_mystmall
+{
+	repeated E_FestivalMuban_mystmall E_FestivalMuban_mystmall_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_FestivalMuban_mystmall_mall
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "商城组ID"];
+	optional int32 m_itemID = 3[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_itemNum = 4[(yd_fieldoptions.field_cname) = "购买数量"];
+	optional int32 m_priceType = 5[(yd_fieldoptions.field_cname) = "价格类型"];
+	optional int32 m_price = 6[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_originPrice = 7[(yd_fieldoptions.field_cname) = "原价"];
+	optional int32 m_discount = 8[(yd_fieldoptions.field_cname) = "折扣"];
+	optional int32 m_buyAmount = 9[(yd_fieldoptions.field_cname) = "限制数量"];
+	optional int32 m_functionUnlock = 10[(yd_fieldoptions.field_cname) = "关联功能开放"];
+}
+
+
+message Sheet_FestivalMuban_mystmall_mall
+{
+	repeated E_FestivalMuban_mystmall_mall E_FestivalMuban_mystmall_mall_List = 1[(yd_fieldoptions.field_arysize)=32];
 }
 
 message E_FestivalMuban_rebatestoreExpendDesc
@@ -77,14 +222,15 @@ message E_FestivalMuban_rebatestore_mall
 	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "商城组ID"];
 	optional int32 m_mallType = 3[(yd_fieldoptions.field_cname) = "商城分类"];
 	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "物品ID"];
-	optional int32 m_price = 5[(yd_fieldoptions.field_cname) = "价格"];
-	optional int32 m_originPrice = 6[(yd_fieldoptions.field_cname) = "原价"];
-	optional int32 m_discount = 7[(yd_fieldoptions.field_cname) = "折扣"];
-	optional int32 m_daily = 8[(yd_fieldoptions.field_cname) = "是否每日重置"];
-	optional int32 m_buyAmount = 9[(yd_fieldoptions.field_cname) = "购买数量"];
-	optional int32 m_functionUnlock = 10[(yd_fieldoptions.field_cname) = "关联功能开放"];
-	optional int32 m_openDay = 11[(yd_fieldoptions.field_cname) = "开放天数"];
-	optional int32 m_closeDay = 12[(yd_fieldoptions.field_cname) = "消失天数"];
+	optional int32 m_itemNum = 5[(yd_fieldoptions.field_cname) = "购买数量"];
+	optional int32 m_price = 6[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_originPrice = 7[(yd_fieldoptions.field_cname) = "原价"];
+	optional int32 m_discount = 8[(yd_fieldoptions.field_cname) = "折扣"];
+	optional int32 m_daily = 9[(yd_fieldoptions.field_cname) = "是否每日重置"];
+	optional int32 m_buyAmount = 10[(yd_fieldoptions.field_cname) = "限制数量"];
+	optional int32 m_functionUnlock = 11[(yd_fieldoptions.field_cname) = "关联功能开放"];
+	optional int32 m_openDay = 12[(yd_fieldoptions.field_cname) = "开放天数"];
+	optional int32 m_closeDay = 13[(yd_fieldoptions.field_cname) = "消失天数"];
 }
 
 
@@ -334,14 +480,16 @@ message E_FestivalMuban_severrank_data
 	optional int32 m_maxRank = 3[(yd_fieldoptions.field_cname) = "排名上限"];
 	optional int32 m_minRank = 4[(yd_fieldoptions.field_cname) = "排名下限"];
 	optional int32 m_rankValue = 5[(yd_fieldoptions.field_cname) = "最低排行值数值要求"];
-	optional string m_UnachieveDisplay = 6[(yd_fieldoptions.field_cname) = "未满足的排行显示", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_boxID = 7[(yd_fieldoptions.field_cname) = "奖励内容"];
+	optional int32 m_addRankValue = 6[(yd_fieldoptions.field_cname) = "额外最低排行值数值要求"];
+	optional string m_UnachieveDisplay = 7[(yd_fieldoptions.field_cname) = "未满足的排行显示", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_addUnachieveDisplay = 8[(yd_fieldoptions.field_cname) = "额外未满足的排行显示", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_boxID = 9[(yd_fieldoptions.field_cname) = "奖励内容"];
 }
 
 
 message Sheet_FestivalMuban_severrank_data
 {
-	repeated E_FestivalMuban_severrank_data E_FestivalMuban_severrank_data_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_FestivalMuban_severrank_data E_FestivalMuban_severrank_data_List = 1[(yd_fieldoptions.field_arysize)=128];
 }
 
 message E_FestivalMuban_collectwordCostDesc
@@ -428,22 +576,6 @@ message Sheet_FestivalMuban_leiji
 	repeated E_FestivalMuban_leiji E_FestivalMuban_leiji_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
-message E_FestivalMuban_zadan
-{
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
-	optional int64 m_itemid = 3[(yd_fieldoptions.field_cname) = "物品"];
-	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "数量"];
-	optional int32 m_type = 5[(yd_fieldoptions.field_cname) = "奖池类型"];
-	optional int32 m_probability = 6[(yd_fieldoptions.field_cname) = "掉落权重"];
-}
-
-
-message Sheet_FestivalMuban_zadan
-{
-	repeated E_FestivalMuban_zadan E_FestivalMuban_zadan_List = 1[(yd_fieldoptions.field_arysize)=16];
-}
-
 message E_FestivalZadanconstant
 {
 	optional int32 m_period = 1[(yd_fieldoptions.field_cname) = "期数"];
@@ -457,6 +589,22 @@ message E_FestivalZadanconstant
 message Sheet_FestivalZadanconstant
 {
 	repeated E_FestivalZadanconstant E_FestivalZadanconstant_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_FestivalMuban_zadan
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional int64 m_itemid = 3[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_type = 5[(yd_fieldoptions.field_cname) = "奖池类型"];
+	optional int32 m_probability = 6[(yd_fieldoptions.field_cname) = "掉落权重"];
+}
+
+
+message Sheet_FestivalMuban_zadan
+{
+	repeated E_FestivalMuban_zadan E_FestivalMuban_zadan_List = 1[(yd_fieldoptions.field_arysize)=64];
 }
 
 message E_FestivalMuban_turntable
@@ -635,12 +783,14 @@ message E_FestivalMuban_drawpize
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
-	optional int64 m_costID = 3[(yd_fieldoptions.field_cname) = "道具id"];
-	optional string m_costNum = 4[(yd_fieldoptions.field_cname) = "抽奖消耗", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_poolGroupId = 5[(yd_fieldoptions.field_cname) = "奖池id"];
-	optional int32 m_totalGroupID = 6[(yd_fieldoptions.field_cname) = "累计次数奖励id"];
-	optional int32 m_severLimit = 7[(yd_fieldoptions.field_cname) = "全服次数限制"];
-	optional int32 m_protectTime = 8[(yd_fieldoptions.field_cname) = "保底奖池次数"];
+	optional int32 m_costID = 3[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_drawPutback = 4[(yd_fieldoptions.field_cname) = "是否放回"];
+	optional int32 m_costType = 5[(yd_fieldoptions.field_cname) = "消耗类型"];
+	optional string m_costNum = 6[(yd_fieldoptions.field_cname) = "抽奖消耗", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_poolGroupId = 7[(yd_fieldoptions.field_cname) = "奖池id"];
+	optional int32 m_totalGroupID = 8[(yd_fieldoptions.field_cname) = "累计次数奖励id"];
+	optional int32 m_severLimit = 9[(yd_fieldoptions.field_cname) = "全服次数限制"];
+	optional int32 m_protectTime = 10[(yd_fieldoptions.field_cname) = "保底奖池次数"];
 }
 
 
@@ -660,6 +810,9 @@ message E_FestivalMuban_drawpize_pool
 	optional int32 m_proWeights = 7[(yd_fieldoptions.field_cname) = "保底掉落权重"];
 	optional int32 m_timeLimit = 8[(yd_fieldoptions.field_cname) = "限制抽奖次数"];
 	optional int32 m_Record = 9[(yd_fieldoptions.field_cname) = "奖励记录稀有度"];
+	optional int32 m_poolLv = 10[(yd_fieldoptions.field_cname) = "奖池等级"];
+	optional string m_image = 11[(yd_fieldoptions.field_cname) = "底图", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_point = 12[(yd_fieldoptions.field_cname) = "坐标", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 
@@ -709,6 +862,58 @@ message E_FestivalMuban_dailytotalrecharge
 message Sheet_FestivalMuban_dailytotalrecharge
 {
 	repeated E_FestivalMuban_dailytotalrecharge E_FestivalMuban_dailytotalrecharge_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_FestivalMuban_rechargeprize
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional int32 m_poolType = 3[(yd_fieldoptions.field_cname) = "奖池类型"];
+	optional int32 m_poolNum = 4[(yd_fieldoptions.field_cname) = "奖品数量"];
+	optional int32 m_showBoost = 5[(yd_fieldoptions.field_cname) = "显示倍率"];
+	optional int32 m_maxPrize = 6[(yd_fieldoptions.field_cname) = "最大抽取次数"];
+	optional int32 m_taskID = 7[(yd_fieldoptions.field_cname) = "任务组ID"];
+	optional int32 m_prizeID = 8[(yd_fieldoptions.field_cname) = "抽奖组ID"];
+	optional int32 m_itemID = 9[(yd_fieldoptions.field_cname) = "抽奖道具id"];
+	optional int32 m_freeBox = 10[(yd_fieldoptions.field_cname) = "免费奖励"];
+}
+
+
+message Sheet_FestivalMuban_rechargeprize
+{
+	repeated E_FestivalMuban_rechargeprize E_FestivalMuban_rechargeprize_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_FestivalMuban_rptask
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "id组"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional string m_typeArg = 4[(yd_fieldoptions.field_cname) = "任务参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_prizeNum = 5[(yd_fieldoptions.field_cname) = "奖励次数"];
+	optional string m_desc = 6[(yd_fieldoptions.field_cname) = "文本描述", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_link = 7[(yd_fieldoptions.field_cname) = "连接"];
+}
+
+
+message Sheet_FestivalMuban_rptask
+{
+	repeated E_FestivalMuban_rptask E_FestivalMuban_rptask_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_FestivalMuban_rppool
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "id组"];
+	optional int32 m_prizeOrder = 3[(yd_fieldoptions.field_cname) = "抽奖顺序"];
+	optional int32 m_prizeMix = 4[(yd_fieldoptions.field_cname) = "抽取最小值"];
+	optional int32 m_prizeMax = 5[(yd_fieldoptions.field_cname) = "抽取最大值"];
+}
+
+
+message Sheet_FestivalMuban_rppool
+{
+	repeated E_FestivalMuban_rppool E_FestivalMuban_rppool_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
 message E_FestivalMuban_play

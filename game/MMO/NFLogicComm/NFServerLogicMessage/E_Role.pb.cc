@@ -627,7 +627,7 @@ void protobuf_AssignDesc_E_5fRole_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_RoleTaidaofemale));
   E_RoleExp_descriptor_ = file->message_type(28);
-  static const int E_RoleExp_offsets_[15] = {
+  static const int E_RoleExp_offsets_[22] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_lv_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_exp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_skillpoint_),
@@ -641,8 +641,15 @@ void protobuf_AssignDesc_E_5fRole_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_multibattle_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_qingyun_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_yaochi_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_yaochiact_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_wedding_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_bagua_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_guildtask_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_prestigemissions_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_xianyuandungeon_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_guardian_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_guildwar_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_RoleExp, m_valley_),
   };
   E_RoleExp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1059,7 +1066,7 @@ void protobuf_AddDesc_E_5fRole_2eproto() {
     "leAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024F\"^\n\026Sheet"
     "_RoleTaidaofemale\022D\n\027E_RoleTaidaofemale_"
     "List\030\001 \003(\0132\034.proto_ff.E_RoleTaidaofemale"
-    "B\005\210\301\024\200\020\"\255\004\n\tE_RoleExp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024"
+    "B\005\210\301\024\200\020\"\311\006\n\tE_RoleExp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024"
     "\006\347\255\211\347\272\247\0221\n\005m_exp\030\002 \001(\003B\"\302\377\024\036\345\275\223\345\211\215\347\255\211\347\272\247"
     "\345\215\207\347\272\247\351\234\200\350\246\201\347\273\217\351\252\214\022#\n\014m_skillPoint\030\003 \001(\005"
     "B\r\302\377\024\t\345\244\251\350\265\213\347\202\271\022=\n\021m_prepareModeDexp\030\004 \001"
@@ -1070,24 +1077,31 @@ void protobuf_AddDesc_E_5fRole_2eproto() {
     "\024\014\350\243\205\345\244\207\345\211\257\346\234\254\022\036\n\007m_arena\030\t \001(\005B\r\302\377\024\t\347\253\236"
     "\346\212\200\345\234\272\022\034\n\006m_solo\030\n \001(\005B\014\302\377\024\010\345\215\225\344\272\272pk\022$\n\r"
     "m_multiBattle\030\013 \001(\005B\r\302\377\024\t\344\270\211\344\272\272\347\273\204\022#\n\tm_"
-    "qingyun\030\014 \001(\005B\020\302\377\024\014\351\235\222\344\272\221\344\271\213\345\267\205\022\034\n\010m_yao"
-    "chi\030\r \001(\005B\n\302\377\024\006\347\221\266\346\261\240\022\035\n\tm_wedding\030\016 \001(\005"
-    "B\n\302\377\024\006\345\251\232\347\244\274\022!\n\007m_bagua\030\017 \001(\005B\020\302\377\024\014\345\205\253\345\215"
-    "\246\350\277\267\351\230\265\"C\n\rSheet_RoleExp\0222\n\016E_RoleExp_Li"
-    "st\030\001 \003(\0132\023.proto_ff.E_RoleExpB\005\210\301\024\200\020\"Y\n\017"
-    "E_RoleSkilltype\022\037\n\tm_skillId\030\001 \001(\003B\014\302\377\024\010"
-    "\346\212\200\350\203\275ID\022%\n\013m_skillType\030\002 \001(\005B\020\302\377\024\014\346\212\200\350\203"
-    "\275\347\261\273\345\236\213\"U\n\023Sheet_RoleSkilltype\022>\n\024E_Role"
-    "Skilltype_List\030\001 \003(\0132\031.proto_ff.E_RoleSk"
-    "illtypeB\005\210\301\024\200\001\"K\n\016E_RoleAddskill\022\024\n\004m_Id"
-    "\030\001 \001(\005B\006\302\377\024\002ID\022#\n\tm_skillId\030\002 \001(\003B\020\302\377\024\014\346"
-    "\212\200\350\203\275\347\261\273\345\236\213\"Q\n\022Sheet_RoleAddskill\022;\n\023E_R"
-    "oleAddskill_List\030\001 \003(\0132\030.proto_ff.E_Role"
-    "AddskillB\004\210\301\024\002\"S\n\016E_RoleWorldexp\022\033\n\004m_lv"
-    "\030\001 \001(\003B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022$\n\nm_worldExp\030\002 \001("
-    "\005B\020\302\377\024\014\347\273\217\351\252\214\345\212\240\346\210\220\"R\n\022Sheet_RoleWorldex"
-    "p\022<\n\023E_RoleWorldexp_List\030\001 \003(\0132\030.proto_f"
-    "f.E_RoleWorldexpB\005\210\301\024\200\004", 6143);
+    "qingyun\030\014 \001(\005B\020\302\377\024\014\351\235\222\344\272\221\344\271\213\345\267\205\022\"\n\010m_yao"
+    "chi\030\r \001(\005B\020\302\377\024\014\347\221\266\346\261\240\346\214\202\346\234\272\022%\n\013m_yaochiA"
+    "ct\030\016 \001(\005B\020\302\377\024\014\347\221\266\346\261\240\350\241\214\344\270\272\022\035\n\tm_wedding\030"
+    "\017 \001(\005B\n\302\377\024\006\345\251\232\347\244\274\022!\n\007m_bagua\030\020 \001(\005B\020\302\377\024\014"
+    "\345\205\253\345\215\246\350\277\267\351\230\265\022(\n\013m_guildTask\030\021 \001(\005B\023\302\377\024\017\345"
+    "\205\254\344\274\232\347\216\257\344\273\273\345\212\241\022,\n\022m_PrestigeMissions\030\022 \001"
+    "(\005B\020\302\377\024\014\345\243\260\346\234\233\344\273\273\345\212\241\022+\n\021m_xianyuanDungeo"
+    "n\030\023 \001(\005B\020\302\377\024\014\344\273\231\347\274\230\345\211\257\346\234\254\022$\n\nm_guardian\030"
+    "\024 \001(\005B\020\302\377\024\014\345\270\256\346\264\276\345\256\210\346\212\244\022!\n\nm_guildWar\030\025 "
+    "\001(\005B\r\302\377\024\t\345\205\254\344\274\232\346\210\230\022\037\n\010m_valley\030\026 \001(\005B\r\302\377"
+    "\024\t\347\245\236\346\234\272\350\260\267\"C\n\rSheet_RoleExp\0222\n\016E_RoleEx"
+    "p_List\030\001 \003(\0132\023.proto_ff.E_RoleExpB\005\210\301\024\200\020"
+    "\"Y\n\017E_RoleSkilltype\022\037\n\tm_skillId\030\001 \001(\003B\014"
+    "\302\377\024\010\346\212\200\350\203\275ID\022%\n\013m_skillType\030\002 \001(\005B\020\302\377\024\014\346"
+    "\212\200\350\203\275\347\261\273\345\236\213\"U\n\023Sheet_RoleSkilltype\022>\n\024E_"
+    "RoleSkilltype_List\030\001 \003(\0132\031.proto_ff.E_Ro"
+    "leSkilltypeB\005\210\301\024\200\001\"K\n\016E_RoleAddskill\022\024\n\004"
+    "m_Id\030\001 \001(\005B\006\302\377\024\002ID\022#\n\tm_skillId\030\002 \001(\003B\020\302"
+    "\377\024\014\346\212\200\350\203\275\347\261\273\345\236\213\"Q\n\022Sheet_RoleAddskill\022;\n"
+    "\023E_RoleAddskill_List\030\001 \003(\0132\030.proto_ff.E_"
+    "RoleAddskillB\004\210\301\024\002\"S\n\016E_RoleWorldexp\022\033\n\004"
+    "m_lv\030\001 \001(\003B\r\302\377\024\t\347\255\211\347\272\247\345\267\256\022$\n\nm_worldExp\030"
+    "\002 \001(\005B\020\302\377\024\014\347\273\217\351\252\214\345\212\240\346\210\220\"R\n\022Sheet_RoleWor"
+    "ldexp\022<\n\023E_RoleWorldexp_List\030\001 \003(\0132\030.pro"
+    "to_ff.E_RoleWorldexpB\005\210\301\024\200\004", 6427);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Role.proto", &protobuf_RegisterTypes);
   E_RoleBornItemDesc::default_instance_ = new E_RoleBornItemDesc();
@@ -9881,8 +9895,15 @@ const int E_RoleExp::kMSoloFieldNumber;
 const int E_RoleExp::kMMultiBattleFieldNumber;
 const int E_RoleExp::kMQingyunFieldNumber;
 const int E_RoleExp::kMYaochiFieldNumber;
+const int E_RoleExp::kMYaochiActFieldNumber;
 const int E_RoleExp::kMWeddingFieldNumber;
 const int E_RoleExp::kMBaguaFieldNumber;
+const int E_RoleExp::kMGuildTaskFieldNumber;
+const int E_RoleExp::kMPrestigeMissionsFieldNumber;
+const int E_RoleExp::kMXianyuanDungeonFieldNumber;
+const int E_RoleExp::kMGuardianFieldNumber;
+const int E_RoleExp::kMGuildWarFieldNumber;
+const int E_RoleExp::kMValleyFieldNumber;
 #endif  // !_MSC_VER
 
 E_RoleExp::E_RoleExp()
@@ -9914,8 +9935,15 @@ void E_RoleExp::SharedCtor() {
   m_multibattle_ = 0;
   m_qingyun_ = 0;
   m_yaochi_ = 0;
+  m_yaochiact_ = 0;
   m_wedding_ = 0;
   m_bagua_ = 0;
+  m_guildtask_ = 0;
+  m_prestigemissions_ = 0;
+  m_xianyuandungeon_ = 0;
+  m_guardian_ = 0;
+  m_guildwar_ = 0;
+  m_valley_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -9966,8 +9994,17 @@ void E_RoleExp::Clear() {
     m_multibattle_ = 0;
     m_qingyun_ = 0;
     m_yaochi_ = 0;
+    m_yaochiact_ = 0;
     m_wedding_ = 0;
     m_bagua_ = 0;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    m_guildtask_ = 0;
+    m_prestigemissions_ = 0;
+    m_xianyuandungeon_ = 0;
+    m_guardian_ = 0;
+    m_guildwar_ = 0;
+    m_valley_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -10182,12 +10219,28 @@ bool E_RoleExp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_wedding;
+        if (input->ExpectTag(112)) goto parse_m_yaochiAct;
         break;
       }
 
-      // optional int32 m_wedding = 14;
+      // optional int32 m_yaochiAct = 14;
       case 14: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_yaochiAct:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_yaochiact_)));
+          set_has_m_yaochiact();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(120)) goto parse_m_wedding;
+        break;
+      }
+
+      // optional int32 m_wedding = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_wedding:
@@ -10198,12 +10251,12 @@ bool E_RoleExp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_bagua;
+        if (input->ExpectTag(128)) goto parse_m_bagua;
         break;
       }
 
-      // optional int32 m_bagua = 15;
-      case 15: {
+      // optional int32 m_bagua = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_bagua:
@@ -10211,6 +10264,102 @@ bool E_RoleExp::MergePartialFromCodedStream(
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_bagua_)));
           set_has_m_bagua();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(136)) goto parse_m_guildTask;
+        break;
+      }
+
+      // optional int32 m_guildTask = 17;
+      case 17: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_guildTask:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_guildtask_)));
+          set_has_m_guildtask();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(144)) goto parse_m_PrestigeMissions;
+        break;
+      }
+
+      // optional int32 m_PrestigeMissions = 18;
+      case 18: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_PrestigeMissions:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prestigemissions_)));
+          set_has_m_prestigemissions();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(152)) goto parse_m_xianyuanDungeon;
+        break;
+      }
+
+      // optional int32 m_xianyuanDungeon = 19;
+      case 19: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_xianyuanDungeon:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_xianyuandungeon_)));
+          set_has_m_xianyuandungeon();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(160)) goto parse_m_guardian;
+        break;
+      }
+
+      // optional int32 m_guardian = 20;
+      case 20: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_guardian:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_guardian_)));
+          set_has_m_guardian();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(168)) goto parse_m_guildWar;
+        break;
+      }
+
+      // optional int32 m_guildWar = 21;
+      case 21: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_guildWar:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_guildwar_)));
+          set_has_m_guildwar();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(176)) goto parse_m_valley;
+        break;
+      }
+
+      // optional int32 m_valley = 22;
+      case 22: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_valley:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_valley_)));
+          set_has_m_valley();
         } else {
           goto handle_uninterpreted;
         }
@@ -10301,14 +10450,49 @@ void E_RoleExp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_yaochi(), output);
   }
 
-  // optional int32 m_wedding = 14;
-  if (has_m_wedding()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_wedding(), output);
+  // optional int32 m_yaochiAct = 14;
+  if (has_m_yaochiact()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_yaochiact(), output);
   }
 
-  // optional int32 m_bagua = 15;
+  // optional int32 m_wedding = 15;
+  if (has_m_wedding()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_wedding(), output);
+  }
+
+  // optional int32 m_bagua = 16;
   if (has_m_bagua()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_bagua(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_bagua(), output);
+  }
+
+  // optional int32 m_guildTask = 17;
+  if (has_m_guildtask()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_guildtask(), output);
+  }
+
+  // optional int32 m_PrestigeMissions = 18;
+  if (has_m_prestigemissions()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_prestigemissions(), output);
+  }
+
+  // optional int32 m_xianyuanDungeon = 19;
+  if (has_m_xianyuandungeon()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_xianyuandungeon(), output);
+  }
+
+  // optional int32 m_guardian = 20;
+  if (has_m_guardian()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(20, this->m_guardian(), output);
+  }
+
+  // optional int32 m_guildWar = 21;
+  if (has_m_guildwar()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_guildwar(), output);
+  }
+
+  // optional int32 m_valley = 22;
+  if (has_m_valley()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(22, this->m_valley(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -10384,14 +10568,49 @@ void E_RoleExp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_yaochi(), target);
   }
 
-  // optional int32 m_wedding = 14;
-  if (has_m_wedding()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_wedding(), target);
+  // optional int32 m_yaochiAct = 14;
+  if (has_m_yaochiact()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_yaochiact(), target);
   }
 
-  // optional int32 m_bagua = 15;
+  // optional int32 m_wedding = 15;
+  if (has_m_wedding()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_wedding(), target);
+  }
+
+  // optional int32 m_bagua = 16;
   if (has_m_bagua()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_bagua(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_bagua(), target);
+  }
+
+  // optional int32 m_guildTask = 17;
+  if (has_m_guildtask()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_guildtask(), target);
+  }
+
+  // optional int32 m_PrestigeMissions = 18;
+  if (has_m_prestigemissions()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_prestigemissions(), target);
+  }
+
+  // optional int32 m_xianyuanDungeon = 19;
+  if (has_m_xianyuandungeon()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_xianyuandungeon(), target);
+  }
+
+  // optional int32 m_guardian = 20;
+  if (has_m_guardian()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(20, this->m_guardian(), target);
+  }
+
+  // optional int32 m_guildWar = 21;
+  if (has_m_guildwar()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_guildwar(), target);
+  }
+
+  // optional int32 m_valley = 22;
+  if (has_m_valley()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(22, this->m_valley(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10498,18 +10717,69 @@ int E_RoleExp::ByteSize() const {
           this->m_yaochi());
     }
 
-    // optional int32 m_wedding = 14;
+    // optional int32 m_yaochiAct = 14;
+    if (has_m_yaochiact()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_yaochiact());
+    }
+
+    // optional int32 m_wedding = 15;
     if (has_m_wedding()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_wedding());
     }
 
-    // optional int32 m_bagua = 15;
+    // optional int32 m_bagua = 16;
     if (has_m_bagua()) {
-      total_size += 1 +
+      total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_bagua());
+    }
+
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional int32 m_guildTask = 17;
+    if (has_m_guildtask()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_guildtask());
+    }
+
+    // optional int32 m_PrestigeMissions = 18;
+    if (has_m_prestigemissions()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prestigemissions());
+    }
+
+    // optional int32 m_xianyuanDungeon = 19;
+    if (has_m_xianyuandungeon()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_xianyuandungeon());
+    }
+
+    // optional int32 m_guardian = 20;
+    if (has_m_guardian()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_guardian());
+    }
+
+    // optional int32 m_guildWar = 21;
+    if (has_m_guildwar()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_guildwar());
+    }
+
+    // optional int32 m_valley = 22;
+    if (has_m_valley()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_valley());
     }
 
   }
@@ -10580,11 +10850,34 @@ void E_RoleExp::MergeFrom(const E_RoleExp& from) {
     if (from.has_m_yaochi()) {
       set_m_yaochi(from.m_yaochi());
     }
+    if (from.has_m_yaochiact()) {
+      set_m_yaochiact(from.m_yaochiact());
+    }
     if (from.has_m_wedding()) {
       set_m_wedding(from.m_wedding());
     }
     if (from.has_m_bagua()) {
       set_m_bagua(from.m_bagua());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_m_guildtask()) {
+      set_m_guildtask(from.m_guildtask());
+    }
+    if (from.has_m_prestigemissions()) {
+      set_m_prestigemissions(from.m_prestigemissions());
+    }
+    if (from.has_m_xianyuandungeon()) {
+      set_m_xianyuandungeon(from.m_xianyuandungeon());
+    }
+    if (from.has_m_guardian()) {
+      set_m_guardian(from.m_guardian());
+    }
+    if (from.has_m_guildwar()) {
+      set_m_guildwar(from.m_guildwar());
+    }
+    if (from.has_m_valley()) {
+      set_m_valley(from.m_valley());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -10622,8 +10915,15 @@ void E_RoleExp::Swap(E_RoleExp* other) {
     std::swap(m_multibattle_, other->m_multibattle_);
     std::swap(m_qingyun_, other->m_qingyun_);
     std::swap(m_yaochi_, other->m_yaochi_);
+    std::swap(m_yaochiact_, other->m_yaochiact_);
     std::swap(m_wedding_, other->m_wedding_);
     std::swap(m_bagua_, other->m_bagua_);
+    std::swap(m_guildtask_, other->m_guildtask_);
+    std::swap(m_prestigemissions_, other->m_prestigemissions_);
+    std::swap(m_xianyuandungeon_, other->m_xianyuandungeon_);
+    std::swap(m_guardian_, other->m_guardian_);
+    std::swap(m_guildwar_, other->m_guildwar_);
+    std::swap(m_valley_, other->m_valley_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

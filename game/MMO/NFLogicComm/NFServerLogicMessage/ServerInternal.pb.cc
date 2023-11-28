@@ -169,6 +169,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* C2L_VersionIdRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   C2L_VersionIdRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LC_FieldBossInitReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LC_FieldBossInitReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LC_FieldBossInitRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LC_FieldBossInitRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LC_FieldBossInfoReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LC_FieldBossInfoReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* LC_FieldBossInfoNotify_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  LC_FieldBossInfoNotify_reflection_ = NULL;
 
 }  // namespace
 
@@ -1007,6 +1019,67 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(C2L_VersionIdRsp));
+  LC_FieldBossInitReq_descriptor_ = file->message_type(49);
+  static const int LC_FieldBossInitReq_offsets_[1] = {
+  };
+  LC_FieldBossInitReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LC_FieldBossInitReq_descriptor_,
+      LC_FieldBossInitReq::default_instance_,
+      LC_FieldBossInitReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInitReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInitReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LC_FieldBossInitReq));
+  LC_FieldBossInitRsp_descriptor_ = file->message_type(50);
+  static const int LC_FieldBossInitRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInitRsp, info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInitRsp, zid_),
+  };
+  LC_FieldBossInitRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LC_FieldBossInitRsp_descriptor_,
+      LC_FieldBossInitRsp::default_instance_,
+      LC_FieldBossInitRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInitRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInitRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LC_FieldBossInitRsp));
+  LC_FieldBossInfoReq_descriptor_ = file->message_type(51);
+  static const int LC_FieldBossInfoReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoReq, info_),
+  };
+  LC_FieldBossInfoReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LC_FieldBossInfoReq_descriptor_,
+      LC_FieldBossInfoReq::default_instance_,
+      LC_FieldBossInfoReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LC_FieldBossInfoReq));
+  LC_FieldBossInfoNotify_descriptor_ = file->message_type(52);
+  static const int LC_FieldBossInfoNotify_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoNotify, info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoNotify, zid_),
+  };
+  LC_FieldBossInfoNotify_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      LC_FieldBossInfoNotify_descriptor_,
+      LC_FieldBossInfoNotify::default_instance_,
+      LC_FieldBossInfoNotify_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoNotify, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LC_FieldBossInfoNotify, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(LC_FieldBossInfoNotify));
 }
 
 namespace {
@@ -1117,6 +1190,14 @@ void protobuf_RegisterTypes(const ::std::string&) {
     CenterToLogicFindTreasureSiShengChouJiangReq_descriptor_, &CenterToLogicFindTreasureSiShengChouJiangReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     C2L_VersionIdRsp_descriptor_, &C2L_VersionIdRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LC_FieldBossInitReq_descriptor_, &LC_FieldBossInitReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LC_FieldBossInitRsp_descriptor_, &LC_FieldBossInitRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LC_FieldBossInfoReq_descriptor_, &LC_FieldBossInfoReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    LC_FieldBossInfoNotify_descriptor_, &LC_FieldBossInfoNotify::default_instance());
 }
 
 }  // namespace
@@ -1220,6 +1301,14 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete CenterToLogicFindTreasureSiShengChouJiangReq_reflection_;
   delete C2L_VersionIdRsp::default_instance_;
   delete C2L_VersionIdRsp_reflection_;
+  delete LC_FieldBossInitReq::default_instance_;
+  delete LC_FieldBossInitReq_reflection_;
+  delete LC_FieldBossInitRsp::default_instance_;
+  delete LC_FieldBossInitRsp_reflection_;
+  delete LC_FieldBossInfoReq::default_instance_;
+  delete LC_FieldBossInfoReq_reflection_;
+  delete LC_FieldBossInfoNotify::default_instance_;
+  delete LC_FieldBossInfoNotify_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -1346,7 +1435,13 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "reasureSiShengChouJiangReq\022\n\n\002id\030\001 \001(\005\022\020"
     "\n\010num_type\030\002 \001(\005\022\017\n\007all_num\030\003 \001(\005\022\013\n\003cid"
     "\030\004 \001(\004\"&\n\020C2L_VersionIdRsp\022\022\n\nversion_id"
-    "\030\001 \002(\005", 4606);
+    "\030\001 \002(\005\"\025\n\023LC_FieldBossInitReq\"I\n\023LC_Fiel"
+    "dBossInitRsp\022%\n\004info\030\001 \003(\0132\027.proto_ff.Fe"
+    "stBossProto\022\013\n\003zid\030\002 \001(\r\"<\n\023LC_FieldBoss"
+    "InfoReq\022%\n\004info\030\001 \003(\0132\027.proto_ff.FestBos"
+    "sProto\"L\n\026LC_FieldBossInfoNotify\022%\n\004info"
+    "\030\001 \003(\0132\027.proto_ff.FestBossProto\022\013\n\003zid\030\002"
+    " \001(\r", 4844);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   NotifyCloseServer::default_instance_ = new NotifyCloseServer();
@@ -1398,6 +1493,10 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   CenterToLogicFindTreasureSiShengGetServerTotalRewardReq::default_instance_ = new CenterToLogicFindTreasureSiShengGetServerTotalRewardReq();
   CenterToLogicFindTreasureSiShengChouJiangReq::default_instance_ = new CenterToLogicFindTreasureSiShengChouJiangReq();
   C2L_VersionIdRsp::default_instance_ = new C2L_VersionIdRsp();
+  LC_FieldBossInitReq::default_instance_ = new LC_FieldBossInitReq();
+  LC_FieldBossInitRsp::default_instance_ = new LC_FieldBossInitRsp();
+  LC_FieldBossInfoReq::default_instance_ = new LC_FieldBossInfoReq();
+  LC_FieldBossInfoNotify::default_instance_ = new LC_FieldBossInfoNotify();
   NotifyCloseServer::default_instance_->InitAsDefaultInstance();
   WebToCenterMergeFlagRsp::default_instance_->InitAsDefaultInstance();
   SocialRegisterCenterReq::default_instance_->InitAsDefaultInstance();
@@ -1447,6 +1546,10 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   CenterToLogicFindTreasureSiShengGetServerTotalRewardReq::default_instance_->InitAsDefaultInstance();
   CenterToLogicFindTreasureSiShengChouJiangReq::default_instance_->InitAsDefaultInstance();
   C2L_VersionIdRsp::default_instance_->InitAsDefaultInstance();
+  LC_FieldBossInitReq::default_instance_->InitAsDefaultInstance();
+  LC_FieldBossInitRsp::default_instance_->InitAsDefaultInstance();
+  LC_FieldBossInfoReq::default_instance_->InitAsDefaultInstance();
+  LC_FieldBossInfoNotify::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -15596,6 +15699,863 @@ void C2L_VersionIdRsp::Swap(C2L_VersionIdRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = C2L_VersionIdRsp_descriptor_;
   metadata.reflection = C2L_VersionIdRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+LC_FieldBossInitReq::LC_FieldBossInitReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void LC_FieldBossInitReq::InitAsDefaultInstance() {
+}
+
+LC_FieldBossInitReq::LC_FieldBossInitReq(const LC_FieldBossInitReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInitReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LC_FieldBossInitReq::~LC_FieldBossInitReq() {
+  SharedDtor();
+}
+
+void LC_FieldBossInitReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void LC_FieldBossInitReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LC_FieldBossInitReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LC_FieldBossInitReq_descriptor_;
+}
+
+const LC_FieldBossInitReq& LC_FieldBossInitReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+LC_FieldBossInitReq* LC_FieldBossInitReq::default_instance_ = NULL;
+
+LC_FieldBossInitReq* LC_FieldBossInitReq::New() const {
+  return new LC_FieldBossInitReq;
+}
+
+void LC_FieldBossInitReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool LC_FieldBossInitReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void LC_FieldBossInitReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LC_FieldBossInitReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int LC_FieldBossInitReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LC_FieldBossInitReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LC_FieldBossInitReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LC_FieldBossInitReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void LC_FieldBossInitReq::MergeFrom(const LC_FieldBossInitReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LC_FieldBossInitReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInitReq::CopyFrom(const LC_FieldBossInitReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LC_FieldBossInitReq::IsInitialized() const {
+
+  return true;
+}
+
+void LC_FieldBossInitReq::Swap(LC_FieldBossInitReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata LC_FieldBossInitReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LC_FieldBossInitReq_descriptor_;
+  metadata.reflection = LC_FieldBossInitReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int LC_FieldBossInitRsp::kInfoFieldNumber;
+const int LC_FieldBossInitRsp::kZidFieldNumber;
+#endif  // !_MSC_VER
+
+LC_FieldBossInitRsp::LC_FieldBossInitRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void LC_FieldBossInitRsp::InitAsDefaultInstance() {
+}
+
+LC_FieldBossInitRsp::LC_FieldBossInitRsp(const LC_FieldBossInitRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInitRsp::SharedCtor() {
+  _cached_size_ = 0;
+  zid_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LC_FieldBossInitRsp::~LC_FieldBossInitRsp() {
+  SharedDtor();
+}
+
+void LC_FieldBossInitRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void LC_FieldBossInitRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LC_FieldBossInitRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LC_FieldBossInitRsp_descriptor_;
+}
+
+const LC_FieldBossInitRsp& LC_FieldBossInitRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+LC_FieldBossInitRsp* LC_FieldBossInitRsp::default_instance_ = NULL;
+
+LC_FieldBossInitRsp* LC_FieldBossInitRsp::New() const {
+  return new LC_FieldBossInitRsp;
+}
+
+void LC_FieldBossInitRsp::Clear() {
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    zid_ = 0u;
+  }
+  info_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool LC_FieldBossInitRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.FestBossProto info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_info;
+        if (input->ExpectTag(16)) goto parse_zid;
+        break;
+      }
+
+      // optional uint32 zid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_zid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &zid_)));
+          set_has_zid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void LC_FieldBossInitRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.FestBossProto info = 1;
+  for (int i = 0; i < this->info_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->info(i), output);
+  }
+
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->zid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LC_FieldBossInitRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.FestBossProto info = 1;
+  for (int i = 0; i < this->info_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->info(i), target);
+  }
+
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->zid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int LC_FieldBossInitRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional uint32 zid = 2;
+    if (has_zid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->zid());
+    }
+
+  }
+  // repeated .proto_ff.FestBossProto info = 1;
+  total_size += 1 * this->info_size();
+  for (int i = 0; i < this->info_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->info(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LC_FieldBossInitRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LC_FieldBossInitRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LC_FieldBossInitRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void LC_FieldBossInitRsp::MergeFrom(const LC_FieldBossInitRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  info_.MergeFrom(from.info_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_zid()) {
+      set_zid(from.zid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LC_FieldBossInitRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInitRsp::CopyFrom(const LC_FieldBossInitRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LC_FieldBossInitRsp::IsInitialized() const {
+
+  return true;
+}
+
+void LC_FieldBossInitRsp::Swap(LC_FieldBossInitRsp* other) {
+  if (other != this) {
+    info_.Swap(&other->info_);
+    std::swap(zid_, other->zid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata LC_FieldBossInitRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LC_FieldBossInitRsp_descriptor_;
+  metadata.reflection = LC_FieldBossInitRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int LC_FieldBossInfoReq::kInfoFieldNumber;
+#endif  // !_MSC_VER
+
+LC_FieldBossInfoReq::LC_FieldBossInfoReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void LC_FieldBossInfoReq::InitAsDefaultInstance() {
+}
+
+LC_FieldBossInfoReq::LC_FieldBossInfoReq(const LC_FieldBossInfoReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInfoReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LC_FieldBossInfoReq::~LC_FieldBossInfoReq() {
+  SharedDtor();
+}
+
+void LC_FieldBossInfoReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void LC_FieldBossInfoReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LC_FieldBossInfoReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LC_FieldBossInfoReq_descriptor_;
+}
+
+const LC_FieldBossInfoReq& LC_FieldBossInfoReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+LC_FieldBossInfoReq* LC_FieldBossInfoReq::default_instance_ = NULL;
+
+LC_FieldBossInfoReq* LC_FieldBossInfoReq::New() const {
+  return new LC_FieldBossInfoReq;
+}
+
+void LC_FieldBossInfoReq::Clear() {
+  info_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool LC_FieldBossInfoReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.FestBossProto info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_info;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void LC_FieldBossInfoReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.FestBossProto info = 1;
+  for (int i = 0; i < this->info_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->info(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LC_FieldBossInfoReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.FestBossProto info = 1;
+  for (int i = 0; i < this->info_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->info(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int LC_FieldBossInfoReq::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.FestBossProto info = 1;
+  total_size += 1 * this->info_size();
+  for (int i = 0; i < this->info_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->info(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LC_FieldBossInfoReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LC_FieldBossInfoReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LC_FieldBossInfoReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void LC_FieldBossInfoReq::MergeFrom(const LC_FieldBossInfoReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  info_.MergeFrom(from.info_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LC_FieldBossInfoReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInfoReq::CopyFrom(const LC_FieldBossInfoReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LC_FieldBossInfoReq::IsInitialized() const {
+
+  return true;
+}
+
+void LC_FieldBossInfoReq::Swap(LC_FieldBossInfoReq* other) {
+  if (other != this) {
+    info_.Swap(&other->info_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata LC_FieldBossInfoReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LC_FieldBossInfoReq_descriptor_;
+  metadata.reflection = LC_FieldBossInfoReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int LC_FieldBossInfoNotify::kInfoFieldNumber;
+const int LC_FieldBossInfoNotify::kZidFieldNumber;
+#endif  // !_MSC_VER
+
+LC_FieldBossInfoNotify::LC_FieldBossInfoNotify()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void LC_FieldBossInfoNotify::InitAsDefaultInstance() {
+}
+
+LC_FieldBossInfoNotify::LC_FieldBossInfoNotify(const LC_FieldBossInfoNotify& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInfoNotify::SharedCtor() {
+  _cached_size_ = 0;
+  zid_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+LC_FieldBossInfoNotify::~LC_FieldBossInfoNotify() {
+  SharedDtor();
+}
+
+void LC_FieldBossInfoNotify::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void LC_FieldBossInfoNotify::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* LC_FieldBossInfoNotify::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return LC_FieldBossInfoNotify_descriptor_;
+}
+
+const LC_FieldBossInfoNotify& LC_FieldBossInfoNotify::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+LC_FieldBossInfoNotify* LC_FieldBossInfoNotify::default_instance_ = NULL;
+
+LC_FieldBossInfoNotify* LC_FieldBossInfoNotify::New() const {
+  return new LC_FieldBossInfoNotify;
+}
+
+void LC_FieldBossInfoNotify::Clear() {
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    zid_ = 0u;
+  }
+  info_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool LC_FieldBossInfoNotify::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.FestBossProto info = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_info;
+        if (input->ExpectTag(16)) goto parse_zid;
+        break;
+      }
+
+      // optional uint32 zid = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_zid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &zid_)));
+          set_has_zid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void LC_FieldBossInfoNotify::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.FestBossProto info = 1;
+  for (int i = 0; i < this->info_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->info(i), output);
+  }
+
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->zid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* LC_FieldBossInfoNotify::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.FestBossProto info = 1;
+  for (int i = 0; i < this->info_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->info(i), target);
+  }
+
+  // optional uint32 zid = 2;
+  if (has_zid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->zid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int LC_FieldBossInfoNotify::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional uint32 zid = 2;
+    if (has_zid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->zid());
+    }
+
+  }
+  // repeated .proto_ff.FestBossProto info = 1;
+  total_size += 1 * this->info_size();
+  for (int i = 0; i < this->info_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->info(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void LC_FieldBossInfoNotify::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const LC_FieldBossInfoNotify* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LC_FieldBossInfoNotify*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void LC_FieldBossInfoNotify::MergeFrom(const LC_FieldBossInfoNotify& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  info_.MergeFrom(from.info_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_zid()) {
+      set_zid(from.zid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void LC_FieldBossInfoNotify::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void LC_FieldBossInfoNotify::CopyFrom(const LC_FieldBossInfoNotify& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool LC_FieldBossInfoNotify::IsInitialized() const {
+
+  return true;
+}
+
+void LC_FieldBossInfoNotify::Swap(LC_FieldBossInfoNotify* other) {
+  if (other != this) {
+    info_.Swap(&other->info_);
+    std::swap(zid_, other->zid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata LC_FieldBossInfoNotify::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = LC_FieldBossInfoNotify_descriptor_;
+  metadata.reflection = LC_FieldBossInfoNotify_reflection_;
   return metadata;
 }
 

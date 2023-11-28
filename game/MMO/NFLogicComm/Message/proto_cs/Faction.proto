@@ -213,14 +213,18 @@ message FactionBeastRankListProto
 	repeated FactionBeastRankProto lst = 1;
 }
 
+
+
+
 //-------------------------------------------------------------------------------
 
 
 //登录同步帮派信息给玩家 FACTION_SYNC_LOGIN
 message Faction_SyncLoginRsp
 {
-	optional FactionProto info = 1;				//帮派信息
-	optional int32 duty = 2;					//成员职务
+	optional FactionProto info = 1;					//帮派信息
+	optional int32 duty = 2;						//成员职务
+	optional FactionMagRecordProto mag_record = 3;	//伏魔录信息
 }
 
 //同步帮派信息给玩家 FACTION_SYNC_INFO
@@ -692,12 +696,13 @@ message Faction_BeastFinishRsp
 //中心服返回逻辑服更新信息  FACTION_CL_ROLE_UPDATE
 message CL_FactionRoleUpdateRsp
 {
-	required uint64 cid = 1;		//玩家ID
-	required uint32 faction_id = 2;	//帮派ID
-	required bytes name = 3;		//帮派名字
-	required int32 duty = 4;		//帮派职位
-	required int32 level = 5;		//帮派等级
-	required uint64 leader = 6;		//帮派会长
+	required uint64 cid = 1;					//玩家ID
+	required uint32 faction_id = 2;				//帮派ID
+	required bytes name = 3;					//帮派名字
+	required int32 duty = 4;					//帮派职位
+	required int32 level = 5;					//帮派等级
+	required uint64 leader = 6;					//帮派会长
+	required FactionMagRecordProto mag = 7;		//伏魔录信息
 }
 //逻辑服请求中心服创建帮派 FACTION_LC_CREATE
 message LC_FactionCreate
@@ -971,12 +976,17 @@ message LS_FactionGuardEndRsp
 	required uint64 endtime = 3;
 }
 
+message LC_FactionGuardEndFactionReward
+{
+	optional uint64 cid = 1;
+	repeated ComItemBind reward = 2;
+}
+
 //FACTION_LC_GUARD_RANK_END = 957; ////逻辑服通知中心服帮派守卫结束
 message LC_FactionGuardEndRsp
 {
 	required uint32 factionid = 1;
-	repeated uint64 cid_lst = 2;
-	repeated ComItemBind reward = 3;
+	repeated LC_FactionGuardEndFactionReward reward = 2;
 }
 
 message GuardPlayerHarm
@@ -1152,5 +1162,24 @@ message CLFactionMoyuRecvReq
 	
 }
 
-
 //=========================镇魂魔域结束===========================
+
+
+
+//-------------------------------- 伏魔录  ------------------------------------------------------------
+
+ //请求升级伏魔录守护 FACTION_MAG_RECORD_UPGRADE_REQ
+ message Faction_MagRecordUpgradeReq
+ {
+	//空
+ }
+//返回 升级伏魔录守护 结果 FACTION_MAG_RECORD_UPGRADE_RSP
+message Faction_MagRecordUpgradeRsp
+{
+	required int32 ret = 1; 
+}
+//通知 伏魔录信息 FACTION_MAG_RECORD_NOTIFY
+message Faction_MagRecordNotify
+{
+	optional FactionMagRecordProto mag_record = 1;
+}

@@ -39,7 +39,7 @@ message E_NickgodName
 
 message Sheet_NickgodName
 {
-	repeated E_NickgodName E_NickgodName_List = 1[(yd_fieldoptions.field_arysize)=4];
+	repeated E_NickgodName E_NickgodName_List = 1[(yd_fieldoptions.field_arysize)=32];
 }
 
 message E_NickgodStageMosDesc
@@ -50,7 +50,7 @@ message E_NickgodStageMosDesc
 
 message E_NickgodStageBossDesc
 {
-	optional int32 m_dropPreview = 1[(yd_fieldoptions.field_cname) = "掉落预览"];
+	optional string m_dropPreview = 1[(yd_fieldoptions.field_cname) = "掉落预览", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_point = 3[(yd_fieldoptions.field_cname) = "刷新点"];
 }
@@ -71,7 +71,7 @@ message E_NickgodStage
 	optional int32 m_killplayerIntegral = 12[(yd_fieldoptions.field_cname) = "击杀玩家积分"];
 	optional int32 m_assistplayerIntegral = 13[(yd_fieldoptions.field_cname) = "助攻玩家积分"];
 	repeated E_NickgodStageMosDesc m_mos = 14[(yd_fieldoptions.field_cname) = "小怪", (yd_fieldoptions.field_arysize) = 10];
-	repeated E_NickgodStageBossDesc m_boss = 15[(yd_fieldoptions.field_cname) = "boss", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_NickgodStageBossDesc m_boss = 15[(yd_fieldoptions.field_cname) = "boss", (yd_fieldoptions.field_arysize) = 4];
 	repeated int32 m_revivalPoint = 16[(yd_fieldoptions.field_cname) = "复活点", (yd_fieldoptions.field_arysize) = 8];
 }
 
@@ -104,7 +104,7 @@ message Sheet_NickgodRewards
 
 message E_NickgodLattice
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "格子id"];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "进度id"];
 	optional int32 m_itemId = 2[(yd_fieldoptions.field_cname) = "消耗道具"];
 	optional int32 m_itemNum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
 }
@@ -115,10 +115,18 @@ message Sheet_NickgodLattice
 	repeated E_NickgodLattice E_NickgodLattice_List = 1[(yd_fieldoptions.field_arysize)=64];
 }
 
+message E_NickgodTreasuryItemDesc
+{
+	optional int32 m_show = 1[(yd_fieldoptions.field_cname) = "展示"];
+	optional int32 m_rand = 2[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 4[(yd_fieldoptions.field_cname) = "id"];
+}
+
 message E_NickgodTreasury
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "层数"];
-	optional int32 m_boxId = 2[(yd_fieldoptions.field_cname) = "宝库box"];
+	repeated E_NickgodTreasuryItemDesc m_item = 2[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 37];
 }
 
 
@@ -179,7 +187,8 @@ message E_NickgodChargeupRewardDesc
 message E_NickgodChargeup
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "累充id"];
-	repeated E_NickgodChargeupRewardDesc m_reward = 2[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_pay = 2[(yd_fieldoptions.field_cname) = "充值金额"];
+	repeated E_NickgodChargeupRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
 }
 
 

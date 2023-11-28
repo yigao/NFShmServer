@@ -122,6 +122,24 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_GuildTtower_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_GuildTtower_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelopAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_GuildTtowerdevelopAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelop_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_GuildTtowerdevelop_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_GuildTtowerdevelop_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_GuildTtowerdevelop_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelop_dataAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_GuildTtowerdevelop_dataAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelop_data_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_GuildTtowerdevelop_data_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_GuildTtowerdevelop_data_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_GuildTtowerdevelop_data_reflection_ = NULL;
 
 }  // namespace
 
@@ -273,7 +291,7 @@ void protobuf_AssignDesc_E_5fGuild_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_GuildLevel));
   E_GuildPosition_descriptor_ = file->message_type(4);
-  static const int E_GuildPosition_offsets_[18] = {
+  static const int E_GuildPosition_offsets_[19] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_positionid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_admitnewcomer_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_appointandremovevp_),
@@ -292,6 +310,7 @@ void protobuf_AssignDesc_E_5fGuild_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_changename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_recruitchat_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_guildpacket_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildPosition, m_upguard_),
   };
   E_GuildPosition_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -799,6 +818,105 @@ void protobuf_AssignDesc_E_5fGuild_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_GuildTtower));
+  E_GuildTtowerdevelopAttributeDesc_descriptor_ = file->message_type(34);
+  static const int E_GuildTtowerdevelopAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelopAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelopAttributeDesc, m_type_),
+  };
+  E_GuildTtowerdevelopAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_GuildTtowerdevelopAttributeDesc_descriptor_,
+      E_GuildTtowerdevelopAttributeDesc::default_instance_,
+      E_GuildTtowerdevelopAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelopAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelopAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_GuildTtowerdevelopAttributeDesc));
+  E_GuildTtowerdevelop_descriptor_ = file->message_type(35);
+  static const int E_GuildTtowerdevelop_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop, m_datagroup_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop, m_attribute_),
+  };
+  E_GuildTtowerdevelop_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_GuildTtowerdevelop_descriptor_,
+      E_GuildTtowerdevelop::default_instance_,
+      E_GuildTtowerdevelop_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_GuildTtowerdevelop));
+  Sheet_GuildTtowerdevelop_descriptor_ = file->message_type(36);
+  static const int Sheet_GuildTtowerdevelop_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GuildTtowerdevelop, e_guildttowerdevelop_list_),
+  };
+  Sheet_GuildTtowerdevelop_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_GuildTtowerdevelop_descriptor_,
+      Sheet_GuildTtowerdevelop::default_instance_,
+      Sheet_GuildTtowerdevelop_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GuildTtowerdevelop, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GuildTtowerdevelop, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_GuildTtowerdevelop));
+  E_GuildTtowerdevelop_dataAttributeDesc_descriptor_ = file->message_type(37);
+  static const int E_GuildTtowerdevelop_dataAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_dataAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_dataAttributeDesc, m_type_),
+  };
+  E_GuildTtowerdevelop_dataAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_GuildTtowerdevelop_dataAttributeDesc_descriptor_,
+      E_GuildTtowerdevelop_dataAttributeDesc::default_instance_,
+      E_GuildTtowerdevelop_dataAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_dataAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_dataAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_GuildTtowerdevelop_dataAttributeDesc));
+  E_GuildTtowerdevelop_data_descriptor_ = file->message_type(38);
+  static const int E_GuildTtowerdevelop_data_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, m_costitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, m_costnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, m_attribute_),
+  };
+  E_GuildTtowerdevelop_data_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_GuildTtowerdevelop_data_descriptor_,
+      E_GuildTtowerdevelop_data::default_instance_,
+      E_GuildTtowerdevelop_data_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GuildTtowerdevelop_data, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_GuildTtowerdevelop_data));
+  Sheet_GuildTtowerdevelop_data_descriptor_ = file->message_type(39);
+  static const int Sheet_GuildTtowerdevelop_data_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GuildTtowerdevelop_data, e_guildttowerdevelop_data_list_),
+  };
+  Sheet_GuildTtowerdevelop_data_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_GuildTtowerdevelop_data_descriptor_,
+      Sheet_GuildTtowerdevelop_data::default_instance_,
+      Sheet_GuildTtowerdevelop_data_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GuildTtowerdevelop_data, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_GuildTtowerdevelop_data, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_GuildTtowerdevelop_data));
 }
 
 namespace {
@@ -879,6 +997,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_GuildTtower_descriptor_, &E_GuildTtower::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_GuildTtower_descriptor_, &Sheet_GuildTtower::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_GuildTtowerdevelopAttributeDesc_descriptor_, &E_GuildTtowerdevelopAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_GuildTtowerdevelop_descriptor_, &E_GuildTtowerdevelop::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_GuildTtowerdevelop_descriptor_, &Sheet_GuildTtowerdevelop::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_GuildTtowerdevelop_dataAttributeDesc_descriptor_, &E_GuildTtowerdevelop_dataAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_GuildTtowerdevelop_data_descriptor_, &E_GuildTtowerdevelop_data::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_GuildTtowerdevelop_data_descriptor_, &Sheet_GuildTtowerdevelop_data::default_instance());
 }
 
 }  // namespace
@@ -952,6 +1082,18 @@ void protobuf_ShutdownFile_E_5fGuild_2eproto() {
   delete E_GuildTtower_reflection_;
   delete Sheet_GuildTtower::default_instance_;
   delete Sheet_GuildTtower_reflection_;
+  delete E_GuildTtowerdevelopAttributeDesc::default_instance_;
+  delete E_GuildTtowerdevelopAttributeDesc_reflection_;
+  delete E_GuildTtowerdevelop::default_instance_;
+  delete E_GuildTtowerdevelop_reflection_;
+  delete Sheet_GuildTtowerdevelop::default_instance_;
+  delete Sheet_GuildTtowerdevelop_reflection_;
+  delete E_GuildTtowerdevelop_dataAttributeDesc::default_instance_;
+  delete E_GuildTtowerdevelop_dataAttributeDesc_reflection_;
+  delete E_GuildTtowerdevelop_data::default_instance_;
+  delete E_GuildTtowerdevelop_data_reflection_;
+  delete Sheet_GuildTtowerdevelop_data::default_instance_;
+  delete Sheet_GuildTtowerdevelop_data_reflection_;
 }
 
 void protobuf_AddDesc_E_5fGuild_2eproto() {
@@ -1071,7 +1213,7 @@ void protobuf_AddDesc_E_5fGuild_2eproto() {
     "B\023\302\377\024\017\345\205\254\344\274\232\351\225\277\350\200\201\346\225\260\022(\n\016m_guildLevel_G\030"
     "\006 \001(\005B\020\302\377\024\014\346\212\244\346\263\225\344\272\272\346\225\260\"K\n\020Sheet_GuildLe"
     "vel\0227\n\021E_GuildLevel_List\030\001 \003(\0132\026.proto_f"
-    "f.E_GuildLevelB\004\210\301\024\020\"\342\006\n\017E_GuildPosition"
+    "f.E_GuildLevelB\004\210\301\024\020\"\207\007\n\017E_GuildPosition"
     "\022\"\n\014m_positionId\030\001 \001(\005B\014\302\377\024\010\350\201\214\344\275\215ID\022,\n\017"
     "m_admitNewcomer\030\002 \001(\005B\023\302\377\024\017\346\216\245\346\224\266\346\226\260\346\210\220\345"
     "\221\230\0228\n\024m_appointAndRemoveVP\030\003 \001(\005B\032\302\377\024\026\344\273"
@@ -1093,114 +1235,136 @@ void protobuf_AddDesc_E_5fGuild_2eproto() {
     "eName\030\020 \001(\005B\020\302\377\024\014\346\224\271\345\220\215\346\235\203\351\231\220\022-\n\rm_recru"
     "itChat\030\021 \001(\005B\026\302\377\024\022\345\217\221\345\270\203\346\213\233\350\264\244\347\272\263\345\243\253\0223\n\r"
     "m_guildPacket\030\022 \001(\005B\034\302\377\024\030\345\217\221\351\200\201\345\205\254\344\274\232\347\216\251"
-    "\346\263\225\347\272\242\345\214\205\"T\n\023Sheet_GuildPosition\022=\n\024E_Gu"
-    "ildPosition_List\030\001 \003(\0132\031.proto_ff.E_Guil"
-    "dPositionB\004\210\301\024\010\"P\n\027E_GuildSalaryRewardDe"
-    "sc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_item\030"
-    "\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\"\324\001\n\rE_GuildSalary\022\024\n\004m"
-    "_ID\030\001 \001(\005B\006\302\377\024\002ID\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\344"
-    "\273\273\345\212\241\347\261\273\345\236\213\022#\n\tm_typeArg\030\003 \001(\005B\020\302\377\024\014\347\261\273\345"
-    "\236\213\345\217\202\346\225\260\022!\n\007m_times\030\004 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\345\217\202"
-    "\346\225\260\022C\n\010m_reward\030\005 \003(\0132!.proto_ff.E_Guild"
-    "SalaryRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021Shee"
-    "t_GuildSalary\0229\n\022E_GuildSalary_List\030\001 \003("
-    "\0132\027.proto_ff.E_GuildSalaryB\004\210\301\024\010\"P\n\027E_Gu"
-    "ildDonateRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006"
-    "\346\225\260\351\207\217\022\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\"\275\001\n\rE"
-    "_GuildDonate\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002ID\022&\n\nm_"
-    "costItem\030\002 \001(\005B\022\302\377\024\016\350\212\261\350\264\271\347\211\251\345\223\201id\022)\n\tm_"
-    "costNum\030\003 \001(\005B\026\302\377\024\022\350\212\261\350\264\271\347\211\251\345\223\201\346\225\260\351\207\217\022C\n"
-    "\010m_reward\030\004 \003(\0132!.proto_ff.E_GuildDonate"
-    "RewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021Sheet_Guil"
-    "dDonate\0229\n\022E_GuildDonate_List\030\001 \003(\0132\027.pr"
-    "oto_ff.E_GuildDonateB\004\210\301\024\004\"\346\002\n\rE_GuildPa"
-    "cket\022\032\n\004m_ID\030\001 \001(\005B\014\302\377\024\010\347\272\242\345\214\205ID\022,\n\014m_be"
-    "longType\030\002 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\345\275\222\345\261\236\347\261\273\345\236\213\022&"
-    "\n\006m_type\030\003 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\350\247\246\345\217\221\347\261\273\345\236\213\022#"
-    "\n\tm_typeArg\030\004 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022(\n\010m"
-    "_itemID\030\005 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\351\242\206\345\217\226\347\261\273\345\236\213\022#\n"
-    "\tm_itemNum\030\006 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\351\207\221\351\242\235\022\037\n\005m_"
-    "num\030\007 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\344\273\275\346\225\260\022\037\n\005m_pre\030\010 \001"
-    "(\005B\020\302\377\024\014\345\211\215\347\275\256\347\272\242\345\214\205\022-\n\007m_daily\030\t \001(\005B\034\302"
-    "\377\024\030\346\257\217\346\227\245\351\231\220\345\210\266\350\247\246\345\217\221\346\254\241\346\225\260\"O\n\021Sheet_Gui"
-    "ldPacket\022:\n\022E_GuildPacket_List\030\001 \003(\0132\027.p"
-    "roto_ff.E_GuildPacketB\005\210\301\024\200\001\"\214\002\n\023E_Guild"
-    "Prestigetask\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002id\022!\n\007m_"
-    "level\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\345\210\206\347\272\247\022!\n\007m_lvMin"
-    "\030\003 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\213\351\231\220\022!\n\007m_lvMax\030\004 \001("
-    "\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220\022\034\n\010m_weight\030\005 \001(\005B\n\302"
-    "\377\024\006\346\235\203\351\207\215\022,\n\nm_taskpool\030\006 \001(\005B\030\302\377\024\024\351\232\217\346\234"
-    "\272\347\232\204\344\273\273\345\212\241\346\261\240id\022*\n\010m_reward\030\007 \001(\005B\030\302\377\024\024\344"
-    "\273\273\345\212\241\345\245\226\345\212\261\347\261\273\345\236\213id\"`\n\027Sheet_GuildPresti"
-    "getask\022E\n\030E_GuildPrestigetask_List\030\001 \003(\013"
-    "2\035.proto_ff.E_GuildPrestigetaskB\004\210\301\024\020\"\245\001"
-    "\n\017E_GuildLvreward\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211"
-    "\347\272\247\022$\n\nm_partyExp\030\002 \001(\005B\020\302\377\024\014\346\231\232\345\256\264\347\273\217\351\252"
-    "\214\022-\n\023m_partyEontribution\030\003 \001(\005B\020\302\377\024\014\346\231\232\345"
-    "\256\264\350\264\241\347\214\256\022#\n\tm_linkExp\030\004 \001(\005B\020\302\377\024\014\351\223\276\346\216\245\347"
-    "\273\217\351\252\214\"U\n\023Sheet_GuildLvreward\022>\n\024E_GuildL"
-    "vreward_List\030\001 \003(\0132\031.proto_ff.E_GuildLvr"
-    "ewardB\005\210\301\024\200\004\"O\n\033E_GuildCollegeAttributeD"
-    "esc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030"
-    "\002 \001(\005B\006\302\377\024\002ID\"\303\003\n\016E_GuildCollege\022\033\n\005m_ui"
-    "d\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022\037\n\tm_skillid\030\002 \001(\005"
-    "B\014\302\377\024\010\346\212\200\350\203\275id\022#\n\tm_skillLv\030\003 \001(\005B\020\302\377\024\014\345"
-    "\277\203\346\263\225\347\255\211\347\272\247\0225\n\tm_guildLv\030\004 \001(\005B\"\302\377\024\036\345\274\200\346"
-    "\224\276\345\255\246\344\271\240\351\234\200\346\261\202\345\205\254\344\274\232\347\255\211\347\272\247\022/\n\017m_playerLv"
-    "Limit\030\005 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\014m"
-    "_preSkillid\030\006 \001(\005B\030\302\377\024\024\350\246\201\346\261\202\345\211\215\347\275\256\346\212\200\350\203"
-    "\275ID\0222\n\014m_preSkillLv\030\007 \001(\005B\034\302\377\024\030\350\246\201\346\261\202\345\211\215"
-    "\347\275\256\346\212\200\350\203\275\347\255\211\347\272\247\0220\n\020m_CostContribute\030\010 \001("
-    "\005B\026\302\377\024\022\345\277\203\346\263\225\346\266\210\350\200\227\350\264\241\347\214\256\022P\n\013m_attribute"
-    "\030\t \003(\0132%.proto_ff.E_GuildCollegeAttribut"
-    "eDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\002\"S\n\022Sheet_Gui"
-    "ldCollege\022=\n\023E_GuildCollege_List\030\001 \003(\0132\030"
-    ".proto_ff.E_GuildCollegeB\006\210\301\024\200\200\001\"G\n\rE_Gu"
-    "ildAnswer\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022 \n\010m_ans"
-    "wer\030\002 \001(\tB\016\302\377\024\006\347\255\224\346\241\210\220\301\024@\"N\n\021Sheet_Guild"
-    "Answer\0229\n\022E_GuildAnswer_List\030\001 \003(\0132\027.pro"
-    "to_ff.E_GuildAnswerB\004\210\301\024@\"\207\002\n\022E_GuildRan"
-    "k_reward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type"
-    "\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\036\n\006m_note\030\003 \001(\tB\016\302\377\024\006"
-    "\345\244\207\346\263\250\220\301\024@\022#\n\tm_rankMin\030\004 \001(\005B\020\302\377\024\014\346\216\222\345\220"
-    "\215\344\270\213\351\231\220\022#\n\tm_rankMax\030\005 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270"
-    "\212\351\231\220\022-\n\007m_lvMin\030\006 \001(\005B\034\302\377\024\030\350\267\250\346\234\215\344\270\226\347\225\214\347"
-    "\255\211\347\272\247\344\270\213\351\231\220\022&\n\tm_rewardS\030\007 \001(\005B\023\302\377\024\017\346\234\215\345"
-    "\212\241\345\231\250\345\245\226\345\212\261\"^\n\026Sheet_GuildRank_reward\022D\n"
-    "\027E_GuildRank_reward_List\030\001 \003(\0132\034.proto_f"
-    "f.E_GuildRank_rewardB\005\210\301\024\200\002\"N\n\033E_GuildSh"
-    "ouhskillRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346"
-    "\225\260\351\207\217\022\024\n\004m_Id\030\002 \001(\005B\006\302\377\024\002id\"\225\002\n\021E_GuildS"
-    "houhskill\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\006m_nam"
-    "e\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022\036\n\010m_costId\030\003 \001("
-    "\005B\014\302\377\024\010\350\212\261\350\264\271id\022#\n\tm_costNum\030\004 \001(\005B\020\302\377\024\014"
-    "\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\tm_skillid\030\005 \001(\005B\014\302\377\024\010\346\212\200"
-    "\350\203\275id\022\033\n\007m_times\030\006 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022G\n\010m_"
-    "reward\030\007 \003(\0132%.proto_ff.E_GuildShouhskil"
-    "lRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\002\"Z\n\025Sheet_Gui"
-    "ldShouhskill\022A\n\026E_GuildShouhskill_List\030\001"
-    " \003(\0132\033.proto_ff.E_GuildShouhskillB\004\210\301\024\010\""
-    "\271\001\n\017E_GuildGwreward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002I"
-    "D\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\'\n\010m_rewar"
-    "d\030\003 \001(\tB\025\302\377\024\014\346\234\254\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022,\n\rm_Cros"
-    "sreward\030\004 \001(\tB\025\302\377\024\014\350\267\250\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022\035\n\005"
-    "m_arg\030\005 \003(\005B\016\302\377\024\006\345\217\202\346\225\260\210\301\024\003\"U\n\023Sheet_Gui"
-    "ldGwreward\022>\n\024E_GuildGwreward_List\030\001 \003(\013"
-    "2\031.proto_ff.E_GuildGwrewardB\005\210\301\024\200\001\"\310\001\n\022E"
-    "_GuildGwwinstreak\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022"
-    "\"\n\013m_winStreak\030\002 \001(\005B\r\302\377\024\t\350\277\236\350\203\234\346\225\260\022%\n\013m"
-    "_winReward\030\003 \001(\005B\020\302\377\024\014\350\277\236\350\203\234\345\245\226\345\212\261\022%\n\013m_"
-    "endReward\030\004 \001(\005B\020\302\377\024\014\347\273\210\347\273\223\345\245\226\345\212\261\022*\n\020m_c"
-    "hallengeSkill\030\005 \001(\005B\020\302\377\024\014\345\243\253\346\260\224\346\212\200\350\203\275\"]\n"
-    "\026Sheet_GuildGwwinstreak\022C\n\027E_GuildGwwins"
-    "treak_List\030\001 \003(\0132\034.proto_ff.E_GuildGwwin"
-    "streakB\004\210\301\024 \"\226\001\n\rE_GuildTtower\022\024\n\004m_id\030\001"
-    " \001(\005B\006\302\377\024\002id\022\035\n\007m_dupid\030\002 \001(\005B\014\302\377\024\010\345\211\257\346\234"
-    "\254id\022$\n\nm_breakBox\030\003 \001(\005B\020\302\377\024\014\351\200\232\345\205\263\345\245\226\345\212"
-    "\261\022*\n\nm_clearBox\030\004 \001(\005B\026\302\377\024\022\345\215\225\346\254\241\347\273\223\347\256\227\345"
-    "\245\226\345\212\261\"O\n\021Sheet_GuildTtower\022:\n\022E_GuildTto"
-    "wer_List\030\001 \003(\0132\027.proto_ff.E_GuildTtowerB"
-    "\005\210\301\024\200\001", 9526);
+    "\346\263\225\347\272\242\345\214\205\022#\n\tm_UpGuard\030\023 \001(\005B\020\302\377\024\014\345\215\207\347\272\247"
+    "\345\256\210\346\212\244\"T\n\023Sheet_GuildPosition\022=\n\024E_Guild"
+    "Position_List\030\001 \003(\0132\031.proto_ff.E_GuildPo"
+    "sitionB\004\210\301\024\010\"P\n\027E_GuildSalaryRewardDesc\022"
+    "\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_item\030\002 \001"
+    "(\005B\n\302\377\024\006\347\211\251\345\223\201\"\324\001\n\rE_GuildSalary\022\024\n\004m_ID"
+    "\030\001 \001(\005B\006\302\377\024\002ID\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\344\273\273\345"
+    "\212\241\347\261\273\345\236\213\022#\n\tm_typeArg\030\003 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345"
+    "\217\202\346\225\260\022!\n\007m_times\030\004 \001(\005B\020\302\377\024\014\346\254\241\346\225\260\345\217\202\346\225\260"
+    "\022C\n\010m_reward\030\005 \003(\0132!.proto_ff.E_GuildSal"
+    "aryRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021Sheet_G"
+    "uildSalary\0229\n\022E_GuildSalary_List\030\001 \003(\0132\027"
+    ".proto_ff.E_GuildSalaryB\004\210\301\024\010\"P\n\027E_Guild"
+    "DonateRewardDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260"
+    "\351\207\217\022\032\n\006m_item\030\002 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\"\275\001\n\rE_Gu"
+    "ildDonate\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002ID\022&\n\nm_cos"
+    "tItem\030\002 \001(\005B\022\302\377\024\016\350\212\261\350\264\271\347\211\251\345\223\201id\022)\n\tm_cos"
+    "tNum\030\003 \001(\005B\026\302\377\024\022\350\212\261\350\264\271\347\211\251\345\223\201\346\225\260\351\207\217\022C\n\010m_"
+    "reward\030\004 \003(\0132!.proto_ff.E_GuildDonateRew"
+    "ardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\003\"N\n\021Sheet_GuildDo"
+    "nate\0229\n\022E_GuildDonate_List\030\001 \003(\0132\027.proto"
+    "_ff.E_GuildDonateB\004\210\301\024\004\"\346\002\n\rE_GuildPacke"
+    "t\022\032\n\004m_ID\030\001 \001(\005B\014\302\377\024\010\347\272\242\345\214\205ID\022,\n\014m_belon"
+    "gType\030\002 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\345\275\222\345\261\236\347\261\273\345\236\213\022&\n\006m"
+    "_type\030\003 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\350\247\246\345\217\221\347\261\273\345\236\213\022#\n\tm"
+    "_typeArg\030\004 \001(\005B\020\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\022(\n\010m_it"
+    "emID\030\005 \001(\005B\026\302\377\024\022\347\272\242\345\214\205\351\242\206\345\217\226\347\261\273\345\236\213\022#\n\tm_"
+    "itemNum\030\006 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\351\207\221\351\242\235\022\037\n\005m_num"
+    "\030\007 \001(\005B\020\302\377\024\014\347\272\242\345\214\205\344\273\275\346\225\260\022\037\n\005m_pre\030\010 \001(\005B"
+    "\020\302\377\024\014\345\211\215\347\275\256\347\272\242\345\214\205\022-\n\007m_daily\030\t \001(\005B\034\302\377\024\030"
+    "\346\257\217\346\227\245\351\231\220\345\210\266\350\247\246\345\217\221\346\254\241\346\225\260\"O\n\021Sheet_GuildP"
+    "acket\022:\n\022E_GuildPacket_List\030\001 \003(\0132\027.prot"
+    "o_ff.E_GuildPacketB\005\210\301\024\200\001\"\214\002\n\023E_GuildPre"
+    "stigetask\022\024\n\004m_ID\030\001 \001(\005B\006\302\377\024\002id\022!\n\007m_lev"
+    "el\030\002 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\345\210\206\347\272\247\022!\n\007m_lvMin\030\003 "
+    "\001(\005B\020\302\377\024\014\347\255\211\347\272\247\344\270\213\351\231\220\022!\n\007m_lvMax\030\004 \001(\005B\020"
+    "\302\377\024\014\347\255\211\347\272\247\344\270\212\351\231\220\022\034\n\010m_weight\030\005 \001(\005B\n\302\377\024\006"
+    "\346\235\203\351\207\215\022,\n\nm_taskpool\030\006 \001(\005B\030\302\377\024\024\351\232\217\346\234\272\347\232"
+    "\204\344\273\273\345\212\241\346\261\240id\022*\n\010m_reward\030\007 \001(\005B\030\302\377\024\024\344\273\273\345"
+    "\212\241\345\245\226\345\212\261\347\261\273\345\236\213id\"`\n\027Sheet_GuildPrestiget"
+    "ask\022E\n\030E_GuildPrestigetask_List\030\001 \003(\0132\035."
+    "proto_ff.E_GuildPrestigetaskB\004\210\301\024\020\"\245\001\n\017E"
+    "_GuildLvreward\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247"
+    "\022$\n\nm_partyExp\030\002 \001(\003B\020\302\377\024\014\346\231\232\345\256\264\347\273\217\351\252\214\022-"
+    "\n\023m_partyEontribution\030\003 \001(\005B\020\302\377\024\014\346\231\232\345\256\264\350"
+    "\264\241\347\214\256\022#\n\tm_linkExp\030\004 \001(\003B\020\302\377\024\014\351\223\276\346\216\245\347\273\217\351"
+    "\252\214\"U\n\023Sheet_GuildLvreward\022>\n\024E_GuildLvre"
+    "ward_List\030\001 \003(\0132\031.proto_ff.E_GuildLvrewa"
+    "rdB\005\210\301\024\200\020\"O\n\033E_GuildCollegeAttributeDesc"
+    "\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001"
+    "(\005B\006\302\377\024\002ID\"\303\003\n\016E_GuildCollege\022\033\n\005m_uid\030\001"
+    " \001(\005B\014\302\377\024\010\345\224\257\344\270\200id\022\037\n\tm_skillid\030\002 \001(\005B\014\302"
+    "\377\024\010\346\212\200\350\203\275id\022#\n\tm_skillLv\030\003 \001(\005B\020\302\377\024\014\345\277\203\346"
+    "\263\225\347\255\211\347\272\247\0225\n\tm_guildLv\030\004 \001(\005B\"\302\377\024\036\345\274\200\346\224\276\345"
+    "\255\246\344\271\240\351\234\200\346\261\202\345\205\254\344\274\232\347\255\211\347\272\247\022/\n\017m_playerLvLim"
+    "it\030\005 \001(\005B\026\302\377\024\022\350\246\201\346\261\202\347\216\251\345\256\266\347\255\211\347\272\247\022.\n\014m_pr"
+    "eSkillid\030\006 \001(\005B\030\302\377\024\024\350\246\201\346\261\202\345\211\215\347\275\256\346\212\200\350\203\275ID"
+    "\0222\n\014m_preSkillLv\030\007 \001(\005B\034\302\377\024\030\350\246\201\346\261\202\345\211\215\347\275\256"
+    "\346\212\200\350\203\275\347\255\211\347\272\247\0220\n\020m_CostContribute\030\010 \001(\005B\026"
+    "\302\377\024\022\345\277\203\346\263\225\346\266\210\350\200\227\350\264\241\347\214\256\022P\n\013m_attribute\030\t "
+    "\003(\0132%.proto_ff.E_GuildCollegeAttributeDe"
+    "scB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\002\"S\n\022Sheet_GuildC"
+    "ollege\022=\n\023E_GuildCollege_List\030\001 \003(\0132\030.pr"
+    "oto_ff.E_GuildCollegeB\006\210\301\024\200\200\001\"G\n\rE_Guild"
+    "Answer\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022 \n\010m_answer"
+    "\030\002 \001(\tB\016\302\377\024\006\347\255\224\346\241\210\220\301\024@\"N\n\021Sheet_GuildAns"
+    "wer\0229\n\022E_GuildAnswer_List\030\001 \003(\0132\027.proto_"
+    "ff.E_GuildAnswerB\004\210\301\024@\"\207\002\n\022E_GuildRank_r"
+    "eward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type\030\002 "
+    "\001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\036\n\006m_note\030\003 \001(\tB\016\302\377\024\006\345\244\207"
+    "\346\263\250\220\301\024@\022#\n\tm_rankMin\030\004 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270"
+    "\213\351\231\220\022#\n\tm_rankMax\030\005 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\212\351\231"
+    "\220\022-\n\007m_lvMin\030\006 \001(\005B\034\302\377\024\030\350\267\250\346\234\215\344\270\226\347\225\214\347\255\211\347"
+    "\272\247\344\270\213\351\231\220\022&\n\tm_rewardS\030\007 \001(\005B\023\302\377\024\017\346\234\215\345\212\241\345"
+    "\231\250\345\245\226\345\212\261\"^\n\026Sheet_GuildRank_reward\022D\n\027E_"
+    "GuildRank_reward_List\030\001 \003(\0132\034.proto_ff.E"
+    "_GuildRank_rewardB\005\210\301\024\200\002\"N\n\033E_GuildShouh"
+    "skillRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351"
+    "\207\217\022\024\n\004m_Id\030\002 \001(\005B\006\302\377\024\002id\"\225\002\n\021E_GuildShou"
+    "hskill\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\006m_name\030\002"
+    " \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022\036\n\010m_costId\030\003 \001(\005B\014"
+    "\302\377\024\010\350\212\261\350\264\271id\022#\n\tm_costNum\030\004 \001(\005B\020\302\377\024\014\350\212\261"
+    "\350\264\271\346\225\260\351\207\217\022\037\n\tm_skillid\030\005 \001(\005B\014\302\377\024\010\346\212\200\350\203\275"
+    "id\022\033\n\007m_times\030\006 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022G\n\010m_rew"
+    "ard\030\007 \003(\0132%.proto_ff.E_GuildShouhskillRe"
+    "wardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\002\"Z\n\025Sheet_GuildS"
+    "houhskill\022A\n\026E_GuildShouhskill_List\030\001 \003("
+    "\0132\033.proto_ff.E_GuildShouhskillB\004\210\301\024\010\"\271\001\n"
+    "\017E_GuildGwreward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\032"
+    "\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\'\n\010m_reward\030\003"
+    " \001(\tB\025\302\377\024\014\346\234\254\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022,\n\rm_Crossre"
+    "ward\030\004 \001(\tB\025\302\377\024\014\350\267\250\346\234\215\345\245\226\345\212\261\220\301\024\200\002\022\035\n\005m_a"
+    "rg\030\005 \003(\005B\016\302\377\024\006\345\217\202\346\225\260\210\301\024\003\"U\n\023Sheet_GuildG"
+    "wreward\022>\n\024E_GuildGwreward_List\030\001 \003(\0132\031."
+    "proto_ff.E_GuildGwrewardB\005\210\301\024\200\001\"\310\001\n\022E_Gu"
+    "ildGwwinstreak\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\013"
+    "m_winStreak\030\002 \001(\005B\r\302\377\024\t\350\277\236\350\203\234\346\225\260\022%\n\013m_wi"
+    "nReward\030\003 \001(\005B\020\302\377\024\014\350\277\236\350\203\234\345\245\226\345\212\261\022%\n\013m_end"
+    "Reward\030\004 \001(\005B\020\302\377\024\014\347\273\210\347\273\223\345\245\226\345\212\261\022*\n\020m_chal"
+    "lengeSkill\030\005 \001(\005B\020\302\377\024\014\345\243\253\346\260\224\346\212\200\350\203\275\"]\n\026Sh"
+    "eet_GuildGwwinstreak\022C\n\027E_GuildGwwinstre"
+    "ak_List\030\001 \003(\0132\034.proto_ff.E_GuildGwwinstr"
+    "eakB\004\210\301\024 \"\226\001\n\rE_GuildTtower\022\024\n\004m_id\030\001 \001("
+    "\005B\006\302\377\024\002id\022\035\n\007m_dupid\030\002 \001(\005B\014\302\377\024\010\345\211\257\346\234\254id"
+    "\022$\n\nm_breakBox\030\003 \001(\005B\020\302\377\024\014\351\200\232\345\205\263\345\245\226\345\212\261\022*"
+    "\n\nm_clearBox\030\004 \001(\005B\026\302\377\024\022\345\215\225\346\254\241\347\273\223\347\256\227\345\245\226\345"
+    "\212\261\"O\n\021Sheet_GuildTtower\022:\n\022E_GuildTtower"
+    "_List\030\001 \003(\0132\027.proto_ff.E_GuildTtowerB\005\210\301"
+    "\024\200\001\"U\n!E_GuildTtowerdevelopAttributeDesc"
+    "\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001"
+    "(\005B\006\302\377\024\002ID\"\306\001\n\024E_GuildTtowerdevelop\022\024\n\004m"
+    "_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347"
+    "\261\273\345\236\213\022$\n\013m_dataGroup\030\003 \001(\005B\017\302\377\024\013\346\225\260\346\215\256\347\273"
+    "\204id\022V\n\013m_attribute\030\004 \003(\0132+.proto_ff.E_Gu"
+    "ildTtowerdevelopAttributeDescB\024\302\377\024\014\345\237\272\347\241"
+    "\200\345\261\236\346\200\247\210\301\024\010\"c\n\030Sheet_GuildTtowerdevelop\022"
+    "G\n\031E_GuildTtowerdevelop_List\030\001 \003(\0132\036.pro"
+    "to_ff.E_GuildTtowerdevelopB\004\210\301\024@\"Z\n&E_Gu"
+    "ildTtowerdevelop_dataAttributeDesc\022\030\n\007m_"
+    "value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377"
+    "\024\002ID\"\367\001\n\031E_GuildTtowerdevelop_data\022\024\n\004m_"
+    "id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024"
+    "\005\347\273\204id\022$\n\nm_costItem\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201"
+    "\223\345\205\267\022#\n\tm_costnum\030\004 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207"
+    "\217\022[\n\013m_attribute\030\005 \003(\01320.proto_ff.E_Guil"
+    "dTtowerdevelop_dataAttributeDescB\024\302\377\024\014\345\237"
+    "\272\347\241\200\345\261\236\346\200\247\210\301\024\010\"r\n\035Sheet_GuildTtowerdevel"
+    "op_data\022Q\n\036E_GuildTtowerdevelop_data_Lis"
+    "t\030\001 \003(\0132#.proto_ff.E_GuildTtowerdevelop_"
+    "dataB\004\210\301\024 ", 10410);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Guild.proto", &protobuf_RegisterTypes);
   E_GuildConstant::default_instance_ = new E_GuildConstant();
@@ -1237,6 +1401,12 @@ void protobuf_AddDesc_E_5fGuild_2eproto() {
   Sheet_GuildGwwinstreak::default_instance_ = new Sheet_GuildGwwinstreak();
   E_GuildTtower::default_instance_ = new E_GuildTtower();
   Sheet_GuildTtower::default_instance_ = new Sheet_GuildTtower();
+  E_GuildTtowerdevelopAttributeDesc::default_instance_ = new E_GuildTtowerdevelopAttributeDesc();
+  E_GuildTtowerdevelop::default_instance_ = new E_GuildTtowerdevelop();
+  Sheet_GuildTtowerdevelop::default_instance_ = new Sheet_GuildTtowerdevelop();
+  E_GuildTtowerdevelop_dataAttributeDesc::default_instance_ = new E_GuildTtowerdevelop_dataAttributeDesc();
+  E_GuildTtowerdevelop_data::default_instance_ = new E_GuildTtowerdevelop_data();
+  Sheet_GuildTtowerdevelop_data::default_instance_ = new Sheet_GuildTtowerdevelop_data();
   E_GuildConstant::default_instance_->InitAsDefaultInstance();
   Sheet_GuildConstant::default_instance_->InitAsDefaultInstance();
   E_GuildLevel::default_instance_->InitAsDefaultInstance();
@@ -1271,6 +1441,12 @@ void protobuf_AddDesc_E_5fGuild_2eproto() {
   Sheet_GuildGwwinstreak::default_instance_->InitAsDefaultInstance();
   E_GuildTtower::default_instance_->InitAsDefaultInstance();
   Sheet_GuildTtower::default_instance_->InitAsDefaultInstance();
+  E_GuildTtowerdevelopAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_GuildTtowerdevelop::default_instance_->InitAsDefaultInstance();
+  Sheet_GuildTtowerdevelop::default_instance_->InitAsDefaultInstance();
+  E_GuildTtowerdevelop_dataAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_GuildTtowerdevelop_data::default_instance_->InitAsDefaultInstance();
+  Sheet_GuildTtowerdevelop_data::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_E_5fGuild_2eproto);
 }
 
@@ -5431,6 +5607,7 @@ const int E_GuildPosition::kMDissolveAssignGuildFieldNumber;
 const int E_GuildPosition::kMChangeNameFieldNumber;
 const int E_GuildPosition::kMRecruitChatFieldNumber;
 const int E_GuildPosition::kMGuildPacketFieldNumber;
+const int E_GuildPosition::kMUpGuardFieldNumber;
 #endif  // !_MSC_VER
 
 E_GuildPosition::E_GuildPosition()
@@ -5467,6 +5644,7 @@ void E_GuildPosition::SharedCtor() {
   m_changename_ = 0;
   m_recruitchat_ = 0;
   m_guildpacket_ = 0;
+  m_upguard_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5524,6 +5702,7 @@ void E_GuildPosition::Clear() {
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     m_recruitchat_ = 0;
     m_guildpacket_ = 0;
+    m_upguard_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -5818,6 +5997,22 @@ bool E_GuildPosition::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(152)) goto parse_m_UpGuard;
+        break;
+      }
+
+      // optional int32 m_UpGuard = 19;
+      case 19: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_UpGuard:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_upguard_)));
+          set_has_m_upguard();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5930,6 +6125,11 @@ void E_GuildPosition::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(18, this->m_guildpacket(), output);
   }
 
+  // optional int32 m_UpGuard = 19;
+  if (has_m_upguard()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(19, this->m_upguard(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -6026,6 +6226,11 @@ void E_GuildPosition::SerializeWithCachedSizes(
   // optional int32 m_guildPacket = 18;
   if (has_m_guildpacket()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(18, this->m_guildpacket(), target);
+  }
+
+  // optional int32 m_UpGuard = 19;
+  if (has_m_upguard()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(19, this->m_upguard(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6169,6 +6374,13 @@ int E_GuildPosition::ByteSize() const {
           this->m_guildpacket());
     }
 
+    // optional int32 m_UpGuard = 19;
+    if (has_m_upguard()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_upguard());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -6254,6 +6466,9 @@ void E_GuildPosition::MergeFrom(const E_GuildPosition& from) {
     if (from.has_m_guildpacket()) {
       set_m_guildpacket(from.m_guildpacket());
     }
+    if (from.has_m_upguard()) {
+      set_m_upguard(from.m_upguard());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -6295,6 +6510,7 @@ void E_GuildPosition::Swap(E_GuildPosition* other) {
     std::swap(m_changename_, other->m_changename_);
     std::swap(m_recruitchat_, other->m_recruitchat_);
     std::swap(m_guildpacket_, other->m_guildpacket_);
+    std::swap(m_upguard_, other->m_upguard_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9525,9 +9741,9 @@ E_GuildLvreward::E_GuildLvreward(const E_GuildLvreward& from)
 void E_GuildLvreward::SharedCtor() {
   _cached_size_ = 0;
   m_lv_ = 0;
-  m_partyexp_ = 0;
+  m_partyexp_ = GOOGLE_LONGLONG(0);
   m_partyeontribution_ = 0;
-  m_linkexp_ = 0;
+  m_linkexp_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -9564,9 +9780,9 @@ E_GuildLvreward* E_GuildLvreward::New() const {
 void E_GuildLvreward::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_lv_ = 0;
-    m_partyexp_ = 0;
+    m_partyexp_ = GOOGLE_LONGLONG(0);
     m_partyeontribution_ = 0;
-    m_linkexp_ = 0;
+    m_linkexp_ = GOOGLE_LONGLONG(0);
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -9593,13 +9809,13 @@ bool E_GuildLvreward::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 m_partyExp = 2;
+      // optional int64 m_partyExp = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_partyExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_partyexp_)));
           set_has_m_partyexp();
         } else {
@@ -9625,13 +9841,13 @@ bool E_GuildLvreward::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 m_linkExp = 4;
+      // optional int64 m_linkExp = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_linkExp:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &m_linkexp_)));
           set_has_m_linkexp();
         } else {
@@ -9664,9 +9880,9 @@ void E_GuildLvreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_lv(), output);
   }
 
-  // optional int32 m_partyExp = 2;
+  // optional int64 m_partyExp = 2;
   if (has_m_partyexp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_partyexp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_partyexp(), output);
   }
 
   // optional int32 m_partyEontribution = 3;
@@ -9674,9 +9890,9 @@ void E_GuildLvreward::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_partyeontribution(), output);
   }
 
-  // optional int32 m_linkExp = 4;
+  // optional int64 m_linkExp = 4;
   if (has_m_linkexp()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_linkexp(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(4, this->m_linkexp(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9692,9 +9908,9 @@ void E_GuildLvreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_lv(), target);
   }
 
-  // optional int32 m_partyExp = 2;
+  // optional int64 m_partyExp = 2;
   if (has_m_partyexp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_partyexp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_partyexp(), target);
   }
 
   // optional int32 m_partyEontribution = 3;
@@ -9702,9 +9918,9 @@ void E_GuildLvreward::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_partyeontribution(), target);
   }
 
-  // optional int32 m_linkExp = 4;
+  // optional int64 m_linkExp = 4;
   if (has_m_linkexp()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_linkexp(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(4, this->m_linkexp(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9725,10 +9941,10 @@ int E_GuildLvreward::ByteSize() const {
           this->m_lv());
     }
 
-    // optional int32 m_partyExp = 2;
+    // optional int64 m_partyExp = 2;
     if (has_m_partyexp()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_partyexp());
     }
 
@@ -9739,10 +9955,10 @@ int E_GuildLvreward::ByteSize() const {
           this->m_partyeontribution());
     }
 
-    // optional int32 m_linkExp = 4;
+    // optional int64 m_linkExp = 4;
     if (has_m_linkexp()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
           this->m_linkexp());
     }
 
@@ -14772,6 +14988,1604 @@ void Sheet_GuildTtower::Swap(Sheet_GuildTtower* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_GuildTtower_descriptor_;
   metadata.reflection = Sheet_GuildTtower_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_GuildTtowerdevelopAttributeDesc::kMValueFieldNumber;
+const int E_GuildTtowerdevelopAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_GuildTtowerdevelopAttributeDesc::E_GuildTtowerdevelopAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_GuildTtowerdevelopAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_GuildTtowerdevelopAttributeDesc::E_GuildTtowerdevelopAttributeDesc(const E_GuildTtowerdevelopAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelopAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_GuildTtowerdevelopAttributeDesc::~E_GuildTtowerdevelopAttributeDesc() {
+  SharedDtor();
+}
+
+void E_GuildTtowerdevelopAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_GuildTtowerdevelopAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelopAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_GuildTtowerdevelopAttributeDesc_descriptor_;
+}
+
+const E_GuildTtowerdevelopAttributeDesc& E_GuildTtowerdevelopAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fGuild_2eproto();
+  return *default_instance_;
+}
+
+E_GuildTtowerdevelopAttributeDesc* E_GuildTtowerdevelopAttributeDesc::default_instance_ = NULL;
+
+E_GuildTtowerdevelopAttributeDesc* E_GuildTtowerdevelopAttributeDesc::New() const {
+  return new E_GuildTtowerdevelopAttributeDesc;
+}
+
+void E_GuildTtowerdevelopAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_GuildTtowerdevelopAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_GuildTtowerdevelopAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_GuildTtowerdevelopAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_GuildTtowerdevelopAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_GuildTtowerdevelopAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_GuildTtowerdevelopAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_GuildTtowerdevelopAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_GuildTtowerdevelopAttributeDesc::MergeFrom(const E_GuildTtowerdevelopAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_GuildTtowerdevelopAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelopAttributeDesc::CopyFrom(const E_GuildTtowerdevelopAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_GuildTtowerdevelopAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_GuildTtowerdevelopAttributeDesc::Swap(E_GuildTtowerdevelopAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_GuildTtowerdevelopAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_GuildTtowerdevelopAttributeDesc_descriptor_;
+  metadata.reflection = E_GuildTtowerdevelopAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_GuildTtowerdevelop::kMIdFieldNumber;
+const int E_GuildTtowerdevelop::kMTypeFieldNumber;
+const int E_GuildTtowerdevelop::kMDataGroupFieldNumber;
+const int E_GuildTtowerdevelop::kMAttributeFieldNumber;
+#endif  // !_MSC_VER
+
+E_GuildTtowerdevelop::E_GuildTtowerdevelop()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_GuildTtowerdevelop::InitAsDefaultInstance() {
+}
+
+E_GuildTtowerdevelop::E_GuildTtowerdevelop(const E_GuildTtowerdevelop& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelop::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_type_ = 0;
+  m_datagroup_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_GuildTtowerdevelop::~E_GuildTtowerdevelop() {
+  SharedDtor();
+}
+
+void E_GuildTtowerdevelop::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_GuildTtowerdevelop::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelop::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_GuildTtowerdevelop_descriptor_;
+}
+
+const E_GuildTtowerdevelop& E_GuildTtowerdevelop::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fGuild_2eproto();
+  return *default_instance_;
+}
+
+E_GuildTtowerdevelop* E_GuildTtowerdevelop::default_instance_ = NULL;
+
+E_GuildTtowerdevelop* E_GuildTtowerdevelop::New() const {
+  return new E_GuildTtowerdevelop;
+}
+
+void E_GuildTtowerdevelop::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_type_ = 0;
+    m_datagroup_ = 0;
+  }
+  m_attribute_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_GuildTtowerdevelop::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_dataGroup;
+        break;
+      }
+
+      // optional int32 m_dataGroup = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_dataGroup:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_datagroup_)));
+          set_has_m_datagroup();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_GuildTtowerdevelopAttributeDesc m_attribute = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_attribute;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_GuildTtowerdevelop::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  // optional int32 m_dataGroup = 3;
+  if (has_m_datagroup()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_datagroup(), output);
+  }
+
+  // repeated .proto_ff.E_GuildTtowerdevelopAttributeDesc m_attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->m_attribute(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_GuildTtowerdevelop::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  // optional int32 m_dataGroup = 3;
+  if (has_m_datagroup()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_datagroup(), target);
+  }
+
+  // repeated .proto_ff.E_GuildTtowerdevelopAttributeDesc m_attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->m_attribute(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_GuildTtowerdevelop::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+    // optional int32 m_dataGroup = 3;
+    if (has_m_datagroup()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_datagroup());
+    }
+
+  }
+  // repeated .proto_ff.E_GuildTtowerdevelopAttributeDesc m_attribute = 4;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_GuildTtowerdevelop::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_GuildTtowerdevelop* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_GuildTtowerdevelop*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_GuildTtowerdevelop::MergeFrom(const E_GuildTtowerdevelop& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+    if (from.has_m_datagroup()) {
+      set_m_datagroup(from.m_datagroup());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_GuildTtowerdevelop::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelop::CopyFrom(const E_GuildTtowerdevelop& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_GuildTtowerdevelop::IsInitialized() const {
+
+  return true;
+}
+
+void E_GuildTtowerdevelop::Swap(E_GuildTtowerdevelop* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_datagroup_, other->m_datagroup_);
+    m_attribute_.Swap(&other->m_attribute_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_GuildTtowerdevelop::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_GuildTtowerdevelop_descriptor_;
+  metadata.reflection = E_GuildTtowerdevelop_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_GuildTtowerdevelop::kEGuildTtowerdevelopListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_GuildTtowerdevelop::Sheet_GuildTtowerdevelop()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_GuildTtowerdevelop::InitAsDefaultInstance() {
+}
+
+Sheet_GuildTtowerdevelop::Sheet_GuildTtowerdevelop(const Sheet_GuildTtowerdevelop& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_GuildTtowerdevelop::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_GuildTtowerdevelop::~Sheet_GuildTtowerdevelop() {
+  SharedDtor();
+}
+
+void Sheet_GuildTtowerdevelop::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_GuildTtowerdevelop::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_GuildTtowerdevelop::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_GuildTtowerdevelop_descriptor_;
+}
+
+const Sheet_GuildTtowerdevelop& Sheet_GuildTtowerdevelop::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fGuild_2eproto();
+  return *default_instance_;
+}
+
+Sheet_GuildTtowerdevelop* Sheet_GuildTtowerdevelop::default_instance_ = NULL;
+
+Sheet_GuildTtowerdevelop* Sheet_GuildTtowerdevelop::New() const {
+  return new Sheet_GuildTtowerdevelop;
+}
+
+void Sheet_GuildTtowerdevelop::Clear() {
+  e_guildttowerdevelop_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_GuildTtowerdevelop::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_GuildTtowerdevelop_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_guildttowerdevelop_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_GuildTtowerdevelop_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_GuildTtowerdevelop::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1;
+  for (int i = 0; i < this->e_guildttowerdevelop_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_guildttowerdevelop_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_GuildTtowerdevelop::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1;
+  for (int i = 0; i < this->e_guildttowerdevelop_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_guildttowerdevelop_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_GuildTtowerdevelop::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1;
+  total_size += 1 * this->e_guildttowerdevelop_list_size();
+  for (int i = 0; i < this->e_guildttowerdevelop_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_guildttowerdevelop_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_GuildTtowerdevelop::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_GuildTtowerdevelop* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_GuildTtowerdevelop*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_GuildTtowerdevelop::MergeFrom(const Sheet_GuildTtowerdevelop& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_guildttowerdevelop_list_.MergeFrom(from.e_guildttowerdevelop_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_GuildTtowerdevelop::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_GuildTtowerdevelop::CopyFrom(const Sheet_GuildTtowerdevelop& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_GuildTtowerdevelop::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_GuildTtowerdevelop::Swap(Sheet_GuildTtowerdevelop* other) {
+  if (other != this) {
+    e_guildttowerdevelop_list_.Swap(&other->e_guildttowerdevelop_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_GuildTtowerdevelop::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_GuildTtowerdevelop_descriptor_;
+  metadata.reflection = Sheet_GuildTtowerdevelop_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_GuildTtowerdevelop_dataAttributeDesc::kMValueFieldNumber;
+const int E_GuildTtowerdevelop_dataAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_GuildTtowerdevelop_dataAttributeDesc::E_GuildTtowerdevelop_dataAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_GuildTtowerdevelop_dataAttributeDesc::E_GuildTtowerdevelop_dataAttributeDesc(const E_GuildTtowerdevelop_dataAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_GuildTtowerdevelop_dataAttributeDesc::~E_GuildTtowerdevelop_dataAttributeDesc() {
+  SharedDtor();
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelop_dataAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_GuildTtowerdevelop_dataAttributeDesc_descriptor_;
+}
+
+const E_GuildTtowerdevelop_dataAttributeDesc& E_GuildTtowerdevelop_dataAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fGuild_2eproto();
+  return *default_instance_;
+}
+
+E_GuildTtowerdevelop_dataAttributeDesc* E_GuildTtowerdevelop_dataAttributeDesc::default_instance_ = NULL;
+
+E_GuildTtowerdevelop_dataAttributeDesc* E_GuildTtowerdevelop_dataAttributeDesc::New() const {
+  return new E_GuildTtowerdevelop_dataAttributeDesc;
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_GuildTtowerdevelop_dataAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_GuildTtowerdevelop_dataAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_GuildTtowerdevelop_dataAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_GuildTtowerdevelop_dataAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_GuildTtowerdevelop_dataAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::MergeFrom(const E_GuildTtowerdevelop_dataAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::CopyFrom(const E_GuildTtowerdevelop_dataAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_GuildTtowerdevelop_dataAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc::Swap(E_GuildTtowerdevelop_dataAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_GuildTtowerdevelop_dataAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_GuildTtowerdevelop_dataAttributeDesc_descriptor_;
+  metadata.reflection = E_GuildTtowerdevelop_dataAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_GuildTtowerdevelop_data::kMIdFieldNumber;
+const int E_GuildTtowerdevelop_data::kMGroupIDFieldNumber;
+const int E_GuildTtowerdevelop_data::kMCostItemFieldNumber;
+const int E_GuildTtowerdevelop_data::kMCostnumFieldNumber;
+const int E_GuildTtowerdevelop_data::kMAttributeFieldNumber;
+#endif  // !_MSC_VER
+
+E_GuildTtowerdevelop_data::E_GuildTtowerdevelop_data()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_GuildTtowerdevelop_data::InitAsDefaultInstance() {
+}
+
+E_GuildTtowerdevelop_data::E_GuildTtowerdevelop_data(const E_GuildTtowerdevelop_data& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelop_data::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_costitem_ = 0;
+  m_costnum_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_GuildTtowerdevelop_data::~E_GuildTtowerdevelop_data() {
+  SharedDtor();
+}
+
+void E_GuildTtowerdevelop_data::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_GuildTtowerdevelop_data::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_GuildTtowerdevelop_data::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_GuildTtowerdevelop_data_descriptor_;
+}
+
+const E_GuildTtowerdevelop_data& E_GuildTtowerdevelop_data::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fGuild_2eproto();
+  return *default_instance_;
+}
+
+E_GuildTtowerdevelop_data* E_GuildTtowerdevelop_data::default_instance_ = NULL;
+
+E_GuildTtowerdevelop_data* E_GuildTtowerdevelop_data::New() const {
+  return new E_GuildTtowerdevelop_data;
+}
+
+void E_GuildTtowerdevelop_data::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_costitem_ = 0;
+    m_costnum_ = 0;
+  }
+  m_attribute_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_GuildTtowerdevelop_data::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_costItem;
+        break;
+      }
+
+      // optional int32 m_costItem = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costItem:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_costitem_)));
+          set_has_m_costitem();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_costnum;
+        break;
+      }
+
+      // optional int32 m_costnum = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costnum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_costnum_)));
+          set_has_m_costnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_m_attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_m_attribute;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_GuildTtowerdevelop_data::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_costItem = 3;
+  if (has_m_costitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_costitem(), output);
+  }
+
+  // optional int32 m_costnum = 4;
+  if (has_m_costnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_costnum(), output);
+  }
+
+  // repeated .proto_ff.E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->m_attribute(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_GuildTtowerdevelop_data::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_costItem = 3;
+  if (has_m_costitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_costitem(), target);
+  }
+
+  // optional int32 m_costnum = 4;
+  if (has_m_costnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_costnum(), target);
+  }
+
+  // repeated .proto_ff.E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->m_attribute(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_GuildTtowerdevelop_data::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_costItem = 3;
+    if (has_m_costitem()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_costitem());
+    }
+
+    // optional int32 m_costnum = 4;
+    if (has_m_costnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_costnum());
+    }
+
+  }
+  // repeated .proto_ff.E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_GuildTtowerdevelop_data::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_GuildTtowerdevelop_data* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_GuildTtowerdevelop_data*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_GuildTtowerdevelop_data::MergeFrom(const E_GuildTtowerdevelop_data& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_costitem()) {
+      set_m_costitem(from.m_costitem());
+    }
+    if (from.has_m_costnum()) {
+      set_m_costnum(from.m_costnum());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_GuildTtowerdevelop_data::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_GuildTtowerdevelop_data::CopyFrom(const E_GuildTtowerdevelop_data& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_GuildTtowerdevelop_data::IsInitialized() const {
+
+  return true;
+}
+
+void E_GuildTtowerdevelop_data::Swap(E_GuildTtowerdevelop_data* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_costitem_, other->m_costitem_);
+    std::swap(m_costnum_, other->m_costnum_);
+    m_attribute_.Swap(&other->m_attribute_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_GuildTtowerdevelop_data::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_GuildTtowerdevelop_data_descriptor_;
+  metadata.reflection = E_GuildTtowerdevelop_data_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_GuildTtowerdevelop_data::kEGuildTtowerdevelopDataListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_GuildTtowerdevelop_data::Sheet_GuildTtowerdevelop_data()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_GuildTtowerdevelop_data::InitAsDefaultInstance() {
+}
+
+Sheet_GuildTtowerdevelop_data::Sheet_GuildTtowerdevelop_data(const Sheet_GuildTtowerdevelop_data& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_GuildTtowerdevelop_data::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_GuildTtowerdevelop_data::~Sheet_GuildTtowerdevelop_data() {
+  SharedDtor();
+}
+
+void Sheet_GuildTtowerdevelop_data::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_GuildTtowerdevelop_data::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_GuildTtowerdevelop_data::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_GuildTtowerdevelop_data_descriptor_;
+}
+
+const Sheet_GuildTtowerdevelop_data& Sheet_GuildTtowerdevelop_data::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fGuild_2eproto();
+  return *default_instance_;
+}
+
+Sheet_GuildTtowerdevelop_data* Sheet_GuildTtowerdevelop_data::default_instance_ = NULL;
+
+Sheet_GuildTtowerdevelop_data* Sheet_GuildTtowerdevelop_data::New() const {
+  return new Sheet_GuildTtowerdevelop_data;
+}
+
+void Sheet_GuildTtowerdevelop_data::Clear() {
+  e_guildttowerdevelop_data_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_GuildTtowerdevelop_data::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_GuildTtowerdevelop_data_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_guildttowerdevelop_data_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_GuildTtowerdevelop_data_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_GuildTtowerdevelop_data::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1;
+  for (int i = 0; i < this->e_guildttowerdevelop_data_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_guildttowerdevelop_data_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_GuildTtowerdevelop_data::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1;
+  for (int i = 0; i < this->e_guildttowerdevelop_data_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_guildttowerdevelop_data_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_GuildTtowerdevelop_data::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1;
+  total_size += 1 * this->e_guildttowerdevelop_data_list_size();
+  for (int i = 0; i < this->e_guildttowerdevelop_data_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_guildttowerdevelop_data_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_GuildTtowerdevelop_data::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_GuildTtowerdevelop_data* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_GuildTtowerdevelop_data*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_GuildTtowerdevelop_data::MergeFrom(const Sheet_GuildTtowerdevelop_data& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_guildttowerdevelop_data_list_.MergeFrom(from.e_guildttowerdevelop_data_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_GuildTtowerdevelop_data::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_GuildTtowerdevelop_data::CopyFrom(const Sheet_GuildTtowerdevelop_data& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_GuildTtowerdevelop_data::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_GuildTtowerdevelop_data::Swap(Sheet_GuildTtowerdevelop_data* other) {
+  if (other != this) {
+    e_guildttowerdevelop_data_list_.Swap(&other->e_guildttowerdevelop_data_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_GuildTtowerdevelop_data::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_GuildTtowerdevelop_data_descriptor_;
+  metadata.reflection = Sheet_GuildTtowerdevelop_data_reflection_;
   return metadata;
 }
 

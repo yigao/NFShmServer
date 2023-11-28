@@ -6,12 +6,13 @@ import "ComDefine.proto";
 //帝弑影龙信息
 message ShadowProto
 {
-	optional int32 lev = 1;	//等级
-	optional int32 exp = 2;		//经验
-	optional int32 star = 3;	//星级
-	optional int32 lucky = 4;	//幸运值
-	repeated ComPair frag = 5;	//碎片信息 fragid - num
-	optional int32 curstar = 6; //当前幻化的星级
+	optional int32 lev = 1;			//等级
+	optional int32 exp = 2;			//经验
+	optional int32 star = 3;		//星级
+	optional int32 lucky = 4;		//幸运值
+	repeated ComPair frag = 5;		//碎片信息 fragid - num
+	optional int32 curstar = 6;		//当前幻化的星级
+	repeated ComPair64 skill = 7;	//技能
 }
 
 //光环类信息

@@ -38,6 +38,51 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_FestivalTemplate_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_FestivalTemplate_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_eggsdraw_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_eggsdraw_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_eggsdraw_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_eggsdraw_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_eggsdraw_pool_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_eggsdraw_pool_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_eggsdraw_pool_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_eggsdraw_pool_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_eggsdraw_task_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_eggsdraw_task_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_eggsdraw_task_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_eggsdraw_task_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_ftreward_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_ftreward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_ftreward_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_ftreward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_challenge_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_challenge_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_challenge_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_challenge_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_mystmallOpenDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_mystmallOpenDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_mystmall_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_mystmall_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_mystmall_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_mystmall_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_mystmall_mall_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_mystmall_mall_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_mystmall_mall_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_mystmall_mall_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_FestivalMuban_rebatestoreExpendDesc_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_FestivalMuban_rebatestoreExpendDesc_reflection_ = NULL;
@@ -179,18 +224,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_FestivalMuban_leiji_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_FestivalMuban_leiji_reflection_ = NULL;
-const ::google::protobuf::Descriptor* E_FestivalMuban_zadan_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  E_FestivalMuban_zadan_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Sheet_FestivalMuban_zadan_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Sheet_FestivalMuban_zadan_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_FestivalZadanconstant_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_FestivalZadanconstant_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Sheet_FestivalZadanconstant_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_FestivalZadanconstant_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_zadan_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_zadan_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_zadan_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_zadan_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_FestivalMuban_turntable_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_FestivalMuban_turntable_reflection_ = NULL;
@@ -287,6 +332,24 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_FestivalMuban_dailytotalrecharge_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_FestivalMuban_dailytotalrecharge_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_rechargeprize_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_rechargeprize_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_rechargeprize_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_rechargeprize_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_rptask_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_rptask_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_rptask_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_rptask_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FestivalMuban_rppool_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FestivalMuban_rppool_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_rppool_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_FestivalMuban_rppool_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_FestivalMuban_play_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_FestivalMuban_play_reflection_ = NULL;
@@ -384,10 +447,12 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalFestival));
   E_FestivalTemplate_descriptor_ = file->message_type(4);
-  static const int E_FestivalTemplate_offsets_[14] = {
+  static const int E_FestivalTemplate_offsets_[16] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_actionname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_festivalid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_actionfestivalid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_timetype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_level_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalTemplate, m_viplevel_),
@@ -426,7 +491,293 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalTemplate));
-  E_FestivalMuban_rebatestoreExpendDesc_descriptor_ = file->message_type(6);
+  E_FestivalMuban_eggsdraw_descriptor_ = file->message_type(6);
+  static const int E_FestivalMuban_eggsdraw_offsets_[17] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_period_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_costitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_costnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_poolgroupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_showtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_baseimage_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_eggimage_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_clickdesc_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_costdesc_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_residuedesc_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_restartitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_restartcost_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_dailyrestart_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_free_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_taskgroupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, m_dailytaskrestart_),
+  };
+  E_FestivalMuban_eggsdraw_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_eggsdraw_descriptor_,
+      E_FestivalMuban_eggsdraw::default_instance_,
+      E_FestivalMuban_eggsdraw_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_eggsdraw));
+  Sheet_FestivalMuban_eggsdraw_descriptor_ = file->message_type(7);
+  static const int Sheet_FestivalMuban_eggsdraw_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw, e_festivalmuban_eggsdraw_list_),
+  };
+  Sheet_FestivalMuban_eggsdraw_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_eggsdraw_descriptor_,
+      Sheet_FestivalMuban_eggsdraw::default_instance_,
+      Sheet_FestivalMuban_eggsdraw_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_eggsdraw));
+  E_FestivalMuban_eggsdraw_pool_descriptor_ = file->message_type(8);
+  static const int E_FestivalMuban_eggsdraw_pool_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_prof_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_weights_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, m_poollv_),
+  };
+  E_FestivalMuban_eggsdraw_pool_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_eggsdraw_pool_descriptor_,
+      E_FestivalMuban_eggsdraw_pool::default_instance_,
+      E_FestivalMuban_eggsdraw_pool_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_pool, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_eggsdraw_pool));
+  Sheet_FestivalMuban_eggsdraw_pool_descriptor_ = file->message_type(9);
+  static const int Sheet_FestivalMuban_eggsdraw_pool_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw_pool, e_festivalmuban_eggsdraw_pool_list_),
+  };
+  Sheet_FestivalMuban_eggsdraw_pool_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_eggsdraw_pool_descriptor_,
+      Sheet_FestivalMuban_eggsdraw_pool::default_instance_,
+      Sheet_FestivalMuban_eggsdraw_pool_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw_pool, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw_pool, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_eggsdraw_pool));
+  E_FestivalMuban_eggsdraw_task_descriptor_ = file->message_type(10);
+  static const int E_FestivalMuban_eggsdraw_task_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_eventtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_reachprice_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_rewarditem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_rewardnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_link_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, m_param_),
+  };
+  E_FestivalMuban_eggsdraw_task_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_eggsdraw_task_descriptor_,
+      E_FestivalMuban_eggsdraw_task::default_instance_,
+      E_FestivalMuban_eggsdraw_task_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_eggsdraw_task, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_eggsdraw_task));
+  Sheet_FestivalMuban_eggsdraw_task_descriptor_ = file->message_type(11);
+  static const int Sheet_FestivalMuban_eggsdraw_task_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw_task, e_festivalmuban_eggsdraw_task_list_),
+  };
+  Sheet_FestivalMuban_eggsdraw_task_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_eggsdraw_task_descriptor_,
+      Sheet_FestivalMuban_eggsdraw_task::default_instance_,
+      Sheet_FestivalMuban_eggsdraw_task_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw_task, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_eggsdraw_task, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_eggsdraw_task));
+  E_FestivalMuban_ftreward_descriptor_ = file->message_type(12);
+  static const int E_FestivalMuban_ftreward_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_period_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_ftid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_additemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_showreward_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_linkid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, m_functionid_),
+  };
+  E_FestivalMuban_ftreward_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_ftreward_descriptor_,
+      E_FestivalMuban_ftreward::default_instance_,
+      E_FestivalMuban_ftreward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_ftreward, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_ftreward));
+  Sheet_FestivalMuban_ftreward_descriptor_ = file->message_type(13);
+  static const int Sheet_FestivalMuban_ftreward_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_ftreward, e_festivalmuban_ftreward_list_),
+  };
+  Sheet_FestivalMuban_ftreward_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_ftreward_descriptor_,
+      Sheet_FestivalMuban_ftreward::default_instance_,
+      Sheet_FestivalMuban_ftreward_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_ftreward, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_ftreward, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_ftreward));
+  E_FestivalMuban_challenge_descriptor_ = file->message_type(14);
+  static const int E_FestivalMuban_challenge_offsets_[11] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_period_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_joinbox_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_killboxshow_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_monster_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_point_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_showtime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_faceid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_scalle_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, m_linkid_),
+  };
+  E_FestivalMuban_challenge_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_challenge_descriptor_,
+      E_FestivalMuban_challenge::default_instance_,
+      E_FestivalMuban_challenge_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_challenge, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_challenge));
+  Sheet_FestivalMuban_challenge_descriptor_ = file->message_type(15);
+  static const int Sheet_FestivalMuban_challenge_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_challenge, e_festivalmuban_challenge_list_),
+  };
+  Sheet_FestivalMuban_challenge_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_challenge_descriptor_,
+      Sheet_FestivalMuban_challenge::default_instance_,
+      Sheet_FestivalMuban_challenge_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_challenge, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_challenge, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_challenge));
+  E_FestivalMuban_mystmallOpenDesc_descriptor_ = file->message_type(16);
+  static const int E_FestivalMuban_mystmallOpenDesc_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmallOpenDesc, m_dur_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmallOpenDesc, m_mallid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmallOpenDesc, m_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmallOpenDesc, m_id_),
+  };
+  E_FestivalMuban_mystmallOpenDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_mystmallOpenDesc_descriptor_,
+      E_FestivalMuban_mystmallOpenDesc::default_instance_,
+      E_FestivalMuban_mystmallOpenDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmallOpenDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmallOpenDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_mystmallOpenDesc));
+  E_FestivalMuban_mystmall_descriptor_ = file->message_type(17);
+  static const int E_FestivalMuban_mystmall_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall, m_period_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall, m_day_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall, m_open_),
+  };
+  E_FestivalMuban_mystmall_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_mystmall_descriptor_,
+      E_FestivalMuban_mystmall::default_instance_,
+      E_FestivalMuban_mystmall_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_mystmall));
+  Sheet_FestivalMuban_mystmall_descriptor_ = file->message_type(18);
+  static const int Sheet_FestivalMuban_mystmall_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_mystmall, e_festivalmuban_mystmall_list_),
+  };
+  Sheet_FestivalMuban_mystmall_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_mystmall_descriptor_,
+      Sheet_FestivalMuban_mystmall::default_instance_,
+      Sheet_FestivalMuban_mystmall_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_mystmall, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_mystmall, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_mystmall));
+  E_FestivalMuban_mystmall_mall_descriptor_ = file->message_type(19);
+  static const int E_FestivalMuban_mystmall_mall_offsets_[10] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_itemnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_pricetype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_price_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_originprice_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_discount_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_buyamount_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, m_functionunlock_),
+  };
+  E_FestivalMuban_mystmall_mall_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_mystmall_mall_descriptor_,
+      E_FestivalMuban_mystmall_mall::default_instance_,
+      E_FestivalMuban_mystmall_mall_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_mystmall_mall, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_mystmall_mall));
+  Sheet_FestivalMuban_mystmall_mall_descriptor_ = file->message_type(20);
+  static const int Sheet_FestivalMuban_mystmall_mall_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_mystmall_mall, e_festivalmuban_mystmall_mall_list_),
+  };
+  Sheet_FestivalMuban_mystmall_mall_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_mystmall_mall_descriptor_,
+      Sheet_FestivalMuban_mystmall_mall::default_instance_,
+      Sheet_FestivalMuban_mystmall_mall_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_mystmall_mall, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_mystmall_mall, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_mystmall_mall));
+  E_FestivalMuban_rebatestoreExpendDesc_descriptor_ = file->message_type(21);
   static const int E_FestivalMuban_rebatestoreExpendDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestoreExpendDesc, m_boxid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestoreExpendDesc, m_value_),
@@ -442,7 +793,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rebatestoreExpendDesc));
-  E_FestivalMuban_rebatestore_descriptor_ = file->message_type(7);
+  E_FestivalMuban_rebatestore_descriptor_ = file->message_type(22);
   static const int E_FestivalMuban_rebatestore_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore, m_period_),
@@ -460,7 +811,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rebatestore));
-  Sheet_FestivalMuban_rebatestore_descriptor_ = file->message_type(8);
+  Sheet_FestivalMuban_rebatestore_descriptor_ = file->message_type(23);
   static const int Sheet_FestivalMuban_rebatestore_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rebatestore, e_festivalmuban_rebatestore_list_),
   };
@@ -475,12 +826,13 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_rebatestore));
-  E_FestivalMuban_rebatestore_mall_descriptor_ = file->message_type(9);
-  static const int E_FestivalMuban_rebatestore_mall_offsets_[12] = {
+  E_FestivalMuban_rebatestore_mall_descriptor_ = file->message_type(24);
+  static const int E_FestivalMuban_rebatestore_mall_offsets_[13] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_groupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_malltype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_itemnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_price_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_originprice_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rebatestore_mall, m_discount_),
@@ -501,7 +853,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rebatestore_mall));
-  Sheet_FestivalMuban_rebatestore_mall_descriptor_ = file->message_type(10);
+  Sheet_FestivalMuban_rebatestore_mall_descriptor_ = file->message_type(25);
   static const int Sheet_FestivalMuban_rebatestore_mall_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rebatestore_mall, e_festivalmuban_rebatestore_mall_list_),
   };
@@ -516,7 +868,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_rebatestore_mall));
-  E_FestivalMuban_contrecharge_descriptor_ = file->message_type(11);
+  E_FestivalMuban_contrecharge_descriptor_ = file->message_type(26);
   static const int E_FestivalMuban_contrecharge_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge, m_period_),
@@ -534,7 +886,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_contrecharge));
-  Sheet_FestivalMuban_contrecharge_descriptor_ = file->message_type(12);
+  Sheet_FestivalMuban_contrecharge_descriptor_ = file->message_type(27);
   static const int Sheet_FestivalMuban_contrecharge_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_contrecharge, e_festivalmuban_contrecharge_list_),
   };
@@ -549,7 +901,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_contrecharge));
-  E_FestivalMuban_contrecharge_totalTotalDesc_descriptor_ = file->message_type(13);
+  E_FestivalMuban_contrecharge_totalTotalDesc_descriptor_ = file->message_type(28);
   static const int E_FestivalMuban_contrecharge_totalTotalDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge_totalTotalDesc, m_box_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge_totalTotalDesc, m_days_),
@@ -565,7 +917,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_contrecharge_totalTotalDesc));
-  E_FestivalMuban_contrecharge_total_descriptor_ = file->message_type(14);
+  E_FestivalMuban_contrecharge_total_descriptor_ = file->message_type(29);
   static const int E_FestivalMuban_contrecharge_total_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge_total, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge_total, m_groupid_),
@@ -584,7 +936,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_contrecharge_total));
-  Sheet_FestivalMuban_contrecharge_total_descriptor_ = file->message_type(15);
+  Sheet_FestivalMuban_contrecharge_total_descriptor_ = file->message_type(30);
   static const int Sheet_FestivalMuban_contrecharge_total_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_contrecharge_total, e_festivalmuban_contrecharge_total_list_),
   };
@@ -599,7 +951,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_contrecharge_total));
-  E_FestivalMuban_contrecharge_day_descriptor_ = file->message_type(16);
+  E_FestivalMuban_contrecharge_day_descriptor_ = file->message_type(31);
   static const int E_FestivalMuban_contrecharge_day_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge_day, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_contrecharge_day, m_groupid_),
@@ -618,7 +970,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_contrecharge_day));
-  Sheet_FestivalMuban_contrecharge_day_descriptor_ = file->message_type(17);
+  Sheet_FestivalMuban_contrecharge_day_descriptor_ = file->message_type(32);
   static const int Sheet_FestivalMuban_contrecharge_day_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_contrecharge_day, e_festivalmuban_contrecharge_day_list_),
   };
@@ -633,7 +985,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_contrecharge_day));
-  E_FestivalMuban_login_descriptor_ = file->message_type(18);
+  E_FestivalMuban_login_descriptor_ = file->message_type(33);
   static const int E_FestivalMuban_login_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_login, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_login, m_period_),
@@ -651,7 +1003,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_login));
-  Sheet_FestivalMuban_login_descriptor_ = file->message_type(19);
+  Sheet_FestivalMuban_login_descriptor_ = file->message_type(34);
   static const int Sheet_FestivalMuban_login_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_login, e_festivalmuban_login_list_),
   };
@@ -666,7 +1018,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_login));
-  E_FestivalMuban_firstrecharge_descriptor_ = file->message_type(20);
+  E_FestivalMuban_firstrecharge_descriptor_ = file->message_type(35);
   static const int E_FestivalMuban_firstrecharge_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_firstrecharge, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_firstrecharge, m_period_),
@@ -686,7 +1038,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_firstrecharge));
-  Sheet_FestivalMuban_firstrecharge_descriptor_ = file->message_type(21);
+  Sheet_FestivalMuban_firstrecharge_descriptor_ = file->message_type(36);
   static const int Sheet_FestivalMuban_firstrecharge_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_firstrecharge, e_festivalmuban_firstrecharge_list_),
   };
@@ -701,7 +1053,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_firstrecharge));
-  E_FestivalMuban_love_descriptor_ = file->message_type(22);
+  E_FestivalMuban_love_descriptor_ = file->message_type(37);
   static const int E_FestivalMuban_love_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love, m_period_),
@@ -721,7 +1073,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_love));
-  Sheet_FestivalMuban_love_descriptor_ = file->message_type(23);
+  Sheet_FestivalMuban_love_descriptor_ = file->message_type(38);
   static const int Sheet_FestivalMuban_love_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_love, e_festivalmuban_love_list_),
   };
@@ -736,7 +1088,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_love));
-  E_FestivalMuban_love_rank_descriptor_ = file->message_type(24);
+  E_FestivalMuban_love_rank_descriptor_ = file->message_type(39);
   static const int E_FestivalMuban_love_rank_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_rank, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_rank, m_groupid_),
@@ -755,7 +1107,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_love_rank));
-  Sheet_FestivalMuban_love_rank_descriptor_ = file->message_type(25);
+  Sheet_FestivalMuban_love_rank_descriptor_ = file->message_type(40);
   static const int Sheet_FestivalMuban_love_rank_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_love_rank, e_festivalmuban_love_rank_list_),
   };
@@ -770,7 +1122,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_love_rank));
-  E_FestivalMuban_love_rank_data_descriptor_ = file->message_type(26);
+  E_FestivalMuban_love_rank_data_descriptor_ = file->message_type(41);
   static const int E_FestivalMuban_love_rank_data_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_rank_data, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_rank_data, m_groupid_),
@@ -790,7 +1142,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_love_rank_data));
-  Sheet_FestivalMuban_love_rank_data_descriptor_ = file->message_type(27);
+  Sheet_FestivalMuban_love_rank_data_descriptor_ = file->message_type(42);
   static const int Sheet_FestivalMuban_love_rank_data_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_love_rank_data, e_festivalmuban_love_rank_data_list_),
   };
@@ -805,7 +1157,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_love_rank_data));
-  E_FestivalMuban_love_task_descriptor_ = file->message_type(28);
+  E_FestivalMuban_love_task_descriptor_ = file->message_type(43);
   static const int E_FestivalMuban_love_task_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_task, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_task, m_groupid_),
@@ -827,7 +1179,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_love_task));
-  Sheet_FestivalMuban_love_task_descriptor_ = file->message_type(29);
+  Sheet_FestivalMuban_love_task_descriptor_ = file->message_type(44);
   static const int Sheet_FestivalMuban_love_task_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_love_task, e_festivalmuban_love_task_list_),
   };
@@ -842,7 +1194,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_love_task));
-  E_FestivalMuban_love_taskreward_descriptor_ = file->message_type(30);
+  E_FestivalMuban_love_taskreward_descriptor_ = file->message_type(45);
   static const int E_FestivalMuban_love_taskreward_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_taskreward, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_love_taskreward, m_groupid_),
@@ -860,7 +1212,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_love_taskreward));
-  Sheet_FestivalMuban_love_taskreward_descriptor_ = file->message_type(31);
+  Sheet_FestivalMuban_love_taskreward_descriptor_ = file->message_type(46);
   static const int Sheet_FestivalMuban_love_taskreward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_love_taskreward, e_festivalmuban_love_taskreward_list_),
   };
@@ -875,7 +1227,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_love_taskreward));
-  E_FestivalMuban_addbox_descriptor_ = file->message_type(32);
+  E_FestivalMuban_addbox_descriptor_ = file->message_type(47);
   static const int E_FestivalMuban_addbox_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_addbox, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_addbox, m_period_),
@@ -895,7 +1247,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_addbox));
-  Sheet_FestivalMuban_addbox_descriptor_ = file->message_type(33);
+  Sheet_FestivalMuban_addbox_descriptor_ = file->message_type(48);
   static const int Sheet_FestivalMuban_addbox_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_addbox, e_festivalmuban_addbox_list_),
   };
@@ -910,7 +1262,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_addbox));
-  E_FestivalMuban_doublebox_descriptor_ = file->message_type(34);
+  E_FestivalMuban_doublebox_descriptor_ = file->message_type(49);
   static const int E_FestivalMuban_doublebox_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_doublebox, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_doublebox, m_period_),
@@ -929,7 +1281,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_doublebox));
-  Sheet_FestivalMuban_doublebox_descriptor_ = file->message_type(35);
+  Sheet_FestivalMuban_doublebox_descriptor_ = file->message_type(50);
   static const int Sheet_FestivalMuban_doublebox_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_doublebox, e_festivalmuban_doublebox_list_),
   };
@@ -944,7 +1296,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_doublebox));
-  E_FestivalMuban_bossfristkill_descriptor_ = file->message_type(36);
+  E_FestivalMuban_bossfristkill_descriptor_ = file->message_type(51);
   static const int E_FestivalMuban_bossfristkill_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_bossfristkill, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_bossfristkill, m_period_),
@@ -965,7 +1317,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_bossfristkill));
-  Sheet_FestivalMuban_bossfristkill_descriptor_ = file->message_type(37);
+  Sheet_FestivalMuban_bossfristkill_descriptor_ = file->message_type(52);
   static const int Sheet_FestivalMuban_bossfristkill_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_bossfristkill, e_festivalmuban_bossfristkill_list_),
   };
@@ -980,7 +1332,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_bossfristkill));
-  E_FestivalMuban_severrank_descriptor_ = file->message_type(38);
+  E_FestivalMuban_severrank_descriptor_ = file->message_type(53);
   static const int E_FestivalMuban_severrank_offsets_[17] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank, m_period_),
@@ -1011,7 +1363,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_severrank));
-  Sheet_FestivalMuban_severrank_descriptor_ = file->message_type(39);
+  Sheet_FestivalMuban_severrank_descriptor_ = file->message_type(54);
   static const int Sheet_FestivalMuban_severrank_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_severrank, e_festivalmuban_severrank_list_),
   };
@@ -1026,14 +1378,16 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_severrank));
-  E_FestivalMuban_severrank_data_descriptor_ = file->message_type(40);
-  static const int E_FestivalMuban_severrank_data_offsets_[7] = {
+  E_FestivalMuban_severrank_data_descriptor_ = file->message_type(55);
+  static const int E_FestivalMuban_severrank_data_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_groupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_maxrank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_minrank_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_rankvalue_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_addrankvalue_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_unachievedisplay_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_addunachievedisplay_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_severrank_data, m_boxid_),
   };
   E_FestivalMuban_severrank_data_reflection_ =
@@ -1047,7 +1401,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_severrank_data));
-  Sheet_FestivalMuban_severrank_data_descriptor_ = file->message_type(41);
+  Sheet_FestivalMuban_severrank_data_descriptor_ = file->message_type(56);
   static const int Sheet_FestivalMuban_severrank_data_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_severrank_data, e_festivalmuban_severrank_data_list_),
   };
@@ -1062,7 +1416,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_severrank_data));
-  E_FestivalMuban_collectwordCostDesc_descriptor_ = file->message_type(42);
+  E_FestivalMuban_collectwordCostDesc_descriptor_ = file->message_type(57);
   static const int E_FestivalMuban_collectwordCostDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_collectwordCostDesc, m_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_collectwordCostDesc, m_id_),
@@ -1078,7 +1432,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_collectwordCostDesc));
-  E_FestivalMuban_collectword_descriptor_ = file->message_type(43);
+  E_FestivalMuban_collectword_descriptor_ = file->message_type(58);
   static const int E_FestivalMuban_collectword_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_collectword, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_collectword, m_period_),
@@ -1098,7 +1452,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_collectword));
-  Sheet_FestivalMuban_collectword_descriptor_ = file->message_type(44);
+  Sheet_FestivalMuban_collectword_descriptor_ = file->message_type(59);
   static const int Sheet_FestivalMuban_collectword_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_collectword, e_festivalmuban_collectword_list_),
   };
@@ -1113,7 +1467,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_collectword));
-  E_FestivalMuban_sign_descriptor_ = file->message_type(45);
+  E_FestivalMuban_sign_descriptor_ = file->message_type(60);
   static const int E_FestivalMuban_sign_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_sign, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_sign, m_period_),
@@ -1130,7 +1484,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_sign));
-  Sheet_FestivalMuban_sign_descriptor_ = file->message_type(46);
+  Sheet_FestivalMuban_sign_descriptor_ = file->message_type(61);
   static const int Sheet_FestivalMuban_sign_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_sign, e_festivalmuban_sign_list_),
   };
@@ -1145,7 +1499,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_sign));
-  E_FestivalMuban_shop_descriptor_ = file->message_type(47);
+  E_FestivalMuban_shop_descriptor_ = file->message_type(62);
   static const int E_FestivalMuban_shop_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_shop, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_shop, m_period_),
@@ -1168,7 +1522,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_shop));
-  Sheet_FestivalMuban_shop_descriptor_ = file->message_type(48);
+  Sheet_FestivalMuban_shop_descriptor_ = file->message_type(63);
   static const int Sheet_FestivalMuban_shop_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_shop, e_festivalmuban_shop_list_),
   };
@@ -1183,7 +1537,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_shop));
-  E_FestivalMuban_rechange_descriptor_ = file->message_type(49);
+  E_FestivalMuban_rechange_descriptor_ = file->message_type(64);
   static const int E_FestivalMuban_rechange_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechange, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechange, m_period_),
@@ -1203,7 +1557,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rechange));
-  Sheet_FestivalMuban_rechange_descriptor_ = file->message_type(50);
+  Sheet_FestivalMuban_rechange_descriptor_ = file->message_type(65);
   static const int Sheet_FestivalMuban_rechange_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rechange, e_festivalmuban_rechange_list_),
   };
@@ -1218,7 +1572,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_rechange));
-  E_FestivalMuban_leiji_descriptor_ = file->message_type(51);
+  E_FestivalMuban_leiji_descriptor_ = file->message_type(66);
   static const int E_FestivalMuban_leiji_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_leiji, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_leiji, m_period_),
@@ -1236,7 +1590,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_leiji));
-  Sheet_FestivalMuban_leiji_descriptor_ = file->message_type(52);
+  Sheet_FestivalMuban_leiji_descriptor_ = file->message_type(67);
   static const int Sheet_FestivalMuban_leiji_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_leiji, e_festivalmuban_leiji_list_),
   };
@@ -1251,7 +1605,41 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_leiji));
-  E_FestivalMuban_zadan_descriptor_ = file->message_type(53);
+  E_FestivalZadanconstant_descriptor_ = file->message_type(68);
+  static const int E_FestivalZadanconstant_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_period_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_costitem_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_number_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_free_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_currency_),
+  };
+  E_FestivalZadanconstant_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalZadanconstant_descriptor_,
+      E_FestivalZadanconstant::default_instance_,
+      E_FestivalZadanconstant_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalZadanconstant));
+  Sheet_FestivalZadanconstant_descriptor_ = file->message_type(69);
+  static const int Sheet_FestivalZadanconstant_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalZadanconstant, e_festivalzadanconstant_list_),
+  };
+  Sheet_FestivalZadanconstant_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalZadanconstant_descriptor_,
+      Sheet_FestivalZadanconstant::default_instance_,
+      Sheet_FestivalZadanconstant_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalZadanconstant, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalZadanconstant, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalZadanconstant));
+  E_FestivalMuban_zadan_descriptor_ = file->message_type(70);
   static const int E_FestivalMuban_zadan_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_zadan, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_zadan, m_period_),
@@ -1271,7 +1659,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_zadan));
-  Sheet_FestivalMuban_zadan_descriptor_ = file->message_type(54);
+  Sheet_FestivalMuban_zadan_descriptor_ = file->message_type(71);
   static const int Sheet_FestivalMuban_zadan_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_zadan, e_festivalmuban_zadan_list_),
   };
@@ -1286,41 +1674,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_zadan));
-  E_FestivalZadanconstant_descriptor_ = file->message_type(55);
-  static const int E_FestivalZadanconstant_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_period_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_costitem_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_number_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_free_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, m_currency_),
-  };
-  E_FestivalZadanconstant_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      E_FestivalZadanconstant_descriptor_,
-      E_FestivalZadanconstant::default_instance_,
-      E_FestivalZadanconstant_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalZadanconstant, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(E_FestivalZadanconstant));
-  Sheet_FestivalZadanconstant_descriptor_ = file->message_type(56);
-  static const int Sheet_FestivalZadanconstant_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalZadanconstant, e_festivalzadanconstant_list_),
-  };
-  Sheet_FestivalZadanconstant_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Sheet_FestivalZadanconstant_descriptor_,
-      Sheet_FestivalZadanconstant::default_instance_,
-      Sheet_FestivalZadanconstant_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalZadanconstant, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalZadanconstant, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Sheet_FestivalZadanconstant));
-  E_FestivalMuban_turntable_descriptor_ = file->message_type(57);
+  E_FestivalMuban_turntable_descriptor_ = file->message_type(72);
   static const int E_FestivalMuban_turntable_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_turntable, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_turntable, m_period_),
@@ -1338,7 +1692,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_turntable));
-  Sheet_FestivalMuban_turntable_descriptor_ = file->message_type(58);
+  Sheet_FestivalMuban_turntable_descriptor_ = file->message_type(73);
   static const int Sheet_FestivalMuban_turntable_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_turntable, e_festivalmuban_turntable_list_),
   };
@@ -1353,7 +1707,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_turntable));
-  E_FestivalMuban_turntable_pool_descriptor_ = file->message_type(59);
+  E_FestivalMuban_turntable_pool_descriptor_ = file->message_type(74);
   static const int E_FestivalMuban_turntable_pool_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_turntable_pool, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_turntable_pool, m_groupid_),
@@ -1372,7 +1726,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_turntable_pool));
-  Sheet_FestivalMuban_turntable_pool_descriptor_ = file->message_type(60);
+  Sheet_FestivalMuban_turntable_pool_descriptor_ = file->message_type(75);
   static const int Sheet_FestivalMuban_turntable_pool_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_turntable_pool, e_festivalmuban_turntable_pool_list_),
   };
@@ -1387,7 +1741,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_turntable_pool));
-  E_FestivalMuban_turntable_task_descriptor_ = file->message_type(61);
+  E_FestivalMuban_turntable_task_descriptor_ = file->message_type(76);
   static const int E_FestivalMuban_turntable_task_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_turntable_task, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_turntable_task, m_groupid_),
@@ -1408,7 +1762,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_turntable_task));
-  Sheet_FestivalMuban_turntable_task_descriptor_ = file->message_type(62);
+  Sheet_FestivalMuban_turntable_task_descriptor_ = file->message_type(77);
   static const int Sheet_FestivalMuban_turntable_task_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_turntable_task, e_festivalmuban_turntable_task_list_),
   };
@@ -1423,7 +1777,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_turntable_task));
-  E_FestivalMuban_donate_descriptor_ = file->message_type(63);
+  E_FestivalMuban_donate_descriptor_ = file->message_type(78);
   static const int E_FestivalMuban_donate_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate, m_period_),
@@ -1444,7 +1798,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_donate));
-  Sheet_FestivalMuban_donate_descriptor_ = file->message_type(64);
+  Sheet_FestivalMuban_donate_descriptor_ = file->message_type(79);
   static const int Sheet_FestivalMuban_donate_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_donate, e_festivalmuban_donate_list_),
   };
@@ -1459,7 +1813,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_donate));
-  E_FestivalMuban_donate_sever_descriptor_ = file->message_type(65);
+  E_FestivalMuban_donate_sever_descriptor_ = file->message_type(80);
   static const int E_FestivalMuban_donate_sever_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate_sever, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate_sever, m_groupid_),
@@ -1480,7 +1834,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_donate_sever));
-  Sheet_FestivalMuban_donate_sever_descriptor_ = file->message_type(66);
+  Sheet_FestivalMuban_donate_sever_descriptor_ = file->message_type(81);
   static const int Sheet_FestivalMuban_donate_sever_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_donate_sever, e_festivalmuban_donate_sever_list_),
   };
@@ -1495,7 +1849,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_donate_sever));
-  E_FestivalMuban_donate_single_descriptor_ = file->message_type(67);
+  E_FestivalMuban_donate_single_descriptor_ = file->message_type(82);
   static const int E_FestivalMuban_donate_single_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate_single, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate_single, m_groupid_),
@@ -1515,7 +1869,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_donate_single));
-  Sheet_FestivalMuban_donate_single_descriptor_ = file->message_type(68);
+  Sheet_FestivalMuban_donate_single_descriptor_ = file->message_type(83);
   static const int Sheet_FestivalMuban_donate_single_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_donate_single, e_festivalmuban_donate_single_list_),
   };
@@ -1530,7 +1884,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_donate_single));
-  E_FestivalMuban_donate_task_descriptor_ = file->message_type(69);
+  E_FestivalMuban_donate_task_descriptor_ = file->message_type(84);
   static const int E_FestivalMuban_donate_task_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate_task, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_donate_task, m_groupid_),
@@ -1551,7 +1905,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_donate_task));
-  Sheet_FestivalMuban_donate_task_descriptor_ = file->message_type(70);
+  Sheet_FestivalMuban_donate_task_descriptor_ = file->message_type(85);
   static const int Sheet_FestivalMuban_donate_task_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_donate_task, e_festivalmuban_donate_task_list_),
   };
@@ -1566,7 +1920,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_donate_task));
-  E_FestivalMuban_online_descriptor_ = file->message_type(71);
+  E_FestivalMuban_online_descriptor_ = file->message_type(86);
   static const int E_FestivalMuban_online_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_online, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_online, m_period_),
@@ -1587,7 +1941,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_online));
-  Sheet_FestivalMuban_online_descriptor_ = file->message_type(72);
+  Sheet_FestivalMuban_online_descriptor_ = file->message_type(87);
   static const int Sheet_FestivalMuban_online_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_online, e_festivalmuban_online_list_),
   };
@@ -1602,7 +1956,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_online));
-  E_FestivalMuban_rturntable_descriptor_ = file->message_type(73);
+  E_FestivalMuban_rturntable_descriptor_ = file->message_type(88);
   static const int E_FestivalMuban_rturntable_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rturntable, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rturntable, m_period_),
@@ -1619,7 +1973,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rturntable));
-  Sheet_FestivalMuban_rturntable_descriptor_ = file->message_type(74);
+  Sheet_FestivalMuban_rturntable_descriptor_ = file->message_type(89);
   static const int Sheet_FestivalMuban_rturntable_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rturntable, e_festivalmuban_rturntable_list_),
   };
@@ -1634,7 +1988,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_rturntable));
-  E_FestivalMuban_rturntable_recharge_descriptor_ = file->message_type(75);
+  E_FestivalMuban_rturntable_recharge_descriptor_ = file->message_type(90);
   static const int E_FestivalMuban_rturntable_recharge_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rturntable_recharge, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rturntable_recharge, m_groupid_),
@@ -1653,7 +2007,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rturntable_recharge));
-  Sheet_FestivalMuban_rturntable_recharge_descriptor_ = file->message_type(76);
+  Sheet_FestivalMuban_rturntable_recharge_descriptor_ = file->message_type(91);
   static const int Sheet_FestivalMuban_rturntable_recharge_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rturntable_recharge, e_festivalmuban_rturntable_recharge_list_),
   };
@@ -1668,7 +2022,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_rturntable_recharge));
-  E_FestivalMuban_rturntable_recharge_ratio_descriptor_ = file->message_type(77);
+  E_FestivalMuban_rturntable_recharge_ratio_descriptor_ = file->message_type(92);
   static const int E_FestivalMuban_rturntable_recharge_ratio_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rturntable_recharge_ratio, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rturntable_recharge_ratio, m_groupid_),
@@ -1686,7 +2040,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_rturntable_recharge_ratio));
-  Sheet_FestivalMuban_rturntable_recharge_ratio_descriptor_ = file->message_type(78);
+  Sheet_FestivalMuban_rturntable_recharge_ratio_descriptor_ = file->message_type(93);
   static const int Sheet_FestivalMuban_rturntable_recharge_ratio_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rturntable_recharge_ratio, e_festivalmuban_rturntable_recharge_ratio_list_),
   };
@@ -1701,11 +2055,13 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_rturntable_recharge_ratio));
-  E_FestivalMuban_drawpize_descriptor_ = file->message_type(79);
-  static const int E_FestivalMuban_drawpize_offsets_[8] = {
+  E_FestivalMuban_drawpize_descriptor_ = file->message_type(94);
+  static const int E_FestivalMuban_drawpize_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_period_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_costid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_drawputback_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_costtype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_costnum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_poolgroupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize, m_totalgroupid_),
@@ -1723,7 +2079,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_drawpize));
-  Sheet_FestivalMuban_drawpize_descriptor_ = file->message_type(80);
+  Sheet_FestivalMuban_drawpize_descriptor_ = file->message_type(95);
   static const int Sheet_FestivalMuban_drawpize_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_drawpize, e_festivalmuban_drawpize_list_),
   };
@@ -1738,8 +2094,8 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_drawpize));
-  E_FestivalMuban_drawpize_pool_descriptor_ = file->message_type(81);
-  static const int E_FestivalMuban_drawpize_pool_offsets_[9] = {
+  E_FestivalMuban_drawpize_pool_descriptor_ = file->message_type(96);
+  static const int E_FestivalMuban_drawpize_pool_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_groupid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_itemid_),
@@ -1749,6 +2105,9 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_proweights_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_timelimit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_poollv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_image_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_pool, m_point_),
   };
   E_FestivalMuban_drawpize_pool_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -1761,7 +2120,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_drawpize_pool));
-  Sheet_FestivalMuban_drawpize_pool_descriptor_ = file->message_type(82);
+  Sheet_FestivalMuban_drawpize_pool_descriptor_ = file->message_type(97);
   static const int Sheet_FestivalMuban_drawpize_pool_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_drawpize_pool, e_festivalmuban_drawpize_pool_list_),
   };
@@ -1776,7 +2135,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_drawpize_pool));
-  E_FestivalMuban_drawpize_total_descriptor_ = file->message_type(83);
+  E_FestivalMuban_drawpize_total_descriptor_ = file->message_type(98);
   static const int E_FestivalMuban_drawpize_total_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_total, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_drawpize_total, m_groupid_),
@@ -1795,7 +2154,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_drawpize_total));
-  Sheet_FestivalMuban_drawpize_total_descriptor_ = file->message_type(84);
+  Sheet_FestivalMuban_drawpize_total_descriptor_ = file->message_type(99);
   static const int Sheet_FestivalMuban_drawpize_total_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_drawpize_total, e_festivalmuban_drawpize_total_list_),
   };
@@ -1810,7 +2169,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_drawpize_total));
-  E_FestivalMuban_totalrecharge_descriptor_ = file->message_type(85);
+  E_FestivalMuban_totalrecharge_descriptor_ = file->message_type(100);
   static const int E_FestivalMuban_totalrecharge_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_totalrecharge, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_totalrecharge, m_period_),
@@ -1828,7 +2187,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_totalrecharge));
-  Sheet_FestivalMuban_totalrecharge_descriptor_ = file->message_type(86);
+  Sheet_FestivalMuban_totalrecharge_descriptor_ = file->message_type(101);
   static const int Sheet_FestivalMuban_totalrecharge_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_totalrecharge, e_festivalmuban_totalrecharge_list_),
   };
@@ -1843,7 +2202,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_totalrecharge));
-  E_FestivalMuban_dailytotalrecharge_descriptor_ = file->message_type(87);
+  E_FestivalMuban_dailytotalrecharge_descriptor_ = file->message_type(102);
   static const int E_FestivalMuban_dailytotalrecharge_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_dailytotalrecharge, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_dailytotalrecharge, m_period_),
@@ -1861,7 +2220,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_dailytotalrecharge));
-  Sheet_FestivalMuban_dailytotalrecharge_descriptor_ = file->message_type(88);
+  Sheet_FestivalMuban_dailytotalrecharge_descriptor_ = file->message_type(103);
   static const int Sheet_FestivalMuban_dailytotalrecharge_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_dailytotalrecharge, e_festivalmuban_dailytotalrecharge_list_),
   };
@@ -1876,7 +2235,116 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_dailytotalrecharge));
-  E_FestivalMuban_play_descriptor_ = file->message_type(89);
+  E_FestivalMuban_rechargeprize_descriptor_ = file->message_type(104);
+  static const int E_FestivalMuban_rechargeprize_offsets_[10] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_period_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_pooltype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_poolnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_showboost_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_maxprize_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_taskid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_prizeid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, m_freebox_),
+  };
+  E_FestivalMuban_rechargeprize_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_rechargeprize_descriptor_,
+      E_FestivalMuban_rechargeprize::default_instance_,
+      E_FestivalMuban_rechargeprize_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rechargeprize, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_rechargeprize));
+  Sheet_FestivalMuban_rechargeprize_descriptor_ = file->message_type(105);
+  static const int Sheet_FestivalMuban_rechargeprize_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rechargeprize, e_festivalmuban_rechargeprize_list_),
+  };
+  Sheet_FestivalMuban_rechargeprize_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_rechargeprize_descriptor_,
+      Sheet_FestivalMuban_rechargeprize::default_instance_,
+      Sheet_FestivalMuban_rechargeprize_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rechargeprize, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rechargeprize, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_rechargeprize));
+  E_FestivalMuban_rptask_descriptor_ = file->message_type(106);
+  static const int E_FestivalMuban_rptask_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_typearg_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_prizenum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_desc_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, m_link_),
+  };
+  E_FestivalMuban_rptask_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_rptask_descriptor_,
+      E_FestivalMuban_rptask::default_instance_,
+      E_FestivalMuban_rptask_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rptask, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_rptask));
+  Sheet_FestivalMuban_rptask_descriptor_ = file->message_type(107);
+  static const int Sheet_FestivalMuban_rptask_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rptask, e_festivalmuban_rptask_list_),
+  };
+  Sheet_FestivalMuban_rptask_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_rptask_descriptor_,
+      Sheet_FestivalMuban_rptask::default_instance_,
+      Sheet_FestivalMuban_rptask_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rptask, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rptask, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_rptask));
+  E_FestivalMuban_rppool_descriptor_ = file->message_type(108);
+  static const int E_FestivalMuban_rppool_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, m_prizeorder_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, m_prizemix_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, m_prizemax_),
+  };
+  E_FestivalMuban_rppool_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FestivalMuban_rppool_descriptor_,
+      E_FestivalMuban_rppool::default_instance_,
+      E_FestivalMuban_rppool_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_rppool, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FestivalMuban_rppool));
+  Sheet_FestivalMuban_rppool_descriptor_ = file->message_type(109);
+  static const int Sheet_FestivalMuban_rppool_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rppool, e_festivalmuban_rppool_list_),
+  };
+  Sheet_FestivalMuban_rppool_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_FestivalMuban_rppool_descriptor_,
+      Sheet_FestivalMuban_rppool::default_instance_,
+      Sheet_FestivalMuban_rppool_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rppool, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_rppool, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_FestivalMuban_rppool));
+  E_FestivalMuban_play_descriptor_ = file->message_type(110);
   static const int E_FestivalMuban_play_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play, m_period_),
@@ -1895,7 +2363,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_play));
-  Sheet_FestivalMuban_play_descriptor_ = file->message_type(90);
+  Sheet_FestivalMuban_play_descriptor_ = file->message_type(111);
   static const int Sheet_FestivalMuban_play_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_play, e_festivalmuban_play_list_),
   };
@@ -1910,7 +2378,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_play));
-  E_FestivalMuban_play_reward_descriptor_ = file->message_type(91);
+  E_FestivalMuban_play_reward_descriptor_ = file->message_type(112);
   static const int E_FestivalMuban_play_reward_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play_reward, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play_reward, m_groupid_),
@@ -1928,7 +2396,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_play_reward));
-  Sheet_FestivalMuban_play_reward_descriptor_ = file->message_type(92);
+  Sheet_FestivalMuban_play_reward_descriptor_ = file->message_type(113);
   static const int Sheet_FestivalMuban_play_reward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_play_reward, e_festivalmuban_play_reward_list_),
   };
@@ -1943,7 +2411,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_play_reward));
-  E_FestivalMuban_play_game_descriptor_ = file->message_type(93);
+  E_FestivalMuban_play_game_descriptor_ = file->message_type(114);
   static const int E_FestivalMuban_play_game_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play_game, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play_game, m_groupid_),
@@ -1965,7 +2433,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_play_game));
-  Sheet_FestivalMuban_play_game_descriptor_ = file->message_type(94);
+  Sheet_FestivalMuban_play_game_descriptor_ = file->message_type(115);
   static const int Sheet_FestivalMuban_play_game_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_play_game, e_festivalmuban_play_game_list_),
   };
@@ -1980,7 +2448,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FestivalMuban_play_game));
-  E_FestivalMuban_play_score_descriptor_ = file->message_type(95);
+  E_FestivalMuban_play_score_descriptor_ = file->message_type(116);
   static const int E_FestivalMuban_play_score_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play_score, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FestivalMuban_play_score, m_score_),
@@ -1998,7 +2466,7 @@ void protobuf_AssignDesc_E_5fFestival_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FestivalMuban_play_score));
-  Sheet_FestivalMuban_play_score_descriptor_ = file->message_type(96);
+  Sheet_FestivalMuban_play_score_descriptor_ = file->message_type(117);
   static const int Sheet_FestivalMuban_play_score_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FestivalMuban_play_score, e_festivalmuban_play_score_list_),
   };
@@ -2037,6 +2505,36 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_FestivalTemplate_descriptor_, &E_FestivalTemplate::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FestivalTemplate_descriptor_, &Sheet_FestivalTemplate::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_eggsdraw_descriptor_, &E_FestivalMuban_eggsdraw::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_eggsdraw_descriptor_, &Sheet_FestivalMuban_eggsdraw::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_eggsdraw_pool_descriptor_, &E_FestivalMuban_eggsdraw_pool::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_eggsdraw_pool_descriptor_, &Sheet_FestivalMuban_eggsdraw_pool::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_eggsdraw_task_descriptor_, &E_FestivalMuban_eggsdraw_task::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_eggsdraw_task_descriptor_, &Sheet_FestivalMuban_eggsdraw_task::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_ftreward_descriptor_, &E_FestivalMuban_ftreward::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_ftreward_descriptor_, &Sheet_FestivalMuban_ftreward::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_challenge_descriptor_, &E_FestivalMuban_challenge::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_challenge_descriptor_, &Sheet_FestivalMuban_challenge::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_mystmallOpenDesc_descriptor_, &E_FestivalMuban_mystmallOpenDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_mystmall_descriptor_, &E_FestivalMuban_mystmall::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_mystmall_descriptor_, &Sheet_FestivalMuban_mystmall::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_mystmall_mall_descriptor_, &E_FestivalMuban_mystmall_mall::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_mystmall_mall_descriptor_, &Sheet_FestivalMuban_mystmall_mall::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_FestivalMuban_rebatestoreExpendDesc_descriptor_, &E_FestivalMuban_rebatestoreExpendDesc::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -2132,13 +2630,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FestivalMuban_leiji_descriptor_, &Sheet_FestivalMuban_leiji::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    E_FestivalMuban_zadan_descriptor_, &E_FestivalMuban_zadan::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Sheet_FestivalMuban_zadan_descriptor_, &Sheet_FestivalMuban_zadan::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_FestivalZadanconstant_descriptor_, &E_FestivalZadanconstant::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FestivalZadanconstant_descriptor_, &Sheet_FestivalZadanconstant::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_zadan_descriptor_, &E_FestivalMuban_zadan::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_zadan_descriptor_, &Sheet_FestivalMuban_zadan::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_FestivalMuban_turntable_descriptor_, &E_FestivalMuban_turntable::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -2204,6 +2702,18 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FestivalMuban_dailytotalrecharge_descriptor_, &Sheet_FestivalMuban_dailytotalrecharge::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_rechargeprize_descriptor_, &E_FestivalMuban_rechargeprize::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_rechargeprize_descriptor_, &Sheet_FestivalMuban_rechargeprize::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_rptask_descriptor_, &E_FestivalMuban_rptask::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_rptask_descriptor_, &Sheet_FestivalMuban_rptask::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FestivalMuban_rppool_descriptor_, &E_FestivalMuban_rppool::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_FestivalMuban_rppool_descriptor_, &Sheet_FestivalMuban_rppool::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_FestivalMuban_play_descriptor_, &E_FestivalMuban_play::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FestivalMuban_play_descriptor_, &Sheet_FestivalMuban_play::default_instance());
@@ -2236,6 +2746,36 @@ void protobuf_ShutdownFile_E_5fFestival_2eproto() {
   delete E_FestivalTemplate_reflection_;
   delete Sheet_FestivalTemplate::default_instance_;
   delete Sheet_FestivalTemplate_reflection_;
+  delete E_FestivalMuban_eggsdraw::default_instance_;
+  delete E_FestivalMuban_eggsdraw_reflection_;
+  delete Sheet_FestivalMuban_eggsdraw::default_instance_;
+  delete Sheet_FestivalMuban_eggsdraw_reflection_;
+  delete E_FestivalMuban_eggsdraw_pool::default_instance_;
+  delete E_FestivalMuban_eggsdraw_pool_reflection_;
+  delete Sheet_FestivalMuban_eggsdraw_pool::default_instance_;
+  delete Sheet_FestivalMuban_eggsdraw_pool_reflection_;
+  delete E_FestivalMuban_eggsdraw_task::default_instance_;
+  delete E_FestivalMuban_eggsdraw_task_reflection_;
+  delete Sheet_FestivalMuban_eggsdraw_task::default_instance_;
+  delete Sheet_FestivalMuban_eggsdraw_task_reflection_;
+  delete E_FestivalMuban_ftreward::default_instance_;
+  delete E_FestivalMuban_ftreward_reflection_;
+  delete Sheet_FestivalMuban_ftreward::default_instance_;
+  delete Sheet_FestivalMuban_ftreward_reflection_;
+  delete E_FestivalMuban_challenge::default_instance_;
+  delete E_FestivalMuban_challenge_reflection_;
+  delete Sheet_FestivalMuban_challenge::default_instance_;
+  delete Sheet_FestivalMuban_challenge_reflection_;
+  delete E_FestivalMuban_mystmallOpenDesc::default_instance_;
+  delete E_FestivalMuban_mystmallOpenDesc_reflection_;
+  delete E_FestivalMuban_mystmall::default_instance_;
+  delete E_FestivalMuban_mystmall_reflection_;
+  delete Sheet_FestivalMuban_mystmall::default_instance_;
+  delete Sheet_FestivalMuban_mystmall_reflection_;
+  delete E_FestivalMuban_mystmall_mall::default_instance_;
+  delete E_FestivalMuban_mystmall_mall_reflection_;
+  delete Sheet_FestivalMuban_mystmall_mall::default_instance_;
+  delete Sheet_FestivalMuban_mystmall_mall_reflection_;
   delete E_FestivalMuban_rebatestoreExpendDesc::default_instance_;
   delete E_FestivalMuban_rebatestoreExpendDesc_reflection_;
   delete E_FestivalMuban_rebatestore::default_instance_;
@@ -2330,14 +2870,14 @@ void protobuf_ShutdownFile_E_5fFestival_2eproto() {
   delete E_FestivalMuban_leiji_reflection_;
   delete Sheet_FestivalMuban_leiji::default_instance_;
   delete Sheet_FestivalMuban_leiji_reflection_;
-  delete E_FestivalMuban_zadan::default_instance_;
-  delete E_FestivalMuban_zadan_reflection_;
-  delete Sheet_FestivalMuban_zadan::default_instance_;
-  delete Sheet_FestivalMuban_zadan_reflection_;
   delete E_FestivalZadanconstant::default_instance_;
   delete E_FestivalZadanconstant_reflection_;
   delete Sheet_FestivalZadanconstant::default_instance_;
   delete Sheet_FestivalZadanconstant_reflection_;
+  delete E_FestivalMuban_zadan::default_instance_;
+  delete E_FestivalMuban_zadan_reflection_;
+  delete Sheet_FestivalMuban_zadan::default_instance_;
+  delete Sheet_FestivalMuban_zadan_reflection_;
   delete E_FestivalMuban_turntable::default_instance_;
   delete E_FestivalMuban_turntable_reflection_;
   delete Sheet_FestivalMuban_turntable::default_instance_;
@@ -2402,6 +2942,18 @@ void protobuf_ShutdownFile_E_5fFestival_2eproto() {
   delete E_FestivalMuban_dailytotalrecharge_reflection_;
   delete Sheet_FestivalMuban_dailytotalrecharge::default_instance_;
   delete Sheet_FestivalMuban_dailytotalrecharge_reflection_;
+  delete E_FestivalMuban_rechargeprize::default_instance_;
+  delete E_FestivalMuban_rechargeprize_reflection_;
+  delete Sheet_FestivalMuban_rechargeprize::default_instance_;
+  delete Sheet_FestivalMuban_rechargeprize_reflection_;
+  delete E_FestivalMuban_rptask::default_instance_;
+  delete E_FestivalMuban_rptask_reflection_;
+  delete Sheet_FestivalMuban_rptask::default_instance_;
+  delete Sheet_FestivalMuban_rptask_reflection_;
+  delete E_FestivalMuban_rppool::default_instance_;
+  delete E_FestivalMuban_rppool_reflection_;
+  delete Sheet_FestivalMuban_rppool::default_instance_;
+  delete Sheet_FestivalMuban_rppool_reflection_;
   delete E_FestivalMuban_play::default_instance_;
   delete E_FestivalMuban_play_reflection_;
   delete Sheet_FestivalMuban_play::default_instance_;
@@ -2439,395 +2991,526 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
     "\227\245ID\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\347\261\273\345\236\213\"]"
     "\n\026Sheet_FestivalFestival\022C\n\027E_FestivalFe"
     "stival_List\030\001 \003(\0132\034.proto_ff.E_FestivalF"
-    "estivalB\004\210\301\024\010\"\322\004\n\022E_FestivalTemplate\022\032\n\004"
+    "estivalB\004\210\301\024\020\"\266\005\n\022E_FestivalTemplate\022\032\n\004"
     "m_id\030\001 \001(\005B\014\302\377\024\010\346\264\273\345\212\250ID\022$\n\006m_name\030\002 \001(\t"
-    "B\024\302\377\024\014\346\250\241\346\235\277\345\220\215\347\247\260\220\301\024@\022&\n\014m_festivalId\030\003"
-    " \001(\005B\020\302\377\024\014\345\274\225\347\224\250\344\270\273\344\275\223\022$\n\nm_timeType\030\004 \001"
-    "(\005B\020\302\377\024\014\346\227\266\351\227\264\347\261\273\345\236\213\022!\n\007m_level\030\005 \001(\005B\020\302"
-    "\377\024\014\347\255\211\347\272\247\350\246\201\346\261\202\022\'\n\nm_vipLevel\030\006 \001(\005B\023\302\377\024"
-    "\017vip\347\255\211\347\272\247\350\246\201\346\261\202\022<\n\nm_rechange\030\007 \001(\005B(\302\377"
-    "\024$\345\205\205\345\200\274\350\246\201\346\261\202\351\253\230\347\272\247\350\277\220\350\220\245\346\264\273\345\212\250\350\256\241\346\225\260\022."
-    "\n\013m_severType\030\010 \001(\005B\031\302\377\024\025\346\234\215\345\212\241\345\231\250\346\264\273\345\212\250"
-    "\347\261\273\345\236\213\022-\n\tm_typeArg\030\t \001(\tB\032\302\377\024\022\346\250\241\346\235\277\347\211\271"
-    "\346\256\212\345\217\202\346\225\260\220\301\024@\022&\n\014m_periodType\030\n \001(\005B\020\302\377\024"
-    "\014\346\234\237\346\225\260\347\261\273\345\236\213\022\"\n\010m_period\030\013 \001(\005B\020\302\377\024\014\346\234\237"
-    "\346\225\260\345\217\202\346\225\260\022\"\n\010m_ifOpen\030\014 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\345"
-    "\274\200\345\205\263\022&\n\nm_activeID\030\r \001(\005B\022\302\377\024\016\346\277\200\346\264\273\346\264\273"
-    "\345\212\250ID\022+\n\tm_timeArg\030\016 \003(\tB\030\302\377\024\014\346\227\266\351\227\264\345\217\202\346"
-    "\225\260\210\301\024\003\220\301\024@\"]\n\026Sheet_FestivalTemplate\022C\n\027"
-    "E_FestivalTemplate_List\030\001 \003(\0132\034.proto_ff"
-    ".E_FestivalTemplateB\004\210\301\024@\"^\n%E_FestivalM"
-    "uban_rebatestoreExpendDesc\022\033\n\007m_BoxID\030\001 "
-    "\001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\030\n\007m_Value\030\002 \001(\005B\007\302\377\024\003\345\200"
-    "\274\"\310\001\n\033E_FestivalMuban_rebatestore\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346"
-    "\234\237\346\225\260\022\"\n\tm_groupID\030\003 \001(\005B\017\302\377\024\013\345\225\206\345\272\227\347\273\204I"
-    "D\022Q\n\010m_expend\030\004 \003(\0132/.proto_ff.E_Festiva"
-    "lMuban_rebatestoreExpendDescB\016\302\377\024\006\346\266\210\350\264\271"
-    "\210\301\024\006\"x\n\037Sheet_FestivalMuban_rebatestore\022"
-    "U\n E_FestivalMuban_rebatestore_List\030\001 \003("
-    "\0132%.proto_ff.E_FestivalMuban_rebatestore"
-    "B\004\210\301\024\002\"\325\003\n E_FestivalMuban_rebatestore_m"
-    "all\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\223\201ID\022\"\n\tm_gro"
-    "upID\030\002 \001(\005B\017\302\377\024\013\345\225\206\345\237\216\347\273\204ID\022$\n\nm_mallTyp"
-    "e\030\003 \001(\005B\020\302\377\024\014\345\225\206\345\237\216\345\210\206\347\261\273\022\036\n\010m_itemID\030\004 "
-    "\001(\005B\014\302\377\024\010\347\211\251\345\223\201ID\022\033\n\007m_price\030\005 \001(\005B\n\302\377\024\006"
-    "\344\273\267\346\240\274\022!\n\rm_originPrice\030\006 \001(\005B\n\302\377\024\006\345\216\237\344\273"
-    "\267\022\036\n\nm_discount\030\007 \001(\005B\n\302\377\024\006\346\212\230\346\211\243\022\'\n\007m_d"
-    "aily\030\010 \001(\005B\026\302\377\024\022\346\230\257\345\220\246\346\257\217\346\227\245\351\207\215\347\275\256\022%\n\013m_"
-    "buyAmount\030\t \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\225\260\351\207\217\0220\n\020m_f"
-    "unctionUnlock\030\n \001(\005B\026\302\377\024\022\345\205\263\350\201\224\345\212\237\350\203\275\345\274\200"
-    "\346\224\276\022#\n\tm_openDay\030\013 \001(\005B\020\302\377\024\014\345\274\200\346\224\276\345\244\251\346\225\260"
-    "\022$\n\nm_closeDay\030\014 \001(\005B\020\302\377\024\014\346\266\210\345\244\261\345\244\251\346\225\260\"\207"
-    "\001\n$Sheet_FestivalMuban_rebatestore_mall\022"
-    "_\n%E_FestivalMuban_rebatestore_mall_List"
-    "\030\001 \003(\0132*.proto_ff.E_FestivalMuban_rebate"
-    "store_mallB\004\210\301\024 \"\236\001\n\034E_FestivalMuban_con"
-    "trecharge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_per"
-    "iod\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\037\n\014m_totalGroup\030\003 "
-    "\001(\005B\t\302\377\024\005\347\273\204ID\022)\n\014m_dailyGroup\030\004 \001(\005B\023\302\377"
-    "\024\017\346\257\217\346\227\245\345\205\205\345\200\274\347\273\204\"{\n Sheet_FestivalMuban"
-    "_contrecharge\022W\n!E_FestivalMuban_contrec"
-    "harge_List\030\001 \003(\0132&.proto_ff.E_FestivalMu"
-    "ban_contrechargeB\004\210\301\024\002\"d\n+E_FestivalMuba"
-    "n_contrecharge_totalTotalDesc\022\031\n\005m_Box\030\001"
-    " \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\032\n\006m_Days\030\002 \001(\005B\n\302\377\024\006\345\244"
-    "\251\346\225\260\"\362\001\n\"E_FestivalMuban_contrecharge_to"
-    "tal\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002"
-    " \001(\005B\t\302\377\024\005\347\273\204ID\022\032\n\006m_Gear\030\003 \001(\005B\n\302\377\024\006\346\241\243"
-    "\344\275\215\022$\n\nm_recharge\030\004 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\351\207\221\351\242"
-    "\235\022V\n\007m_total\030\005 \003(\01325.proto_ff.E_Festival"
-    "Muban_contrecharge_totalTotalDescB\016\302\377\024\006\350"
-    "\277\236\347\273\255\210\301\024\004\"\215\001\n&Sheet_FestivalMuban_contre"
-    "charge_total\022c\n\'E_FestivalMuban_contrech"
-    "arge_total_List\030\001 \003(\0132,.proto_ff.E_Festi"
-    "valMuban_contrecharge_totalB\004\210\301\024\010\"\262\001\n E_"
-    "FestivalMuban_contrecharge_day\022\024\n\004m_id\030\001"
-    " \001(\005B\006\302\377\024\002id\022&\n\tm_groupID\030\002 \001(\005B\023\302\377\024\017\350\277\236"
-    "\345\205\205\345\245\226\345\212\261\347\273\204\022\031\n\005m_day\030\003 \001(\005B\n\302\377\024\006\345\244\251\346\225\260\022"
-    "\032\n\006m_gear\030\004 \001(\005B\n\302\377\024\006\346\241\243\344\275\215\022\031\n\005m_box\030\005 \001"
-    "(\005B\n\302\377\024\006\345\245\226\345\212\261\"\207\001\n$Sheet_FestivalMuban_c"
-    "ontrecharge_day\022_\n%E_FestivalMuban_contr"
-    "echarge_day_List\030\001 \003(\0132*.proto_ff.E_Fest"
-    "ivalMuban_contrecharge_dayB\004\210\301\024@\"\216\001\n\025E_F"
-    "estivalMuban_login\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
-    "\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022$\n\nm_logi"
-    "nDay\030\003 \001(\005B\020\302\377\024\014\345\244\251\346\225\260\350\246\201\346\261\202\022\033\n\007m_boxid\030"
-    "\004 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"f\n\031Sheet_FestivalMuban"
-    "_login\022I\n\032E_FestivalMuban_login_List\030\001 \003"
-    "(\0132\037.proto_ff.E_FestivalMuban_loginB\004\210\301\024"
-    "\010\"\315\001\n\035E_FestivalMuban_firstrecharge\022\024\n\004m"
+    "B\024\302\377\024\014\346\250\241\346\235\277\345\220\215\347\247\260\220\301\024@\022*\n\014m_actionName\030\003"
+    " \001(\tB\024\302\377\024\014\345\212\250\346\200\201\345\220\215\347\247\260\220\301\024@\022&\n\014m_festival"
+    "Id\030\004 \001(\005B\020\302\377\024\014\345\274\225\347\224\250\344\270\273\344\275\223\0226\n\022m_actionFe"
+    "stivalId\030\005 \001(\tB\032\302\377\024\022\345\212\250\346\200\201\345\274\225\347\224\250\344\270\273\344\275\223\220\301"
+    "\024@\022$\n\nm_timeType\030\006 \001(\005B\020\302\377\024\014\346\227\266\351\227\264\347\261\273\345\236\213"
+    "\022!\n\007m_level\030\007 \001(\005B\020\302\377\024\014\347\255\211\347\272\247\350\246\201\346\261\202\022\'\n\nm"
+    "_vipLevel\030\010 \001(\005B\023\302\377\024\017vip\347\255\211\347\272\247\350\246\201\346\261\202\022<\n\n"
+    "m_rechange\030\t \001(\005B(\302\377\024$\345\205\205\345\200\274\350\246\201\346\261\202\351\253\230\347\272\247"
+    "\350\277\220\350\220\245\346\264\273\345\212\250\350\256\241\346\225\260\022.\n\013m_severType\030\n \001(\005B"
+    "\031\302\377\024\025\346\234\215\345\212\241\345\231\250\346\264\273\345\212\250\347\261\273\345\236\213\022-\n\tm_typeArg\030"
+    "\013 \001(\tB\032\302\377\024\022\346\250\241\346\235\277\347\211\271\346\256\212\345\217\202\346\225\260\220\301\024@\022&\n\014m_p"
+    "eriodType\030\014 \001(\005B\020\302\377\024\014\346\234\237\346\225\260\347\261\273\345\236\213\022\"\n\010m_p"
+    "eriod\030\r \001(\005B\020\302\377\024\014\346\234\237\346\225\260\345\217\202\346\225\260\022\"\n\010m_ifOpe"
+    "n\030\016 \001(\005B\020\302\377\024\014\346\264\273\345\212\250\345\274\200\345\205\263\022&\n\nm_activeID\030"
+    "\017 \001(\005B\022\302\377\024\016\346\277\200\346\264\273\346\264\273\345\212\250ID\022+\n\tm_timeArg\030\020"
+    " \003(\tB\030\302\377\024\014\346\227\266\351\227\264\345\217\202\346\225\260\210\301\024\003\220\301\024@\"^\n\026Sheet_"
+    "FestivalTemplate\022D\n\027E_FestivalTemplate_L"
+    "ist\030\001 \003(\0132\034.proto_ff.E_FestivalTemplateB"
+    "\005\210\301\024\200\001\"\326\005\n\030E_FestivalMuban_eggsdraw\022\024\n\004m"
     "_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024"
-    "\006\346\234\237\346\225\260\022\031\n\005m_day\030\003 \001(\005B\n\302\377\024\006\345\244\251\346\225\260\022\032\n\006m_"
-    "gear\030\004 \001(\005B\n\302\377\024\006\346\241\243\344\275\215\022$\n\nm_recharge\030\005 \001"
-    "(\005B\020\302\377\024\014\345\205\205\345\200\274\351\207\221\351\242\235\022\033\n\007m_boxid\030\006 \001(\005B\n\302"
-    "\377\024\006\345\245\226\345\212\261\"~\n!Sheet_FestivalMuban_firstre"
-    "charge\022Y\n\"E_FestivalMuban_firstrecharge_"
-    "List\030\001 \003(\0132\'.proto_ff.E_FestivalMuban_fi"
-    "rstrechargeB\004\210\301\024\020\"\363\001\n\024E_FestivalMuban_lo"
-    "ve\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001"
-    "(\005B\n\302\377\024\006\346\234\237\346\225\260\022/\n\rm_taskPointID\030\003 \001(\005B\030\302"
-    "\377\024\024\344\273\273\345\212\241\350\277\233\345\272\246\351\201\223\345\205\267id\022\"\n\013m_rankGroup\030\004"
-    " \001(\005B\r\302\377\024\t\346\216\222\350\241\214\347\273\204\022\"\n\013m_taskGroup\030\005 \001(\005"
-    "B\r\302\377\024\t\344\273\273\345\212\241\347\273\204\022.\n\021m_taskRewardGroup\030\006 \001"
-    "(\005B\023\302\377\024\017\344\273\273\345\212\241\345\245\226\345\212\261\347\273\204\"c\n\030Sheet_Festiva"
-    "lMuban_love\022G\n\031E_FestivalMuban_love_List"
-    "\030\001 \003(\0132\036.proto_ff.E_FestivalMuban_loveB\004"
-    "\210\301\024\010\"\327\001\n\031E_FestivalMuban_love_rank\022\024\n\004m_"
-    "id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupid\030\002 \001(\005B\t\302\377\024"
-    "\005\347\273\204ID\0222\n\014m_rewardShow\030\003 \001(\005B\034\302\377\024\030\347\254\254\344\270\200"
-    "\345\220\215\347\232\204\345\261\225\347\244\272\350\265\204\346\272\220\022,\n\rm_dataGroupID\030\004 \001("
-    "\005B\025\302\377\024\021\346\216\222\350\241\214\346\225\260\346\215\256\347\273\204id\022$\n\nm_rankType\030\005"
-    " \001(\005B\020\302\377\024\014\346\216\222\350\241\214\347\261\273\345\236\213\"r\n\035Sheet_Festival"
-    "Muban_love_rank\022Q\n\036E_FestivalMuban_love_"
-    "rank_List\030\001 \003(\0132#.proto_ff.E_FestivalMub"
-    "an_love_rankB\004\210\301\024\002\"\367\001\n\036E_FestivalMuban_l"
-    "ove_rank_data\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm"
-    "_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022#\n\tm_maxRank\030\003"
-    " \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\212\351\231\220\022#\n\tm_minRank\030\004 \001("
-    "\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\213\351\231\220\0224\n\013m_rankValue\030\005 \001(\005"
-    "B\037\302\377\024\033\346\234\200\344\275\216\346\216\222\350\241\214\345\200\274\346\225\260\345\200\274\350\246\201\346\261\202\022!\n\007m_b"
-    "oxID\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271\"\201\001\n\"Sheet_F"
-    "estivalMuban_love_rank_data\022[\n#E_Festiva"
-    "lMuban_love_rank_data_List\030\001 \003(\0132(.proto"
-    "_ff.E_FestivalMuban_love_rank_dataB\004\210\301\024\010"
-    "\"\261\002\n\031E_FestivalMuban_love_task\022\024\n\004m_id\030\001"
-    " \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204"
-    "id\022%\n\013m_eventType\030\003 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236"
-    "\213\022#\n\014m_reachPrice\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\032"
-    "\n\006m_link\030\005 \001(\005B\n\302\377\024\006\350\277\236\346\216\245\022\'\n\rm_rewardTi"
-    "mes\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\277\203\346\225\260\022\"\n\010m_reward\030"
-    "\007 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271\022+\n\007m_param\030\010 \003(\005"
-    "B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\002\"r\n\035Sheet_Fe"
-    "stivalMuban_love_task\022Q\n\036E_FestivalMuban"
-    "_love_task_List\030\001 \003(\0132#.proto_ff.E_Festi"
-    "valMuban_love_taskB\004\210\301\024\020\"\220\001\n\037E_FestivalM"
-    "uban_love_taskreward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002"
-    "id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\036\n\007m_va"
-    "lue\030\003 \001(\005B\r\302\377\024\t\350\277\233\345\272\246\345\200\274\022\031\n\005m_box\030\004 \001(\005B"
-    "\n\302\377\024\006\345\245\226\345\212\261\"\204\001\n#Sheet_FestivalMuban_love"
-    "_taskreward\022]\n$E_FestivalMuban_love_task"
-    "reward_List\030\001 \003(\0132).proto_ff.E_FestivalM"
-    "uban_love_taskrewardB\004\210\301\024\010\"\341\001\n\026E_Festiva"
-    "lMuban_addbox\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022"
-    "\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022,\n\tm_lvLim"
-    "it\030\003 \001(\005B\031\302\377\024\025\346\234\200\344\275\216\347\232\204\346\200\252\347\211\251\347\255\211\347\272\247\022\032\n\006m"
-    "_type\030\004 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\035\n\005m_arg\030\005 \001(\tB\016"
-    "\302\377\024\006\345\217\202\346\225\260\220\301\024@\022&\n\nm_addBoxId\030\006 \001(\005B\022\302\377\024\016"
-    "\351\231\204\345\212\240\347\232\204boxid\"i\n\032Sheet_FestivalMuban_ad"
-    "dbox\022K\n\033E_FestivalMuban_addbox_List\030\001 \003("
-    "\0132 .proto_ff.E_FestivalMuban_addboxB\004\210\301\024"
-    " \"\264\001\n\031E_FestivalMuban_doublebox\022\030\n\004m_id\030"
-    "\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024"
-    "\006\346\234\237\346\225\260\022\032\n\006m_type\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022#\n\005m"
-    "_arg\030\004 \001(\tB\024\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225\260\220\301\024@\022\036\n\nm_mu"
-    "ltiply\030\005 \001(\005B\n\302\377\024\006\345\200\215\347\216\207\"r\n\035Sheet_Festiv"
-    "alMuban_doublebox\022Q\n\036E_FestivalMuban_dou"
-    "blebox_List\030\001 \003(\0132#.proto_ff.E_FestivalM"
-    "uban_doubleboxB\004\210\301\024 \"\217\002\n\035E_FestivalMuban"
-    "_bossfristkill\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010"
-    "m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\032\n\006m_type\030\003 \001"
-    "(\005B\n\302\377\024\006\347\261\273\345\236\213\022\034\n\010m_bossid\030\004 \001(\005B\n\302\377\024\006bo"
-    "ssid\022+\n\021m_fristKillReward\030\005 \001(\005B\020\302\377\024\014\351\246\226"
-    "\346\235\200\345\245\226\345\212\261\022&\n\014m_killReward\030\006 \001(\005B\020\302\377\024\014\345\207\273"
-    "\346\235\200\345\245\226\345\212\261\022+\n\021m_fristKillPacket\030\007 \001(\005B\020\302\377"
-    "\024\014\351\246\226\346\235\200\347\272\242\345\214\205\"~\n!Sheet_FestivalMuban_bo"
-    "ssfristkill\022Y\n\"E_FestivalMuban_bossfrist"
-    "kill_List\030\001 \003(\0132\'.proto_ff.E_FestivalMub"
-    "an_bossfristkillB\004\210\301\024@\"\302\005\n\031E_FestivalMub"
-    "an_severrank\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_"
-    "period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\037\n\007m_order\030\003 \001("
-    "\tB\016\302\377\024\006\346\216\222\345\272\217\220\301\024@\022\036\n\006m_name\030\004 \001(\tB\016\302\377\024\006\345"
-    "\220\215\347\247\260\220\301\024@\022#\n\tm_openDay\030\005 \001(\005B\020\302\377\024\014\345\274\200\346\224\276"
-    "\345\244\251\346\225\260\022$\n\nm_closeDay\030\006 \001(\005B\020\302\377\024\014\347\273\223\346\235\237\345\244"
-    "\251\346\225\260\0222\n\017m_championTitle\030\007 \001(\tB\031\302\377\024\021\347\254\254\344\270"
-    "\200\345\220\215\347\232\204title\220\301\024@\0226\n\014m_rewardShow\030\010 \001(\tB "
-    "\302\377\024\030\347\254\254\344\270\200\345\220\215\347\232\204\345\261\225\347\244\272\350\265\204\346\272\220\220\301\024@\022,\n\rm_da"
-    "taGroupID\030\t \001(\005B\025\302\377\024\021\346\216\222\350\241\214\346\225\260\346\215\256\347\273\204id\022$"
-    "\n\nm_rankType\030\n \001(\005B\020\302\377\024\014\346\216\222\350\241\214\347\261\273\345\236\213\022.\n\n"
-    "m_rankGift\030\013 \001(\tB\032\302\377\024\022\345\206\262\346\246\234\345\256\235\347\256\261\345\220\215\347\247\260"
-    "\220\301\024@\022&\n\nm_giftIcon\030\014 \001(\tB\022\302\377\024\n\345\256\235\347\256\261Icon"
-    "\220\301\024@\022&\n\014m_giftItemId\030\r \001(\005B\020\302\377\024\014\345\256\235\347\256\261it"
-    "emid\022)\n\017m_originalPrice\030\016 \001(\005B\020\302\377\024\014\345\256\235\347\256"
-    "\261\345\216\237\344\273\267\022!\n\007m_price\030\017 \001(\005B\020\302\377\024\014\345\256\235\347\256\261\347\216\260\344"
-    "\273\267\022%\n\013m_ratioShow\030\020 \001(\005B\020\302\377\024\014\345\256\235\347\256\261\345\200\215\347\216"
-    "\207\0220\n\rm_redPointBox\030\021 \001(\005B\031\302\377\024\025\347\272\242\347\202\271\347\244\274\345"
-    "\214\205\345\245\226\345\212\261box\"s\n\035Sheet_FestivalMuban_sever"
-    "rank\022R\n\036E_FestivalMuban_severrank_List\030\001"
-    " \003(\0132#.proto_ff.E_FestivalMuban_severran"
-    "kB\005\210\301\024\200\001\"\265\002\n\036E_FestivalMuban_severrank_d"
-    "ata\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002"
-    " \001(\005B\t\302\377\024\005\347\273\204id\022#\n\tm_maxRank\030\003 \001(\005B\020\302\377\024\014"
-    "\346\216\222\345\220\215\344\270\212\351\231\220\022#\n\tm_minRank\030\004 \001(\005B\020\302\377\024\014\346\216\222"
-    "\345\220\215\344\270\213\351\231\220\0224\n\013m_rankValue\030\005 \001(\005B\037\302\377\024\033\346\234\200\344"
-    "\275\216\346\216\222\350\241\214\345\200\274\346\225\260\345\200\274\350\246\201\346\261\202\022<\n\022m_UnachieveDi"
-    "splay\030\006 \001(\tB \302\377\024\030\346\234\252\346\273\241\350\266\263\347\232\204\346\216\222\350\241\214\346\230\276\347\244"
-    "\272\220\301\024@\022!\n\007m_boxID\030\007 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271"
-    "\"\201\001\n\"Sheet_FestivalMuban_severrank_data\022"
-    "[\n#E_FestivalMuban_severrank_data_List\030\001"
-    " \003(\0132(.proto_ff.E_FestivalMuban_severran"
-    "k_dataB\004\210\301\024@\"V\n#E_FestivalMuban_collectw"
-    "ordCostDesc\022\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024"
-    "\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"\243\002\n\033E_FestivalMuban"
-    "_collectword\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\010m_"
-    "period\030\002 \001(\005B\014\302\377\024\010\346\234\237\346\225\260id\022)\n\rm_exchange"
-    "_id\030\003 \001(\005B\022\302\377\024\016\345\205\221\346\215\242\351\201\223\345\205\267id\022.\n\016m_excha"
-    "nge_num\030\004 \001(\005B\026\302\377\024\022\345\205\221\346\215\242\351\201\223\345\205\267\346\225\260\351\207\217\022$\n"
-    "\007m_times\030\005 \001(\005B\023\302\377\024\017\345\217\257\345\205\221\346\215\242\346\254\241\346\225\260\022M\n\006m"
-    "_cost\030\006 \003(\0132-.proto_ff.E_FestivalMuban_c"
-    "ollectwordCostDescB\016\302\377\024\006\350\212\261\350\264\271\210\301\024\005\"x\n\037Sh"
-    "eet_FestivalMuban_collectword\022U\n E_Festi"
-    "valMuban_collectword_List\030\001 \003(\0132%.proto_"
-    "ff.E_FestivalMuban_collectwordB\004\210\301\024\020\"m\n\024"
-    "E_FestivalMuban_sign\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002"
-    "id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022!\n\007m_bo"
-    "xID\030\003 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\345\206\205\345\256\271\"c\n\030Sheet_Fes"
-    "tivalMuban_sign\022G\n\031E_FestivalMuban_sign_"
-    "List\030\001 \003(\0132\036.proto_ff.E_FestivalMuban_si"
-    "gnB\004\210\301\024\002\"\326\002\n\024E_FestivalMuban_shop\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346"
-    "\234\237\346\225\260\022\'\n\nm_vipLevel\030\003 \001(\005B\023\302\377\024\017\345\210\244\346\226\255vip"
-    "\347\255\211\347\272\247\022\037\n\005m_box\030\004 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\345\206\205\345\256\271\022"
-    "%\n\013m_timeLimit\030\005 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\254\241\346\225\260\022!"
-    "\n\007m_price\030\006 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\345\217\202\346\225\260\022%\n\013m_p"
-    "riceType\030\007 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345\236\213\022*\n\nm_st"
-    "arTime\030\010 \001(\005B\026\302\377\024\022\347\244\274\345\214\205\345\207\272\347\216\260\346\227\266\351\227\264\022#\n\t"
-    "m_durTime\030\t \001(\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\"c\n\030She"
-    "et_FestivalMuban_shop\022G\n\031E_FestivalMuban"
-    "_shop_List\030\001 \003(\0132\036.proto_ff.E_FestivalMu"
-    "ban_shopB\004\210\301\024 \"\331\001\n\030E_FestivalMuban_recha"
-    "nge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 "
-    "\001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\034\n\010m_rebate\030\003 \001(\005B\n\302\377\024\006\350"
-    "\277\224\345\210\251\022%\n\013m_timeLimit\030\004 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\254"
-    "\241\346\225\260\022!\n\007m_price\030\005 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\345\217\202\346\225\260\022"
-    "!\n\007m_typer\030\006 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\347\261\273\345\236\213\"o\n\034Sh"
-    "eet_FestivalMuban_rechange\022O\n\035E_Festival"
-    "Muban_rechange_List\030\001 \003(\0132\".proto_ff.E_F"
-    "estivalMuban_rechangeB\004\210\301\024\020\"\215\001\n\025E_Festiv"
-    "alMuban_leiji\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m"
-    "_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022!\n\007m_leiji\030\003 \001"
-    "(\005B\020\302\377\024\014\344\274\244\345\256\263\347\264\257\350\256\241\022\035\n\007m_boxID\030\004 \001(\005B\014\302"
-    "\377\024\010\345\245\226\345\212\261ID\"f\n\031Sheet_FestivalMuban_leiji"
-    "\022I\n\032E_FestivalMuban_leiji_List\030\001 \003(\0132\037.p"
-    "roto_ff.E_FestivalMuban_leijiB\004\210\301\024\020\"\317\001\n\025"
-    "E_FestivalMuban_zadan\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
-    "\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\034\n\010m_i"
-    "temid\030\003 \001(\003B\n\302\377\024\006\347\211\251\345\223\201\022\031\n\005m_num\030\004 \001(\005B\n"
-    "\302\377\024\006\346\225\260\351\207\217\022 \n\006m_type\030\005 \001(\005B\020\302\377\024\014\345\245\226\346\261\240\347\261"
-    "\273\345\236\213\022\'\n\rm_probability\030\006 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\346"
-    "\235\203\351\207\215\"f\n\031Sheet_FestivalMuban_zadan\022I\n\032E_"
-    "FestivalMuban_zadan_List\030\001 \003(\0132\037.proto_f"
-    "f.E_FestivalMuban_zadanB\004\210\301\024\020\"\335\001\n\027E_Fest"
-    "ivalZadanconstant\022\034\n\010m_period\030\001 \001(\005B\n\302\377\024"
-    "\006\346\234\237\346\225\260\022,\n\nm_costItem\030\002 \001(\003B\030\302\377\024\024\346\212\275\345\245\226\346"
-    "\266\210\350\200\227\347\232\204\347\211\251id\022\"\n\010m_number\030\003 \001(\005B\020\302\377\024\014\347\211\251"
-    "\345\223\201\346\225\260\351\207\217\022&\n\006m_free\030\004 \001(\005B\026\302\377\024\022\345\205\215\350\264\271\351\207\215"
-    "\347\275\256\346\254\241\346\225\260\022*\n\nm_currency\030\005 \001(\005B\026\302\377\024\022\346\266\210\350\200"
-    "\227\351\222\273\347\237\263\351\207\215\347\275\256\"l\n\033Sheet_FestivalZadancons"
-    "tant\022M\n\034E_FestivalZadanconstant_List\030\001 \003"
-    "(\0132!.proto_ff.E_FestivalZadanconstantB\004\210"
-    "\301\024 \"\227\001\n\031E_FestivalMuban_turntable\022\024\n\004m_i"
-    "d\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346"
-    "\234\237\346\225\260\022\"\n\013m_poolGroup\030\003 \001(\005B\r\302\377\024\t\345\245\226\346\261\240\347\273"
-    "\204\022\"\n\013m_taskGroup\030\004 \001(\005B\r\302\377\024\t\344\273\273\345\212\241\347\273\204\"r\n"
-    "\035Sheet_FestivalMuban_turntable\022Q\n\036E_Fest"
-    "ivalMuban_turntable_List\030\001 \003(\0132#.proto_f"
-    "f.E_FestivalMuban_turntableB\004\210\301\024\002\"\253\001\n\036E_"
-    "FestivalMuban_turntable_pool\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204ID"
-    "\022\034\n\010m_itemID\030\003 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\022\031\n\005m_num\030"
-    "\004 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\034\n\010m_weight\030\005 \001(\005B\n\302\377\024"
-    "\006\346\235\203\351\207\215\"\201\001\n\"Sheet_FestivalMuban_turntabl"
-    "e_pool\022[\n#E_FestivalMuban_turntable_pool"
-    "_List\030\001 \003(\0132(.proto_ff.E_FestivalMuban_t"
-    "urntable_poolB\004\210\301\024\020\"\222\002\n\036E_FestivalMuban_"
-    "turntable_task\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\t"
-    "m_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022%\n\013m_eventTyp"
-    "e\030\003 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachPric"
-    "e\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022\032\n\006m_link\030\005 \001(\005B\n"
-    "\302\377\024\006\350\277\236\346\216\245\022\'\n\rm_rewardTimes\030\006 \001(\005B\020\302\377\024\014\345"
-    "\245\226\345\212\261\346\254\241\346\225\260\022+\n\007m_param\030\007 \003(\005B\032\302\377\024\022\344\272\213\344\273\266"
-    "\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\002\"\201\001\n\"Sheet_FestivalMuban"
-    "_turntable_task\022[\n#E_FestivalMuban_turnt"
-    "able_task_List\030\001 \003(\0132(.proto_ff.E_Festiv"
-    "alMuban_turntable_taskB\004\210\301\024\020\"\246\002\n\026E_Festi"
-    "valMuban_donate\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n"
-    "\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022&\n\014m_donateI"
-    "tem\030\003 \001(\005B\020\302\377\024\014\346\215\220\347\214\256\351\201\223\345\205\267\022.\n\016m_donateR"
-    "eward\030\004 \001(\005B\026\302\377\024\022\346\215\220\347\214\256\350\216\267\345\276\227\345\245\226\345\212\261\022-\n\rm"
-    "_severReward\030\005 \001(\005B\026\302\377\024\022\346\234\215\345\212\241\345\231\250\345\245\226\345\212\261\347"
-    "\273\204\022+\n\016m_singleReward\030\006 \001(\005B\023\302\377\024\017\344\270\252\344\272\272\345\245"
-    "\226\345\212\261\347\273\204\022$\n\rm_taskGroupID\030\007 \001(\005B\r\302\377\024\t\344\273\273\345"
-    "\212\241\347\273\204\"i\n\032Sheet_FestivalMuban_donate\022K\n\033E"
-    "_FestivalMuban_donate_List\030\001 \003(\0132 .proto"
-    "_ff.E_FestivalMuban_donateB\004\210\301\024\002\"\367\001\n\034E_F"
-    "estivalMuban_donate_sever\022\024\n\004m_id\030\001 \001(\005B"
-    "\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\036\n"
-    "\007m_value\030\003 \001(\005B\r\302\377\024\t\350\277\233\345\272\246\345\200\274\022 \n\006m_type\030"
-    "\004 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\347\261\273\345\236\213\022\'\n\tm_typeArg\030\005 \001"
-    "(\tB\024\302\377\024\014\345\245\226\345\212\261\345\217\202\346\225\260\220\301\024@\022\035\n\005m_pro\030\006 \001(\tB"
-    "\016\302\377\024\006\350\201\214\344\270\232\220\301\024@\022\031\n\005m_num\030\007 \001(\005B\n\302\377\024\006\346\225\260\351"
-    "\207\217\"{\n Sheet_FestivalMuban_donate_sever\022W"
-    "\n!E_FestivalMuban_donate_sever_List\030\001 \003("
-    "\0132&.proto_ff.E_FestivalMuban_donate_seve"
-    "rB\004\210\301\024@\"\321\001\n\035E_FestivalMuban_donate_singl"
-    "e\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001"
-    "(\005B\t\302\377\024\005\347\273\204id\022\036\n\007m_value\030\003 \001(\005B\r\302\377\024\t\350\277\233\345"
-    "\272\246\345\200\274\022\"\n\010m_itemID\030\004 \001(\tB\020\302\377\024\010\347\211\251\345\223\201ID\220\301\024"
-    "@\022\035\n\005m_pro\030\005 \001(\tB\016\302\377\024\006\350\201\214\344\270\232\220\301\024@\022\031\n\005m_nu"
-    "m\030\006 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"~\n!Sheet_FestivalMub"
-    "an_donate_single\022Y\n\"E_FestivalMuban_dona"
-    "te_single_List\030\001 \003(\0132\'.proto_ff.E_Festiv"
-    "alMuban_donate_singleB\004\210\301\024\010\"\233\002\n\033E_Festiv"
-    "alMuban_donate_task\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002i"
+    "\006\346\234\237\346\225\260\022&\n\nm_costItem\030\003 \001(\005B\022\302\377\024\016\346\212\275\345\245\226\351"
+    "\201\223\345\205\267id\022\'\n\tm_costNum\030\004 \001(\tB\024\302\377\024\014\347\211\251\345\223\201\346\225"
+    "\260\351\207\217\220\301\024@\022&\n\rm_poolGroupID\030\005 \001(\005B\017\302\377\024\013\345\245\226"
+    "\346\261\240\347\273\204id\022$\n\nm_showType\030\006 \001(\005B\020\302\377\024\014\350\241\250\347\216\260"
+    "\345\275\242\345\274\217\022&\n\013m_baseImage\030\007 \001(\tB\021\302\377\024\t\350\233\213\345\272\225\345"
+    "\233\276\220\301\024@\022%\n\nm_eggImage\030\010 \001(\tB\021\302\377\024\t\350\233\213\350\265\204\346\272"
+    "\220\220\301\024@\022)\n\013m_clickDesc\030\t \001(\tB\024\302\377\024\014\347\202\271\345\207\273\346\217"
+    "\217\350\277\260\220\301\024@\022(\n\nm_costDesc\030\n \001(\tB\024\302\377\024\014\346\266\210\350\200\227"
+    "\346\217\217\350\277\260\220\301\024@\022+\n\rm_residueDesc\030\013 \001(\tB\024\302\377\024\014\345"
+    "\211\251\344\275\231\346\217\217\350\277\260\220\301\024@\022-\n\rm_restartItem\030\014 \001(\005B\026"
+    "\302\377\024\022\351\207\215\347\275\256\346\266\210\350\200\227\351\201\223\345\205\267\022-\n\rm_restartCost\030"
+    "\r \001(\005B\026\302\377\024\022\351\207\215\347\275\256\346\266\210\350\200\227\346\225\260\351\207\217\022(\n\016m_daily"
+    "Restart\030\016 \001(\005B\020\302\377\024\014\346\257\217\346\227\245\351\207\215\347\275\256\022,\n\006m_fre"
+    "e\030\017 \001(\005B\034\302\377\024\030\345\205\215\350\264\271\346\257\217\346\227\245\351\207\215\347\275\256\346\254\241\346\225\260\022&\n"
+    "\rm_taskGroupID\030\020 \001(\005B\017\302\377\024\013\344\273\273\345\212\241\347\273\204ID\0228\n"
+    "\022m_dailyTaskRestart\030\021 \001(\005B\034\302\377\024\030\344\273\273\345\212\241\346\230\257"
+    "\345\220\246\346\257\217\346\227\245\351\207\215\347\275\256\"o\n\034Sheet_FestivalMuban_e"
+    "ggsdraw\022O\n\035E_FestivalMuban_eggsdraw_List"
+    "\030\001 \003(\0132\".proto_ff.E_FestivalMuban_eggsdr"
+    "awB\004\210\301\024\020\"\236\002\n\035E_FestivalMuban_eggsdraw_po"
+    "ol\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 "
+    "\001(\005B\t\302\377\024\005\347\273\204ID\022\034\n\010m_itemid\030\003 \001(\003B\n\302\377\024\006\347\211"
+    "\251\345\223\201\022\031\n\005m_num\030\004 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_pro"
+    "f\030\005 \001(\005B\n\302\377\024\006\350\201\214\344\270\232\022#\n\tm_weights\030\006 \001(\005B\020"
+    "\302\377\024\014\346\216\211\350\220\275\346\235\203\351\207\215\022+\n\010m_Record\030\007 \001(\005B\031\302\377\024\025"
+    "\345\245\226\345\212\261\350\256\260\345\275\225\347\250\200\346\234\211\345\272\246\022\"\n\010m_poolLv\030\010 \001(\005B"
+    "\020\302\377\024\014\345\245\226\346\261\240\347\255\211\347\272\247\"~\n!Sheet_FestivalMuban"
+    "_eggsdraw_pool\022Y\n\"E_FestivalMuban_eggsdr"
+    "aw_pool_List\030\001 \003(\0132\'.proto_ff.E_Festival"
+    "Muban_eggsdraw_poolB\004\210\301\024\020\"\271\002\n\035E_Festival"
+    "Muban_eggsdraw_task\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002i"
     "d\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022%\n\013m_eve"
     "ntType\030\003 \001(\005B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reac"
-    "hPrice\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022$\n\010m_itemID\030"
-    "\005 \001(\005B\022\302\377\024\016\345\245\226\345\212\261\351\201\223\345\205\267id\022)\n\tm_itemNum\030\006"
-    " \001(\005B\026\302\377\024\022\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\022+\n\007m_param\030"
-    "\007 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\002\"x\n\037She"
-    "et_FestivalMuban_donate_task\022U\n E_Festiv"
-    "alMuban_donate_task_List\030\001 \003(\0132%.proto_f"
-    "f.E_FestivalMuban_donate_taskB\004\210\301\024\010\"\223\002\n\026"
-    "E_FestivalMuban_online\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
-    "\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022)\n\013m_"
-    "timeStart\030\003 \001(\tB\024\302\377\024\014\345\274\200\345\247\213\346\227\266\351\227\264\220\301\024@\022\'\n"
-    "\tm_timeEnd\030\004 \001(\tB\024\302\377\024\014\347\273\223\346\235\237\346\227\266\351\227\264\220\301\024@\022\""
-    "\n\010m_itemID\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022#\n\tm_"
-    "itemNum\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\346\225\260\351\207\217\022(\n\005m_vip"
-    "\030\007 \001(\005B\031\302\377\024\025\350\241\245\351\242\206\350\246\201\346\261\202vip\347\255\211\347\272\247\"i\n\032She"
-    "et_FestivalMuban_online\022K\n\033E_FestivalMub"
-    "an_online_List\030\001 \003(\0132 .proto_ff.E_Festiv"
-    "alMuban_onlineB\004\210\301\024\004\"|\n\032E_FestivalMuban_"
-    "rturntable\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_pe"
-    "riod\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022*\n\021m_rechargeGrou"
-    "pID\030\003 \001(\005B\017\302\377\024\013\345\205\205\345\200\274\347\273\204ID\"u\n\036Sheet_Fest"
-    "ivalMuban_rturntable\022S\n\037E_FestivalMuban_"
-    "rturntable_List\030\001 \003(\0132$.proto_ff.E_Festi"
-    "valMuban_rturntableB\004\210\301\024\002\"\325\001\n#E_Festival"
-    "Muban_rturntable_recharge\022\024\n\004m_id\030\001 \001(\005B"
-    "\006\302\377\024\002id\022\032\n\tm_groupID\030\002 \001(\005B\007\302\377\024\003\347\273\204\022&\n\014m"
-    "_rechargeID\030\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\346\241\243\344\275\215\022!\n\007m"
-    "_limit\030\004 \001(\005B\020\302\377\024\014\351\231\220\345\210\266\346\254\241\346\225\260\0221\n\016m_rati"
-    "oGroupID\030\005 \001(\005B\031\302\377\024\025\344\275\277\347\224\250\345\205\205\345\200\274\345\200\215\347\216\207\347\273"
-    "\204\"\220\001\n\'Sheet_FestivalMuban_rturntable_rec"
-    "harge\022e\n(E_FestivalMuban_rturntable_rech"
-    "arge_List\030\001 \003(\0132-.proto_ff.E_FestivalMub"
-    "an_rturntable_rechargeB\004\210\301\024\020\"\230\001\n)E_Festi"
-    "valMuban_rturntable_recharge_ratio\022\024\n\004m_"
-    "id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\tm_groupID\030\002 \001(\005B\007\302\377\024"
-    "\003\347\273\204\022\033\n\007m_ratio\030\003 \001(\005B\n\302\377\024\006\345\200\215\347\216\207\022\034\n\010m_w"
-    "eight\030\004 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\"\242\001\n-Sheet_Festiv"
-    "alMuban_rturntable_recharge_ratio\022q\n.E_F"
-    "estivalMuban_rturntable_recharge_ratio_L"
-    "ist\030\001 \003(\01323.proto_ff.E_FestivalMuban_rtu"
-    "rntable_recharge_ratioB\004\210\301\024@\"\313\002\n\030E_Festi"
-    "valMuban_drawpize\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022"
-    "\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\036\n\010m_costI"
-    "D\030\003 \001(\003B\014\302\377\024\010\351\201\223\345\205\267id\022\'\n\tm_costNum\030\004 \001(\t"
-    "B\024\302\377\024\014\346\212\275\345\245\226\346\266\210\350\200\227\220\301\024@\022#\n\rm_poolGroupId\030"
-    "\005 \001(\005B\014\302\377\024\010\345\245\226\346\261\240id\0220\n\016m_totalGroupID\030\006 "
-    "\001(\005B\030\302\377\024\024\347\264\257\350\256\241\346\254\241\346\225\260\345\245\226\345\212\261id\022,\n\014m_sever"
-    "Limit\030\007 \001(\005B\026\302\377\024\022\345\205\250\346\234\215\346\254\241\346\225\260\351\231\220\345\210\266\022-\n\rm"
-    "_protectTime\030\010 \001(\005B\026\302\377\024\022\344\277\235\345\272\225\345\245\226\346\261\240\346\254\241\346"
-    "\225\260\"o\n\034Sheet_FestivalMuban_drawpize\022O\n\035E_"
-    "FestivalMuban_drawpize_List\030\001 \003(\0132\".prot"
-    "o_ff.E_FestivalMuban_drawpizeB\004\210\301\024\004\"\333\002\n\035"
-    "E_FestivalMuban_drawpize_pool\022\024\n\004m_id\030\001 "
-    "\001(\005B\006\302\377\024\002id\022\"\n\tm_groupID\030\002 \001(\005B\017\302\377\024\013\345\245\226\346"
-    "\261\240\347\273\204ID\022\034\n\010m_itemid\030\003 \001(\003B\n\302\377\024\006\347\211\251\345\223\201\022\031\n"
-    "\005m_num\030\004 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_prof\030\005 \001(\005"
-    "B\n\302\377\024\006\350\201\214\344\270\232\022#\n\tm_weights\030\006 \001(\005B\020\302\377\024\014\346\216\211"
-    "\350\220\275\346\235\203\351\207\215\022,\n\014m_proWeights\030\007 \001(\005B\026\302\377\024\022\344\277\235"
-    "\345\272\225\346\216\211\350\220\275\346\235\203\351\207\215\022+\n\013m_timeLimit\030\010 \001(\005B\026\302\377"
-    "\024\022\351\231\220\345\210\266\346\212\275\345\245\226\346\254\241\346\225\260\022+\n\010m_Record\030\t \001(\005B\031"
-    "\302\377\024\025\345\245\226\345\212\261\350\256\260\345\275\225\347\250\200\346\234\211\345\272\246\"~\n!Sheet_Festi"
-    "valMuban_drawpize_pool\022Y\n\"E_FestivalMuba"
-    "n_drawpize_pool_List\030\001 \003(\0132\'.proto_ff.E_"
-    "FestivalMuban_drawpize_poolB\004\210\301\024@\"\301\001\n\036E_"
-    "FestivalMuban_drawpize_total\022\024\n\004m_id\030\001 \001"
-    "(\005B\006\302\377\024\002id\022\034\n\tm_groupid\030\002 \001(\005B\t\302\377\024\005\347\273\204id"
-    "\022\036\n\007m_value\030\003 \001(\005B\r\302\377\024\t\346\235\241\344\273\266\345\200\274\022$\n\010m_it"
-    "emID\030\004 \001(\005B\022\302\377\024\016\345\245\226\345\212\261\351\201\223\345\205\267id\022%\n\005m_num\030"
-    "\005 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\"\201\001\n\"Sheet_"
-    "FestivalMuban_drawpize_total\022[\n#E_Festiv"
-    "alMuban_drawpize_total_List\030\001 \003(\0132(.prot"
-    "o_ff.E_FestivalMuban_drawpize_totalB\004\210\301\024"
-    "@\"\231\001\n\035E_FestivalMuban_totalrecharge\022\024\n\004m"
-    "_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024"
-    "\006\346\234\237\346\225\260\022!\n\007m_value\030\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\351\242\235\345"
-    "\272\246\022!\n\007m_boxid\030\004 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271\"~\n"
-    "!Sheet_FestivalMuban_totalrecharge\022Y\n\"E_"
-    "FestivalMuban_totalrecharge_List\030\001 \003(\0132\'"
-    ".proto_ff.E_FestivalMuban_totalrechargeB"
-    "\004\210\301\024\020\"\236\001\n\"E_FestivalMuban_dailytotalrech"
+    "hPrice\030\004 \001(\005B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022(\n\014m_rewardI"
+    "tem\030\005 \001(\005B\022\302\377\024\016\345\245\226\345\212\261\351\201\223\345\205\267ID\022%\n\013m_rewar"
+    "dNum\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\346\225\260\351\207\217\022\032\n\006m_link\030\007"
+    " \001(\005B\n\302\377\024\006\350\277\236\346\216\245\022+\n\007m_param\030\010 \003(\005B\032\302\377\024\022\344"
+    "\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\002\"~\n!Sheet_FestivalM"
+    "uban_eggsdraw_task\022Y\n\"E_FestivalMuban_eg"
+    "gsdraw_task_List\030\001 \003(\0132\'.proto_ff.E_Fest"
+    "ivalMuban_eggsdraw_taskB\004\210\301\024\020\"\224\002\n\030E_Fest"
+    "ivalMuban_ftreward\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id"
+    "\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022#\n\006m_FTID"
+    "\030\003 \001(\tB\023\302\377\024\013\346\212\275\345\245\226\347\273\204id\220\301\024@\022+\n\013m_addItem"
+    "ID\030\004 \001(\005B\026\302\377\024\022\351\242\235\345\244\226\345\245\226\345\212\261\351\201\223\345\205\267\022*\n\014m_sh"
+    "owReward\030\005 \001(\tB\024\302\377\024\014\345\245\226\345\212\261\345\261\225\347\244\272\220\301\024@\022\034\n\010"
+    "m_linkid\030\006 \001(\005B\n\302\377\024\006\350\267\263\350\275\254\022(\n\014m_function"
+    "ID\030\007 \001(\005B\022\302\377\024\016\345\212\237\350\203\275\345\274\200\346\224\276ID\"o\n\034Sheet_Fe"
+    "stivalMuban_ftreward\022O\n\035E_FestivalMuban_"
+    "ftreward_List\030\001 \003(\0132\".proto_ff.E_Festiva"
+    "lMuban_ftrewardB\004\210\301\024\002\"\225\003\n\031E_FestivalMuba"
+    "n_challenge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_p"
+    "eriod\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\036\n\006m_name\030\003 \001(\tB"
+    "\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022#\n\tm_joinBox\030\004 \001(\005B\020\302\377\024\014"
+    "\345\217\202\344\270\216\345\245\226\345\212\261\022-\n\rm_killBoxShow\030\005 \001(\005B\026\302\377\024"
+    "\022\345\256\214\346\210\220\345\261\225\347\244\272\345\245\226\345\212\261\022\037\n\tm_monster\030\006 \001(\005B\014"
+    "\302\377\024\010\346\200\252\347\211\251ID\022\036\n\007m_point\030\007 \001(\005B\r\302\377\024\t\345\210\267\346\226"
+    "\260\347\202\271\022+\n\nm_showTime\030\010 \001(\tB\027\302\377\024\017\346\230\276\347\244\272\346\227\266\351"
+    "\227\264\347\202\271\220\301\024@\022\"\n\010m_faceid\030\t \001(\005B\020\302\377\024\014\346\230\276\347\244\272\345"
+    "\244\226\350\247\202\022 \n\010m_scalle\030\n \001(\tB\016\302\377\024\006\347\274\251\346\224\276\220\301\024@\022"
+    "\034\n\010m_linkid\030\013 \001(\005B\n\302\377\024\006linkID\"r\n\035Sheet_F"
+    "estivalMuban_challenge\022Q\n\036E_FestivalMuba"
+    "n_challenge_List\030\001 \003(\0132#.proto_ff.E_Fest"
+    "ivalMuban_challengeB\004\210\301\024\002\"\235\001\n E_Festival"
+    "Muban_mystmallOpenDesc\022\037\n\005m_dur\030\001 \001(\005B\020\302"
+    "\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\022\037\n\010m_mallID\030\002 \001(\005B\r\302\377\024\t\345"
+    "\225\206\345\272\227\347\273\204\022!\n\006m_time\030\003 \001(\tB\021\302\377\024\t\346\227\266\351\227\264\347\202\271\220"
+    "\301\024@\022\024\n\004m_ID\030\004 \001(\005B\006\302\377\024\002id\"\265\001\n\030E_Festival"
+    "Muban_mystmall\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010"
+    "m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\031\n\005m_day\030\003 \001("
+    "\005B\n\302\377\024\006\345\244\251\346\225\260\022J\n\006m_open\030\004 \003(\0132*.proto_ff"
+    ".E_FestivalMuban_mystmallOpenDescB\016\302\377\024\006\345"
+    "\274\200\346\224\276\210\301\024\003\"o\n\034Sheet_FestivalMuban_mystmal"
+    "l\022O\n\035E_FestivalMuban_mystmall_List\030\001 \003(\013"
+    "2\".proto_ff.E_FestivalMuban_mystmallB\004\210\301"
+    "\024\010\"\204\003\n\035E_FestivalMuban_mystmall_mall\022\032\n\004"
+    "m_id\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\223\201ID\022\"\n\tm_groupID\030\002 "
+    "\001(\005B\017\302\377\024\013\345\225\206\345\237\216\347\273\204ID\022\036\n\010m_itemID\030\003 \001(\005B\014"
+    "\302\377\024\010\347\211\251\345\223\201ID\022#\n\tm_itemNum\030\004 \001(\005B\020\302\377\024\014\350\264\255"
+    "\344\271\260\346\225\260\351\207\217\022%\n\013m_priceType\030\005 \001(\005B\020\302\377\024\014\344\273\267\346"
+    "\240\274\347\261\273\345\236\213\022\033\n\007m_price\030\006 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022!\n"
+    "\rm_originPrice\030\007 \001(\005B\n\302\377\024\006\345\216\237\344\273\267\022\036\n\nm_di"
+    "scount\030\010 \001(\005B\n\302\377\024\006\346\212\230\346\211\243\022%\n\013m_buyAmount\030"
+    "\t \001(\005B\020\302\377\024\014\351\231\220\345\210\266\346\225\260\351\207\217\0220\n\020m_functionUnl"
+    "ock\030\n \001(\005B\026\302\377\024\022\345\205\263\350\201\224\345\212\237\350\203\275\345\274\200\346\224\276\"~\n!She"
+    "et_FestivalMuban_mystmall_mall\022Y\n\"E_Fest"
+    "ivalMuban_mystmall_mall_List\030\001 \003(\0132\'.pro"
+    "to_ff.E_FestivalMuban_mystmall_mallB\004\210\301\024"
+    " \"^\n%E_FestivalMuban_rebatestoreExpendDe"
+    "sc\022\033\n\007m_BoxID\030\001 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\030\n\007m_Val"
+    "ue\030\002 \001(\005B\007\302\377\024\003\345\200\274\"\310\001\n\033E_FestivalMuban_re"
+    "batestore\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_per"
+    "iod\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\"\n\tm_groupID\030\003 \001(\005"
+    "B\017\302\377\024\013\345\225\206\345\272\227\347\273\204ID\022Q\n\010m_expend\030\004 \003(\0132/.pr"
+    "oto_ff.E_FestivalMuban_rebatestoreExpend"
+    "DescB\016\302\377\024\006\346\266\210\350\264\271\210\301\024\006\"x\n\037Sheet_FestivalMu"
+    "ban_rebatestore\022U\n E_FestivalMuban_rebat"
+    "estore_List\030\001 \003(\0132%.proto_ff.E_FestivalM"
+    "uban_rebatestoreB\004\210\301\024\002\"\372\003\n E_FestivalMub"
+    "an_rebatestore_mall\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345"
+    "\225\206\345\223\201ID\022\"\n\tm_groupID\030\002 \001(\005B\017\302\377\024\013\345\225\206\345\237\216\347\273"
+    "\204ID\022$\n\nm_mallType\030\003 \001(\005B\020\302\377\024\014\345\225\206\345\237\216\345\210\206\347\261"
+    "\273\022\036\n\010m_itemID\030\004 \001(\005B\014\302\377\024\010\347\211\251\345\223\201ID\022#\n\tm_i"
+    "temNum\030\005 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\346\225\260\351\207\217\022\033\n\007m_pric"
+    "e\030\006 \001(\005B\n\302\377\024\006\344\273\267\346\240\274\022!\n\rm_originPrice\030\007 \001"
+    "(\005B\n\302\377\024\006\345\216\237\344\273\267\022\036\n\nm_discount\030\010 \001(\005B\n\302\377\024\006"
+    "\346\212\230\346\211\243\022\'\n\007m_daily\030\t \001(\005B\026\302\377\024\022\346\230\257\345\220\246\346\257\217\346\227"
+    "\245\351\207\215\347\275\256\022%\n\013m_buyAmount\030\n \001(\005B\020\302\377\024\014\351\231\220\345\210\266"
+    "\346\225\260\351\207\217\0220\n\020m_functionUnlock\030\013 \001(\005B\026\302\377\024\022\345\205"
+    "\263\350\201\224\345\212\237\350\203\275\345\274\200\346\224\276\022#\n\tm_openDay\030\014 \001(\005B\020\302\377\024"
+    "\014\345\274\200\346\224\276\345\244\251\346\225\260\022$\n\nm_closeDay\030\r \001(\005B\020\302\377\024\014\346"
+    "\266\210\345\244\261\345\244\251\346\225\260\"\207\001\n$Sheet_FestivalMuban_reba"
+    "testore_mall\022_\n%E_FestivalMuban_rebatest"
+    "ore_mall_List\030\001 \003(\0132*.proto_ff.E_Festiva"
+    "lMuban_rebatestore_mallB\004\210\301\024 \"\236\001\n\034E_Fest"
+    "ivalMuban_contrecharge\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
+    "\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\037\n\014m_"
+    "totalGroup\030\003 \001(\005B\t\302\377\024\005\347\273\204ID\022)\n\014m_dailyGr"
+    "oup\030\004 \001(\005B\023\302\377\024\017\346\257\217\346\227\245\345\205\205\345\200\274\347\273\204\"{\n Sheet_"
+    "FestivalMuban_contrecharge\022W\n!E_Festival"
+    "Muban_contrecharge_List\030\001 \003(\0132&.proto_ff"
+    ".E_FestivalMuban_contrechargeB\004\210\301\024\002\"d\n+E"
+    "_FestivalMuban_contrecharge_totalTotalDe"
+    "sc\022\031\n\005m_Box\030\001 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\022\032\n\006m_Days\030"
+    "\002 \001(\005B\n\302\377\024\006\345\244\251\346\225\260\"\362\001\n\"E_FestivalMuban_co"
+    "ntrecharge_total\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034"
+    "\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204ID\022\032\n\006m_Gear\030\003"
+    " \001(\005B\n\302\377\024\006\346\241\243\344\275\215\022$\n\nm_recharge\030\004 \001(\005B\020\302\377"
+    "\024\014\345\205\205\345\200\274\351\207\221\351\242\235\022V\n\007m_total\030\005 \003(\01325.proto_"
+    "ff.E_FestivalMuban_contrecharge_totalTot"
+    "alDescB\016\302\377\024\006\350\277\236\347\273\255\210\301\024\004\"\215\001\n&Sheet_Festiva"
+    "lMuban_contrecharge_total\022c\n\'E_FestivalM"
+    "uban_contrecharge_total_List\030\001 \003(\0132,.pro"
+    "to_ff.E_FestivalMuban_contrecharge_total"
+    "B\004\210\301\024\010\"\262\001\n E_FestivalMuban_contrecharge_"
+    "day\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022&\n\tm_groupID\030\002"
+    " \001(\005B\023\302\377\024\017\350\277\236\345\205\205\345\245\226\345\212\261\347\273\204\022\031\n\005m_day\030\003 \001(\005"
+    "B\n\302\377\024\006\345\244\251\346\225\260\022\032\n\006m_gear\030\004 \001(\005B\n\302\377\024\006\346\241\243\344\275\215"
+    "\022\031\n\005m_box\030\005 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"\207\001\n$Sheet_Fe"
+    "stivalMuban_contrecharge_day\022_\n%E_Festiv"
+    "alMuban_contrecharge_day_List\030\001 \003(\0132*.pr"
+    "oto_ff.E_FestivalMuban_contrecharge_dayB"
+    "\004\210\301\024@\"\216\001\n\025E_FestivalMuban_login\022\024\n\004m_id\030"
+    "\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237"
+    "\346\225\260\022$\n\nm_loginDay\030\003 \001(\005B\020\302\377\024\014\345\244\251\346\225\260\350\246\201\346\261"
+    "\202\022\033\n\007m_boxid\030\004 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"f\n\031Sheet_"
+    "FestivalMuban_login\022I\n\032E_FestivalMuban_l"
+    "ogin_List\030\001 \003(\0132\037.proto_ff.E_FestivalMub"
+    "an_loginB\004\210\301\024\010\"\315\001\n\035E_FestivalMuban_first"
+    "recharge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_peri"
+    "od\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\031\n\005m_day\030\003 \001(\005B\n\302\377\024"
+    "\006\345\244\251\346\225\260\022\032\n\006m_gear\030\004 \001(\005B\n\302\377\024\006\346\241\243\344\275\215\022$\n\nm"
+    "_recharge\030\005 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\351\207\221\351\242\235\022\033\n\007m_b"
+    "oxid\030\006 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"~\n!Sheet_Festival"
+    "Muban_firstrecharge\022Y\n\"E_FestivalMuban_f"
+    "irstrecharge_List\030\001 \003(\0132\'.proto_ff.E_Fes"
+    "tivalMuban_firstrechargeB\004\210\301\024\020\"\363\001\n\024E_Fes"
+    "tivalMuban_love\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n"
+    "\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022/\n\rm_taskPoi"
+    "ntID\030\003 \001(\005B\030\302\377\024\024\344\273\273\345\212\241\350\277\233\345\272\246\351\201\223\345\205\267id\022\"\n\013"
+    "m_rankGroup\030\004 \001(\005B\r\302\377\024\t\346\216\222\350\241\214\347\273\204\022\"\n\013m_ta"
+    "skGroup\030\005 \001(\005B\r\302\377\024\t\344\273\273\345\212\241\347\273\204\022.\n\021m_taskRe"
+    "wardGroup\030\006 \001(\005B\023\302\377\024\017\344\273\273\345\212\241\345\245\226\345\212\261\347\273\204\"c\n\030"
+    "Sheet_FestivalMuban_love\022G\n\031E_FestivalMu"
+    "ban_love_List\030\001 \003(\0132\036.proto_ff.E_Festiva"
+    "lMuban_loveB\004\210\301\024\010\"\327\001\n\031E_FestivalMuban_lo"
+    "ve_rank\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_group"
+    "id\030\002 \001(\005B\t\302\377\024\005\347\273\204ID\0222\n\014m_rewardShow\030\003 \001("
+    "\005B\034\302\377\024\030\347\254\254\344\270\200\345\220\215\347\232\204\345\261\225\347\244\272\350\265\204\346\272\220\022,\n\rm_dat"
+    "aGroupID\030\004 \001(\005B\025\302\377\024\021\346\216\222\350\241\214\346\225\260\346\215\256\347\273\204id\022$\n"
+    "\nm_rankType\030\005 \001(\005B\020\302\377\024\014\346\216\222\350\241\214\347\261\273\345\236\213\"r\n\035S"
+    "heet_FestivalMuban_love_rank\022Q\n\036E_Festiv"
+    "alMuban_love_rank_List\030\001 \003(\0132#.proto_ff."
+    "E_FestivalMuban_love_rankB\004\210\301\024\002\"\367\001\n\036E_Fe"
+    "stivalMuban_love_rank_data\022\024\n\004m_id\030\001 \001(\005"
+    "B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022#"
+    "\n\tm_maxRank\030\003 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\212\351\231\220\022#\n\tm"
+    "_minRank\030\004 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\213\351\231\220\0224\n\013m_ra"
+    "nkValue\030\005 \001(\005B\037\302\377\024\033\346\234\200\344\275\216\346\216\222\350\241\214\345\200\274\346\225\260\345\200\274"
+    "\350\246\201\346\261\202\022!\n\007m_boxID\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256"
+    "\271\"\201\001\n\"Sheet_FestivalMuban_love_rank_data"
+    "\022[\n#E_FestivalMuban_love_rank_data_List\030"
+    "\001 \003(\0132(.proto_ff.E_FestivalMuban_love_ra"
+    "nk_dataB\004\210\301\024\010\"\261\002\n\031E_FestivalMuban_love_t"
+    "ask\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002"
+    " \001(\005B\t\302\377\024\005\347\273\204id\022%\n\013m_eventType\030\003 \001(\005B\020\302\377"
+    "\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachPrice\030\004 \001(\005B\r\302\377"
+    "\024\t\350\276\276\346\210\220\345\200\274\022\032\n\006m_link\030\005 \001(\005B\n\302\377\024\006\350\277\236\346\216\245\022"
+    "\'\n\rm_rewardTimes\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\277\203\346\225\260"
+    "\022\"\n\010m_reward\030\007 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271\022+\n\007"
+    "m_param\030\010 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024"
+    "\002\"r\n\035Sheet_FestivalMuban_love_task\022Q\n\036E_"
+    "FestivalMuban_love_task_List\030\001 \003(\0132#.pro"
+    "to_ff.E_FestivalMuban_love_taskB\004\210\301\024\020\"\220\001"
+    "\n\037E_FestivalMuban_love_taskreward\022\024\n\004m_i"
+    "d\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005"
+    "\347\273\204id\022\036\n\007m_value\030\003 \001(\005B\r\302\377\024\t\350\277\233\345\272\246\345\200\274\022\031\n"
+    "\005m_box\030\004 \001(\005B\n\302\377\024\006\345\245\226\345\212\261\"\204\001\n#Sheet_Festi"
+    "valMuban_love_taskreward\022]\n$E_FestivalMu"
+    "ban_love_taskreward_List\030\001 \003(\0132).proto_f"
+    "f.E_FestivalMuban_love_taskrewardB\004\210\301\024\010\""
+    "\341\001\n\026E_FestivalMuban_addbox\022\030\n\004m_id\030\001 \001(\005"
+    "B\n\302\377\024\006\345\272\217\345\217\267\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346"
+    "\225\260\022,\n\tm_lvLimit\030\003 \001(\005B\031\302\377\024\025\346\234\200\344\275\216\347\232\204\346\200\252\347"
+    "\211\251\347\255\211\347\272\247\022\032\n\006m_type\030\004 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\035\n\005"
+    "m_arg\030\005 \001(\tB\016\302\377\024\006\345\217\202\346\225\260\220\301\024@\022&\n\nm_addBoxI"
+    "d\030\006 \001(\005B\022\302\377\024\016\351\231\204\345\212\240\347\232\204boxid\"i\n\032Sheet_Fes"
+    "tivalMuban_addbox\022K\n\033E_FestivalMuban_add"
+    "box_List\030\001 \003(\0132 .proto_ff.E_FestivalMuba"
+    "n_addboxB\004\210\301\024 \"\264\001\n\031E_FestivalMuban_doubl"
+    "ebox\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022\034\n\010m_peri"
+    "od\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\032\n\006m_type\030\003 \001(\005B\n\302\377"
+    "\024\006\347\261\273\345\236\213\022#\n\005m_arg\030\004 \001(\tB\024\302\377\024\014\347\261\273\345\236\213\345\217\202\346\225"
+    "\260\220\301\024@\022\036\n\nm_multiply\030\005 \001(\005B\n\302\377\024\006\345\200\215\347\216\207\"r\n"
+    "\035Sheet_FestivalMuban_doublebox\022Q\n\036E_Fest"
+    "ivalMuban_doublebox_List\030\001 \003(\0132#.proto_f"
+    "f.E_FestivalMuban_doubleboxB\004\210\301\024 \"\217\002\n\035E_"
+    "FestivalMuban_bossfristkill\022\024\n\004m_id\030\001 \001("
+    "\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022"
+    "\032\n\006m_type\030\003 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\022\034\n\010m_bossid\030"
+    "\004 \001(\005B\n\302\377\024\006bossid\022+\n\021m_fristKillReward\030\005"
+    " \001(\005B\020\302\377\024\014\351\246\226\346\235\200\345\245\226\345\212\261\022&\n\014m_killReward\030\006"
+    " \001(\005B\020\302\377\024\014\345\207\273\346\235\200\345\245\226\345\212\261\022+\n\021m_fristKillPac"
+    "ket\030\007 \001(\005B\020\302\377\024\014\351\246\226\346\235\200\347\272\242\345\214\205\"~\n!Sheet_Fes"
+    "tivalMuban_bossfristkill\022Y\n\"E_FestivalMu"
+    "ban_bossfristkill_List\030\001 \003(\0132\'.proto_ff."
+    "E_FestivalMuban_bossfristkillB\004\210\301\024@\"\302\005\n\031"
+    "E_FestivalMuban_severrank\022\024\n\004m_id\030\001 \001(\005B"
+    "\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\037\n"
+    "\007m_order\030\003 \001(\tB\016\302\377\024\006\346\216\222\345\272\217\220\301\024@\022\036\n\006m_name"
+    "\030\004 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\022#\n\tm_openDay\030\005 \001("
+    "\005B\020\302\377\024\014\345\274\200\346\224\276\345\244\251\346\225\260\022$\n\nm_closeDay\030\006 \001(\005B"
+    "\020\302\377\024\014\347\273\223\346\235\237\345\244\251\346\225\260\0222\n\017m_championTitle\030\007 \001"
+    "(\tB\031\302\377\024\021\347\254\254\344\270\200\345\220\215\347\232\204title\220\301\024@\0226\n\014m_rewar"
+    "dShow\030\010 \001(\tB \302\377\024\030\347\254\254\344\270\200\345\220\215\347\232\204\345\261\225\347\244\272\350\265\204\346\272"
+    "\220\220\301\024@\022,\n\rm_dataGroupID\030\t \001(\005B\025\302\377\024\021\346\216\222\350\241\214"
+    "\346\225\260\346\215\256\347\273\204id\022$\n\nm_rankType\030\n \001(\005B\020\302\377\024\014\346\216\222"
+    "\350\241\214\347\261\273\345\236\213\022.\n\nm_rankGift\030\013 \001(\tB\032\302\377\024\022\345\206\262\346\246"
+    "\234\345\256\235\347\256\261\345\220\215\347\247\260\220\301\024@\022&\n\nm_giftIcon\030\014 \001(\tB\022\302"
+    "\377\024\n\345\256\235\347\256\261Icon\220\301\024@\022&\n\014m_giftItemId\030\r \001(\005B"
+    "\020\302\377\024\014\345\256\235\347\256\261itemid\022)\n\017m_originalPrice\030\016 \001"
+    "(\005B\020\302\377\024\014\345\256\235\347\256\261\345\216\237\344\273\267\022!\n\007m_price\030\017 \001(\005B\020\302"
+    "\377\024\014\345\256\235\347\256\261\347\216\260\344\273\267\022%\n\013m_ratioShow\030\020 \001(\005B\020\302\377"
+    "\024\014\345\256\235\347\256\261\345\200\215\347\216\207\0220\n\rm_redPointBox\030\021 \001(\005B\031\302"
+    "\377\024\025\347\272\242\347\202\271\347\244\274\345\214\205\345\245\226\345\212\261box\"s\n\035Sheet_Festiv"
+    "alMuban_severrank\022R\n\036E_FestivalMuban_sev"
+    "errank_List\030\001 \003(\0132#.proto_ff.E_FestivalM"
+    "uban_severrankB\005\210\301\024\200\001\"\273\003\n\036E_FestivalMuba"
+    "n_severrank_data\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034"
+    "\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022#\n\tm_maxRan"
+    "k\030\003 \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\212\351\231\220\022#\n\tm_minRank\030\004"
+    " \001(\005B\020\302\377\024\014\346\216\222\345\220\215\344\270\213\351\231\220\0224\n\013m_rankValue\030\005 "
+    "\001(\005B\037\302\377\024\033\346\234\200\344\275\216\346\216\222\350\241\214\345\200\274\346\225\260\345\200\274\350\246\201\346\261\202\022=\n\016"
+    "m_addRankValue\030\006 \001(\005B%\302\377\024!\351\242\235\345\244\226\346\234\200\344\275\216\346\216"
+    "\222\350\241\214\345\200\274\346\225\260\345\200\274\350\246\201\346\261\202\022<\n\022m_UnachieveDispla"
+    "y\030\007 \001(\tB \302\377\024\030\346\234\252\346\273\241\350\266\263\347\232\204\346\216\222\350\241\214\346\230\276\347\244\272\220\301\024"
+    "@\022E\n\025m_addUnachieveDisplay\030\010 \001(\tB&\302\377\024\036\351\242"
+    "\235\345\244\226\346\234\252\346\273\241\350\266\263\347\232\204\346\216\222\350\241\214\346\230\276\347\244\272\220\301\024@\022!\n\007m_bo"
+    "xID\030\t \001(\005B\020\302\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271\"\202\001\n\"Sheet_Fe"
+    "stivalMuban_severrank_data\022\\\n#E_Festival"
+    "Muban_severrank_data_List\030\001 \003(\0132(.proto_"
+    "ff.E_FestivalMuban_severrank_dataB\005\210\301\024\200\001"
+    "\"V\n#E_FestivalMuban_collectwordCostDesc\022"
+    "\031\n\005m_num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_id\030\002 \001(\005"
+    "B\006\302\377\024\002id\"\243\002\n\033E_FestivalMuban_collectword"
+    "\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\010m_period\030\002 \001(\005"
+    "B\014\302\377\024\010\346\234\237\346\225\260id\022)\n\rm_exchange_id\030\003 \001(\005B\022\302"
+    "\377\024\016\345\205\221\346\215\242\351\201\223\345\205\267id\022.\n\016m_exchange_num\030\004 \001("
+    "\005B\026\302\377\024\022\345\205\221\346\215\242\351\201\223\345\205\267\346\225\260\351\207\217\022$\n\007m_times\030\005 \001"
+    "(\005B\023\302\377\024\017\345\217\257\345\205\221\346\215\242\346\254\241\346\225\260\022M\n\006m_cost\030\006 \003(\0132"
+    "-.proto_ff.E_FestivalMuban_collectwordCo"
+    "stDescB\016\302\377\024\006\350\212\261\350\264\271\210\301\024\005\"x\n\037Sheet_Festival"
+    "Muban_collectword\022U\n E_FestivalMuban_col"
+    "lectword_List\030\001 \003(\0132%.proto_ff.E_Festiva"
+    "lMuban_collectwordB\004\210\301\024\020\"m\n\024E_FestivalMu"
+    "ban_sign\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_peri"
+    "od\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022!\n\007m_boxID\030\003 \001(\005B\020\302"
+    "\377\024\014\347\244\274\345\214\205\345\206\205\345\256\271\"c\n\030Sheet_FestivalMuban_s"
+    "ign\022G\n\031E_FestivalMuban_sign_List\030\001 \003(\0132\036"
+    ".proto_ff.E_FestivalMuban_signB\004\210\301\024\002\"\326\002\n"
+    "\024E_FestivalMuban_shop\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
+    "\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\'\n\nm_v"
+    "ipLevel\030\003 \001(\005B\023\302\377\024\017\345\210\244\346\226\255vip\347\255\211\347\272\247\022\037\n\005m_"
+    "box\030\004 \001(\005B\020\302\377\024\014\347\244\274\345\214\205\345\206\205\345\256\271\022%\n\013m_timeLim"
+    "it\030\005 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\254\241\346\225\260\022!\n\007m_price\030\006 "
+    "\001(\005B\020\302\377\024\014\344\273\267\346\240\274\345\217\202\346\225\260\022%\n\013m_priceType\030\007 \001"
+    "(\005B\020\302\377\024\014\344\273\267\346\240\274\347\261\273\345\236\213\022*\n\nm_starTime\030\010 \001(\005"
+    "B\026\302\377\024\022\347\244\274\345\214\205\345\207\272\347\216\260\346\227\266\351\227\264\022#\n\tm_durTime\030\t "
+    "\001(\005B\020\302\377\024\014\346\214\201\347\273\255\346\227\266\351\227\264\"c\n\030Sheet_FestivalM"
+    "uban_shop\022G\n\031E_FestivalMuban_shop_List\030\001"
+    " \003(\0132\036.proto_ff.E_FestivalMuban_shopB\004\210\301"
+    "\024 \"\331\001\n\030E_FestivalMuban_rechange\022\024\n\004m_id\030"
+    "\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237"
+    "\346\225\260\022\034\n\010m_rebate\030\003 \001(\005B\n\302\377\024\006\350\277\224\345\210\251\022%\n\013m_t"
+    "imeLimit\030\004 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\254\241\346\225\260\022!\n\007m_pr"
+    "ice\030\005 \001(\005B\020\302\377\024\014\344\273\267\346\240\274\345\217\202\346\225\260\022!\n\007m_typer\030\006"
+    " \001(\005B\020\302\377\024\014\347\244\274\345\214\205\347\261\273\345\236\213\"o\n\034Sheet_Festival"
+    "Muban_rechange\022O\n\035E_FestivalMuban_rechan"
+    "ge_List\030\001 \003(\0132\".proto_ff.E_FestivalMuban"
+    "_rechangeB\004\210\301\024\020\"\215\001\n\025E_FestivalMuban_leij"
+    "i\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001("
+    "\005B\n\302\377\024\006\346\234\237\346\225\260\022!\n\007m_leiji\030\003 \001(\005B\020\302\377\024\014\344\274\244\345"
+    "\256\263\347\264\257\350\256\241\022\035\n\007m_boxID\030\004 \001(\005B\014\302\377\024\010\345\245\226\345\212\261ID\""
+    "f\n\031Sheet_FestivalMuban_leiji\022I\n\032E_Festiv"
+    "alMuban_leiji_List\030\001 \003(\0132\037.proto_ff.E_Fe"
+    "stivalMuban_leijiB\004\210\301\024\020\"\335\001\n\027E_FestivalZa"
+    "danconstant\022\034\n\010m_period\030\001 \001(\005B\n\302\377\024\006\346\234\237\346\225"
+    "\260\022,\n\nm_costItem\030\002 \001(\003B\030\302\377\024\024\346\212\275\345\245\226\346\266\210\350\200\227\347"
+    "\232\204\347\211\251id\022\"\n\010m_number\030\003 \001(\005B\020\302\377\024\014\347\211\251\345\223\201\346\225\260"
+    "\351\207\217\022&\n\006m_free\030\004 \001(\005B\026\302\377\024\022\345\205\215\350\264\271\351\207\215\347\275\256\346\254\241"
+    "\346\225\260\022*\n\nm_currency\030\005 \001(\005B\026\302\377\024\022\346\266\210\350\200\227\351\222\273\347\237"
+    "\263\351\207\215\347\275\256\"l\n\033Sheet_FestivalZadanconstant\022M"
+    "\n\034E_FestivalZadanconstant_List\030\001 \003(\0132!.p"
+    "roto_ff.E_FestivalZadanconstantB\004\210\301\024 \"\317\001"
+    "\n\025E_FestivalMuban_zadan\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\034\n\010m"
+    "_itemid\030\003 \001(\003B\n\302\377\024\006\347\211\251\345\223\201\022\031\n\005m_num\030\004 \001(\005"
+    "B\n\302\377\024\006\346\225\260\351\207\217\022 \n\006m_type\030\005 \001(\005B\020\302\377\024\014\345\245\226\346\261\240"
+    "\347\261\273\345\236\213\022\'\n\rm_probability\030\006 \001(\005B\020\302\377\024\014\346\216\211\350\220"
+    "\275\346\235\203\351\207\215\"f\n\031Sheet_FestivalMuban_zadan\022I\n\032"
+    "E_FestivalMuban_zadan_List\030\001 \003(\0132\037.proto"
+    "_ff.E_FestivalMuban_zadanB\004\210\301\024@\"\227\001\n\031E_Fe"
+    "stivalMuban_turntable\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024"
+    "\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\"\n\013m_p"
+    "oolGroup\030\003 \001(\005B\r\302\377\024\t\345\245\226\346\261\240\347\273\204\022\"\n\013m_taskG"
+    "roup\030\004 \001(\005B\r\302\377\024\t\344\273\273\345\212\241\347\273\204\"r\n\035Sheet_Festi"
+    "valMuban_turntable\022Q\n\036E_FestivalMuban_tu"
+    "rntable_List\030\001 \003(\0132#.proto_ff.E_Festival"
+    "Muban_turntableB\004\210\301\024\002\"\253\001\n\036E_FestivalMuba"
+    "n_turntable_pool\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034"
+    "\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204ID\022\034\n\010m_itemID"
+    "\030\003 \001(\005B\n\302\377\024\006\347\211\251\345\223\201\022\031\n\005m_num\030\004 \001(\005B\n\302\377\024\006\346"
+    "\225\260\351\207\217\022\034\n\010m_weight\030\005 \001(\005B\n\302\377\024\006\346\235\203\351\207\215\"\201\001\n\""
+    "Sheet_FestivalMuban_turntable_pool\022[\n#E_"
+    "FestivalMuban_turntable_pool_List\030\001 \003(\0132"
+    "(.proto_ff.E_FestivalMuban_turntable_poo"
+    "lB\004\210\301\024\020\"\222\002\n\036E_FestivalMuban_turntable_ta"
+    "sk\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 "
+    "\001(\005B\t\302\377\024\005\347\273\204id\022%\n\013m_eventType\030\003 \001(\005B\020\302\377\024"
+    "\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachPrice\030\004 \001(\005B\r\302\377\024"
+    "\t\350\276\276\346\210\220\345\200\274\022\032\n\006m_link\030\005 \001(\005B\n\302\377\024\006\350\277\236\346\216\245\022\'"
+    "\n\rm_rewardTimes\030\006 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\346\254\241\346\225\260\022"
+    "+\n\007m_param\030\007 \003(\005B\032\302\377\024\022\344\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260"
+    "\210\301\024\002\"\201\001\n\"Sheet_FestivalMuban_turntable_t"
+    "ask\022[\n#E_FestivalMuban_turntable_task_Li"
+    "st\030\001 \003(\0132(.proto_ff.E_FestivalMuban_turn"
+    "table_taskB\004\210\301\024\020\"\246\002\n\026E_FestivalMuban_don"
+    "ate\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 "
+    "\001(\005B\n\302\377\024\006\346\234\237\346\225\260\022&\n\014m_donateItem\030\003 \001(\005B\020\302"
+    "\377\024\014\346\215\220\347\214\256\351\201\223\345\205\267\022.\n\016m_donateReward\030\004 \001(\005B"
+    "\026\302\377\024\022\346\215\220\347\214\256\350\216\267\345\276\227\345\245\226\345\212\261\022-\n\rm_severReward"
+    "\030\005 \001(\005B\026\302\377\024\022\346\234\215\345\212\241\345\231\250\345\245\226\345\212\261\347\273\204\022+\n\016m_sing"
+    "leReward\030\006 \001(\005B\023\302\377\024\017\344\270\252\344\272\272\345\245\226\345\212\261\347\273\204\022$\n\rm"
+    "_taskGroupID\030\007 \001(\005B\r\302\377\024\t\344\273\273\345\212\241\347\273\204\"i\n\032She"
+    "et_FestivalMuban_donate\022K\n\033E_FestivalMub"
+    "an_donate_List\030\001 \003(\0132 .proto_ff.E_Festiv"
+    "alMuban_donateB\004\210\301\024\002\"\367\001\n\034E_FestivalMuban"
+    "_donate_sever\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm"
+    "_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\036\n\007m_value\030\003 \001"
+    "(\005B\r\302\377\024\t\350\277\233\345\272\246\345\200\274\022 \n\006m_type\030\004 \001(\005B\020\302\377\024\014\345"
+    "\245\226\345\212\261\347\261\273\345\236\213\022\'\n\tm_typeArg\030\005 \001(\tB\024\302\377\024\014\345\245\226\345"
+    "\212\261\345\217\202\346\225\260\220\301\024@\022\035\n\005m_pro\030\006 \001(\tB\016\302\377\024\006\350\201\214\344\270\232\220"
+    "\301\024@\022\031\n\005m_num\030\007 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\"{\n Sheet_"
+    "FestivalMuban_donate_sever\022W\n!E_Festival"
+    "Muban_donate_sever_List\030\001 \003(\0132&.proto_ff"
+    ".E_FestivalMuban_donate_severB\004\210\301\024@\"\321\001\n\035"
+    "E_FestivalMuban_donate_single\022\024\n\004m_id\030\001 "
+    "\001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204i"
+    "d\022\036\n\007m_value\030\003 \001(\005B\r\302\377\024\t\350\277\233\345\272\246\345\200\274\022\"\n\010m_i"
+    "temID\030\004 \001(\tB\020\302\377\024\010\347\211\251\345\223\201ID\220\301\024@\022\035\n\005m_pro\030\005"
+    " \001(\tB\016\302\377\024\006\350\201\214\344\270\232\220\301\024@\022\031\n\005m_num\030\006 \001(\005B\n\302\377\024"
+    "\006\346\225\260\351\207\217\"~\n!Sheet_FestivalMuban_donate_si"
+    "ngle\022Y\n\"E_FestivalMuban_donate_single_Li"
+    "st\030\001 \003(\0132\'.proto_ff.E_FestivalMuban_dona"
+    "te_singleB\004\210\301\024\010\"\233\002\n\033E_FestivalMuban_dona"
+    "te_task\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_group"
+    "ID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022%\n\013m_eventType\030\003 \001(\005"
+    "B\020\302\377\024\014\344\272\213\344\273\266\347\261\273\345\236\213\022#\n\014m_reachPrice\030\004 \001(\005"
+    "B\r\302\377\024\t\350\276\276\346\210\220\345\200\274\022$\n\010m_itemID\030\005 \001(\005B\022\302\377\024\016\345"
+    "\245\226\345\212\261\351\201\223\345\205\267id\022)\n\tm_itemNum\030\006 \001(\005B\026\302\377\024\022\345\245"
+    "\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\022+\n\007m_param\030\007 \003(\005B\032\302\377\024\022\344"
+    "\272\213\344\273\266\345\256\214\346\210\220\345\217\202\346\225\260\210\301\024\002\"x\n\037Sheet_FestivalM"
+    "uban_donate_task\022U\n E_FestivalMuban_dona"
+    "te_task_List\030\001 \003(\0132%.proto_ff.E_Festival"
+    "Muban_donate_taskB\004\210\301\024\010\"\223\002\n\026E_FestivalMu"
+    "ban_online\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_pe"
+    "riod\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022)\n\013m_timeStart\030\003 "
+    "\001(\tB\024\302\377\024\014\345\274\200\345\247\213\346\227\266\351\227\264\220\301\024@\022\'\n\tm_timeEnd\030\004"
+    " \001(\tB\024\302\377\024\014\347\273\223\346\235\237\346\227\266\351\227\264\220\301\024@\022\"\n\010m_itemID\030\005"
+    " \001(\005B\020\302\377\024\014\345\245\226\345\212\261\351\201\223\345\205\267\022#\n\tm_itemNum\030\006 \001("
+    "\005B\020\302\377\024\014\345\245\226\345\212\261\346\225\260\351\207\217\022(\n\005m_vip\030\007 \001(\005B\031\302\377\024\025"
+    "\350\241\245\351\242\206\350\246\201\346\261\202vip\347\255\211\347\272\247\"i\n\032Sheet_FestivalM"
+    "uban_online\022K\n\033E_FestivalMuban_online_Li"
+    "st\030\001 \003(\0132 .proto_ff.E_FestivalMuban_onli"
+    "neB\004\210\301\024\004\"|\n\032E_FestivalMuban_rturntable\022\024"
+    "\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n"
+    "\302\377\024\006\346\234\237\346\225\260\022*\n\021m_rechargeGroupID\030\003 \001(\005B\017\302"
+    "\377\024\013\345\205\205\345\200\274\347\273\204ID\"u\n\036Sheet_FestivalMuban_rt"
+    "urntable\022S\n\037E_FestivalMuban_rturntable_L"
+    "ist\030\001 \003(\0132$.proto_ff.E_FestivalMuban_rtu"
+    "rntableB\004\210\301\024\002\"\325\001\n#E_FestivalMuban_rturnt"
+    "able_recharge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\032\n\tm"
+    "_groupID\030\002 \001(\005B\007\302\377\024\003\347\273\204\022&\n\014m_rechargeID\030"
+    "\003 \001(\005B\020\302\377\024\014\345\205\205\345\200\274\346\241\243\344\275\215\022!\n\007m_limit\030\004 \001(\005"
+    "B\020\302\377\024\014\351\231\220\345\210\266\346\254\241\346\225\260\0221\n\016m_ratioGroupID\030\005 \001"
+    "(\005B\031\302\377\024\025\344\275\277\347\224\250\345\205\205\345\200\274\345\200\215\347\216\207\347\273\204\"\220\001\n\'Sheet_"
+    "FestivalMuban_rturntable_recharge\022e\n(E_F"
+    "estivalMuban_rturntable_recharge_List\030\001 "
+    "\003(\0132-.proto_ff.E_FestivalMuban_rturntabl"
+    "e_rechargeB\004\210\301\024\020\"\230\001\n)E_FestivalMuban_rtu"
+    "rntable_recharge_ratio\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
+    "\024\002id\022\032\n\tm_groupID\030\002 \001(\005B\007\302\377\024\003\347\273\204\022\033\n\007m_ra"
+    "tio\030\003 \001(\005B\n\302\377\024\006\345\200\215\347\216\207\022\034\n\010m_weight\030\004 \001(\005B"
+    "\n\302\377\024\006\346\235\203\351\207\215\"\242\001\n-Sheet_FestivalMuban_rtur"
+    "ntable_recharge_ratio\022q\n.E_FestivalMuban"
+    "_rturntable_recharge_ratio_List\030\001 \003(\01323."
+    "proto_ff.E_FestivalMuban_rturntable_rech"
+    "arge_ratioB\004\210\301\024@\"\232\003\n\030E_FestivalMuban_dra"
+    "wpize\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030"
+    "\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022\036\n\010m_costID\030\003 \001(\005B\014\302\377\024"
+    "\010\351\201\223\345\205\267id\022\'\n\rm_drawPutback\030\004 \001(\005B\020\302\377\024\014\346\230"
+    "\257\345\220\246\346\224\276\345\233\236\022$\n\nm_costType\030\005 \001(\005B\020\302\377\024\014\346\266\210\350"
+    "\200\227\347\261\273\345\236\213\022\'\n\tm_costNum\030\006 \001(\tB\024\302\377\024\014\346\212\275\345\245\226\346"
+    "\266\210\350\200\227\220\301\024@\022#\n\rm_poolGroupId\030\007 \001(\005B\014\302\377\024\010\345\245"
+    "\226\346\261\240id\0220\n\016m_totalGroupID\030\010 \001(\005B\030\302\377\024\024\347\264\257\350"
+    "\256\241\346\254\241\346\225\260\345\245\226\345\212\261id\022,\n\014m_severLimit\030\t \001(\005B\026"
+    "\302\377\024\022\345\205\250\346\234\215\346\254\241\346\225\260\351\231\220\345\210\266\022-\n\rm_protectTime\030"
+    "\n \001(\005B\026\302\377\024\022\344\277\235\345\272\225\345\245\226\346\261\240\346\254\241\346\225\260\"o\n\034Sheet_F"
+    "estivalMuban_drawpize\022O\n\035E_FestivalMuban"
+    "_drawpize_List\030\001 \003(\0132\".proto_ff.E_Festiv"
+    "alMuban_drawpizeB\004\210\301\024\004\"\301\003\n\035E_FestivalMub"
+    "an_drawpize_pool\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\""
+    "\n\tm_groupID\030\002 \001(\005B\017\302\377\024\013\345\245\226\346\261\240\347\273\204ID\022\034\n\010m_"
+    "itemid\030\003 \001(\003B\n\302\377\024\006\347\211\251\345\223\201\022\031\n\005m_num\030\004 \001(\005B"
+    "\n\302\377\024\006\346\225\260\351\207\217\022\032\n\006m_prof\030\005 \001(\005B\n\302\377\024\006\350\201\214\344\270\232\022"
+    "#\n\tm_weights\030\006 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\346\235\203\351\207\215\022,\n\014"
+    "m_proWeights\030\007 \001(\005B\026\302\377\024\022\344\277\235\345\272\225\346\216\211\350\220\275\346\235\203\351"
+    "\207\215\022+\n\013m_timeLimit\030\010 \001(\005B\026\302\377\024\022\351\231\220\345\210\266\346\212\275\345\245"
+    "\226\346\254\241\346\225\260\022+\n\010m_Record\030\t \001(\005B\031\302\377\024\025\345\245\226\345\212\261\350\256\260"
+    "\345\275\225\347\250\200\346\234\211\345\272\246\022\"\n\010m_poolLv\030\n \001(\005B\020\302\377\024\014\345\245\226\346"
+    "\261\240\347\255\211\347\272\247\022\037\n\007m_image\030\013 \001(\tB\016\302\377\024\006\345\272\225\345\233\276\220\301\024"
+    "@\022\037\n\007m_point\030\014 \001(\tB\016\302\377\024\006\345\235\220\346\240\207\220\301\024@\"~\n!Sh"
+    "eet_FestivalMuban_drawpize_pool\022Y\n\"E_Fes"
+    "tivalMuban_drawpize_pool_List\030\001 \003(\0132\'.pr"
+    "oto_ff.E_FestivalMuban_drawpize_poolB\004\210\301"
+    "\024@\"\301\001\n\036E_FestivalMuban_drawpize_total\022\024\n"
+    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_groupid\030\002 \001(\005B\t"
+    "\302\377\024\005\347\273\204id\022\036\n\007m_value\030\003 \001(\005B\r\302\377\024\t\346\235\241\344\273\266\345\200"
+    "\274\022$\n\010m_itemID\030\004 \001(\005B\022\302\377\024\016\345\245\226\345\212\261\351\201\223\345\205\267id\022"
+    "%\n\005m_num\030\005 \001(\005B\026\302\377\024\022\345\245\226\345\212\261\351\201\223\345\205\267\346\225\260\351\207\217\"\201"
+    "\001\n\"Sheet_FestivalMuban_drawpize_total\022[\n"
+    "#E_FestivalMuban_drawpize_total_List\030\001 \003"
+    "(\0132(.proto_ff.E_FestivalMuban_drawpize_t"
+    "otalB\004\210\301\024@\"\231\001\n\035E_FestivalMuban_totalrech"
     "arge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002"
     " \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022!\n\007m_value\030\003 \001(\005B\020\302\377\024\014\345"
     "\205\205\345\200\274\351\242\235\345\272\246\022!\n\007m_boxid\030\004 \001(\005B\020\302\377\024\014\345\245\226\345\212\261"
-    "\345\206\205\345\256\271\"\215\001\n&Sheet_FestivalMuban_dailytota"
-    "lrecharge\022c\n\'E_FestivalMuban_dailytotalr"
-    "echarge_List\030\001 \003(\0132,.proto_ff.E_Festival"
-    "Muban_dailytotalrechargeB\004\210\301\024\010\"\302\001\n\024E_Fes"
+    "\345\206\205\345\256\271\"~\n!Sheet_FestivalMuban_totalrecha"
+    "rge\022Y\n\"E_FestivalMuban_totalrecharge_Lis"
+    "t\030\001 \003(\0132\'.proto_ff.E_FestivalMuban_total"
+    "rechargeB\004\210\301\024\020\"\236\001\n\"E_FestivalMuban_daily"
+    "totalrecharge\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m"
+    "_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022!\n\007m_value\030\003 \001"
+    "(\005B\020\302\377\024\014\345\205\205\345\200\274\351\242\235\345\272\246\022!\n\007m_boxid\030\004 \001(\005B\020\302"
+    "\377\024\014\345\245\226\345\212\261\345\206\205\345\256\271\"\215\001\n&Sheet_FestivalMuban_"
+    "dailytotalrecharge\022c\n\'E_FestivalMuban_da"
+    "ilytotalrecharge_List\030\001 \003(\0132,.proto_ff.E"
+    "_FestivalMuban_dailytotalrechargeB\004\210\301\024\010\""
+    "\203\003\n\035E_FestivalMuban_rechargeprize\022\024\n\004m_i"
+    "d\030\001 \001(\005B\006\302\377\024\002id\022\034\n\010m_period\030\002 \001(\005B\n\302\377\024\006\346"
+    "\234\237\346\225\260\022$\n\nm_poolType\030\003 \001(\005B\020\302\377\024\014\345\245\226\346\261\240\347\261\273"
+    "\345\236\213\022#\n\tm_poolNum\030\004 \001(\005B\020\302\377\024\014\345\245\226\345\223\201\346\225\260\351\207\217"
+    "\022%\n\013m_showBoost\030\005 \001(\005B\020\302\377\024\014\346\230\276\347\244\272\345\200\215\347\216\207\022"
+    "*\n\nm_maxPrize\030\006 \001(\005B\026\302\377\024\022\346\234\200\345\244\247\346\212\275\345\217\226\346\254\241"
+    "\346\225\260\022!\n\010m_taskID\030\007 \001(\005B\017\302\377\024\013\344\273\273\345\212\241\347\273\204ID\022\""
+    "\n\tm_prizeID\030\010 \001(\005B\017\302\377\024\013\346\212\275\345\245\226\347\273\204ID\022$\n\010m_"
+    "itemID\030\t \001(\005B\022\302\377\024\016\346\212\275\345\245\226\351\201\223\345\205\267id\022#\n\tm_fr"
+    "eeBox\030\n \001(\005B\020\302\377\024\014\345\205\215\350\264\271\345\245\226\345\212\261\"~\n!Sheet_F"
+    "estivalMuban_rechargeprize\022Y\n\"E_Festival"
+    "Muban_rechargeprize_List\030\001 \003(\0132\'.proto_f"
+    "f.E_FestivalMuban_rechargeprizeB\004\210\301\024\002\"\377\001"
+    "\n\026E_FestivalMuban_rptask\022\024\n\004m_id\030\001 \001(\005B\006"
+    "\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005id\347\273\204\022 \n\006"
+    "m_type\030\003 \001(\005B\020\302\377\024\014\344\273\273\345\212\241\347\261\273\345\236\213\022\'\n\tm_type"
+    "Arg\030\004 \001(\tB\024\302\377\024\014\344\273\273\345\212\241\345\217\202\346\225\260\220\301\024@\022$\n\nm_pri"
+    "zeNum\030\005 \001(\005B\020\302\377\024\014\345\245\226\345\212\261\346\254\241\346\225\260\022$\n\006m_desc\030"
+    "\006 \001(\tB\024\302\377\024\014\346\226\207\346\234\254\346\217\217\350\277\260\220\301\024@\022\032\n\006m_link\030\007 "
+    "\001(\005B\n\302\377\024\006\350\277\236\346\216\245\"i\n\032Sheet_FestivalMuban_r"
+    "ptask\022K\n\033E_FestivalMuban_rptask_List\030\001 \003"
+    "(\0132 .proto_ff.E_FestivalMuban_rptaskB\004\210\301"
+    "\024 \"\306\001\n\026E_FestivalMuban_rppool\022\024\n\004m_id\030\001 "
+    "\001(\005B\006\302\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005id\347\273"
+    "\204\022&\n\014m_prizeOrder\030\003 \001(\005B\020\302\377\024\014\346\212\275\345\245\226\351\241\272\345\272"
+    "\217\022\'\n\nm_prizeMix\030\004 \001(\005B\023\302\377\024\017\346\212\275\345\217\226\346\234\200\345\260\217\345"
+    "\200\274\022\'\n\nm_prizeMax\030\005 \001(\005B\023\302\377\024\017\346\212\275\345\217\226\346\234\200\345\244\247"
+    "\345\200\274\"i\n\032Sheet_FestivalMuban_rppool\022K\n\033E_F"
+    "estivalMuban_rppool_List\030\001 \003(\0132 .proto_f"
+    "f.E_FestivalMuban_rppoolB\004\210\301\024\020\"\302\001\n\024E_Fes"
     "tivalMuban_play\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n"
     "\010m_period\030\002 \001(\005B\n\302\377\024\006\346\234\237\346\225\260\022$\n\rm_rewardG"
     "roup\030\003 \001(\005B\r\302\377\024\t\345\245\226\345\212\261\347\273\204\022\"\n\013m_gameGroup"
@@ -2860,7 +3543,7 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
     "\345\243\260\346\234\233\347\247\257\345\210\206\"u\n\036Sheet_FestivalMuban_play"
     "_score\022S\n\037E_FestivalMuban_play_score_Lis"
     "t\030\001 \003(\0132$.proto_ff.E_FestivalMuban_play_"
-    "scoreB\004\210\301\024\010", 17291);
+    "scoreB\004\210\301\024\010", 22531);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Festival.proto", &protobuf_RegisterTypes);
   E_FestivalPeriodindex::default_instance_ = new E_FestivalPeriodindex();
@@ -2869,6 +3552,21 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
   Sheet_FestivalFestival::default_instance_ = new Sheet_FestivalFestival();
   E_FestivalTemplate::default_instance_ = new E_FestivalTemplate();
   Sheet_FestivalTemplate::default_instance_ = new Sheet_FestivalTemplate();
+  E_FestivalMuban_eggsdraw::default_instance_ = new E_FestivalMuban_eggsdraw();
+  Sheet_FestivalMuban_eggsdraw::default_instance_ = new Sheet_FestivalMuban_eggsdraw();
+  E_FestivalMuban_eggsdraw_pool::default_instance_ = new E_FestivalMuban_eggsdraw_pool();
+  Sheet_FestivalMuban_eggsdraw_pool::default_instance_ = new Sheet_FestivalMuban_eggsdraw_pool();
+  E_FestivalMuban_eggsdraw_task::default_instance_ = new E_FestivalMuban_eggsdraw_task();
+  Sheet_FestivalMuban_eggsdraw_task::default_instance_ = new Sheet_FestivalMuban_eggsdraw_task();
+  E_FestivalMuban_ftreward::default_instance_ = new E_FestivalMuban_ftreward();
+  Sheet_FestivalMuban_ftreward::default_instance_ = new Sheet_FestivalMuban_ftreward();
+  E_FestivalMuban_challenge::default_instance_ = new E_FestivalMuban_challenge();
+  Sheet_FestivalMuban_challenge::default_instance_ = new Sheet_FestivalMuban_challenge();
+  E_FestivalMuban_mystmallOpenDesc::default_instance_ = new E_FestivalMuban_mystmallOpenDesc();
+  E_FestivalMuban_mystmall::default_instance_ = new E_FestivalMuban_mystmall();
+  Sheet_FestivalMuban_mystmall::default_instance_ = new Sheet_FestivalMuban_mystmall();
+  E_FestivalMuban_mystmall_mall::default_instance_ = new E_FestivalMuban_mystmall_mall();
+  Sheet_FestivalMuban_mystmall_mall::default_instance_ = new Sheet_FestivalMuban_mystmall_mall();
   E_FestivalMuban_rebatestoreExpendDesc::default_instance_ = new E_FestivalMuban_rebatestoreExpendDesc();
   E_FestivalMuban_rebatestore::default_instance_ = new E_FestivalMuban_rebatestore();
   Sheet_FestivalMuban_rebatestore::default_instance_ = new Sheet_FestivalMuban_rebatestore();
@@ -2916,10 +3614,10 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
   Sheet_FestivalMuban_rechange::default_instance_ = new Sheet_FestivalMuban_rechange();
   E_FestivalMuban_leiji::default_instance_ = new E_FestivalMuban_leiji();
   Sheet_FestivalMuban_leiji::default_instance_ = new Sheet_FestivalMuban_leiji();
-  E_FestivalMuban_zadan::default_instance_ = new E_FestivalMuban_zadan();
-  Sheet_FestivalMuban_zadan::default_instance_ = new Sheet_FestivalMuban_zadan();
   E_FestivalZadanconstant::default_instance_ = new E_FestivalZadanconstant();
   Sheet_FestivalZadanconstant::default_instance_ = new Sheet_FestivalZadanconstant();
+  E_FestivalMuban_zadan::default_instance_ = new E_FestivalMuban_zadan();
+  Sheet_FestivalMuban_zadan::default_instance_ = new Sheet_FestivalMuban_zadan();
   E_FestivalMuban_turntable::default_instance_ = new E_FestivalMuban_turntable();
   Sheet_FestivalMuban_turntable::default_instance_ = new Sheet_FestivalMuban_turntable();
   E_FestivalMuban_turntable_pool::default_instance_ = new E_FestivalMuban_turntable_pool();
@@ -2952,6 +3650,12 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
   Sheet_FestivalMuban_totalrecharge::default_instance_ = new Sheet_FestivalMuban_totalrecharge();
   E_FestivalMuban_dailytotalrecharge::default_instance_ = new E_FestivalMuban_dailytotalrecharge();
   Sheet_FestivalMuban_dailytotalrecharge::default_instance_ = new Sheet_FestivalMuban_dailytotalrecharge();
+  E_FestivalMuban_rechargeprize::default_instance_ = new E_FestivalMuban_rechargeprize();
+  Sheet_FestivalMuban_rechargeprize::default_instance_ = new Sheet_FestivalMuban_rechargeprize();
+  E_FestivalMuban_rptask::default_instance_ = new E_FestivalMuban_rptask();
+  Sheet_FestivalMuban_rptask::default_instance_ = new Sheet_FestivalMuban_rptask();
+  E_FestivalMuban_rppool::default_instance_ = new E_FestivalMuban_rppool();
+  Sheet_FestivalMuban_rppool::default_instance_ = new Sheet_FestivalMuban_rppool();
   E_FestivalMuban_play::default_instance_ = new E_FestivalMuban_play();
   Sheet_FestivalMuban_play::default_instance_ = new Sheet_FestivalMuban_play();
   E_FestivalMuban_play_reward::default_instance_ = new E_FestivalMuban_play_reward();
@@ -2966,6 +3670,21 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
   Sheet_FestivalFestival::default_instance_->InitAsDefaultInstance();
   E_FestivalTemplate::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalTemplate::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_eggsdraw::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_eggsdraw::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_eggsdraw_pool::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_eggsdraw_pool::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_eggsdraw_task::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_eggsdraw_task::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_ftreward::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_ftreward::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_challenge::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_challenge::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_mystmallOpenDesc::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_mystmall::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_mystmall::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_mystmall_mall::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_mystmall_mall::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_rebatestoreExpendDesc::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_rebatestore::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalMuban_rebatestore::default_instance_->InitAsDefaultInstance();
@@ -3013,10 +3732,10 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
   Sheet_FestivalMuban_rechange::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_leiji::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalMuban_leiji::default_instance_->InitAsDefaultInstance();
-  E_FestivalMuban_zadan::default_instance_->InitAsDefaultInstance();
-  Sheet_FestivalMuban_zadan::default_instance_->InitAsDefaultInstance();
   E_FestivalZadanconstant::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalZadanconstant::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_zadan::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_zadan::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_turntable::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalMuban_turntable::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_turntable_pool::default_instance_->InitAsDefaultInstance();
@@ -3049,6 +3768,12 @@ void protobuf_AddDesc_E_5fFestival_2eproto() {
   Sheet_FestivalMuban_totalrecharge::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_dailytotalrecharge::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalMuban_dailytotalrecharge::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_rechargeprize::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_rechargeprize::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_rptask::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_rptask::default_instance_->InitAsDefaultInstance();
+  E_FestivalMuban_rppool::default_instance_->InitAsDefaultInstance();
+  Sheet_FestivalMuban_rppool::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_play::default_instance_->InitAsDefaultInstance();
   Sheet_FestivalMuban_play::default_instance_->InitAsDefaultInstance();
   E_FestivalMuban_play_reward::default_instance_->InitAsDefaultInstance();
@@ -3982,7 +4707,9 @@ void Sheet_FestivalFestival::Swap(Sheet_FestivalFestival* other) {
 #ifndef _MSC_VER
 const int E_FestivalTemplate::kMIdFieldNumber;
 const int E_FestivalTemplate::kMNameFieldNumber;
+const int E_FestivalTemplate::kMActionNameFieldNumber;
 const int E_FestivalTemplate::kMFestivalIdFieldNumber;
+const int E_FestivalTemplate::kMActionFestivalIdFieldNumber;
 const int E_FestivalTemplate::kMTimeTypeFieldNumber;
 const int E_FestivalTemplate::kMLevelFieldNumber;
 const int E_FestivalTemplate::kMVipLevelFieldNumber;
@@ -4014,7 +4741,9 @@ void E_FestivalTemplate::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_actionname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_festivalid_ = 0;
+  m_actionfestivalid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_timetype_ = 0;
   m_level_ = 0;
   m_viplevel_ = 0;
@@ -4035,6 +4764,12 @@ E_FestivalTemplate::~E_FestivalTemplate() {
 void E_FestivalTemplate::SharedDtor() {
   if (m_name_ != &::google::protobuf::internal::kEmptyString) {
     delete m_name_;
+  }
+  if (m_actionname_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_actionname_;
+  }
+  if (m_actionfestivalid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_actionfestivalid_;
   }
   if (m_typearg_ != &::google::protobuf::internal::kEmptyString) {
     delete m_typearg_;
@@ -4072,14 +4807,24 @@ void E_FestivalTemplate::Clear() {
         m_name_->clear();
       }
     }
+    if (has_m_actionname()) {
+      if (m_actionname_ != &::google::protobuf::internal::kEmptyString) {
+        m_actionname_->clear();
+      }
+    }
     m_festivalid_ = 0;
+    if (has_m_actionfestivalid()) {
+      if (m_actionfestivalid_ != &::google::protobuf::internal::kEmptyString) {
+        m_actionfestivalid_->clear();
+      }
+    }
     m_timetype_ = 0;
     m_level_ = 0;
     m_viplevel_ = 0;
-    m_rechange_ = 0;
-    m_severtype_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_rechange_ = 0;
+    m_severtype_ = 0;
     if (has_m_typearg()) {
       if (m_typearg_ != &::google::protobuf::internal::kEmptyString) {
         m_typearg_->clear();
@@ -4129,12 +4874,29 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_festivalId;
+        if (input->ExpectTag(26)) goto parse_m_actionName;
         break;
       }
 
-      // optional int32 m_festivalId = 3;
+      // optional string m_actionName = 3;
       case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_actionName:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_actionname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_actionname().data(), this->m_actionname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_festivalId;
+        break;
+      }
+
+      // optional int32 m_festivalId = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_festivalId:
@@ -4145,12 +4907,29 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_timeType;
+        if (input->ExpectTag(42)) goto parse_m_actionFestivalId;
         break;
       }
 
-      // optional int32 m_timeType = 4;
-      case 4: {
+      // optional string m_actionFestivalId = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_actionFestivalId:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_actionfestivalid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_actionfestivalid().data(), this->m_actionfestivalid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_timeType;
+        break;
+      }
+
+      // optional int32 m_timeType = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_timeType:
@@ -4161,12 +4940,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_level;
+        if (input->ExpectTag(56)) goto parse_m_level;
         break;
       }
 
-      // optional int32 m_level = 5;
-      case 5: {
+      // optional int32 m_level = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_level:
@@ -4177,12 +4956,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_vipLevel;
+        if (input->ExpectTag(64)) goto parse_m_vipLevel;
         break;
       }
 
-      // optional int32 m_vipLevel = 6;
-      case 6: {
+      // optional int32 m_vipLevel = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_vipLevel:
@@ -4193,12 +4972,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_rechange;
+        if (input->ExpectTag(72)) goto parse_m_rechange;
         break;
       }
 
-      // optional int32 m_rechange = 7;
-      case 7: {
+      // optional int32 m_rechange = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_rechange:
@@ -4209,12 +4988,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_severType;
+        if (input->ExpectTag(80)) goto parse_m_severType;
         break;
       }
 
-      // optional int32 m_severType = 8;
-      case 8: {
+      // optional int32 m_severType = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_severType:
@@ -4225,12 +5004,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_m_typeArg;
+        if (input->ExpectTag(90)) goto parse_m_typeArg;
         break;
       }
 
-      // optional string m_typeArg = 9;
-      case 9: {
+      // optional string m_typeArg = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_typeArg:
@@ -4242,12 +5021,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_periodType;
+        if (input->ExpectTag(96)) goto parse_m_periodType;
         break;
       }
 
-      // optional int32 m_periodType = 10;
-      case 10: {
+      // optional int32 m_periodType = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_periodType:
@@ -4258,12 +5037,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_period;
+        if (input->ExpectTag(104)) goto parse_m_period;
         break;
       }
 
-      // optional int32 m_period = 11;
-      case 11: {
+      // optional int32 m_period = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_period:
@@ -4274,12 +5053,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_ifOpen;
+        if (input->ExpectTag(112)) goto parse_m_ifOpen;
         break;
       }
 
-      // optional int32 m_ifOpen = 12;
-      case 12: {
+      // optional int32 m_ifOpen = 14;
+      case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_ifOpen:
@@ -4290,12 +5069,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_activeID;
+        if (input->ExpectTag(120)) goto parse_m_activeID;
         break;
       }
 
-      // optional int32 m_activeID = 13;
-      case 13: {
+      // optional int32 m_activeID = 15;
+      case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_activeID:
@@ -4306,12 +5085,12 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_timeArg;
+        if (input->ExpectTag(130)) goto parse_m_timeArg;
         break;
       }
 
-      // repeated string m_timeArg = 14;
-      case 14: {
+      // repeated string m_timeArg = 16;
+      case 16: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_timeArg:
@@ -4324,7 +5103,7 @@ bool E_FestivalTemplate::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(114)) goto parse_m_timeArg;
+        if (input->ExpectTag(130)) goto parse_m_timeArg;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4361,72 +5140,90 @@ void E_FestivalTemplate::SerializeWithCachedSizes(
       2, this->m_name(), output);
   }
 
-  // optional int32 m_festivalId = 3;
+  // optional string m_actionName = 3;
+  if (has_m_actionname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_actionname().data(), this->m_actionname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->m_actionname(), output);
+  }
+
+  // optional int32 m_festivalId = 4;
   if (has_m_festivalid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_festivalid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_festivalid(), output);
   }
 
-  // optional int32 m_timeType = 4;
+  // optional string m_actionFestivalId = 5;
+  if (has_m_actionfestivalid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_actionfestivalid().data(), this->m_actionfestivalid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->m_actionfestivalid(), output);
+  }
+
+  // optional int32 m_timeType = 6;
   if (has_m_timetype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_timetype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_timetype(), output);
   }
 
-  // optional int32 m_level = 5;
+  // optional int32 m_level = 7;
   if (has_m_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_level(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_level(), output);
   }
 
-  // optional int32 m_vipLevel = 6;
+  // optional int32 m_vipLevel = 8;
   if (has_m_viplevel()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_viplevel(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_viplevel(), output);
   }
 
-  // optional int32 m_rechange = 7;
+  // optional int32 m_rechange = 9;
   if (has_m_rechange()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_rechange(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_rechange(), output);
   }
 
-  // optional int32 m_severType = 8;
+  // optional int32 m_severType = 10;
   if (has_m_severtype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_severtype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_severtype(), output);
   }
 
-  // optional string m_typeArg = 9;
+  // optional string m_typeArg = 11;
   if (has_m_typearg()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_typearg().data(), this->m_typearg().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->m_typearg(), output);
+      11, this->m_typearg(), output);
   }
 
-  // optional int32 m_periodType = 10;
+  // optional int32 m_periodType = 12;
   if (has_m_periodtype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_periodtype(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_periodtype(), output);
   }
 
-  // optional int32 m_period = 11;
+  // optional int32 m_period = 13;
   if (has_m_period()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_period(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_period(), output);
   }
 
-  // optional int32 m_ifOpen = 12;
+  // optional int32 m_ifOpen = 14;
   if (has_m_ifopen()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_ifopen(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_ifopen(), output);
   }
 
-  // optional int32 m_activeID = 13;
+  // optional int32 m_activeID = 15;
   if (has_m_activeid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_activeid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_activeid(), output);
   }
 
-  // repeated string m_timeArg = 14;
+  // repeated string m_timeArg = 16;
   for (int i = 0; i < this->m_timearg_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8String(
     this->m_timearg(i).data(), this->m_timearg(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      14, this->m_timearg(i), output);
+      16, this->m_timearg(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4452,73 +5249,93 @@ void E_FestivalTemplate::SerializeWithCachedSizes(
         2, this->m_name(), target);
   }
 
-  // optional int32 m_festivalId = 3;
+  // optional string m_actionName = 3;
+  if (has_m_actionname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_actionname().data(), this->m_actionname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->m_actionname(), target);
+  }
+
+  // optional int32 m_festivalId = 4;
   if (has_m_festivalid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_festivalid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_festivalid(), target);
   }
 
-  // optional int32 m_timeType = 4;
+  // optional string m_actionFestivalId = 5;
+  if (has_m_actionfestivalid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_actionfestivalid().data(), this->m_actionfestivalid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->m_actionfestivalid(), target);
+  }
+
+  // optional int32 m_timeType = 6;
   if (has_m_timetype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_timetype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_timetype(), target);
   }
 
-  // optional int32 m_level = 5;
+  // optional int32 m_level = 7;
   if (has_m_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_level(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_level(), target);
   }
 
-  // optional int32 m_vipLevel = 6;
+  // optional int32 m_vipLevel = 8;
   if (has_m_viplevel()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_viplevel(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_viplevel(), target);
   }
 
-  // optional int32 m_rechange = 7;
+  // optional int32 m_rechange = 9;
   if (has_m_rechange()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_rechange(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_rechange(), target);
   }
 
-  // optional int32 m_severType = 8;
+  // optional int32 m_severType = 10;
   if (has_m_severtype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_severtype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_severtype(), target);
   }
 
-  // optional string m_typeArg = 9;
+  // optional string m_typeArg = 11;
   if (has_m_typearg()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_typearg().data(), this->m_typearg().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->m_typearg(), target);
+        11, this->m_typearg(), target);
   }
 
-  // optional int32 m_periodType = 10;
+  // optional int32 m_periodType = 12;
   if (has_m_periodtype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_periodtype(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_periodtype(), target);
   }
 
-  // optional int32 m_period = 11;
+  // optional int32 m_period = 13;
   if (has_m_period()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_period(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_period(), target);
   }
 
-  // optional int32 m_ifOpen = 12;
+  // optional int32 m_ifOpen = 14;
   if (has_m_ifopen()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_ifopen(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_ifopen(), target);
   }
 
-  // optional int32 m_activeID = 13;
+  // optional int32 m_activeID = 15;
   if (has_m_activeid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_activeid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_activeid(), target);
   }
 
-  // repeated string m_timeArg = 14;
+  // repeated string m_timeArg = 16;
   for (int i = 0; i < this->m_timearg_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_timearg(i).data(), this->m_timearg(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(14, this->m_timearg(i), target);
+      WriteStringToArray(16, this->m_timearg(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4546,79 +5363,93 @@ int E_FestivalTemplate::ByteSize() const {
           this->m_name());
     }
 
-    // optional int32 m_festivalId = 3;
+    // optional string m_actionName = 3;
+    if (has_m_actionname()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_actionname());
+    }
+
+    // optional int32 m_festivalId = 4;
     if (has_m_festivalid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_festivalid());
     }
 
-    // optional int32 m_timeType = 4;
+    // optional string m_actionFestivalId = 5;
+    if (has_m_actionfestivalid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_actionfestivalid());
+    }
+
+    // optional int32 m_timeType = 6;
     if (has_m_timetype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_timetype());
     }
 
-    // optional int32 m_level = 5;
+    // optional int32 m_level = 7;
     if (has_m_level()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_level());
     }
 
-    // optional int32 m_vipLevel = 6;
+    // optional int32 m_vipLevel = 8;
     if (has_m_viplevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_viplevel());
     }
 
-    // optional int32 m_rechange = 7;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_rechange = 9;
     if (has_m_rechange()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_rechange());
     }
 
-    // optional int32 m_severType = 8;
+    // optional int32 m_severType = 10;
     if (has_m_severtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_severtype());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string m_typeArg = 9;
+    // optional string m_typeArg = 11;
     if (has_m_typearg()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_typearg());
     }
 
-    // optional int32 m_periodType = 10;
+    // optional int32 m_periodType = 12;
     if (has_m_periodtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_periodtype());
     }
 
-    // optional int32 m_period = 11;
+    // optional int32 m_period = 13;
     if (has_m_period()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_period());
     }
 
-    // optional int32 m_ifOpen = 12;
+    // optional int32 m_ifOpen = 14;
     if (has_m_ifopen()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_ifopen());
     }
 
-    // optional int32 m_activeID = 13;
+    // optional int32 m_activeID = 15;
     if (has_m_activeid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -4626,8 +5457,8 @@ int E_FestivalTemplate::ByteSize() const {
     }
 
   }
-  // repeated string m_timeArg = 14;
-  total_size += 1 * this->m_timearg_size();
+  // repeated string m_timeArg = 16;
+  total_size += 2 * this->m_timearg_size();
   for (int i = 0; i < this->m_timearg_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->m_timearg(i));
@@ -4666,8 +5497,14 @@ void E_FestivalTemplate::MergeFrom(const E_FestivalTemplate& from) {
     if (from.has_m_name()) {
       set_m_name(from.m_name());
     }
+    if (from.has_m_actionname()) {
+      set_m_actionname(from.m_actionname());
+    }
     if (from.has_m_festivalid()) {
       set_m_festivalid(from.m_festivalid());
+    }
+    if (from.has_m_actionfestivalid()) {
+      set_m_actionfestivalid(from.m_actionfestivalid());
     }
     if (from.has_m_timetype()) {
       set_m_timetype(from.m_timetype());
@@ -4678,14 +5515,14 @@ void E_FestivalTemplate::MergeFrom(const E_FestivalTemplate& from) {
     if (from.has_m_viplevel()) {
       set_m_viplevel(from.m_viplevel());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_rechange()) {
       set_m_rechange(from.m_rechange());
     }
     if (from.has_m_severtype()) {
       set_m_severtype(from.m_severtype());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_typearg()) {
       set_m_typearg(from.m_typearg());
     }
@@ -4726,7 +5563,9 @@ void E_FestivalTemplate::Swap(E_FestivalTemplate* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_name_, other->m_name_);
+    std::swap(m_actionname_, other->m_actionname_);
     std::swap(m_festivalid_, other->m_festivalid_);
+    std::swap(m_actionfestivalid_, other->m_actionfestivalid_);
     std::swap(m_timetype_, other->m_timetype_);
     std::swap(m_level_, other->m_level_);
     std::swap(m_viplevel_, other->m_viplevel_);
@@ -4952,6 +5791,5767 @@ void Sheet_FestivalTemplate::Swap(Sheet_FestivalTemplate* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_FestivalTemplate_descriptor_;
   metadata.reflection = Sheet_FestivalTemplate_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_eggsdraw::kMIdFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMPeriodFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMCostItemFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMCostNumFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMPoolGroupIDFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMShowTypeFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMBaseImageFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMEggImageFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMClickDescFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMCostDescFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMResidueDescFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMRestartItemFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMRestartCostFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMDailyRestartFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMFreeFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMTaskGroupIDFieldNumber;
+const int E_FestivalMuban_eggsdraw::kMDailyTaskRestartFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_eggsdraw::E_FestivalMuban_eggsdraw()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_eggsdraw::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_eggsdraw::E_FestivalMuban_eggsdraw(const E_FestivalMuban_eggsdraw& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_eggsdraw::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_period_ = 0;
+  m_costitem_ = 0;
+  m_costnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_poolgroupid_ = 0;
+  m_showtype_ = 0;
+  m_baseimage_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_eggimage_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_clickdesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_costdesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_residuedesc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_restartitem_ = 0;
+  m_restartcost_ = 0;
+  m_dailyrestart_ = 0;
+  m_free_ = 0;
+  m_taskgroupid_ = 0;
+  m_dailytaskrestart_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_eggsdraw::~E_FestivalMuban_eggsdraw() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_eggsdraw::SharedDtor() {
+  if (m_costnum_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_costnum_;
+  }
+  if (m_baseimage_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_baseimage_;
+  }
+  if (m_eggimage_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_eggimage_;
+  }
+  if (m_clickdesc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_clickdesc_;
+  }
+  if (m_costdesc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_costdesc_;
+  }
+  if (m_residuedesc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_residuedesc_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_eggsdraw::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_eggsdraw::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_eggsdraw_descriptor_;
+}
+
+const E_FestivalMuban_eggsdraw& E_FestivalMuban_eggsdraw::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_eggsdraw* E_FestivalMuban_eggsdraw::default_instance_ = NULL;
+
+E_FestivalMuban_eggsdraw* E_FestivalMuban_eggsdraw::New() const {
+  return new E_FestivalMuban_eggsdraw;
+}
+
+void E_FestivalMuban_eggsdraw::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_period_ = 0;
+    m_costitem_ = 0;
+    if (has_m_costnum()) {
+      if (m_costnum_ != &::google::protobuf::internal::kEmptyString) {
+        m_costnum_->clear();
+      }
+    }
+    m_poolgroupid_ = 0;
+    m_showtype_ = 0;
+    if (has_m_baseimage()) {
+      if (m_baseimage_ != &::google::protobuf::internal::kEmptyString) {
+        m_baseimage_->clear();
+      }
+    }
+    if (has_m_eggimage()) {
+      if (m_eggimage_ != &::google::protobuf::internal::kEmptyString) {
+        m_eggimage_->clear();
+      }
+    }
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (has_m_clickdesc()) {
+      if (m_clickdesc_ != &::google::protobuf::internal::kEmptyString) {
+        m_clickdesc_->clear();
+      }
+    }
+    if (has_m_costdesc()) {
+      if (m_costdesc_ != &::google::protobuf::internal::kEmptyString) {
+        m_costdesc_->clear();
+      }
+    }
+    if (has_m_residuedesc()) {
+      if (m_residuedesc_ != &::google::protobuf::internal::kEmptyString) {
+        m_residuedesc_->clear();
+      }
+    }
+    m_restartitem_ = 0;
+    m_restartcost_ = 0;
+    m_dailyrestart_ = 0;
+    m_free_ = 0;
+    m_taskgroupid_ = 0;
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    m_dailytaskrestart_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_eggsdraw::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_period;
+        break;
+      }
+
+      // optional int32 m_period = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_period:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_period_)));
+          set_has_m_period();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_costItem;
+        break;
+      }
+
+      // optional int32 m_costItem = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costItem:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_costitem_)));
+          set_has_m_costitem();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_costNum;
+        break;
+      }
+
+      // optional string m_costNum = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_costNum:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_costnum()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_costnum().data(), this->m_costnum().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_poolGroupID;
+        break;
+      }
+
+      // optional int32 m_poolGroupID = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_poolGroupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_poolgroupid_)));
+          set_has_m_poolgroupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_showType;
+        break;
+      }
+
+      // optional int32 m_showType = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_showType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_showtype_)));
+          set_has_m_showtype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(58)) goto parse_m_baseImage;
+        break;
+      }
+
+      // optional string m_baseImage = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_baseImage:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_baseimage()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_baseimage().data(), this->m_baseimage().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(66)) goto parse_m_eggImage;
+        break;
+      }
+
+      // optional string m_eggImage = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_eggImage:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_eggimage()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_eggimage().data(), this->m_eggimage().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(74)) goto parse_m_clickDesc;
+        break;
+      }
+
+      // optional string m_clickDesc = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_clickDesc:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_clickdesc()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_clickdesc().data(), this->m_clickdesc().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(82)) goto parse_m_costDesc;
+        break;
+      }
+
+      // optional string m_costDesc = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_costDesc:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_costdesc()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_costdesc().data(), this->m_costdesc().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(90)) goto parse_m_residueDesc;
+        break;
+      }
+
+      // optional string m_residueDesc = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_residueDesc:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_residuedesc()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_residuedesc().data(), this->m_residuedesc().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(96)) goto parse_m_restartItem;
+        break;
+      }
+
+      // optional int32 m_restartItem = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_restartItem:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_restartitem_)));
+          set_has_m_restartitem();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(104)) goto parse_m_restartCost;
+        break;
+      }
+
+      // optional int32 m_restartCost = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_restartCost:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_restartcost_)));
+          set_has_m_restartcost();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(112)) goto parse_m_dailyRestart;
+        break;
+      }
+
+      // optional int32 m_dailyRestart = 14;
+      case 14: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_dailyRestart:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_dailyrestart_)));
+          set_has_m_dailyrestart();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(120)) goto parse_m_free;
+        break;
+      }
+
+      // optional int32 m_free = 15;
+      case 15: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_free:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_free_)));
+          set_has_m_free();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(128)) goto parse_m_taskGroupID;
+        break;
+      }
+
+      // optional int32 m_taskGroupID = 16;
+      case 16: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_taskGroupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_taskgroupid_)));
+          set_has_m_taskgroupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(136)) goto parse_m_dailyTaskRestart;
+        break;
+      }
+
+      // optional int32 m_dailyTaskRestart = 17;
+      case 17: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_dailyTaskRestart:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_dailytaskrestart_)));
+          set_has_m_dailytaskrestart();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_eggsdraw::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_period(), output);
+  }
+
+  // optional int32 m_costItem = 3;
+  if (has_m_costitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_costitem(), output);
+  }
+
+  // optional string m_costNum = 4;
+  if (has_m_costnum()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_costnum().data(), this->m_costnum().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->m_costnum(), output);
+  }
+
+  // optional int32 m_poolGroupID = 5;
+  if (has_m_poolgroupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_poolgroupid(), output);
+  }
+
+  // optional int32 m_showType = 6;
+  if (has_m_showtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_showtype(), output);
+  }
+
+  // optional string m_baseImage = 7;
+  if (has_m_baseimage()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_baseimage().data(), this->m_baseimage().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      7, this->m_baseimage(), output);
+  }
+
+  // optional string m_eggImage = 8;
+  if (has_m_eggimage()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_eggimage().data(), this->m_eggimage().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      8, this->m_eggimage(), output);
+  }
+
+  // optional string m_clickDesc = 9;
+  if (has_m_clickdesc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_clickdesc().data(), this->m_clickdesc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      9, this->m_clickdesc(), output);
+  }
+
+  // optional string m_costDesc = 10;
+  if (has_m_costdesc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_costdesc().data(), this->m_costdesc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      10, this->m_costdesc(), output);
+  }
+
+  // optional string m_residueDesc = 11;
+  if (has_m_residuedesc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_residuedesc().data(), this->m_residuedesc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      11, this->m_residuedesc(), output);
+  }
+
+  // optional int32 m_restartItem = 12;
+  if (has_m_restartitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_restartitem(), output);
+  }
+
+  // optional int32 m_restartCost = 13;
+  if (has_m_restartcost()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_restartcost(), output);
+  }
+
+  // optional int32 m_dailyRestart = 14;
+  if (has_m_dailyrestart()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_dailyrestart(), output);
+  }
+
+  // optional int32 m_free = 15;
+  if (has_m_free()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_free(), output);
+  }
+
+  // optional int32 m_taskGroupID = 16;
+  if (has_m_taskgroupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(16, this->m_taskgroupid(), output);
+  }
+
+  // optional int32 m_dailyTaskRestart = 17;
+  if (has_m_dailytaskrestart()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(17, this->m_dailytaskrestart(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_eggsdraw::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_period(), target);
+  }
+
+  // optional int32 m_costItem = 3;
+  if (has_m_costitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_costitem(), target);
+  }
+
+  // optional string m_costNum = 4;
+  if (has_m_costnum()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_costnum().data(), this->m_costnum().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->m_costnum(), target);
+  }
+
+  // optional int32 m_poolGroupID = 5;
+  if (has_m_poolgroupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_poolgroupid(), target);
+  }
+
+  // optional int32 m_showType = 6;
+  if (has_m_showtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_showtype(), target);
+  }
+
+  // optional string m_baseImage = 7;
+  if (has_m_baseimage()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_baseimage().data(), this->m_baseimage().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        7, this->m_baseimage(), target);
+  }
+
+  // optional string m_eggImage = 8;
+  if (has_m_eggimage()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_eggimage().data(), this->m_eggimage().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->m_eggimage(), target);
+  }
+
+  // optional string m_clickDesc = 9;
+  if (has_m_clickdesc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_clickdesc().data(), this->m_clickdesc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        9, this->m_clickdesc(), target);
+  }
+
+  // optional string m_costDesc = 10;
+  if (has_m_costdesc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_costdesc().data(), this->m_costdesc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->m_costdesc(), target);
+  }
+
+  // optional string m_residueDesc = 11;
+  if (has_m_residuedesc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_residuedesc().data(), this->m_residuedesc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        11, this->m_residuedesc(), target);
+  }
+
+  // optional int32 m_restartItem = 12;
+  if (has_m_restartitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_restartitem(), target);
+  }
+
+  // optional int32 m_restartCost = 13;
+  if (has_m_restartcost()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_restartcost(), target);
+  }
+
+  // optional int32 m_dailyRestart = 14;
+  if (has_m_dailyrestart()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_dailyrestart(), target);
+  }
+
+  // optional int32 m_free = 15;
+  if (has_m_free()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_free(), target);
+  }
+
+  // optional int32 m_taskGroupID = 16;
+  if (has_m_taskgroupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(16, this->m_taskgroupid(), target);
+  }
+
+  // optional int32 m_dailyTaskRestart = 17;
+  if (has_m_dailytaskrestart()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(17, this->m_dailytaskrestart(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_eggsdraw::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_period = 2;
+    if (has_m_period()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_period());
+    }
+
+    // optional int32 m_costItem = 3;
+    if (has_m_costitem()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_costitem());
+    }
+
+    // optional string m_costNum = 4;
+    if (has_m_costnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_costnum());
+    }
+
+    // optional int32 m_poolGroupID = 5;
+    if (has_m_poolgroupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_poolgroupid());
+    }
+
+    // optional int32 m_showType = 6;
+    if (has_m_showtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_showtype());
+    }
+
+    // optional string m_baseImage = 7;
+    if (has_m_baseimage()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_baseimage());
+    }
+
+    // optional string m_eggImage = 8;
+    if (has_m_eggimage()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_eggimage());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional string m_clickDesc = 9;
+    if (has_m_clickdesc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_clickdesc());
+    }
+
+    // optional string m_costDesc = 10;
+    if (has_m_costdesc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_costdesc());
+    }
+
+    // optional string m_residueDesc = 11;
+    if (has_m_residuedesc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_residuedesc());
+    }
+
+    // optional int32 m_restartItem = 12;
+    if (has_m_restartitem()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_restartitem());
+    }
+
+    // optional int32 m_restartCost = 13;
+    if (has_m_restartcost()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_restartcost());
+    }
+
+    // optional int32 m_dailyRestart = 14;
+    if (has_m_dailyrestart()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_dailyrestart());
+    }
+
+    // optional int32 m_free = 15;
+    if (has_m_free()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_free());
+    }
+
+    // optional int32 m_taskGroupID = 16;
+    if (has_m_taskgroupid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_taskgroupid());
+    }
+
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    // optional int32 m_dailyTaskRestart = 17;
+    if (has_m_dailytaskrestart()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_dailytaskrestart());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_eggsdraw::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_eggsdraw* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_eggsdraw*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_eggsdraw::MergeFrom(const E_FestivalMuban_eggsdraw& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_period()) {
+      set_m_period(from.m_period());
+    }
+    if (from.has_m_costitem()) {
+      set_m_costitem(from.m_costitem());
+    }
+    if (from.has_m_costnum()) {
+      set_m_costnum(from.m_costnum());
+    }
+    if (from.has_m_poolgroupid()) {
+      set_m_poolgroupid(from.m_poolgroupid());
+    }
+    if (from.has_m_showtype()) {
+      set_m_showtype(from.m_showtype());
+    }
+    if (from.has_m_baseimage()) {
+      set_m_baseimage(from.m_baseimage());
+    }
+    if (from.has_m_eggimage()) {
+      set_m_eggimage(from.m_eggimage());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_clickdesc()) {
+      set_m_clickdesc(from.m_clickdesc());
+    }
+    if (from.has_m_costdesc()) {
+      set_m_costdesc(from.m_costdesc());
+    }
+    if (from.has_m_residuedesc()) {
+      set_m_residuedesc(from.m_residuedesc());
+    }
+    if (from.has_m_restartitem()) {
+      set_m_restartitem(from.m_restartitem());
+    }
+    if (from.has_m_restartcost()) {
+      set_m_restartcost(from.m_restartcost());
+    }
+    if (from.has_m_dailyrestart()) {
+      set_m_dailyrestart(from.m_dailyrestart());
+    }
+    if (from.has_m_free()) {
+      set_m_free(from.m_free());
+    }
+    if (from.has_m_taskgroupid()) {
+      set_m_taskgroupid(from.m_taskgroupid());
+    }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    if (from.has_m_dailytaskrestart()) {
+      set_m_dailytaskrestart(from.m_dailytaskrestart());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_eggsdraw::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_eggsdraw::CopyFrom(const E_FestivalMuban_eggsdraw& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_eggsdraw::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_eggsdraw::Swap(E_FestivalMuban_eggsdraw* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_period_, other->m_period_);
+    std::swap(m_costitem_, other->m_costitem_);
+    std::swap(m_costnum_, other->m_costnum_);
+    std::swap(m_poolgroupid_, other->m_poolgroupid_);
+    std::swap(m_showtype_, other->m_showtype_);
+    std::swap(m_baseimage_, other->m_baseimage_);
+    std::swap(m_eggimage_, other->m_eggimage_);
+    std::swap(m_clickdesc_, other->m_clickdesc_);
+    std::swap(m_costdesc_, other->m_costdesc_);
+    std::swap(m_residuedesc_, other->m_residuedesc_);
+    std::swap(m_restartitem_, other->m_restartitem_);
+    std::swap(m_restartcost_, other->m_restartcost_);
+    std::swap(m_dailyrestart_, other->m_dailyrestart_);
+    std::swap(m_free_, other->m_free_);
+    std::swap(m_taskgroupid_, other->m_taskgroupid_);
+    std::swap(m_dailytaskrestart_, other->m_dailytaskrestart_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_eggsdraw::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_eggsdraw_descriptor_;
+  metadata.reflection = E_FestivalMuban_eggsdraw_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_eggsdraw::kEFestivalMubanEggsdrawListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_eggsdraw::Sheet_FestivalMuban_eggsdraw()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_eggsdraw::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_eggsdraw::Sheet_FestivalMuban_eggsdraw(const Sheet_FestivalMuban_eggsdraw& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_eggsdraw::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_eggsdraw::~Sheet_FestivalMuban_eggsdraw() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_eggsdraw::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_eggsdraw::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_eggsdraw::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_eggsdraw_descriptor_;
+}
+
+const Sheet_FestivalMuban_eggsdraw& Sheet_FestivalMuban_eggsdraw::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_eggsdraw* Sheet_FestivalMuban_eggsdraw::default_instance_ = NULL;
+
+Sheet_FestivalMuban_eggsdraw* Sheet_FestivalMuban_eggsdraw::New() const {
+  return new Sheet_FestivalMuban_eggsdraw;
+}
+
+void Sheet_FestivalMuban_eggsdraw::Clear() {
+  e_festivalmuban_eggsdraw_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_eggsdraw::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_eggsdraw E_FestivalMuban_eggsdraw_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_eggsdraw_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_eggsdraw_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_eggsdraw_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_eggsdraw::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw E_FestivalMuban_eggsdraw_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_eggsdraw_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_eggsdraw::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw E_FestivalMuban_eggsdraw_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_eggsdraw_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_eggsdraw::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw E_FestivalMuban_eggsdraw_List = 1;
+  total_size += 1 * this->e_festivalmuban_eggsdraw_list_size();
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_eggsdraw_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_eggsdraw::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_eggsdraw* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_eggsdraw*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_eggsdraw::MergeFrom(const Sheet_FestivalMuban_eggsdraw& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_eggsdraw_list_.MergeFrom(from.e_festivalmuban_eggsdraw_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_eggsdraw::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_eggsdraw::CopyFrom(const Sheet_FestivalMuban_eggsdraw& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_eggsdraw::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_eggsdraw::Swap(Sheet_FestivalMuban_eggsdraw* other) {
+  if (other != this) {
+    e_festivalmuban_eggsdraw_list_.Swap(&other->e_festivalmuban_eggsdraw_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_eggsdraw::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_eggsdraw_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_eggsdraw_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_eggsdraw_pool::kMIdFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMGroupIDFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMItemidFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMNumFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMProfFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMWeightsFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMRecordFieldNumber;
+const int E_FestivalMuban_eggsdraw_pool::kMPoolLvFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_eggsdraw_pool::E_FestivalMuban_eggsdraw_pool()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_eggsdraw_pool::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_eggsdraw_pool::E_FestivalMuban_eggsdraw_pool(const E_FestivalMuban_eggsdraw_pool& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_eggsdraw_pool::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_itemid_ = GOOGLE_LONGLONG(0);
+  m_num_ = 0;
+  m_prof_ = 0;
+  m_weights_ = 0;
+  m_record_ = 0;
+  m_poollv_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_eggsdraw_pool::~E_FestivalMuban_eggsdraw_pool() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_eggsdraw_pool::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_eggsdraw_pool::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_eggsdraw_pool::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_eggsdraw_pool_descriptor_;
+}
+
+const E_FestivalMuban_eggsdraw_pool& E_FestivalMuban_eggsdraw_pool::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_eggsdraw_pool* E_FestivalMuban_eggsdraw_pool::default_instance_ = NULL;
+
+E_FestivalMuban_eggsdraw_pool* E_FestivalMuban_eggsdraw_pool::New() const {
+  return new E_FestivalMuban_eggsdraw_pool;
+}
+
+void E_FestivalMuban_eggsdraw_pool::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_itemid_ = GOOGLE_LONGLONG(0);
+    m_num_ = 0;
+    m_prof_ = 0;
+    m_weights_ = 0;
+    m_record_ = 0;
+    m_poollv_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_eggsdraw_pool::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_itemid;
+        break;
+      }
+
+      // optional int64 m_itemid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_itemid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &m_itemid_)));
+          set_has_m_itemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_num;
+        break;
+      }
+
+      // optional int32 m_num = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_prof;
+        break;
+      }
+
+      // optional int32 m_prof = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prof:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prof_)));
+          set_has_m_prof();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_weights;
+        break;
+      }
+
+      // optional int32 m_weights = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_weights:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_weights_)));
+          set_has_m_weights();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_Record;
+        break;
+      }
+
+      // optional int32 m_Record = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_Record:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_record_)));
+          set_has_m_record();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_poolLv;
+        break;
+      }
+
+      // optional int32 m_poolLv = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_poolLv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_poollv_)));
+          set_has_m_poollv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_eggsdraw_pool::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int64 m_itemid = 3;
+  if (has_m_itemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->m_itemid(), output);
+  }
+
+  // optional int32 m_num = 4;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_num(), output);
+  }
+
+  // optional int32 m_prof = 5;
+  if (has_m_prof()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_prof(), output);
+  }
+
+  // optional int32 m_weights = 6;
+  if (has_m_weights()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_weights(), output);
+  }
+
+  // optional int32 m_Record = 7;
+  if (has_m_record()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_record(), output);
+  }
+
+  // optional int32 m_poolLv = 8;
+  if (has_m_poollv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_poollv(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_eggsdraw_pool::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int64 m_itemid = 3;
+  if (has_m_itemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->m_itemid(), target);
+  }
+
+  // optional int32 m_num = 4;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_num(), target);
+  }
+
+  // optional int32 m_prof = 5;
+  if (has_m_prof()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_prof(), target);
+  }
+
+  // optional int32 m_weights = 6;
+  if (has_m_weights()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_weights(), target);
+  }
+
+  // optional int32 m_Record = 7;
+  if (has_m_record()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_record(), target);
+  }
+
+  // optional int32 m_poolLv = 8;
+  if (has_m_poollv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_poollv(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_eggsdraw_pool::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int64 m_itemid = 3;
+    if (has_m_itemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->m_itemid());
+    }
+
+    // optional int32 m_num = 4;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int32 m_prof = 5;
+    if (has_m_prof()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prof());
+    }
+
+    // optional int32 m_weights = 6;
+    if (has_m_weights()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_weights());
+    }
+
+    // optional int32 m_Record = 7;
+    if (has_m_record()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_record());
+    }
+
+    // optional int32 m_poolLv = 8;
+    if (has_m_poollv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_poollv());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_eggsdraw_pool::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_eggsdraw_pool* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_eggsdraw_pool*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_eggsdraw_pool::MergeFrom(const E_FestivalMuban_eggsdraw_pool& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_itemid()) {
+      set_m_itemid(from.m_itemid());
+    }
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_prof()) {
+      set_m_prof(from.m_prof());
+    }
+    if (from.has_m_weights()) {
+      set_m_weights(from.m_weights());
+    }
+    if (from.has_m_record()) {
+      set_m_record(from.m_record());
+    }
+    if (from.has_m_poollv()) {
+      set_m_poollv(from.m_poollv());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_eggsdraw_pool::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_eggsdraw_pool::CopyFrom(const E_FestivalMuban_eggsdraw_pool& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_eggsdraw_pool::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_eggsdraw_pool::Swap(E_FestivalMuban_eggsdraw_pool* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_itemid_, other->m_itemid_);
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_prof_, other->m_prof_);
+    std::swap(m_weights_, other->m_weights_);
+    std::swap(m_record_, other->m_record_);
+    std::swap(m_poollv_, other->m_poollv_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_eggsdraw_pool::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_eggsdraw_pool_descriptor_;
+  metadata.reflection = E_FestivalMuban_eggsdraw_pool_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_eggsdraw_pool::kEFestivalMubanEggsdrawPoolListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_eggsdraw_pool::Sheet_FestivalMuban_eggsdraw_pool()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_eggsdraw_pool::Sheet_FestivalMuban_eggsdraw_pool(const Sheet_FestivalMuban_eggsdraw_pool& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_eggsdraw_pool::~Sheet_FestivalMuban_eggsdraw_pool() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_eggsdraw_pool::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_eggsdraw_pool_descriptor_;
+}
+
+const Sheet_FestivalMuban_eggsdraw_pool& Sheet_FestivalMuban_eggsdraw_pool::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_eggsdraw_pool* Sheet_FestivalMuban_eggsdraw_pool::default_instance_ = NULL;
+
+Sheet_FestivalMuban_eggsdraw_pool* Sheet_FestivalMuban_eggsdraw_pool::New() const {
+  return new Sheet_FestivalMuban_eggsdraw_pool;
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::Clear() {
+  e_festivalmuban_eggsdraw_pool_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_eggsdraw_pool::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_eggsdraw_pool E_FestivalMuban_eggsdraw_pool_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_eggsdraw_pool_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_eggsdraw_pool_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_eggsdraw_pool_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw_pool E_FestivalMuban_eggsdraw_pool_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_pool_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_eggsdraw_pool_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_eggsdraw_pool::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw_pool E_FestivalMuban_eggsdraw_pool_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_pool_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_eggsdraw_pool_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_eggsdraw_pool::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw_pool E_FestivalMuban_eggsdraw_pool_List = 1;
+  total_size += 1 * this->e_festivalmuban_eggsdraw_pool_list_size();
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_pool_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_eggsdraw_pool_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_eggsdraw_pool* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_eggsdraw_pool*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::MergeFrom(const Sheet_FestivalMuban_eggsdraw_pool& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_eggsdraw_pool_list_.MergeFrom(from.e_festivalmuban_eggsdraw_pool_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::CopyFrom(const Sheet_FestivalMuban_eggsdraw_pool& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_eggsdraw_pool::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool::Swap(Sheet_FestivalMuban_eggsdraw_pool* other) {
+  if (other != this) {
+    e_festivalmuban_eggsdraw_pool_list_.Swap(&other->e_festivalmuban_eggsdraw_pool_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_eggsdraw_pool::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_eggsdraw_pool_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_eggsdraw_pool_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_eggsdraw_task::kMIdFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMGroupIDFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMEventTypeFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMReachPriceFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMRewardItemFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMRewardNumFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMLinkFieldNumber;
+const int E_FestivalMuban_eggsdraw_task::kMParamFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_eggsdraw_task::E_FestivalMuban_eggsdraw_task()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_eggsdraw_task::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_eggsdraw_task::E_FestivalMuban_eggsdraw_task(const E_FestivalMuban_eggsdraw_task& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_eggsdraw_task::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_eventtype_ = 0;
+  m_reachprice_ = 0;
+  m_rewarditem_ = 0;
+  m_rewardnum_ = 0;
+  m_link_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_eggsdraw_task::~E_FestivalMuban_eggsdraw_task() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_eggsdraw_task::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_eggsdraw_task::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_eggsdraw_task::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_eggsdraw_task_descriptor_;
+}
+
+const E_FestivalMuban_eggsdraw_task& E_FestivalMuban_eggsdraw_task::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_eggsdraw_task* E_FestivalMuban_eggsdraw_task::default_instance_ = NULL;
+
+E_FestivalMuban_eggsdraw_task* E_FestivalMuban_eggsdraw_task::New() const {
+  return new E_FestivalMuban_eggsdraw_task;
+}
+
+void E_FestivalMuban_eggsdraw_task::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_eventtype_ = 0;
+    m_reachprice_ = 0;
+    m_rewarditem_ = 0;
+    m_rewardnum_ = 0;
+    m_link_ = 0;
+  }
+  m_param_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_eggsdraw_task::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_eventType;
+        break;
+      }
+
+      // optional int32 m_eventType = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_eventType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_eventtype_)));
+          set_has_m_eventtype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_reachPrice;
+        break;
+      }
+
+      // optional int32 m_reachPrice = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_reachPrice:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_reachprice_)));
+          set_has_m_reachprice();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_rewardItem;
+        break;
+      }
+
+      // optional int32 m_rewardItem = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_rewardItem:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_rewarditem_)));
+          set_has_m_rewarditem();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_rewardNum;
+        break;
+      }
+
+      // optional int32 m_rewardNum = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_rewardNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_rewardnum_)));
+          set_has_m_rewardnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_link;
+        break;
+      }
+
+      // optional int32 m_link = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_link:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_link_)));
+          set_has_m_link();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_param;
+        break;
+      }
+
+      // repeated int32 m_param = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_param:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 64, input, this->mutable_m_param())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_m_param())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_param;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_eggsdraw_task::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_eventType = 3;
+  if (has_m_eventtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_eventtype(), output);
+  }
+
+  // optional int32 m_reachPrice = 4;
+  if (has_m_reachprice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_reachprice(), output);
+  }
+
+  // optional int32 m_rewardItem = 5;
+  if (has_m_rewarditem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rewarditem(), output);
+  }
+
+  // optional int32 m_rewardNum = 6;
+  if (has_m_rewardnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_rewardnum(), output);
+  }
+
+  // optional int32 m_link = 7;
+  if (has_m_link()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_link(), output);
+  }
+
+  // repeated int32 m_param = 8;
+  for (int i = 0; i < this->m_param_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      8, this->m_param(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_eggsdraw_task::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_eventType = 3;
+  if (has_m_eventtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_eventtype(), target);
+  }
+
+  // optional int32 m_reachPrice = 4;
+  if (has_m_reachprice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_reachprice(), target);
+  }
+
+  // optional int32 m_rewardItem = 5;
+  if (has_m_rewarditem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rewarditem(), target);
+  }
+
+  // optional int32 m_rewardNum = 6;
+  if (has_m_rewardnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_rewardnum(), target);
+  }
+
+  // optional int32 m_link = 7;
+  if (has_m_link()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_link(), target);
+  }
+
+  // repeated int32 m_param = 8;
+  for (int i = 0; i < this->m_param_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(8, this->m_param(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_eggsdraw_task::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_eventType = 3;
+    if (has_m_eventtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_eventtype());
+    }
+
+    // optional int32 m_reachPrice = 4;
+    if (has_m_reachprice()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_reachprice());
+    }
+
+    // optional int32 m_rewardItem = 5;
+    if (has_m_rewarditem()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_rewarditem());
+    }
+
+    // optional int32 m_rewardNum = 6;
+    if (has_m_rewardnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_rewardnum());
+    }
+
+    // optional int32 m_link = 7;
+    if (has_m_link()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_link());
+    }
+
+  }
+  // repeated int32 m_param = 8;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->m_param_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->m_param(i));
+    }
+    total_size += 1 * this->m_param_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_eggsdraw_task::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_eggsdraw_task* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_eggsdraw_task*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_eggsdraw_task::MergeFrom(const E_FestivalMuban_eggsdraw_task& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_param_.MergeFrom(from.m_param_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_eventtype()) {
+      set_m_eventtype(from.m_eventtype());
+    }
+    if (from.has_m_reachprice()) {
+      set_m_reachprice(from.m_reachprice());
+    }
+    if (from.has_m_rewarditem()) {
+      set_m_rewarditem(from.m_rewarditem());
+    }
+    if (from.has_m_rewardnum()) {
+      set_m_rewardnum(from.m_rewardnum());
+    }
+    if (from.has_m_link()) {
+      set_m_link(from.m_link());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_eggsdraw_task::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_eggsdraw_task::CopyFrom(const E_FestivalMuban_eggsdraw_task& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_eggsdraw_task::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_eggsdraw_task::Swap(E_FestivalMuban_eggsdraw_task* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_eventtype_, other->m_eventtype_);
+    std::swap(m_reachprice_, other->m_reachprice_);
+    std::swap(m_rewarditem_, other->m_rewarditem_);
+    std::swap(m_rewardnum_, other->m_rewardnum_);
+    std::swap(m_link_, other->m_link_);
+    m_param_.Swap(&other->m_param_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_eggsdraw_task::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_eggsdraw_task_descriptor_;
+  metadata.reflection = E_FestivalMuban_eggsdraw_task_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_eggsdraw_task::kEFestivalMubanEggsdrawTaskListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_eggsdraw_task::Sheet_FestivalMuban_eggsdraw_task()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_eggsdraw_task::Sheet_FestivalMuban_eggsdraw_task(const Sheet_FestivalMuban_eggsdraw_task& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_eggsdraw_task::~Sheet_FestivalMuban_eggsdraw_task() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_eggsdraw_task::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_eggsdraw_task_descriptor_;
+}
+
+const Sheet_FestivalMuban_eggsdraw_task& Sheet_FestivalMuban_eggsdraw_task::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_eggsdraw_task* Sheet_FestivalMuban_eggsdraw_task::default_instance_ = NULL;
+
+Sheet_FestivalMuban_eggsdraw_task* Sheet_FestivalMuban_eggsdraw_task::New() const {
+  return new Sheet_FestivalMuban_eggsdraw_task;
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::Clear() {
+  e_festivalmuban_eggsdraw_task_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_eggsdraw_task::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_eggsdraw_task E_FestivalMuban_eggsdraw_task_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_eggsdraw_task_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_eggsdraw_task_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_eggsdraw_task_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw_task E_FestivalMuban_eggsdraw_task_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_task_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_eggsdraw_task_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_eggsdraw_task::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw_task E_FestivalMuban_eggsdraw_task_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_task_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_eggsdraw_task_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_eggsdraw_task::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_eggsdraw_task E_FestivalMuban_eggsdraw_task_List = 1;
+  total_size += 1 * this->e_festivalmuban_eggsdraw_task_list_size();
+  for (int i = 0; i < this->e_festivalmuban_eggsdraw_task_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_eggsdraw_task_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_eggsdraw_task* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_eggsdraw_task*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::MergeFrom(const Sheet_FestivalMuban_eggsdraw_task& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_eggsdraw_task_list_.MergeFrom(from.e_festivalmuban_eggsdraw_task_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::CopyFrom(const Sheet_FestivalMuban_eggsdraw_task& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_eggsdraw_task::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_eggsdraw_task::Swap(Sheet_FestivalMuban_eggsdraw_task* other) {
+  if (other != this) {
+    e_festivalmuban_eggsdraw_task_list_.Swap(&other->e_festivalmuban_eggsdraw_task_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_eggsdraw_task::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_eggsdraw_task_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_eggsdraw_task_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_ftreward::kMIdFieldNumber;
+const int E_FestivalMuban_ftreward::kMPeriodFieldNumber;
+const int E_FestivalMuban_ftreward::kMFTIDFieldNumber;
+const int E_FestivalMuban_ftreward::kMAddItemIDFieldNumber;
+const int E_FestivalMuban_ftreward::kMShowRewardFieldNumber;
+const int E_FestivalMuban_ftreward::kMLinkidFieldNumber;
+const int E_FestivalMuban_ftreward::kMFunctionIDFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_ftreward::E_FestivalMuban_ftreward()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_ftreward::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_ftreward::E_FestivalMuban_ftreward(const E_FestivalMuban_ftreward& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_ftreward::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_period_ = 0;
+  m_ftid_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_additemid_ = 0;
+  m_showreward_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_linkid_ = 0;
+  m_functionid_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_ftreward::~E_FestivalMuban_ftreward() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_ftreward::SharedDtor() {
+  if (m_ftid_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_ftid_;
+  }
+  if (m_showreward_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_showreward_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_ftreward::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_ftreward::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_ftreward_descriptor_;
+}
+
+const E_FestivalMuban_ftreward& E_FestivalMuban_ftreward::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_ftreward* E_FestivalMuban_ftreward::default_instance_ = NULL;
+
+E_FestivalMuban_ftreward* E_FestivalMuban_ftreward::New() const {
+  return new E_FestivalMuban_ftreward;
+}
+
+void E_FestivalMuban_ftreward::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_period_ = 0;
+    if (has_m_ftid()) {
+      if (m_ftid_ != &::google::protobuf::internal::kEmptyString) {
+        m_ftid_->clear();
+      }
+    }
+    m_additemid_ = 0;
+    if (has_m_showreward()) {
+      if (m_showreward_ != &::google::protobuf::internal::kEmptyString) {
+        m_showreward_->clear();
+      }
+    }
+    m_linkid_ = 0;
+    m_functionid_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_ftreward::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_period;
+        break;
+      }
+
+      // optional int32 m_period = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_period:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_period_)));
+          set_has_m_period();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_FTID;
+        break;
+      }
+
+      // optional string m_FTID = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_FTID:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_ftid()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_ftid().data(), this->m_ftid().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_addItemID;
+        break;
+      }
+
+      // optional int32 m_addItemID = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_addItemID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_additemid_)));
+          set_has_m_additemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_m_showReward;
+        break;
+      }
+
+      // optional string m_showReward = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_showReward:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_showreward()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_showreward().data(), this->m_showreward().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_linkid;
+        break;
+      }
+
+      // optional int32 m_linkid = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_linkid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_linkid_)));
+          set_has_m_linkid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_functionID;
+        break;
+      }
+
+      // optional int32 m_functionID = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_functionID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_functionid_)));
+          set_has_m_functionid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_ftreward::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_period(), output);
+  }
+
+  // optional string m_FTID = 3;
+  if (has_m_ftid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_ftid().data(), this->m_ftid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->m_ftid(), output);
+  }
+
+  // optional int32 m_addItemID = 4;
+  if (has_m_additemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_additemid(), output);
+  }
+
+  // optional string m_showReward = 5;
+  if (has_m_showreward()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_showreward().data(), this->m_showreward().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->m_showreward(), output);
+  }
+
+  // optional int32 m_linkid = 6;
+  if (has_m_linkid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_linkid(), output);
+  }
+
+  // optional int32 m_functionID = 7;
+  if (has_m_functionid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_functionid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_ftreward::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_period(), target);
+  }
+
+  // optional string m_FTID = 3;
+  if (has_m_ftid()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_ftid().data(), this->m_ftid().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->m_ftid(), target);
+  }
+
+  // optional int32 m_addItemID = 4;
+  if (has_m_additemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_additemid(), target);
+  }
+
+  // optional string m_showReward = 5;
+  if (has_m_showreward()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_showreward().data(), this->m_showreward().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->m_showreward(), target);
+  }
+
+  // optional int32 m_linkid = 6;
+  if (has_m_linkid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_linkid(), target);
+  }
+
+  // optional int32 m_functionID = 7;
+  if (has_m_functionid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_functionid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_ftreward::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_period = 2;
+    if (has_m_period()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_period());
+    }
+
+    // optional string m_FTID = 3;
+    if (has_m_ftid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_ftid());
+    }
+
+    // optional int32 m_addItemID = 4;
+    if (has_m_additemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_additemid());
+    }
+
+    // optional string m_showReward = 5;
+    if (has_m_showreward()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_showreward());
+    }
+
+    // optional int32 m_linkid = 6;
+    if (has_m_linkid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_linkid());
+    }
+
+    // optional int32 m_functionID = 7;
+    if (has_m_functionid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_functionid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_ftreward::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_ftreward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_ftreward*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_ftreward::MergeFrom(const E_FestivalMuban_ftreward& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_period()) {
+      set_m_period(from.m_period());
+    }
+    if (from.has_m_ftid()) {
+      set_m_ftid(from.m_ftid());
+    }
+    if (from.has_m_additemid()) {
+      set_m_additemid(from.m_additemid());
+    }
+    if (from.has_m_showreward()) {
+      set_m_showreward(from.m_showreward());
+    }
+    if (from.has_m_linkid()) {
+      set_m_linkid(from.m_linkid());
+    }
+    if (from.has_m_functionid()) {
+      set_m_functionid(from.m_functionid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_ftreward::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_ftreward::CopyFrom(const E_FestivalMuban_ftreward& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_ftreward::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_ftreward::Swap(E_FestivalMuban_ftreward* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_period_, other->m_period_);
+    std::swap(m_ftid_, other->m_ftid_);
+    std::swap(m_additemid_, other->m_additemid_);
+    std::swap(m_showreward_, other->m_showreward_);
+    std::swap(m_linkid_, other->m_linkid_);
+    std::swap(m_functionid_, other->m_functionid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_ftreward::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_ftreward_descriptor_;
+  metadata.reflection = E_FestivalMuban_ftreward_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_ftreward::kEFestivalMubanFtrewardListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_ftreward::Sheet_FestivalMuban_ftreward()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_ftreward::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_ftreward::Sheet_FestivalMuban_ftreward(const Sheet_FestivalMuban_ftreward& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_ftreward::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_ftreward::~Sheet_FestivalMuban_ftreward() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_ftreward::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_ftreward::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_ftreward::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_ftreward_descriptor_;
+}
+
+const Sheet_FestivalMuban_ftreward& Sheet_FestivalMuban_ftreward::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_ftreward* Sheet_FestivalMuban_ftreward::default_instance_ = NULL;
+
+Sheet_FestivalMuban_ftreward* Sheet_FestivalMuban_ftreward::New() const {
+  return new Sheet_FestivalMuban_ftreward;
+}
+
+void Sheet_FestivalMuban_ftreward::Clear() {
+  e_festivalmuban_ftreward_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_ftreward::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_ftreward E_FestivalMuban_ftreward_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_ftreward_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_ftreward_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_ftreward_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_ftreward::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_ftreward E_FestivalMuban_ftreward_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_ftreward_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_ftreward_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_ftreward::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_ftreward E_FestivalMuban_ftreward_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_ftreward_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_ftreward_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_ftreward::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_ftreward E_FestivalMuban_ftreward_List = 1;
+  total_size += 1 * this->e_festivalmuban_ftreward_list_size();
+  for (int i = 0; i < this->e_festivalmuban_ftreward_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_ftreward_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_ftreward::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_ftreward* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_ftreward*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_ftreward::MergeFrom(const Sheet_FestivalMuban_ftreward& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_ftreward_list_.MergeFrom(from.e_festivalmuban_ftreward_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_ftreward::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_ftreward::CopyFrom(const Sheet_FestivalMuban_ftreward& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_ftreward::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_ftreward::Swap(Sheet_FestivalMuban_ftreward* other) {
+  if (other != this) {
+    e_festivalmuban_ftreward_list_.Swap(&other->e_festivalmuban_ftreward_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_ftreward::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_ftreward_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_ftreward_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_challenge::kMIdFieldNumber;
+const int E_FestivalMuban_challenge::kMPeriodFieldNumber;
+const int E_FestivalMuban_challenge::kMNameFieldNumber;
+const int E_FestivalMuban_challenge::kMJoinBoxFieldNumber;
+const int E_FestivalMuban_challenge::kMKillBoxShowFieldNumber;
+const int E_FestivalMuban_challenge::kMMonsterFieldNumber;
+const int E_FestivalMuban_challenge::kMPointFieldNumber;
+const int E_FestivalMuban_challenge::kMShowTimeFieldNumber;
+const int E_FestivalMuban_challenge::kMFaceidFieldNumber;
+const int E_FestivalMuban_challenge::kMScalleFieldNumber;
+const int E_FestivalMuban_challenge::kMLinkidFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_challenge::E_FestivalMuban_challenge()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_challenge::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_challenge::E_FestivalMuban_challenge(const E_FestivalMuban_challenge& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_challenge::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_period_ = 0;
+  m_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_joinbox_ = 0;
+  m_killboxshow_ = 0;
+  m_monster_ = 0;
+  m_point_ = 0;
+  m_showtime_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_faceid_ = 0;
+  m_scalle_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_linkid_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_challenge::~E_FestivalMuban_challenge() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_challenge::SharedDtor() {
+  if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_name_;
+  }
+  if (m_showtime_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_showtime_;
+  }
+  if (m_scalle_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_scalle_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_challenge::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_challenge::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_challenge_descriptor_;
+}
+
+const E_FestivalMuban_challenge& E_FestivalMuban_challenge::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_challenge* E_FestivalMuban_challenge::default_instance_ = NULL;
+
+E_FestivalMuban_challenge* E_FestivalMuban_challenge::New() const {
+  return new E_FestivalMuban_challenge;
+}
+
+void E_FestivalMuban_challenge::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_period_ = 0;
+    if (has_m_name()) {
+      if (m_name_ != &::google::protobuf::internal::kEmptyString) {
+        m_name_->clear();
+      }
+    }
+    m_joinbox_ = 0;
+    m_killboxshow_ = 0;
+    m_monster_ = 0;
+    m_point_ = 0;
+    if (has_m_showtime()) {
+      if (m_showtime_ != &::google::protobuf::internal::kEmptyString) {
+        m_showtime_->clear();
+      }
+    }
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_faceid_ = 0;
+    if (has_m_scalle()) {
+      if (m_scalle_ != &::google::protobuf::internal::kEmptyString) {
+        m_scalle_->clear();
+      }
+    }
+    m_linkid_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_challenge::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_period;
+        break;
+      }
+
+      // optional int32 m_period = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_period:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_period_)));
+          set_has_m_period();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_name;
+        break;
+      }
+
+      // optional string m_name = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_name().data(), this->m_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_joinBox;
+        break;
+      }
+
+      // optional int32 m_joinBox = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_joinBox:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_joinbox_)));
+          set_has_m_joinbox();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_killBoxShow;
+        break;
+      }
+
+      // optional int32 m_killBoxShow = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_killBoxShow:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_killboxshow_)));
+          set_has_m_killboxshow();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_monster;
+        break;
+      }
+
+      // optional int32 m_monster = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_monster:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_monster_)));
+          set_has_m_monster();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_point;
+        break;
+      }
+
+      // optional int32 m_point = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_point:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_point_)));
+          set_has_m_point();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(66)) goto parse_m_showTime;
+        break;
+      }
+
+      // optional string m_showTime = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_showTime:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_showtime()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_showtime().data(), this->m_showtime().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_faceid;
+        break;
+      }
+
+      // optional int32 m_faceid = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_faceid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_faceid_)));
+          set_has_m_faceid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(82)) goto parse_m_scalle;
+        break;
+      }
+
+      // optional string m_scalle = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_scalle:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_scalle()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_scalle().data(), this->m_scalle().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(88)) goto parse_m_linkid;
+        break;
+      }
+
+      // optional int32 m_linkid = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_linkid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_linkid_)));
+          set_has_m_linkid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_challenge::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_period(), output);
+  }
+
+  // optional string m_name = 3;
+  if (has_m_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_name().data(), this->m_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->m_name(), output);
+  }
+
+  // optional int32 m_joinBox = 4;
+  if (has_m_joinbox()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_joinbox(), output);
+  }
+
+  // optional int32 m_killBoxShow = 5;
+  if (has_m_killboxshow()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_killboxshow(), output);
+  }
+
+  // optional int32 m_monster = 6;
+  if (has_m_monster()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_monster(), output);
+  }
+
+  // optional int32 m_point = 7;
+  if (has_m_point()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_point(), output);
+  }
+
+  // optional string m_showTime = 8;
+  if (has_m_showtime()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_showtime().data(), this->m_showtime().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      8, this->m_showtime(), output);
+  }
+
+  // optional int32 m_faceid = 9;
+  if (has_m_faceid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_faceid(), output);
+  }
+
+  // optional string m_scalle = 10;
+  if (has_m_scalle()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_scalle().data(), this->m_scalle().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      10, this->m_scalle(), output);
+  }
+
+  // optional int32 m_linkid = 11;
+  if (has_m_linkid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_linkid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_challenge::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_period(), target);
+  }
+
+  // optional string m_name = 3;
+  if (has_m_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_name().data(), this->m_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->m_name(), target);
+  }
+
+  // optional int32 m_joinBox = 4;
+  if (has_m_joinbox()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_joinbox(), target);
+  }
+
+  // optional int32 m_killBoxShow = 5;
+  if (has_m_killboxshow()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_killboxshow(), target);
+  }
+
+  // optional int32 m_monster = 6;
+  if (has_m_monster()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_monster(), target);
+  }
+
+  // optional int32 m_point = 7;
+  if (has_m_point()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_point(), target);
+  }
+
+  // optional string m_showTime = 8;
+  if (has_m_showtime()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_showtime().data(), this->m_showtime().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->m_showtime(), target);
+  }
+
+  // optional int32 m_faceid = 9;
+  if (has_m_faceid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_faceid(), target);
+  }
+
+  // optional string m_scalle = 10;
+  if (has_m_scalle()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_scalle().data(), this->m_scalle().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->m_scalle(), target);
+  }
+
+  // optional int32 m_linkid = 11;
+  if (has_m_linkid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_linkid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_challenge::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_period = 2;
+    if (has_m_period()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_period());
+    }
+
+    // optional string m_name = 3;
+    if (has_m_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_name());
+    }
+
+    // optional int32 m_joinBox = 4;
+    if (has_m_joinbox()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_joinbox());
+    }
+
+    // optional int32 m_killBoxShow = 5;
+    if (has_m_killboxshow()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_killboxshow());
+    }
+
+    // optional int32 m_monster = 6;
+    if (has_m_monster()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_monster());
+    }
+
+    // optional int32 m_point = 7;
+    if (has_m_point()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_point());
+    }
+
+    // optional string m_showTime = 8;
+    if (has_m_showtime()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_showtime());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_faceid = 9;
+    if (has_m_faceid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_faceid());
+    }
+
+    // optional string m_scalle = 10;
+    if (has_m_scalle()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_scalle());
+    }
+
+    // optional int32 m_linkid = 11;
+    if (has_m_linkid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_linkid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_challenge::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_challenge* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_challenge*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_challenge::MergeFrom(const E_FestivalMuban_challenge& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_period()) {
+      set_m_period(from.m_period());
+    }
+    if (from.has_m_name()) {
+      set_m_name(from.m_name());
+    }
+    if (from.has_m_joinbox()) {
+      set_m_joinbox(from.m_joinbox());
+    }
+    if (from.has_m_killboxshow()) {
+      set_m_killboxshow(from.m_killboxshow());
+    }
+    if (from.has_m_monster()) {
+      set_m_monster(from.m_monster());
+    }
+    if (from.has_m_point()) {
+      set_m_point(from.m_point());
+    }
+    if (from.has_m_showtime()) {
+      set_m_showtime(from.m_showtime());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_faceid()) {
+      set_m_faceid(from.m_faceid());
+    }
+    if (from.has_m_scalle()) {
+      set_m_scalle(from.m_scalle());
+    }
+    if (from.has_m_linkid()) {
+      set_m_linkid(from.m_linkid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_challenge::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_challenge::CopyFrom(const E_FestivalMuban_challenge& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_challenge::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_challenge::Swap(E_FestivalMuban_challenge* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_period_, other->m_period_);
+    std::swap(m_name_, other->m_name_);
+    std::swap(m_joinbox_, other->m_joinbox_);
+    std::swap(m_killboxshow_, other->m_killboxshow_);
+    std::swap(m_monster_, other->m_monster_);
+    std::swap(m_point_, other->m_point_);
+    std::swap(m_showtime_, other->m_showtime_);
+    std::swap(m_faceid_, other->m_faceid_);
+    std::swap(m_scalle_, other->m_scalle_);
+    std::swap(m_linkid_, other->m_linkid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_challenge::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_challenge_descriptor_;
+  metadata.reflection = E_FestivalMuban_challenge_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_challenge::kEFestivalMubanChallengeListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_challenge::Sheet_FestivalMuban_challenge()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_challenge::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_challenge::Sheet_FestivalMuban_challenge(const Sheet_FestivalMuban_challenge& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_challenge::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_challenge::~Sheet_FestivalMuban_challenge() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_challenge::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_challenge::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_challenge::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_challenge_descriptor_;
+}
+
+const Sheet_FestivalMuban_challenge& Sheet_FestivalMuban_challenge::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_challenge* Sheet_FestivalMuban_challenge::default_instance_ = NULL;
+
+Sheet_FestivalMuban_challenge* Sheet_FestivalMuban_challenge::New() const {
+  return new Sheet_FestivalMuban_challenge;
+}
+
+void Sheet_FestivalMuban_challenge::Clear() {
+  e_festivalmuban_challenge_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_challenge::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_challenge E_FestivalMuban_challenge_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_challenge_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_challenge_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_challenge_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_challenge::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_challenge E_FestivalMuban_challenge_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_challenge_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_challenge_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_challenge::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_challenge E_FestivalMuban_challenge_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_challenge_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_challenge_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_challenge::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_challenge E_FestivalMuban_challenge_List = 1;
+  total_size += 1 * this->e_festivalmuban_challenge_list_size();
+  for (int i = 0; i < this->e_festivalmuban_challenge_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_challenge_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_challenge::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_challenge* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_challenge*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_challenge::MergeFrom(const Sheet_FestivalMuban_challenge& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_challenge_list_.MergeFrom(from.e_festivalmuban_challenge_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_challenge::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_challenge::CopyFrom(const Sheet_FestivalMuban_challenge& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_challenge::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_challenge::Swap(Sheet_FestivalMuban_challenge* other) {
+  if (other != this) {
+    e_festivalmuban_challenge_list_.Swap(&other->e_festivalmuban_challenge_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_challenge::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_challenge_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_challenge_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_mystmallOpenDesc::kMDurFieldNumber;
+const int E_FestivalMuban_mystmallOpenDesc::kMMallIDFieldNumber;
+const int E_FestivalMuban_mystmallOpenDesc::kMTimeFieldNumber;
+const int E_FestivalMuban_mystmallOpenDesc::kMIDFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_mystmallOpenDesc::E_FestivalMuban_mystmallOpenDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_mystmallOpenDesc::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_mystmallOpenDesc::E_FestivalMuban_mystmallOpenDesc(const E_FestivalMuban_mystmallOpenDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_mystmallOpenDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_dur_ = 0;
+  m_mallid_ = 0;
+  m_time_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_mystmallOpenDesc::~E_FestivalMuban_mystmallOpenDesc() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_mystmallOpenDesc::SharedDtor() {
+  if (m_time_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_time_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_mystmallOpenDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_mystmallOpenDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_mystmallOpenDesc_descriptor_;
+}
+
+const E_FestivalMuban_mystmallOpenDesc& E_FestivalMuban_mystmallOpenDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_mystmallOpenDesc* E_FestivalMuban_mystmallOpenDesc::default_instance_ = NULL;
+
+E_FestivalMuban_mystmallOpenDesc* E_FestivalMuban_mystmallOpenDesc::New() const {
+  return new E_FestivalMuban_mystmallOpenDesc;
+}
+
+void E_FestivalMuban_mystmallOpenDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_dur_ = 0;
+    m_mallid_ = 0;
+    if (has_m_time()) {
+      if (m_time_ != &::google::protobuf::internal::kEmptyString) {
+        m_time_->clear();
+      }
+    }
+    m_id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_mystmallOpenDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_dur = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_dur_)));
+          set_has_m_dur();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_mallID;
+        break;
+      }
+
+      // optional int32 m_mallID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_mallID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_mallid_)));
+          set_has_m_mallid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_time;
+        break;
+      }
+
+      // optional string m_time = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_time:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_time()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_time().data(), this->m_time().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_ID;
+        break;
+      }
+
+      // optional int32 m_ID = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_ID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_mystmallOpenDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_dur = 1;
+  if (has_m_dur()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_dur(), output);
+  }
+
+  // optional int32 m_mallID = 2;
+  if (has_m_mallid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_mallid(), output);
+  }
+
+  // optional string m_time = 3;
+  if (has_m_time()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_time().data(), this->m_time().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->m_time(), output);
+  }
+
+  // optional int32 m_ID = 4;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_mystmallOpenDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_dur = 1;
+  if (has_m_dur()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_dur(), target);
+  }
+
+  // optional int32 m_mallID = 2;
+  if (has_m_mallid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_mallid(), target);
+  }
+
+  // optional string m_time = 3;
+  if (has_m_time()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_time().data(), this->m_time().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->m_time(), target);
+  }
+
+  // optional int32 m_ID = 4;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_mystmallOpenDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_dur = 1;
+    if (has_m_dur()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_dur());
+    }
+
+    // optional int32 m_mallID = 2;
+    if (has_m_mallid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_mallid());
+    }
+
+    // optional string m_time = 3;
+    if (has_m_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_time());
+    }
+
+    // optional int32 m_ID = 4;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_mystmallOpenDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_mystmallOpenDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_mystmallOpenDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_mystmallOpenDesc::MergeFrom(const E_FestivalMuban_mystmallOpenDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_dur()) {
+      set_m_dur(from.m_dur());
+    }
+    if (from.has_m_mallid()) {
+      set_m_mallid(from.m_mallid());
+    }
+    if (from.has_m_time()) {
+      set_m_time(from.m_time());
+    }
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_mystmallOpenDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_mystmallOpenDesc::CopyFrom(const E_FestivalMuban_mystmallOpenDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_mystmallOpenDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_mystmallOpenDesc::Swap(E_FestivalMuban_mystmallOpenDesc* other) {
+  if (other != this) {
+    std::swap(m_dur_, other->m_dur_);
+    std::swap(m_mallid_, other->m_mallid_);
+    std::swap(m_time_, other->m_time_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_mystmallOpenDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_mystmallOpenDesc_descriptor_;
+  metadata.reflection = E_FestivalMuban_mystmallOpenDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_mystmall::kMIdFieldNumber;
+const int E_FestivalMuban_mystmall::kMPeriodFieldNumber;
+const int E_FestivalMuban_mystmall::kMDayFieldNumber;
+const int E_FestivalMuban_mystmall::kMOpenFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_mystmall::E_FestivalMuban_mystmall()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_mystmall::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_mystmall::E_FestivalMuban_mystmall(const E_FestivalMuban_mystmall& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_mystmall::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_period_ = 0;
+  m_day_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_mystmall::~E_FestivalMuban_mystmall() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_mystmall::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_mystmall::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_mystmall::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_mystmall_descriptor_;
+}
+
+const E_FestivalMuban_mystmall& E_FestivalMuban_mystmall::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_mystmall* E_FestivalMuban_mystmall::default_instance_ = NULL;
+
+E_FestivalMuban_mystmall* E_FestivalMuban_mystmall::New() const {
+  return new E_FestivalMuban_mystmall;
+}
+
+void E_FestivalMuban_mystmall::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_period_ = 0;
+    m_day_ = 0;
+  }
+  m_open_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_mystmall::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_period;
+        break;
+      }
+
+      // optional int32 m_period = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_period:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_period_)));
+          set_has_m_period();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_day;
+        break;
+      }
+
+      // optional int32 m_day = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_day:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_day_)));
+          set_has_m_day();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_open;
+        break;
+      }
+
+      // repeated .proto_ff.E_FestivalMuban_mystmallOpenDesc m_open = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_open:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_open()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_open;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_mystmall::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_period(), output);
+  }
+
+  // optional int32 m_day = 3;
+  if (has_m_day()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_day(), output);
+  }
+
+  // repeated .proto_ff.E_FestivalMuban_mystmallOpenDesc m_open = 4;
+  for (int i = 0; i < this->m_open_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->m_open(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_mystmall::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_period(), target);
+  }
+
+  // optional int32 m_day = 3;
+  if (has_m_day()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_day(), target);
+  }
+
+  // repeated .proto_ff.E_FestivalMuban_mystmallOpenDesc m_open = 4;
+  for (int i = 0; i < this->m_open_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->m_open(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_mystmall::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_period = 2;
+    if (has_m_period()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_period());
+    }
+
+    // optional int32 m_day = 3;
+    if (has_m_day()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_day());
+    }
+
+  }
+  // repeated .proto_ff.E_FestivalMuban_mystmallOpenDesc m_open = 4;
+  total_size += 1 * this->m_open_size();
+  for (int i = 0; i < this->m_open_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_open(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_mystmall::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_mystmall* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_mystmall*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_mystmall::MergeFrom(const E_FestivalMuban_mystmall& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_open_.MergeFrom(from.m_open_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_period()) {
+      set_m_period(from.m_period());
+    }
+    if (from.has_m_day()) {
+      set_m_day(from.m_day());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_mystmall::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_mystmall::CopyFrom(const E_FestivalMuban_mystmall& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_mystmall::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_mystmall::Swap(E_FestivalMuban_mystmall* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_period_, other->m_period_);
+    std::swap(m_day_, other->m_day_);
+    m_open_.Swap(&other->m_open_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_mystmall::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_mystmall_descriptor_;
+  metadata.reflection = E_FestivalMuban_mystmall_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_mystmall::kEFestivalMubanMystmallListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_mystmall::Sheet_FestivalMuban_mystmall()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_mystmall::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_mystmall::Sheet_FestivalMuban_mystmall(const Sheet_FestivalMuban_mystmall& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_mystmall::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_mystmall::~Sheet_FestivalMuban_mystmall() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_mystmall::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_mystmall::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_mystmall::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_mystmall_descriptor_;
+}
+
+const Sheet_FestivalMuban_mystmall& Sheet_FestivalMuban_mystmall::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_mystmall* Sheet_FestivalMuban_mystmall::default_instance_ = NULL;
+
+Sheet_FestivalMuban_mystmall* Sheet_FestivalMuban_mystmall::New() const {
+  return new Sheet_FestivalMuban_mystmall;
+}
+
+void Sheet_FestivalMuban_mystmall::Clear() {
+  e_festivalmuban_mystmall_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_mystmall::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_mystmall E_FestivalMuban_mystmall_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_mystmall_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_mystmall_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_mystmall_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_mystmall::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_mystmall E_FestivalMuban_mystmall_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_mystmall_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_mystmall_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_mystmall::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_mystmall E_FestivalMuban_mystmall_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_mystmall_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_mystmall_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_mystmall::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_mystmall E_FestivalMuban_mystmall_List = 1;
+  total_size += 1 * this->e_festivalmuban_mystmall_list_size();
+  for (int i = 0; i < this->e_festivalmuban_mystmall_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_mystmall_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_mystmall::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_mystmall* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_mystmall*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_mystmall::MergeFrom(const Sheet_FestivalMuban_mystmall& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_mystmall_list_.MergeFrom(from.e_festivalmuban_mystmall_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_mystmall::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_mystmall::CopyFrom(const Sheet_FestivalMuban_mystmall& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_mystmall::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_mystmall::Swap(Sheet_FestivalMuban_mystmall* other) {
+  if (other != this) {
+    e_festivalmuban_mystmall_list_.Swap(&other->e_festivalmuban_mystmall_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_mystmall::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_mystmall_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_mystmall_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_mystmall_mall::kMIdFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMGroupIDFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMItemIDFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMItemNumFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMPriceTypeFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMPriceFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMOriginPriceFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMDiscountFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMBuyAmountFieldNumber;
+const int E_FestivalMuban_mystmall_mall::kMFunctionUnlockFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_mystmall_mall::E_FestivalMuban_mystmall_mall()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_mystmall_mall::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_mystmall_mall::E_FestivalMuban_mystmall_mall(const E_FestivalMuban_mystmall_mall& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_mystmall_mall::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_itemid_ = 0;
+  m_itemnum_ = 0;
+  m_pricetype_ = 0;
+  m_price_ = 0;
+  m_originprice_ = 0;
+  m_discount_ = 0;
+  m_buyamount_ = 0;
+  m_functionunlock_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_mystmall_mall::~E_FestivalMuban_mystmall_mall() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_mystmall_mall::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_mystmall_mall::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_mystmall_mall::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_mystmall_mall_descriptor_;
+}
+
+const E_FestivalMuban_mystmall_mall& E_FestivalMuban_mystmall_mall::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_mystmall_mall* E_FestivalMuban_mystmall_mall::default_instance_ = NULL;
+
+E_FestivalMuban_mystmall_mall* E_FestivalMuban_mystmall_mall::New() const {
+  return new E_FestivalMuban_mystmall_mall;
+}
+
+void E_FestivalMuban_mystmall_mall::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_itemid_ = 0;
+    m_itemnum_ = 0;
+    m_pricetype_ = 0;
+    m_price_ = 0;
+    m_originprice_ = 0;
+    m_discount_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_buyamount_ = 0;
+    m_functionunlock_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_mystmall_mall::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_itemID;
+        break;
+      }
+
+      // optional int32 m_itemID = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_itemID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_itemid_)));
+          set_has_m_itemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_itemNum;
+        break;
+      }
+
+      // optional int32 m_itemNum = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_itemNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_itemnum_)));
+          set_has_m_itemnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_priceType;
+        break;
+      }
+
+      // optional int32 m_priceType = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_priceType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_pricetype_)));
+          set_has_m_pricetype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_price;
+        break;
+      }
+
+      // optional int32 m_price = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_price:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_price_)));
+          set_has_m_price();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_originPrice;
+        break;
+      }
+
+      // optional int32 m_originPrice = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_originPrice:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_originprice_)));
+          set_has_m_originprice();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_discount;
+        break;
+      }
+
+      // optional int32 m_discount = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_discount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_discount_)));
+          set_has_m_discount();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_buyAmount;
+        break;
+      }
+
+      // optional int32 m_buyAmount = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_buyAmount:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_buyamount_)));
+          set_has_m_buyamount();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(80)) goto parse_m_functionUnlock;
+        break;
+      }
+
+      // optional int32 m_functionUnlock = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_functionUnlock:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_functionunlock_)));
+          set_has_m_functionunlock();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_mystmall_mall::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_itemID = 3;
+  if (has_m_itemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_itemid(), output);
+  }
+
+  // optional int32 m_itemNum = 4;
+  if (has_m_itemnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemnum(), output);
+  }
+
+  // optional int32 m_priceType = 5;
+  if (has_m_pricetype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_pricetype(), output);
+  }
+
+  // optional int32 m_price = 6;
+  if (has_m_price()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_price(), output);
+  }
+
+  // optional int32 m_originPrice = 7;
+  if (has_m_originprice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_originprice(), output);
+  }
+
+  // optional int32 m_discount = 8;
+  if (has_m_discount()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_discount(), output);
+  }
+
+  // optional int32 m_buyAmount = 9;
+  if (has_m_buyamount()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_buyamount(), output);
+  }
+
+  // optional int32 m_functionUnlock = 10;
+  if (has_m_functionunlock()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_functionunlock(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_mystmall_mall::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_itemID = 3;
+  if (has_m_itemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_itemid(), target);
+  }
+
+  // optional int32 m_itemNum = 4;
+  if (has_m_itemnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemnum(), target);
+  }
+
+  // optional int32 m_priceType = 5;
+  if (has_m_pricetype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_pricetype(), target);
+  }
+
+  // optional int32 m_price = 6;
+  if (has_m_price()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_price(), target);
+  }
+
+  // optional int32 m_originPrice = 7;
+  if (has_m_originprice()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_originprice(), target);
+  }
+
+  // optional int32 m_discount = 8;
+  if (has_m_discount()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_discount(), target);
+  }
+
+  // optional int32 m_buyAmount = 9;
+  if (has_m_buyamount()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_buyamount(), target);
+  }
+
+  // optional int32 m_functionUnlock = 10;
+  if (has_m_functionunlock()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_functionunlock(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_mystmall_mall::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_itemID = 3;
+    if (has_m_itemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_itemid());
+    }
+
+    // optional int32 m_itemNum = 4;
+    if (has_m_itemnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_itemnum());
+    }
+
+    // optional int32 m_priceType = 5;
+    if (has_m_pricetype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_pricetype());
+    }
+
+    // optional int32 m_price = 6;
+    if (has_m_price()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_price());
+    }
+
+    // optional int32 m_originPrice = 7;
+    if (has_m_originprice()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_originprice());
+    }
+
+    // optional int32 m_discount = 8;
+    if (has_m_discount()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_discount());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_buyAmount = 9;
+    if (has_m_buyamount()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_buyamount());
+    }
+
+    // optional int32 m_functionUnlock = 10;
+    if (has_m_functionunlock()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_functionunlock());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_mystmall_mall::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_mystmall_mall* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_mystmall_mall*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_mystmall_mall::MergeFrom(const E_FestivalMuban_mystmall_mall& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_itemid()) {
+      set_m_itemid(from.m_itemid());
+    }
+    if (from.has_m_itemnum()) {
+      set_m_itemnum(from.m_itemnum());
+    }
+    if (from.has_m_pricetype()) {
+      set_m_pricetype(from.m_pricetype());
+    }
+    if (from.has_m_price()) {
+      set_m_price(from.m_price());
+    }
+    if (from.has_m_originprice()) {
+      set_m_originprice(from.m_originprice());
+    }
+    if (from.has_m_discount()) {
+      set_m_discount(from.m_discount());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_buyamount()) {
+      set_m_buyamount(from.m_buyamount());
+    }
+    if (from.has_m_functionunlock()) {
+      set_m_functionunlock(from.m_functionunlock());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_mystmall_mall::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_mystmall_mall::CopyFrom(const E_FestivalMuban_mystmall_mall& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_mystmall_mall::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_mystmall_mall::Swap(E_FestivalMuban_mystmall_mall* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_itemid_, other->m_itemid_);
+    std::swap(m_itemnum_, other->m_itemnum_);
+    std::swap(m_pricetype_, other->m_pricetype_);
+    std::swap(m_price_, other->m_price_);
+    std::swap(m_originprice_, other->m_originprice_);
+    std::swap(m_discount_, other->m_discount_);
+    std::swap(m_buyamount_, other->m_buyamount_);
+    std::swap(m_functionunlock_, other->m_functionunlock_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_mystmall_mall::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_mystmall_mall_descriptor_;
+  metadata.reflection = E_FestivalMuban_mystmall_mall_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_mystmall_mall::kEFestivalMubanMystmallMallListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_mystmall_mall::Sheet_FestivalMuban_mystmall_mall()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_mystmall_mall::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_mystmall_mall::Sheet_FestivalMuban_mystmall_mall(const Sheet_FestivalMuban_mystmall_mall& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_mystmall_mall::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_mystmall_mall::~Sheet_FestivalMuban_mystmall_mall() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_mystmall_mall::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_mystmall_mall::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_mystmall_mall::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_mystmall_mall_descriptor_;
+}
+
+const Sheet_FestivalMuban_mystmall_mall& Sheet_FestivalMuban_mystmall_mall::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_mystmall_mall* Sheet_FestivalMuban_mystmall_mall::default_instance_ = NULL;
+
+Sheet_FestivalMuban_mystmall_mall* Sheet_FestivalMuban_mystmall_mall::New() const {
+  return new Sheet_FestivalMuban_mystmall_mall;
+}
+
+void Sheet_FestivalMuban_mystmall_mall::Clear() {
+  e_festivalmuban_mystmall_mall_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_mystmall_mall::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_mystmall_mall E_FestivalMuban_mystmall_mall_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_mystmall_mall_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_mystmall_mall_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_mystmall_mall_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_mystmall_mall::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_mystmall_mall E_FestivalMuban_mystmall_mall_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_mystmall_mall_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_mystmall_mall_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_mystmall_mall::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_mystmall_mall E_FestivalMuban_mystmall_mall_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_mystmall_mall_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_mystmall_mall_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_mystmall_mall::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_mystmall_mall E_FestivalMuban_mystmall_mall_List = 1;
+  total_size += 1 * this->e_festivalmuban_mystmall_mall_list_size();
+  for (int i = 0; i < this->e_festivalmuban_mystmall_mall_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_mystmall_mall_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_mystmall_mall::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_mystmall_mall* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_mystmall_mall*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_mystmall_mall::MergeFrom(const Sheet_FestivalMuban_mystmall_mall& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_mystmall_mall_list_.MergeFrom(from.e_festivalmuban_mystmall_mall_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_mystmall_mall::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_mystmall_mall::CopyFrom(const Sheet_FestivalMuban_mystmall_mall& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_mystmall_mall::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_mystmall_mall::Swap(Sheet_FestivalMuban_mystmall_mall* other) {
+  if (other != this) {
+    e_festivalmuban_mystmall_mall_list_.Swap(&other->e_festivalmuban_mystmall_mall_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_mystmall_mall::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_mystmall_mall_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_mystmall_mall_reflection_;
   return metadata;
 }
 
@@ -5742,6 +12342,7 @@ const int E_FestivalMuban_rebatestore_mall::kMIdFieldNumber;
 const int E_FestivalMuban_rebatestore_mall::kMGroupIDFieldNumber;
 const int E_FestivalMuban_rebatestore_mall::kMMallTypeFieldNumber;
 const int E_FestivalMuban_rebatestore_mall::kMItemIDFieldNumber;
+const int E_FestivalMuban_rebatestore_mall::kMItemNumFieldNumber;
 const int E_FestivalMuban_rebatestore_mall::kMPriceFieldNumber;
 const int E_FestivalMuban_rebatestore_mall::kMOriginPriceFieldNumber;
 const int E_FestivalMuban_rebatestore_mall::kMDiscountFieldNumber;
@@ -5772,6 +12373,7 @@ void E_FestivalMuban_rebatestore_mall::SharedCtor() {
   m_groupid_ = 0;
   m_malltype_ = 0;
   m_itemid_ = 0;
+  m_itemnum_ = 0;
   m_price_ = 0;
   m_originprice_ = 0;
   m_discount_ = 0;
@@ -5819,12 +12421,13 @@ void E_FestivalMuban_rebatestore_mall::Clear() {
     m_groupid_ = 0;
     m_malltype_ = 0;
     m_itemid_ = 0;
+    m_itemnum_ = 0;
     m_price_ = 0;
     m_originprice_ = 0;
     m_discount_ = 0;
-    m_daily_ = 0;
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_daily_ = 0;
     m_buyamount_ = 0;
     m_functionunlock_ = 0;
     m_openday_ = 0;
@@ -5899,12 +12502,28 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_price;
+        if (input->ExpectTag(40)) goto parse_m_itemNum;
         break;
       }
 
-      // optional int32 m_price = 5;
+      // optional int32 m_itemNum = 5;
       case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_itemNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_itemnum_)));
+          set_has_m_itemnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_price;
+        break;
+      }
+
+      // optional int32 m_price = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_price:
@@ -5915,12 +12534,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_originPrice;
+        if (input->ExpectTag(56)) goto parse_m_originPrice;
         break;
       }
 
-      // optional int32 m_originPrice = 6;
-      case 6: {
+      // optional int32 m_originPrice = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_originPrice:
@@ -5931,12 +12550,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_discount;
+        if (input->ExpectTag(64)) goto parse_m_discount;
         break;
       }
 
-      // optional int32 m_discount = 7;
-      case 7: {
+      // optional int32 m_discount = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_discount:
@@ -5947,12 +12566,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_daily;
+        if (input->ExpectTag(72)) goto parse_m_daily;
         break;
       }
 
-      // optional int32 m_daily = 8;
-      case 8: {
+      // optional int32 m_daily = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_daily:
@@ -5963,12 +12582,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_buyAmount;
+        if (input->ExpectTag(80)) goto parse_m_buyAmount;
         break;
       }
 
-      // optional int32 m_buyAmount = 9;
-      case 9: {
+      // optional int32 m_buyAmount = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_buyAmount:
@@ -5979,12 +12598,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_functionUnlock;
+        if (input->ExpectTag(88)) goto parse_m_functionUnlock;
         break;
       }
 
-      // optional int32 m_functionUnlock = 10;
-      case 10: {
+      // optional int32 m_functionUnlock = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_functionUnlock:
@@ -5995,12 +12614,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_openDay;
+        if (input->ExpectTag(96)) goto parse_m_openDay;
         break;
       }
 
-      // optional int32 m_openDay = 11;
-      case 11: {
+      // optional int32 m_openDay = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_openDay:
@@ -6011,12 +12630,12 @@ bool E_FestivalMuban_rebatestore_mall::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_closeDay;
+        if (input->ExpectTag(104)) goto parse_m_closeDay;
         break;
       }
 
-      // optional int32 m_closeDay = 12;
-      case 12: {
+      // optional int32 m_closeDay = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_closeDay:
@@ -6069,44 +12688,49 @@ void E_FestivalMuban_rebatestore_mall::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_itemid(), output);
   }
 
-  // optional int32 m_price = 5;
+  // optional int32 m_itemNum = 5;
+  if (has_m_itemnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_itemnum(), output);
+  }
+
+  // optional int32 m_price = 6;
   if (has_m_price()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_price(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_price(), output);
   }
 
-  // optional int32 m_originPrice = 6;
+  // optional int32 m_originPrice = 7;
   if (has_m_originprice()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_originprice(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_originprice(), output);
   }
 
-  // optional int32 m_discount = 7;
+  // optional int32 m_discount = 8;
   if (has_m_discount()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_discount(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_discount(), output);
   }
 
-  // optional int32 m_daily = 8;
+  // optional int32 m_daily = 9;
   if (has_m_daily()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_daily(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_daily(), output);
   }
 
-  // optional int32 m_buyAmount = 9;
+  // optional int32 m_buyAmount = 10;
   if (has_m_buyamount()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_buyamount(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_buyamount(), output);
   }
 
-  // optional int32 m_functionUnlock = 10;
+  // optional int32 m_functionUnlock = 11;
   if (has_m_functionunlock()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_functionunlock(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_functionunlock(), output);
   }
 
-  // optional int32 m_openDay = 11;
+  // optional int32 m_openDay = 12;
   if (has_m_openday()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_openday(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_openday(), output);
   }
 
-  // optional int32 m_closeDay = 12;
+  // optional int32 m_closeDay = 13;
   if (has_m_closeday()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_closeday(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_closeday(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6137,44 +12761,49 @@ void E_FestivalMuban_rebatestore_mall::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_itemid(), target);
   }
 
-  // optional int32 m_price = 5;
+  // optional int32 m_itemNum = 5;
+  if (has_m_itemnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_itemnum(), target);
+  }
+
+  // optional int32 m_price = 6;
   if (has_m_price()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_price(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_price(), target);
   }
 
-  // optional int32 m_originPrice = 6;
+  // optional int32 m_originPrice = 7;
   if (has_m_originprice()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_originprice(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_originprice(), target);
   }
 
-  // optional int32 m_discount = 7;
+  // optional int32 m_discount = 8;
   if (has_m_discount()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_discount(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_discount(), target);
   }
 
-  // optional int32 m_daily = 8;
+  // optional int32 m_daily = 9;
   if (has_m_daily()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_daily(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_daily(), target);
   }
 
-  // optional int32 m_buyAmount = 9;
+  // optional int32 m_buyAmount = 10;
   if (has_m_buyamount()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_buyamount(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_buyamount(), target);
   }
 
-  // optional int32 m_functionUnlock = 10;
+  // optional int32 m_functionUnlock = 11;
   if (has_m_functionunlock()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_functionunlock(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_functionunlock(), target);
   }
 
-  // optional int32 m_openDay = 11;
+  // optional int32 m_openDay = 12;
   if (has_m_openday()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_openday(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_openday(), target);
   }
 
-  // optional int32 m_closeDay = 12;
+  // optional int32 m_closeDay = 13;
   if (has_m_closeday()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_closeday(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_closeday(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6216,58 +12845,65 @@ int E_FestivalMuban_rebatestore_mall::ByteSize() const {
           this->m_itemid());
     }
 
-    // optional int32 m_price = 5;
+    // optional int32 m_itemNum = 5;
+    if (has_m_itemnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_itemnum());
+    }
+
+    // optional int32 m_price = 6;
     if (has_m_price()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_price());
     }
 
-    // optional int32 m_originPrice = 6;
+    // optional int32 m_originPrice = 7;
     if (has_m_originprice()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_originprice());
     }
 
-    // optional int32 m_discount = 7;
+    // optional int32 m_discount = 8;
     if (has_m_discount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_discount());
     }
 
-    // optional int32 m_daily = 8;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_daily = 9;
     if (has_m_daily()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_daily());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_buyAmount = 9;
+    // optional int32 m_buyAmount = 10;
     if (has_m_buyamount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_buyamount());
     }
 
-    // optional int32 m_functionUnlock = 10;
+    // optional int32 m_functionUnlock = 11;
     if (has_m_functionunlock()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_functionunlock());
     }
 
-    // optional int32 m_openDay = 11;
+    // optional int32 m_openDay = 12;
     if (has_m_openday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_openday());
     }
 
-    // optional int32 m_closeDay = 12;
+    // optional int32 m_closeDay = 13;
     if (has_m_closeday()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -6313,6 +12949,9 @@ void E_FestivalMuban_rebatestore_mall::MergeFrom(const E_FestivalMuban_rebatesto
     if (from.has_m_itemid()) {
       set_m_itemid(from.m_itemid());
     }
+    if (from.has_m_itemnum()) {
+      set_m_itemnum(from.m_itemnum());
+    }
     if (from.has_m_price()) {
       set_m_price(from.m_price());
     }
@@ -6322,11 +12961,11 @@ void E_FestivalMuban_rebatestore_mall::MergeFrom(const E_FestivalMuban_rebatesto
     if (from.has_m_discount()) {
       set_m_discount(from.m_discount());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_daily()) {
       set_m_daily(from.m_daily());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_buyamount()) {
       set_m_buyamount(from.m_buyamount());
     }
@@ -6366,6 +13005,7 @@ void E_FestivalMuban_rebatestore_mall::Swap(E_FestivalMuban_rebatestore_mall* ot
     std::swap(m_groupid_, other->m_groupid_);
     std::swap(m_malltype_, other->m_malltype_);
     std::swap(m_itemid_, other->m_itemid_);
+    std::swap(m_itemnum_, other->m_itemnum_);
     std::swap(m_price_, other->m_price_);
     std::swap(m_originprice_, other->m_originprice_);
     std::swap(m_discount_, other->m_discount_);
@@ -15718,7 +22358,9 @@ const int E_FestivalMuban_severrank_data::kMGroupIDFieldNumber;
 const int E_FestivalMuban_severrank_data::kMMaxRankFieldNumber;
 const int E_FestivalMuban_severrank_data::kMMinRankFieldNumber;
 const int E_FestivalMuban_severrank_data::kMRankValueFieldNumber;
+const int E_FestivalMuban_severrank_data::kMAddRankValueFieldNumber;
 const int E_FestivalMuban_severrank_data::kMUnachieveDisplayFieldNumber;
+const int E_FestivalMuban_severrank_data::kMAddUnachieveDisplayFieldNumber;
 const int E_FestivalMuban_severrank_data::kMBoxIDFieldNumber;
 #endif  // !_MSC_VER
 
@@ -15743,7 +22385,9 @@ void E_FestivalMuban_severrank_data::SharedCtor() {
   m_maxrank_ = 0;
   m_minrank_ = 0;
   m_rankvalue_ = 0;
+  m_addrankvalue_ = 0;
   m_unachievedisplay_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_addunachievedisplay_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_boxid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -15755,6 +22399,9 @@ E_FestivalMuban_severrank_data::~E_FestivalMuban_severrank_data() {
 void E_FestivalMuban_severrank_data::SharedDtor() {
   if (m_unachievedisplay_ != &::google::protobuf::internal::kEmptyString) {
     delete m_unachievedisplay_;
+  }
+  if (m_addunachievedisplay_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_addunachievedisplay_;
   }
   if (this != default_instance_) {
   }
@@ -15788,11 +22435,19 @@ void E_FestivalMuban_severrank_data::Clear() {
     m_maxrank_ = 0;
     m_minrank_ = 0;
     m_rankvalue_ = 0;
+    m_addrankvalue_ = 0;
     if (has_m_unachievedisplay()) {
       if (m_unachievedisplay_ != &::google::protobuf::internal::kEmptyString) {
         m_unachievedisplay_->clear();
       }
     }
+    if (has_m_addunachievedisplay()) {
+      if (m_addunachievedisplay_ != &::google::protobuf::internal::kEmptyString) {
+        m_addunachievedisplay_->clear();
+      }
+    }
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_boxid_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -15880,12 +22535,28 @@ bool E_FestivalMuban_severrank_data::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(50)) goto parse_m_UnachieveDisplay;
+        if (input->ExpectTag(48)) goto parse_m_addRankValue;
         break;
       }
 
-      // optional string m_UnachieveDisplay = 6;
+      // optional int32 m_addRankValue = 6;
       case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_addRankValue:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_addrankvalue_)));
+          set_has_m_addrankvalue();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(58)) goto parse_m_UnachieveDisplay;
+        break;
+      }
+
+      // optional string m_UnachieveDisplay = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_UnachieveDisplay:
@@ -15897,12 +22568,29 @@ bool E_FestivalMuban_severrank_data::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_boxID;
+        if (input->ExpectTag(66)) goto parse_m_addUnachieveDisplay;
         break;
       }
 
-      // optional int32 m_boxID = 7;
-      case 7: {
+      // optional string m_addUnachieveDisplay = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_addUnachieveDisplay:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_addunachievedisplay()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_addunachievedisplay().data(), this->m_addunachievedisplay().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_boxID;
+        break;
+      }
+
+      // optional int32 m_boxID = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_boxID:
@@ -15960,18 +22648,32 @@ void E_FestivalMuban_severrank_data::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_rankvalue(), output);
   }
 
-  // optional string m_UnachieveDisplay = 6;
+  // optional int32 m_addRankValue = 6;
+  if (has_m_addrankvalue()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_addrankvalue(), output);
+  }
+
+  // optional string m_UnachieveDisplay = 7;
   if (has_m_unachievedisplay()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_unachievedisplay().data(), this->m_unachievedisplay().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      6, this->m_unachievedisplay(), output);
+      7, this->m_unachievedisplay(), output);
   }
 
-  // optional int32 m_boxID = 7;
+  // optional string m_addUnachieveDisplay = 8;
+  if (has_m_addunachievedisplay()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_addunachievedisplay().data(), this->m_addunachievedisplay().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      8, this->m_addunachievedisplay(), output);
+  }
+
+  // optional int32 m_boxID = 9;
   if (has_m_boxid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_boxid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_boxid(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -16007,19 +22709,34 @@ void E_FestivalMuban_severrank_data::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_rankvalue(), target);
   }
 
-  // optional string m_UnachieveDisplay = 6;
+  // optional int32 m_addRankValue = 6;
+  if (has_m_addrankvalue()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_addrankvalue(), target);
+  }
+
+  // optional string m_UnachieveDisplay = 7;
   if (has_m_unachievedisplay()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_unachievedisplay().data(), this->m_unachievedisplay().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->m_unachievedisplay(), target);
+        7, this->m_unachievedisplay(), target);
   }
 
-  // optional int32 m_boxID = 7;
+  // optional string m_addUnachieveDisplay = 8;
+  if (has_m_addunachievedisplay()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_addunachievedisplay().data(), this->m_addunachievedisplay().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        8, this->m_addunachievedisplay(), target);
+  }
+
+  // optional int32 m_boxID = 9;
   if (has_m_boxid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_boxid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_boxid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -16068,14 +22785,30 @@ int E_FestivalMuban_severrank_data::ByteSize() const {
           this->m_rankvalue());
     }
 
-    // optional string m_UnachieveDisplay = 6;
+    // optional int32 m_addRankValue = 6;
+    if (has_m_addrankvalue()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_addrankvalue());
+    }
+
+    // optional string m_UnachieveDisplay = 7;
     if (has_m_unachievedisplay()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_unachievedisplay());
     }
 
-    // optional int32 m_boxID = 7;
+    // optional string m_addUnachieveDisplay = 8;
+    if (has_m_addunachievedisplay()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_addunachievedisplay());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_boxID = 9;
     if (has_m_boxid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -16124,9 +22857,17 @@ void E_FestivalMuban_severrank_data::MergeFrom(const E_FestivalMuban_severrank_d
     if (from.has_m_rankvalue()) {
       set_m_rankvalue(from.m_rankvalue());
     }
+    if (from.has_m_addrankvalue()) {
+      set_m_addrankvalue(from.m_addrankvalue());
+    }
     if (from.has_m_unachievedisplay()) {
       set_m_unachievedisplay(from.m_unachievedisplay());
     }
+    if (from.has_m_addunachievedisplay()) {
+      set_m_addunachievedisplay(from.m_addunachievedisplay());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_boxid()) {
       set_m_boxid(from.m_boxid());
     }
@@ -16158,7 +22899,9 @@ void E_FestivalMuban_severrank_data::Swap(E_FestivalMuban_severrank_data* other)
     std::swap(m_maxrank_, other->m_maxrank_);
     std::swap(m_minrank_, other->m_minrank_);
     std::swap(m_rankvalue_, other->m_rankvalue_);
+    std::swap(m_addrankvalue_, other->m_addrankvalue_);
     std::swap(m_unachievedisplay_, other->m_unachievedisplay_);
+    std::swap(m_addunachievedisplay_, other->m_addunachievedisplay_);
     std::swap(m_boxid_, other->m_boxid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -19610,6 +26353,577 @@ void Sheet_FestivalMuban_leiji::Swap(Sheet_FestivalMuban_leiji* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int E_FestivalZadanconstant::kMPeriodFieldNumber;
+const int E_FestivalZadanconstant::kMCostItemFieldNumber;
+const int E_FestivalZadanconstant::kMNumberFieldNumber;
+const int E_FestivalZadanconstant::kMFreeFieldNumber;
+const int E_FestivalZadanconstant::kMCurrencyFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalZadanconstant::E_FestivalZadanconstant()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalZadanconstant::InitAsDefaultInstance() {
+}
+
+E_FestivalZadanconstant::E_FestivalZadanconstant(const E_FestivalZadanconstant& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalZadanconstant::SharedCtor() {
+  _cached_size_ = 0;
+  m_period_ = 0;
+  m_costitem_ = GOOGLE_LONGLONG(0);
+  m_number_ = 0;
+  m_free_ = 0;
+  m_currency_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalZadanconstant::~E_FestivalZadanconstant() {
+  SharedDtor();
+}
+
+void E_FestivalZadanconstant::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalZadanconstant::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalZadanconstant::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalZadanconstant_descriptor_;
+}
+
+const E_FestivalZadanconstant& E_FestivalZadanconstant::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalZadanconstant* E_FestivalZadanconstant::default_instance_ = NULL;
+
+E_FestivalZadanconstant* E_FestivalZadanconstant::New() const {
+  return new E_FestivalZadanconstant;
+}
+
+void E_FestivalZadanconstant::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_period_ = 0;
+    m_costitem_ = GOOGLE_LONGLONG(0);
+    m_number_ = 0;
+    m_free_ = 0;
+    m_currency_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalZadanconstant::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_period = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_period_)));
+          set_has_m_period();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_costItem;
+        break;
+      }
+
+      // optional int64 m_costItem = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costItem:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &m_costitem_)));
+          set_has_m_costitem();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_number;
+        break;
+      }
+
+      // optional int32 m_number = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_number:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_number_)));
+          set_has_m_number();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_free;
+        break;
+      }
+
+      // optional int32 m_free = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_free:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_free_)));
+          set_has_m_free();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_currency;
+        break;
+      }
+
+      // optional int32 m_currency = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_currency:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_currency_)));
+          set_has_m_currency();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalZadanconstant::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_period = 1;
+  if (has_m_period()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_period(), output);
+  }
+
+  // optional int64 m_costItem = 2;
+  if (has_m_costitem()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_costitem(), output);
+  }
+
+  // optional int32 m_number = 3;
+  if (has_m_number()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_number(), output);
+  }
+
+  // optional int32 m_free = 4;
+  if (has_m_free()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_free(), output);
+  }
+
+  // optional int32 m_currency = 5;
+  if (has_m_currency()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_currency(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalZadanconstant::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_period = 1;
+  if (has_m_period()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_period(), target);
+  }
+
+  // optional int64 m_costItem = 2;
+  if (has_m_costitem()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_costitem(), target);
+  }
+
+  // optional int32 m_number = 3;
+  if (has_m_number()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_number(), target);
+  }
+
+  // optional int32 m_free = 4;
+  if (has_m_free()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_free(), target);
+  }
+
+  // optional int32 m_currency = 5;
+  if (has_m_currency()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_currency(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalZadanconstant::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_period = 1;
+    if (has_m_period()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_period());
+    }
+
+    // optional int64 m_costItem = 2;
+    if (has_m_costitem()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->m_costitem());
+    }
+
+    // optional int32 m_number = 3;
+    if (has_m_number()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_number());
+    }
+
+    // optional int32 m_free = 4;
+    if (has_m_free()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_free());
+    }
+
+    // optional int32 m_currency = 5;
+    if (has_m_currency()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_currency());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalZadanconstant::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalZadanconstant* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalZadanconstant*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalZadanconstant::MergeFrom(const E_FestivalZadanconstant& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_period()) {
+      set_m_period(from.m_period());
+    }
+    if (from.has_m_costitem()) {
+      set_m_costitem(from.m_costitem());
+    }
+    if (from.has_m_number()) {
+      set_m_number(from.m_number());
+    }
+    if (from.has_m_free()) {
+      set_m_free(from.m_free());
+    }
+    if (from.has_m_currency()) {
+      set_m_currency(from.m_currency());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalZadanconstant::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalZadanconstant::CopyFrom(const E_FestivalZadanconstant& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalZadanconstant::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalZadanconstant::Swap(E_FestivalZadanconstant* other) {
+  if (other != this) {
+    std::swap(m_period_, other->m_period_);
+    std::swap(m_costitem_, other->m_costitem_);
+    std::swap(m_number_, other->m_number_);
+    std::swap(m_free_, other->m_free_);
+    std::swap(m_currency_, other->m_currency_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalZadanconstant::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalZadanconstant_descriptor_;
+  metadata.reflection = E_FestivalZadanconstant_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalZadanconstant::kEFestivalZadanconstantListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalZadanconstant::Sheet_FestivalZadanconstant()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalZadanconstant::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalZadanconstant::Sheet_FestivalZadanconstant(const Sheet_FestivalZadanconstant& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalZadanconstant::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalZadanconstant::~Sheet_FestivalZadanconstant() {
+  SharedDtor();
+}
+
+void Sheet_FestivalZadanconstant::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalZadanconstant::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalZadanconstant::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalZadanconstant_descriptor_;
+}
+
+const Sheet_FestivalZadanconstant& Sheet_FestivalZadanconstant::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalZadanconstant* Sheet_FestivalZadanconstant::default_instance_ = NULL;
+
+Sheet_FestivalZadanconstant* Sheet_FestivalZadanconstant::New() const {
+  return new Sheet_FestivalZadanconstant;
+}
+
+void Sheet_FestivalZadanconstant::Clear() {
+  e_festivalzadanconstant_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalZadanconstant::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalZadanconstant_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalzadanconstant_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalZadanconstant_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalZadanconstant::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
+  for (int i = 0; i < this->e_festivalzadanconstant_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalzadanconstant_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalZadanconstant::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
+  for (int i = 0; i < this->e_festivalzadanconstant_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalzadanconstant_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalZadanconstant::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
+  total_size += 1 * this->e_festivalzadanconstant_list_size();
+  for (int i = 0; i < this->e_festivalzadanconstant_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalzadanconstant_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalZadanconstant::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalZadanconstant* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalZadanconstant*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalZadanconstant::MergeFrom(const Sheet_FestivalZadanconstant& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalzadanconstant_list_.MergeFrom(from.e_festivalzadanconstant_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalZadanconstant::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalZadanconstant::CopyFrom(const Sheet_FestivalZadanconstant& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalZadanconstant::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalZadanconstant::Swap(Sheet_FestivalZadanconstant* other) {
+  if (other != this) {
+    e_festivalzadanconstant_list_.Swap(&other->e_festivalzadanconstant_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalZadanconstant::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalZadanconstant_descriptor_;
+  metadata.reflection = Sheet_FestivalZadanconstant_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int E_FestivalMuban_zadan::kMIdFieldNumber;
 const int E_FestivalMuban_zadan::kMPeriodFieldNumber;
 const int E_FestivalMuban_zadan::kMItemidFieldNumber;
@@ -20214,577 +27528,6 @@ void Sheet_FestivalMuban_zadan::Swap(Sheet_FestivalMuban_zadan* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_FestivalMuban_zadan_descriptor_;
   metadata.reflection = Sheet_FestivalMuban_zadan_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int E_FestivalZadanconstant::kMPeriodFieldNumber;
-const int E_FestivalZadanconstant::kMCostItemFieldNumber;
-const int E_FestivalZadanconstant::kMNumberFieldNumber;
-const int E_FestivalZadanconstant::kMFreeFieldNumber;
-const int E_FestivalZadanconstant::kMCurrencyFieldNumber;
-#endif  // !_MSC_VER
-
-E_FestivalZadanconstant::E_FestivalZadanconstant()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void E_FestivalZadanconstant::InitAsDefaultInstance() {
-}
-
-E_FestivalZadanconstant::E_FestivalZadanconstant(const E_FestivalZadanconstant& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void E_FestivalZadanconstant::SharedCtor() {
-  _cached_size_ = 0;
-  m_period_ = 0;
-  m_costitem_ = GOOGLE_LONGLONG(0);
-  m_number_ = 0;
-  m_free_ = 0;
-  m_currency_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-E_FestivalZadanconstant::~E_FestivalZadanconstant() {
-  SharedDtor();
-}
-
-void E_FestivalZadanconstant::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void E_FestivalZadanconstant::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* E_FestivalZadanconstant::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return E_FestivalZadanconstant_descriptor_;
-}
-
-const E_FestivalZadanconstant& E_FestivalZadanconstant::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
-  return *default_instance_;
-}
-
-E_FestivalZadanconstant* E_FestivalZadanconstant::default_instance_ = NULL;
-
-E_FestivalZadanconstant* E_FestivalZadanconstant::New() const {
-  return new E_FestivalZadanconstant;
-}
-
-void E_FestivalZadanconstant::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_period_ = 0;
-    m_costitem_ = GOOGLE_LONGLONG(0);
-    m_number_ = 0;
-    m_free_ = 0;
-    m_currency_ = 0;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool E_FestivalZadanconstant::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_period = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_period_)));
-          set_has_m_period();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_m_costItem;
-        break;
-      }
-
-      // optional int64 m_costItem = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_costItem:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 input, &m_costitem_)));
-          set_has_m_costitem();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_m_number;
-        break;
-      }
-
-      // optional int32 m_number = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_number:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_number_)));
-          set_has_m_number();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_m_free;
-        break;
-      }
-
-      // optional int32 m_free = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_free:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_free_)));
-          set_has_m_free();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_m_currency;
-        break;
-      }
-
-      // optional int32 m_currency = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_currency:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_currency_)));
-          set_has_m_currency();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void E_FestivalZadanconstant::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_period = 1;
-  if (has_m_period()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_period(), output);
-  }
-
-  // optional int64 m_costItem = 2;
-  if (has_m_costitem()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->m_costitem(), output);
-  }
-
-  // optional int32 m_number = 3;
-  if (has_m_number()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_number(), output);
-  }
-
-  // optional int32 m_free = 4;
-  if (has_m_free()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_free(), output);
-  }
-
-  // optional int32 m_currency = 5;
-  if (has_m_currency()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_currency(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* E_FestivalZadanconstant::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional int32 m_period = 1;
-  if (has_m_period()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_period(), target);
-  }
-
-  // optional int64 m_costItem = 2;
-  if (has_m_costitem()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->m_costitem(), target);
-  }
-
-  // optional int32 m_number = 3;
-  if (has_m_number()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_number(), target);
-  }
-
-  // optional int32 m_free = 4;
-  if (has_m_free()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_free(), target);
-  }
-
-  // optional int32 m_currency = 5;
-  if (has_m_currency()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_currency(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int E_FestivalZadanconstant::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_period = 1;
-    if (has_m_period()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_period());
-    }
-
-    // optional int64 m_costItem = 2;
-    if (has_m_costitem()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
-          this->m_costitem());
-    }
-
-    // optional int32 m_number = 3;
-    if (has_m_number()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_number());
-    }
-
-    // optional int32 m_free = 4;
-    if (has_m_free()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_free());
-    }
-
-    // optional int32 m_currency = 5;
-    if (has_m_currency()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_currency());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void E_FestivalZadanconstant::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const E_FestivalZadanconstant* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalZadanconstant*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void E_FestivalZadanconstant::MergeFrom(const E_FestivalZadanconstant& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_m_period()) {
-      set_m_period(from.m_period());
-    }
-    if (from.has_m_costitem()) {
-      set_m_costitem(from.m_costitem());
-    }
-    if (from.has_m_number()) {
-      set_m_number(from.m_number());
-    }
-    if (from.has_m_free()) {
-      set_m_free(from.m_free());
-    }
-    if (from.has_m_currency()) {
-      set_m_currency(from.m_currency());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void E_FestivalZadanconstant::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void E_FestivalZadanconstant::CopyFrom(const E_FestivalZadanconstant& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool E_FestivalZadanconstant::IsInitialized() const {
-
-  return true;
-}
-
-void E_FestivalZadanconstant::Swap(E_FestivalZadanconstant* other) {
-  if (other != this) {
-    std::swap(m_period_, other->m_period_);
-    std::swap(m_costitem_, other->m_costitem_);
-    std::swap(m_number_, other->m_number_);
-    std::swap(m_free_, other->m_free_);
-    std::swap(m_currency_, other->m_currency_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata E_FestivalZadanconstant::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = E_FestivalZadanconstant_descriptor_;
-  metadata.reflection = E_FestivalZadanconstant_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Sheet_FestivalZadanconstant::kEFestivalZadanconstantListFieldNumber;
-#endif  // !_MSC_VER
-
-Sheet_FestivalZadanconstant::Sheet_FestivalZadanconstant()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Sheet_FestivalZadanconstant::InitAsDefaultInstance() {
-}
-
-Sheet_FestivalZadanconstant::Sheet_FestivalZadanconstant(const Sheet_FestivalZadanconstant& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Sheet_FestivalZadanconstant::SharedCtor() {
-  _cached_size_ = 0;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Sheet_FestivalZadanconstant::~Sheet_FestivalZadanconstant() {
-  SharedDtor();
-}
-
-void Sheet_FestivalZadanconstant::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void Sheet_FestivalZadanconstant::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Sheet_FestivalZadanconstant::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Sheet_FestivalZadanconstant_descriptor_;
-}
-
-const Sheet_FestivalZadanconstant& Sheet_FestivalZadanconstant::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
-  return *default_instance_;
-}
-
-Sheet_FestivalZadanconstant* Sheet_FestivalZadanconstant::default_instance_ = NULL;
-
-Sheet_FestivalZadanconstant* Sheet_FestivalZadanconstant::New() const {
-  return new Sheet_FestivalZadanconstant;
-}
-
-void Sheet_FestivalZadanconstant::Clear() {
-  e_festivalzadanconstant_list_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Sheet_FestivalZadanconstant::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_E_FestivalZadanconstant_List:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_e_festivalzadanconstant_list()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(10)) goto parse_E_FestivalZadanconstant_List;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Sheet_FestivalZadanconstant::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
-  for (int i = 0; i < this->e_festivalzadanconstant_list_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, this->e_festivalzadanconstant_list(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Sheet_FestivalZadanconstant::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
-  for (int i = 0; i < this->e_festivalzadanconstant_list_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        1, this->e_festivalzadanconstant_list(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Sheet_FestivalZadanconstant::ByteSize() const {
-  int total_size = 0;
-
-  // repeated .proto_ff.E_FestivalZadanconstant E_FestivalZadanconstant_List = 1;
-  total_size += 1 * this->e_festivalzadanconstant_list_size();
-  for (int i = 0; i < this->e_festivalzadanconstant_list_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->e_festivalzadanconstant_list(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Sheet_FestivalZadanconstant::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Sheet_FestivalZadanconstant* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalZadanconstant*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Sheet_FestivalZadanconstant::MergeFrom(const Sheet_FestivalZadanconstant& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  e_festivalzadanconstant_list_.MergeFrom(from.e_festivalzadanconstant_list_);
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Sheet_FestivalZadanconstant::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Sheet_FestivalZadanconstant::CopyFrom(const Sheet_FestivalZadanconstant& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Sheet_FestivalZadanconstant::IsInitialized() const {
-
-  return true;
-}
-
-void Sheet_FestivalZadanconstant::Swap(Sheet_FestivalZadanconstant* other) {
-  if (other != this) {
-    e_festivalzadanconstant_list_.Swap(&other->e_festivalzadanconstant_list_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Sheet_FestivalZadanconstant::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Sheet_FestivalZadanconstant_descriptor_;
-  metadata.reflection = Sheet_FestivalZadanconstant_reflection_;
   return metadata;
 }
 
@@ -27474,6 +34217,8 @@ void Sheet_FestivalMuban_rturntable_recharge_ratio::Swap(Sheet_FestivalMuban_rtu
 const int E_FestivalMuban_drawpize::kMIdFieldNumber;
 const int E_FestivalMuban_drawpize::kMPeriodFieldNumber;
 const int E_FestivalMuban_drawpize::kMCostIDFieldNumber;
+const int E_FestivalMuban_drawpize::kMDrawPutbackFieldNumber;
+const int E_FestivalMuban_drawpize::kMCostTypeFieldNumber;
 const int E_FestivalMuban_drawpize::kMCostNumFieldNumber;
 const int E_FestivalMuban_drawpize::kMPoolGroupIdFieldNumber;
 const int E_FestivalMuban_drawpize::kMTotalGroupIDFieldNumber;
@@ -27499,7 +34244,9 @@ void E_FestivalMuban_drawpize::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_period_ = 0;
-  m_costid_ = GOOGLE_LONGLONG(0);
+  m_costid_ = 0;
+  m_drawputback_ = 0;
+  m_costtype_ = 0;
   m_costnum_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_poolgroupid_ = 0;
   m_totalgroupid_ = 0;
@@ -27545,7 +34292,9 @@ void E_FestivalMuban_drawpize::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
     m_period_ = 0;
-    m_costid_ = GOOGLE_LONGLONG(0);
+    m_costid_ = 0;
+    m_drawputback_ = 0;
+    m_costtype_ = 0;
     if (has_m_costnum()) {
       if (m_costnum_ != &::google::protobuf::internal::kEmptyString) {
         m_costnum_->clear();
@@ -27553,6 +34302,8 @@ void E_FestivalMuban_drawpize::Clear() {
     }
     m_poolgroupid_ = 0;
     m_totalgroupid_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_severlimit_ = 0;
     m_protecttime_ = 0;
   }
@@ -27597,24 +34348,56 @@ bool E_FestivalMuban_drawpize::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int64 m_costID = 3;
+      // optional int32 m_costID = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_costID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_costid_)));
           set_has_m_costid();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_costNum;
+        if (input->ExpectTag(32)) goto parse_m_drawPutback;
         break;
       }
 
-      // optional string m_costNum = 4;
+      // optional int32 m_drawPutback = 4;
       case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_drawPutback:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_drawputback_)));
+          set_has_m_drawputback();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_costType;
+        break;
+      }
+
+      // optional int32 m_costType = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_costtype_)));
+          set_has_m_costtype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_m_costNum;
+        break;
+      }
+
+      // optional string m_costNum = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_costNum:
@@ -27626,12 +34409,12 @@ bool E_FestivalMuban_drawpize::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_poolGroupId;
+        if (input->ExpectTag(56)) goto parse_m_poolGroupId;
         break;
       }
 
-      // optional int32 m_poolGroupId = 5;
-      case 5: {
+      // optional int32 m_poolGroupId = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_poolGroupId:
@@ -27642,12 +34425,12 @@ bool E_FestivalMuban_drawpize::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_totalGroupID;
+        if (input->ExpectTag(64)) goto parse_m_totalGroupID;
         break;
       }
 
-      // optional int32 m_totalGroupID = 6;
-      case 6: {
+      // optional int32 m_totalGroupID = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_totalGroupID:
@@ -27658,12 +34441,12 @@ bool E_FestivalMuban_drawpize::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_severLimit;
+        if (input->ExpectTag(72)) goto parse_m_severLimit;
         break;
       }
 
-      // optional int32 m_severLimit = 7;
-      case 7: {
+      // optional int32 m_severLimit = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_severLimit:
@@ -27674,12 +34457,12 @@ bool E_FestivalMuban_drawpize::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_protectTime;
+        if (input->ExpectTag(80)) goto parse_m_protectTime;
         break;
       }
 
-      // optional int32 m_protectTime = 8;
-      case 8: {
+      // optional int32 m_protectTime = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_protectTime:
@@ -27722,38 +34505,48 @@ void E_FestivalMuban_drawpize::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_period(), output);
   }
 
-  // optional int64 m_costID = 3;
+  // optional int32 m_costID = 3;
   if (has_m_costid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt64(3, this->m_costid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_costid(), output);
   }
 
-  // optional string m_costNum = 4;
+  // optional int32 m_drawPutback = 4;
+  if (has_m_drawputback()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_drawputback(), output);
+  }
+
+  // optional int32 m_costType = 5;
+  if (has_m_costtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costtype(), output);
+  }
+
+  // optional string m_costNum = 6;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_costnum().data(), this->m_costnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      4, this->m_costnum(), output);
+      6, this->m_costnum(), output);
   }
 
-  // optional int32 m_poolGroupId = 5;
+  // optional int32 m_poolGroupId = 7;
   if (has_m_poolgroupid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_poolgroupid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_poolgroupid(), output);
   }
 
-  // optional int32 m_totalGroupID = 6;
+  // optional int32 m_totalGroupID = 8;
   if (has_m_totalgroupid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_totalgroupid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_totalgroupid(), output);
   }
 
-  // optional int32 m_severLimit = 7;
+  // optional int32 m_severLimit = 9;
   if (has_m_severlimit()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_severlimit(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_severlimit(), output);
   }
 
-  // optional int32 m_protectTime = 8;
+  // optional int32 m_protectTime = 10;
   if (has_m_protecttime()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_protecttime(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_protecttime(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -27774,39 +34567,49 @@ void E_FestivalMuban_drawpize::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_period(), target);
   }
 
-  // optional int64 m_costID = 3;
+  // optional int32 m_costID = 3;
   if (has_m_costid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(3, this->m_costid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_costid(), target);
   }
 
-  // optional string m_costNum = 4;
+  // optional int32 m_drawPutback = 4;
+  if (has_m_drawputback()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_drawputback(), target);
+  }
+
+  // optional int32 m_costType = 5;
+  if (has_m_costtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costtype(), target);
+  }
+
+  // optional string m_costNum = 6;
   if (has_m_costnum()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_costnum().data(), this->m_costnum().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        4, this->m_costnum(), target);
+        6, this->m_costnum(), target);
   }
 
-  // optional int32 m_poolGroupId = 5;
+  // optional int32 m_poolGroupId = 7;
   if (has_m_poolgroupid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_poolgroupid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_poolgroupid(), target);
   }
 
-  // optional int32 m_totalGroupID = 6;
+  // optional int32 m_totalGroupID = 8;
   if (has_m_totalgroupid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_totalgroupid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_totalgroupid(), target);
   }
 
-  // optional int32 m_severLimit = 7;
+  // optional int32 m_severLimit = 9;
   if (has_m_severlimit()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_severlimit(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_severlimit(), target);
   }
 
-  // optional int32 m_protectTime = 8;
+  // optional int32 m_protectTime = 10;
   if (has_m_protecttime()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_protecttime(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_protecttime(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -27834,42 +34637,58 @@ int E_FestivalMuban_drawpize::ByteSize() const {
           this->m_period());
     }
 
-    // optional int64 m_costID = 3;
+    // optional int32 m_costID = 3;
     if (has_m_costid()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int64Size(
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_costid());
     }
 
-    // optional string m_costNum = 4;
+    // optional int32 m_drawPutback = 4;
+    if (has_m_drawputback()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_drawputback());
+    }
+
+    // optional int32 m_costType = 5;
+    if (has_m_costtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_costtype());
+    }
+
+    // optional string m_costNum = 6;
     if (has_m_costnum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_costnum());
     }
 
-    // optional int32 m_poolGroupId = 5;
+    // optional int32 m_poolGroupId = 7;
     if (has_m_poolgroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_poolgroupid());
     }
 
-    // optional int32 m_totalGroupID = 6;
+    // optional int32 m_totalGroupID = 8;
     if (has_m_totalgroupid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_totalgroupid());
     }
 
-    // optional int32 m_severLimit = 7;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_severLimit = 9;
     if (has_m_severlimit()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_severlimit());
     }
 
-    // optional int32 m_protectTime = 8;
+    // optional int32 m_protectTime = 10;
     if (has_m_protecttime()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -27912,6 +34731,12 @@ void E_FestivalMuban_drawpize::MergeFrom(const E_FestivalMuban_drawpize& from) {
     if (from.has_m_costid()) {
       set_m_costid(from.m_costid());
     }
+    if (from.has_m_drawputback()) {
+      set_m_drawputback(from.m_drawputback());
+    }
+    if (from.has_m_costtype()) {
+      set_m_costtype(from.m_costtype());
+    }
     if (from.has_m_costnum()) {
       set_m_costnum(from.m_costnum());
     }
@@ -27921,6 +34746,8 @@ void E_FestivalMuban_drawpize::MergeFrom(const E_FestivalMuban_drawpize& from) {
     if (from.has_m_totalgroupid()) {
       set_m_totalgroupid(from.m_totalgroupid());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_severlimit()) {
       set_m_severlimit(from.m_severlimit());
     }
@@ -27953,6 +34780,8 @@ void E_FestivalMuban_drawpize::Swap(E_FestivalMuban_drawpize* other) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_period_, other->m_period_);
     std::swap(m_costid_, other->m_costid_);
+    std::swap(m_drawputback_, other->m_drawputback_);
+    std::swap(m_costtype_, other->m_costtype_);
     std::swap(m_costnum_, other->m_costnum_);
     std::swap(m_poolgroupid_, other->m_poolgroupid_);
     std::swap(m_totalgroupid_, other->m_totalgroupid_);
@@ -28188,6 +35017,9 @@ const int E_FestivalMuban_drawpize_pool::kMWeightsFieldNumber;
 const int E_FestivalMuban_drawpize_pool::kMProWeightsFieldNumber;
 const int E_FestivalMuban_drawpize_pool::kMTimeLimitFieldNumber;
 const int E_FestivalMuban_drawpize_pool::kMRecordFieldNumber;
+const int E_FestivalMuban_drawpize_pool::kMPoolLvFieldNumber;
+const int E_FestivalMuban_drawpize_pool::kMImageFieldNumber;
+const int E_FestivalMuban_drawpize_pool::kMPointFieldNumber;
 #endif  // !_MSC_VER
 
 E_FestivalMuban_drawpize_pool::E_FestivalMuban_drawpize_pool()
@@ -28215,6 +35047,9 @@ void E_FestivalMuban_drawpize_pool::SharedCtor() {
   m_proweights_ = 0;
   m_timelimit_ = 0;
   m_record_ = 0;
+  m_poollv_ = 0;
+  m_image_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_point_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -28223,6 +35058,12 @@ E_FestivalMuban_drawpize_pool::~E_FestivalMuban_drawpize_pool() {
 }
 
 void E_FestivalMuban_drawpize_pool::SharedDtor() {
+  if (m_image_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_image_;
+  }
+  if (m_point_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_point_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -28261,6 +35102,17 @@ void E_FestivalMuban_drawpize_pool::Clear() {
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_record_ = 0;
+    m_poollv_ = 0;
+    if (has_m_image()) {
+      if (m_image_ != &::google::protobuf::internal::kEmptyString) {
+        m_image_->clear();
+      }
+    }
+    if (has_m_point()) {
+      if (m_point_ != &::google::protobuf::internal::kEmptyString) {
+        m_point_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -28411,6 +35263,56 @@ bool E_FestivalMuban_drawpize_pool::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(80)) goto parse_m_poolLv;
+        break;
+      }
+
+      // optional int32 m_poolLv = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_poolLv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_poollv_)));
+          set_has_m_poollv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(90)) goto parse_m_image;
+        break;
+      }
+
+      // optional string m_image = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_image:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_image()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_image().data(), this->m_image().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(98)) goto parse_m_point;
+        break;
+      }
+
+      // optional string m_point = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_point:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_point()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_point().data(), this->m_point().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -28478,6 +35380,29 @@ void E_FestivalMuban_drawpize_pool::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_record(), output);
   }
 
+  // optional int32 m_poolLv = 10;
+  if (has_m_poollv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_poollv(), output);
+  }
+
+  // optional string m_image = 11;
+  if (has_m_image()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_image().data(), this->m_image().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      11, this->m_image(), output);
+  }
+
+  // optional string m_point = 12;
+  if (has_m_point()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_point().data(), this->m_point().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      12, this->m_point(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -28529,6 +35454,31 @@ void E_FestivalMuban_drawpize_pool::SerializeWithCachedSizes(
   // optional int32 m_Record = 9;
   if (has_m_record()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_record(), target);
+  }
+
+  // optional int32 m_poolLv = 10;
+  if (has_m_poollv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_poollv(), target);
+  }
+
+  // optional string m_image = 11;
+  if (has_m_image()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_image().data(), this->m_image().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        11, this->m_image(), target);
+  }
+
+  // optional string m_point = 12;
+  if (has_m_point()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_point().data(), this->m_point().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        12, this->m_point(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -28607,6 +35557,27 @@ int E_FestivalMuban_drawpize_pool::ByteSize() const {
           this->m_record());
     }
 
+    // optional int32 m_poolLv = 10;
+    if (has_m_poollv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_poollv());
+    }
+
+    // optional string m_image = 11;
+    if (has_m_image()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_image());
+    }
+
+    // optional string m_point = 12;
+    if (has_m_point()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_point());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -28663,6 +35634,15 @@ void E_FestivalMuban_drawpize_pool::MergeFrom(const E_FestivalMuban_drawpize_poo
     if (from.has_m_record()) {
       set_m_record(from.m_record());
     }
+    if (from.has_m_poollv()) {
+      set_m_poollv(from.m_poollv());
+    }
+    if (from.has_m_image()) {
+      set_m_image(from.m_image());
+    }
+    if (from.has_m_point()) {
+      set_m_point(from.m_point());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -28695,6 +35675,9 @@ void E_FestivalMuban_drawpize_pool::Swap(E_FestivalMuban_drawpize_pool* other) {
     std::swap(m_proweights_, other->m_proweights_);
     std::swap(m_timelimit_, other->m_timelimit_);
     std::swap(m_record_, other->m_record_);
+    std::swap(m_poollv_, other->m_poollv_);
+    std::swap(m_image_, other->m_image_);
+    std::swap(m_point_, other->m_point_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -30542,6 +37525,2039 @@ void Sheet_FestivalMuban_dailytotalrecharge::Swap(Sheet_FestivalMuban_dailytotal
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_FestivalMuban_dailytotalrecharge_descriptor_;
   metadata.reflection = Sheet_FestivalMuban_dailytotalrecharge_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_rechargeprize::kMIdFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMPeriodFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMPoolTypeFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMPoolNumFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMShowBoostFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMMaxPrizeFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMTaskIDFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMPrizeIDFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMItemIDFieldNumber;
+const int E_FestivalMuban_rechargeprize::kMFreeBoxFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_rechargeprize::E_FestivalMuban_rechargeprize()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_rechargeprize::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_rechargeprize::E_FestivalMuban_rechargeprize(const E_FestivalMuban_rechargeprize& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_rechargeprize::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_period_ = 0;
+  m_pooltype_ = 0;
+  m_poolnum_ = 0;
+  m_showboost_ = 0;
+  m_maxprize_ = 0;
+  m_taskid_ = 0;
+  m_prizeid_ = 0;
+  m_itemid_ = 0;
+  m_freebox_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_rechargeprize::~E_FestivalMuban_rechargeprize() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_rechargeprize::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_rechargeprize::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_rechargeprize::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_rechargeprize_descriptor_;
+}
+
+const E_FestivalMuban_rechargeprize& E_FestivalMuban_rechargeprize::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_rechargeprize* E_FestivalMuban_rechargeprize::default_instance_ = NULL;
+
+E_FestivalMuban_rechargeprize* E_FestivalMuban_rechargeprize::New() const {
+  return new E_FestivalMuban_rechargeprize;
+}
+
+void E_FestivalMuban_rechargeprize::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_period_ = 0;
+    m_pooltype_ = 0;
+    m_poolnum_ = 0;
+    m_showboost_ = 0;
+    m_maxprize_ = 0;
+    m_taskid_ = 0;
+    m_prizeid_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    m_itemid_ = 0;
+    m_freebox_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_rechargeprize::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_period;
+        break;
+      }
+
+      // optional int32 m_period = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_period:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_period_)));
+          set_has_m_period();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_poolType;
+        break;
+      }
+
+      // optional int32 m_poolType = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_poolType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_pooltype_)));
+          set_has_m_pooltype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_poolNum;
+        break;
+      }
+
+      // optional int32 m_poolNum = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_poolNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_poolnum_)));
+          set_has_m_poolnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_showBoost;
+        break;
+      }
+
+      // optional int32 m_showBoost = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_showBoost:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_showboost_)));
+          set_has_m_showboost();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_maxPrize;
+        break;
+      }
+
+      // optional int32 m_maxPrize = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_maxPrize:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_maxprize_)));
+          set_has_m_maxprize();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_taskID;
+        break;
+      }
+
+      // optional int32 m_taskID = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_taskID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_taskid_)));
+          set_has_m_taskid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_prizeID;
+        break;
+      }
+
+      // optional int32 m_prizeID = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prizeID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prizeid_)));
+          set_has_m_prizeid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_itemID;
+        break;
+      }
+
+      // optional int32 m_itemID = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_itemID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_itemid_)));
+          set_has_m_itemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(80)) goto parse_m_freeBox;
+        break;
+      }
+
+      // optional int32 m_freeBox = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_freeBox:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_freebox_)));
+          set_has_m_freebox();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_rechargeprize::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_period(), output);
+  }
+
+  // optional int32 m_poolType = 3;
+  if (has_m_pooltype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_pooltype(), output);
+  }
+
+  // optional int32 m_poolNum = 4;
+  if (has_m_poolnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_poolnum(), output);
+  }
+
+  // optional int32 m_showBoost = 5;
+  if (has_m_showboost()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_showboost(), output);
+  }
+
+  // optional int32 m_maxPrize = 6;
+  if (has_m_maxprize()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_maxprize(), output);
+  }
+
+  // optional int32 m_taskID = 7;
+  if (has_m_taskid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_taskid(), output);
+  }
+
+  // optional int32 m_prizeID = 8;
+  if (has_m_prizeid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_prizeid(), output);
+  }
+
+  // optional int32 m_itemID = 9;
+  if (has_m_itemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_itemid(), output);
+  }
+
+  // optional int32 m_freeBox = 10;
+  if (has_m_freebox()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_freebox(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_rechargeprize::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_period = 2;
+  if (has_m_period()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_period(), target);
+  }
+
+  // optional int32 m_poolType = 3;
+  if (has_m_pooltype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_pooltype(), target);
+  }
+
+  // optional int32 m_poolNum = 4;
+  if (has_m_poolnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_poolnum(), target);
+  }
+
+  // optional int32 m_showBoost = 5;
+  if (has_m_showboost()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_showboost(), target);
+  }
+
+  // optional int32 m_maxPrize = 6;
+  if (has_m_maxprize()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_maxprize(), target);
+  }
+
+  // optional int32 m_taskID = 7;
+  if (has_m_taskid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_taskid(), target);
+  }
+
+  // optional int32 m_prizeID = 8;
+  if (has_m_prizeid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_prizeid(), target);
+  }
+
+  // optional int32 m_itemID = 9;
+  if (has_m_itemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_itemid(), target);
+  }
+
+  // optional int32 m_freeBox = 10;
+  if (has_m_freebox()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_freebox(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_rechargeprize::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_period = 2;
+    if (has_m_period()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_period());
+    }
+
+    // optional int32 m_poolType = 3;
+    if (has_m_pooltype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_pooltype());
+    }
+
+    // optional int32 m_poolNum = 4;
+    if (has_m_poolnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_poolnum());
+    }
+
+    // optional int32 m_showBoost = 5;
+    if (has_m_showboost()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_showboost());
+    }
+
+    // optional int32 m_maxPrize = 6;
+    if (has_m_maxprize()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_maxprize());
+    }
+
+    // optional int32 m_taskID = 7;
+    if (has_m_taskid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_taskid());
+    }
+
+    // optional int32 m_prizeID = 8;
+    if (has_m_prizeid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prizeid());
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_itemID = 9;
+    if (has_m_itemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_itemid());
+    }
+
+    // optional int32 m_freeBox = 10;
+    if (has_m_freebox()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_freebox());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_rechargeprize::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_rechargeprize* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_rechargeprize*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_rechargeprize::MergeFrom(const E_FestivalMuban_rechargeprize& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_period()) {
+      set_m_period(from.m_period());
+    }
+    if (from.has_m_pooltype()) {
+      set_m_pooltype(from.m_pooltype());
+    }
+    if (from.has_m_poolnum()) {
+      set_m_poolnum(from.m_poolnum());
+    }
+    if (from.has_m_showboost()) {
+      set_m_showboost(from.m_showboost());
+    }
+    if (from.has_m_maxprize()) {
+      set_m_maxprize(from.m_maxprize());
+    }
+    if (from.has_m_taskid()) {
+      set_m_taskid(from.m_taskid());
+    }
+    if (from.has_m_prizeid()) {
+      set_m_prizeid(from.m_prizeid());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_m_itemid()) {
+      set_m_itemid(from.m_itemid());
+    }
+    if (from.has_m_freebox()) {
+      set_m_freebox(from.m_freebox());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_rechargeprize::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_rechargeprize::CopyFrom(const E_FestivalMuban_rechargeprize& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_rechargeprize::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_rechargeprize::Swap(E_FestivalMuban_rechargeprize* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_period_, other->m_period_);
+    std::swap(m_pooltype_, other->m_pooltype_);
+    std::swap(m_poolnum_, other->m_poolnum_);
+    std::swap(m_showboost_, other->m_showboost_);
+    std::swap(m_maxprize_, other->m_maxprize_);
+    std::swap(m_taskid_, other->m_taskid_);
+    std::swap(m_prizeid_, other->m_prizeid_);
+    std::swap(m_itemid_, other->m_itemid_);
+    std::swap(m_freebox_, other->m_freebox_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_rechargeprize::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_rechargeprize_descriptor_;
+  metadata.reflection = E_FestivalMuban_rechargeprize_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_rechargeprize::kEFestivalMubanRechargeprizeListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_rechargeprize::Sheet_FestivalMuban_rechargeprize()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_rechargeprize::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_rechargeprize::Sheet_FestivalMuban_rechargeprize(const Sheet_FestivalMuban_rechargeprize& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_rechargeprize::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_rechargeprize::~Sheet_FestivalMuban_rechargeprize() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_rechargeprize::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_rechargeprize::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_rechargeprize::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_rechargeprize_descriptor_;
+}
+
+const Sheet_FestivalMuban_rechargeprize& Sheet_FestivalMuban_rechargeprize::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_rechargeprize* Sheet_FestivalMuban_rechargeprize::default_instance_ = NULL;
+
+Sheet_FestivalMuban_rechargeprize* Sheet_FestivalMuban_rechargeprize::New() const {
+  return new Sheet_FestivalMuban_rechargeprize;
+}
+
+void Sheet_FestivalMuban_rechargeprize::Clear() {
+  e_festivalmuban_rechargeprize_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_rechargeprize::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_rechargeprize E_FestivalMuban_rechargeprize_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_rechargeprize_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_rechargeprize_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_rechargeprize_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_rechargeprize::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_rechargeprize E_FestivalMuban_rechargeprize_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_rechargeprize_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_rechargeprize_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_rechargeprize::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_rechargeprize E_FestivalMuban_rechargeprize_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_rechargeprize_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_rechargeprize_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_rechargeprize::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_rechargeprize E_FestivalMuban_rechargeprize_List = 1;
+  total_size += 1 * this->e_festivalmuban_rechargeprize_list_size();
+  for (int i = 0; i < this->e_festivalmuban_rechargeprize_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_rechargeprize_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_rechargeprize::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_rechargeprize* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_rechargeprize*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_rechargeprize::MergeFrom(const Sheet_FestivalMuban_rechargeprize& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_rechargeprize_list_.MergeFrom(from.e_festivalmuban_rechargeprize_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_rechargeprize::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_rechargeprize::CopyFrom(const Sheet_FestivalMuban_rechargeprize& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_rechargeprize::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_rechargeprize::Swap(Sheet_FestivalMuban_rechargeprize* other) {
+  if (other != this) {
+    e_festivalmuban_rechargeprize_list_.Swap(&other->e_festivalmuban_rechargeprize_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_rechargeprize::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_rechargeprize_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_rechargeprize_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_rptask::kMIdFieldNumber;
+const int E_FestivalMuban_rptask::kMGroupIDFieldNumber;
+const int E_FestivalMuban_rptask::kMTypeFieldNumber;
+const int E_FestivalMuban_rptask::kMTypeArgFieldNumber;
+const int E_FestivalMuban_rptask::kMPrizeNumFieldNumber;
+const int E_FestivalMuban_rptask::kMDescFieldNumber;
+const int E_FestivalMuban_rptask::kMLinkFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_rptask::E_FestivalMuban_rptask()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_rptask::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_rptask::E_FestivalMuban_rptask(const E_FestivalMuban_rptask& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_rptask::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_type_ = 0;
+  m_typearg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_prizenum_ = 0;
+  m_desc_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_link_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_rptask::~E_FestivalMuban_rptask() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_rptask::SharedDtor() {
+  if (m_typearg_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_typearg_;
+  }
+  if (m_desc_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_desc_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_rptask::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_rptask::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_rptask_descriptor_;
+}
+
+const E_FestivalMuban_rptask& E_FestivalMuban_rptask::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_rptask* E_FestivalMuban_rptask::default_instance_ = NULL;
+
+E_FestivalMuban_rptask* E_FestivalMuban_rptask::New() const {
+  return new E_FestivalMuban_rptask;
+}
+
+void E_FestivalMuban_rptask::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_type_ = 0;
+    if (has_m_typearg()) {
+      if (m_typearg_ != &::google::protobuf::internal::kEmptyString) {
+        m_typearg_->clear();
+      }
+    }
+    m_prizenum_ = 0;
+    if (has_m_desc()) {
+      if (m_desc_ != &::google::protobuf::internal::kEmptyString) {
+        m_desc_->clear();
+      }
+    }
+    m_link_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_rptask::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_typeArg;
+        break;
+      }
+
+      // optional string m_typeArg = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_typeArg:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_typearg()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_typearg().data(), this->m_typearg().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_prizeNum;
+        break;
+      }
+
+      // optional int32 m_prizeNum = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prizeNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prizenum_)));
+          set_has_m_prizenum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(50)) goto parse_m_desc;
+        break;
+      }
+
+      // optional string m_desc = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_desc:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_desc()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_desc().data(), this->m_desc().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_link;
+        break;
+      }
+
+      // optional int32 m_link = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_link:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_link_)));
+          set_has_m_link();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_rptask::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_type(), output);
+  }
+
+  // optional string m_typeArg = 4;
+  if (has_m_typearg()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_typearg().data(), this->m_typearg().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->m_typearg(), output);
+  }
+
+  // optional int32 m_prizeNum = 5;
+  if (has_m_prizenum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_prizenum(), output);
+  }
+
+  // optional string m_desc = 6;
+  if (has_m_desc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_desc().data(), this->m_desc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->m_desc(), output);
+  }
+
+  // optional int32 m_link = 7;
+  if (has_m_link()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_link(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_rptask::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_type = 3;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_type(), target);
+  }
+
+  // optional string m_typeArg = 4;
+  if (has_m_typearg()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_typearg().data(), this->m_typearg().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->m_typearg(), target);
+  }
+
+  // optional int32 m_prizeNum = 5;
+  if (has_m_prizenum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_prizenum(), target);
+  }
+
+  // optional string m_desc = 6;
+  if (has_m_desc()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_desc().data(), this->m_desc().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        6, this->m_desc(), target);
+  }
+
+  // optional int32 m_link = 7;
+  if (has_m_link()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_link(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_rptask::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_type = 3;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+    // optional string m_typeArg = 4;
+    if (has_m_typearg()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_typearg());
+    }
+
+    // optional int32 m_prizeNum = 5;
+    if (has_m_prizenum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prizenum());
+    }
+
+    // optional string m_desc = 6;
+    if (has_m_desc()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_desc());
+    }
+
+    // optional int32 m_link = 7;
+    if (has_m_link()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_link());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_rptask::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_rptask* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_rptask*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_rptask::MergeFrom(const E_FestivalMuban_rptask& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+    if (from.has_m_typearg()) {
+      set_m_typearg(from.m_typearg());
+    }
+    if (from.has_m_prizenum()) {
+      set_m_prizenum(from.m_prizenum());
+    }
+    if (from.has_m_desc()) {
+      set_m_desc(from.m_desc());
+    }
+    if (from.has_m_link()) {
+      set_m_link(from.m_link());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_rptask::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_rptask::CopyFrom(const E_FestivalMuban_rptask& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_rptask::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_rptask::Swap(E_FestivalMuban_rptask* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(m_typearg_, other->m_typearg_);
+    std::swap(m_prizenum_, other->m_prizenum_);
+    std::swap(m_desc_, other->m_desc_);
+    std::swap(m_link_, other->m_link_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_rptask::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_rptask_descriptor_;
+  metadata.reflection = E_FestivalMuban_rptask_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_rptask::kEFestivalMubanRptaskListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_rptask::Sheet_FestivalMuban_rptask()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_rptask::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_rptask::Sheet_FestivalMuban_rptask(const Sheet_FestivalMuban_rptask& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_rptask::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_rptask::~Sheet_FestivalMuban_rptask() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_rptask::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_rptask::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_rptask::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_rptask_descriptor_;
+}
+
+const Sheet_FestivalMuban_rptask& Sheet_FestivalMuban_rptask::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_rptask* Sheet_FestivalMuban_rptask::default_instance_ = NULL;
+
+Sheet_FestivalMuban_rptask* Sheet_FestivalMuban_rptask::New() const {
+  return new Sheet_FestivalMuban_rptask;
+}
+
+void Sheet_FestivalMuban_rptask::Clear() {
+  e_festivalmuban_rptask_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_rptask::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_rptask E_FestivalMuban_rptask_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_rptask_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_rptask_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_rptask_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_rptask::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_rptask E_FestivalMuban_rptask_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_rptask_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_rptask_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_rptask::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_rptask E_FestivalMuban_rptask_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_rptask_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_rptask_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_rptask::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_rptask E_FestivalMuban_rptask_List = 1;
+  total_size += 1 * this->e_festivalmuban_rptask_list_size();
+  for (int i = 0; i < this->e_festivalmuban_rptask_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_rptask_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_rptask::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_rptask* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_rptask*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_rptask::MergeFrom(const Sheet_FestivalMuban_rptask& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_rptask_list_.MergeFrom(from.e_festivalmuban_rptask_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_rptask::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_rptask::CopyFrom(const Sheet_FestivalMuban_rptask& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_rptask::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_rptask::Swap(Sheet_FestivalMuban_rptask* other) {
+  if (other != this) {
+    e_festivalmuban_rptask_list_.Swap(&other->e_festivalmuban_rptask_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_rptask::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_rptask_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_rptask_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FestivalMuban_rppool::kMIdFieldNumber;
+const int E_FestivalMuban_rppool::kMGroupIDFieldNumber;
+const int E_FestivalMuban_rppool::kMPrizeOrderFieldNumber;
+const int E_FestivalMuban_rppool::kMPrizeMixFieldNumber;
+const int E_FestivalMuban_rppool::kMPrizeMaxFieldNumber;
+#endif  // !_MSC_VER
+
+E_FestivalMuban_rppool::E_FestivalMuban_rppool()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FestivalMuban_rppool::InitAsDefaultInstance() {
+}
+
+E_FestivalMuban_rppool::E_FestivalMuban_rppool(const E_FestivalMuban_rppool& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_rppool::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_prizeorder_ = 0;
+  m_prizemix_ = 0;
+  m_prizemax_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FestivalMuban_rppool::~E_FestivalMuban_rppool() {
+  SharedDtor();
+}
+
+void E_FestivalMuban_rppool::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FestivalMuban_rppool::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FestivalMuban_rppool::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FestivalMuban_rppool_descriptor_;
+}
+
+const E_FestivalMuban_rppool& E_FestivalMuban_rppool::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+E_FestivalMuban_rppool* E_FestivalMuban_rppool::default_instance_ = NULL;
+
+E_FestivalMuban_rppool* E_FestivalMuban_rppool::New() const {
+  return new E_FestivalMuban_rppool;
+}
+
+void E_FestivalMuban_rppool::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_prizeorder_ = 0;
+    m_prizemix_ = 0;
+    m_prizemax_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FestivalMuban_rppool::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_prizeOrder;
+        break;
+      }
+
+      // optional int32 m_prizeOrder = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prizeOrder:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prizeorder_)));
+          set_has_m_prizeorder();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_prizeMix;
+        break;
+      }
+
+      // optional int32 m_prizeMix = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prizeMix:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prizemix_)));
+          set_has_m_prizemix();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_prizeMax;
+        break;
+      }
+
+      // optional int32 m_prizeMax = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_prizeMax:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_prizemax_)));
+          set_has_m_prizemax();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FestivalMuban_rppool::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_prizeOrder = 3;
+  if (has_m_prizeorder()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_prizeorder(), output);
+  }
+
+  // optional int32 m_prizeMix = 4;
+  if (has_m_prizemix()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_prizemix(), output);
+  }
+
+  // optional int32 m_prizeMax = 5;
+  if (has_m_prizemax()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_prizemax(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FestivalMuban_rppool::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_prizeOrder = 3;
+  if (has_m_prizeorder()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_prizeorder(), target);
+  }
+
+  // optional int32 m_prizeMix = 4;
+  if (has_m_prizemix()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_prizemix(), target);
+  }
+
+  // optional int32 m_prizeMax = 5;
+  if (has_m_prizemax()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_prizemax(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FestivalMuban_rppool::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_prizeOrder = 3;
+    if (has_m_prizeorder()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prizeorder());
+    }
+
+    // optional int32 m_prizeMix = 4;
+    if (has_m_prizemix()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prizemix());
+    }
+
+    // optional int32 m_prizeMax = 5;
+    if (has_m_prizemax()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_prizemax());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FestivalMuban_rppool::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FestivalMuban_rppool* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FestivalMuban_rppool*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FestivalMuban_rppool::MergeFrom(const E_FestivalMuban_rppool& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_prizeorder()) {
+      set_m_prizeorder(from.m_prizeorder());
+    }
+    if (from.has_m_prizemix()) {
+      set_m_prizemix(from.m_prizemix());
+    }
+    if (from.has_m_prizemax()) {
+      set_m_prizemax(from.m_prizemax());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FestivalMuban_rppool::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FestivalMuban_rppool::CopyFrom(const E_FestivalMuban_rppool& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FestivalMuban_rppool::IsInitialized() const {
+
+  return true;
+}
+
+void E_FestivalMuban_rppool::Swap(E_FestivalMuban_rppool* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_prizeorder_, other->m_prizeorder_);
+    std::swap(m_prizemix_, other->m_prizemix_);
+    std::swap(m_prizemax_, other->m_prizemax_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FestivalMuban_rppool::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FestivalMuban_rppool_descriptor_;
+  metadata.reflection = E_FestivalMuban_rppool_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_FestivalMuban_rppool::kEFestivalMubanRppoolListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_FestivalMuban_rppool::Sheet_FestivalMuban_rppool()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_FestivalMuban_rppool::InitAsDefaultInstance() {
+}
+
+Sheet_FestivalMuban_rppool::Sheet_FestivalMuban_rppool(const Sheet_FestivalMuban_rppool& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_rppool::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_FestivalMuban_rppool::~Sheet_FestivalMuban_rppool() {
+  SharedDtor();
+}
+
+void Sheet_FestivalMuban_rppool::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_FestivalMuban_rppool::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_FestivalMuban_rppool::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_FestivalMuban_rppool_descriptor_;
+}
+
+const Sheet_FestivalMuban_rppool& Sheet_FestivalMuban_rppool::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fFestival_2eproto();
+  return *default_instance_;
+}
+
+Sheet_FestivalMuban_rppool* Sheet_FestivalMuban_rppool::default_instance_ = NULL;
+
+Sheet_FestivalMuban_rppool* Sheet_FestivalMuban_rppool::New() const {
+  return new Sheet_FestivalMuban_rppool;
+}
+
+void Sheet_FestivalMuban_rppool::Clear() {
+  e_festivalmuban_rppool_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_FestivalMuban_rppool::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_FestivalMuban_rppool E_FestivalMuban_rppool_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_FestivalMuban_rppool_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_festivalmuban_rppool_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_FestivalMuban_rppool_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_FestivalMuban_rppool::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_FestivalMuban_rppool E_FestivalMuban_rppool_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_rppool_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_festivalmuban_rppool_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_FestivalMuban_rppool::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_FestivalMuban_rppool E_FestivalMuban_rppool_List = 1;
+  for (int i = 0; i < this->e_festivalmuban_rppool_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_festivalmuban_rppool_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_FestivalMuban_rppool::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_FestivalMuban_rppool E_FestivalMuban_rppool_List = 1;
+  total_size += 1 * this->e_festivalmuban_rppool_list_size();
+  for (int i = 0; i < this->e_festivalmuban_rppool_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_festivalmuban_rppool_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_FestivalMuban_rppool::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_FestivalMuban_rppool* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_FestivalMuban_rppool*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_FestivalMuban_rppool::MergeFrom(const Sheet_FestivalMuban_rppool& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_festivalmuban_rppool_list_.MergeFrom(from.e_festivalmuban_rppool_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_FestivalMuban_rppool::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_FestivalMuban_rppool::CopyFrom(const Sheet_FestivalMuban_rppool& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_FestivalMuban_rppool::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_FestivalMuban_rppool::Swap(Sheet_FestivalMuban_rppool* other) {
+  if (other != this) {
+    e_festivalmuban_rppool_list_.Swap(&other->e_festivalmuban_rppool_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_FestivalMuban_rppool::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_FestivalMuban_rppool_descriptor_;
+  metadata.reflection = Sheet_FestivalMuban_rppool_reflection_;
   return metadata;
 }
 

@@ -437,11 +437,10 @@ void protobuf_AssignDesc_BestEQ_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BestEQStrongReq));
   BestEQStrongRsp_descriptor_ = file->message_type(21);
-  static const int BestEQStrongRsp_offsets_[4] = {
+  static const int BestEQStrongRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongRsp, bagtype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongRsp, pos_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BestEQStrongRsp, costpos_),
   };
   BestEQStrongRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -640,12 +639,11 @@ void protobuf_AddDesc_BestEQ_2eproto() {
     "B\n\021BestEQStrongEntry\022\017\n\007bagtype\030\001 \001(\005\022\013\n"
     "\003pos\030\002 \001(\005\022\017\n\007costpos\030\003 \003(\005\">\n\017BestEQStr"
     "ongReq\022+\n\006entrys\030\001 \003(\0132\033.proto_ff.BestEQ"
-    "StrongEntry\"M\n\017BestEQStrongRsp\022\013\n\003ret\030\001 "
-    "\001(\005\022\017\n\007bagtype\030\002 \001(\005\022\013\n\003pos\030\003 \001(\005\022\017\n\007cos"
-    "tpos\030\004 \003(\005\"3\n\025BestEQBreakConfirmReq\022\014\n\004s"
-    "lot\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\"@\n\025BestEQBreakCo"
-    "nfirmRsp\022\013\n\003ret\030\001 \001(\005\022\014\n\004slot\030\002 \001(\005\022\014\n\004t"
-    "ype\030\003 \001(\005", 1369);
+    "StrongEntry\"<\n\017BestEQStrongRsp\022\013\n\003ret\030\001 "
+    "\001(\005\022\017\n\007bagtype\030\002 \001(\005\022\013\n\003pos\030\003 \003(\005\"3\n\025Bes"
+    "tEQBreakConfirmReq\022\014\n\004slot\030\001 \001(\005\022\014\n\004type"
+    "\030\002 \001(\005\"@\n\025BestEQBreakConfirmRsp\022\013\n\003ret\030\001"
+    " \001(\005\022\014\n\004slot\030\002 \001(\005\022\014\n\004type\030\003 \001(\005", 1352);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "BestEQ.proto", &protobuf_RegisterTypes);
   NotifyBestEQData::default_instance_ = new NotifyBestEQData();
@@ -5844,7 +5842,6 @@ void BestEQStrongReq::Swap(BestEQStrongReq* other) {
 const int BestEQStrongRsp::kRetFieldNumber;
 const int BestEQStrongRsp::kBagtypeFieldNumber;
 const int BestEQStrongRsp::kPosFieldNumber;
-const int BestEQStrongRsp::kCostposFieldNumber;
 #endif  // !_MSC_VER
 
 BestEQStrongRsp::BestEQStrongRsp()
@@ -5865,7 +5862,6 @@ void BestEQStrongRsp::SharedCtor() {
   _cached_size_ = 0;
   ret_ = 0;
   bagtype_ = 0;
-  pos_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5903,9 +5899,8 @@ void BestEQStrongRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     ret_ = 0;
     bagtype_ = 0;
-    pos_ = 0;
   }
-  costpos_.Clear();
+  pos_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -5947,40 +5942,24 @@ bool BestEQStrongRsp::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int32 pos = 3;
+      // repeated int32 pos = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_pos:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &pos_)));
-          set_has_pos();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_costpos;
-        break;
-      }
-
-      // repeated int32 costpos = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_costpos:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 32, input, this->mutable_costpos())));
+                 1, 24, input, this->mutable_pos())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
           DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_costpos())));
+                 input, this->mutable_pos())));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_costpos;
+        if (input->ExpectTag(24)) goto parse_pos;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -6013,15 +5992,10 @@ void BestEQStrongRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->bagtype(), output);
   }
 
-  // optional int32 pos = 3;
-  if (has_pos()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->pos(), output);
-  }
-
-  // repeated int32 costpos = 4;
-  for (int i = 0; i < this->costpos_size(); i++) {
+  // repeated int32 pos = 3;
+  for (int i = 0; i < this->pos_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      4, this->costpos(i), output);
+      3, this->pos(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6042,15 +6016,10 @@ void BestEQStrongRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->bagtype(), target);
   }
 
-  // optional int32 pos = 3;
-  if (has_pos()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->pos(), target);
-  }
-
-  // repeated int32 costpos = 4;
-  for (int i = 0; i < this->costpos_size(); i++) {
+  // repeated int32 pos = 3;
+  for (int i = 0; i < this->pos_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(4, this->costpos(i), target);
+      WriteInt32ToArray(3, this->pos(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6078,22 +6047,15 @@ int BestEQStrongRsp::ByteSize() const {
           this->bagtype());
     }
 
-    // optional int32 pos = 3;
-    if (has_pos()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->pos());
-    }
-
   }
-  // repeated int32 costpos = 4;
+  // repeated int32 pos = 3;
   {
     int data_size = 0;
-    for (int i = 0; i < this->costpos_size(); i++) {
+    for (int i = 0; i < this->pos_size(); i++) {
       data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->costpos(i));
+        Int32Size(this->pos(i));
     }
-    total_size += 1 * this->costpos_size() + data_size;
+    total_size += 1 * this->pos_size() + data_size;
   }
 
   if (!unknown_fields().empty()) {
@@ -6121,16 +6083,13 @@ void BestEQStrongRsp::MergeFrom(const ::google::protobuf::Message& from) {
 
 void BestEQStrongRsp::MergeFrom(const BestEQStrongRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
-  costpos_.MergeFrom(from.costpos_);
+  pos_.MergeFrom(from.pos_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_ret()) {
       set_ret(from.ret());
     }
     if (from.has_bagtype()) {
       set_bagtype(from.bagtype());
-    }
-    if (from.has_pos()) {
-      set_pos(from.pos());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6157,8 +6116,7 @@ void BestEQStrongRsp::Swap(BestEQStrongRsp* other) {
   if (other != this) {
     std::swap(ret_, other->ret_);
     std::swap(bagtype_, other->bagtype_);
-    std::swap(pos_, other->pos_);
-    costpos_.Swap(&other->costpos_);
+    pos_.Swap(&other->pos_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

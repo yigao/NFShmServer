@@ -125,6 +125,7 @@ message E_GuildPosition
 	optional int32 m_changeName = 16[(yd_fieldoptions.field_cname) = "改名权限"];
 	optional int32 m_recruitChat = 17[(yd_fieldoptions.field_cname) = "发布招贤纳士"];
 	optional int32 m_guildPacket = 18[(yd_fieldoptions.field_cname) = "发送公会玩法红包"];
+	optional int32 m_UpGuard = 19[(yd_fieldoptions.field_cname) = "升级守护"];
 }
 
 
@@ -213,15 +214,15 @@ message Sheet_GuildPrestigetask
 message E_GuildLvreward
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_partyExp = 2[(yd_fieldoptions.field_cname) = "晚宴经验"];
+	optional int64 m_partyExp = 2[(yd_fieldoptions.field_cname) = "晚宴经验"];
 	optional int32 m_partyEontribution = 3[(yd_fieldoptions.field_cname) = "晚宴贡献"];
-	optional int32 m_linkExp = 4[(yd_fieldoptions.field_cname) = "链接经验"];
+	optional int64 m_linkExp = 4[(yd_fieldoptions.field_cname) = "链接经验"];
 }
 
 
 message Sheet_GuildLvreward
 {
-	repeated E_GuildLvreward E_GuildLvreward_List = 1[(yd_fieldoptions.field_arysize)=512];
+	repeated E_GuildLvreward E_GuildLvreward_List = 1[(yd_fieldoptions.field_arysize)=2048];
 }
 
 message E_GuildCollegeAttributeDesc
@@ -343,4 +344,45 @@ message E_GuildTtower
 message Sheet_GuildTtower
 {
 	repeated E_GuildTtower E_GuildTtower_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_GuildTtowerdevelopAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_GuildTtowerdevelop
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_dataGroup = 3[(yd_fieldoptions.field_cname) = "数据组id"];
+	repeated E_GuildTtowerdevelopAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_GuildTtowerdevelop
+{
+	repeated E_GuildTtowerdevelop E_GuildTtowerdevelop_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_GuildTtowerdevelop_dataAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_GuildTtowerdevelop_data
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_costItem = 3[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_costnum = 4[(yd_fieldoptions.field_cname) = "消耗数量"];
+	repeated E_GuildTtowerdevelop_dataAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_GuildTtowerdevelop_data
+{
+	repeated E_GuildTtowerdevelop_data E_GuildTtowerdevelop_data_List = 1[(yd_fieldoptions.field_arysize)=32];
 }

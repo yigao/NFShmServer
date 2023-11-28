@@ -27,13 +27,13 @@ message E_TaskrewardTaskreward
 	optional int32 m_guildPoint = 5[(yd_fieldoptions.field_cname) = "公会贡献"];
 	optional int32 m_skillId = 6[(yd_fieldoptions.field_cname) = "技能ID"];
 	repeated E_TaskrewardTaskrewardAttrDesc m_attr = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
-	repeated E_TaskrewardTaskrewardItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_TaskrewardTaskrewardItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "物品", (yd_fieldoptions.field_arysize) = 17];
 }
 
 
 message Sheet_TaskrewardTaskreward
 {
-	repeated E_TaskrewardTaskreward E_TaskrewardTaskreward_List = 1[(yd_fieldoptions.field_arysize)=8192];
+	repeated E_TaskrewardTaskreward E_TaskrewardTaskreward_List = 1[(yd_fieldoptions.field_arysize)=4096];
 }
 
 message E_TaskrewardTasktype

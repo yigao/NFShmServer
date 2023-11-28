@@ -429,9 +429,19 @@ enum ServerInternalCmd {
   NOTIFY_DUP_TEAM_DIS_REQ = 1511,
   LC_NOTIFY_YAOTA_FIRST_PASS_REQ = 1512,
   CL_YAOTA_RECV_REQ = 1513,
+  LC_FIELD_BOSS_INIT_REQ = 1516,
+  LC_FIELD_BOSS_INIT_RSP = 1517,
+  LC_FIELD_BOSS_INFO_REQ = 1518,
+  CL_FIELD_BOSS_INFO_NOTIFY = 1519,
   NGPD_BattleReq = 1530,
   NGPD_BattleRsp = 1531,
   NGPD_BattleSaveReq = 1532,
+  NGPD_PlayerPDReq = 1533,
+  NGPD_PlayerPDRsp = 1534,
+  NGPD_PlayerSaveReq = 1535,
+  NGPD_AddTBoxOpenLog = 1536,
+  NGPD_RankReq = 1537,
+  NGPD_TBoxOpenServerLogReq = 1538,
   SERVER_INTER_MAX_CMD = 5000
 };
 bool ServerInternalCmd_IsValid(int value);

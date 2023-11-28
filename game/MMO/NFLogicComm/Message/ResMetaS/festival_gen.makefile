@@ -15,6 +15,20 @@ ${PROTOCGEN_FILE_PATH}/module_festival_bin:${PROTOCGEN_FILE_PATH}/festival.proto
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalFestivalDesc.h ${PROTOCGEN_FILE_PATH}/FestivalFestivalDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalTemplate.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalTemplateDesc.h ${PROTOCGEN_FILE_PATH}/FestivalTemplateDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_eggsdraw.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdrawDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdrawDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_eggsdraw_pool.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdraw_poolDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdraw_poolDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_eggsdraw_task.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdraw_taskDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdraw_taskDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_ftreward.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_ftrewardDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_ftrewardDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_challenge.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_challengeDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_challengeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_mystmall.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_mystmallDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_mystmallDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_mystmall_mall.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_mystmall_mallDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_mystmall_mallDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_rebatestore.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_rebatestoreDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_rebatestoreDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_rebatestore_mall.bin" --dst=${GAME_DATA_PATH}/
@@ -59,10 +73,10 @@ ${PROTOCGEN_FILE_PATH}/module_festival_bin:${PROTOCGEN_FILE_PATH}/festival.proto
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_rechangeDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_rechangeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_leiji.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_leijiDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_leijiDesc.cpp" --dst=${DESC_STORE_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_zadan.bin" --dst=${GAME_DATA_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_zadanDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_zadanDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalZadanconstant.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalZadanconstantDesc.h ${PROTOCGEN_FILE_PATH}/FestivalZadanconstantDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_zadan.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_zadanDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_zadanDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_turntable.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_turntableDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_turntableDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_turntable_pool.bin" --dst=${GAME_DATA_PATH}/
@@ -95,6 +109,12 @@ ${PROTOCGEN_FILE_PATH}/module_festival_bin:${PROTOCGEN_FILE_PATH}/festival.proto
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_totalrechargeDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_totalrechargeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_dailytotalrecharge.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_dailytotalrechargeDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_dailytotalrechargeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_rechargeprize.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_rechargeprizeDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_rechargeprizeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_rptask.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_rptaskDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_rptaskDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_rppool.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_rppoolDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_rppoolDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_play.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_playDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_playDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_play_reward.bin" --dst=${GAME_DATA_PATH}/

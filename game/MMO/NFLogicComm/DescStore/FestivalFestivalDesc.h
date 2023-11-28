@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Festival_s.h"
 
-#define MAX_FESTIVAL_FESTIVAL_NUM 8
+#define MAX_FESTIVAL_FESTIVAL_NUM 16
 
 class FestivalFestivalDesc : public NFIDescTemplate<FestivalFestivalDesc, proto_ff_s::E_FestivalFestival_s, EOT_CONST_FESTIVAL_FESTIVAL_DESC_ID, MAX_FESTIVAL_FESTIVAL_NUM>
 {

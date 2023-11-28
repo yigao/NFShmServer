@@ -657,12 +657,17 @@ class E_MofaYuansu : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_attritype() const;
   inline void set_m_attritype(::google::protobuf::int32 value);
 
-  // optional int32 m_mosaic = 3;
+  // optional string m_mosaic = 3;
   inline bool has_m_mosaic() const;
   inline void clear_m_mosaic();
   static const int kMMosaicFieldNumber = 3;
-  inline ::google::protobuf::int32 m_mosaic() const;
-  inline void set_m_mosaic(::google::protobuf::int32 value);
+  inline const ::std::string& m_mosaic() const;
+  inline void set_m_mosaic(const ::std::string& value);
+  inline void set_m_mosaic(const char* value);
+  inline void set_m_mosaic(const char* value, size_t size);
+  inline ::std::string* mutable_m_mosaic();
+  inline ::std::string* release_m_mosaic();
+  inline void set_allocated_m_mosaic(::std::string* m_mosaic);
 
   // optional int32 m_LvItem = 4;
   inline bool has_m_lvitem() const;
@@ -737,13 +742,13 @@ class E_MofaYuansu : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 m_equipid_;
   ::google::protobuf::int32 m_attritype_;
-  ::google::protobuf::int32 m_mosaic_;
+  ::std::string* m_mosaic_;
   ::google::protobuf::int32 m_lvitem_;
   ::google::protobuf::int32 m_awaken_can_;
   ::google::protobuf::int32 m_awaken_lvmax_;
+  ::google::protobuf::int32 m_awaken_item_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MofaYuansuAttributeDesc > m_attribute_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_MofaYuansuAwakenDesc > m_awaken_;
-  ::google::protobuf::int32 m_awaken_item_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
@@ -3053,7 +3058,7 @@ inline void E_MofaYuansu::set_m_attritype(::google::protobuf::int32 value) {
   m_attritype_ = value;
 }
 
-// optional int32 m_mosaic = 3;
+// optional string m_mosaic = 3;
 inline bool E_MofaYuansu::has_m_mosaic() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -3064,15 +3069,63 @@ inline void E_MofaYuansu::clear_has_m_mosaic() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void E_MofaYuansu::clear_m_mosaic() {
-  m_mosaic_ = 0;
+  if (m_mosaic_ != &::google::protobuf::internal::kEmptyString) {
+    m_mosaic_->clear();
+  }
   clear_has_m_mosaic();
 }
-inline ::google::protobuf::int32 E_MofaYuansu::m_mosaic() const {
+inline const ::std::string& E_MofaYuansu::m_mosaic() const {
+  return *m_mosaic_;
+}
+inline void E_MofaYuansu::set_m_mosaic(const ::std::string& value) {
+  set_has_m_mosaic();
+  if (m_mosaic_ == &::google::protobuf::internal::kEmptyString) {
+    m_mosaic_ = new ::std::string;
+  }
+  m_mosaic_->assign(value);
+}
+inline void E_MofaYuansu::set_m_mosaic(const char* value) {
+  set_has_m_mosaic();
+  if (m_mosaic_ == &::google::protobuf::internal::kEmptyString) {
+    m_mosaic_ = new ::std::string;
+  }
+  m_mosaic_->assign(value);
+}
+inline void E_MofaYuansu::set_m_mosaic(const char* value, size_t size) {
+  set_has_m_mosaic();
+  if (m_mosaic_ == &::google::protobuf::internal::kEmptyString) {
+    m_mosaic_ = new ::std::string;
+  }
+  m_mosaic_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_MofaYuansu::mutable_m_mosaic() {
+  set_has_m_mosaic();
+  if (m_mosaic_ == &::google::protobuf::internal::kEmptyString) {
+    m_mosaic_ = new ::std::string;
+  }
   return m_mosaic_;
 }
-inline void E_MofaYuansu::set_m_mosaic(::google::protobuf::int32 value) {
-  set_has_m_mosaic();
-  m_mosaic_ = value;
+inline ::std::string* E_MofaYuansu::release_m_mosaic() {
+  clear_has_m_mosaic();
+  if (m_mosaic_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_mosaic_;
+    m_mosaic_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_MofaYuansu::set_allocated_m_mosaic(::std::string* m_mosaic) {
+  if (m_mosaic_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mosaic_;
+  }
+  if (m_mosaic) {
+    set_has_m_mosaic();
+    m_mosaic_ = m_mosaic;
+  } else {
+    clear_has_m_mosaic();
+    m_mosaic_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // optional int32 m_LvItem = 4;

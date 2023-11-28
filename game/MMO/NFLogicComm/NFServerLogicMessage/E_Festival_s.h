@@ -10,9 +10,18 @@
 
 #define DEFINE_E_FESTIVALPERIODINDEX_M_PERIOD_MAX_NUM 15
 #define DEFINE_SHEET_FESTIVALPERIODINDEX_E_FESTIVALPERIODINDEX_LIST_MAX_NUM 64
-#define DEFINE_SHEET_FESTIVALFESTIVAL_E_FESTIVALFESTIVAL_LIST_MAX_NUM 8
+#define DEFINE_SHEET_FESTIVALFESTIVAL_E_FESTIVALFESTIVAL_LIST_MAX_NUM 16
 #define DEFINE_E_FESTIVALTEMPLATE_M_TIMEARG_MAX_NUM 3
-#define DEFINE_SHEET_FESTIVALTEMPLATE_E_FESTIVALTEMPLATE_LIST_MAX_NUM 64
+#define DEFINE_SHEET_FESTIVALTEMPLATE_E_FESTIVALTEMPLATE_LIST_MAX_NUM 128
+#define DEFINE_SHEET_FESTIVALMUBAN_EGGSDRAW_E_FESTIVALMUBAN_EGGSDRAW_LIST_MAX_NUM 16
+#define DEFINE_SHEET_FESTIVALMUBAN_EGGSDRAW_POOL_E_FESTIVALMUBAN_EGGSDRAW_POOL_LIST_MAX_NUM 16
+#define DEFINE_E_FESTIVALMUBAN_EGGSDRAW_TASK_M_PARAM_MAX_NUM 2
+#define DEFINE_SHEET_FESTIVALMUBAN_EGGSDRAW_TASK_E_FESTIVALMUBAN_EGGSDRAW_TASK_LIST_MAX_NUM 16
+#define DEFINE_SHEET_FESTIVALMUBAN_FTREWARD_E_FESTIVALMUBAN_FTREWARD_LIST_MAX_NUM 2
+#define DEFINE_SHEET_FESTIVALMUBAN_CHALLENGE_E_FESTIVALMUBAN_CHALLENGE_LIST_MAX_NUM 2
+#define DEFINE_E_FESTIVALMUBAN_MYSTMALL_M_OPEN_MAX_NUM 3
+#define DEFINE_SHEET_FESTIVALMUBAN_MYSTMALL_E_FESTIVALMUBAN_MYSTMALL_LIST_MAX_NUM 8
+#define DEFINE_SHEET_FESTIVALMUBAN_MYSTMALL_MALL_E_FESTIVALMUBAN_MYSTMALL_MALL_LIST_MAX_NUM 32
 #define DEFINE_E_FESTIVALMUBAN_REBATESTORE_M_EXPEND_MAX_NUM 6
 #define DEFINE_SHEET_FESTIVALMUBAN_REBATESTORE_E_FESTIVALMUBAN_REBATESTORE_LIST_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_REBATESTORE_MALL_E_FESTIVALMUBAN_REBATESTORE_MALL_LIST_MAX_NUM 32
@@ -32,15 +41,15 @@
 #define DEFINE_SHEET_FESTIVALMUBAN_DOUBLEBOX_E_FESTIVALMUBAN_DOUBLEBOX_LIST_MAX_NUM 32
 #define DEFINE_SHEET_FESTIVALMUBAN_BOSSFRISTKILL_E_FESTIVALMUBAN_BOSSFRISTKILL_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FESTIVALMUBAN_SEVERRANK_E_FESTIVALMUBAN_SEVERRANK_LIST_MAX_NUM 128
-#define DEFINE_SHEET_FESTIVALMUBAN_SEVERRANK_DATA_E_FESTIVALMUBAN_SEVERRANK_DATA_LIST_MAX_NUM 64
+#define DEFINE_SHEET_FESTIVALMUBAN_SEVERRANK_DATA_E_FESTIVALMUBAN_SEVERRANK_DATA_LIST_MAX_NUM 128
 #define DEFINE_E_FESTIVALMUBAN_COLLECTWORD_M_COST_MAX_NUM 5
 #define DEFINE_SHEET_FESTIVALMUBAN_COLLECTWORD_E_FESTIVALMUBAN_COLLECTWORD_LIST_MAX_NUM 16
 #define DEFINE_SHEET_FESTIVALMUBAN_SIGN_E_FESTIVALMUBAN_SIGN_LIST_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_SHOP_E_FESTIVALMUBAN_SHOP_LIST_MAX_NUM 32
 #define DEFINE_SHEET_FESTIVALMUBAN_RECHANGE_E_FESTIVALMUBAN_RECHANGE_LIST_MAX_NUM 16
 #define DEFINE_SHEET_FESTIVALMUBAN_LEIJI_E_FESTIVALMUBAN_LEIJI_LIST_MAX_NUM 16
-#define DEFINE_SHEET_FESTIVALMUBAN_ZADAN_E_FESTIVALMUBAN_ZADAN_LIST_MAX_NUM 16
 #define DEFINE_SHEET_FESTIVALZADANCONSTANT_E_FESTIVALZADANCONSTANT_LIST_MAX_NUM 32
+#define DEFINE_SHEET_FESTIVALMUBAN_ZADAN_E_FESTIVALMUBAN_ZADAN_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FESTIVALMUBAN_TURNTABLE_E_FESTIVALMUBAN_TURNTABLE_LIST_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_TURNTABLE_POOL_E_FESTIVALMUBAN_TURNTABLE_POOL_LIST_MAX_NUM 16
 #define DEFINE_E_FESTIVALMUBAN_TURNTABLE_TASK_M_PARAM_MAX_NUM 2
@@ -59,6 +68,9 @@
 #define DEFINE_SHEET_FESTIVALMUBAN_DRAWPIZE_TOTAL_E_FESTIVALMUBAN_DRAWPIZE_TOTAL_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FESTIVALMUBAN_TOTALRECHARGE_E_FESTIVALMUBAN_TOTALRECHARGE_LIST_MAX_NUM 16
 #define DEFINE_SHEET_FESTIVALMUBAN_DAILYTOTALRECHARGE_E_FESTIVALMUBAN_DAILYTOTALRECHARGE_LIST_MAX_NUM 8
+#define DEFINE_SHEET_FESTIVALMUBAN_RECHARGEPRIZE_E_FESTIVALMUBAN_RECHARGEPRIZE_LIST_MAX_NUM 2
+#define DEFINE_SHEET_FESTIVALMUBAN_RPTASK_E_FESTIVALMUBAN_RPTASK_LIST_MAX_NUM 32
+#define DEFINE_SHEET_FESTIVALMUBAN_RPPOOL_E_FESTIVALMUBAN_RPPOOL_LIST_MAX_NUM 16
 #define DEFINE_E_FESTIVALMUBAN_PLAY_M_OPENTIME_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_PLAY_E_FESTIVALMUBAN_PLAY_LIST_MAX_NUM 2
 #define DEFINE_SHEET_FESTIVALMUBAN_PLAY_REWARD_E_FESTIVALMUBAN_PLAY_REWARD_LIST_MAX_NUM 8
@@ -134,7 +146,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//活动ID
 		NFShmString<64> m_name;//模板名称
+		NFShmString<64> m_actionName;//动态名称
 		int32_t m_festivalId;//引用主体
+		NFShmString<64> m_actionFestivalId;//动态引用主体
 		int32_t m_timeType;//时间类型
 		int32_t m_level;//等级要求
 		int32_t m_vipLevel;//vip等级要求
@@ -167,6 +181,277 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_FestivalTemplate make_pbmsg(){ return ::proto_ff::Sheet_FestivalTemplate(); }
 	};
 	typedef struct Sheet_FestivalTemplate_s Sheet_FestivalTemplate_t;
+
+	struct E_FestivalMuban_eggsdraw_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_eggsdraw_s();
+		virtual ~E_FestivalMuban_eggsdraw_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		int32_t m_costItem;//抽奖道具id
+		NFShmString<64> m_costNum;//物品数量
+		int32_t m_poolGroupID;//奖池组id
+		int32_t m_showType;//表现形式
+		NFShmString<64> m_baseImage;//蛋底图
+		NFShmString<64> m_eggImage;//蛋资源
+		NFShmString<64> m_clickDesc;//点击描述
+		NFShmString<64> m_costDesc;//消耗描述
+		NFShmString<64> m_residueDesc;//剩余描述
+		int32_t m_restartItem;//重置消耗道具
+		int32_t m_restartCost;//重置消耗数量
+		int32_t m_dailyRestart;//每日重置
+		int32_t m_free;//免费每日重置次数
+		int32_t m_taskGroupID;//任务组ID
+		int32_t m_dailyTaskRestart;//任务是否每日重置
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_eggsdraw & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_eggsdraw & msg);
+		static ::proto_ff::E_FestivalMuban_eggsdraw* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_eggsdraw(); }
+		static ::proto_ff::E_FestivalMuban_eggsdraw make_pbmsg(){ return ::proto_ff::E_FestivalMuban_eggsdraw(); }
+	};
+	typedef struct E_FestivalMuban_eggsdraw_s E_FestivalMuban_eggsdraw_t;
+
+	struct Sheet_FestivalMuban_eggsdraw_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_eggsdraw_s();
+		virtual ~Sheet_FestivalMuban_eggsdraw_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_eggsdraw_s, DEFINE_SHEET_FESTIVALMUBAN_EGGSDRAW_E_FESTIVALMUBAN_EGGSDRAW_LIST_MAX_NUM> E_FestivalMuban_eggsdraw_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_eggsdraw & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_eggsdraw & msg);
+		static ::proto_ff::Sheet_FestivalMuban_eggsdraw* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_eggsdraw(); }
+		static ::proto_ff::Sheet_FestivalMuban_eggsdraw make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_eggsdraw(); }
+	};
+	typedef struct Sheet_FestivalMuban_eggsdraw_s Sheet_FestivalMuban_eggsdraw_t;
+
+	struct E_FestivalMuban_eggsdraw_pool_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_eggsdraw_pool_s();
+		virtual ~E_FestivalMuban_eggsdraw_pool_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_groupID;//组ID
+		int64_t m_itemid;//物品
+		int32_t m_num;//数量
+		int32_t m_prof;//职业
+		int32_t m_weights;//掉落权重
+		int32_t m_Record;//奖励记录稀有度
+		int32_t m_poolLv;//奖池等级
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_eggsdraw_pool & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_eggsdraw_pool & msg);
+		static ::proto_ff::E_FestivalMuban_eggsdraw_pool* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_eggsdraw_pool(); }
+		static ::proto_ff::E_FestivalMuban_eggsdraw_pool make_pbmsg(){ return ::proto_ff::E_FestivalMuban_eggsdraw_pool(); }
+	};
+	typedef struct E_FestivalMuban_eggsdraw_pool_s E_FestivalMuban_eggsdraw_pool_t;
+
+	struct Sheet_FestivalMuban_eggsdraw_pool_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_eggsdraw_pool_s();
+		virtual ~Sheet_FestivalMuban_eggsdraw_pool_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_eggsdraw_pool_s, DEFINE_SHEET_FESTIVALMUBAN_EGGSDRAW_POOL_E_FESTIVALMUBAN_EGGSDRAW_POOL_LIST_MAX_NUM> E_FestivalMuban_eggsdraw_pool_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_eggsdraw_pool & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_eggsdraw_pool & msg);
+		static ::proto_ff::Sheet_FestivalMuban_eggsdraw_pool* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_eggsdraw_pool(); }
+		static ::proto_ff::Sheet_FestivalMuban_eggsdraw_pool make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_eggsdraw_pool(); }
+	};
+	typedef struct Sheet_FestivalMuban_eggsdraw_pool_s Sheet_FestivalMuban_eggsdraw_pool_t;
+
+	struct E_FestivalMuban_eggsdraw_task_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_eggsdraw_task_s();
+		virtual ~E_FestivalMuban_eggsdraw_task_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_groupID;//组id
+		int32_t m_eventType;//事件类型
+		int32_t m_reachPrice;//达成值
+		int32_t m_rewardItem;//奖励道具ID
+		int32_t m_rewardNum;//奖励数量
+		int32_t m_link;//连接
+		NFShmVector<int32_t, DEFINE_E_FESTIVALMUBAN_EGGSDRAW_TASK_M_PARAM_MAX_NUM> m_param;//事件完成参数
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_eggsdraw_task & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_eggsdraw_task & msg);
+		static ::proto_ff::E_FestivalMuban_eggsdraw_task* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_eggsdraw_task(); }
+		static ::proto_ff::E_FestivalMuban_eggsdraw_task make_pbmsg(){ return ::proto_ff::E_FestivalMuban_eggsdraw_task(); }
+	};
+	typedef struct E_FestivalMuban_eggsdraw_task_s E_FestivalMuban_eggsdraw_task_t;
+
+	struct Sheet_FestivalMuban_eggsdraw_task_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_eggsdraw_task_s();
+		virtual ~Sheet_FestivalMuban_eggsdraw_task_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_eggsdraw_task_s, DEFINE_SHEET_FESTIVALMUBAN_EGGSDRAW_TASK_E_FESTIVALMUBAN_EGGSDRAW_TASK_LIST_MAX_NUM> E_FestivalMuban_eggsdraw_task_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_eggsdraw_task & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_eggsdraw_task & msg);
+		static ::proto_ff::Sheet_FestivalMuban_eggsdraw_task* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_eggsdraw_task(); }
+		static ::proto_ff::Sheet_FestivalMuban_eggsdraw_task make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_eggsdraw_task(); }
+	};
+	typedef struct Sheet_FestivalMuban_eggsdraw_task_s Sheet_FestivalMuban_eggsdraw_task_t;
+
+	struct E_FestivalMuban_ftreward_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_ftreward_s();
+		virtual ~E_FestivalMuban_ftreward_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		NFShmString<64> m_FTID;//抽奖组id
+		int32_t m_addItemID;//额外奖励道具
+		NFShmString<64> m_showReward;//奖励展示
+		int32_t m_linkid;//跳转
+		int32_t m_functionID;//功能开放ID
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_ftreward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_ftreward & msg);
+		static ::proto_ff::E_FestivalMuban_ftreward* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_ftreward(); }
+		static ::proto_ff::E_FestivalMuban_ftreward make_pbmsg(){ return ::proto_ff::E_FestivalMuban_ftreward(); }
+	};
+	typedef struct E_FestivalMuban_ftreward_s E_FestivalMuban_ftreward_t;
+
+	struct Sheet_FestivalMuban_ftreward_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_ftreward_s();
+		virtual ~Sheet_FestivalMuban_ftreward_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_ftreward_s, DEFINE_SHEET_FESTIVALMUBAN_FTREWARD_E_FESTIVALMUBAN_FTREWARD_LIST_MAX_NUM> E_FestivalMuban_ftreward_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_ftreward & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_ftreward & msg);
+		static ::proto_ff::Sheet_FestivalMuban_ftreward* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_ftreward(); }
+		static ::proto_ff::Sheet_FestivalMuban_ftreward make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_ftreward(); }
+	};
+	typedef struct Sheet_FestivalMuban_ftreward_s Sheet_FestivalMuban_ftreward_t;
+
+	struct E_FestivalMuban_challenge_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_challenge_s();
+		virtual ~E_FestivalMuban_challenge_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		NFShmString<64> m_name;//名称
+		int32_t m_joinBox;//参与奖励
+		int32_t m_killBoxShow;//完成展示奖励
+		int32_t m_monster;//怪物ID
+		int32_t m_point;//刷新点
+		NFShmString<64> m_showTime;//显示时间点
+		int32_t m_faceid;//显示外观
+		NFShmString<64> m_scalle;//缩放
+		int32_t m_linkid;//linkID
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_challenge & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_challenge & msg);
+		static ::proto_ff::E_FestivalMuban_challenge* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_challenge(); }
+		static ::proto_ff::E_FestivalMuban_challenge make_pbmsg(){ return ::proto_ff::E_FestivalMuban_challenge(); }
+	};
+	typedef struct E_FestivalMuban_challenge_s E_FestivalMuban_challenge_t;
+
+	struct Sheet_FestivalMuban_challenge_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_challenge_s();
+		virtual ~Sheet_FestivalMuban_challenge_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_challenge_s, DEFINE_SHEET_FESTIVALMUBAN_CHALLENGE_E_FESTIVALMUBAN_CHALLENGE_LIST_MAX_NUM> E_FestivalMuban_challenge_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_challenge & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_challenge & msg);
+		static ::proto_ff::Sheet_FestivalMuban_challenge* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_challenge(); }
+		static ::proto_ff::Sheet_FestivalMuban_challenge make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_challenge(); }
+	};
+	typedef struct Sheet_FestivalMuban_challenge_s Sheet_FestivalMuban_challenge_t;
+
+	struct E_FestivalMuban_mystmallOpenDesc_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_mystmallOpenDesc_s();
+		virtual ~E_FestivalMuban_mystmallOpenDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_dur;//持续时间
+		int32_t m_mallID;//商店组
+		NFShmString<64> m_time;//时间点
+		int32_t m_ID;//id
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_mystmallOpenDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_mystmallOpenDesc & msg);
+		static ::proto_ff::E_FestivalMuban_mystmallOpenDesc* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_mystmallOpenDesc(); }
+		static ::proto_ff::E_FestivalMuban_mystmallOpenDesc make_pbmsg(){ return ::proto_ff::E_FestivalMuban_mystmallOpenDesc(); }
+	};
+	typedef struct E_FestivalMuban_mystmallOpenDesc_s E_FestivalMuban_mystmallOpenDesc_t;
+
+	struct E_FestivalMuban_mystmall_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_mystmall_s();
+		virtual ~E_FestivalMuban_mystmall_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		int32_t m_day;//天数
+		NFShmVector<struct E_FestivalMuban_mystmallOpenDesc_s, DEFINE_E_FESTIVALMUBAN_MYSTMALL_M_OPEN_MAX_NUM> m_open;//开放
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_mystmall & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_mystmall & msg);
+		static ::proto_ff::E_FestivalMuban_mystmall* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_mystmall(); }
+		static ::proto_ff::E_FestivalMuban_mystmall make_pbmsg(){ return ::proto_ff::E_FestivalMuban_mystmall(); }
+	};
+	typedef struct E_FestivalMuban_mystmall_s E_FestivalMuban_mystmall_t;
+
+	struct Sheet_FestivalMuban_mystmall_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_mystmall_s();
+		virtual ~Sheet_FestivalMuban_mystmall_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_mystmall_s, DEFINE_SHEET_FESTIVALMUBAN_MYSTMALL_E_FESTIVALMUBAN_MYSTMALL_LIST_MAX_NUM> E_FestivalMuban_mystmall_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_mystmall & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_mystmall & msg);
+		static ::proto_ff::Sheet_FestivalMuban_mystmall* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_mystmall(); }
+		static ::proto_ff::Sheet_FestivalMuban_mystmall make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_mystmall(); }
+	};
+	typedef struct Sheet_FestivalMuban_mystmall_s Sheet_FestivalMuban_mystmall_t;
+
+	struct E_FestivalMuban_mystmall_mall_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_mystmall_mall_s();
+		virtual ~E_FestivalMuban_mystmall_mall_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//商品ID
+		int32_t m_groupID;//商城组ID
+		int32_t m_itemID;//物品ID
+		int32_t m_itemNum;//购买数量
+		int32_t m_priceType;//价格类型
+		int32_t m_price;//价格
+		int32_t m_originPrice;//原价
+		int32_t m_discount;//折扣
+		int32_t m_buyAmount;//限制数量
+		int32_t m_functionUnlock;//关联功能开放
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_mystmall_mall & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_mystmall_mall & msg);
+		static ::proto_ff::E_FestivalMuban_mystmall_mall* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_mystmall_mall(); }
+		static ::proto_ff::E_FestivalMuban_mystmall_mall make_pbmsg(){ return ::proto_ff::E_FestivalMuban_mystmall_mall(); }
+	};
+	typedef struct E_FestivalMuban_mystmall_mall_s E_FestivalMuban_mystmall_mall_t;
+
+	struct Sheet_FestivalMuban_mystmall_mall_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_mystmall_mall_s();
+		virtual ~Sheet_FestivalMuban_mystmall_mall_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_mystmall_mall_s, DEFINE_SHEET_FESTIVALMUBAN_MYSTMALL_MALL_E_FESTIVALMUBAN_MYSTMALL_MALL_LIST_MAX_NUM> E_FestivalMuban_mystmall_mall_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_mystmall_mall & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_mystmall_mall & msg);
+		static ::proto_ff::Sheet_FestivalMuban_mystmall_mall* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_mystmall_mall(); }
+		static ::proto_ff::Sheet_FestivalMuban_mystmall_mall make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_mystmall_mall(); }
+	};
+	typedef struct Sheet_FestivalMuban_mystmall_mall_s Sheet_FestivalMuban_mystmall_mall_t;
 
 	struct E_FestivalMuban_rebatestoreExpendDesc_s : public NFDescStoreSeqOP {
 		E_FestivalMuban_rebatestoreExpendDesc_s();
@@ -223,11 +508,12 @@ namespace proto_ff_s {
 		int32_t m_groupID;//商城组ID
 		int32_t m_mallType;//商城分类
 		int32_t m_itemID;//物品ID
+		int32_t m_itemNum;//购买数量
 		int32_t m_price;//价格
 		int32_t m_originPrice;//原价
 		int32_t m_discount;//折扣
 		int32_t m_daily;//是否每日重置
-		int32_t m_buyAmount;//购买数量
+		int32_t m_buyAmount;//限制数量
 		int32_t m_functionUnlock;//关联功能开放
 		int32_t m_openDay;//开放天数
 		int32_t m_closeDay;//消失天数
@@ -744,7 +1030,9 @@ namespace proto_ff_s {
 		int32_t m_maxRank;//排名上限
 		int32_t m_minRank;//排名下限
 		int32_t m_rankValue;//最低排行值数值要求
+		int32_t m_addRankValue;//额外最低排行值数值要求
 		NFShmString<64> m_UnachieveDisplay;//未满足的排行显示
+		NFShmString<64> m_addUnachieveDisplay;//额外未满足的排行显示
 		int32_t m_boxID;//奖励内容
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_severrank_data & msg) const;
@@ -946,6 +1234,38 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_FestivalMuban_leiji_s Sheet_FestivalMuban_leiji_t;
 
+	struct E_FestivalZadanconstant_s : public NFDescStoreSeqOP {
+		E_FestivalZadanconstant_s();
+		virtual ~E_FestivalZadanconstant_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_period;//期数
+		int64_t m_costItem;//抽奖消耗的物id
+		int32_t m_number;//物品数量
+		int32_t m_free;//免费重置次数
+		int32_t m_currency;//消耗钻石重置
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalZadanconstant & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalZadanconstant & msg);
+		static ::proto_ff::E_FestivalZadanconstant* new_pbmsg(){ return new ::proto_ff::E_FestivalZadanconstant(); }
+		static ::proto_ff::E_FestivalZadanconstant make_pbmsg(){ return ::proto_ff::E_FestivalZadanconstant(); }
+	};
+	typedef struct E_FestivalZadanconstant_s E_FestivalZadanconstant_t;
+
+	struct Sheet_FestivalZadanconstant_s : public NFDescStoreSeqOP {
+		Sheet_FestivalZadanconstant_s();
+		virtual ~Sheet_FestivalZadanconstant_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalZadanconstant_s, DEFINE_SHEET_FESTIVALZADANCONSTANT_E_FESTIVALZADANCONSTANT_LIST_MAX_NUM> E_FestivalZadanconstant_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalZadanconstant & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalZadanconstant & msg);
+		static ::proto_ff::Sheet_FestivalZadanconstant* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalZadanconstant(); }
+		static ::proto_ff::Sheet_FestivalZadanconstant make_pbmsg(){ return ::proto_ff::Sheet_FestivalZadanconstant(); }
+	};
+	typedef struct Sheet_FestivalZadanconstant_s Sheet_FestivalZadanconstant_t;
+
 	struct E_FestivalMuban_zadan_s : public NFDescStoreSeqOP {
 		E_FestivalMuban_zadan_s();
 		virtual ~E_FestivalMuban_zadan_s(){}
@@ -978,38 +1298,6 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_FestivalMuban_zadan make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_zadan(); }
 	};
 	typedef struct Sheet_FestivalMuban_zadan_s Sheet_FestivalMuban_zadan_t;
-
-	struct E_FestivalZadanconstant_s : public NFDescStoreSeqOP {
-		E_FestivalZadanconstant_s();
-		virtual ~E_FestivalZadanconstant_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_period;//期数
-		int64_t m_costItem;//抽奖消耗的物id
-		int32_t m_number;//物品数量
-		int32_t m_free;//免费重置次数
-		int32_t m_currency;//消耗钻石重置
-
-		virtual void write_to_pbmsg(::proto_ff::E_FestivalZadanconstant & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalZadanconstant & msg);
-		static ::proto_ff::E_FestivalZadanconstant* new_pbmsg(){ return new ::proto_ff::E_FestivalZadanconstant(); }
-		static ::proto_ff::E_FestivalZadanconstant make_pbmsg(){ return ::proto_ff::E_FestivalZadanconstant(); }
-	};
-	typedef struct E_FestivalZadanconstant_s E_FestivalZadanconstant_t;
-
-	struct Sheet_FestivalZadanconstant_s : public NFDescStoreSeqOP {
-		Sheet_FestivalZadanconstant_s();
-		virtual ~Sheet_FestivalZadanconstant_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_FestivalZadanconstant_s, DEFINE_SHEET_FESTIVALZADANCONSTANT_E_FESTIVALZADANCONSTANT_LIST_MAX_NUM> E_FestivalZadanconstant_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalZadanconstant & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalZadanconstant & msg);
-		static ::proto_ff::Sheet_FestivalZadanconstant* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalZadanconstant(); }
-		static ::proto_ff::Sheet_FestivalZadanconstant make_pbmsg(){ return ::proto_ff::Sheet_FestivalZadanconstant(); }
-	};
-	typedef struct Sheet_FestivalZadanconstant_s Sheet_FestivalZadanconstant_t;
 
 	struct E_FestivalMuban_turntable_s : public NFDescStoreSeqOP {
 		E_FestivalMuban_turntable_s();
@@ -1377,7 +1665,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_period;//期数
-		int64_t m_costID;//道具id
+		int32_t m_costID;//道具id
+		int32_t m_drawPutback;//是否放回
+		int32_t m_costType;//消耗类型
 		NFShmString<64> m_costNum;//抽奖消耗
 		int32_t m_poolGroupId;//奖池id
 		int32_t m_totalGroupID;//累计次数奖励id
@@ -1419,6 +1709,9 @@ namespace proto_ff_s {
 		int32_t m_proWeights;//保底掉落权重
 		int32_t m_timeLimit;//限制抽奖次数
 		int32_t m_Record;//奖励记录稀有度
+		int32_t m_poolLv;//奖池等级
+		NFShmString<64> m_image;//底图
+		NFShmString<64> m_point;//坐标
 
 		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize_pool & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_drawpize_pool & msg);
@@ -1534,6 +1827,109 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_FestivalMuban_dailytotalrecharge make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_dailytotalrecharge(); }
 	};
 	typedef struct Sheet_FestivalMuban_dailytotalrecharge_s Sheet_FestivalMuban_dailytotalrecharge_t;
+
+	struct E_FestivalMuban_rechargeprize_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_rechargeprize_s();
+		virtual ~E_FestivalMuban_rechargeprize_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_period;//期数
+		int32_t m_poolType;//奖池类型
+		int32_t m_poolNum;//奖品数量
+		int32_t m_showBoost;//显示倍率
+		int32_t m_maxPrize;//最大抽取次数
+		int32_t m_taskID;//任务组ID
+		int32_t m_prizeID;//抽奖组ID
+		int32_t m_itemID;//抽奖道具id
+		int32_t m_freeBox;//免费奖励
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_rechargeprize & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rechargeprize & msg);
+		static ::proto_ff::E_FestivalMuban_rechargeprize* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_rechargeprize(); }
+		static ::proto_ff::E_FestivalMuban_rechargeprize make_pbmsg(){ return ::proto_ff::E_FestivalMuban_rechargeprize(); }
+	};
+	typedef struct E_FestivalMuban_rechargeprize_s E_FestivalMuban_rechargeprize_t;
+
+	struct Sheet_FestivalMuban_rechargeprize_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_rechargeprize_s();
+		virtual ~Sheet_FestivalMuban_rechargeprize_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_rechargeprize_s, DEFINE_SHEET_FESTIVALMUBAN_RECHARGEPRIZE_E_FESTIVALMUBAN_RECHARGEPRIZE_LIST_MAX_NUM> E_FestivalMuban_rechargeprize_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_rechargeprize & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_rechargeprize & msg);
+		static ::proto_ff::Sheet_FestivalMuban_rechargeprize* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_rechargeprize(); }
+		static ::proto_ff::Sheet_FestivalMuban_rechargeprize make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_rechargeprize(); }
+	};
+	typedef struct Sheet_FestivalMuban_rechargeprize_s Sheet_FestivalMuban_rechargeprize_t;
+
+	struct E_FestivalMuban_rptask_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_rptask_s();
+		virtual ~E_FestivalMuban_rptask_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_groupID;//id组
+		int32_t m_type;//任务类型
+		NFShmString<64> m_typeArg;//任务参数
+		int32_t m_prizeNum;//奖励次数
+		NFShmString<64> m_desc;//文本描述
+		int32_t m_link;//连接
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_rptask & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rptask & msg);
+		static ::proto_ff::E_FestivalMuban_rptask* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_rptask(); }
+		static ::proto_ff::E_FestivalMuban_rptask make_pbmsg(){ return ::proto_ff::E_FestivalMuban_rptask(); }
+	};
+	typedef struct E_FestivalMuban_rptask_s E_FestivalMuban_rptask_t;
+
+	struct Sheet_FestivalMuban_rptask_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_rptask_s();
+		virtual ~Sheet_FestivalMuban_rptask_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_rptask_s, DEFINE_SHEET_FESTIVALMUBAN_RPTASK_E_FESTIVALMUBAN_RPTASK_LIST_MAX_NUM> E_FestivalMuban_rptask_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_rptask & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_rptask & msg);
+		static ::proto_ff::Sheet_FestivalMuban_rptask* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_rptask(); }
+		static ::proto_ff::Sheet_FestivalMuban_rptask make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_rptask(); }
+	};
+	typedef struct Sheet_FestivalMuban_rptask_s Sheet_FestivalMuban_rptask_t;
+
+	struct E_FestivalMuban_rppool_s : public NFDescStoreSeqOP {
+		E_FestivalMuban_rppool_s();
+		virtual ~E_FestivalMuban_rppool_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_groupID;//id组
+		int32_t m_prizeOrder;//抽奖顺序
+		int32_t m_prizeMix;//抽取最小值
+		int32_t m_prizeMax;//抽取最大值
+
+		virtual void write_to_pbmsg(::proto_ff::E_FestivalMuban_rppool & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rppool & msg);
+		static ::proto_ff::E_FestivalMuban_rppool* new_pbmsg(){ return new ::proto_ff::E_FestivalMuban_rppool(); }
+		static ::proto_ff::E_FestivalMuban_rppool make_pbmsg(){ return ::proto_ff::E_FestivalMuban_rppool(); }
+	};
+	typedef struct E_FestivalMuban_rppool_s E_FestivalMuban_rppool_t;
+
+	struct Sheet_FestivalMuban_rppool_s : public NFDescStoreSeqOP {
+		Sheet_FestivalMuban_rppool_s();
+		virtual ~Sheet_FestivalMuban_rppool_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_FestivalMuban_rppool_s, DEFINE_SHEET_FESTIVALMUBAN_RPPOOL_E_FESTIVALMUBAN_RPPOOL_LIST_MAX_NUM> E_FestivalMuban_rppool_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_rppool & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_rppool & msg);
+		static ::proto_ff::Sheet_FestivalMuban_rppool* new_pbmsg(){ return new ::proto_ff::Sheet_FestivalMuban_rppool(); }
+		static ::proto_ff::Sheet_FestivalMuban_rppool make_pbmsg(){ return ::proto_ff::Sheet_FestivalMuban_rppool(); }
+	};
+	typedef struct Sheet_FestivalMuban_rppool_s Sheet_FestivalMuban_rppool_t;
 
 	struct E_FestivalMuban_play_s : public NFDescStoreSeqOP {
 		E_FestivalMuban_play_s();

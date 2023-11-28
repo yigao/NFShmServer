@@ -13,9 +13,10 @@
 #define DEFINE_SHEET_TIANXIAFIRSTACTIVATE_E_TIANXIAFIRSTACTIVATE_LIST_MAX_NUM 16
 #define DEFINE_E_TIANXIAFIRSTSTRONG_M_TYPE_MAX_NUM 5
 #define DEFINE_SHEET_TIANXIAFIRSTSTRONG_E_TIANXIAFIRSTSTRONG_LIST_MAX_NUM 8
-#define DEFINE_SHEET_TIANXIAFIRSTSTRONGITEM_E_TIANXIAFIRSTSTRONGITEM_LIST_MAX_NUM 2
+#define DEFINE_SHEET_TIANXIAFIRSTSTRONGITEM_E_TIANXIAFIRSTSTRONGITEM_LIST_MAX_NUM 4
 #define DEFINE_E_TIANXIAFIRSTREFINE_M_ATT_MAX_NUM 5
 #define DEFINE_SHEET_TIANXIAFIRSTREFINE_E_TIANXIAFIRSTREFINE_LIST_MAX_NUM 128
+#define DEFINE_SHEET_TIANXIAFIRSTSQSKILL_E_TIANXIAFIRSTSQSKILL_LIST_MAX_NUM 64
 
 
 namespace proto_ff_s {
@@ -207,6 +208,39 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_TianxiafirstRefine make_pbmsg(){ return ::proto_ff::Sheet_TianxiafirstRefine(); }
 	};
 	typedef struct Sheet_TianxiafirstRefine_s Sheet_TianxiafirstRefine_t;
+
+	struct E_TianxiafirstSqskill_s : public NFDescStoreSeqOP {
+		E_TianxiafirstSqskill_s();
+		virtual ~E_TianxiafirstSqskill_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_artifactId;//神器id
+		int32_t m_skillId;//技能id
+		int32_t m_level;//技能等级
+		int32_t m_condition;//激活/升级条件
+		int32_t m_score;//技能评分
+
+		virtual void write_to_pbmsg(::proto_ff::E_TianxiafirstSqskill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_TianxiafirstSqskill & msg);
+		static ::proto_ff::E_TianxiafirstSqskill* new_pbmsg(){ return new ::proto_ff::E_TianxiafirstSqskill(); }
+		static ::proto_ff::E_TianxiafirstSqskill make_pbmsg(){ return ::proto_ff::E_TianxiafirstSqskill(); }
+	};
+	typedef struct E_TianxiafirstSqskill_s E_TianxiafirstSqskill_t;
+
+	struct Sheet_TianxiafirstSqskill_s : public NFDescStoreSeqOP {
+		Sheet_TianxiafirstSqskill_s();
+		virtual ~Sheet_TianxiafirstSqskill_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_TianxiafirstSqskill_s, DEFINE_SHEET_TIANXIAFIRSTSQSKILL_E_TIANXIAFIRSTSQSKILL_LIST_MAX_NUM> E_TianxiafirstSqskill_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_TianxiafirstSqskill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_TianxiafirstSqskill & msg);
+		static ::proto_ff::Sheet_TianxiafirstSqskill* new_pbmsg(){ return new ::proto_ff::Sheet_TianxiafirstSqskill(); }
+		static ::proto_ff::Sheet_TianxiafirstSqskill make_pbmsg(){ return ::proto_ff::Sheet_TianxiafirstSqskill(); }
+	};
+	typedef struct Sheet_TianxiafirstSqskill_s Sheet_TianxiafirstSqskill_t;
 
 }
 

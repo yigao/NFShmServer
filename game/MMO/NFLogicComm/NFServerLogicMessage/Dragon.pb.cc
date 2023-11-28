@@ -73,13 +73,14 @@ void protobuf_AssignDesc_Dragon_2eproto() {
       "Dragon.proto");
   GOOGLE_CHECK(file != NULL);
   ShadowProto_descriptor_ = file->message_type(0);
-  static const int ShadowProto_offsets_[6] = {
+  static const int ShadowProto_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, lev_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, exp_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, star_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, lucky_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, frag_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, curstar_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ShadowProto, skill_),
   };
   ShadowProto_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -377,25 +378,26 @@ void protobuf_AddDesc_Dragon_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014Dragon.proto\022\010proto_ff\032\tCom.proto\032\017Com"
-    "Define.proto\"v\n\013ShadowProto\022\013\n\003lev\030\001 \001(\005"
-    "\022\013\n\003exp\030\002 \001(\005\022\014\n\004star\030\003 \001(\005\022\r\n\005lucky\030\004 \001"
-    "(\005\022\037\n\004frag\030\005 \003(\0132\021.proto_ff.ComPair\022\017\n\007c"
-    "urstar\030\006 \001(\005\"L\n\tHaloProto\022\037\n\004info\030\001 \003(\0132"
-    "\021.proto_ff.ComPair\022\r\n\005curid\030\002 \001(\005\022\017\n\007cur"
-    "star\030\003 \001(\005\"\020\n\016Dragon_InfoReq\"Z\n\016Dragon_I"
-    "nfoRsp\022%\n\006shadow\030\001 \001(\0132\025.proto_ff.Shadow"
-    "Proto\022!\n\004halo\030\002 \001(\0132\023.proto_ff.HaloProto"
-    "\"\023\n\021Dragon_UpgradeReq\" \n\021Dragon_UpgradeR"
-    "sp\022\013\n\003ret\030\001 \002(\005\"#\n\021Dragon_UseFragReq\022\016\n\006"
-    "fragid\030\001 \001(\003\" \n\021Dragon_UseFragRsp\022\013\n\003ret"
-    "\030\001 \002(\005\"\034\n\016Dragon_StarReq\022\n\n\002id\030\001 \001(\005\"7\n\016"
-    "Dragon_StarRsp\022\013\n\003ret\030\001 \002(\005\022\n\n\002id\030\002 \001(\005\022"
-    "\014\n\004star\030\003 \001(\005\">\n\021Dragon_FatansyReq\022\n\n\002id"
-    "\030\001 \001(\005\022\014\n\004star\030\002 \001(\005\022\017\n\007undress\030\003 \001(\005\" \n"
-    "\021Dragon_FatansyRsp\022\013\n\003ret\030\001 \002(\005\"=\n\024Drago"
-    "n_ShadowInfoRsp\022%\n\006shadow\030\001 \001(\0132\025.proto_"
-    "ff.ShadowProto\"7\n\022Dragon_HaloInfoRsp\022!\n\004"
-    "halo\030\001 \001(\0132\023.proto_ff.HaloProto", 791);
+    "Define.proto\"\232\001\n\013ShadowProto\022\013\n\003lev\030\001 \001("
+    "\005\022\013\n\003exp\030\002 \001(\005\022\014\n\004star\030\003 \001(\005\022\r\n\005lucky\030\004 "
+    "\001(\005\022\037\n\004frag\030\005 \003(\0132\021.proto_ff.ComPair\022\017\n\007"
+    "curstar\030\006 \001(\005\022\"\n\005skill\030\007 \003(\0132\023.proto_ff."
+    "ComPair64\"L\n\tHaloProto\022\037\n\004info\030\001 \003(\0132\021.p"
+    "roto_ff.ComPair\022\r\n\005curid\030\002 \001(\005\022\017\n\007cursta"
+    "r\030\003 \001(\005\"\020\n\016Dragon_InfoReq\"Z\n\016Dragon_Info"
+    "Rsp\022%\n\006shadow\030\001 \001(\0132\025.proto_ff.ShadowPro"
+    "to\022!\n\004halo\030\002 \001(\0132\023.proto_ff.HaloProto\"\023\n"
+    "\021Dragon_UpgradeReq\" \n\021Dragon_UpgradeRsp\022"
+    "\013\n\003ret\030\001 \002(\005\"#\n\021Dragon_UseFragReq\022\016\n\006fra"
+    "gid\030\001 \001(\003\" \n\021Dragon_UseFragRsp\022\013\n\003ret\030\001 "
+    "\002(\005\"\034\n\016Dragon_StarReq\022\n\n\002id\030\001 \001(\005\"7\n\016Dra"
+    "gon_StarRsp\022\013\n\003ret\030\001 \002(\005\022\n\n\002id\030\002 \001(\005\022\014\n\004"
+    "star\030\003 \001(\005\">\n\021Dragon_FatansyReq\022\n\n\002id\030\001 "
+    "\001(\005\022\014\n\004star\030\002 \001(\005\022\017\n\007undress\030\003 \001(\005\" \n\021Dr"
+    "agon_FatansyRsp\022\013\n\003ret\030\001 \002(\005\"=\n\024Dragon_S"
+    "hadowInfoRsp\022%\n\006shadow\030\001 \001(\0132\025.proto_ff."
+    "ShadowProto\"7\n\022Dragon_HaloInfoRsp\022!\n\004hal"
+    "o\030\001 \001(\0132\023.proto_ff.HaloProto", 828);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Dragon.proto", &protobuf_RegisterTypes);
   ShadowProto::default_instance_ = new ShadowProto();
@@ -445,6 +447,7 @@ const int ShadowProto::kStarFieldNumber;
 const int ShadowProto::kLuckyFieldNumber;
 const int ShadowProto::kFragFieldNumber;
 const int ShadowProto::kCurstarFieldNumber;
+const int ShadowProto::kSkillFieldNumber;
 #endif  // !_MSC_VER
 
 ShadowProto::ShadowProto()
@@ -510,6 +513,7 @@ void ShadowProto::Clear() {
     curstar_ = 0;
   }
   frag_.Clear();
+  skill_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -610,6 +614,21 @@ bool ShadowProto::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(58)) goto parse_skill;
+        break;
+      }
+
+      // repeated .proto_ff.ComPair64 skill = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_skill:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_skill()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(58)) goto parse_skill;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -663,6 +682,12 @@ void ShadowProto::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->curstar(), output);
   }
 
+  // repeated .proto_ff.ComPair64 skill = 7;
+  for (int i = 0; i < this->skill_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, this->skill(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -701,6 +726,13 @@ void ShadowProto::SerializeWithCachedSizes(
   // optional int32 curstar = 6;
   if (has_curstar()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->curstar(), target);
+  }
+
+  // repeated .proto_ff.ComPair64 skill = 7;
+  for (int i = 0; i < this->skill_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        7, this->skill(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -758,6 +790,14 @@ int ShadowProto::ByteSize() const {
         this->frag(i));
   }
 
+  // repeated .proto_ff.ComPair64 skill = 7;
+  total_size += 1 * this->skill_size();
+  for (int i = 0; i < this->skill_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->skill(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -784,6 +824,7 @@ void ShadowProto::MergeFrom(const ::google::protobuf::Message& from) {
 void ShadowProto::MergeFrom(const ShadowProto& from) {
   GOOGLE_CHECK_NE(&from, this);
   frag_.MergeFrom(from.frag_);
+  skill_.MergeFrom(from.skill_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_lev()) {
       set_lev(from.lev());
@@ -829,6 +870,7 @@ void ShadowProto::Swap(ShadowProto* other) {
     std::swap(lucky_, other->lucky_);
     frag_.Swap(&other->frag_);
     std::swap(curstar_, other->curstar_);
+    skill_.Swap(&other->skill_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

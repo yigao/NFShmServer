@@ -183,7 +183,6 @@ E_MofaYuansu_s::E_MofaYuansu_s() {
 int E_MofaYuansu_s::CreateInit() {
 	m_EquipID = (int32_t)0;
 	m_AttriType = (int32_t)0;
-	m_mosaic = (int32_t)0;
 	m_LvItem = (int32_t)0;
 	m_awaken_can = (int32_t)0;
 	m_awaken_Lvmax = (int32_t)0;
@@ -198,7 +197,7 @@ int E_MofaYuansu_s::ResumeInit() {
 void E_MofaYuansu_s::write_to_pbmsg(::proto_ff::E_MofaYuansu & msg) const {
 	msg.set_m_equipid((int32_t)m_EquipID);
 	msg.set_m_attritype((int32_t)m_AttriType);
-	msg.set_m_mosaic((int32_t)m_mosaic);
+	msg.set_m_mosaic(m_mosaic.data());
 	msg.set_m_lvitem((int32_t)m_LvItem);
 	msg.set_m_awaken_can((int32_t)m_awaken_can);
 	msg.set_m_awaken_lvmax((int32_t)m_awaken_Lvmax);

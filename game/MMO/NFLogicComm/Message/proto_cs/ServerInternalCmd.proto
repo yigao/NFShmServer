@@ -518,10 +518,21 @@ enum ServerInternalCmd
 	NOTIFY_DUP_TEAM_DIS_REQ = 1511;						//逻辑服请求解散副本队伍
 	LC_NOTIFY_YAOTA_FIRST_PASS_REQ = 1512;				//九层妖塔数据发到中心服
 	CL_YAOTA_RECV_REQ = 1513;							//九层妖塔数据領取奖励
+	//野外BOSS(运营活动)
+	LC_FIELD_BOSS_INIT_REQ = 1516;						//逻辑服向中心服 请求野外BOSS初始数据
+	LC_FIELD_BOSS_INIT_RSP = 1517;						//中心服返回逻辑服 野外BOSS初始数据
+	LC_FIELD_BOSS_INFO_REQ = 1518;						//逻辑服向中心服 返回 野外BOSS信息
+	CL_FIELD_BOSS_INFO_NOTIFY = 1519;					//中心服通知逻辑服  更新野外BOSS数据
 
 	//封神之战1530-1550
 	NGPD_BattleReq = 1530; //数据请求
 	NGPD_BattleRsp =1531;
 	NGPD_BattleSaveReq=1532;
+	NGPD_PlayerPDReq=1533;
+	NGPD_PlayerPDRsp=1534;
+	NGPD_PlayerSaveReq=1535;
+	NGPD_AddTBoxOpenLog=1536;//占加一条挖宝记录
+	NGPD_RankReq=1537;
+	NGPD_TBoxOpenServerLogReq=1538;
 	SERVER_INTER_MAX_CMD					= 5000;	  //最大协议ID
 };

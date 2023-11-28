@@ -2753,17 +2753,24 @@ class E_MonsterDrop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_own() const;
   inline void set_m_own(::google::protobuf::int32 value);
 
-  // optional int32 m_type = 4;
+  // optional int32 m_ownProtect = 4;
+  inline bool has_m_ownprotect() const;
+  inline void clear_m_ownprotect();
+  static const int kMOwnProtectFieldNumber = 4;
+  inline ::google::protobuf::int32 m_ownprotect() const;
+  inline void set_m_ownprotect(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 5;
   inline bool has_m_type() const;
   inline void clear_m_type();
-  static const int kMTypeFieldNumber = 4;
+  static const int kMTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_type() const;
   inline void set_m_type(::google::protobuf::int32 value);
 
-  // repeated int64 m_boxID = 5;
+  // repeated int64 m_boxID = 6;
   inline int m_boxid_size() const;
   inline void clear_m_boxid();
-  static const int kMBoxIDFieldNumber = 5;
+  static const int kMBoxIDFieldNumber = 6;
   inline ::google::protobuf::int64 m_boxid(int index) const;
   inline void set_m_boxid(int index, ::google::protobuf::int64 value);
   inline void add_m_boxid(::google::protobuf::int64 value);
@@ -2780,6 +2787,8 @@ class E_MonsterDrop : public ::google::protobuf::Message {
   inline void clear_has_m_group();
   inline void set_has_m_own();
   inline void clear_has_m_own();
+  inline void set_has_m_ownprotect();
+  inline void clear_has_m_ownprotect();
   inline void set_has_m_type();
   inline void clear_has_m_type();
 
@@ -2788,11 +2797,12 @@ class E_MonsterDrop : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_group_;
   ::google::protobuf::int32 m_own_;
-  ::google::protobuf::int32 m_type_;
+  ::google::protobuf::int32 m_ownprotect_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > m_boxid_;
+  ::google::protobuf::int32 m_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMonster_2eproto();
   friend void protobuf_AssignDesc_E_5fMonster_2eproto();
@@ -7711,15 +7721,37 @@ inline void E_MonsterDrop::set_m_own(::google::protobuf::int32 value) {
   m_own_ = value;
 }
 
-// optional int32 m_type = 4;
-inline bool E_MonsterDrop::has_m_type() const {
+// optional int32 m_ownProtect = 4;
+inline bool E_MonsterDrop::has_m_ownprotect() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_MonsterDrop::set_has_m_type() {
+inline void E_MonsterDrop::set_has_m_ownprotect() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_MonsterDrop::clear_has_m_type() {
+inline void E_MonsterDrop::clear_has_m_ownprotect() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_MonsterDrop::clear_m_ownprotect() {
+  m_ownprotect_ = 0;
+  clear_has_m_ownprotect();
+}
+inline ::google::protobuf::int32 E_MonsterDrop::m_ownprotect() const {
+  return m_ownprotect_;
+}
+inline void E_MonsterDrop::set_m_ownprotect(::google::protobuf::int32 value) {
+  set_has_m_ownprotect();
+  m_ownprotect_ = value;
+}
+
+// optional int32 m_type = 5;
+inline bool E_MonsterDrop::has_m_type() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_MonsterDrop::set_has_m_type() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_MonsterDrop::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_MonsterDrop::clear_m_type() {
   m_type_ = 0;
@@ -7733,7 +7765,7 @@ inline void E_MonsterDrop::set_m_type(::google::protobuf::int32 value) {
   m_type_ = value;
 }
 
-// repeated int64 m_boxID = 5;
+// repeated int64 m_boxID = 6;
 inline int E_MonsterDrop::m_boxid_size() const {
   return m_boxid_.size();
 }

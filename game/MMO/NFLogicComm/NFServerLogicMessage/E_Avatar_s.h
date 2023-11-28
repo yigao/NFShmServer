@@ -26,6 +26,16 @@
 #define DEFINE_SHEET_AVATARSKILL_E_AVATARSKILL_LIST_MAX_NUM 16
 #define DEFINE_E_AVATAREQUIPSUIT_M_ATTRIBUTE_MAX_NUM 3
 #define DEFINE_SHEET_AVATAREQUIPSUIT_E_AVATAREQUIPSUIT_LIST_MAX_NUM 16
+#define DEFINE_E_AVATARMYTH_M_ATTRIBUTE_MAX_NUM 6
+#define DEFINE_SHEET_AVATARMYTH_E_AVATARMYTH_LIST_MAX_NUM 4
+#define DEFINE_E_AVATARMYTHWAY_M_EQUIPID_MAX_NUM 5
+#define DEFINE_E_AVATARMYTHWAY_M_SPECIALID_MAX_NUM 3
+#define DEFINE_E_AVATARMYTHWAY_M_ATTRIBUTE_MAX_NUM 8
+#define DEFINE_SHEET_AVATARMYTHWAY_E_AVATARMYTHWAY_LIST_MAX_NUM 64
+#define DEFINE_E_AVATARMYTHCORE_M_ATTRIBUTE_MAX_NUM 4
+#define DEFINE_SHEET_AVATARMYTHCORE_E_AVATARMYTHCORE_LIST_MAX_NUM 64
+#define DEFINE_E_AVATARMYTHEQUIP_M_ATTRIBUTE_MAX_NUM 8
+#define DEFINE_SHEET_AVATARMYTHEQUIP_E_AVATARMYTHEQUIP_LIST_MAX_NUM 64
 
 
 namespace proto_ff_s {
@@ -227,6 +237,11 @@ namespace proto_ff_s {
 		int32_t m_maxEquip;//最高装备品质
 		int32_t m_equipSuit;//套装id
 		int32_t m_starBer;//每星级提升百分比
+		NFShmString<64> m_mythSkill;//化神被动技能
+		NFShmString<64> m_mythSPSkill;//化神专属技能
+		int32_t m_mythID;//化神组ID
+		int32_t m_mythWayID;//神格组id
+		int32_t m_mythCoreID;//神核组ID
 		NFShmVector<struct E_AvatarChangeMaterialDesc_s, DEFINE_E_AVATARCHANGE_M_MATERIAL_MAX_NUM> m_material;//升级材料
 		NFShmVector<int64_t, DEFINE_E_AVATARCHANGE_M_INITIATIVESKILL_MAX_NUM> m_InitiativeSkill;//主动技能
 		NFShmVector<struct E_AvatarChangeAttributeDesc_s, DEFINE_E_AVATARCHANGE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//百分比属性
@@ -434,6 +449,199 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_AvatarEquipsuit make_pbmsg(){ return ::proto_ff::Sheet_AvatarEquipsuit(); }
 	};
 	typedef struct Sheet_AvatarEquipsuit_s Sheet_AvatarEquipsuit_t;
+
+	struct E_AvatarMythAttributeDesc_s : public NFDescStoreSeqOP {
+		E_AvatarMythAttributeDesc_s();
+		virtual ~E_AvatarMythAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythAttributeDesc & msg);
+		static ::proto_ff::E_AvatarMythAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_AvatarMythAttributeDesc(); }
+		static ::proto_ff::E_AvatarMythAttributeDesc make_pbmsg(){ return ::proto_ff::E_AvatarMythAttributeDesc(); }
+	};
+	typedef struct E_AvatarMythAttributeDesc_s E_AvatarMythAttributeDesc_t;
+
+	struct E_AvatarMyth_s : public NFDescStoreSeqOP {
+		E_AvatarMyth_s();
+		virtual ~E_AvatarMyth_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//ID
+		int32_t m_groupID;//组ID
+		int32_t m_stage;//阶级
+		NFShmVector<struct E_AvatarMythAttributeDesc_s, DEFINE_E_AVATARMYTH_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMyth & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMyth & msg);
+		static ::proto_ff::E_AvatarMyth* new_pbmsg(){ return new ::proto_ff::E_AvatarMyth(); }
+		static ::proto_ff::E_AvatarMyth make_pbmsg(){ return ::proto_ff::E_AvatarMyth(); }
+	};
+	typedef struct E_AvatarMyth_s E_AvatarMyth_t;
+
+	struct Sheet_AvatarMyth_s : public NFDescStoreSeqOP {
+		Sheet_AvatarMyth_s();
+		virtual ~Sheet_AvatarMyth_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_AvatarMyth_s, DEFINE_SHEET_AVATARMYTH_E_AVATARMYTH_LIST_MAX_NUM> E_AvatarMyth_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarMyth & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarMyth & msg);
+		static ::proto_ff::Sheet_AvatarMyth* new_pbmsg(){ return new ::proto_ff::Sheet_AvatarMyth(); }
+		static ::proto_ff::Sheet_AvatarMyth make_pbmsg(){ return ::proto_ff::Sheet_AvatarMyth(); }
+	};
+	typedef struct Sheet_AvatarMyth_s Sheet_AvatarMyth_t;
+
+	struct E_AvatarMythwayAttributeDesc_s : public NFDescStoreSeqOP {
+		E_AvatarMythwayAttributeDesc_s();
+		virtual ~E_AvatarMythwayAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythwayAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythwayAttributeDesc & msg);
+		static ::proto_ff::E_AvatarMythwayAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_AvatarMythwayAttributeDesc(); }
+		static ::proto_ff::E_AvatarMythwayAttributeDesc make_pbmsg(){ return ::proto_ff::E_AvatarMythwayAttributeDesc(); }
+	};
+	typedef struct E_AvatarMythwayAttributeDesc_s E_AvatarMythwayAttributeDesc_t;
+
+	struct E_AvatarMythway_s : public NFDescStoreSeqOP {
+		E_AvatarMythway_s();
+		virtual ~E_AvatarMythway_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//ID
+		int32_t m_groupID;//组id
+		int32_t m_stage;//阶数
+		int32_t m_star;//星数
+		int32_t m_showStar;//显示星数
+		int32_t m_mythCoreCondition;//要求神核等级
+		int32_t m_posX;//坐标x
+		int32_t m_posY;//坐标y
+		NFShmVector<int32_t, DEFINE_E_AVATARMYTHWAY_M_EQUIPID_MAX_NUM> m_equipID;//装备id
+		NFShmVector<int32_t, DEFINE_E_AVATARMYTHWAY_M_SPECIALID_MAX_NUM> m_specialID;//稀有装备id
+		NFShmVector<struct E_AvatarMythwayAttributeDesc_s, DEFINE_E_AVATARMYTHWAY_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythway & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythway & msg);
+		static ::proto_ff::E_AvatarMythway* new_pbmsg(){ return new ::proto_ff::E_AvatarMythway(); }
+		static ::proto_ff::E_AvatarMythway make_pbmsg(){ return ::proto_ff::E_AvatarMythway(); }
+	};
+	typedef struct E_AvatarMythway_s E_AvatarMythway_t;
+
+	struct Sheet_AvatarMythway_s : public NFDescStoreSeqOP {
+		Sheet_AvatarMythway_s();
+		virtual ~Sheet_AvatarMythway_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_AvatarMythway_s, DEFINE_SHEET_AVATARMYTHWAY_E_AVATARMYTHWAY_LIST_MAX_NUM> E_AvatarMythway_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarMythway & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarMythway & msg);
+		static ::proto_ff::Sheet_AvatarMythway* new_pbmsg(){ return new ::proto_ff::Sheet_AvatarMythway(); }
+		static ::proto_ff::Sheet_AvatarMythway make_pbmsg(){ return ::proto_ff::Sheet_AvatarMythway(); }
+	};
+	typedef struct Sheet_AvatarMythway_s Sheet_AvatarMythway_t;
+
+	struct E_AvatarMythcoreAttributeDesc_s : public NFDescStoreSeqOP {
+		E_AvatarMythcoreAttributeDesc_s();
+		virtual ~E_AvatarMythcoreAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythcoreAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythcoreAttributeDesc & msg);
+		static ::proto_ff::E_AvatarMythcoreAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_AvatarMythcoreAttributeDesc(); }
+		static ::proto_ff::E_AvatarMythcoreAttributeDesc make_pbmsg(){ return ::proto_ff::E_AvatarMythcoreAttributeDesc(); }
+	};
+	typedef struct E_AvatarMythcoreAttributeDesc_s E_AvatarMythcoreAttributeDesc_t;
+
+	struct E_AvatarMythcore_s : public NFDescStoreSeqOP {
+		E_AvatarMythcore_s();
+		virtual ~E_AvatarMythcore_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//ID
+		int32_t m_groupID;//组ID
+		int32_t m_LV;//等级
+		int32_t m_costID;//消耗道具
+		int32_t m_costNum;//消耗数量
+		int32_t m_success;//成功率
+		NFShmVector<struct E_AvatarMythcoreAttributeDesc_s, DEFINE_E_AVATARMYTHCORE_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythcore & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythcore & msg);
+		static ::proto_ff::E_AvatarMythcore* new_pbmsg(){ return new ::proto_ff::E_AvatarMythcore(); }
+		static ::proto_ff::E_AvatarMythcore make_pbmsg(){ return ::proto_ff::E_AvatarMythcore(); }
+	};
+	typedef struct E_AvatarMythcore_s E_AvatarMythcore_t;
+
+	struct Sheet_AvatarMythcore_s : public NFDescStoreSeqOP {
+		Sheet_AvatarMythcore_s();
+		virtual ~Sheet_AvatarMythcore_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_AvatarMythcore_s, DEFINE_SHEET_AVATARMYTHCORE_E_AVATARMYTHCORE_LIST_MAX_NUM> E_AvatarMythcore_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarMythcore & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarMythcore & msg);
+		static ::proto_ff::Sheet_AvatarMythcore* new_pbmsg(){ return new ::proto_ff::Sheet_AvatarMythcore(); }
+		static ::proto_ff::Sheet_AvatarMythcore make_pbmsg(){ return ::proto_ff::Sheet_AvatarMythcore(); }
+	};
+	typedef struct Sheet_AvatarMythcore_s Sheet_AvatarMythcore_t;
+
+	struct E_AvatarMythequipAttributeDesc_s : public NFDescStoreSeqOP {
+		E_AvatarMythequipAttributeDesc_s();
+		virtual ~E_AvatarMythequipAttributeDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_value;//值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythequipAttributeDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythequipAttributeDesc & msg);
+		static ::proto_ff::E_AvatarMythequipAttributeDesc* new_pbmsg(){ return new ::proto_ff::E_AvatarMythequipAttributeDesc(); }
+		static ::proto_ff::E_AvatarMythequipAttributeDesc make_pbmsg(){ return ::proto_ff::E_AvatarMythequipAttributeDesc(); }
+	};
+	typedef struct E_AvatarMythequipAttributeDesc_s E_AvatarMythequipAttributeDesc_t;
+
+	struct E_AvatarMythequip_s : public NFDescStoreSeqOP {
+		E_AvatarMythequip_s();
+		virtual ~E_AvatarMythequip_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_itemID;//物品ID
+		int32_t m_star;//星级
+		NFShmVector<struct E_AvatarMythequipAttributeDesc_s, DEFINE_E_AVATARMYTHEQUIP_M_ATTRIBUTE_MAX_NUM> m_Attribute;//属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_AvatarMythequip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_AvatarMythequip & msg);
+		static ::proto_ff::E_AvatarMythequip* new_pbmsg(){ return new ::proto_ff::E_AvatarMythequip(); }
+		static ::proto_ff::E_AvatarMythequip make_pbmsg(){ return ::proto_ff::E_AvatarMythequip(); }
+	};
+	typedef struct E_AvatarMythequip_s E_AvatarMythequip_t;
+
+	struct Sheet_AvatarMythequip_s : public NFDescStoreSeqOP {
+		Sheet_AvatarMythequip_s();
+		virtual ~Sheet_AvatarMythequip_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_AvatarMythequip_s, DEFINE_SHEET_AVATARMYTHEQUIP_E_AVATARMYTHEQUIP_LIST_MAX_NUM> E_AvatarMythequip_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_AvatarMythequip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_AvatarMythequip & msg);
+		static ::proto_ff::Sheet_AvatarMythequip* new_pbmsg(){ return new ::proto_ff::Sheet_AvatarMythequip(); }
+		static ::proto_ff::Sheet_AvatarMythequip make_pbmsg(){ return ::proto_ff::Sheet_AvatarMythequip(); }
+	};
+	typedef struct Sheet_AvatarMythequip_s Sheet_AvatarMythequip_t;
 
 }
 

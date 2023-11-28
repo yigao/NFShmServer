@@ -44,7 +44,7 @@ message E_MofaYuansu
 {
 	optional int32 m_EquipID = 1[(yd_fieldoptions.field_cname) = "装备ID"];
 	optional int32 m_AttriType = 2[(yd_fieldoptions.field_cname) = "物品类型排序"];
-	optional int32 m_mosaic = 3[(yd_fieldoptions.field_cname) = "可镶嵌部位"];
+	optional string m_mosaic = 3[(yd_fieldoptions.field_cname) = "可镶嵌部位", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_LvItem = 4[(yd_fieldoptions.field_cname) = "升级道具"];
 	optional int32 m_awaken_can = 5[(yd_fieldoptions.field_cname) = "是否可觉醒"];
 	optional int32 m_awaken_Lvmax = 6[(yd_fieldoptions.field_cname) = "觉醒上限"];

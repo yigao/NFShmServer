@@ -24,7 +24,7 @@
 #define DEFINE_E_PETFETTERS_M_PETID_MAX_NUM 3
 #define DEFINE_E_PETFETTERS_M_ATTRIBUTE_MAX_NUM 7
 #define DEFINE_E_PETFETTERS_M_ATCTIVE_SKILLID_MAX_NUM 4
-#define DEFINE_SHEET_PETFETTERS_E_PETFETTERS_LIST_MAX_NUM 8
+#define DEFINE_SHEET_PETFETTERS_E_PETFETTERS_LIST_MAX_NUM 16
 #define DEFINE_E_PETPETEQUIP_M_ACT_MAX_NUM 2
 #define DEFINE_SHEET_PETPETEQUIP_E_PETPETEQUIP_LIST_MAX_NUM 32
 #define DEFINE_E_PETEQUIPVALUE_M_ATTRIBUTE_MAX_NUM 5
@@ -798,6 +798,7 @@ namespace proto_ff_s {
 		int32_t m_group;//组
 		int32_t m_num;//兑换数量
 		int32_t m_condition;//兑换条件
+		int32_t m_conversion;//展示条件
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetRefineconversion & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PetRefineconversion & msg);
@@ -942,6 +943,8 @@ namespace proto_ff_s {
 		int32_t m_solt;//槽位解锁
 		int32_t m_item;//消耗
 		int32_t m_num;//数量
+		int32_t m_items;//第五消耗
+		int32_t m_nums;//第五数量
 		NFShmVector<struct E_PetConstMaterialDesc_s, DEFINE_E_PETCONST_M_MATERIAL_MAX_NUM> m_material;//升级
 
 		virtual void write_to_pbmsg(::proto_ff::E_PetConst & msg) const;

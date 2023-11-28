@@ -95,13 +95,14 @@ void protobuf_AssignDesc_E_5fIntimacy_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_IntimacyIntimacy));
   E_IntimacyGift_descriptor_ = file->message_type(3);
-  static const int E_IntimacyGift_offsets_[6] = {
+  static const int E_IntimacyGift_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_mallid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_itemid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_nametype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_uipic_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_intimacy_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_charm_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_IntimacyGift, m_acceptcharm_),
   };
   E_IntimacyGift_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -187,15 +188,16 @@ void protobuf_AddDesc_E_5fIntimacy_2eproto() {
     "macyAttributeDescB\024\302\377\024\014\345\237\272\347\241\200\345\261\236\346\200\247\210\301\024\003\""
     "]\n\026Sheet_IntimacyIntimacy\022C\n\027E_IntimacyI"
     "ntimacy_List\030\001 \003(\0132\034.proto_ff.E_Intimacy"
-    "IntimacyB\004\210\301\024\020\"\340\001\n\016E_IntimacyGift\022\036\n\010m_m"
+    "IntimacyB\004\210\301\024\020\"\214\002\n\016E_IntimacyGift\022\036\n\010m_m"
     "allid\030\001 \001(\005B\014\302\377\024\010\345\225\206\345\237\216id\022\036\n\010m_itemId\030\002 "
     "\001(\005B\014\302\377\024\010\351\201\223\345\205\267id\022$\n\nm_nameType\030\003 \001(\005B\020\302"
     "\377\024\014\345\220\215\347\247\260\347\261\273\345\236\213\022%\n\007m_uiPic\030\004 \001(\tB\024\302\377\024\014\345\272"
     "\225\346\241\206\345\233\276\347\211\207\220\301\024@\022!\n\nm_intimacy\030\005 \001(\005B\r\302\377\024\t"
     "\344\272\262\345\257\206\345\272\246\022\036\n\007m_charm\030\006 \001(\005B\r\302\377\024\t\351\255\205\345\212\233\345\200"
-    "\274\"Q\n\022Sheet_IntimacyGift\022;\n\023E_IntimacyGif"
-    "t_List\030\001 \003(\0132\030.proto_ff.E_IntimacyGiftB\004"
-    "\210\301\024\010", 764);
+    "\274\022*\n\rm_acceptCharm\030\007 \001(\005B\023\302\377\024\017\346\216\245\345\217\227\351\255\205\345"
+    "\212\233\345\200\274\"Q\n\022Sheet_IntimacyGift\022;\n\023E_Intimac"
+    "yGift_List\030\001 \003(\0132\030.proto_ff.E_IntimacyGi"
+    "ftB\004\210\301\024\010", 808);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Intimacy.proto", &protobuf_RegisterTypes);
   E_IntimacyIntimacyAttributeDesc::default_instance_ = new E_IntimacyIntimacyAttributeDesc();
@@ -1006,6 +1008,7 @@ const int E_IntimacyGift::kMNameTypeFieldNumber;
 const int E_IntimacyGift::kMUiPicFieldNumber;
 const int E_IntimacyGift::kMIntimacyFieldNumber;
 const int E_IntimacyGift::kMCharmFieldNumber;
+const int E_IntimacyGift::kMAcceptCharmFieldNumber;
 #endif  // !_MSC_VER
 
 E_IntimacyGift::E_IntimacyGift()
@@ -1030,6 +1033,7 @@ void E_IntimacyGift::SharedCtor() {
   m_uipic_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_intimacy_ = 0;
   m_charm_ = 0;
+  m_acceptcharm_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1078,6 +1082,7 @@ void E_IntimacyGift::Clear() {
     }
     m_intimacy_ = 0;
     m_charm_ = 0;
+    m_acceptcharm_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1181,6 +1186,22 @@ bool E_IntimacyGift::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(56)) goto parse_m_acceptCharm;
+        break;
+      }
+
+      // optional int32 m_acceptCharm = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_acceptCharm:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_acceptcharm_)));
+          set_has_m_acceptcharm();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1237,6 +1258,11 @@ void E_IntimacyGift::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_charm(), output);
   }
 
+  // optional int32 m_acceptCharm = 7;
+  if (has_m_acceptcharm()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_acceptcharm(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1278,6 +1304,11 @@ void E_IntimacyGift::SerializeWithCachedSizes(
   // optional int32 m_charm = 6;
   if (has_m_charm()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_charm(), target);
+  }
+
+  // optional int32 m_acceptCharm = 7;
+  if (has_m_acceptcharm()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_acceptcharm(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1333,6 +1364,13 @@ int E_IntimacyGift::ByteSize() const {
           this->m_charm());
     }
 
+    // optional int32 m_acceptCharm = 7;
+    if (has_m_acceptcharm()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_acceptcharm());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -1378,6 +1416,9 @@ void E_IntimacyGift::MergeFrom(const E_IntimacyGift& from) {
     if (from.has_m_charm()) {
       set_m_charm(from.m_charm());
     }
+    if (from.has_m_acceptcharm()) {
+      set_m_acceptcharm(from.m_acceptcharm());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1407,6 +1448,7 @@ void E_IntimacyGift::Swap(E_IntimacyGift* other) {
     std::swap(m_uipic_, other->m_uipic_);
     std::swap(m_intimacy_, other->m_intimacy_);
     std::swap(m_charm_, other->m_charm_);
+    std::swap(m_acceptcharm_, other->m_acceptcharm_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

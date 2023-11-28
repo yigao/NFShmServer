@@ -20,6 +20,9 @@ namespace proto_ff {
 
 namespace {
 
+const ::google::protobuf::Descriptor* SoulEquip_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  SoulEquip_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CreatureCreateData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CreatureCreateData_reflection_ = NULL;
@@ -68,6 +71,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* BroadVipHide_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   BroadVipHide_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BroadDropBelong_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BroadDropBelong_reflection_ = NULL;
+const ::google::protobuf::Descriptor* BroadSoulEquip_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  BroadSoulEquip_reflection_ = NULL;
 
 }  // namespace
 
@@ -78,7 +87,23 @@ void protobuf_AssignDesc_View_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "View.proto");
   GOOGLE_CHECK(file != NULL);
-  CreatureCreateData_descriptor_ = file->message_type(0);
+  SoulEquip_descriptor_ = file->message_type(0);
+  static const int SoulEquip_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SoulEquip, equipid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SoulEquip, quality_),
+  };
+  SoulEquip_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      SoulEquip_descriptor_,
+      SoulEquip::default_instance_,
+      SoulEquip_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SoulEquip, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SoulEquip, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(SoulEquip));
+  CreatureCreateData_descriptor_ = file->message_type(1);
   static const int CreatureCreateData_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData, players_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData, monsters_),
@@ -133,7 +158,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreatureCreateData_Player));
   CreatureCreateData_Monster_descriptor_ = CreatureCreateData_descriptor_->nested_type(1);
-  static const int CreatureCreateData_Monster_offsets_[18] = {
+  static const int CreatureCreateData_Monster_offsets_[19] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, cfgid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, attr_),
@@ -152,6 +177,7 @@ void protobuf_AssignDesc_View_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, instid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, max_shield_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, cur_shield_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureCreateData_Monster, soul_equip_),
   };
   CreatureCreateData_Monster_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -188,7 +214,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreatureCreateData_Drop));
-  CreatureDestoryData_descriptor_ = file->message_type(1);
+  CreatureDestoryData_descriptor_ = file->message_type(2);
   static const int CreatureDestoryData_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreatureDestoryData, cids_),
   };
@@ -203,7 +229,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreatureDestoryData));
-  BroadChgName_descriptor_ = file->message_type(2);
+  BroadChgName_descriptor_ = file->message_type(3);
   static const int BroadChgName_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadChgName, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadChgName, name_),
@@ -219,7 +245,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadChgName));
-  BroadFactionInfo_descriptor_ = file->message_type(3);
+  BroadFactionInfo_descriptor_ = file->message_type(4);
   static const int BroadFactionInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadFactionInfo, faction_id_),
@@ -237,7 +263,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadFactionInfo));
-  BroadCollectInfo_descriptor_ = file->message_type(4);
+  BroadCollectInfo_descriptor_ = file->message_type(5);
   static const int BroadCollectInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadCollectInfo, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadCollectInfo, cancel_),
@@ -255,7 +281,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadCollectInfo));
-  BroadKillValue_descriptor_ = file->message_type(5);
+  BroadKillValue_descriptor_ = file->message_type(6);
   static const int BroadKillValue_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadKillValue, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadKillValue, killvalue_),
@@ -271,7 +297,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadKillValue));
-  BroadYellowName_descriptor_ = file->message_type(6);
+  BroadYellowName_descriptor_ = file->message_type(7);
   static const int BroadYellowName_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadYellowName, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadYellowName, is_yellow_),
@@ -287,7 +313,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadYellowName));
-  BroadGodEvilChgFacade_descriptor_ = file->message_type(7);
+  BroadGodEvilChgFacade_descriptor_ = file->message_type(8);
   static const int BroadGodEvilChgFacade_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadGodEvilChgFacade, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadGodEvilChgFacade, type_),
@@ -303,7 +329,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadGodEvilChgFacade));
-  BroadShield_descriptor_ = file->message_type(8);
+  BroadShield_descriptor_ = file->message_type(9);
   static const int BroadShield_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadShield, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadShield, max_shield_),
@@ -320,7 +346,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadShield));
-  BroadMarryDstName_descriptor_ = file->message_type(9);
+  BroadMarryDstName_descriptor_ = file->message_type(10);
   static const int BroadMarryDstName_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadMarryDstName, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadMarryDstName, marry_dst_name_),
@@ -336,7 +362,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadMarryDstName));
-  BroadTourState_descriptor_ = file->message_type(10);
+  BroadTourState_descriptor_ = file->message_type(11);
   static const int BroadTourState_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadTourState, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadTourState, tour_state_),
@@ -352,7 +378,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadTourState));
-  BroadClanView_descriptor_ = file->message_type(11);
+  BroadClanView_descriptor_ = file->message_type(12);
   static const int BroadClanView_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadClanView, info_),
   };
@@ -367,7 +393,7 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadClanView));
-  BroadVipHide_descriptor_ = file->message_type(12);
+  BroadVipHide_descriptor_ = file->message_type(13);
   static const int BroadVipHide_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadVipHide, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadVipHide, vip_hide_),
@@ -383,6 +409,39 @@ void protobuf_AssignDesc_View_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(BroadVipHide));
+  BroadDropBelong_descriptor_ = file->message_type(14);
+  static const int BroadDropBelong_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadDropBelong, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadDropBelong, type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadDropBelong, value_),
+  };
+  BroadDropBelong_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BroadDropBelong_descriptor_,
+      BroadDropBelong::default_instance_,
+      BroadDropBelong_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadDropBelong, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadDropBelong, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BroadDropBelong));
+  BroadSoulEquip_descriptor_ = file->message_type(15);
+  static const int BroadSoulEquip_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadSoulEquip, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadSoulEquip, soul_equip_),
+  };
+  BroadSoulEquip_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      BroadSoulEquip_descriptor_,
+      BroadSoulEquip::default_instance_,
+      BroadSoulEquip_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadSoulEquip, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(BroadSoulEquip, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(BroadSoulEquip));
 }
 
 namespace {
@@ -395,6 +454,8 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SoulEquip_descriptor_, &SoulEquip::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CreatureCreateData_descriptor_, &CreatureCreateData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -427,11 +488,17 @@ void protobuf_RegisterTypes(const ::std::string&) {
     BroadClanView_descriptor_, &BroadClanView::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     BroadVipHide_descriptor_, &BroadVipHide::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BroadDropBelong_descriptor_, &BroadDropBelong::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    BroadSoulEquip_descriptor_, &BroadSoulEquip::default_instance());
 }
 
 }  // namespace
 
 void protobuf_ShutdownFile_View_2eproto() {
+  delete SoulEquip::default_instance_;
+  delete SoulEquip_reflection_;
   delete CreatureCreateData::default_instance_;
   delete CreatureCreateData_reflection_;
   delete CreatureCreateData_Player::default_instance_;
@@ -464,6 +531,10 @@ void protobuf_ShutdownFile_View_2eproto() {
   delete BroadClanView_reflection_;
   delete BroadVipHide::default_instance_;
   delete BroadVipHide_reflection_;
+  delete BroadDropBelong::default_instance_;
+  delete BroadDropBelong_reflection_;
+  delete BroadSoulEquip::default_instance_;
+  delete BroadSoulEquip_reflection_;
 }
 
 void protobuf_AddDesc_View_2eproto() {
@@ -476,61 +547,66 @@ void protobuf_AddDesc_View_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nView.proto\022\010proto_ff\032\tCom.proto\032\017ComDe"
-    "fine.proto\"\346\n\n\022CreatureCreateData\0224\n\007pla"
-    "yers\030\001 \003(\0132#.proto_ff.CreatureCreateData"
-    ".Player\0226\n\010monsters\030\002 \003(\0132$.proto_ff.Cre"
-    "atureCreateData.Monster\0220\n\005drops\030\003 \003(\0132!"
-    ".proto_ff.CreatureCreateData.Drop\032\267\004\n\006Pl"
-    "ayer\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\014\022\036\n\004attr\030"
-    "\003 \003(\0132\020.proto_ff.Attr64\022 \n\003pos\030\004 \002(\0132\023.p"
-    "roto_ff.Vector3PB\022\020\n\010curstate\030\005 \002(\r\022)\n\006f"
-    "acade\030\006 \001(\0132\031.proto_ff.RoleFacadeProto\022\024"
-    "\n\014faction_name\030\007 \001(\014\022\013\n\003zid\030\010 \001(\r\022\021\n\ttit"
-    "leName\030\t \001(\014\022(\n\007bufflst\030\n \001(\0132\027.proto_ff"
-    ".BuffListProto\022\014\n\004head\030\013 \001(\005\022\022\n\ncollect_"
-    "id\030\014 \001(\004\022(\n\013collect_pos\030\r \001(\0132\023.proto_ff"
-    ".Vector3PB\022\021\n\tkillvalue\030\016 \001(\005\022\021\n\tis_yell"
-    "ow\030\017 \001(\005\022\014\n\004duty\030\020 \001(\005\022\022\n\nmax_shield\030\021 \001"
-    "(\003\022\022\n\ncur_shield\030\022 \001(\003\022\026\n\016marry_dst_name"
-    "\030\023 \001(\014\022\022\n\ntour_state\030\024 \001(\005\022%\n\twpp_state\030"
-    "\025 \001(\0132\022.proto_ff.WPPState\022&\n\nclan_infos\030"
-    "\026 \003(\0132\022.proto_ff.ClanView\022\020\n\010vip_hide\030\027 "
-    "\001(\005\032\224\003\n\007Monster\022\013\n\003cid\030\001 \002(\004\022\r\n\005cfgid\030\002 "
-    "\002(\004\022\036\n\004attr\030\003 \003(\0132\020.proto_ff.Attr64\022 \n\003p"
-    "os\030\004 \002(\0132\023.proto_ff.Vector3PB\022\020\n\010curstat"
-    "e\030\005 \002(\r\022\023\n\013isNewCreate\030\006 \001(\010\022\021\n\tfunc_typ"
-    "e\030\007 \001(\r\022 \n\003dir\030\010 \002(\0132\023.proto_ff.Vector2P"
-    "B\022\025\n\rleft_live_sec\030\t \001(\005\022\020\n\010guild_id\030\n \001"
-    "(\003\022\022\n\nguild_name\030\013 \001(\014\022\013\n\003zid\030\014 \001(\r\022\020\n\010o"
-    "wnercid\030\r \001(\004\022\021\n\townername\030\016 \001(\014\022(\n\007buff"
-    "lst\030\017 \001(\0132\027.proto_ff.BuffListProto\022\016\n\006in"
-    "stid\030\020 \001(\005\022\022\n\nmax_shield\030\021 \001(\003\022\022\n\ncur_sh"
-    "ield\030\022 \001(\003\032\336\001\n\004Drop\022\013\n\003cid\030\001 \002(\004\022 \n\003pos\030"
-    "\002 \002(\0132\023.proto_ff.Vector3PB\022\014\n\004type\030\003 \002(\005"
-    "\022\r\n\005value\030\004 \003(\004\022\020\n\010dropTime\030\005 \002(\004\022%\n\004ite"
-    "m\030\006 \001(\0132\027.proto_ff.ItemProtoInfo\022\020\n\010curr"
-    "ency\030\007 \001(\r\022\024\n\014init_protect\030\010 \001(\r\022\022\n\npick"
-    "_level\030\t \001(\005\022\025\n\rcurrency_type\030\n \001(\005\"#\n\023C"
-    "reatureDestoryData\022\014\n\004cids\030\001 \003(\004\")\n\014Broa"
-    "dChgName\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\014\"O\n\020B"
-    "roadFactionInfo\022\013\n\003cid\030\001 \002(\004\022\022\n\nfaction_"
-    "id\030\002 \002(\r\022\014\n\004name\030\003 \002(\014\022\014\n\004duty\030\004 \002(\005\"m\n\020"
-    "BroadCollectInfo\022\013\n\003cid\030\001 \002(\004\022\016\n\006cancel\030"
-    "\002 \002(\005\022\022\n\ncollect_id\030\003 \001(\004\022(\n\013collect_pos"
-    "\030\004 \001(\0132\023.proto_ff.Vector3PB\"0\n\016BroadKill"
-    "Value\022\013\n\003cid\030\001 \002(\004\022\021\n\tkillvalue\030\002 \002(\005\"1\n"
-    "\017BroadYellowName\022\013\n\003cid\030\001 \002(\004\022\021\n\tis_yell"
-    "ow\030\002 \002(\005\"2\n\025BroadGodEvilChgFacade\022\013\n\003cid"
-    "\030\001 \002(\004\022\014\n\004type\030\002 \002(\005\"B\n\013BroadShield\022\013\n\003c"
-    "id\030\001 \002(\004\022\022\n\nmax_shield\030\002 \002(\003\022\022\n\ncur_shie"
-    "ld\030\003 \002(\003\"8\n\021BroadMarryDstName\022\013\n\003cid\030\001 \002"
-    "(\004\022\026\n\016marry_dst_name\030\002 \001(\014\"1\n\016BroadTourS"
-    "tate\022\013\n\003cid\030\001 \002(\004\022\022\n\ntour_state\030\002 \001(\005\"1\n"
-    "\rBroadClanView\022 \n\004info\030\001 \001(\0132\022.proto_ff."
-    "ClanView\"-\n\014BroadVipHide\022\013\n\003cid\030\001 \002(\004\022\020\n"
-    "\010vip_hide\030\002 \001(\005", 2135);
+    "fine.proto\"-\n\tSoulEquip\022\017\n\007equipid\030\001 \001(\005"
+    "\022\017\n\007quality\030\002 \001(\005\"\372\n\n\022CreatureCreateData"
+    "\0224\n\007players\030\001 \003(\0132#.proto_ff.CreatureCre"
+    "ateData.Player\0226\n\010monsters\030\002 \003(\0132$.proto"
+    "_ff.CreatureCreateData.Monster\0220\n\005drops\030"
+    "\003 \003(\0132!.proto_ff.CreatureCreateData.Drop"
+    "\032\267\004\n\006Player\022\013\n\003cid\030\001 \002(\004\022\014\n\004name\030\002 \002(\014\022\036"
+    "\n\004attr\030\003 \003(\0132\020.proto_ff.Attr64\022 \n\003pos\030\004 "
+    "\002(\0132\023.proto_ff.Vector3PB\022\020\n\010curstate\030\005 \002"
+    "(\r\022)\n\006facade\030\006 \001(\0132\031.proto_ff.RoleFacade"
+    "Proto\022\024\n\014faction_name\030\007 \001(\014\022\013\n\003zid\030\010 \001(\r"
+    "\022\021\n\ttitleName\030\t \001(\014\022(\n\007bufflst\030\n \001(\0132\027.p"
+    "roto_ff.BuffListProto\022\014\n\004head\030\013 \001(\005\022\022\n\nc"
+    "ollect_id\030\014 \001(\004\022(\n\013collect_pos\030\r \001(\0132\023.p"
+    "roto_ff.Vector3PB\022\021\n\tkillvalue\030\016 \001(\005\022\021\n\t"
+    "is_yellow\030\017 \001(\005\022\014\n\004duty\030\020 \001(\005\022\022\n\nmax_shi"
+    "eld\030\021 \001(\003\022\022\n\ncur_shield\030\022 \001(\003\022\026\n\016marry_d"
+    "st_name\030\023 \001(\014\022\022\n\ntour_state\030\024 \001(\005\022%\n\twpp"
+    "_state\030\025 \001(\0132\022.proto_ff.WPPState\022&\n\nclan"
+    "_infos\030\026 \003(\0132\022.proto_ff.ClanView\022\020\n\010vip_"
+    "hide\030\027 \001(\005\032\250\003\n\007Monster\022\013\n\003cid\030\001 \002(\004\022\r\n\005c"
+    "fgid\030\002 \002(\004\022\036\n\004attr\030\003 \003(\0132\020.proto_ff.Attr"
+    "64\022 \n\003pos\030\004 \002(\0132\023.proto_ff.Vector3PB\022\020\n\010"
+    "curstate\030\005 \002(\r\022\023\n\013isNewCreate\030\006 \001(\010\022\021\n\tf"
+    "unc_type\030\007 \001(\r\022 \n\003dir\030\010 \002(\0132\023.proto_ff.V"
+    "ector2PB\022\025\n\rleft_live_sec\030\t \001(\005\022\020\n\010guild"
+    "_id\030\n \001(\003\022\022\n\nguild_name\030\013 \001(\014\022\013\n\003zid\030\014 \001"
+    "(\r\022\020\n\010ownercid\030\r \001(\004\022\021\n\townername\030\016 \001(\014\022"
+    "(\n\007bufflst\030\017 \001(\0132\027.proto_ff.BuffListProt"
+    "o\022\016\n\006instid\030\020 \001(\005\022\022\n\nmax_shield\030\021 \001(\003\022\022\n"
+    "\ncur_shield\030\022 \001(\003\022\022\n\nsoul_equip\030\023 \003(\005\032\336\001"
+    "\n\004Drop\022\013\n\003cid\030\001 \002(\004\022 \n\003pos\030\002 \002(\0132\023.proto"
+    "_ff.Vector3PB\022\014\n\004type\030\003 \002(\005\022\r\n\005value\030\004 \003"
+    "(\004\022\020\n\010dropTime\030\005 \002(\004\022%\n\004item\030\006 \001(\0132\027.pro"
+    "to_ff.ItemProtoInfo\022\020\n\010currency\030\007 \001(\r\022\024\n"
+    "\014init_protect\030\010 \001(\r\022\022\n\npick_level\030\t \001(\005\022"
+    "\025\n\rcurrency_type\030\n \001(\005\"#\n\023CreatureDestor"
+    "yData\022\014\n\004cids\030\001 \003(\004\")\n\014BroadChgName\022\013\n\003c"
+    "id\030\001 \002(\004\022\014\n\004name\030\002 \002(\014\"O\n\020BroadFactionIn"
+    "fo\022\013\n\003cid\030\001 \002(\004\022\022\n\nfaction_id\030\002 \002(\r\022\014\n\004n"
+    "ame\030\003 \002(\014\022\014\n\004duty\030\004 \002(\005\"m\n\020BroadCollectI"
+    "nfo\022\013\n\003cid\030\001 \002(\004\022\016\n\006cancel\030\002 \002(\005\022\022\n\ncoll"
+    "ect_id\030\003 \001(\004\022(\n\013collect_pos\030\004 \001(\0132\023.prot"
+    "o_ff.Vector3PB\"0\n\016BroadKillValue\022\013\n\003cid\030"
+    "\001 \002(\004\022\021\n\tkillvalue\030\002 \002(\005\"1\n\017BroadYellowN"
+    "ame\022\013\n\003cid\030\001 \002(\004\022\021\n\tis_yellow\030\002 \002(\005\"2\n\025B"
+    "roadGodEvilChgFacade\022\013\n\003cid\030\001 \002(\004\022\014\n\004typ"
+    "e\030\002 \002(\005\"B\n\013BroadShield\022\013\n\003cid\030\001 \002(\004\022\022\n\nm"
+    "ax_shield\030\002 \002(\003\022\022\n\ncur_shield\030\003 \002(\003\"8\n\021B"
+    "roadMarryDstName\022\013\n\003cid\030\001 \002(\004\022\026\n\016marry_d"
+    "st_name\030\002 \001(\014\"1\n\016BroadTourState\022\013\n\003cid\030\001"
+    " \002(\004\022\022\n\ntour_state\030\002 \001(\005\"1\n\rBroadClanVie"
+    "w\022 \n\004info\030\001 \001(\0132\022.proto_ff.ClanView\"-\n\014B"
+    "roadVipHide\022\013\n\003cid\030\001 \002(\004\022\020\n\010vip_hide\030\002 \001"
+    "(\005\";\n\017BroadDropBelong\022\013\n\003cid\030\001 \002(\004\022\014\n\004ty"
+    "pe\030\002 \001(\005\022\r\n\005value\030\003 \003(\004\"1\n\016BroadSoulEqui"
+    "p\022\013\n\003cid\030\001 \001(\004\022\022\n\nsoul_equip\030\002 \003(\005", 2314);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "View.proto", &protobuf_RegisterTypes);
+  SoulEquip::default_instance_ = new SoulEquip();
   CreatureCreateData::default_instance_ = new CreatureCreateData();
   CreatureCreateData_Player::default_instance_ = new CreatureCreateData_Player();
   CreatureCreateData_Monster::default_instance_ = new CreatureCreateData_Monster();
@@ -547,6 +623,9 @@ void protobuf_AddDesc_View_2eproto() {
   BroadTourState::default_instance_ = new BroadTourState();
   BroadClanView::default_instance_ = new BroadClanView();
   BroadVipHide::default_instance_ = new BroadVipHide();
+  BroadDropBelong::default_instance_ = new BroadDropBelong();
+  BroadSoulEquip::default_instance_ = new BroadSoulEquip();
+  SoulEquip::default_instance_->InitAsDefaultInstance();
   CreatureCreateData::default_instance_->InitAsDefaultInstance();
   CreatureCreateData_Player::default_instance_->InitAsDefaultInstance();
   CreatureCreateData_Monster::default_instance_->InitAsDefaultInstance();
@@ -563,6 +642,8 @@ void protobuf_AddDesc_View_2eproto() {
   BroadTourState::default_instance_->InitAsDefaultInstance();
   BroadClanView::default_instance_->InitAsDefaultInstance();
   BroadVipHide::default_instance_->InitAsDefaultInstance();
+  BroadDropBelong::default_instance_->InitAsDefaultInstance();
+  BroadSoulEquip::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_View_2eproto);
 }
 
@@ -572,6 +653,254 @@ struct StaticDescriptorInitializer_View_2eproto {
     protobuf_AddDesc_View_2eproto();
   }
 } static_descriptor_initializer_View_2eproto_;
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SoulEquip::kEquipidFieldNumber;
+const int SoulEquip::kQualityFieldNumber;
+#endif  // !_MSC_VER
+
+SoulEquip::SoulEquip()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void SoulEquip::InitAsDefaultInstance() {
+}
+
+SoulEquip::SoulEquip(const SoulEquip& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void SoulEquip::SharedCtor() {
+  _cached_size_ = 0;
+  equipid_ = 0;
+  quality_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SoulEquip::~SoulEquip() {
+  SharedDtor();
+}
+
+void SoulEquip::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void SoulEquip::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* SoulEquip::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SoulEquip_descriptor_;
+}
+
+const SoulEquip& SoulEquip::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_View_2eproto();
+  return *default_instance_;
+}
+
+SoulEquip* SoulEquip::default_instance_ = NULL;
+
+SoulEquip* SoulEquip::New() const {
+  return new SoulEquip;
+}
+
+void SoulEquip::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    equipid_ = 0;
+    quality_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SoulEquip::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 equipid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &equipid_)));
+          set_has_equipid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_quality;
+        break;
+      }
+
+      // optional int32 quality = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_quality:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &quality_)));
+          set_has_quality();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void SoulEquip::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 equipid = 1;
+  if (has_equipid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->equipid(), output);
+  }
+
+  // optional int32 quality = 2;
+  if (has_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->quality(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* SoulEquip::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 equipid = 1;
+  if (has_equipid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->equipid(), target);
+  }
+
+  // optional int32 quality = 2;
+  if (has_quality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->quality(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int SoulEquip::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 equipid = 1;
+    if (has_equipid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->equipid());
+    }
+
+    // optional int32 quality = 2;
+    if (has_quality()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->quality());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SoulEquip::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SoulEquip* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const SoulEquip*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SoulEquip::MergeFrom(const SoulEquip& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_equipid()) {
+      set_equipid(from.equipid());
+    }
+    if (from.has_quality()) {
+      set_quality(from.quality());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SoulEquip::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SoulEquip::CopyFrom(const SoulEquip& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SoulEquip::IsInitialized() const {
+
+  return true;
+}
+
+void SoulEquip::Swap(SoulEquip* other) {
+  if (other != this) {
+    std::swap(equipid_, other->equipid_);
+    std::swap(quality_, other->quality_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata SoulEquip::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = SoulEquip_descriptor_;
+  metadata.reflection = SoulEquip_reflection_;
+  return metadata;
+}
+
 
 // ===================================================================
 
@@ -1770,6 +2099,7 @@ const int CreatureCreateData_Monster::kBufflstFieldNumber;
 const int CreatureCreateData_Monster::kInstidFieldNumber;
 const int CreatureCreateData_Monster::kMaxShieldFieldNumber;
 const int CreatureCreateData_Monster::kCurShieldFieldNumber;
+const int CreatureCreateData_Monster::kSoulEquipFieldNumber;
 #endif  // !_MSC_VER
 
 CreatureCreateData_Monster::CreatureCreateData_Monster()
@@ -1889,6 +2219,7 @@ void CreatureCreateData_Monster::Clear() {
     cur_shield_ = GOOGLE_LONGLONG(0);
   }
   attr_.Clear();
+  soul_equip_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -2171,6 +2502,28 @@ bool CreatureCreateData_Monster::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(152)) goto parse_soul_equip;
+        break;
+      }
+
+      // repeated int32 soul_equip = 19;
+      case 19: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_soul_equip:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 2, 152, input, this->mutable_soul_equip())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_soul_equip())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(152)) goto parse_soul_equip;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2289,6 +2642,12 @@ void CreatureCreateData_Monster::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt64(18, this->cur_shield(), output);
   }
 
+  // repeated int32 soul_equip = 19;
+  for (int i = 0; i < this->soul_equip_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      19, this->soul_equip(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2397,6 +2756,12 @@ void CreatureCreateData_Monster::SerializeWithCachedSizes(
   // optional int64 cur_shield = 18;
   if (has_cur_shield()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(18, this->cur_shield(), target);
+  }
+
+  // repeated int32 soul_equip = 19;
+  for (int i = 0; i < this->soul_equip_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(19, this->soul_equip(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2540,6 +2905,16 @@ int CreatureCreateData_Monster::ByteSize() const {
         this->attr(i));
   }
 
+  // repeated int32 soul_equip = 19;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->soul_equip_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->soul_equip(i));
+    }
+    total_size += 2 * this->soul_equip_size() + data_size;
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -2566,6 +2941,7 @@ void CreatureCreateData_Monster::MergeFrom(const ::google::protobuf::Message& fr
 void CreatureCreateData_Monster::MergeFrom(const CreatureCreateData_Monster& from) {
   GOOGLE_CHECK_NE(&from, this);
   attr_.MergeFrom(from.attr_);
+  soul_equip_.MergeFrom(from.soul_equip_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_cid()) {
       set_cid(from.cid());
@@ -2676,6 +3052,7 @@ void CreatureCreateData_Monster::Swap(CreatureCreateData_Monster* other) {
     std::swap(instid_, other->instid_);
     std::swap(max_shield_, other->max_shield_);
     std::swap(cur_shield_, other->cur_shield_);
+    soul_equip_.Swap(&other->soul_equip_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -6724,6 +7101,559 @@ void BroadVipHide::Swap(BroadVipHide* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = BroadVipHide_descriptor_;
   metadata.reflection = BroadVipHide_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BroadDropBelong::kCidFieldNumber;
+const int BroadDropBelong::kTypeFieldNumber;
+const int BroadDropBelong::kValueFieldNumber;
+#endif  // !_MSC_VER
+
+BroadDropBelong::BroadDropBelong()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BroadDropBelong::InitAsDefaultInstance() {
+}
+
+BroadDropBelong::BroadDropBelong(const BroadDropBelong& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BroadDropBelong::SharedCtor() {
+  _cached_size_ = 0;
+  cid_ = GOOGLE_ULONGLONG(0);
+  type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BroadDropBelong::~BroadDropBelong() {
+  SharedDtor();
+}
+
+void BroadDropBelong::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void BroadDropBelong::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BroadDropBelong::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BroadDropBelong_descriptor_;
+}
+
+const BroadDropBelong& BroadDropBelong::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_View_2eproto();
+  return *default_instance_;
+}
+
+BroadDropBelong* BroadDropBelong::default_instance_ = NULL;
+
+BroadDropBelong* BroadDropBelong::New() const {
+  return new BroadDropBelong;
+}
+
+void BroadDropBelong::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cid_ = GOOGLE_ULONGLONG(0);
+    type_ = 0;
+  }
+  value_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BroadDropBelong::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 cid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_type;
+        break;
+      }
+
+      // optional int32 type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &type_)));
+          set_has_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_value;
+        break;
+      }
+
+      // repeated uint64 value = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_value:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 1, 24, input, this->mutable_value())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, this->mutable_value())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_value;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BroadDropBelong::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 cid = 1;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  }
+
+  // optional int32 type = 2;
+  if (has_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->type(), output);
+  }
+
+  // repeated uint64 value = 3;
+  for (int i = 0; i < this->value_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(
+      3, this->value(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BroadDropBelong::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 cid = 1;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  }
+
+  // optional int32 type = 2;
+  if (has_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->type(), target);
+  }
+
+  // repeated uint64 value = 3;
+  for (int i = 0; i < this->value_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt64ToArray(3, this->value(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BroadDropBelong::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 cid = 1;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+    // optional int32 type = 2;
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->type());
+    }
+
+  }
+  // repeated uint64 value = 3;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->value_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt64Size(this->value(i));
+    }
+    total_size += 1 * this->value_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BroadDropBelong::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BroadDropBelong* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BroadDropBelong*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BroadDropBelong::MergeFrom(const BroadDropBelong& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  value_.MergeFrom(from.value_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+    if (from.has_type()) {
+      set_type(from.type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BroadDropBelong::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BroadDropBelong::CopyFrom(const BroadDropBelong& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BroadDropBelong::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void BroadDropBelong::Swap(BroadDropBelong* other) {
+  if (other != this) {
+    std::swap(cid_, other->cid_);
+    std::swap(type_, other->type_);
+    value_.Swap(&other->value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BroadDropBelong::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BroadDropBelong_descriptor_;
+  metadata.reflection = BroadDropBelong_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int BroadSoulEquip::kCidFieldNumber;
+const int BroadSoulEquip::kSoulEquipFieldNumber;
+#endif  // !_MSC_VER
+
+BroadSoulEquip::BroadSoulEquip()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void BroadSoulEquip::InitAsDefaultInstance() {
+}
+
+BroadSoulEquip::BroadSoulEquip(const BroadSoulEquip& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void BroadSoulEquip::SharedCtor() {
+  _cached_size_ = 0;
+  cid_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+BroadSoulEquip::~BroadSoulEquip() {
+  SharedDtor();
+}
+
+void BroadSoulEquip::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void BroadSoulEquip::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* BroadSoulEquip::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return BroadSoulEquip_descriptor_;
+}
+
+const BroadSoulEquip& BroadSoulEquip::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_View_2eproto();
+  return *default_instance_;
+}
+
+BroadSoulEquip* BroadSoulEquip::default_instance_ = NULL;
+
+BroadSoulEquip* BroadSoulEquip::New() const {
+  return new BroadSoulEquip;
+}
+
+void BroadSoulEquip::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cid_ = GOOGLE_ULONGLONG(0);
+  }
+  soul_equip_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool BroadSoulEquip::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 cid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_soul_equip;
+        break;
+      }
+
+      // repeated int32 soul_equip = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_soul_equip:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 16, input, this->mutable_soul_equip())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_soul_equip())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_soul_equip;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void BroadSoulEquip::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 cid = 1;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  }
+
+  // repeated int32 soul_equip = 2;
+  for (int i = 0; i < this->soul_equip_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      2, this->soul_equip(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* BroadSoulEquip::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 cid = 1;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  }
+
+  // repeated int32 soul_equip = 2;
+  for (int i = 0; i < this->soul_equip_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(2, this->soul_equip(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int BroadSoulEquip::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 cid = 1;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+  }
+  // repeated int32 soul_equip = 2;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->soul_equip_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->soul_equip(i));
+    }
+    total_size += 1 * this->soul_equip_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void BroadSoulEquip::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const BroadSoulEquip* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const BroadSoulEquip*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void BroadSoulEquip::MergeFrom(const BroadSoulEquip& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  soul_equip_.MergeFrom(from.soul_equip_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void BroadSoulEquip::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void BroadSoulEquip::CopyFrom(const BroadSoulEquip& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool BroadSoulEquip::IsInitialized() const {
+
+  return true;
+}
+
+void BroadSoulEquip::Swap(BroadSoulEquip* other) {
+  if (other != this) {
+    std::swap(cid_, other->cid_);
+    soul_equip_.Swap(&other->soul_equip_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata BroadSoulEquip::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = BroadSoulEquip_descriptor_;
+  metadata.reflection = BroadSoulEquip_reflection_;
   return metadata;
 }
 

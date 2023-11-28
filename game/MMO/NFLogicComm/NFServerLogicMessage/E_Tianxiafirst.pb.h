@@ -46,6 +46,8 @@ class Sheet_TianxiafirstStrongitem;
 class E_TianxiafirstRefineAttDesc;
 class E_TianxiafirstRefine;
 class Sheet_TianxiafirstRefine;
+class E_TianxiafirstSqskill;
+class Sheet_TianxiafirstSqskill;
 
 // ===================================================================
 
@@ -1265,6 +1267,223 @@ class Sheet_TianxiafirstRefine : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Sheet_TianxiafirstRefine* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class E_TianxiafirstSqskill : public ::google::protobuf::Message {
+ public:
+  E_TianxiafirstSqskill();
+  virtual ~E_TianxiafirstSqskill();
+
+  E_TianxiafirstSqskill(const E_TianxiafirstSqskill& from);
+
+  inline E_TianxiafirstSqskill& operator=(const E_TianxiafirstSqskill& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_TianxiafirstSqskill& default_instance();
+
+  void Swap(E_TianxiafirstSqskill* other);
+
+  // implements Message ----------------------------------------------
+
+  E_TianxiafirstSqskill* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_TianxiafirstSqskill& from);
+  void MergeFrom(const E_TianxiafirstSqskill& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_artifactId = 2;
+  inline bool has_m_artifactid() const;
+  inline void clear_m_artifactid();
+  static const int kMArtifactIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_artifactid() const;
+  inline void set_m_artifactid(::google::protobuf::int32 value);
+
+  // optional int32 m_skillId = 3;
+  inline bool has_m_skillid() const;
+  inline void clear_m_skillid();
+  static const int kMSkillIdFieldNumber = 3;
+  inline ::google::protobuf::int32 m_skillid() const;
+  inline void set_m_skillid(::google::protobuf::int32 value);
+
+  // optional int32 m_level = 4;
+  inline bool has_m_level() const;
+  inline void clear_m_level();
+  static const int kMLevelFieldNumber = 4;
+  inline ::google::protobuf::int32 m_level() const;
+  inline void set_m_level(::google::protobuf::int32 value);
+
+  // optional int32 m_condition = 5;
+  inline bool has_m_condition() const;
+  inline void clear_m_condition();
+  static const int kMConditionFieldNumber = 5;
+  inline ::google::protobuf::int32 m_condition() const;
+  inline void set_m_condition(::google::protobuf::int32 value);
+
+  // optional int32 m_score = 6;
+  inline bool has_m_score() const;
+  inline void clear_m_score();
+  static const int kMScoreFieldNumber = 6;
+  inline ::google::protobuf::int32 m_score() const;
+  inline void set_m_score(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_TianxiafirstSqskill)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_artifactid();
+  inline void clear_has_m_artifactid();
+  inline void set_has_m_skillid();
+  inline void clear_has_m_skillid();
+  inline void set_has_m_level();
+  inline void clear_has_m_level();
+  inline void set_has_m_condition();
+  inline void clear_has_m_condition();
+  inline void set_has_m_score();
+  inline void clear_has_m_score();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_artifactid_;
+  ::google::protobuf::int32 m_skillid_;
+  ::google::protobuf::int32 m_level_;
+  ::google::protobuf::int32 m_condition_;
+  ::google::protobuf::int32 m_score_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fTianxiafirst_2eproto();
+  friend void protobuf_AssignDesc_E_5fTianxiafirst_2eproto();
+  friend void protobuf_ShutdownFile_E_5fTianxiafirst_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_TianxiafirstSqskill* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_TianxiafirstSqskill : public ::google::protobuf::Message {
+ public:
+  Sheet_TianxiafirstSqskill();
+  virtual ~Sheet_TianxiafirstSqskill();
+
+  Sheet_TianxiafirstSqskill(const Sheet_TianxiafirstSqskill& from);
+
+  inline Sheet_TianxiafirstSqskill& operator=(const Sheet_TianxiafirstSqskill& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_TianxiafirstSqskill& default_instance();
+
+  void Swap(Sheet_TianxiafirstSqskill* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_TianxiafirstSqskill* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_TianxiafirstSqskill& from);
+  void MergeFrom(const Sheet_TianxiafirstSqskill& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1;
+  inline int e_tianxiafirstsqskill_list_size() const;
+  inline void clear_e_tianxiafirstsqskill_list();
+  static const int kETianxiafirstSqskillListFieldNumber = 1;
+  inline const ::proto_ff::E_TianxiafirstSqskill& e_tianxiafirstsqskill_list(int index) const;
+  inline ::proto_ff::E_TianxiafirstSqskill* mutable_e_tianxiafirstsqskill_list(int index);
+  inline ::proto_ff::E_TianxiafirstSqskill* add_e_tianxiafirstsqskill_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TianxiafirstSqskill >&
+      e_tianxiafirstsqskill_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TianxiafirstSqskill >*
+      mutable_e_tianxiafirstsqskill_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_TianxiafirstSqskill)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TianxiafirstSqskill > e_tianxiafirstsqskill_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fTianxiafirst_2eproto();
+  friend void protobuf_AssignDesc_E_5fTianxiafirst_2eproto();
+  friend void protobuf_ShutdownFile_E_5fTianxiafirst_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_TianxiafirstSqskill* default_instance_;
+};
 // ===================================================================
 
 
@@ -2138,6 +2357,171 @@ Sheet_TianxiafirstRefine::e_tianxiafirstrefine_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TianxiafirstRefine >*
 Sheet_TianxiafirstRefine::mutable_e_tianxiafirstrefine_list() {
   return &e_tianxiafirstrefine_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_TianxiafirstSqskill
+
+// optional int32 m_id = 1;
+inline bool E_TianxiafirstSqskill::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_TianxiafirstSqskill::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_TianxiafirstSqskill::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_TianxiafirstSqskill::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_TianxiafirstSqskill::m_id() const {
+  return m_id_;
+}
+inline void E_TianxiafirstSqskill::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_artifactId = 2;
+inline bool E_TianxiafirstSqskill::has_m_artifactid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_TianxiafirstSqskill::set_has_m_artifactid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_TianxiafirstSqskill::clear_has_m_artifactid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_TianxiafirstSqskill::clear_m_artifactid() {
+  m_artifactid_ = 0;
+  clear_has_m_artifactid();
+}
+inline ::google::protobuf::int32 E_TianxiafirstSqskill::m_artifactid() const {
+  return m_artifactid_;
+}
+inline void E_TianxiafirstSqskill::set_m_artifactid(::google::protobuf::int32 value) {
+  set_has_m_artifactid();
+  m_artifactid_ = value;
+}
+
+// optional int32 m_skillId = 3;
+inline bool E_TianxiafirstSqskill::has_m_skillid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_TianxiafirstSqskill::set_has_m_skillid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_TianxiafirstSqskill::clear_has_m_skillid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_TianxiafirstSqskill::clear_m_skillid() {
+  m_skillid_ = 0;
+  clear_has_m_skillid();
+}
+inline ::google::protobuf::int32 E_TianxiafirstSqskill::m_skillid() const {
+  return m_skillid_;
+}
+inline void E_TianxiafirstSqskill::set_m_skillid(::google::protobuf::int32 value) {
+  set_has_m_skillid();
+  m_skillid_ = value;
+}
+
+// optional int32 m_level = 4;
+inline bool E_TianxiafirstSqskill::has_m_level() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_TianxiafirstSqskill::set_has_m_level() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_TianxiafirstSqskill::clear_has_m_level() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_TianxiafirstSqskill::clear_m_level() {
+  m_level_ = 0;
+  clear_has_m_level();
+}
+inline ::google::protobuf::int32 E_TianxiafirstSqskill::m_level() const {
+  return m_level_;
+}
+inline void E_TianxiafirstSqskill::set_m_level(::google::protobuf::int32 value) {
+  set_has_m_level();
+  m_level_ = value;
+}
+
+// optional int32 m_condition = 5;
+inline bool E_TianxiafirstSqskill::has_m_condition() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_TianxiafirstSqskill::set_has_m_condition() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_TianxiafirstSqskill::clear_has_m_condition() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_TianxiafirstSqskill::clear_m_condition() {
+  m_condition_ = 0;
+  clear_has_m_condition();
+}
+inline ::google::protobuf::int32 E_TianxiafirstSqskill::m_condition() const {
+  return m_condition_;
+}
+inline void E_TianxiafirstSqskill::set_m_condition(::google::protobuf::int32 value) {
+  set_has_m_condition();
+  m_condition_ = value;
+}
+
+// optional int32 m_score = 6;
+inline bool E_TianxiafirstSqskill::has_m_score() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_TianxiafirstSqskill::set_has_m_score() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_TianxiafirstSqskill::clear_has_m_score() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_TianxiafirstSqskill::clear_m_score() {
+  m_score_ = 0;
+  clear_has_m_score();
+}
+inline ::google::protobuf::int32 E_TianxiafirstSqskill::m_score() const {
+  return m_score_;
+}
+inline void E_TianxiafirstSqskill::set_m_score(::google::protobuf::int32 value) {
+  set_has_m_score();
+  m_score_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_TianxiafirstSqskill
+
+// repeated .proto_ff.E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1;
+inline int Sheet_TianxiafirstSqskill::e_tianxiafirstsqskill_list_size() const {
+  return e_tianxiafirstsqskill_list_.size();
+}
+inline void Sheet_TianxiafirstSqskill::clear_e_tianxiafirstsqskill_list() {
+  e_tianxiafirstsqskill_list_.Clear();
+}
+inline const ::proto_ff::E_TianxiafirstSqskill& Sheet_TianxiafirstSqskill::e_tianxiafirstsqskill_list(int index) const {
+  return e_tianxiafirstsqskill_list_.Get(index);
+}
+inline ::proto_ff::E_TianxiafirstSqskill* Sheet_TianxiafirstSqskill::mutable_e_tianxiafirstsqskill_list(int index) {
+  return e_tianxiafirstsqskill_list_.Mutable(index);
+}
+inline ::proto_ff::E_TianxiafirstSqskill* Sheet_TianxiafirstSqskill::add_e_tianxiafirstsqskill_list() {
+  return e_tianxiafirstsqskill_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TianxiafirstSqskill >&
+Sheet_TianxiafirstSqskill::e_tianxiafirstsqskill_list() const {
+  return e_tianxiafirstsqskill_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TianxiafirstSqskill >*
+Sheet_TianxiafirstSqskill::mutable_e_tianxiafirstsqskill_list() {
+  return &e_tianxiafirstsqskill_list_;
 }
 
 

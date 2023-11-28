@@ -480,10 +480,17 @@ class E_TitleTitle : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 16;
+  // optional int32 m_broadcast = 16;
+  inline bool has_m_broadcast() const;
+  inline void clear_m_broadcast();
+  static const int kMBroadcastFieldNumber = 16;
+  inline ::google::protobuf::int32 m_broadcast() const;
+  inline void set_m_broadcast(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 17;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 16;
+  static const int kMAttributeFieldNumber = 17;
   inline const ::proto_ff::E_TitleTitleAttributeDesc& m_attribute(int index) const;
   inline ::proto_ff::E_TitleTitleAttributeDesc* mutable_m_attribute(int index);
   inline ::proto_ff::E_TitleTitleAttributeDesc* add_m_attribute();
@@ -524,6 +531,8 @@ class E_TitleTitle : public ::google::protobuf::Message {
   inline void clear_has_m_starup();
   inline void set_has_m_starber();
   inline void clear_has_m_starber();
+  inline void set_has_m_broadcast();
+  inline void clear_has_m_broadcast();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -543,9 +552,10 @@ class E_TitleTitle : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_starup_;
   ::google::protobuf::int32 m_starber_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_TitleTitleAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_broadcast_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(17 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fTitle_2eproto();
   friend void protobuf_AssignDesc_E_5fTitle_2eproto();
@@ -1271,7 +1281,29 @@ inline void E_TitleTitle::set_m_starber(::google::protobuf::int32 value) {
   m_starber_ = value;
 }
 
-// repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 16;
+// optional int32 m_broadcast = 16;
+inline bool E_TitleTitle::has_m_broadcast() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void E_TitleTitle::set_has_m_broadcast() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void E_TitleTitle::clear_has_m_broadcast() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void E_TitleTitle::clear_m_broadcast() {
+  m_broadcast_ = 0;
+  clear_has_m_broadcast();
+}
+inline ::google::protobuf::int32 E_TitleTitle::m_broadcast() const {
+  return m_broadcast_;
+}
+inline void E_TitleTitle::set_m_broadcast(::google::protobuf::int32 value) {
+  set_has_m_broadcast();
+  m_broadcast_ = value;
+}
+
+// repeated .proto_ff.E_TitleTitleAttributeDesc m_attribute = 17;
 inline int E_TitleTitle::m_attribute_size() const {
   return m_attribute_.size();
 }

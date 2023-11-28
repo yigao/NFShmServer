@@ -3,6 +3,14 @@ import "Com.proto";
 import "ComDefine.proto";
 
 
+
+//战魂装备
+message SoulEquip
+{
+	optional int32 equipid = 1; //魂骨装备
+	optional int32 quality = 2; //品质
+}
+
 //通知客户端创建生物  NOTIFY_CLIENT_CREATURE_CREATE
 message CreatureCreateData
 {
@@ -53,6 +61,7 @@ message CreatureCreateData
 		optional int32 instid					= 16;	//模块内部实力ID(目前宠物有用)
 		optional int64 max_shield				= 17;	//最大护盾值
 		optional int64 cur_shield				= 18;	//当前护盾值
+		repeated int32 soul_equip				= 19;	//战魂魂骨装备(模型id)
 	}
 	message Drop
 	{
@@ -155,4 +164,19 @@ message BroadVipHide
 {
 	required uint64 cid = 1;		//角色cid
 	optional int32 vip_hide = 2;
+}
+
+//广播掉落归属数据  BROAD_DROP_BELONG
+message BroadDropBelong
+{
+	required uint64 cid = 1;		//掉落cid
+	optional int32 type = 2;		//掉落值类型 1-玩家，2-队伍，3-工会, 4-公共(所有玩家)
+	repeated uint64 value = 3;		//掉落值，根据掉落值类型确定，1-玩家cid列表，2-玩家cid列表,3-玩家cid列表，4-空
+}
+
+//广播战魂装备外观变化事件 BROAD_SOUL_EQUIP
+message BroadSoulEquip
+{
+	optional uint64 cid = 1;		//战魂cid
+	repeated int32 soul_equip			= 2;	//战魂魂骨装备(模型id)
 }

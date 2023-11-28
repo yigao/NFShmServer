@@ -39,4 +39,8 @@ ${PROTOCGEN_FILE_PATH}/module_guild_bin:${PROTOCGEN_FILE_PATH}/guild.proto.ds ${
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/GuildGwwinstreakDesc.h ${PROTOCGEN_FILE_PATH}/GuildGwwinstreakDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_GuildTtower.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/GuildTtowerDesc.h ${PROTOCGEN_FILE_PATH}/GuildTtowerDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_GuildTtowerdevelop.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/GuildTtowerdevelopDesc.h ${PROTOCGEN_FILE_PATH}/GuildTtowerdevelopDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_GuildTtowerdevelop_data.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/GuildTtowerdevelop_dataDesc.h ${PROTOCGEN_FILE_PATH}/GuildTtowerdevelop_dataDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_guild_bin

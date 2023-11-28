@@ -687,67 +687,67 @@ void protobuf_AddDesc_E_5fMofa_2eproto() {
     "pe\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"g\n\026E_MofaYuansuAwak"
     "enDesc\022,\n\014m_lvAddratio\030\001 \001(\005B\026\302\377\024\022\345\215\207\347\272\247"
     "\345\261\236\346\200\247\345\212\240\346\210\220\022\037\n\005m_num\030\002 \001(\005B\020\302\377\024\014\346\235\220\346\226\231\346"
-    "\225\260\351\207\217\"\263\003\n\014E_MofaYuansu\022\037\n\tm_EquipID\030\001 \001("
+    "\225\260\351\207\217\"\267\003\n\014E_MofaYuansu\022\037\n\tm_EquipID\030\001 \001("
     "\005B\014\302\377\024\010\350\243\205\345\244\207ID\022+\n\013m_AttriType\030\002 \001(\005B\026\302\377"
-    "\024\022\347\211\251\345\223\201\347\261\273\345\236\213\346\216\222\345\272\217\022%\n\010m_mosaic\030\003 \001(\005B\023"
-    "\302\377\024\017\345\217\257\351\225\266\345\265\214\351\203\250\344\275\215\022\"\n\010m_LvItem\030\004 \001(\005B\020\302"
-    "\377\024\014\345\215\207\347\272\247\351\201\223\345\205\267\022)\n\014m_awaken_can\030\005 \001(\005B\023\302"
-    "\377\024\017\346\230\257\345\220\246\345\217\257\350\247\211\351\206\222\022(\n\016m_awaken_Lvmax\030\006 \001"
-    "(\005B\020\302\377\024\014\350\247\211\351\206\222\344\270\212\351\231\220\022\'\n\rm_awaken_item\030\007 "
-    "\001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\235\220\346\226\231\022H\n\013m_attribute\030\010 \003"
-    "(\0132#.proto_ff.E_MofaYuansuAttributeDescB"
-    "\016\302\377\024\006\345\261\236\346\200\247\210\301\024\002\022B\n\010m_awaken\030\t \003(\0132 .prot"
-    "o_ff.E_MofaYuansuAwakenDescB\016\302\377\024\006\350\247\211\351\206\222\210"
-    "\301\024\n\"K\n\020Sheet_MofaYuansu\0227\n\021E_MofaYuansu_"
-    "List\030\001 \003(\0132\026.proto_ff.E_MofaYuansuB\004\210\301\024@"
-    "\"\201\001\n\017E_MofaDecompose\022!\n\007m_DpQua\030\001 \001(\005B\020\302"
-    "\377\024\014\345\210\206\350\247\243\345\223\201\350\264\250\022(\n\010m_DpItem\030\002 \001(\005B\026\302\377\024\022\345"
-    "\210\206\350\247\243\350\277\224\350\277\230\351\201\223\345\205\267\022!\n\007m_DpEss\030\003 \001(\005B\020\302\377\024\014"
-    "\345\210\206\350\247\243\347\262\276\345\215\216\"T\n\023Sheet_MofaDecompose\022=\n\024E"
-    "_MofaDecompose_List\030\001 \003(\0132\031.proto_ff.E_M"
-    "ofaDecomposeB\004\210\301\024\010\"N\n\013E_MofaLvexp\022\030\n\004m_l"
-    "v\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m_exp\030\002 \001(\005B\026\302\377\024\022"
-    "\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\"I\n\017Sheet_MofaLvexp\0226\n"
-    "\020E_MofaLvexp_List\030\001 \003(\0132\025.proto_ff.E_Mof"
-    "aLvexpB\005\210\301\024\200\001\"T\n\013E_MofaLvatt\022 \n\007m_attId\030"
-    "\001 \001(\003B\017\302\377\024\013\345\261\236\346\200\247\347\273\204id\022#\n\005m_att\030\002 \003(\005B\024\302"
-    "\377\024\014\345\261\236\346\200\247\347\255\211\347\272\247\210\301\024d\"I\n\017Sheet_MofaLvatt\0226"
-    "\n\020E_MofaLvatt_List\030\001 \003(\0132\025.proto_ff.E_Mo"
-    "faLvattB\005\210\301\024\200\001\"I\n\021E_MofaZyattZyDesc\022\030\n\007m"
+    "\024\022\347\211\251\345\223\201\347\261\273\345\236\213\346\216\222\345\272\217\022)\n\010m_mosaic\030\003 \001(\tB\027"
+    "\302\377\024\017\345\217\257\351\225\266\345\265\214\351\203\250\344\275\215\220\301\024@\022\"\n\010m_LvItem\030\004 \001("
+    "\005B\020\302\377\024\014\345\215\207\347\272\247\351\201\223\345\205\267\022)\n\014m_awaken_can\030\005 \001("
+    "\005B\023\302\377\024\017\346\230\257\345\220\246\345\217\257\350\247\211\351\206\222\022(\n\016m_awaken_Lvmax"
+    "\030\006 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\344\270\212\351\231\220\022\'\n\rm_awaken_ite"
+    "m\030\007 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\346\235\220\346\226\231\022H\n\013m_attribute"
+    "\030\010 \003(\0132#.proto_ff.E_MofaYuansuAttributeD"
+    "escB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\002\022B\n\010m_awaken\030\t \003(\0132 ."
+    "proto_ff.E_MofaYuansuAwakenDescB\016\302\377\024\006\350\247\211"
+    "\351\206\222\210\301\024\n\"K\n\020Sheet_MofaYuansu\0227\n\021E_MofaYua"
+    "nsu_List\030\001 \003(\0132\026.proto_ff.E_MofaYuansuB\004"
+    "\210\301\024@\"\201\001\n\017E_MofaDecompose\022!\n\007m_DpQua\030\001 \001("
+    "\005B\020\302\377\024\014\345\210\206\350\247\243\345\223\201\350\264\250\022(\n\010m_DpItem\030\002 \001(\005B\026\302"
+    "\377\024\022\345\210\206\350\247\243\350\277\224\350\277\230\351\201\223\345\205\267\022!\n\007m_DpEss\030\003 \001(\005B\020"
+    "\302\377\024\014\345\210\206\350\247\243\347\262\276\345\215\216\"T\n\023Sheet_MofaDecompose\022"
+    "=\n\024E_MofaDecompose_List\030\001 \003(\0132\031.proto_ff"
+    ".E_MofaDecomposeB\004\210\301\024\010\"N\n\013E_MofaLvexp\022\030\n"
+    "\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m_exp\030\002 \001(\005B\026"
+    "\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\347\273\217\351\252\214\"I\n\017Sheet_MofaLvex"
+    "p\0226\n\020E_MofaLvexp_List\030\001 \003(\0132\025.proto_ff.E"
+    "_MofaLvexpB\005\210\301\024\200\001\"T\n\013E_MofaLvatt\022 \n\007m_at"
+    "tId\030\001 \001(\003B\017\302\377\024\013\345\261\236\346\200\247\347\273\204id\022#\n\005m_att\030\002 \003("
+    "\005B\024\302\377\024\014\345\261\236\346\200\247\347\255\211\347\272\247\210\301\024d\"I\n\017Sheet_MofaLva"
+    "tt\0226\n\020E_MofaLvatt_List\030\001 \003(\0132\025.proto_ff."
+    "E_MofaLvattB\005\210\301\024\200\001\"I\n\021E_MofaZyattZyDesc\022"
+    "\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001("
+    "\005B\n\302\377\024\006\347\261\273\345\236\213\"\240\001\n\013E_MofaZyatt\022\030\n\004m_ID\030\001 "
+    "\001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261"
+    "\236\346\200\247ID\022\035\n\tm_quality\030\003 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\0229\n"
+    "\004m_ZY\030\004 \003(\0132\033.proto_ff.E_MofaZyattZyDesc"
+    "B\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"H\n\017Sheet_MofaZyatt\0225\n\020E"
+    "_MofaZyatt_List\030\001 \003(\0132\025.proto_ff.E_MofaZ"
+    "yattB\004\210\301\024 \"M\n\025E_MofaZyjxattZyjxDesc\022\030\n\007m"
     "_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302"
-    "\377\024\006\347\261\273\345\236\213\"\240\001\n\013E_MofaZyatt\022\030\n\004m_ID\030\001 \001(\005B"
-    "\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247"
-    "ID\022\035\n\tm_quality\030\003 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\0229\n\004m_Z"
-    "Y\030\004 \003(\0132\033.proto_ff.E_MofaZyattZyDescB\016\302\377"
-    "\024\006\345\261\236\346\200\247\210\301\024\003\"H\n\017Sheet_MofaZyatt\0225\n\020E_Mof"
-    "aZyatt_List\030\001 \003(\0132\025.proto_ff.E_MofaZyatt"
-    "B\004\210\301\024 \"M\n\025E_MofaZyjxattZyjxDesc\022\030\n\007m_val"
-    "ue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347"
-    "\261\273\345\236\213\"\253\001\n\rE_MofaZyjxatt\022\030\n\004m_ID\030\001 \001(\005B\n\302"
-    "\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID"
-    "\022 \n\006m_JxLv\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022\?\n\006m_"
-    "ZyJx\030\004 \003(\0132\037.proto_ff.E_MofaZyjxattZyjxD"
-    "escB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"O\n\021Sheet_MofaZyjxatt"
-    "\022:\n\022E_MofaZyjxatt_List\030\001 \003(\0132\027.proto_ff."
-    "E_MofaZyjxattB\005\210\301\024\200\001\"Q\n\031E_MofaZyjxzfattZ"
-    "yjxzfDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\032\n\006m"
-    "_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\263\001\n\017E_MofaZyjxzf"
-    "att\022\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID"
-    "\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\006m_JxLv\030\003 \001(\005B\020\302\377"
-    "\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022E\n\010m_ZyJxZf\030\004 \003(\0132#.proto"
-    "_ff.E_MofaZyjxzfattZyjxzfDescB\016\302\377\024\006\345\261\236\346\200"
-    "\247\210\301\024\003\"U\n\023Sheet_MofaZyjxzfatt\022>\n\024E_MofaZy"
-    "jxzfatt_List\030\001 \003(\0132\031.proto_ff.E_MofaZyjx"
-    "zfattB\005\210\301\024\200\001\"~\n\016E_MofaExchange\022\037\n\tm_Equi"
-    "pID\030\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207ID\022\"\n\010m_EcItem\030\002 \001("
-    "\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022\'\n\007m_EcNum\030\003 \001(\005B\026\302\377"
-    "\024\022\345\205\221\346\215\242\351\201\223\345\205\267\346\225\260\351\207\217\"Q\n\022Sheet_MofaExchan"
-    "ge\022;\n\023E_MofaExchange_List\030\001 \003(\0132\030.proto_"
-    "ff.E_MofaExchangeB\004\210\301\024 \"F\n\nE_MofaName\022\024\n"
-    "\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\014m_functionid\030\002 \001("
-    "\005B\014\302\377\024\010\345\212\237\350\203\275id\"E\n\016Sheet_MofaName\0223\n\017E_M"
-    "ofaName_List\030\001 \003(\0132\024.proto_ff.E_MofaName"
-    "B\004\210\301\024\010", 3206);
+    "\377\024\006\347\261\273\345\236\213\"\253\001\n\rE_MofaZyjxatt\022\030\n\004m_ID\030\001 \001("
+    "\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_AttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346"
+    "\200\247ID\022 \n\006m_JxLv\030\003 \001(\005B\020\302\377\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022\?"
+    "\n\006m_ZyJx\030\004 \003(\0132\037.proto_ff.E_MofaZyjxattZ"
+    "yjxDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"O\n\021Sheet_MofaZyj"
+    "xatt\022:\n\022E_MofaZyjxatt_List\030\001 \003(\0132\027.proto"
+    "_ff.E_MofaZyjxattB\005\210\301\024\200\001\"Q\n\031E_MofaZyjxzf"
+    "attZyjxzfDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022"
+    "\032\n\006m_type\030\002 \001(\005B\n\302\377\024\006\347\261\273\345\236\213\"\263\001\n\017E_MofaZy"
+    "jxzfatt\022\030\n\004m_ID\030\001 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\035\n\007m_A"
+    "ttID\030\002 \001(\003B\014\302\377\024\010\345\261\236\346\200\247ID\022 \n\006m_JxLv\030\003 \001(\005"
+    "B\020\302\377\024\014\350\247\211\351\206\222\351\234\200\346\261\202\022E\n\010m_ZyJxZf\030\004 \003(\0132#.p"
+    "roto_ff.E_MofaZyjxzfattZyjxzfDescB\016\302\377\024\006\345"
+    "\261\236\346\200\247\210\301\024\003\"U\n\023Sheet_MofaZyjxzfatt\022>\n\024E_Mo"
+    "faZyjxzfatt_List\030\001 \003(\0132\031.proto_ff.E_Mofa"
+    "ZyjxzfattB\005\210\301\024\200\001\"~\n\016E_MofaExchange\022\037\n\tm_"
+    "EquipID\030\001 \001(\005B\014\302\377\024\010\350\243\205\345\244\207ID\022\"\n\010m_EcItem\030"
+    "\002 \001(\005B\020\302\377\024\014\345\205\221\346\215\242\351\201\223\345\205\267\022\'\n\007m_EcNum\030\003 \001(\005"
+    "B\026\302\377\024\022\345\205\221\346\215\242\351\201\223\345\205\267\346\225\260\351\207\217\"Q\n\022Sheet_MofaEx"
+    "change\022;\n\023E_MofaExchange_List\030\001 \003(\0132\030.pr"
+    "oto_ff.E_MofaExchangeB\004\210\301\024 \"F\n\nE_MofaNam"
+    "e\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\014m_functionid\030"
+    "\002 \001(\005B\014\302\377\024\010\345\212\237\350\203\275id\"E\n\016Sheet_MofaName\0223\n"
+    "\017E_MofaName_List\030\001 \003(\0132\024.proto_ff.E_Mofa"
+    "NameB\004\210\301\024\010", 3210);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Mofa.proto", &protobuf_RegisterTypes);
   E_MofaSetupZfDesc::default_instance_ = new E_MofaSetupZfDesc();
@@ -2319,7 +2319,7 @@ void E_MofaYuansu::SharedCtor() {
   _cached_size_ = 0;
   m_equipid_ = 0;
   m_attritype_ = 0;
-  m_mosaic_ = 0;
+  m_mosaic_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_lvitem_ = 0;
   m_awaken_can_ = 0;
   m_awaken_lvmax_ = 0;
@@ -2332,6 +2332,9 @@ E_MofaYuansu::~E_MofaYuansu() {
 }
 
 void E_MofaYuansu::SharedDtor() {
+  if (m_mosaic_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mosaic_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -2361,7 +2364,11 @@ void E_MofaYuansu::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_equipid_ = 0;
     m_attritype_ = 0;
-    m_mosaic_ = 0;
+    if (has_m_mosaic()) {
+      if (m_mosaic_ != &::google::protobuf::internal::kEmptyString) {
+        m_mosaic_->clear();
+      }
+    }
     m_lvitem_ = 0;
     m_awaken_can_ = 0;
     m_awaken_lvmax_ = 0;
@@ -2406,19 +2413,20 @@ bool E_MofaYuansu::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_mosaic;
+        if (input->ExpectTag(26)) goto parse_m_mosaic;
         break;
       }
 
-      // optional int32 m_mosaic = 3;
+      // optional string m_mosaic = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_mosaic:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_mosaic_)));
-          set_has_m_mosaic();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_mosaic()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_mosaic().data(), this->m_mosaic().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2548,9 +2556,13 @@ void E_MofaYuansu::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_attritype(), output);
   }
 
-  // optional int32 m_mosaic = 3;
+  // optional string m_mosaic = 3;
   if (has_m_mosaic()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_mosaic(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mosaic().data(), this->m_mosaic().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->m_mosaic(), output);
   }
 
   // optional int32 m_LvItem = 4;
@@ -2603,9 +2615,14 @@ void E_MofaYuansu::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_attritype(), target);
   }
 
-  // optional int32 m_mosaic = 3;
+  // optional string m_mosaic = 3;
   if (has_m_mosaic()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_mosaic(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mosaic().data(), this->m_mosaic().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->m_mosaic(), target);
   }
 
   // optional int32 m_LvItem = 4;
@@ -2667,10 +2684,10 @@ int E_MofaYuansu::ByteSize() const {
           this->m_attritype());
     }
 
-    // optional int32 m_mosaic = 3;
+    // optional string m_mosaic = 3;
     if (has_m_mosaic()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_mosaic());
     }
 

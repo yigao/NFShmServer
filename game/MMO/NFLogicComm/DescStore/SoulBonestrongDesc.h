@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Soul_s.h"
 
-#define MAX_SOUL_BONESTRONG_NUM 256
+#define MAX_SOUL_BONESTRONG_NUM 1024
 
 class SoulBonestrongDesc : public NFIDescTemplate<SoulBonestrongDesc, proto_ff_s::E_SoulBonestrong_s, EOT_CONST_SOUL_BONESTRONG_DESC_ID, MAX_SOUL_BONESTRONG_NUM>
 {

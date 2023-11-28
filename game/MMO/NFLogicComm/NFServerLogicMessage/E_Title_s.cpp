@@ -106,6 +106,7 @@ int E_TitleTitle_s::CreateInit() {
 	m_starId = (int64_t)0;
 	m_starUp = (int32_t)0;
 	m_starBer = (int32_t)0;
+	m_broadcast = (int32_t)0;
 	return 0;
 }
 
@@ -129,6 +130,7 @@ void E_TitleTitle_s::write_to_pbmsg(::proto_ff::E_TitleTitle & msg) const {
 	msg.set_m_starnum(m_starNum.data());
 	msg.set_m_starup((int32_t)m_starUp);
 	msg.set_m_starber((int32_t)m_starBer);
+	msg.set_m_broadcast((int32_t)m_broadcast);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_TitleTitleAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -151,6 +153,7 @@ void E_TitleTitle_s::read_from_pbmsg(const ::proto_ff::E_TitleTitle & msg) {
 	m_starNum = msg.m_starnum();
 	m_starUp = msg.m_starup();
 	m_starBer = msg.m_starber();
+	m_broadcast = msg.m_broadcast();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_TitleTitleAttributeDesc & temp_m_attribute = msg.m_attribute(i);

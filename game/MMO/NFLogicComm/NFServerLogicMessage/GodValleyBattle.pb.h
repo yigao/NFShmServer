@@ -67,6 +67,10 @@ class GVBDailyScoreRewardRcvRsp;
 class GVBRoomReq;
 class GVBRoomRsp;
 class GVBRoomCloseReq;
+class GVBRoomSetEntryMapReq;
+class GVBRoomKickPlayer;
+class GVBRoomUniqueIdReq;
+class GVBRoomUniqueIdRsp;
 class GVBCrystalOwnerPosReq;
 class GVBCrystalOwnerPosRsp;
 class WPPEnterReq;
@@ -119,6 +123,44 @@ class GMAResultRsp;
 class GMADatasReq;
 class GMAError;
 class GMATimeReq;
+class NGPDPlayer;
+class NGPDBattle;
+class NGPDAddTBoxOpenLog;
+class NGTBoxItemServerLog;
+class NGTBoxItemServerLog_record;
+class NGPDGlobal;
+class NGPDBattleReq;
+class NGPDBattleRsp;
+class NGPDBattleSaveReq;
+class NGPDPlayerPDReq;
+class NGPDPlayerPDRsp;
+class NGPDPlayerSaveReq;
+class NGPDRankReq;
+class NGPDTBoxOpenServerLogReq;
+class NGBoss;
+class NGEnterReq;
+class NGExitReq;
+class NGDataRsp;
+class NGRankReq;
+class NGRankRsp;
+class NGFinishNt;
+class NGScoreRewardRecvReq;
+class NGScoreRewardRecvRsp;
+class NGTBoxOpenReq;
+class NGTBoxOpenRsp;
+class NGDbDatasRsp;
+class NGPrivilegePayReq;
+class NGPrivilegePayRsp;
+class NGPrivilegeRewardRecvReq;
+class NGPrivilegeRewardRecvRsp;
+class NGStorePurchaseReq;
+class NGStorePurchaseRsp;
+class NGPayAccRecvReq;
+class NGPayAccRecvRsp;
+class NGTBoxOpenServerLogReq;
+class NGTBoxOpenServerLogRsp;
+class NGTBoxNxtLayerReq;
+class NGTBoxNxtLayerRsp;
 
 // ===================================================================
 
@@ -3333,6 +3375,404 @@ class GVBRoomCloseReq : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static GVBRoomCloseReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GVBRoomSetEntryMapReq : public ::google::protobuf::Message {
+ public:
+  GVBRoomSetEntryMapReq();
+  virtual ~GVBRoomSetEntryMapReq();
+
+  GVBRoomSetEntryMapReq(const GVBRoomSetEntryMapReq& from);
+
+  inline GVBRoomSetEntryMapReq& operator=(const GVBRoomSetEntryMapReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GVBRoomSetEntryMapReq& default_instance();
+
+  void Swap(GVBRoomSetEntryMapReq* other);
+
+  // implements Message ----------------------------------------------
+
+  GVBRoomSetEntryMapReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GVBRoomSetEntryMapReq& from);
+  void MergeFrom(const GVBRoomSetEntryMapReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 roomId = 1;
+  inline bool has_roomid() const;
+  inline void clear_roomid();
+  static const int kRoomIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 roomid() const;
+  inline void set_roomid(::google::protobuf::uint64 value);
+
+  // required uint32 mapId = 2;
+  inline bool has_mapid() const;
+  inline void clear_mapid();
+  static const int kMapIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 mapid() const;
+  inline void set_mapid(::google::protobuf::uint32 value);
+
+  // required uint32 fromZone = 3;
+  inline bool has_fromzone() const;
+  inline void clear_fromzone();
+  static const int kFromZoneFieldNumber = 3;
+  inline ::google::protobuf::uint32 fromzone() const;
+  inline void set_fromzone(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GVBRoomSetEntryMapReq)
+ private:
+  inline void set_has_roomid();
+  inline void clear_has_roomid();
+  inline void set_has_mapid();
+  inline void clear_has_mapid();
+  inline void set_has_fromzone();
+  inline void clear_has_fromzone();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 roomid_;
+  ::google::protobuf::uint32 mapid_;
+  ::google::protobuf::uint32 fromzone_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GVBRoomSetEntryMapReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GVBRoomKickPlayer : public ::google::protobuf::Message {
+ public:
+  GVBRoomKickPlayer();
+  virtual ~GVBRoomKickPlayer();
+
+  GVBRoomKickPlayer(const GVBRoomKickPlayer& from);
+
+  inline GVBRoomKickPlayer& operator=(const GVBRoomKickPlayer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GVBRoomKickPlayer& default_instance();
+
+  void Swap(GVBRoomKickPlayer* other);
+
+  // implements Message ----------------------------------------------
+
+  GVBRoomKickPlayer* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GVBRoomKickPlayer& from);
+  void MergeFrom(const GVBRoomKickPlayer& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required uint64 sceneid = 2;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneidFieldNumber = 2;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GVBRoomKickPlayer)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 sceneid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GVBRoomKickPlayer* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GVBRoomUniqueIdReq : public ::google::protobuf::Message {
+ public:
+  GVBRoomUniqueIdReq();
+  virtual ~GVBRoomUniqueIdReq();
+
+  GVBRoomUniqueIdReq(const GVBRoomUniqueIdReq& from);
+
+  inline GVBRoomUniqueIdReq& operator=(const GVBRoomUniqueIdReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GVBRoomUniqueIdReq& default_instance();
+
+  void Swap(GVBRoomUniqueIdReq* other);
+
+  // implements Message ----------------------------------------------
+
+  GVBRoomUniqueIdReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GVBRoomUniqueIdReq& from);
+  void MergeFrom(const GVBRoomUniqueIdReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 fromZone = 1;
+  inline bool has_fromzone() const;
+  inline void clear_fromzone();
+  static const int kFromZoneFieldNumber = 1;
+  inline ::google::protobuf::uint32 fromzone() const;
+  inline void set_fromzone(::google::protobuf::uint32 value);
+
+  // required uint32 fromLogic = 2;
+  inline bool has_fromlogic() const;
+  inline void clear_fromlogic();
+  static const int kFromLogicFieldNumber = 2;
+  inline ::google::protobuf::uint32 fromlogic() const;
+  inline void set_fromlogic(::google::protobuf::uint32 value);
+
+  // required uint64 sceneId = 3;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GVBRoomUniqueIdReq)
+ private:
+  inline void set_has_fromzone();
+  inline void clear_has_fromzone();
+  inline void set_has_fromlogic();
+  inline void clear_has_fromlogic();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 fromzone_;
+  ::google::protobuf::uint32 fromlogic_;
+  ::google::protobuf::uint64 sceneid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GVBRoomUniqueIdReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GVBRoomUniqueIdRsp : public ::google::protobuf::Message {
+ public:
+  GVBRoomUniqueIdRsp();
+  virtual ~GVBRoomUniqueIdRsp();
+
+  GVBRoomUniqueIdRsp(const GVBRoomUniqueIdRsp& from);
+
+  inline GVBRoomUniqueIdRsp& operator=(const GVBRoomUniqueIdRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GVBRoomUniqueIdRsp& default_instance();
+
+  void Swap(GVBRoomUniqueIdRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GVBRoomUniqueIdRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GVBRoomUniqueIdRsp& from);
+  void MergeFrom(const GVBRoomUniqueIdRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 error = 1;
+  inline bool has_error() const;
+  inline void clear_error();
+  static const int kErrorFieldNumber = 1;
+  inline ::google::protobuf::uint32 error() const;
+  inline void set_error(::google::protobuf::uint32 value);
+
+  // required uint64 sceneId = 2;
+  inline bool has_sceneid() const;
+  inline void clear_sceneid();
+  static const int kSceneIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 sceneid() const;
+  inline void set_sceneid(::google::protobuf::uint64 value);
+
+  // required uint64 uniqueId = 3;
+  inline bool has_uniqueid() const;
+  inline void clear_uniqueid();
+  static const int kUniqueIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 uniqueid() const;
+  inline void set_uniqueid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GVBRoomUniqueIdRsp)
+ private:
+  inline void set_has_error();
+  inline void clear_has_error();
+  inline void set_has_sceneid();
+  inline void clear_has_sceneid();
+  inline void set_has_uniqueid();
+  inline void clear_has_uniqueid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 sceneid_;
+  ::google::protobuf::uint64 uniqueid_;
+  ::google::protobuf::uint32 error_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GVBRoomUniqueIdRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -8298,6 +8738,3731 @@ class GMATimeReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static GMATimeReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class NGPDPlayer : public ::google::protobuf::Message {
+ public:
+  NGPDPlayer();
+  virtual ~NGPDPlayer();
+
+  NGPDPlayer(const NGPDPlayer& from);
+
+  inline NGPDPlayer& operator=(const NGPDPlayer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDPlayer& default_instance();
+
+  void Swap(NGPDPlayer* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDPlayer* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDPlayer& from);
+  void MergeFrom(const NGPDPlayer& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 kills = 2;
+  inline bool has_kills() const;
+  inline void clear_kills();
+  static const int kKillsFieldNumber = 2;
+  inline ::google::protobuf::uint32 kills() const;
+  inline void set_kills(::google::protobuf::uint32 value);
+
+  // optional uint32 scores = 3;
+  inline bool has_scores() const;
+  inline void clear_scores();
+  static const int kScoresFieldNumber = 3;
+  inline ::google::protobuf::uint32 scores() const;
+  inline void set_scores(::google::protobuf::uint32 value);
+
+  // optional uint32 aliveTime = 4;
+  inline bool has_alivetime() const;
+  inline void clear_alivetime();
+  static const int kAliveTimeFieldNumber = 4;
+  inline ::google::protobuf::uint32 alivetime() const;
+  inline void set_alivetime(::google::protobuf::uint32 value);
+
+  // optional uint32 rank = 5;
+  inline bool has_rank() const;
+  inline void clear_rank();
+  static const int kRankFieldNumber = 5;
+  inline ::google::protobuf::uint32 rank() const;
+  inline void set_rank(::google::protobuf::uint32 value);
+
+  // optional string name = 6;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 6;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // optional uint32 nickId = 7;
+  inline bool has_nickid() const;
+  inline void clear_nickid();
+  static const int kNickIdFieldNumber = 7;
+  inline ::google::protobuf::uint32 nickid() const;
+  inline void set_nickid(::google::protobuf::uint32 value);
+
+  // optional uint64 fight = 8;
+  inline bool has_fight() const;
+  inline void clear_fight();
+  static const int kFightFieldNumber = 8;
+  inline ::google::protobuf::uint64 fight() const;
+  inline void set_fight(::google::protobuf::uint64 value);
+
+  // repeated uint32 scoreRewardsRecvLog = 9;
+  inline int scorerewardsrecvlog_size() const;
+  inline void clear_scorerewardsrecvlog();
+  static const int kScoreRewardsRecvLogFieldNumber = 9;
+  inline ::google::protobuf::uint32 scorerewardsrecvlog(int index) const;
+  inline void set_scorerewardsrecvlog(int index, ::google::protobuf::uint32 value);
+  inline void add_scorerewardsrecvlog(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      scorerewardsrecvlog() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_scorerewardsrecvlog();
+
+  // optional uint32 zid = 10;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 10;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDPlayer)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_kills();
+  inline void clear_has_kills();
+  inline void set_has_scores();
+  inline void clear_has_scores();
+  inline void set_has_alivetime();
+  inline void clear_has_alivetime();
+  inline void set_has_rank();
+  inline void clear_has_rank();
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_nickid();
+  inline void clear_has_nickid();
+  inline void set_has_fight();
+  inline void clear_has_fight();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 kills_;
+  ::google::protobuf::uint32 scores_;
+  ::google::protobuf::uint32 alivetime_;
+  ::google::protobuf::uint32 rank_;
+  ::std::string* name_;
+  ::google::protobuf::uint64 fight_;
+  ::google::protobuf::uint32 nickid_;
+  ::google::protobuf::uint32 zid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > scorerewardsrecvlog_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDPlayer* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDBattle : public ::google::protobuf::Message {
+ public:
+  NGPDBattle();
+  virtual ~NGPDBattle();
+
+  NGPDBattle(const NGPDBattle& from);
+
+  inline NGPDBattle& operator=(const NGPDBattle& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDBattle& default_instance();
+
+  void Swap(NGPDBattle* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDBattle* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDBattle& from);
+  void MergeFrom(const NGPDBattle& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.NGPDPlayer players = 2;
+  inline int players_size() const;
+  inline void clear_players();
+  static const int kPlayersFieldNumber = 2;
+  inline const ::proto_ff::NGPDPlayer& players(int index) const;
+  inline ::proto_ff::NGPDPlayer* mutable_players(int index);
+  inline ::proto_ff::NGPDPlayer* add_players();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >&
+      players() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >*
+      mutable_players();
+
+  // optional uint64 saveTime = 3;
+  inline bool has_savetime() const;
+  inline void clear_savetime();
+  static const int kSaveTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 savetime() const;
+  inline void set_savetime(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDBattle)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_savetime();
+  inline void clear_has_savetime();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer > players_;
+  ::google::protobuf::uint64 savetime_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDBattle* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDAddTBoxOpenLog : public ::google::protobuf::Message {
+ public:
+  NGPDAddTBoxOpenLog();
+  virtual ~NGPDAddTBoxOpenLog();
+
+  NGPDAddTBoxOpenLog(const NGPDAddTBoxOpenLog& from);
+
+  inline NGPDAddTBoxOpenLog& operator=(const NGPDAddTBoxOpenLog& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDAddTBoxOpenLog& default_instance();
+
+  void Swap(NGPDAddTBoxOpenLog* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDAddTBoxOpenLog* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDAddTBoxOpenLog& from);
+  void MergeFrom(const NGPDAddTBoxOpenLog& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // required uint32 itemId = 2;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 itemid() const;
+  inline void set_itemid(::google::protobuf::uint32 value);
+
+  // required uint32 itemCount = 3;
+  inline bool has_itemcount() const;
+  inline void clear_itemcount();
+  static const int kItemCountFieldNumber = 3;
+  inline ::google::protobuf::uint32 itemcount() const;
+  inline void set_itemcount(::google::protobuf::uint32 value);
+
+  // required uint32 zid = 4;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 4;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDAddTBoxOpenLog)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_itemcount();
+  inline void clear_has_itemcount();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* name_;
+  ::google::protobuf::uint32 itemid_;
+  ::google::protobuf::uint32 itemcount_;
+  ::google::protobuf::uint32 zid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDAddTBoxOpenLog* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxItemServerLog_record : public ::google::protobuf::Message {
+ public:
+  NGTBoxItemServerLog_record();
+  virtual ~NGTBoxItemServerLog_record();
+
+  NGTBoxItemServerLog_record(const NGTBoxItemServerLog_record& from);
+
+  inline NGTBoxItemServerLog_record& operator=(const NGTBoxItemServerLog_record& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxItemServerLog_record& default_instance();
+
+  void Swap(NGTBoxItemServerLog_record* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxItemServerLog_record* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxItemServerLog_record& from);
+  void MergeFrom(const NGTBoxItemServerLog_record& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const char* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // required uint32 itemId = 2;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 itemid() const;
+  inline void set_itemid(::google::protobuf::uint32 value);
+
+  // required uint32 itemCount = 3;
+  inline bool has_itemcount() const;
+  inline void clear_itemcount();
+  static const int kItemCountFieldNumber = 3;
+  inline ::google::protobuf::uint32 itemcount() const;
+  inline void set_itemcount(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxItemServerLog.record)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_itemcount();
+  inline void clear_has_itemcount();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* name_;
+  ::google::protobuf::uint32 itemid_;
+  ::google::protobuf::uint32 itemcount_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxItemServerLog_record* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxItemServerLog : public ::google::protobuf::Message {
+ public:
+  NGTBoxItemServerLog();
+  virtual ~NGTBoxItemServerLog();
+
+  NGTBoxItemServerLog(const NGTBoxItemServerLog& from);
+
+  inline NGTBoxItemServerLog& operator=(const NGTBoxItemServerLog& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxItemServerLog& default_instance();
+
+  void Swap(NGTBoxItemServerLog* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxItemServerLog* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxItemServerLog& from);
+  void MergeFrom(const NGTBoxItemServerLog& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  typedef NGTBoxItemServerLog_record record;
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 zid = 1;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 1;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.NGTBoxItemServerLog.record records = 2;
+  inline int records_size() const;
+  inline void clear_records();
+  static const int kRecordsFieldNumber = 2;
+  inline const ::proto_ff::NGTBoxItemServerLog_record& records(int index) const;
+  inline ::proto_ff::NGTBoxItemServerLog_record* mutable_records(int index);
+  inline ::proto_ff::NGTBoxItemServerLog_record* add_records();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog_record >&
+      records() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog_record >*
+      mutable_records();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxItemServerLog)
+ private:
+  inline void set_has_zid();
+  inline void clear_has_zid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog_record > records_;
+  ::google::protobuf::uint32 zid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxItemServerLog* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDGlobal : public ::google::protobuf::Message {
+ public:
+  NGPDGlobal();
+  virtual ~NGPDGlobal();
+
+  NGPDGlobal(const NGPDGlobal& from);
+
+  inline NGPDGlobal& operator=(const NGPDGlobal& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDGlobal& default_instance();
+
+  void Swap(NGPDGlobal* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDGlobal* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDGlobal& from);
+  void MergeFrom(const NGPDGlobal& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.NGPDBattle battles = 1;
+  inline int battles_size() const;
+  inline void clear_battles();
+  static const int kBattlesFieldNumber = 1;
+  inline const ::proto_ff::NGPDBattle& battles(int index) const;
+  inline ::proto_ff::NGPDBattle* mutable_battles(int index);
+  inline ::proto_ff::NGPDBattle* add_battles();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDBattle >&
+      battles() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDBattle >*
+      mutable_battles();
+
+  // repeated .proto_ff.NGTBoxItemServerLog tboxItemLog = 2;
+  inline int tboxitemlog_size() const;
+  inline void clear_tboxitemlog();
+  static const int kTboxItemLogFieldNumber = 2;
+  inline const ::proto_ff::NGTBoxItemServerLog& tboxitemlog(int index) const;
+  inline ::proto_ff::NGTBoxItemServerLog* mutable_tboxitemlog(int index);
+  inline ::proto_ff::NGTBoxItemServerLog* add_tboxitemlog();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog >&
+      tboxitemlog() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog >*
+      mutable_tboxitemlog();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDGlobal)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDBattle > battles_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog > tboxitemlog_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDGlobal* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDBattleReq : public ::google::protobuf::Message {
+ public:
+  NGPDBattleReq();
+  virtual ~NGPDBattleReq();
+
+  NGPDBattleReq(const NGPDBattleReq& from);
+
+  inline NGPDBattleReq& operator=(const NGPDBattleReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDBattleReq& default_instance();
+
+  void Swap(NGPDBattleReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDBattleReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDBattleReq& from);
+  void MergeFrom(const NGPDBattleReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 session = 1;
+  inline bool has_session() const;
+  inline void clear_session();
+  static const int kSessionFieldNumber = 1;
+  inline ::google::protobuf::uint64 session() const;
+  inline void set_session(::google::protobuf::uint64 value);
+
+  // required uint32 fromzone = 2;
+  inline bool has_fromzone() const;
+  inline void clear_fromzone();
+  static const int kFromzoneFieldNumber = 2;
+  inline ::google::protobuf::uint32 fromzone() const;
+  inline void set_fromzone(::google::protobuf::uint32 value);
+
+  // required uint32 fromlogic = 3;
+  inline bool has_fromlogic() const;
+  inline void clear_fromlogic();
+  static const int kFromlogicFieldNumber = 3;
+  inline ::google::protobuf::uint32 fromlogic() const;
+  inline void set_fromlogic(::google::protobuf::uint32 value);
+
+  // required uint64 id = 4;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDBattleReq)
+ private:
+  inline void set_has_session();
+  inline void clear_has_session();
+  inline void set_has_fromzone();
+  inline void clear_has_fromzone();
+  inline void set_has_fromlogic();
+  inline void clear_has_fromlogic();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 session_;
+  ::google::protobuf::uint32 fromzone_;
+  ::google::protobuf::uint32 fromlogic_;
+  ::google::protobuf::uint64 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDBattleReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDBattleRsp : public ::google::protobuf::Message {
+ public:
+  NGPDBattleRsp();
+  virtual ~NGPDBattleRsp();
+
+  NGPDBattleRsp(const NGPDBattleRsp& from);
+
+  inline NGPDBattleRsp& operator=(const NGPDBattleRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDBattleRsp& default_instance();
+
+  void Swap(NGPDBattleRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDBattleRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDBattleRsp& from);
+  void MergeFrom(const NGPDBattleRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 session = 1;
+  inline bool has_session() const;
+  inline void clear_session();
+  static const int kSessionFieldNumber = 1;
+  inline ::google::protobuf::uint64 session() const;
+  inline void set_session(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.NGPDBattle pd = 2;
+  inline bool has_pd() const;
+  inline void clear_pd();
+  static const int kPdFieldNumber = 2;
+  inline const ::proto_ff::NGPDBattle& pd() const;
+  inline ::proto_ff::NGPDBattle* mutable_pd();
+  inline ::proto_ff::NGPDBattle* release_pd();
+  inline void set_allocated_pd(::proto_ff::NGPDBattle* pd);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDBattleRsp)
+ private:
+  inline void set_has_session();
+  inline void clear_has_session();
+  inline void set_has_pd();
+  inline void clear_has_pd();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 session_;
+  ::proto_ff::NGPDBattle* pd_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDBattleRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDBattleSaveReq : public ::google::protobuf::Message {
+ public:
+  NGPDBattleSaveReq();
+  virtual ~NGPDBattleSaveReq();
+
+  NGPDBattleSaveReq(const NGPDBattleSaveReq& from);
+
+  inline NGPDBattleSaveReq& operator=(const NGPDBattleSaveReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDBattleSaveReq& default_instance();
+
+  void Swap(NGPDBattleSaveReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDBattleSaveReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDBattleSaveReq& from);
+  void MergeFrom(const NGPDBattleSaveReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .proto_ff.NGPDBattle pd = 1;
+  inline bool has_pd() const;
+  inline void clear_pd();
+  static const int kPdFieldNumber = 1;
+  inline const ::proto_ff::NGPDBattle& pd() const;
+  inline ::proto_ff::NGPDBattle* mutable_pd();
+  inline ::proto_ff::NGPDBattle* release_pd();
+  inline void set_allocated_pd(::proto_ff::NGPDBattle* pd);
+
+  // optional bool finish = 2;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 2;
+  inline bool finish() const;
+  inline void set_finish(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDBattleSaveReq)
+ private:
+  inline void set_has_pd();
+  inline void clear_has_pd();
+  inline void set_has_finish();
+  inline void clear_has_finish();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::NGPDBattle* pd_;
+  bool finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDBattleSaveReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDPlayerPDReq : public ::google::protobuf::Message {
+ public:
+  NGPDPlayerPDReq();
+  virtual ~NGPDPlayerPDReq();
+
+  NGPDPlayerPDReq(const NGPDPlayerPDReq& from);
+
+  inline NGPDPlayerPDReq& operator=(const NGPDPlayerPDReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDPlayerPDReq& default_instance();
+
+  void Swap(NGPDPlayerPDReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDPlayerPDReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDPlayerPDReq& from);
+  void MergeFrom(const NGPDPlayerPDReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 fromZone = 1;
+  inline bool has_fromzone() const;
+  inline void clear_fromzone();
+  static const int kFromZoneFieldNumber = 1;
+  inline ::google::protobuf::uint32 fromzone() const;
+  inline void set_fromzone(::google::protobuf::uint32 value);
+
+  // optional uint32 fromLogic = 2;
+  inline bool has_fromlogic() const;
+  inline void clear_fromlogic();
+  static const int kFromLogicFieldNumber = 2;
+  inline ::google::protobuf::uint32 fromlogic() const;
+  inline void set_fromlogic(::google::protobuf::uint32 value);
+
+  // optional uint64 cid = 3;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 3;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required uint64 session = 4;
+  inline bool has_session() const;
+  inline void clear_session();
+  static const int kSessionFieldNumber = 4;
+  inline ::google::protobuf::uint64 session() const;
+  inline void set_session(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDPlayerPDReq)
+ private:
+  inline void set_has_fromzone();
+  inline void clear_has_fromzone();
+  inline void set_has_fromlogic();
+  inline void clear_has_fromlogic();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_session();
+  inline void clear_has_session();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 fromzone_;
+  ::google::protobuf::uint32 fromlogic_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 session_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDPlayerPDReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDPlayerPDRsp : public ::google::protobuf::Message {
+ public:
+  NGPDPlayerPDRsp();
+  virtual ~NGPDPlayerPDRsp();
+
+  NGPDPlayerPDRsp(const NGPDPlayerPDRsp& from);
+
+  inline NGPDPlayerPDRsp& operator=(const NGPDPlayerPDRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDPlayerPDRsp& default_instance();
+
+  void Swap(NGPDPlayerPDRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDPlayerPDRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDPlayerPDRsp& from);
+  void MergeFrom(const NGPDPlayerPDRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.NGPDPlayer p = 2;
+  inline bool has_p() const;
+  inline void clear_p();
+  static const int kPFieldNumber = 2;
+  inline const ::proto_ff::NGPDPlayer& p() const;
+  inline ::proto_ff::NGPDPlayer* mutable_p();
+  inline ::proto_ff::NGPDPlayer* release_p();
+  inline void set_allocated_p(::proto_ff::NGPDPlayer* p);
+
+  // required uint64 session = 3;
+  inline bool has_session() const;
+  inline void clear_session();
+  static const int kSessionFieldNumber = 3;
+  inline ::google::protobuf::uint64 session() const;
+  inline void set_session(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDPlayerPDRsp)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_p();
+  inline void clear_has_p();
+  inline void set_has_session();
+  inline void clear_has_session();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::proto_ff::NGPDPlayer* p_;
+  ::google::protobuf::uint64 session_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDPlayerPDRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDPlayerSaveReq : public ::google::protobuf::Message {
+ public:
+  NGPDPlayerSaveReq();
+  virtual ~NGPDPlayerSaveReq();
+
+  NGPDPlayerSaveReq(const NGPDPlayerSaveReq& from);
+
+  inline NGPDPlayerSaveReq& operator=(const NGPDPlayerSaveReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDPlayerSaveReq& default_instance();
+
+  void Swap(NGPDPlayerSaveReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDPlayerSaveReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDPlayerSaveReq& from);
+  void MergeFrom(const NGPDPlayerSaveReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.NGPDPlayer p = 1;
+  inline bool has_p() const;
+  inline void clear_p();
+  static const int kPFieldNumber = 1;
+  inline const ::proto_ff::NGPDPlayer& p() const;
+  inline ::proto_ff::NGPDPlayer* mutable_p();
+  inline ::proto_ff::NGPDPlayer* release_p();
+  inline void set_allocated_p(::proto_ff::NGPDPlayer* p);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDPlayerSaveReq)
+ private:
+  inline void set_has_p();
+  inline void clear_has_p();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::NGPDPlayer* p_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDPlayerSaveReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDRankReq : public ::google::protobuf::Message {
+ public:
+  NGPDRankReq();
+  virtual ~NGPDRankReq();
+
+  NGPDRankReq(const NGPDRankReq& from);
+
+  inline NGPDRankReq& operator=(const NGPDRankReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDRankReq& default_instance();
+
+  void Swap(NGPDRankReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDRankReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDRankReq& from);
+  void MergeFrom(const NGPDRankReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDRankReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDRankReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPDTBoxOpenServerLogReq : public ::google::protobuf::Message {
+ public:
+  NGPDTBoxOpenServerLogReq();
+  virtual ~NGPDTBoxOpenServerLogReq();
+
+  NGPDTBoxOpenServerLogReq(const NGPDTBoxOpenServerLogReq& from);
+
+  inline NGPDTBoxOpenServerLogReq& operator=(const NGPDTBoxOpenServerLogReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPDTBoxOpenServerLogReq& default_instance();
+
+  void Swap(NGPDTBoxOpenServerLogReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPDTBoxOpenServerLogReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPDTBoxOpenServerLogReq& from);
+  void MergeFrom(const NGPDTBoxOpenServerLogReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPDTBoxOpenServerLogReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPDTBoxOpenServerLogReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGBoss : public ::google::protobuf::Message {
+ public:
+  NGBoss();
+  virtual ~NGBoss();
+
+  NGBoss(const NGBoss& from);
+
+  inline NGBoss& operator=(const NGBoss& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGBoss& default_instance();
+
+  void Swap(NGBoss* other);
+
+  // implements Message ----------------------------------------------
+
+  NGBoss* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGBoss& from);
+  void MergeFrom(const NGBoss& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cfgId = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // required float x = 2;
+  inline bool has_x() const;
+  inline void clear_x();
+  static const int kXFieldNumber = 2;
+  inline float x() const;
+  inline void set_x(float value);
+
+  // required float y = 3;
+  inline bool has_y() const;
+  inline void clear_y();
+  static const int kYFieldNumber = 3;
+  inline float y() const;
+  inline void set_y(float value);
+
+  // required float z = 4;
+  inline bool has_z() const;
+  inline void clear_z();
+  static const int kZFieldNumber = 4;
+  inline float z() const;
+  inline void set_z(float value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGBoss)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+  inline void set_has_x();
+  inline void clear_has_x();
+  inline void set_has_y();
+  inline void clear_has_y();
+  inline void set_has_z();
+  inline void clear_has_z();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 cfgid_;
+  float x_;
+  float y_;
+  float z_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGBoss* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGEnterReq : public ::google::protobuf::Message {
+ public:
+  NGEnterReq();
+  virtual ~NGEnterReq();
+
+  NGEnterReq(const NGEnterReq& from);
+
+  inline NGEnterReq& operator=(const NGEnterReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGEnterReq& default_instance();
+
+  void Swap(NGEnterReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGEnterReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGEnterReq& from);
+  void MergeFrom(const NGEnterReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGEnterReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGEnterReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGExitReq : public ::google::protobuf::Message {
+ public:
+  NGExitReq();
+  virtual ~NGExitReq();
+
+  NGExitReq(const NGExitReq& from);
+
+  inline NGExitReq& operator=(const NGExitReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGExitReq& default_instance();
+
+  void Swap(NGExitReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGExitReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGExitReq& from);
+  void MergeFrom(const NGExitReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGExitReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGExitReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGDataRsp : public ::google::protobuf::Message {
+ public:
+  NGDataRsp();
+  virtual ~NGDataRsp();
+
+  NGDataRsp(const NGDataRsp& from);
+
+  inline NGDataRsp& operator=(const NGDataRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGDataRsp& default_instance();
+
+  void Swap(NGDataRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGDataRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGDataRsp& from);
+  void MergeFrom(const NGDataRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 stage = 1;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 1;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // optional int32 countdown = 2;
+  inline bool has_countdown() const;
+  inline void clear_countdown();
+  static const int kCountdownFieldNumber = 2;
+  inline ::google::protobuf::int32 countdown() const;
+  inline void set_countdown(::google::protobuf::int32 value);
+
+  // optional bool nxtStageReady = 3;
+  inline bool has_nxtstageready() const;
+  inline void clear_nxtstageready();
+  static const int kNxtStageReadyFieldNumber = 3;
+  inline bool nxtstageready() const;
+  inline void set_nxtstageready(bool value);
+
+  // optional uint32 scores = 4;
+  inline bool has_scores() const;
+  inline void clear_scores();
+  static const int kScoresFieldNumber = 4;
+  inline ::google::protobuf::uint32 scores() const;
+  inline void set_scores(::google::protobuf::uint32 value);
+
+  // optional uint32 rank = 5;
+  inline bool has_rank() const;
+  inline void clear_rank();
+  static const int kRankFieldNumber = 5;
+  inline ::google::protobuf::uint32 rank() const;
+  inline void set_rank(::google::protobuf::uint32 value);
+
+  // optional uint32 players = 6;
+  inline bool has_players() const;
+  inline void clear_players();
+  static const int kPlayersFieldNumber = 6;
+  inline ::google::protobuf::uint32 players() const;
+  inline void set_players(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.NGBoss bosses = 7;
+  inline int bosses_size() const;
+  inline void clear_bosses();
+  static const int kBossesFieldNumber = 7;
+  inline const ::proto_ff::NGBoss& bosses(int index) const;
+  inline ::proto_ff::NGBoss* mutable_bosses(int index);
+  inline ::proto_ff::NGBoss* add_bosses();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGBoss >&
+      bosses() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGBoss >*
+      mutable_bosses();
+
+  // optional bool bossesSet = 8;
+  inline bool has_bossesset() const;
+  inline void clear_bossesset();
+  static const int kBossesSetFieldNumber = 8;
+  inline bool bossesset() const;
+  inline void set_bossesset(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGDataRsp)
+ private:
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_countdown();
+  inline void clear_has_countdown();
+  inline void set_has_nxtstageready();
+  inline void clear_has_nxtstageready();
+  inline void set_has_scores();
+  inline void clear_has_scores();
+  inline void set_has_rank();
+  inline void clear_has_rank();
+  inline void set_has_players();
+  inline void clear_has_players();
+  inline void set_has_bossesset();
+  inline void clear_has_bossesset();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 stage_;
+  ::google::protobuf::int32 countdown_;
+  ::google::protobuf::uint32 scores_;
+  ::google::protobuf::uint32 rank_;
+  bool nxtstageready_;
+  bool bossesset_;
+  ::google::protobuf::uint32 players_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGBoss > bosses_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGDataRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGRankReq : public ::google::protobuf::Message {
+ public:
+  NGRankReq();
+  virtual ~NGRankReq();
+
+  NGRankReq(const NGRankReq& from);
+
+  inline NGRankReq& operator=(const NGRankReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGRankReq& default_instance();
+
+  void Swap(NGRankReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGRankReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGRankReq& from);
+  void MergeFrom(const NGRankReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGRankReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGRankReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGRankRsp : public ::google::protobuf::Message {
+ public:
+  NGRankRsp();
+  virtual ~NGRankRsp();
+
+  NGRankRsp(const NGRankRsp& from);
+
+  inline NGRankRsp& operator=(const NGRankRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGRankRsp& default_instance();
+
+  void Swap(NGRankRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGRankRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGRankRsp& from);
+  void MergeFrom(const NGRankRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.NGPDPlayer players = 1;
+  inline int players_size() const;
+  inline void clear_players();
+  static const int kPlayersFieldNumber = 1;
+  inline const ::proto_ff::NGPDPlayer& players(int index) const;
+  inline ::proto_ff::NGPDPlayer* mutable_players(int index);
+  inline ::proto_ff::NGPDPlayer* add_players();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >&
+      players() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >*
+      mutable_players();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGRankRsp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer > players_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGRankRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGFinishNt : public ::google::protobuf::Message {
+ public:
+  NGFinishNt();
+  virtual ~NGFinishNt();
+
+  NGFinishNt(const NGFinishNt& from);
+
+  inline NGFinishNt& operator=(const NGFinishNt& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGFinishNt& default_instance();
+
+  void Swap(NGFinishNt* other);
+
+  // implements Message ----------------------------------------------
+
+  NGFinishNt* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGFinishNt& from);
+  void MergeFrom(const NGFinishNt& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.NGPDPlayer rank = 1;
+  inline int rank_size() const;
+  inline void clear_rank();
+  static const int kRankFieldNumber = 1;
+  inline const ::proto_ff::NGPDPlayer& rank(int index) const;
+  inline ::proto_ff::NGPDPlayer* mutable_rank(int index);
+  inline ::proto_ff::NGPDPlayer* add_rank();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >&
+      rank() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >*
+      mutable_rank();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGFinishNt)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer > rank_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGFinishNt* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGScoreRewardRecvReq : public ::google::protobuf::Message {
+ public:
+  NGScoreRewardRecvReq();
+  virtual ~NGScoreRewardRecvReq();
+
+  NGScoreRewardRecvReq(const NGScoreRewardRecvReq& from);
+
+  inline NGScoreRewardRecvReq& operator=(const NGScoreRewardRecvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGScoreRewardRecvReq& default_instance();
+
+  void Swap(NGScoreRewardRecvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGScoreRewardRecvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGScoreRewardRecvReq& from);
+  void MergeFrom(const NGScoreRewardRecvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cfgId = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGScoreRewardRecvReq)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 cfgid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGScoreRewardRecvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGScoreRewardRecvRsp : public ::google::protobuf::Message {
+ public:
+  NGScoreRewardRecvRsp();
+  virtual ~NGScoreRewardRecvRsp();
+
+  NGScoreRewardRecvRsp(const NGScoreRewardRecvRsp& from);
+
+  inline NGScoreRewardRecvRsp& operator=(const NGScoreRewardRecvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGScoreRewardRecvRsp& default_instance();
+
+  void Swap(NGScoreRewardRecvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGScoreRewardRecvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGScoreRewardRecvRsp& from);
+  void MergeFrom(const NGScoreRewardRecvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errCode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrCodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // optional uint32 cfgId = 2;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGScoreRewardRecvRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+  ::google::protobuf::uint32 cfgid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGScoreRewardRecvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxOpenReq : public ::google::protobuf::Message {
+ public:
+  NGTBoxOpenReq();
+  virtual ~NGTBoxOpenReq();
+
+  NGTBoxOpenReq(const NGTBoxOpenReq& from);
+
+  inline NGTBoxOpenReq& operator=(const NGTBoxOpenReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxOpenReq& default_instance();
+
+  void Swap(NGTBoxOpenReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxOpenReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxOpenReq& from);
+  void MergeFrom(const NGTBoxOpenReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 boxIdx = 1;
+  inline bool has_boxidx() const;
+  inline void clear_boxidx();
+  static const int kBoxIdxFieldNumber = 1;
+  inline ::google::protobuf::uint32 boxidx() const;
+  inline void set_boxidx(::google::protobuf::uint32 value);
+
+  // required bool useCurrency = 2;
+  inline bool has_usecurrency() const;
+  inline void clear_usecurrency();
+  static const int kUseCurrencyFieldNumber = 2;
+  inline bool usecurrency() const;
+  inline void set_usecurrency(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxOpenReq)
+ private:
+  inline void set_has_boxidx();
+  inline void clear_has_boxidx();
+  inline void set_has_usecurrency();
+  inline void clear_has_usecurrency();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 boxidx_;
+  bool usecurrency_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxOpenReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxOpenRsp : public ::google::protobuf::Message {
+ public:
+  NGTBoxOpenRsp();
+  virtual ~NGTBoxOpenRsp();
+
+  NGTBoxOpenRsp(const NGTBoxOpenRsp& from);
+
+  inline NGTBoxOpenRsp& operator=(const NGTBoxOpenRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxOpenRsp& default_instance();
+
+  void Swap(NGTBoxOpenRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxOpenRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxOpenRsp& from);
+  void MergeFrom(const NGTBoxOpenRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // required uint32 boxIdx = 2;
+  inline bool has_boxidx() const;
+  inline void clear_boxidx();
+  static const int kBoxIdxFieldNumber = 2;
+  inline ::google::protobuf::uint32 boxidx() const;
+  inline void set_boxidx(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxOpenRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+  inline void set_has_boxidx();
+  inline void clear_has_boxidx();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+  ::google::protobuf::uint32 boxidx_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxOpenRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGDbDatasRsp : public ::google::protobuf::Message {
+ public:
+  NGDbDatasRsp();
+  virtual ~NGDbDatasRsp();
+
+  NGDbDatasRsp(const NGDbDatasRsp& from);
+
+  inline NGDbDatasRsp& operator=(const NGDbDatasRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGDbDatasRsp& default_instance();
+
+  void Swap(NGDbDatasRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGDbDatasRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGDbDatasRsp& from);
+  void MergeFrom(const NGDbDatasRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 layers = 1;
+  inline bool has_layers() const;
+  inline void clear_layers();
+  static const int kLayersFieldNumber = 1;
+  inline ::google::protobuf::uint32 layers() const;
+  inline void set_layers(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.NGTBoxOpened openedList = 2;
+  inline int openedlist_size() const;
+  inline void clear_openedlist();
+  static const int kOpenedListFieldNumber = 2;
+  inline const ::proto_ff::NGTBoxOpened& openedlist(int index) const;
+  inline ::proto_ff::NGTBoxOpened* mutable_openedlist(int index);
+  inline ::proto_ff::NGTBoxOpened* add_openedlist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >&
+      openedlist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >*
+      mutable_openedlist();
+
+  // optional uint64 weekTime = 3;
+  inline bool has_weektime() const;
+  inline void clear_weektime();
+  static const int kWeekTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 weektime() const;
+  inline void set_weektime(::google::protobuf::uint64 value);
+
+  // optional uint32 battleWeekTimes = 4;
+  inline bool has_battleweektimes() const;
+  inline void clear_battleweektimes();
+  static const int kBattleWeekTimesFieldNumber = 4;
+  inline ::google::protobuf::uint32 battleweektimes() const;
+  inline void set_battleweektimes(::google::protobuf::uint32 value);
+
+  // optional uint64 battleId = 5;
+  inline bool has_battleid() const;
+  inline void clear_battleid();
+  static const int kBattleIdFieldNumber = 5;
+  inline ::google::protobuf::uint64 battleid() const;
+  inline void set_battleid(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.NGTBoxItem itemsLog = 6;
+  inline int itemslog_size() const;
+  inline void clear_itemslog();
+  static const int kItemsLogFieldNumber = 6;
+  inline const ::proto_ff::NGTBoxItem& itemslog(int index) const;
+  inline ::proto_ff::NGTBoxItem* mutable_itemslog(int index);
+  inline ::proto_ff::NGTBoxItem* add_itemslog();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >&
+      itemslog() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >*
+      mutable_itemslog();
+
+  // optional uint32 privilege = 7;
+  inline bool has_privilege() const;
+  inline void clear_privilege();
+  static const int kPrivilegeFieldNumber = 7;
+  inline ::google::protobuf::uint32 privilege() const;
+  inline void set_privilege(::google::protobuf::uint32 value);
+
+  // repeated uint32 privilegeRecvLog = 8;
+  inline int privilegerecvlog_size() const;
+  inline void clear_privilegerecvlog();
+  static const int kPrivilegeRecvLogFieldNumber = 8;
+  inline ::google::protobuf::uint32 privilegerecvlog(int index) const;
+  inline void set_privilegerecvlog(int index, ::google::protobuf::uint32 value);
+  inline void add_privilegerecvlog(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      privilegerecvlog() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_privilegerecvlog();
+
+  // repeated .proto_ff.NGStorePurchaseLog storePurchaseLog = 9;
+  inline int storepurchaselog_size() const;
+  inline void clear_storepurchaselog();
+  static const int kStorePurchaseLogFieldNumber = 9;
+  inline const ::proto_ff::NGStorePurchaseLog& storepurchaselog(int index) const;
+  inline ::proto_ff::NGStorePurchaseLog* mutable_storepurchaselog(int index);
+  inline ::proto_ff::NGStorePurchaseLog* add_storepurchaselog();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >&
+      storepurchaselog() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >*
+      mutable_storepurchaselog();
+
+  // optional uint32 payAcc = 10;
+  inline bool has_payacc() const;
+  inline void clear_payacc();
+  static const int kPayAccFieldNumber = 10;
+  inline ::google::protobuf::uint32 payacc() const;
+  inline void set_payacc(::google::protobuf::uint32 value);
+
+  // repeated uint32 payAccRecvLog = 11;
+  inline int payaccrecvlog_size() const;
+  inline void clear_payaccrecvlog();
+  static const int kPayAccRecvLogFieldNumber = 11;
+  inline ::google::protobuf::uint32 payaccrecvlog(int index) const;
+  inline void set_payaccrecvlog(int index, ::google::protobuf::uint32 value);
+  inline void add_payaccrecvlog(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      payaccrecvlog() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_payaccrecvlog();
+
+  // optional uint32 scores = 12;
+  inline bool has_scores() const;
+  inline void clear_scores();
+  static const int kScoresFieldNumber = 12;
+  inline ::google::protobuf::uint32 scores() const;
+  inline void set_scores(::google::protobuf::uint32 value);
+
+  // repeated uint32 scoreRewardsRecvLog = 13;
+  inline int scorerewardsrecvlog_size() const;
+  inline void clear_scorerewardsrecvlog();
+  static const int kScoreRewardsRecvLogFieldNumber = 13;
+  inline ::google::protobuf::uint32 scorerewardsrecvlog(int index) const;
+  inline void set_scorerewardsrecvlog(int index, ::google::protobuf::uint32 value);
+  inline void add_scorerewardsrecvlog(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      scorerewardsrecvlog() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_scorerewardsrecvlog();
+
+  // optional bool openedListSet = 14;
+  inline bool has_openedlistset() const;
+  inline void clear_openedlistset();
+  static const int kOpenedListSetFieldNumber = 14;
+  inline bool openedlistset() const;
+  inline void set_openedlistset(bool value);
+
+  // optional bool itemsListSet = 15;
+  inline bool has_itemslistset() const;
+  inline void clear_itemslistset();
+  static const int kItemsListSetFieldNumber = 15;
+  inline bool itemslistset() const;
+  inline void set_itemslistset(bool value);
+
+  // optional bool privilegeRecvLogSet = 16;
+  inline bool has_privilegerecvlogset() const;
+  inline void clear_privilegerecvlogset();
+  static const int kPrivilegeRecvLogSetFieldNumber = 16;
+  inline bool privilegerecvlogset() const;
+  inline void set_privilegerecvlogset(bool value);
+
+  // optional bool storePurchaseLogSet = 17;
+  inline bool has_storepurchaselogset() const;
+  inline void clear_storepurchaselogset();
+  static const int kStorePurchaseLogSetFieldNumber = 17;
+  inline bool storepurchaselogset() const;
+  inline void set_storepurchaselogset(bool value);
+
+  // optional bool payAccRecvLogSet = 18;
+  inline bool has_payaccrecvlogset() const;
+  inline void clear_payaccrecvlogset();
+  static const int kPayAccRecvLogSetFieldNumber = 18;
+  inline bool payaccrecvlogset() const;
+  inline void set_payaccrecvlogset(bool value);
+
+  // optional bool scoreRewardsRecvLogSet = 19;
+  inline bool has_scorerewardsrecvlogset() const;
+  inline void clear_scorerewardsrecvlogset();
+  static const int kScoreRewardsRecvLogSetFieldNumber = 19;
+  inline bool scorerewardsrecvlogset() const;
+  inline void set_scorerewardsrecvlogset(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGDbDatasRsp)
+ private:
+  inline void set_has_layers();
+  inline void clear_has_layers();
+  inline void set_has_weektime();
+  inline void clear_has_weektime();
+  inline void set_has_battleweektimes();
+  inline void clear_has_battleweektimes();
+  inline void set_has_battleid();
+  inline void clear_has_battleid();
+  inline void set_has_privilege();
+  inline void clear_has_privilege();
+  inline void set_has_payacc();
+  inline void clear_has_payacc();
+  inline void set_has_scores();
+  inline void clear_has_scores();
+  inline void set_has_openedlistset();
+  inline void clear_has_openedlistset();
+  inline void set_has_itemslistset();
+  inline void clear_has_itemslistset();
+  inline void set_has_privilegerecvlogset();
+  inline void clear_has_privilegerecvlogset();
+  inline void set_has_storepurchaselogset();
+  inline void clear_has_storepurchaselogset();
+  inline void set_has_payaccrecvlogset();
+  inline void clear_has_payaccrecvlogset();
+  inline void set_has_scorerewardsrecvlogset();
+  inline void clear_has_scorerewardsrecvlogset();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened > openedlist_;
+  ::google::protobuf::uint32 layers_;
+  ::google::protobuf::uint32 battleweektimes_;
+  ::google::protobuf::uint64 weektime_;
+  ::google::protobuf::uint64 battleid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem > itemslog_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > privilegerecvlog_;
+  ::google::protobuf::uint32 privilege_;
+  ::google::protobuf::uint32 payacc_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog > storepurchaselog_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > payaccrecvlog_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > scorerewardsrecvlog_;
+  ::google::protobuf::uint32 scores_;
+  bool openedlistset_;
+  bool itemslistset_;
+  bool privilegerecvlogset_;
+  bool storepurchaselogset_;
+  bool payaccrecvlogset_;
+  bool scorerewardsrecvlogset_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(19 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGDbDatasRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPrivilegePayReq : public ::google::protobuf::Message {
+ public:
+  NGPrivilegePayReq();
+  virtual ~NGPrivilegePayReq();
+
+  NGPrivilegePayReq(const NGPrivilegePayReq& from);
+
+  inline NGPrivilegePayReq& operator=(const NGPrivilegePayReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPrivilegePayReq& default_instance();
+
+  void Swap(NGPrivilegePayReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPrivilegePayReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPrivilegePayReq& from);
+  void MergeFrom(const NGPrivilegePayReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPrivilegePayReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPrivilegePayReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPrivilegePayRsp : public ::google::protobuf::Message {
+ public:
+  NGPrivilegePayRsp();
+  virtual ~NGPrivilegePayRsp();
+
+  NGPrivilegePayRsp(const NGPrivilegePayRsp& from);
+
+  inline NGPrivilegePayRsp& operator=(const NGPrivilegePayRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPrivilegePayRsp& default_instance();
+
+  void Swap(NGPrivilegePayRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPrivilegePayRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPrivilegePayRsp& from);
+  void MergeFrom(const NGPrivilegePayRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPrivilegePayRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPrivilegePayRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPrivilegeRewardRecvReq : public ::google::protobuf::Message {
+ public:
+  NGPrivilegeRewardRecvReq();
+  virtual ~NGPrivilegeRewardRecvReq();
+
+  NGPrivilegeRewardRecvReq(const NGPrivilegeRewardRecvReq& from);
+
+  inline NGPrivilegeRewardRecvReq& operator=(const NGPrivilegeRewardRecvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPrivilegeRewardRecvReq& default_instance();
+
+  void Swap(NGPrivilegeRewardRecvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPrivilegeRewardRecvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPrivilegeRewardRecvReq& from);
+  void MergeFrom(const NGPrivilegeRewardRecvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cfgId = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPrivilegeRewardRecvReq)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 cfgid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPrivilegeRewardRecvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPrivilegeRewardRecvRsp : public ::google::protobuf::Message {
+ public:
+  NGPrivilegeRewardRecvRsp();
+  virtual ~NGPrivilegeRewardRecvRsp();
+
+  NGPrivilegeRewardRecvRsp(const NGPrivilegeRewardRecvRsp& from);
+
+  inline NGPrivilegeRewardRecvRsp& operator=(const NGPrivilegeRewardRecvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPrivilegeRewardRecvRsp& default_instance();
+
+  void Swap(NGPrivilegeRewardRecvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPrivilegeRewardRecvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPrivilegeRewardRecvRsp& from);
+  void MergeFrom(const NGPrivilegeRewardRecvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPrivilegeRewardRecvRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPrivilegeRewardRecvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGStorePurchaseReq : public ::google::protobuf::Message {
+ public:
+  NGStorePurchaseReq();
+  virtual ~NGStorePurchaseReq();
+
+  NGStorePurchaseReq(const NGStorePurchaseReq& from);
+
+  inline NGStorePurchaseReq& operator=(const NGStorePurchaseReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGStorePurchaseReq& default_instance();
+
+  void Swap(NGStorePurchaseReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGStorePurchaseReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGStorePurchaseReq& from);
+  void MergeFrom(const NGStorePurchaseReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cfgId = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGStorePurchaseReq)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 cfgid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGStorePurchaseReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGStorePurchaseRsp : public ::google::protobuf::Message {
+ public:
+  NGStorePurchaseRsp();
+  virtual ~NGStorePurchaseRsp();
+
+  NGStorePurchaseRsp(const NGStorePurchaseRsp& from);
+
+  inline NGStorePurchaseRsp& operator=(const NGStorePurchaseRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGStorePurchaseRsp& default_instance();
+
+  void Swap(NGStorePurchaseRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGStorePurchaseRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGStorePurchaseRsp& from);
+  void MergeFrom(const NGStorePurchaseRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGStorePurchaseRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGStorePurchaseRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPayAccRecvReq : public ::google::protobuf::Message {
+ public:
+  NGPayAccRecvReq();
+  virtual ~NGPayAccRecvReq();
+
+  NGPayAccRecvReq(const NGPayAccRecvReq& from);
+
+  inline NGPayAccRecvReq& operator=(const NGPayAccRecvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPayAccRecvReq& default_instance();
+
+  void Swap(NGPayAccRecvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPayAccRecvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPayAccRecvReq& from);
+  void MergeFrom(const NGPayAccRecvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cfgId = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPayAccRecvReq)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 cfgid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPayAccRecvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGPayAccRecvRsp : public ::google::protobuf::Message {
+ public:
+  NGPayAccRecvRsp();
+  virtual ~NGPayAccRecvRsp();
+
+  NGPayAccRecvRsp(const NGPayAccRecvRsp& from);
+
+  inline NGPayAccRecvRsp& operator=(const NGPayAccRecvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGPayAccRecvRsp& default_instance();
+
+  void Swap(NGPayAccRecvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGPayAccRecvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGPayAccRecvRsp& from);
+  void MergeFrom(const NGPayAccRecvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // required uint32 cfgId = 2;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGPayAccRecvRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+  ::google::protobuf::uint32 cfgid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGPayAccRecvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxOpenServerLogReq : public ::google::protobuf::Message {
+ public:
+  NGTBoxOpenServerLogReq();
+  virtual ~NGTBoxOpenServerLogReq();
+
+  NGTBoxOpenServerLogReq(const NGTBoxOpenServerLogReq& from);
+
+  inline NGTBoxOpenServerLogReq& operator=(const NGTBoxOpenServerLogReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxOpenServerLogReq& default_instance();
+
+  void Swap(NGTBoxOpenServerLogReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxOpenServerLogReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxOpenServerLogReq& from);
+  void MergeFrom(const NGTBoxOpenServerLogReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxOpenServerLogReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxOpenServerLogReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxOpenServerLogRsp : public ::google::protobuf::Message {
+ public:
+  NGTBoxOpenServerLogRsp();
+  virtual ~NGTBoxOpenServerLogRsp();
+
+  NGTBoxOpenServerLogRsp(const NGTBoxOpenServerLogRsp& from);
+
+  inline NGTBoxOpenServerLogRsp& operator=(const NGTBoxOpenServerLogRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxOpenServerLogRsp& default_instance();
+
+  void Swap(NGTBoxOpenServerLogRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxOpenServerLogRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxOpenServerLogRsp& from);
+  void MergeFrom(const NGTBoxOpenServerLogRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required .proto_ff.NGTBoxItemServerLog log = 1;
+  inline bool has_log() const;
+  inline void clear_log();
+  static const int kLogFieldNumber = 1;
+  inline const ::proto_ff::NGTBoxItemServerLog& log() const;
+  inline ::proto_ff::NGTBoxItemServerLog* mutable_log();
+  inline ::proto_ff::NGTBoxItemServerLog* release_log();
+  inline void set_allocated_log(::proto_ff::NGTBoxItemServerLog* log);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxOpenServerLogRsp)
+ private:
+  inline void set_has_log();
+  inline void clear_has_log();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::NGTBoxItemServerLog* log_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxOpenServerLogRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxNxtLayerReq : public ::google::protobuf::Message {
+ public:
+  NGTBoxNxtLayerReq();
+  virtual ~NGTBoxNxtLayerReq();
+
+  NGTBoxNxtLayerReq(const NGTBoxNxtLayerReq& from);
+
+  inline NGTBoxNxtLayerReq& operator=(const NGTBoxNxtLayerReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxNxtLayerReq& default_instance();
+
+  void Swap(NGTBoxNxtLayerReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxNxtLayerReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxNxtLayerReq& from);
+  void MergeFrom(const NGTBoxNxtLayerReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxNxtLayerReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxNxtLayerReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxNxtLayerRsp : public ::google::protobuf::Message {
+ public:
+  NGTBoxNxtLayerRsp();
+  virtual ~NGTBoxNxtLayerRsp();
+
+  NGTBoxNxtLayerRsp(const NGTBoxNxtLayerRsp& from);
+
+  inline NGTBoxNxtLayerRsp& operator=(const NGTBoxNxtLayerRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxNxtLayerRsp& default_instance();
+
+  void Swap(NGTBoxNxtLayerRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxNxtLayerRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxNxtLayerRsp& from);
+  void MergeFrom(const NGTBoxNxtLayerRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 errcode = 1;
+  inline bool has_errcode() const;
+  inline void clear_errcode();
+  static const int kErrcodeFieldNumber = 1;
+  inline ::google::protobuf::uint32 errcode() const;
+  inline void set_errcode(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxNxtLayerRsp)
+ private:
+  inline void set_has_errcode();
+  inline void clear_has_errcode();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 errcode_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_GodValleyBattle_2eproto();
+  friend void protobuf_AssignDesc_GodValleyBattle_2eproto();
+  friend void protobuf_ShutdownFile_GodValleyBattle_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxNxtLayerRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -10788,6 +14953,264 @@ inline ::google::protobuf::uint32 GVBRoomCloseReq::option() const {
 inline void GVBRoomCloseReq::set_option(::google::protobuf::uint32 value) {
   set_has_option();
   option_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GVBRoomSetEntryMapReq
+
+// required uint64 roomId = 1;
+inline bool GVBRoomSetEntryMapReq::has_roomid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GVBRoomSetEntryMapReq::set_has_roomid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GVBRoomSetEntryMapReq::clear_has_roomid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GVBRoomSetEntryMapReq::clear_roomid() {
+  roomid_ = GOOGLE_ULONGLONG(0);
+  clear_has_roomid();
+}
+inline ::google::protobuf::uint64 GVBRoomSetEntryMapReq::roomid() const {
+  return roomid_;
+}
+inline void GVBRoomSetEntryMapReq::set_roomid(::google::protobuf::uint64 value) {
+  set_has_roomid();
+  roomid_ = value;
+}
+
+// required uint32 mapId = 2;
+inline bool GVBRoomSetEntryMapReq::has_mapid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GVBRoomSetEntryMapReq::set_has_mapid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GVBRoomSetEntryMapReq::clear_has_mapid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GVBRoomSetEntryMapReq::clear_mapid() {
+  mapid_ = 0u;
+  clear_has_mapid();
+}
+inline ::google::protobuf::uint32 GVBRoomSetEntryMapReq::mapid() const {
+  return mapid_;
+}
+inline void GVBRoomSetEntryMapReq::set_mapid(::google::protobuf::uint32 value) {
+  set_has_mapid();
+  mapid_ = value;
+}
+
+// required uint32 fromZone = 3;
+inline bool GVBRoomSetEntryMapReq::has_fromzone() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GVBRoomSetEntryMapReq::set_has_fromzone() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GVBRoomSetEntryMapReq::clear_has_fromzone() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GVBRoomSetEntryMapReq::clear_fromzone() {
+  fromzone_ = 0u;
+  clear_has_fromzone();
+}
+inline ::google::protobuf::uint32 GVBRoomSetEntryMapReq::fromzone() const {
+  return fromzone_;
+}
+inline void GVBRoomSetEntryMapReq::set_fromzone(::google::protobuf::uint32 value) {
+  set_has_fromzone();
+  fromzone_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GVBRoomKickPlayer
+
+// required uint64 cid = 1;
+inline bool GVBRoomKickPlayer::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GVBRoomKickPlayer::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GVBRoomKickPlayer::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GVBRoomKickPlayer::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 GVBRoomKickPlayer::cid() const {
+  return cid_;
+}
+inline void GVBRoomKickPlayer::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint64 sceneid = 2;
+inline bool GVBRoomKickPlayer::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GVBRoomKickPlayer::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GVBRoomKickPlayer::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GVBRoomKickPlayer::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 GVBRoomKickPlayer::sceneid() const {
+  return sceneid_;
+}
+inline void GVBRoomKickPlayer::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GVBRoomUniqueIdReq
+
+// required uint32 fromZone = 1;
+inline bool GVBRoomUniqueIdReq::has_fromzone() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GVBRoomUniqueIdReq::set_has_fromzone() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GVBRoomUniqueIdReq::clear_has_fromzone() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GVBRoomUniqueIdReq::clear_fromzone() {
+  fromzone_ = 0u;
+  clear_has_fromzone();
+}
+inline ::google::protobuf::uint32 GVBRoomUniqueIdReq::fromzone() const {
+  return fromzone_;
+}
+inline void GVBRoomUniqueIdReq::set_fromzone(::google::protobuf::uint32 value) {
+  set_has_fromzone();
+  fromzone_ = value;
+}
+
+// required uint32 fromLogic = 2;
+inline bool GVBRoomUniqueIdReq::has_fromlogic() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GVBRoomUniqueIdReq::set_has_fromlogic() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GVBRoomUniqueIdReq::clear_has_fromlogic() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GVBRoomUniqueIdReq::clear_fromlogic() {
+  fromlogic_ = 0u;
+  clear_has_fromlogic();
+}
+inline ::google::protobuf::uint32 GVBRoomUniqueIdReq::fromlogic() const {
+  return fromlogic_;
+}
+inline void GVBRoomUniqueIdReq::set_fromlogic(::google::protobuf::uint32 value) {
+  set_has_fromlogic();
+  fromlogic_ = value;
+}
+
+// required uint64 sceneId = 3;
+inline bool GVBRoomUniqueIdReq::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GVBRoomUniqueIdReq::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GVBRoomUniqueIdReq::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GVBRoomUniqueIdReq::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 GVBRoomUniqueIdReq::sceneid() const {
+  return sceneid_;
+}
+inline void GVBRoomUniqueIdReq::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GVBRoomUniqueIdRsp
+
+// required uint32 error = 1;
+inline bool GVBRoomUniqueIdRsp::has_error() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GVBRoomUniqueIdRsp::set_has_error() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GVBRoomUniqueIdRsp::clear_has_error() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GVBRoomUniqueIdRsp::clear_error() {
+  error_ = 0u;
+  clear_has_error();
+}
+inline ::google::protobuf::uint32 GVBRoomUniqueIdRsp::error() const {
+  return error_;
+}
+inline void GVBRoomUniqueIdRsp::set_error(::google::protobuf::uint32 value) {
+  set_has_error();
+  error_ = value;
+}
+
+// required uint64 sceneId = 2;
+inline bool GVBRoomUniqueIdRsp::has_sceneid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GVBRoomUniqueIdRsp::set_has_sceneid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GVBRoomUniqueIdRsp::clear_has_sceneid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GVBRoomUniqueIdRsp::clear_sceneid() {
+  sceneid_ = GOOGLE_ULONGLONG(0);
+  clear_has_sceneid();
+}
+inline ::google::protobuf::uint64 GVBRoomUniqueIdRsp::sceneid() const {
+  return sceneid_;
+}
+inline void GVBRoomUniqueIdRsp::set_sceneid(::google::protobuf::uint64 value) {
+  set_has_sceneid();
+  sceneid_ = value;
+}
+
+// required uint64 uniqueId = 3;
+inline bool GVBRoomUniqueIdRsp::has_uniqueid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GVBRoomUniqueIdRsp::set_has_uniqueid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GVBRoomUniqueIdRsp::clear_has_uniqueid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GVBRoomUniqueIdRsp::clear_uniqueid() {
+  uniqueid_ = GOOGLE_ULONGLONG(0);
+  clear_has_uniqueid();
+}
+inline ::google::protobuf::uint64 GVBRoomUniqueIdRsp::uniqueid() const {
+  return uniqueid_;
+}
+inline void GVBRoomUniqueIdRsp::set_uniqueid(::google::protobuf::uint64 value) {
+  set_has_uniqueid();
+  uniqueid_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -13876,6 +18299,2448 @@ inline ::google::protobuf::uint32 GMATimeReq::op() const {
 inline void GMATimeReq::set_op(::google::protobuf::uint32 value) {
   set_has_op();
   op_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDPlayer
+
+// optional uint64 cid = 1;
+inline bool NGPDPlayer::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDPlayer::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDPlayer::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDPlayer::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NGPDPlayer::cid() const {
+  return cid_;
+}
+inline void NGPDPlayer::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 kills = 2;
+inline bool NGPDPlayer::has_kills() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDPlayer::set_has_kills() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDPlayer::clear_has_kills() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDPlayer::clear_kills() {
+  kills_ = 0u;
+  clear_has_kills();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::kills() const {
+  return kills_;
+}
+inline void NGPDPlayer::set_kills(::google::protobuf::uint32 value) {
+  set_has_kills();
+  kills_ = value;
+}
+
+// optional uint32 scores = 3;
+inline bool NGPDPlayer::has_scores() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGPDPlayer::set_has_scores() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGPDPlayer::clear_has_scores() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGPDPlayer::clear_scores() {
+  scores_ = 0u;
+  clear_has_scores();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::scores() const {
+  return scores_;
+}
+inline void NGPDPlayer::set_scores(::google::protobuf::uint32 value) {
+  set_has_scores();
+  scores_ = value;
+}
+
+// optional uint32 aliveTime = 4;
+inline bool NGPDPlayer::has_alivetime() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGPDPlayer::set_has_alivetime() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGPDPlayer::clear_has_alivetime() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGPDPlayer::clear_alivetime() {
+  alivetime_ = 0u;
+  clear_has_alivetime();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::alivetime() const {
+  return alivetime_;
+}
+inline void NGPDPlayer::set_alivetime(::google::protobuf::uint32 value) {
+  set_has_alivetime();
+  alivetime_ = value;
+}
+
+// optional uint32 rank = 5;
+inline bool NGPDPlayer::has_rank() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NGPDPlayer::set_has_rank() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NGPDPlayer::clear_has_rank() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NGPDPlayer::clear_rank() {
+  rank_ = 0u;
+  clear_has_rank();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::rank() const {
+  return rank_;
+}
+inline void NGPDPlayer::set_rank(::google::protobuf::uint32 value) {
+  set_has_rank();
+  rank_ = value;
+}
+
+// optional string name = 6;
+inline bool NGPDPlayer::has_name() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void NGPDPlayer::set_has_name() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void NGPDPlayer::clear_has_name() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void NGPDPlayer::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& NGPDPlayer::name() const {
+  return *name_;
+}
+inline void NGPDPlayer::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void NGPDPlayer::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void NGPDPlayer::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* NGPDPlayer::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* NGPDPlayer::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void NGPDPlayer::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 nickId = 7;
+inline bool NGPDPlayer::has_nickid() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void NGPDPlayer::set_has_nickid() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void NGPDPlayer::clear_has_nickid() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void NGPDPlayer::clear_nickid() {
+  nickid_ = 0u;
+  clear_has_nickid();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::nickid() const {
+  return nickid_;
+}
+inline void NGPDPlayer::set_nickid(::google::protobuf::uint32 value) {
+  set_has_nickid();
+  nickid_ = value;
+}
+
+// optional uint64 fight = 8;
+inline bool NGPDPlayer::has_fight() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void NGPDPlayer::set_has_fight() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void NGPDPlayer::clear_has_fight() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void NGPDPlayer::clear_fight() {
+  fight_ = GOOGLE_ULONGLONG(0);
+  clear_has_fight();
+}
+inline ::google::protobuf::uint64 NGPDPlayer::fight() const {
+  return fight_;
+}
+inline void NGPDPlayer::set_fight(::google::protobuf::uint64 value) {
+  set_has_fight();
+  fight_ = value;
+}
+
+// repeated uint32 scoreRewardsRecvLog = 9;
+inline int NGPDPlayer::scorerewardsrecvlog_size() const {
+  return scorerewardsrecvlog_.size();
+}
+inline void NGPDPlayer::clear_scorerewardsrecvlog() {
+  scorerewardsrecvlog_.Clear();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::scorerewardsrecvlog(int index) const {
+  return scorerewardsrecvlog_.Get(index);
+}
+inline void NGPDPlayer::set_scorerewardsrecvlog(int index, ::google::protobuf::uint32 value) {
+  scorerewardsrecvlog_.Set(index, value);
+}
+inline void NGPDPlayer::add_scorerewardsrecvlog(::google::protobuf::uint32 value) {
+  scorerewardsrecvlog_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NGPDPlayer::scorerewardsrecvlog() const {
+  return scorerewardsrecvlog_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NGPDPlayer::mutable_scorerewardsrecvlog() {
+  return &scorerewardsrecvlog_;
+}
+
+// optional uint32 zid = 10;
+inline bool NGPDPlayer::has_zid() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void NGPDPlayer::set_has_zid() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void NGPDPlayer::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void NGPDPlayer::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 NGPDPlayer::zid() const {
+  return zid_;
+}
+inline void NGPDPlayer::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDBattle
+
+// required uint64 id = 1;
+inline bool NGPDBattle::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDBattle::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDBattle::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDBattle::clear_id() {
+  id_ = GOOGLE_ULONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::uint64 NGPDBattle::id() const {
+  return id_;
+}
+inline void NGPDBattle::set_id(::google::protobuf::uint64 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// repeated .proto_ff.NGPDPlayer players = 2;
+inline int NGPDBattle::players_size() const {
+  return players_.size();
+}
+inline void NGPDBattle::clear_players() {
+  players_.Clear();
+}
+inline const ::proto_ff::NGPDPlayer& NGPDBattle::players(int index) const {
+  return players_.Get(index);
+}
+inline ::proto_ff::NGPDPlayer* NGPDBattle::mutable_players(int index) {
+  return players_.Mutable(index);
+}
+inline ::proto_ff::NGPDPlayer* NGPDBattle::add_players() {
+  return players_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >&
+NGPDBattle::players() const {
+  return players_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >*
+NGPDBattle::mutable_players() {
+  return &players_;
+}
+
+// optional uint64 saveTime = 3;
+inline bool NGPDBattle::has_savetime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGPDBattle::set_has_savetime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGPDBattle::clear_has_savetime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGPDBattle::clear_savetime() {
+  savetime_ = GOOGLE_ULONGLONG(0);
+  clear_has_savetime();
+}
+inline ::google::protobuf::uint64 NGPDBattle::savetime() const {
+  return savetime_;
+}
+inline void NGPDBattle::set_savetime(::google::protobuf::uint64 value) {
+  set_has_savetime();
+  savetime_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDAddTBoxOpenLog
+
+// required string name = 1;
+inline bool NGPDAddTBoxOpenLog::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDAddTBoxOpenLog::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDAddTBoxOpenLog::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDAddTBoxOpenLog::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& NGPDAddTBoxOpenLog::name() const {
+  return *name_;
+}
+inline void NGPDAddTBoxOpenLog::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void NGPDAddTBoxOpenLog::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void NGPDAddTBoxOpenLog::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* NGPDAddTBoxOpenLog::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* NGPDAddTBoxOpenLog::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void NGPDAddTBoxOpenLog::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required uint32 itemId = 2;
+inline bool NGPDAddTBoxOpenLog::has_itemid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDAddTBoxOpenLog::set_has_itemid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDAddTBoxOpenLog::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDAddTBoxOpenLog::clear_itemid() {
+  itemid_ = 0u;
+  clear_has_itemid();
+}
+inline ::google::protobuf::uint32 NGPDAddTBoxOpenLog::itemid() const {
+  return itemid_;
+}
+inline void NGPDAddTBoxOpenLog::set_itemid(::google::protobuf::uint32 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// required uint32 itemCount = 3;
+inline bool NGPDAddTBoxOpenLog::has_itemcount() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGPDAddTBoxOpenLog::set_has_itemcount() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGPDAddTBoxOpenLog::clear_has_itemcount() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGPDAddTBoxOpenLog::clear_itemcount() {
+  itemcount_ = 0u;
+  clear_has_itemcount();
+}
+inline ::google::protobuf::uint32 NGPDAddTBoxOpenLog::itemcount() const {
+  return itemcount_;
+}
+inline void NGPDAddTBoxOpenLog::set_itemcount(::google::protobuf::uint32 value) {
+  set_has_itemcount();
+  itemcount_ = value;
+}
+
+// required uint32 zid = 4;
+inline bool NGPDAddTBoxOpenLog::has_zid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGPDAddTBoxOpenLog::set_has_zid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGPDAddTBoxOpenLog::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGPDAddTBoxOpenLog::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 NGPDAddTBoxOpenLog::zid() const {
+  return zid_;
+}
+inline void NGPDAddTBoxOpenLog::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxItemServerLog_record
+
+// required string name = 1;
+inline bool NGTBoxItemServerLog_record::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxItemServerLog_record::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxItemServerLog_record::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxItemServerLog_record::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& NGTBoxItemServerLog_record::name() const {
+  return *name_;
+}
+inline void NGTBoxItemServerLog_record::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void NGTBoxItemServerLog_record::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void NGTBoxItemServerLog_record::set_name(const char* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* NGTBoxItemServerLog_record::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* NGTBoxItemServerLog_record::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void NGTBoxItemServerLog_record::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required uint32 itemId = 2;
+inline bool NGTBoxItemServerLog_record::has_itemid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGTBoxItemServerLog_record::set_has_itemid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGTBoxItemServerLog_record::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGTBoxItemServerLog_record::clear_itemid() {
+  itemid_ = 0u;
+  clear_has_itemid();
+}
+inline ::google::protobuf::uint32 NGTBoxItemServerLog_record::itemid() const {
+  return itemid_;
+}
+inline void NGTBoxItemServerLog_record::set_itemid(::google::protobuf::uint32 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// required uint32 itemCount = 3;
+inline bool NGTBoxItemServerLog_record::has_itemcount() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGTBoxItemServerLog_record::set_has_itemcount() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGTBoxItemServerLog_record::clear_has_itemcount() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGTBoxItemServerLog_record::clear_itemcount() {
+  itemcount_ = 0u;
+  clear_has_itemcount();
+}
+inline ::google::protobuf::uint32 NGTBoxItemServerLog_record::itemcount() const {
+  return itemcount_;
+}
+inline void NGTBoxItemServerLog_record::set_itemcount(::google::protobuf::uint32 value) {
+  set_has_itemcount();
+  itemcount_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxItemServerLog
+
+// required uint32 zid = 1;
+inline bool NGTBoxItemServerLog::has_zid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxItemServerLog::set_has_zid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxItemServerLog::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxItemServerLog::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 NGTBoxItemServerLog::zid() const {
+  return zid_;
+}
+inline void NGTBoxItemServerLog::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// repeated .proto_ff.NGTBoxItemServerLog.record records = 2;
+inline int NGTBoxItemServerLog::records_size() const {
+  return records_.size();
+}
+inline void NGTBoxItemServerLog::clear_records() {
+  records_.Clear();
+}
+inline const ::proto_ff::NGTBoxItemServerLog_record& NGTBoxItemServerLog::records(int index) const {
+  return records_.Get(index);
+}
+inline ::proto_ff::NGTBoxItemServerLog_record* NGTBoxItemServerLog::mutable_records(int index) {
+  return records_.Mutable(index);
+}
+inline ::proto_ff::NGTBoxItemServerLog_record* NGTBoxItemServerLog::add_records() {
+  return records_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog_record >&
+NGTBoxItemServerLog::records() const {
+  return records_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog_record >*
+NGTBoxItemServerLog::mutable_records() {
+  return &records_;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDGlobal
+
+// repeated .proto_ff.NGPDBattle battles = 1;
+inline int NGPDGlobal::battles_size() const {
+  return battles_.size();
+}
+inline void NGPDGlobal::clear_battles() {
+  battles_.Clear();
+}
+inline const ::proto_ff::NGPDBattle& NGPDGlobal::battles(int index) const {
+  return battles_.Get(index);
+}
+inline ::proto_ff::NGPDBattle* NGPDGlobal::mutable_battles(int index) {
+  return battles_.Mutable(index);
+}
+inline ::proto_ff::NGPDBattle* NGPDGlobal::add_battles() {
+  return battles_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDBattle >&
+NGPDGlobal::battles() const {
+  return battles_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDBattle >*
+NGPDGlobal::mutable_battles() {
+  return &battles_;
+}
+
+// repeated .proto_ff.NGTBoxItemServerLog tboxItemLog = 2;
+inline int NGPDGlobal::tboxitemlog_size() const {
+  return tboxitemlog_.size();
+}
+inline void NGPDGlobal::clear_tboxitemlog() {
+  tboxitemlog_.Clear();
+}
+inline const ::proto_ff::NGTBoxItemServerLog& NGPDGlobal::tboxitemlog(int index) const {
+  return tboxitemlog_.Get(index);
+}
+inline ::proto_ff::NGTBoxItemServerLog* NGPDGlobal::mutable_tboxitemlog(int index) {
+  return tboxitemlog_.Mutable(index);
+}
+inline ::proto_ff::NGTBoxItemServerLog* NGPDGlobal::add_tboxitemlog() {
+  return tboxitemlog_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog >&
+NGPDGlobal::tboxitemlog() const {
+  return tboxitemlog_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItemServerLog >*
+NGPDGlobal::mutable_tboxitemlog() {
+  return &tboxitemlog_;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDBattleReq
+
+// required uint64 session = 1;
+inline bool NGPDBattleReq::has_session() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDBattleReq::set_has_session() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDBattleReq::clear_has_session() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDBattleReq::clear_session() {
+  session_ = GOOGLE_ULONGLONG(0);
+  clear_has_session();
+}
+inline ::google::protobuf::uint64 NGPDBattleReq::session() const {
+  return session_;
+}
+inline void NGPDBattleReq::set_session(::google::protobuf::uint64 value) {
+  set_has_session();
+  session_ = value;
+}
+
+// required uint32 fromzone = 2;
+inline bool NGPDBattleReq::has_fromzone() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDBattleReq::set_has_fromzone() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDBattleReq::clear_has_fromzone() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDBattleReq::clear_fromzone() {
+  fromzone_ = 0u;
+  clear_has_fromzone();
+}
+inline ::google::protobuf::uint32 NGPDBattleReq::fromzone() const {
+  return fromzone_;
+}
+inline void NGPDBattleReq::set_fromzone(::google::protobuf::uint32 value) {
+  set_has_fromzone();
+  fromzone_ = value;
+}
+
+// required uint32 fromlogic = 3;
+inline bool NGPDBattleReq::has_fromlogic() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGPDBattleReq::set_has_fromlogic() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGPDBattleReq::clear_has_fromlogic() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGPDBattleReq::clear_fromlogic() {
+  fromlogic_ = 0u;
+  clear_has_fromlogic();
+}
+inline ::google::protobuf::uint32 NGPDBattleReq::fromlogic() const {
+  return fromlogic_;
+}
+inline void NGPDBattleReq::set_fromlogic(::google::protobuf::uint32 value) {
+  set_has_fromlogic();
+  fromlogic_ = value;
+}
+
+// required uint64 id = 4;
+inline bool NGPDBattleReq::has_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGPDBattleReq::set_has_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGPDBattleReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGPDBattleReq::clear_id() {
+  id_ = GOOGLE_ULONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::uint64 NGPDBattleReq::id() const {
+  return id_;
+}
+inline void NGPDBattleReq::set_id(::google::protobuf::uint64 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDBattleRsp
+
+// required uint64 session = 1;
+inline bool NGPDBattleRsp::has_session() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDBattleRsp::set_has_session() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDBattleRsp::clear_has_session() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDBattleRsp::clear_session() {
+  session_ = GOOGLE_ULONGLONG(0);
+  clear_has_session();
+}
+inline ::google::protobuf::uint64 NGPDBattleRsp::session() const {
+  return session_;
+}
+inline void NGPDBattleRsp::set_session(::google::protobuf::uint64 value) {
+  set_has_session();
+  session_ = value;
+}
+
+// optional .proto_ff.NGPDBattle pd = 2;
+inline bool NGPDBattleRsp::has_pd() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDBattleRsp::set_has_pd() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDBattleRsp::clear_has_pd() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDBattleRsp::clear_pd() {
+  if (pd_ != NULL) pd_->::proto_ff::NGPDBattle::Clear();
+  clear_has_pd();
+}
+inline const ::proto_ff::NGPDBattle& NGPDBattleRsp::pd() const {
+  return pd_ != NULL ? *pd_ : *default_instance_->pd_;
+}
+inline ::proto_ff::NGPDBattle* NGPDBattleRsp::mutable_pd() {
+  set_has_pd();
+  if (pd_ == NULL) pd_ = new ::proto_ff::NGPDBattle;
+  return pd_;
+}
+inline ::proto_ff::NGPDBattle* NGPDBattleRsp::release_pd() {
+  clear_has_pd();
+  ::proto_ff::NGPDBattle* temp = pd_;
+  pd_ = NULL;
+  return temp;
+}
+inline void NGPDBattleRsp::set_allocated_pd(::proto_ff::NGPDBattle* pd) {
+  delete pd_;
+  pd_ = pd;
+  if (pd) {
+    set_has_pd();
+  } else {
+    clear_has_pd();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// NGPDBattleSaveReq
+
+// required .proto_ff.NGPDBattle pd = 1;
+inline bool NGPDBattleSaveReq::has_pd() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDBattleSaveReq::set_has_pd() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDBattleSaveReq::clear_has_pd() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDBattleSaveReq::clear_pd() {
+  if (pd_ != NULL) pd_->::proto_ff::NGPDBattle::Clear();
+  clear_has_pd();
+}
+inline const ::proto_ff::NGPDBattle& NGPDBattleSaveReq::pd() const {
+  return pd_ != NULL ? *pd_ : *default_instance_->pd_;
+}
+inline ::proto_ff::NGPDBattle* NGPDBattleSaveReq::mutable_pd() {
+  set_has_pd();
+  if (pd_ == NULL) pd_ = new ::proto_ff::NGPDBattle;
+  return pd_;
+}
+inline ::proto_ff::NGPDBattle* NGPDBattleSaveReq::release_pd() {
+  clear_has_pd();
+  ::proto_ff::NGPDBattle* temp = pd_;
+  pd_ = NULL;
+  return temp;
+}
+inline void NGPDBattleSaveReq::set_allocated_pd(::proto_ff::NGPDBattle* pd) {
+  delete pd_;
+  pd_ = pd;
+  if (pd) {
+    set_has_pd();
+  } else {
+    clear_has_pd();
+  }
+}
+
+// optional bool finish = 2;
+inline bool NGPDBattleSaveReq::has_finish() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDBattleSaveReq::set_has_finish() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDBattleSaveReq::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDBattleSaveReq::clear_finish() {
+  finish_ = false;
+  clear_has_finish();
+}
+inline bool NGPDBattleSaveReq::finish() const {
+  return finish_;
+}
+inline void NGPDBattleSaveReq::set_finish(bool value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDPlayerPDReq
+
+// optional uint32 fromZone = 1;
+inline bool NGPDPlayerPDReq::has_fromzone() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDPlayerPDReq::set_has_fromzone() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDPlayerPDReq::clear_has_fromzone() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDPlayerPDReq::clear_fromzone() {
+  fromzone_ = 0u;
+  clear_has_fromzone();
+}
+inline ::google::protobuf::uint32 NGPDPlayerPDReq::fromzone() const {
+  return fromzone_;
+}
+inline void NGPDPlayerPDReq::set_fromzone(::google::protobuf::uint32 value) {
+  set_has_fromzone();
+  fromzone_ = value;
+}
+
+// optional uint32 fromLogic = 2;
+inline bool NGPDPlayerPDReq::has_fromlogic() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDPlayerPDReq::set_has_fromlogic() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDPlayerPDReq::clear_has_fromlogic() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDPlayerPDReq::clear_fromlogic() {
+  fromlogic_ = 0u;
+  clear_has_fromlogic();
+}
+inline ::google::protobuf::uint32 NGPDPlayerPDReq::fromlogic() const {
+  return fromlogic_;
+}
+inline void NGPDPlayerPDReq::set_fromlogic(::google::protobuf::uint32 value) {
+  set_has_fromlogic();
+  fromlogic_ = value;
+}
+
+// optional uint64 cid = 3;
+inline bool NGPDPlayerPDReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGPDPlayerPDReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGPDPlayerPDReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGPDPlayerPDReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NGPDPlayerPDReq::cid() const {
+  return cid_;
+}
+inline void NGPDPlayerPDReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required uint64 session = 4;
+inline bool NGPDPlayerPDReq::has_session() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGPDPlayerPDReq::set_has_session() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGPDPlayerPDReq::clear_has_session() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGPDPlayerPDReq::clear_session() {
+  session_ = GOOGLE_ULONGLONG(0);
+  clear_has_session();
+}
+inline ::google::protobuf::uint64 NGPDPlayerPDReq::session() const {
+  return session_;
+}
+inline void NGPDPlayerPDReq::set_session(::google::protobuf::uint64 value) {
+  set_has_session();
+  session_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDPlayerPDRsp
+
+// required uint64 cid = 1;
+inline bool NGPDPlayerPDRsp::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDPlayerPDRsp::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDPlayerPDRsp::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDPlayerPDRsp::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NGPDPlayerPDRsp::cid() const {
+  return cid_;
+}
+inline void NGPDPlayerPDRsp::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional .proto_ff.NGPDPlayer p = 2;
+inline bool NGPDPlayerPDRsp::has_p() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPDPlayerPDRsp::set_has_p() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPDPlayerPDRsp::clear_has_p() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPDPlayerPDRsp::clear_p() {
+  if (p_ != NULL) p_->::proto_ff::NGPDPlayer::Clear();
+  clear_has_p();
+}
+inline const ::proto_ff::NGPDPlayer& NGPDPlayerPDRsp::p() const {
+  return p_ != NULL ? *p_ : *default_instance_->p_;
+}
+inline ::proto_ff::NGPDPlayer* NGPDPlayerPDRsp::mutable_p() {
+  set_has_p();
+  if (p_ == NULL) p_ = new ::proto_ff::NGPDPlayer;
+  return p_;
+}
+inline ::proto_ff::NGPDPlayer* NGPDPlayerPDRsp::release_p() {
+  clear_has_p();
+  ::proto_ff::NGPDPlayer* temp = p_;
+  p_ = NULL;
+  return temp;
+}
+inline void NGPDPlayerPDRsp::set_allocated_p(::proto_ff::NGPDPlayer* p) {
+  delete p_;
+  p_ = p;
+  if (p) {
+    set_has_p();
+  } else {
+    clear_has_p();
+  }
+}
+
+// required uint64 session = 3;
+inline bool NGPDPlayerPDRsp::has_session() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGPDPlayerPDRsp::set_has_session() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGPDPlayerPDRsp::clear_has_session() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGPDPlayerPDRsp::clear_session() {
+  session_ = GOOGLE_ULONGLONG(0);
+  clear_has_session();
+}
+inline ::google::protobuf::uint64 NGPDPlayerPDRsp::session() const {
+  return session_;
+}
+inline void NGPDPlayerPDRsp::set_session(::google::protobuf::uint64 value) {
+  set_has_session();
+  session_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDPlayerSaveReq
+
+// optional .proto_ff.NGPDPlayer p = 1;
+inline bool NGPDPlayerSaveReq::has_p() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDPlayerSaveReq::set_has_p() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDPlayerSaveReq::clear_has_p() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDPlayerSaveReq::clear_p() {
+  if (p_ != NULL) p_->::proto_ff::NGPDPlayer::Clear();
+  clear_has_p();
+}
+inline const ::proto_ff::NGPDPlayer& NGPDPlayerSaveReq::p() const {
+  return p_ != NULL ? *p_ : *default_instance_->p_;
+}
+inline ::proto_ff::NGPDPlayer* NGPDPlayerSaveReq::mutable_p() {
+  set_has_p();
+  if (p_ == NULL) p_ = new ::proto_ff::NGPDPlayer;
+  return p_;
+}
+inline ::proto_ff::NGPDPlayer* NGPDPlayerSaveReq::release_p() {
+  clear_has_p();
+  ::proto_ff::NGPDPlayer* temp = p_;
+  p_ = NULL;
+  return temp;
+}
+inline void NGPDPlayerSaveReq::set_allocated_p(::proto_ff::NGPDPlayer* p) {
+  delete p_;
+  p_ = p;
+  if (p) {
+    set_has_p();
+  } else {
+    clear_has_p();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// NGPDRankReq
+
+// required uint64 cid = 1;
+inline bool NGPDRankReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDRankReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDRankReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDRankReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NGPDRankReq::cid() const {
+  return cid_;
+}
+inline void NGPDRankReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPDTBoxOpenServerLogReq
+
+// required uint64 cid = 1;
+inline bool NGPDTBoxOpenServerLogReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPDTBoxOpenServerLogReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPDTBoxOpenServerLogReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPDTBoxOpenServerLogReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NGPDTBoxOpenServerLogReq::cid() const {
+  return cid_;
+}
+inline void NGPDTBoxOpenServerLogReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGBoss
+
+// required uint32 cfgId = 1;
+inline bool NGBoss::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGBoss::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGBoss::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGBoss::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGBoss::cfgid() const {
+  return cfgid_;
+}
+inline void NGBoss::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// required float x = 2;
+inline bool NGBoss::has_x() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGBoss::set_has_x() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGBoss::clear_has_x() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGBoss::clear_x() {
+  x_ = 0;
+  clear_has_x();
+}
+inline float NGBoss::x() const {
+  return x_;
+}
+inline void NGBoss::set_x(float value) {
+  set_has_x();
+  x_ = value;
+}
+
+// required float y = 3;
+inline bool NGBoss::has_y() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGBoss::set_has_y() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGBoss::clear_has_y() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGBoss::clear_y() {
+  y_ = 0;
+  clear_has_y();
+}
+inline float NGBoss::y() const {
+  return y_;
+}
+inline void NGBoss::set_y(float value) {
+  set_has_y();
+  y_ = value;
+}
+
+// required float z = 4;
+inline bool NGBoss::has_z() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGBoss::set_has_z() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGBoss::clear_has_z() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGBoss::clear_z() {
+  z_ = 0;
+  clear_has_z();
+}
+inline float NGBoss::z() const {
+  return z_;
+}
+inline void NGBoss::set_z(float value) {
+  set_has_z();
+  z_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGEnterReq
+
+// -------------------------------------------------------------------
+
+// NGExitReq
+
+// -------------------------------------------------------------------
+
+// NGDataRsp
+
+// optional int32 stage = 1;
+inline bool NGDataRsp::has_stage() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGDataRsp::set_has_stage() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGDataRsp::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGDataRsp::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 NGDataRsp::stage() const {
+  return stage_;
+}
+inline void NGDataRsp::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional int32 countdown = 2;
+inline bool NGDataRsp::has_countdown() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGDataRsp::set_has_countdown() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGDataRsp::clear_has_countdown() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGDataRsp::clear_countdown() {
+  countdown_ = 0;
+  clear_has_countdown();
+}
+inline ::google::protobuf::int32 NGDataRsp::countdown() const {
+  return countdown_;
+}
+inline void NGDataRsp::set_countdown(::google::protobuf::int32 value) {
+  set_has_countdown();
+  countdown_ = value;
+}
+
+// optional bool nxtStageReady = 3;
+inline bool NGDataRsp::has_nxtstageready() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGDataRsp::set_has_nxtstageready() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGDataRsp::clear_has_nxtstageready() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGDataRsp::clear_nxtstageready() {
+  nxtstageready_ = false;
+  clear_has_nxtstageready();
+}
+inline bool NGDataRsp::nxtstageready() const {
+  return nxtstageready_;
+}
+inline void NGDataRsp::set_nxtstageready(bool value) {
+  set_has_nxtstageready();
+  nxtstageready_ = value;
+}
+
+// optional uint32 scores = 4;
+inline bool NGDataRsp::has_scores() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGDataRsp::set_has_scores() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGDataRsp::clear_has_scores() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGDataRsp::clear_scores() {
+  scores_ = 0u;
+  clear_has_scores();
+}
+inline ::google::protobuf::uint32 NGDataRsp::scores() const {
+  return scores_;
+}
+inline void NGDataRsp::set_scores(::google::protobuf::uint32 value) {
+  set_has_scores();
+  scores_ = value;
+}
+
+// optional uint32 rank = 5;
+inline bool NGDataRsp::has_rank() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NGDataRsp::set_has_rank() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NGDataRsp::clear_has_rank() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NGDataRsp::clear_rank() {
+  rank_ = 0u;
+  clear_has_rank();
+}
+inline ::google::protobuf::uint32 NGDataRsp::rank() const {
+  return rank_;
+}
+inline void NGDataRsp::set_rank(::google::protobuf::uint32 value) {
+  set_has_rank();
+  rank_ = value;
+}
+
+// optional uint32 players = 6;
+inline bool NGDataRsp::has_players() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void NGDataRsp::set_has_players() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void NGDataRsp::clear_has_players() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void NGDataRsp::clear_players() {
+  players_ = 0u;
+  clear_has_players();
+}
+inline ::google::protobuf::uint32 NGDataRsp::players() const {
+  return players_;
+}
+inline void NGDataRsp::set_players(::google::protobuf::uint32 value) {
+  set_has_players();
+  players_ = value;
+}
+
+// repeated .proto_ff.NGBoss bosses = 7;
+inline int NGDataRsp::bosses_size() const {
+  return bosses_.size();
+}
+inline void NGDataRsp::clear_bosses() {
+  bosses_.Clear();
+}
+inline const ::proto_ff::NGBoss& NGDataRsp::bosses(int index) const {
+  return bosses_.Get(index);
+}
+inline ::proto_ff::NGBoss* NGDataRsp::mutable_bosses(int index) {
+  return bosses_.Mutable(index);
+}
+inline ::proto_ff::NGBoss* NGDataRsp::add_bosses() {
+  return bosses_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGBoss >&
+NGDataRsp::bosses() const {
+  return bosses_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGBoss >*
+NGDataRsp::mutable_bosses() {
+  return &bosses_;
+}
+
+// optional bool bossesSet = 8;
+inline bool NGDataRsp::has_bossesset() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void NGDataRsp::set_has_bossesset() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void NGDataRsp::clear_has_bossesset() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void NGDataRsp::clear_bossesset() {
+  bossesset_ = false;
+  clear_has_bossesset();
+}
+inline bool NGDataRsp::bossesset() const {
+  return bossesset_;
+}
+inline void NGDataRsp::set_bossesset(bool value) {
+  set_has_bossesset();
+  bossesset_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGRankReq
+
+// -------------------------------------------------------------------
+
+// NGRankRsp
+
+// repeated .proto_ff.NGPDPlayer players = 1;
+inline int NGRankRsp::players_size() const {
+  return players_.size();
+}
+inline void NGRankRsp::clear_players() {
+  players_.Clear();
+}
+inline const ::proto_ff::NGPDPlayer& NGRankRsp::players(int index) const {
+  return players_.Get(index);
+}
+inline ::proto_ff::NGPDPlayer* NGRankRsp::mutable_players(int index) {
+  return players_.Mutable(index);
+}
+inline ::proto_ff::NGPDPlayer* NGRankRsp::add_players() {
+  return players_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >&
+NGRankRsp::players() const {
+  return players_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >*
+NGRankRsp::mutable_players() {
+  return &players_;
+}
+
+// -------------------------------------------------------------------
+
+// NGFinishNt
+
+// repeated .proto_ff.NGPDPlayer rank = 1;
+inline int NGFinishNt::rank_size() const {
+  return rank_.size();
+}
+inline void NGFinishNt::clear_rank() {
+  rank_.Clear();
+}
+inline const ::proto_ff::NGPDPlayer& NGFinishNt::rank(int index) const {
+  return rank_.Get(index);
+}
+inline ::proto_ff::NGPDPlayer* NGFinishNt::mutable_rank(int index) {
+  return rank_.Mutable(index);
+}
+inline ::proto_ff::NGPDPlayer* NGFinishNt::add_rank() {
+  return rank_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >&
+NGFinishNt::rank() const {
+  return rank_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGPDPlayer >*
+NGFinishNt::mutable_rank() {
+  return &rank_;
+}
+
+// -------------------------------------------------------------------
+
+// NGScoreRewardRecvReq
+
+// required uint32 cfgId = 1;
+inline bool NGScoreRewardRecvReq::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGScoreRewardRecvReq::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGScoreRewardRecvReq::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGScoreRewardRecvReq::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGScoreRewardRecvReq::cfgid() const {
+  return cfgid_;
+}
+inline void NGScoreRewardRecvReq::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGScoreRewardRecvRsp
+
+// required uint32 errCode = 1;
+inline bool NGScoreRewardRecvRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGScoreRewardRecvRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGScoreRewardRecvRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGScoreRewardRecvRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGScoreRewardRecvRsp::errcode() const {
+  return errcode_;
+}
+inline void NGScoreRewardRecvRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// optional uint32 cfgId = 2;
+inline bool NGScoreRewardRecvRsp::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGScoreRewardRecvRsp::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGScoreRewardRecvRsp::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGScoreRewardRecvRsp::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGScoreRewardRecvRsp::cfgid() const {
+  return cfgid_;
+}
+inline void NGScoreRewardRecvRsp::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxOpenReq
+
+// required uint32 boxIdx = 1;
+inline bool NGTBoxOpenReq::has_boxidx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxOpenReq::set_has_boxidx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxOpenReq::clear_has_boxidx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxOpenReq::clear_boxidx() {
+  boxidx_ = 0u;
+  clear_has_boxidx();
+}
+inline ::google::protobuf::uint32 NGTBoxOpenReq::boxidx() const {
+  return boxidx_;
+}
+inline void NGTBoxOpenReq::set_boxidx(::google::protobuf::uint32 value) {
+  set_has_boxidx();
+  boxidx_ = value;
+}
+
+// required bool useCurrency = 2;
+inline bool NGTBoxOpenReq::has_usecurrency() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGTBoxOpenReq::set_has_usecurrency() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGTBoxOpenReq::clear_has_usecurrency() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGTBoxOpenReq::clear_usecurrency() {
+  usecurrency_ = false;
+  clear_has_usecurrency();
+}
+inline bool NGTBoxOpenReq::usecurrency() const {
+  return usecurrency_;
+}
+inline void NGTBoxOpenReq::set_usecurrency(bool value) {
+  set_has_usecurrency();
+  usecurrency_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxOpenRsp
+
+// required uint32 errcode = 1;
+inline bool NGTBoxOpenRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxOpenRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxOpenRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxOpenRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGTBoxOpenRsp::errcode() const {
+  return errcode_;
+}
+inline void NGTBoxOpenRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// required uint32 boxIdx = 2;
+inline bool NGTBoxOpenRsp::has_boxidx() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGTBoxOpenRsp::set_has_boxidx() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGTBoxOpenRsp::clear_has_boxidx() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGTBoxOpenRsp::clear_boxidx() {
+  boxidx_ = 0u;
+  clear_has_boxidx();
+}
+inline ::google::protobuf::uint32 NGTBoxOpenRsp::boxidx() const {
+  return boxidx_;
+}
+inline void NGTBoxOpenRsp::set_boxidx(::google::protobuf::uint32 value) {
+  set_has_boxidx();
+  boxidx_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGDbDatasRsp
+
+// optional uint32 layers = 1;
+inline bool NGDbDatasRsp::has_layers() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGDbDatasRsp::set_has_layers() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGDbDatasRsp::clear_has_layers() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGDbDatasRsp::clear_layers() {
+  layers_ = 0u;
+  clear_has_layers();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::layers() const {
+  return layers_;
+}
+inline void NGDbDatasRsp::set_layers(::google::protobuf::uint32 value) {
+  set_has_layers();
+  layers_ = value;
+}
+
+// repeated .proto_ff.NGTBoxOpened openedList = 2;
+inline int NGDbDatasRsp::openedlist_size() const {
+  return openedlist_.size();
+}
+inline void NGDbDatasRsp::clear_openedlist() {
+  openedlist_.Clear();
+}
+inline const ::proto_ff::NGTBoxOpened& NGDbDatasRsp::openedlist(int index) const {
+  return openedlist_.Get(index);
+}
+inline ::proto_ff::NGTBoxOpened* NGDbDatasRsp::mutable_openedlist(int index) {
+  return openedlist_.Mutable(index);
+}
+inline ::proto_ff::NGTBoxOpened* NGDbDatasRsp::add_openedlist() {
+  return openedlist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >&
+NGDbDatasRsp::openedlist() const {
+  return openedlist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >*
+NGDbDatasRsp::mutable_openedlist() {
+  return &openedlist_;
+}
+
+// optional uint64 weekTime = 3;
+inline bool NGDbDatasRsp::has_weektime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGDbDatasRsp::set_has_weektime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGDbDatasRsp::clear_has_weektime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGDbDatasRsp::clear_weektime() {
+  weektime_ = GOOGLE_ULONGLONG(0);
+  clear_has_weektime();
+}
+inline ::google::protobuf::uint64 NGDbDatasRsp::weektime() const {
+  return weektime_;
+}
+inline void NGDbDatasRsp::set_weektime(::google::protobuf::uint64 value) {
+  set_has_weektime();
+  weektime_ = value;
+}
+
+// optional uint32 battleWeekTimes = 4;
+inline bool NGDbDatasRsp::has_battleweektimes() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGDbDatasRsp::set_has_battleweektimes() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGDbDatasRsp::clear_has_battleweektimes() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGDbDatasRsp::clear_battleweektimes() {
+  battleweektimes_ = 0u;
+  clear_has_battleweektimes();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::battleweektimes() const {
+  return battleweektimes_;
+}
+inline void NGDbDatasRsp::set_battleweektimes(::google::protobuf::uint32 value) {
+  set_has_battleweektimes();
+  battleweektimes_ = value;
+}
+
+// optional uint64 battleId = 5;
+inline bool NGDbDatasRsp::has_battleid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NGDbDatasRsp::set_has_battleid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NGDbDatasRsp::clear_has_battleid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NGDbDatasRsp::clear_battleid() {
+  battleid_ = GOOGLE_ULONGLONG(0);
+  clear_has_battleid();
+}
+inline ::google::protobuf::uint64 NGDbDatasRsp::battleid() const {
+  return battleid_;
+}
+inline void NGDbDatasRsp::set_battleid(::google::protobuf::uint64 value) {
+  set_has_battleid();
+  battleid_ = value;
+}
+
+// repeated .proto_ff.NGTBoxItem itemsLog = 6;
+inline int NGDbDatasRsp::itemslog_size() const {
+  return itemslog_.size();
+}
+inline void NGDbDatasRsp::clear_itemslog() {
+  itemslog_.Clear();
+}
+inline const ::proto_ff::NGTBoxItem& NGDbDatasRsp::itemslog(int index) const {
+  return itemslog_.Get(index);
+}
+inline ::proto_ff::NGTBoxItem* NGDbDatasRsp::mutable_itemslog(int index) {
+  return itemslog_.Mutable(index);
+}
+inline ::proto_ff::NGTBoxItem* NGDbDatasRsp::add_itemslog() {
+  return itemslog_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >&
+NGDbDatasRsp::itemslog() const {
+  return itemslog_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >*
+NGDbDatasRsp::mutable_itemslog() {
+  return &itemslog_;
+}
+
+// optional uint32 privilege = 7;
+inline bool NGDbDatasRsp::has_privilege() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void NGDbDatasRsp::set_has_privilege() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void NGDbDatasRsp::clear_has_privilege() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void NGDbDatasRsp::clear_privilege() {
+  privilege_ = 0u;
+  clear_has_privilege();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::privilege() const {
+  return privilege_;
+}
+inline void NGDbDatasRsp::set_privilege(::google::protobuf::uint32 value) {
+  set_has_privilege();
+  privilege_ = value;
+}
+
+// repeated uint32 privilegeRecvLog = 8;
+inline int NGDbDatasRsp::privilegerecvlog_size() const {
+  return privilegerecvlog_.size();
+}
+inline void NGDbDatasRsp::clear_privilegerecvlog() {
+  privilegerecvlog_.Clear();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::privilegerecvlog(int index) const {
+  return privilegerecvlog_.Get(index);
+}
+inline void NGDbDatasRsp::set_privilegerecvlog(int index, ::google::protobuf::uint32 value) {
+  privilegerecvlog_.Set(index, value);
+}
+inline void NGDbDatasRsp::add_privilegerecvlog(::google::protobuf::uint32 value) {
+  privilegerecvlog_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NGDbDatasRsp::privilegerecvlog() const {
+  return privilegerecvlog_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NGDbDatasRsp::mutable_privilegerecvlog() {
+  return &privilegerecvlog_;
+}
+
+// repeated .proto_ff.NGStorePurchaseLog storePurchaseLog = 9;
+inline int NGDbDatasRsp::storepurchaselog_size() const {
+  return storepurchaselog_.size();
+}
+inline void NGDbDatasRsp::clear_storepurchaselog() {
+  storepurchaselog_.Clear();
+}
+inline const ::proto_ff::NGStorePurchaseLog& NGDbDatasRsp::storepurchaselog(int index) const {
+  return storepurchaselog_.Get(index);
+}
+inline ::proto_ff::NGStorePurchaseLog* NGDbDatasRsp::mutable_storepurchaselog(int index) {
+  return storepurchaselog_.Mutable(index);
+}
+inline ::proto_ff::NGStorePurchaseLog* NGDbDatasRsp::add_storepurchaselog() {
+  return storepurchaselog_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >&
+NGDbDatasRsp::storepurchaselog() const {
+  return storepurchaselog_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >*
+NGDbDatasRsp::mutable_storepurchaselog() {
+  return &storepurchaselog_;
+}
+
+// optional uint32 payAcc = 10;
+inline bool NGDbDatasRsp::has_payacc() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void NGDbDatasRsp::set_has_payacc() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void NGDbDatasRsp::clear_has_payacc() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void NGDbDatasRsp::clear_payacc() {
+  payacc_ = 0u;
+  clear_has_payacc();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::payacc() const {
+  return payacc_;
+}
+inline void NGDbDatasRsp::set_payacc(::google::protobuf::uint32 value) {
+  set_has_payacc();
+  payacc_ = value;
+}
+
+// repeated uint32 payAccRecvLog = 11;
+inline int NGDbDatasRsp::payaccrecvlog_size() const {
+  return payaccrecvlog_.size();
+}
+inline void NGDbDatasRsp::clear_payaccrecvlog() {
+  payaccrecvlog_.Clear();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::payaccrecvlog(int index) const {
+  return payaccrecvlog_.Get(index);
+}
+inline void NGDbDatasRsp::set_payaccrecvlog(int index, ::google::protobuf::uint32 value) {
+  payaccrecvlog_.Set(index, value);
+}
+inline void NGDbDatasRsp::add_payaccrecvlog(::google::protobuf::uint32 value) {
+  payaccrecvlog_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NGDbDatasRsp::payaccrecvlog() const {
+  return payaccrecvlog_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NGDbDatasRsp::mutable_payaccrecvlog() {
+  return &payaccrecvlog_;
+}
+
+// optional uint32 scores = 12;
+inline bool NGDbDatasRsp::has_scores() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void NGDbDatasRsp::set_has_scores() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void NGDbDatasRsp::clear_has_scores() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void NGDbDatasRsp::clear_scores() {
+  scores_ = 0u;
+  clear_has_scores();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::scores() const {
+  return scores_;
+}
+inline void NGDbDatasRsp::set_scores(::google::protobuf::uint32 value) {
+  set_has_scores();
+  scores_ = value;
+}
+
+// repeated uint32 scoreRewardsRecvLog = 13;
+inline int NGDbDatasRsp::scorerewardsrecvlog_size() const {
+  return scorerewardsrecvlog_.size();
+}
+inline void NGDbDatasRsp::clear_scorerewardsrecvlog() {
+  scorerewardsrecvlog_.Clear();
+}
+inline ::google::protobuf::uint32 NGDbDatasRsp::scorerewardsrecvlog(int index) const {
+  return scorerewardsrecvlog_.Get(index);
+}
+inline void NGDbDatasRsp::set_scorerewardsrecvlog(int index, ::google::protobuf::uint32 value) {
+  scorerewardsrecvlog_.Set(index, value);
+}
+inline void NGDbDatasRsp::add_scorerewardsrecvlog(::google::protobuf::uint32 value) {
+  scorerewardsrecvlog_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NGDbDatasRsp::scorerewardsrecvlog() const {
+  return scorerewardsrecvlog_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NGDbDatasRsp::mutable_scorerewardsrecvlog() {
+  return &scorerewardsrecvlog_;
+}
+
+// optional bool openedListSet = 14;
+inline bool NGDbDatasRsp::has_openedlistset() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void NGDbDatasRsp::set_has_openedlistset() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void NGDbDatasRsp::clear_has_openedlistset() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void NGDbDatasRsp::clear_openedlistset() {
+  openedlistset_ = false;
+  clear_has_openedlistset();
+}
+inline bool NGDbDatasRsp::openedlistset() const {
+  return openedlistset_;
+}
+inline void NGDbDatasRsp::set_openedlistset(bool value) {
+  set_has_openedlistset();
+  openedlistset_ = value;
+}
+
+// optional bool itemsListSet = 15;
+inline bool NGDbDatasRsp::has_itemslistset() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void NGDbDatasRsp::set_has_itemslistset() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void NGDbDatasRsp::clear_has_itemslistset() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void NGDbDatasRsp::clear_itemslistset() {
+  itemslistset_ = false;
+  clear_has_itemslistset();
+}
+inline bool NGDbDatasRsp::itemslistset() const {
+  return itemslistset_;
+}
+inline void NGDbDatasRsp::set_itemslistset(bool value) {
+  set_has_itemslistset();
+  itemslistset_ = value;
+}
+
+// optional bool privilegeRecvLogSet = 16;
+inline bool NGDbDatasRsp::has_privilegerecvlogset() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void NGDbDatasRsp::set_has_privilegerecvlogset() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void NGDbDatasRsp::clear_has_privilegerecvlogset() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void NGDbDatasRsp::clear_privilegerecvlogset() {
+  privilegerecvlogset_ = false;
+  clear_has_privilegerecvlogset();
+}
+inline bool NGDbDatasRsp::privilegerecvlogset() const {
+  return privilegerecvlogset_;
+}
+inline void NGDbDatasRsp::set_privilegerecvlogset(bool value) {
+  set_has_privilegerecvlogset();
+  privilegerecvlogset_ = value;
+}
+
+// optional bool storePurchaseLogSet = 17;
+inline bool NGDbDatasRsp::has_storepurchaselogset() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void NGDbDatasRsp::set_has_storepurchaselogset() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void NGDbDatasRsp::clear_has_storepurchaselogset() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void NGDbDatasRsp::clear_storepurchaselogset() {
+  storepurchaselogset_ = false;
+  clear_has_storepurchaselogset();
+}
+inline bool NGDbDatasRsp::storepurchaselogset() const {
+  return storepurchaselogset_;
+}
+inline void NGDbDatasRsp::set_storepurchaselogset(bool value) {
+  set_has_storepurchaselogset();
+  storepurchaselogset_ = value;
+}
+
+// optional bool payAccRecvLogSet = 18;
+inline bool NGDbDatasRsp::has_payaccrecvlogset() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void NGDbDatasRsp::set_has_payaccrecvlogset() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void NGDbDatasRsp::clear_has_payaccrecvlogset() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void NGDbDatasRsp::clear_payaccrecvlogset() {
+  payaccrecvlogset_ = false;
+  clear_has_payaccrecvlogset();
+}
+inline bool NGDbDatasRsp::payaccrecvlogset() const {
+  return payaccrecvlogset_;
+}
+inline void NGDbDatasRsp::set_payaccrecvlogset(bool value) {
+  set_has_payaccrecvlogset();
+  payaccrecvlogset_ = value;
+}
+
+// optional bool scoreRewardsRecvLogSet = 19;
+inline bool NGDbDatasRsp::has_scorerewardsrecvlogset() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void NGDbDatasRsp::set_has_scorerewardsrecvlogset() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void NGDbDatasRsp::clear_has_scorerewardsrecvlogset() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void NGDbDatasRsp::clear_scorerewardsrecvlogset() {
+  scorerewardsrecvlogset_ = false;
+  clear_has_scorerewardsrecvlogset();
+}
+inline bool NGDbDatasRsp::scorerewardsrecvlogset() const {
+  return scorerewardsrecvlogset_;
+}
+inline void NGDbDatasRsp::set_scorerewardsrecvlogset(bool value) {
+  set_has_scorerewardsrecvlogset();
+  scorerewardsrecvlogset_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPrivilegePayReq
+
+// -------------------------------------------------------------------
+
+// NGPrivilegePayRsp
+
+// required uint32 errcode = 1;
+inline bool NGPrivilegePayRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPrivilegePayRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPrivilegePayRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPrivilegePayRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGPrivilegePayRsp::errcode() const {
+  return errcode_;
+}
+inline void NGPrivilegePayRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPrivilegeRewardRecvReq
+
+// required uint32 cfgId = 1;
+inline bool NGPrivilegeRewardRecvReq::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPrivilegeRewardRecvReq::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPrivilegeRewardRecvReq::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPrivilegeRewardRecvReq::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGPrivilegeRewardRecvReq::cfgid() const {
+  return cfgid_;
+}
+inline void NGPrivilegeRewardRecvReq::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPrivilegeRewardRecvRsp
+
+// required uint32 errcode = 1;
+inline bool NGPrivilegeRewardRecvRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPrivilegeRewardRecvRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPrivilegeRewardRecvRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPrivilegeRewardRecvRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGPrivilegeRewardRecvRsp::errcode() const {
+  return errcode_;
+}
+inline void NGPrivilegeRewardRecvRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGStorePurchaseReq
+
+// required uint32 cfgId = 1;
+inline bool NGStorePurchaseReq::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGStorePurchaseReq::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGStorePurchaseReq::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGStorePurchaseReq::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGStorePurchaseReq::cfgid() const {
+  return cfgid_;
+}
+inline void NGStorePurchaseReq::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGStorePurchaseRsp
+
+// required uint32 errcode = 1;
+inline bool NGStorePurchaseRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGStorePurchaseRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGStorePurchaseRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGStorePurchaseRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGStorePurchaseRsp::errcode() const {
+  return errcode_;
+}
+inline void NGStorePurchaseRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPayAccRecvReq
+
+// required uint32 cfgId = 1;
+inline bool NGPayAccRecvReq::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPayAccRecvReq::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPayAccRecvReq::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPayAccRecvReq::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGPayAccRecvReq::cfgid() const {
+  return cfgid_;
+}
+inline void NGPayAccRecvReq::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGPayAccRecvRsp
+
+// required uint32 errcode = 1;
+inline bool NGPayAccRecvRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGPayAccRecvRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGPayAccRecvRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGPayAccRecvRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGPayAccRecvRsp::errcode() const {
+  return errcode_;
+}
+inline void NGPayAccRecvRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
+}
+
+// required uint32 cfgId = 2;
+inline bool NGPayAccRecvRsp::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGPayAccRecvRsp::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGPayAccRecvRsp::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGPayAccRecvRsp::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGPayAccRecvRsp::cfgid() const {
+  return cfgid_;
+}
+inline void NGPayAccRecvRsp::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxOpenServerLogReq
+
+// -------------------------------------------------------------------
+
+// NGTBoxOpenServerLogRsp
+
+// required .proto_ff.NGTBoxItemServerLog log = 1;
+inline bool NGTBoxOpenServerLogRsp::has_log() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxOpenServerLogRsp::set_has_log() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxOpenServerLogRsp::clear_has_log() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxOpenServerLogRsp::clear_log() {
+  if (log_ != NULL) log_->::proto_ff::NGTBoxItemServerLog::Clear();
+  clear_has_log();
+}
+inline const ::proto_ff::NGTBoxItemServerLog& NGTBoxOpenServerLogRsp::log() const {
+  return log_ != NULL ? *log_ : *default_instance_->log_;
+}
+inline ::proto_ff::NGTBoxItemServerLog* NGTBoxOpenServerLogRsp::mutable_log() {
+  set_has_log();
+  if (log_ == NULL) log_ = new ::proto_ff::NGTBoxItemServerLog;
+  return log_;
+}
+inline ::proto_ff::NGTBoxItemServerLog* NGTBoxOpenServerLogRsp::release_log() {
+  clear_has_log();
+  ::proto_ff::NGTBoxItemServerLog* temp = log_;
+  log_ = NULL;
+  return temp;
+}
+inline void NGTBoxOpenServerLogRsp::set_allocated_log(::proto_ff::NGTBoxItemServerLog* log) {
+  delete log_;
+  log_ = log;
+  if (log) {
+    set_has_log();
+  } else {
+    clear_has_log();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxNxtLayerReq
+
+// -------------------------------------------------------------------
+
+// NGTBoxNxtLayerRsp
+
+// required uint32 errcode = 1;
+inline bool NGTBoxNxtLayerRsp::has_errcode() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxNxtLayerRsp::set_has_errcode() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxNxtLayerRsp::clear_has_errcode() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxNxtLayerRsp::clear_errcode() {
+  errcode_ = 0u;
+  clear_has_errcode();
+}
+inline ::google::protobuf::uint32 NGTBoxNxtLayerRsp::errcode() const {
+  return errcode_;
+}
+inline void NGTBoxNxtLayerRsp::set_errcode(::google::protobuf::uint32 value) {
+  set_has_errcode();
+  errcode_ = value;
 }
 
 

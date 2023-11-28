@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Soul_s.h"
 
-#define MAX_SOUL_CRYSTAL_NUM 512
+#define MAX_SOUL_CRYSTAL_NUM 128
 
 class SoulCrystalDesc : public NFIDescTemplate<SoulCrystalDesc, proto_ff_s::E_SoulCrystal_s, EOT_CONST_SOUL_CRYSTAL_DESC_ID, MAX_SOUL_CRYSTAL_NUM>
 {

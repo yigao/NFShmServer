@@ -824,6 +824,7 @@ int E_MonsterDrop_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_group = (int32_t)0;
 	m_own = (int32_t)0;
+	m_ownProtect = (int32_t)0;
 	m_type = (int32_t)0;
 	return 0;
 }
@@ -836,6 +837,7 @@ void E_MonsterDrop_s::write_to_pbmsg(::proto_ff::E_MonsterDrop & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_group((int32_t)m_group);
 	msg.set_m_own((int32_t)m_own);
+	msg.set_m_ownprotect((int32_t)m_ownProtect);
 	msg.set_m_type((int32_t)m_type);
 	for(int32_t i = 0; i < (int32_t)m_boxID.size(); ++i) {
 		msg.add_m_boxid((int64_t)m_boxID[i]);
@@ -846,6 +848,7 @@ void E_MonsterDrop_s::read_from_pbmsg(const ::proto_ff::E_MonsterDrop & msg) {
 	m_id = msg.m_id();
 	m_group = msg.m_group();
 	m_own = msg.m_own();
+	m_ownProtect = msg.m_ownprotect();
 	m_type = msg.m_type();
 	m_boxID.resize((int)msg.m_boxid_size() > (int)m_boxID.max_size() ? m_boxID.max_size() : msg.m_boxid_size());
 	for(int32_t i = 0; i < (int32_t)m_boxID.size(); ++i) {

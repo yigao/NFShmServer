@@ -79,6 +79,8 @@ message RoleDBBaseData
   optional int32 subpack_type = 48;		//分包下载类型
   optional int32 subpack_fetch = 49;    //是否已领取分包下载奖励
   optional uint64 hunling = 50;			//魂灵值
+  optional int32 fuwen_money = 51;		//符文精粹
+  optional int32 hunjing = 52;			//魂晶碎片
 }
 
 
@@ -952,6 +954,34 @@ message LimitSaleDBProto
 	optional uint64 fresh_time = 2;	//最近一次刷新时间
 }
 
+//神秘商人
+message MysteryDBProto
+{
+	optional int32 openid = 1;				//当前使用的时间段id，对应配置表 muban_MystMall 中 open_id 字段
+	optional int32 day = 2;					//当前使用的天数 对应配置表 muban_MystMall 中 day 字段
+	repeated ComPair buy = 3;				//商店购买次数 id-count
+}
+
+//任务
+message TaskProto
+{
+	optional int32 id = 1;		//配置ID
+	optional int32 cur = 2;		//当前进度
+	optional int32 fetch = 3;	//是否已领取 0-未领取，1-已领取
+}
+
+
+//后羿射日
+message FestShootSunDBProto
+{
+	repeated ComPair id_lst = 1;				//已抽奖 id 列表，muban_eggsDraw_pool 表 id
+	optional int32 free = 2;					//今日已经免费重置了多少次
+	optional uint64 free_time = 3;				//最近一次免费重置时间
+	optional uint64 auto_time = 4;				//最近一次自动重置的时间
+	repeated TaskProto task = 5;				//任务
+	optional uint64 task_time = 6;				//任务最近一次重置时间
+}
+
 //节日活动详细数据
 message FestDetailDBProto
 {
@@ -980,7 +1010,9 @@ message FestDetailDBProto
 	optional LoginRewardDBProto login = 23;								//登录奖励
 	optional ContiRechargeDBProto conti_recharge = 24;					//连续累充
 	optional LimitSaleDBProto limit_sale = 25;							//限时秒杀
-
+	optional MysteryDBProto mystery = 26;								//神秘商人
+	optional FestShootSunDBProto shoot_sun = 27;						//后羿射日
+	optional FestRechargePrizeDBData recharge_prize = 28;                 //累充喵喵
 }
 
 //节日活动
@@ -1000,6 +1032,7 @@ message ShadowDBProto
 	optional int32 lucky = 4;	//幸运值
 	repeated ComPair frag = 5;	//碎片信息 itemid - num
 	optional int32 curstar = 6; //当前幻化的星级
+	repeated ComPair64 skill = 7;//技能
 }
 //光环类信息
 message HaloDBProto
@@ -1041,6 +1074,9 @@ message SoulDBData
 	optional SoulEntry entry = 1;  //战魂数据
 	optional SoulPool pool = 2;	   //聚灵池
 	repeated ComPair tasks = 3;    //任务 key:id value: //0:未达成，1可领取，2 已领取
+	repeated SoulSpirit spirits_list = 4; 	//魂晶列表(所有槽位都发)
+	repeated SoulBone bone_list = 5;		//魂骨
+	repeated SoulGuwen guwen_list = 6;		//镶嵌的骨纹列表
 }
 
 //奇门八卦
@@ -1113,6 +1149,7 @@ message RoleDBData
 	optional SoulDBData				soul				= 52; //战魂
 	optional MoFaDBData       		mofa        		= 53; //奇门八卦
 	optional RuneDBData				rune				= 54; //符文
+	optional NGDbDatas				ng_datas			= 55;//封神之战
 }
 
 //待发送红包信息
@@ -1325,12 +1362,23 @@ message FactionMoyu
 	optional int32 pass_layer = 8;		//通关的层
 }
 
+//帮派伏魔录
+message FactionMagRecordDBData
+{
+	optional int32 mag_id = 1;		//当前最大魔王ID，guild->TTowerDevelop表id字段
+	optional int32 lamp_id = 2;		//当前最大魔王 点亮的最大魂灯ID  guild->TTowerDevelop_data 表id字段
+	optional int32 guard_id = 3;	//当前最大守护ID，guild->TTowerDevelop表id字段
+	optional int32 reel_id = 4;		//当前最大守护 对应的卷轴ID guild->TTowerDevelop_data 表id字段
+	optional int32 point = 5;		//附魔点数
+}
+
 //帮派其他数据
 message FactionDBData
 {
-	optional FactionBeastDBData beast = 1;  //帮派神兽
-	optional FactionGuardDBData guard = 2; //帮派守卫
-	optional FactionMoyu 		moyu = 3;	//帮派镇魂魔域
+	optional FactionBeastDBData beast = 1;			//帮派神兽
+	optional FactionGuardDBData guard = 2;			//帮派守卫
+	optional FactionMoyu 		moyu = 3;			//帮派镇魂魔域
+	optional FactionMagRecordDBData mag_record = 4;	//帮派伏魔录
 }
 
 //帮派所有的DB数据
@@ -1685,6 +1733,13 @@ message GlobalYaotaDupDBEntry
 message GlobalYaotaDupDBData
 {
 	repeated GlobalYaotaDupDBEntry entrys = 3;
+}
+
+
+//野外BOSS(运营活动)
+message GlobalFieldBossDBData
+{
+	repeated FestBossProto info = 1;
 }
 
 

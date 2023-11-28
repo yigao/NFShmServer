@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Map_s.h"
 
-#define MAX_MAP_ITEMDROP_NUM 32
+#define MAX_MAP_ITEMDROP_NUM 4
 
 class MapItemdropDesc : public NFIDescTemplate<MapItemdropDesc, proto_ff_s::E_MapItemdrop_s, EOT_CONST_MAP_ITEMDROP_DESC_ID, MAX_MAP_ITEMDROP_NUM>
 {

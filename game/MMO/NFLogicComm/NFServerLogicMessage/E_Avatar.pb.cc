@@ -95,6 +95,42 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_AvatarEquipsuit_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_AvatarEquipsuit_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMyth_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMyth_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AvatarMyth_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_AvatarMyth_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythwayAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythwayAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythway_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythway_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AvatarMythway_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_AvatarMythway_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythcoreAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythcoreAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythcore_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythcore_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AvatarMythcore_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_AvatarMythcore_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythequipAttributeDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythequipAttributeDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_AvatarMythequip_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_AvatarMythequip_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Sheet_AvatarMythequip_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Sheet_AvatarMythequip_reflection_ = NULL;
 
 }  // namespace
 
@@ -288,7 +324,7 @@ void protobuf_AssignDesc_E_5fAvatar_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_AvatarChangeAttributeDesc));
   E_AvatarChange_descriptor_ = file->message_type(11);
-  static const int E_AvatarChange_offsets_[24] = {
+  static const int E_AvatarChange_offsets_[29] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_quality_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_uplvtype_),
@@ -310,6 +346,11 @@ void protobuf_AssignDesc_E_5fAvatar_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_maxequip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_equipsuit_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_starber_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_mythskill_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_mythspskill_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_mythid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_mythwayid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_mythcoreid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_material_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_initiativeskill_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarChange, m_attribute_),
@@ -535,6 +576,211 @@ void protobuf_AssignDesc_E_5fAvatar_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_AvatarEquipsuit));
+  E_AvatarMythAttributeDesc_descriptor_ = file->message_type(25);
+  static const int E_AvatarMythAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythAttributeDesc, m_type_),
+  };
+  E_AvatarMythAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythAttributeDesc_descriptor_,
+      E_AvatarMythAttributeDesc::default_instance_,
+      E_AvatarMythAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythAttributeDesc));
+  E_AvatarMyth_descriptor_ = file->message_type(26);
+  static const int E_AvatarMyth_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMyth, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMyth, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMyth, m_stage_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMyth, m_attribute_),
+  };
+  E_AvatarMyth_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMyth_descriptor_,
+      E_AvatarMyth::default_instance_,
+      E_AvatarMyth_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMyth, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMyth, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMyth));
+  Sheet_AvatarMyth_descriptor_ = file->message_type(27);
+  static const int Sheet_AvatarMyth_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMyth, e_avatarmyth_list_),
+  };
+  Sheet_AvatarMyth_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_AvatarMyth_descriptor_,
+      Sheet_AvatarMyth::default_instance_,
+      Sheet_AvatarMyth_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMyth, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMyth, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_AvatarMyth));
+  E_AvatarMythwayAttributeDesc_descriptor_ = file->message_type(28);
+  static const int E_AvatarMythwayAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythwayAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythwayAttributeDesc, m_type_),
+  };
+  E_AvatarMythwayAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythwayAttributeDesc_descriptor_,
+      E_AvatarMythwayAttributeDesc::default_instance_,
+      E_AvatarMythwayAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythwayAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythwayAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythwayAttributeDesc));
+  E_AvatarMythway_descriptor_ = file->message_type(29);
+  static const int E_AvatarMythway_offsets_[11] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_stage_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_star_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_showstar_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_mythcorecondition_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_posx_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_posy_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_equipid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_specialid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, m_attribute_),
+  };
+  E_AvatarMythway_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythway_descriptor_,
+      E_AvatarMythway::default_instance_,
+      E_AvatarMythway_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythway, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythway));
+  Sheet_AvatarMythway_descriptor_ = file->message_type(30);
+  static const int Sheet_AvatarMythway_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythway, e_avatarmythway_list_),
+  };
+  Sheet_AvatarMythway_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_AvatarMythway_descriptor_,
+      Sheet_AvatarMythway::default_instance_,
+      Sheet_AvatarMythway_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythway, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythway, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_AvatarMythway));
+  E_AvatarMythcoreAttributeDesc_descriptor_ = file->message_type(31);
+  static const int E_AvatarMythcoreAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcoreAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcoreAttributeDesc, m_type_),
+  };
+  E_AvatarMythcoreAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythcoreAttributeDesc_descriptor_,
+      E_AvatarMythcoreAttributeDesc::default_instance_,
+      E_AvatarMythcoreAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcoreAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcoreAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythcoreAttributeDesc));
+  E_AvatarMythcore_descriptor_ = file->message_type(32);
+  static const int E_AvatarMythcore_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_groupid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_costid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_costnum_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_success_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, m_attribute_),
+  };
+  E_AvatarMythcore_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythcore_descriptor_,
+      E_AvatarMythcore::default_instance_,
+      E_AvatarMythcore_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythcore, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythcore));
+  Sheet_AvatarMythcore_descriptor_ = file->message_type(33);
+  static const int Sheet_AvatarMythcore_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythcore, e_avatarmythcore_list_),
+  };
+  Sheet_AvatarMythcore_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_AvatarMythcore_descriptor_,
+      Sheet_AvatarMythcore::default_instance_,
+      Sheet_AvatarMythcore_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythcore, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythcore, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_AvatarMythcore));
+  E_AvatarMythequipAttributeDesc_descriptor_ = file->message_type(34);
+  static const int E_AvatarMythequipAttributeDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequipAttributeDesc, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequipAttributeDesc, m_type_),
+  };
+  E_AvatarMythequipAttributeDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythequipAttributeDesc_descriptor_,
+      E_AvatarMythequipAttributeDesc::default_instance_,
+      E_AvatarMythequipAttributeDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequipAttributeDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequipAttributeDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythequipAttributeDesc));
+  E_AvatarMythequip_descriptor_ = file->message_type(35);
+  static const int E_AvatarMythequip_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequip, m_itemid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequip, m_star_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequip, m_attribute_),
+  };
+  E_AvatarMythequip_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_AvatarMythequip_descriptor_,
+      E_AvatarMythequip::default_instance_,
+      E_AvatarMythequip_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequip, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_AvatarMythequip, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_AvatarMythequip));
+  Sheet_AvatarMythequip_descriptor_ = file->message_type(36);
+  static const int Sheet_AvatarMythequip_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythequip, e_avatarmythequip_list_),
+  };
+  Sheet_AvatarMythequip_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Sheet_AvatarMythequip_descriptor_,
+      Sheet_AvatarMythequip::default_instance_,
+      Sheet_AvatarMythequip_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythequip, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_AvatarMythequip, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Sheet_AvatarMythequip));
 }
 
 namespace {
@@ -597,6 +843,30 @@ void protobuf_RegisterTypes(const ::std::string&) {
     E_AvatarEquipsuit_descriptor_, &E_AvatarEquipsuit::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_AvatarEquipsuit_descriptor_, &Sheet_AvatarEquipsuit::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythAttributeDesc_descriptor_, &E_AvatarMythAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMyth_descriptor_, &E_AvatarMyth::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_AvatarMyth_descriptor_, &Sheet_AvatarMyth::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythwayAttributeDesc_descriptor_, &E_AvatarMythwayAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythway_descriptor_, &E_AvatarMythway::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_AvatarMythway_descriptor_, &Sheet_AvatarMythway::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythcoreAttributeDesc_descriptor_, &E_AvatarMythcoreAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythcore_descriptor_, &E_AvatarMythcore::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_AvatarMythcore_descriptor_, &Sheet_AvatarMythcore::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythequipAttributeDesc_descriptor_, &E_AvatarMythequipAttributeDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_AvatarMythequip_descriptor_, &E_AvatarMythequip::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Sheet_AvatarMythequip_descriptor_, &Sheet_AvatarMythequip::default_instance());
 }
 
 }  // namespace
@@ -652,6 +922,30 @@ void protobuf_ShutdownFile_E_5fAvatar_2eproto() {
   delete E_AvatarEquipsuit_reflection_;
   delete Sheet_AvatarEquipsuit::default_instance_;
   delete Sheet_AvatarEquipsuit_reflection_;
+  delete E_AvatarMythAttributeDesc::default_instance_;
+  delete E_AvatarMythAttributeDesc_reflection_;
+  delete E_AvatarMyth::default_instance_;
+  delete E_AvatarMyth_reflection_;
+  delete Sheet_AvatarMyth::default_instance_;
+  delete Sheet_AvatarMyth_reflection_;
+  delete E_AvatarMythwayAttributeDesc::default_instance_;
+  delete E_AvatarMythwayAttributeDesc_reflection_;
+  delete E_AvatarMythway::default_instance_;
+  delete E_AvatarMythway_reflection_;
+  delete Sheet_AvatarMythway::default_instance_;
+  delete Sheet_AvatarMythway_reflection_;
+  delete E_AvatarMythcoreAttributeDesc::default_instance_;
+  delete E_AvatarMythcoreAttributeDesc_reflection_;
+  delete E_AvatarMythcore::default_instance_;
+  delete E_AvatarMythcore_reflection_;
+  delete Sheet_AvatarMythcore::default_instance_;
+  delete Sheet_AvatarMythcore_reflection_;
+  delete E_AvatarMythequipAttributeDesc::default_instance_;
+  delete E_AvatarMythequipAttributeDesc_reflection_;
+  delete E_AvatarMythequip::default_instance_;
+  delete E_AvatarMythequip_reflection_;
+  delete Sheet_AvatarMythequip::default_instance_;
+  delete Sheet_AvatarMythequip_reflection_;
 }
 
 void protobuf_AddDesc_E_5fAvatar_2eproto() {
@@ -697,7 +991,7 @@ void protobuf_AddDesc_E_5fAvatar_2eproto() {
     "ChangeMaterialDesc\022\034\n\005m_exp\030\001 \001(\005B\r\302\377\024\t\347"
     "\273\217\351\252\214\345\200\274\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002ID\"P\n\033E_Avat"
     "arChangeAttributeDesc\022\032\n\tm_UpValue\030\001 \001(\005"
-    "B\007\302\377\024\003\345\200\274\022\025\n\007m_UpBer\030\002 \001(\005B\004\302\377\024\000\"\320\010\n\016E_A"
+    "B\007\302\377\024\003\345\200\274\022\025\n\007m_UpBer\030\002 \001(\005B\004\302\377\024\000\"\244\n\n\016E_A"
     "vatarChange\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\035\n\tm_q"
     "uality\030\002 \001(\005B\n\302\377\024\006\345\223\201\350\264\250\022*\n\nm_UpLvType\030\003"
     " \001(\005B\026\302\377\024\022\345\215\207\347\272\247\345\217\202\350\200\203\347\261\273\345\236\213\022\'\n\rm_avatar"
@@ -720,49 +1014,97 @@ void protobuf_AddDesc_E_5fAvatar_2eproto() {
     "\nm_maxEquip\030\023 \001(\005B\026\302\377\024\022\346\234\200\351\253\230\350\243\205\345\244\207\345\223\201\350\264"
     "\250\022!\n\013m_equipSuit\030\024 \001(\005B\014\302\377\024\010\345\245\227\350\243\205id\022/\n\t"
     "m_starBer\030\025 \001(\005B\034\302\377\024\030\346\257\217\346\230\237\347\272\247\346\217\220\345\215\207\347\231\276\345"
-    "\210\206\346\257\224\022N\n\nm_material\030\026 \003(\0132$.proto_ff.E_A"
-    "vatarChangeMaterialDescB\024\302\377\024\014\345\215\207\347\272\247\346\235\220\346\226"
-    "\231\210\301\024\003\022/\n\021m_InitiativeSkill\030\027 \003(\003B\024\302\377\024\014\344\270"
-    "\273\345\212\250\346\212\200\350\203\275\210\301\024\007\022S\n\013m_Attribute\030\030 \003(\0132%.pr"
-    "oto_ff.E_AvatarChangeAttributeDescB\027\302\377\024\017"
-    "\347\231\276\345\210\206\346\257\224\345\261\236\346\200\247\210\301\024\004\"Q\n\022Sheet_AvatarChang"
-    "e\022;\n\023E_AvatarChange_List\030\001 \003(\0132\030.proto_f"
-    "f.E_AvatarChangeB\004\210\301\024 \",\n\021E_AvatarChange"
-    "tab\022\027\n\007m_tabID\030\001 \001(\005B\006\302\377\024\002id\"Z\n\025Sheet_Av"
-    "atarChangetab\022A\n\026E_AvatarChangetab_List\030"
-    "\001 \003(\0132\033.proto_ff.E_AvatarChangetabB\004\210\301\024\020"
-    "\"q\n\022E_AvatarBattleslot\022\024\n\004m_id\030\001 \001(\005B\006\302\377"
-    "\024\002id\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\347\261\273\345\236\213\022#"
-    "\n\005m_arg\030\003 \001(\tB\024\302\377\024\014\350\247\243\351\224\201\345\217\202\346\225\260\220\301\024@\"]\n\026S"
-    "heet_AvatarBattleslot\022C\n\027E_AvatarBattles"
-    "lot_List\030\001 \003(\0132\034.proto_ff.E_AvatarBattle"
-    "slotB\004\210\301\024\010\"R\n\036E_AvatarAdvanceUpattribute"
-    "Desc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\026\n\006m_type"
-    "\030\002 \001(\005B\006\302\377\024\002ID\"\212\002\n\017E_AvatarAdvance\022\024\n\004m_"
-    "id\030\001 \001(\005B\006\302\377\024\002id\022)\n\017m_upAttributeId\030\002 \001("
-    "\005B\020\302\377\024\014\350\277\233\351\230\266\347\261\273\345\236\213\0224\n\010m_starID\030\003 \001(\005B\"\302"
-    "\377\024\036\350\277\233\351\230\266\344\270\223\345\261\236\351\234\200\346\261\202\346\230\237\346\230\237\346\225\260\351\207\217\022)\n\tm_s"
-    "killID\030\004 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\344\270\223\345\261\236\346\212\200\350\203\275\022U\n\r"
-    "m_upAttribute\030\005 \003(\0132(.proto_ff.E_AvatarA"
-    "dvanceUpattributeDescB\024\302\377\024\014\346\277\200\346\264\273\345\261\236\346\200\247\210"
-    "\301\024\005\"T\n\023Sheet_AvatarAdvance\022=\n\024E_AvatarAd"
-    "vance_List\030\001 \003(\0132\031.proto_ff.E_AvatarAdva"
-    "nceB\004\210\301\024@\"\207\001\n\rE_AvatarSkill\022\024\n\004m_id\030\001 \001("
-    "\005B\006\302\377\024\002id\022\"\n\010m_belong\030\002 \001(\005B\020\302\377\024\014\345\275\222\345\261\236\351"
-    "\241\265\347\255\276\022\033\n\007m_order\030\003 \001(\005B\n\302\377\024\006\346\216\222\345\272\217\022\037\n\tm_"
-    "skillid\030\004 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\"N\n\021Sheet_Ava"
-    "tarSkill\0229\n\022E_AvatarSkill_List\030\001 \003(\0132\027.p"
-    "roto_ff.E_AvatarSkillB\004\210\301\024\020\"P\n\036E_AvatarE"
-    "quipsuitAttributeDesc\022\030\n\007m_value\030\001 \001(\005B\007"
-    "\302\377\024\003\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024\000\"\335\001\n\021E_Avat"
-    "arEquipsuit\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\034\n\tm_g"
-    "roupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022#\n\tm_quality\030\003 \001"
-    "(\005B\020\302\377\024\014\350\246\201\346\261\202\345\223\201\350\264\250\022 \n\006m_star\030\004 \001(\005B\020\302\377"
-    "\024\014\350\246\201\346\261\202\346\230\237\347\272\247\022M\n\013m_Attribute\030\005 \003(\0132(.pr"
-    "oto_ff.E_AvatarEquipsuitAttributeDescB\016\302"
-    "\377\024\006\345\261\236\346\200\247\210\301\024\003\"Z\n\025Sheet_AvatarEquipsuit\022A"
-    "\n\026E_AvatarEquipsuit_List\030\001 \003(\0132\033.proto_f"
-    "f.E_AvatarEquipsuitB\004\210\301\024\020", 4025);
+    "\210\206\346\257\224\022/\n\013m_mythSkill\030\026 \001(\tB\032\302\377\024\022\345\214\226\347\245\236\350\242"
+    "\253\345\212\250\346\212\200\350\203\275\220\301\024@\0221\n\rm_mythSPSkill\030\027 \001(\tB\032\302"
+    "\377\024\022\345\214\226\347\245\236\344\270\223\345\261\236\346\212\200\350\203\275\220\301\024@\022!\n\010m_mythID\030\030 "
+    "\001(\005B\017\302\377\024\013\345\214\226\347\245\236\347\273\204ID\022$\n\013m_mythWayID\030\031 \001("
+    "\005B\017\302\377\024\013\347\245\236\346\240\274\347\273\204id\022%\n\014m_mythCoreID\030\032 \001(\005"
+    "B\017\302\377\024\013\347\245\236\346\240\270\347\273\204ID\022N\n\nm_material\030\033 \003(\0132$."
+    "proto_ff.E_AvatarChangeMaterialDescB\024\302\377\024"
+    "\014\345\215\207\347\272\247\346\235\220\346\226\231\210\301\024\003\022/\n\021m_InitiativeSkill\030\034"
+    " \003(\003B\024\302\377\024\014\344\270\273\345\212\250\346\212\200\350\203\275\210\301\024\007\022S\n\013m_Attribut"
+    "e\030\035 \003(\0132%.proto_ff.E_AvatarChangeAttribu"
+    "teDescB\027\302\377\024\017\347\231\276\345\210\206\346\257\224\345\261\236\346\200\247\210\301\024\004\"Q\n\022Sheet"
+    "_AvatarChange\022;\n\023E_AvatarChange_List\030\001 \003"
+    "(\0132\030.proto_ff.E_AvatarChangeB\004\210\301\024 \",\n\021E_"
+    "AvatarChangetab\022\027\n\007m_tabID\030\001 \001(\005B\006\302\377\024\002id"
+    "\"Z\n\025Sheet_AvatarChangetab\022A\n\026E_AvatarCha"
+    "ngetab_List\030\001 \003(\0132\033.proto_ff.E_AvatarCha"
+    "ngetabB\004\210\301\024\020\"q\n\022E_AvatarBattleslot\022\024\n\004m_"
+    "id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030\002 \001(\005B\020\302\377\024\014\350\247"
+    "\243\351\224\201\347\261\273\345\236\213\022#\n\005m_arg\030\003 \001(\tB\024\302\377\024\014\350\247\243\351\224\201\345\217\202"
+    "\346\225\260\220\301\024@\"]\n\026Sheet_AvatarBattleslot\022C\n\027E_A"
+    "vatarBattleslot_List\030\001 \003(\0132\034.proto_ff.E_"
+    "AvatarBattleslotB\004\210\301\024\010\"R\n\036E_AvatarAdvanc"
+    "eUpattributeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345"
+    "\200\274\022\026\n\006m_type\030\002 \001(\005B\006\302\377\024\002ID\"\212\002\n\017E_AvatarA"
+    "dvance\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022)\n\017m_upAttr"
+    "ibuteId\030\002 \001(\005B\020\302\377\024\014\350\277\233\351\230\266\347\261\273\345\236\213\0224\n\010m_sta"
+    "rID\030\003 \001(\005B\"\302\377\024\036\350\277\233\351\230\266\344\270\223\345\261\236\351\234\200\346\261\202\346\230\237\346\230\237\346"
+    "\225\260\351\207\217\022)\n\tm_skillID\030\004 \001(\005B\026\302\377\024\022\350\277\233\351\230\266\344\270\223\345"
+    "\261\236\346\212\200\350\203\275\022U\n\rm_upAttribute\030\005 \003(\0132(.proto_"
+    "ff.E_AvatarAdvanceUpattributeDescB\024\302\377\024\014\346"
+    "\277\200\346\264\273\345\261\236\346\200\247\210\301\024\005\"T\n\023Sheet_AvatarAdvance\022="
+    "\n\024E_AvatarAdvance_List\030\001 \003(\0132\031.proto_ff."
+    "E_AvatarAdvanceB\004\210\301\024@\"\207\001\n\rE_AvatarSkill\022"
+    "\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\"\n\010m_belong\030\002 \001(\005B"
+    "\020\302\377\024\014\345\275\222\345\261\236\351\241\265\347\255\276\022\033\n\007m_order\030\003 \001(\005B\n\302\377\024\006"
+    "\346\216\222\345\272\217\022\037\n\tm_skillid\030\004 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\""
+    "N\n\021Sheet_AvatarSkill\0229\n\022E_AvatarSkill_Li"
+    "st\030\001 \003(\0132\027.proto_ff.E_AvatarSkillB\004\210\301\024\020\""
+    "P\n\036E_AvatarEquipsuitAttributeDesc\022\030\n\007m_v"
+    "alue\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024"
+    "\000\"\335\001\n\021E_AvatarEquipsuit\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002id\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022#\n\tm"
+    "_quality\030\003 \001(\005B\020\302\377\024\014\350\246\201\346\261\202\345\223\201\350\264\250\022 \n\006m_st"
+    "ar\030\004 \001(\005B\020\302\377\024\014\350\246\201\346\261\202\346\230\237\347\272\247\022M\n\013m_Attribut"
+    "e\030\005 \003(\0132(.proto_ff.E_AvatarEquipsuitAttr"
+    "ibuteDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\003\"Z\n\025Sheet_Avata"
+    "rEquipsuit\022A\n\026E_AvatarEquipsuit_List\030\001 \003"
+    "(\0132\033.proto_ff.E_AvatarEquipsuitB\004\210\301\024\020\"K\n"
+    "\031E_AvatarMythAttributeDesc\022\030\n\007m_value\030\001 "
+    "\001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024\000\"\251\001\n\014E"
+    "_AvatarMyth\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002ID\022\034\n\tm_g"
+    "roupID\030\002 \001(\005B\t\302\377\024\005\347\273\204ID\022\033\n\007m_stage\030\003 \001(\005"
+    "B\n\302\377\024\006\351\230\266\347\272\247\022H\n\013m_Attribute\030\004 \003(\0132#.prot"
+    "o_ff.E_AvatarMythAttributeDescB\016\302\377\024\006\345\261\236\346"
+    "\200\247\210\301\024\006\"K\n\020Sheet_AvatarMyth\0227\n\021E_AvatarMy"
+    "th_List\030\001 \003(\0132\026.proto_ff.E_AvatarMythB\004\210"
+    "\301\024\004\"N\n\034E_AvatarMythwayAttributeDesc\022\030\n\007m"
+    "_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_type\030\002 \001(\005B\004\302"
+    "\377\024\000\"\262\003\n\017E_AvatarMythway\022\024\n\004m_id\030\001 \001(\005B\006\302"
+    "\377\024\002ID\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204id\022\033\n\007m"
+    "_stage\030\003 \001(\005B\n\302\377\024\006\351\230\266\346\225\260\022\032\n\006m_star\030\004 \001(\005"
+    "B\n\302\377\024\006\346\230\237\346\225\260\022$\n\nm_showStar\030\005 \001(\005B\020\302\377\024\014\346\230"
+    "\276\347\244\272\346\230\237\346\225\260\0223\n\023m_mythCoreCondition\030\006 \001(\005B"
+    "\026\302\377\024\022\350\246\201\346\261\202\347\245\236\346\240\270\347\255\211\347\272\247\022\033\n\006m_posX\030\007 \001(\005B"
+    "\013\302\377\024\007\345\235\220\346\240\207x\022\033\n\006m_posY\030\010 \001(\005B\013\302\377\024\007\345\235\220\346\240\207"
+    "y\022#\n\tm_equipID\030\t \003(\005B\020\302\377\024\010\350\243\205\345\244\207id\210\301\024\005\022+"
+    "\n\013m_specialID\030\n \003(\005B\026\302\377\024\016\347\250\200\346\234\211\350\243\205\345\244\207id\210"
+    "\301\024\003\022K\n\013m_Attribute\030\013 \003(\0132&.proto_ff.E_Av"
+    "atarMythwayAttributeDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\010"
+    "\"T\n\023Sheet_AvatarMythway\022=\n\024E_AvatarMythw"
+    "ay_List\030\001 \003(\0132\031.proto_ff.E_AvatarMythway"
+    "B\004\210\301\024@\"O\n\035E_AvatarMythcoreAttributeDesc\022"
+    "\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274\022\024\n\006m_type\030\002 \001("
+    "\005B\004\302\377\024\000\"\231\002\n\020E_AvatarMythcore\022\024\n\004m_id\030\001 \001"
+    "(\005B\006\302\377\024\002ID\022\034\n\tm_groupID\030\002 \001(\005B\t\302\377\024\005\347\273\204ID"
+    "\022\030\n\004m_LV\030\003 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022\"\n\010m_costID\030\004"
+    " \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022#\n\tm_costNum\030\005 \001("
+    "\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\022 \n\tm_success\030\006 \001(\005B\r"
+    "\302\377\024\t\346\210\220\345\212\237\347\216\207\022L\n\013m_Attribute\030\007 \003(\0132\'.pro"
+    "to_ff.E_AvatarMythcoreAttributeDescB\016\302\377\024"
+    "\006\345\261\236\346\200\247\210\301\024\004\"W\n\024Sheet_AvatarMythcore\022\?\n\025E"
+    "_AvatarMythcore_List\030\001 \003(\0132\032.proto_ff.E_"
+    "AvatarMythcoreB\004\210\301\024@\"P\n\036E_AvatarMythequi"
+    "pAttributeDesc\022\030\n\007m_value\030\001 \001(\005B\007\302\377\024\003\345\200\274"
+    "\022\024\n\006m_type\030\002 \001(\005B\004\302\377\024\000\"\236\001\n\021E_AvatarMythe"
+    "quip\022\036\n\010m_itemID\030\001 \001(\005B\014\302\377\024\010\347\211\251\345\223\201ID\022\032\n\006"
+    "m_star\030\002 \001(\005B\n\302\377\024\006\346\230\237\347\272\247\022M\n\013m_Attribute\030"
+    "\003 \003(\0132(.proto_ff.E_AvatarMythequipAttrib"
+    "uteDescB\016\302\377\024\006\345\261\236\346\200\247\210\301\024\010\"Z\n\025Sheet_AvatarM"
+    "ythequip\022A\n\026E_AvatarMythequip_List\030\001 \003(\013"
+    "2\033.proto_ff.E_AvatarMythequipB\004\210\301\024@", 5955);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Avatar.proto", &protobuf_RegisterTypes);
   E_AvatarFragmentAttributeDesc::default_instance_ = new E_AvatarFragmentAttributeDesc();
@@ -790,6 +1132,18 @@ void protobuf_AddDesc_E_5fAvatar_2eproto() {
   E_AvatarEquipsuitAttributeDesc::default_instance_ = new E_AvatarEquipsuitAttributeDesc();
   E_AvatarEquipsuit::default_instance_ = new E_AvatarEquipsuit();
   Sheet_AvatarEquipsuit::default_instance_ = new Sheet_AvatarEquipsuit();
+  E_AvatarMythAttributeDesc::default_instance_ = new E_AvatarMythAttributeDesc();
+  E_AvatarMyth::default_instance_ = new E_AvatarMyth();
+  Sheet_AvatarMyth::default_instance_ = new Sheet_AvatarMyth();
+  E_AvatarMythwayAttributeDesc::default_instance_ = new E_AvatarMythwayAttributeDesc();
+  E_AvatarMythway::default_instance_ = new E_AvatarMythway();
+  Sheet_AvatarMythway::default_instance_ = new Sheet_AvatarMythway();
+  E_AvatarMythcoreAttributeDesc::default_instance_ = new E_AvatarMythcoreAttributeDesc();
+  E_AvatarMythcore::default_instance_ = new E_AvatarMythcore();
+  Sheet_AvatarMythcore::default_instance_ = new Sheet_AvatarMythcore();
+  E_AvatarMythequipAttributeDesc::default_instance_ = new E_AvatarMythequipAttributeDesc();
+  E_AvatarMythequip::default_instance_ = new E_AvatarMythequip();
+  Sheet_AvatarMythequip::default_instance_ = new Sheet_AvatarMythequip();
   E_AvatarFragmentAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_AvatarFragment::default_instance_->InitAsDefaultInstance();
   Sheet_AvatarFragment::default_instance_->InitAsDefaultInstance();
@@ -815,6 +1169,18 @@ void protobuf_AddDesc_E_5fAvatar_2eproto() {
   E_AvatarEquipsuitAttributeDesc::default_instance_->InitAsDefaultInstance();
   E_AvatarEquipsuit::default_instance_->InitAsDefaultInstance();
   Sheet_AvatarEquipsuit::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_AvatarMyth::default_instance_->InitAsDefaultInstance();
+  Sheet_AvatarMyth::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythwayAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythway::default_instance_->InitAsDefaultInstance();
+  Sheet_AvatarMythway::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythcoreAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythcore::default_instance_->InitAsDefaultInstance();
+  Sheet_AvatarMythcore::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythequipAttributeDesc::default_instance_->InitAsDefaultInstance();
+  E_AvatarMythequip::default_instance_->InitAsDefaultInstance();
+  Sheet_AvatarMythequip::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_E_5fAvatar_2eproto);
 }
 
@@ -3827,6 +4193,11 @@ const int E_AvatarChange::kMFunUnlockFieldNumber;
 const int E_AvatarChange::kMMaxEquipFieldNumber;
 const int E_AvatarChange::kMEquipSuitFieldNumber;
 const int E_AvatarChange::kMStarBerFieldNumber;
+const int E_AvatarChange::kMMythSkillFieldNumber;
+const int E_AvatarChange::kMMythSPSkillFieldNumber;
+const int E_AvatarChange::kMMythIDFieldNumber;
+const int E_AvatarChange::kMMythWayIDFieldNumber;
+const int E_AvatarChange::kMMythCoreIDFieldNumber;
 const int E_AvatarChange::kMMaterialFieldNumber;
 const int E_AvatarChange::kMInitiativeSkillFieldNumber;
 const int E_AvatarChange::kMAttributeFieldNumber;
@@ -3869,6 +4240,11 @@ void E_AvatarChange::SharedCtor() {
   m_maxequip_ = 0;
   m_equipsuit_ = 0;
   m_starber_ = 0;
+  m_mythskill_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_mythspskill_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  m_mythid_ = 0;
+  m_mythwayid_ = 0;
+  m_mythcoreid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3882,6 +4258,12 @@ void E_AvatarChange::SharedDtor() {
   }
   if (m_starnum_ != &::google::protobuf::internal::kEmptyString) {
     delete m_starnum_;
+  }
+  if (m_mythskill_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mythskill_;
+  }
+  if (m_mythspskill_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mythspskill_;
   }
   if (this != default_instance_) {
   }
@@ -3943,6 +4325,21 @@ void E_AvatarChange::Clear() {
     m_maxequip_ = 0;
     m_equipsuit_ = 0;
     m_starber_ = 0;
+    if (has_m_mythskill()) {
+      if (m_mythskill_ != &::google::protobuf::internal::kEmptyString) {
+        m_mythskill_->clear();
+      }
+    }
+    if (has_m_mythspskill()) {
+      if (m_mythspskill_ != &::google::protobuf::internal::kEmptyString) {
+        m_mythspskill_->clear();
+      }
+    }
+    m_mythid_ = 0;
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    m_mythwayid_ = 0;
+    m_mythcoreid_ = 0;
   }
   m_material_.Clear();
   m_initiativeskill_.Clear();
@@ -4290,12 +4687,94 @@ bool E_AvatarChange::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(178)) goto parse_m_material;
+        if (input->ExpectTag(178)) goto parse_m_mythSkill;
         break;
       }
 
-      // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+      // optional string m_mythSkill = 22;
       case 22: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_mythSkill:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_mythskill()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_mythskill().data(), this->m_mythskill().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(186)) goto parse_m_mythSPSkill;
+        break;
+      }
+
+      // optional string m_mythSPSkill = 23;
+      case 23: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_mythSPSkill:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_mythspskill()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_mythspskill().data(), this->m_mythspskill().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(192)) goto parse_m_mythID;
+        break;
+      }
+
+      // optional int32 m_mythID = 24;
+      case 24: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_mythID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_mythid_)));
+          set_has_m_mythid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(200)) goto parse_m_mythWayID;
+        break;
+      }
+
+      // optional int32 m_mythWayID = 25;
+      case 25: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_mythWayID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_mythwayid_)));
+          set_has_m_mythwayid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(208)) goto parse_m_mythCoreID;
+        break;
+      }
+
+      // optional int32 m_mythCoreID = 26;
+      case 26: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_mythCoreID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_mythcoreid_)));
+          set_has_m_mythcoreid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(218)) goto parse_m_material;
+        break;
+      }
+
+      // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 27;
+      case 27: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_material:
@@ -4304,19 +4783,19 @@ bool E_AvatarChange::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(178)) goto parse_m_material;
-        if (input->ExpectTag(184)) goto parse_m_InitiativeSkill;
+        if (input->ExpectTag(218)) goto parse_m_material;
+        if (input->ExpectTag(224)) goto parse_m_InitiativeSkill;
         break;
       }
 
-      // repeated int64 m_InitiativeSkill = 23;
-      case 23: {
+      // repeated int64 m_InitiativeSkill = 28;
+      case 28: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_InitiativeSkill:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 2, 184, input, this->mutable_m_initiativeskill())));
+                 2, 224, input, this->mutable_m_initiativeskill())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -4326,13 +4805,13 @@ bool E_AvatarChange::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(184)) goto parse_m_InitiativeSkill;
-        if (input->ExpectTag(194)) goto parse_m_Attribute;
+        if (input->ExpectTag(224)) goto parse_m_InitiativeSkill;
+        if (input->ExpectTag(234)) goto parse_m_Attribute;
         break;
       }
 
-      // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
-      case 24: {
+      // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 29;
+      case 29: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_Attribute:
@@ -4341,7 +4820,7 @@ bool E_AvatarChange::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(194)) goto parse_m_Attribute;
+        if (input->ExpectTag(234)) goto parse_m_Attribute;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4477,22 +4956,55 @@ void E_AvatarChange::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(21, this->m_starber(), output);
   }
 
-  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+  // optional string m_mythSkill = 22;
+  if (has_m_mythskill()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mythskill().data(), this->m_mythskill().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      22, this->m_mythskill(), output);
+  }
+
+  // optional string m_mythSPSkill = 23;
+  if (has_m_mythspskill()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mythspskill().data(), this->m_mythspskill().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      23, this->m_mythspskill(), output);
+  }
+
+  // optional int32 m_mythID = 24;
+  if (has_m_mythid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(24, this->m_mythid(), output);
+  }
+
+  // optional int32 m_mythWayID = 25;
+  if (has_m_mythwayid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(25, this->m_mythwayid(), output);
+  }
+
+  // optional int32 m_mythCoreID = 26;
+  if (has_m_mythcoreid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(26, this->m_mythcoreid(), output);
+  }
+
+  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 27;
   for (int i = 0; i < this->m_material_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      22, this->m_material(i), output);
+      27, this->m_material(i), output);
   }
 
-  // repeated int64 m_InitiativeSkill = 23;
+  // repeated int64 m_InitiativeSkill = 28;
   for (int i = 0; i < this->m_initiativeskill_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      23, this->m_initiativeskill(i), output);
+      28, this->m_initiativeskill(i), output);
   }
 
-  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
+  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 29;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      24, this->m_attribute(i), output);
+      29, this->m_attribute(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4618,24 +5130,59 @@ void E_AvatarChange::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(21, this->m_starber(), target);
   }
 
-  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+  // optional string m_mythSkill = 22;
+  if (has_m_mythskill()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mythskill().data(), this->m_mythskill().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        22, this->m_mythskill(), target);
+  }
+
+  // optional string m_mythSPSkill = 23;
+  if (has_m_mythspskill()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_mythspskill().data(), this->m_mythspskill().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        23, this->m_mythspskill(), target);
+  }
+
+  // optional int32 m_mythID = 24;
+  if (has_m_mythid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(24, this->m_mythid(), target);
+  }
+
+  // optional int32 m_mythWayID = 25;
+  if (has_m_mythwayid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(25, this->m_mythwayid(), target);
+  }
+
+  // optional int32 m_mythCoreID = 26;
+  if (has_m_mythcoreid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(26, this->m_mythcoreid(), target);
+  }
+
+  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 27;
   for (int i = 0; i < this->m_material_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        22, this->m_material(i), target);
+        27, this->m_material(i), target);
   }
 
-  // repeated int64 m_InitiativeSkill = 23;
+  // repeated int64 m_InitiativeSkill = 28;
   for (int i = 0; i < this->m_initiativeskill_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(23, this->m_initiativeskill(i), target);
+      WriteInt64ToArray(28, this->m_initiativeskill(i), target);
   }
 
-  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
+  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 29;
   for (int i = 0; i < this->m_attribute_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        24, this->m_attribute(i), target);
+        29, this->m_attribute(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4800,8 +5347,45 @@ int E_AvatarChange::ByteSize() const {
           this->m_starber());
     }
 
+    // optional string m_mythSkill = 22;
+    if (has_m_mythskill()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_mythskill());
+    }
+
+    // optional string m_mythSPSkill = 23;
+    if (has_m_mythspskill()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->m_mythspskill());
+    }
+
+    // optional int32 m_mythID = 24;
+    if (has_m_mythid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_mythid());
+    }
+
   }
-  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    // optional int32 m_mythWayID = 25;
+    if (has_m_mythwayid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_mythwayid());
+    }
+
+    // optional int32 m_mythCoreID = 26;
+    if (has_m_mythcoreid()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_mythcoreid());
+    }
+
+  }
+  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 27;
   total_size += 2 * this->m_material_size();
   for (int i = 0; i < this->m_material_size(); i++) {
     total_size +=
@@ -4809,7 +5393,7 @@ int E_AvatarChange::ByteSize() const {
         this->m_material(i));
   }
 
-  // repeated int64 m_InitiativeSkill = 23;
+  // repeated int64 m_InitiativeSkill = 28;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_initiativeskill_size(); i++) {
@@ -4819,7 +5403,7 @@ int E_AvatarChange::ByteSize() const {
     total_size += 2 * this->m_initiativeskill_size() + data_size;
   }
 
-  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
+  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 29;
   total_size += 2 * this->m_attribute_size();
   for (int i = 0; i < this->m_attribute_size(); i++) {
     total_size +=
@@ -4923,6 +5507,23 @@ void E_AvatarChange::MergeFrom(const E_AvatarChange& from) {
     if (from.has_m_starber()) {
       set_m_starber(from.m_starber());
     }
+    if (from.has_m_mythskill()) {
+      set_m_mythskill(from.m_mythskill());
+    }
+    if (from.has_m_mythspskill()) {
+      set_m_mythspskill(from.m_mythspskill());
+    }
+    if (from.has_m_mythid()) {
+      set_m_mythid(from.m_mythid());
+    }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
+    if (from.has_m_mythwayid()) {
+      set_m_mythwayid(from.m_mythwayid());
+    }
+    if (from.has_m_mythcoreid()) {
+      set_m_mythcoreid(from.m_mythcoreid());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4967,6 +5568,11 @@ void E_AvatarChange::Swap(E_AvatarChange* other) {
     std::swap(m_maxequip_, other->m_maxequip_);
     std::swap(m_equipsuit_, other->m_equipsuit_);
     std::swap(m_starber_, other->m_starber_);
+    std::swap(m_mythskill_, other->m_mythskill_);
+    std::swap(m_mythspskill_, other->m_mythspskill_);
+    std::swap(m_mythid_, other->m_mythid_);
+    std::swap(m_mythwayid_, other->m_mythwayid_);
+    std::swap(m_mythcoreid_, other->m_mythcoreid_);
     m_material_.Swap(&other->m_material_);
     m_initiativeskill_.Swap(&other->m_initiativeskill_);
     m_attribute_.Swap(&other->m_attribute_);
@@ -8272,6 +8878,3498 @@ void Sheet_AvatarEquipsuit::Swap(Sheet_AvatarEquipsuit* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Sheet_AvatarEquipsuit_descriptor_;
   metadata.reflection = Sheet_AvatarEquipsuit_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythAttributeDesc::kMValueFieldNumber;
+const int E_AvatarMythAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythAttributeDesc::E_AvatarMythAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_AvatarMythAttributeDesc::E_AvatarMythAttributeDesc(const E_AvatarMythAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythAttributeDesc::~E_AvatarMythAttributeDesc() {
+  SharedDtor();
+}
+
+void E_AvatarMythAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythAttributeDesc_descriptor_;
+}
+
+const E_AvatarMythAttributeDesc& E_AvatarMythAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythAttributeDesc* E_AvatarMythAttributeDesc::default_instance_ = NULL;
+
+E_AvatarMythAttributeDesc* E_AvatarMythAttributeDesc::New() const {
+  return new E_AvatarMythAttributeDesc;
+}
+
+void E_AvatarMythAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythAttributeDesc::MergeFrom(const E_AvatarMythAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythAttributeDesc::CopyFrom(const E_AvatarMythAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythAttributeDesc::Swap(E_AvatarMythAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythAttributeDesc_descriptor_;
+  metadata.reflection = E_AvatarMythAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMyth::kMIdFieldNumber;
+const int E_AvatarMyth::kMGroupIDFieldNumber;
+const int E_AvatarMyth::kMStageFieldNumber;
+const int E_AvatarMyth::kMAttributeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMyth::E_AvatarMyth()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMyth::InitAsDefaultInstance() {
+}
+
+E_AvatarMyth::E_AvatarMyth(const E_AvatarMyth& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMyth::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_stage_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMyth::~E_AvatarMyth() {
+  SharedDtor();
+}
+
+void E_AvatarMyth::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMyth::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMyth::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMyth_descriptor_;
+}
+
+const E_AvatarMyth& E_AvatarMyth::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMyth* E_AvatarMyth::default_instance_ = NULL;
+
+E_AvatarMyth* E_AvatarMyth::New() const {
+  return new E_AvatarMyth;
+}
+
+void E_AvatarMyth::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_stage_ = 0;
+  }
+  m_attribute_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMyth::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_stage;
+        break;
+      }
+
+      // optional int32 m_stage = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_stage:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_stage_)));
+          set_has_m_stage();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_Attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_AvatarMythAttributeDesc m_Attribute = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_Attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_m_Attribute;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMyth::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_stage = 3;
+  if (has_m_stage()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_stage(), output);
+  }
+
+  // repeated .proto_ff.E_AvatarMythAttributeDesc m_Attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->m_attribute(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMyth::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_stage = 3;
+  if (has_m_stage()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_stage(), target);
+  }
+
+  // repeated .proto_ff.E_AvatarMythAttributeDesc m_Attribute = 4;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->m_attribute(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMyth::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_stage = 3;
+    if (has_m_stage()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_stage());
+    }
+
+  }
+  // repeated .proto_ff.E_AvatarMythAttributeDesc m_Attribute = 4;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMyth::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMyth* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMyth*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMyth::MergeFrom(const E_AvatarMyth& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_stage()) {
+      set_m_stage(from.m_stage());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMyth::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMyth::CopyFrom(const E_AvatarMyth& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMyth::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMyth::Swap(E_AvatarMyth* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_stage_, other->m_stage_);
+    m_attribute_.Swap(&other->m_attribute_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMyth::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMyth_descriptor_;
+  metadata.reflection = E_AvatarMyth_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_AvatarMyth::kEAvatarMythListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_AvatarMyth::Sheet_AvatarMyth()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_AvatarMyth::InitAsDefaultInstance() {
+}
+
+Sheet_AvatarMyth::Sheet_AvatarMyth(const Sheet_AvatarMyth& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMyth::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_AvatarMyth::~Sheet_AvatarMyth() {
+  SharedDtor();
+}
+
+void Sheet_AvatarMyth::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_AvatarMyth::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_AvatarMyth::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_AvatarMyth_descriptor_;
+}
+
+const Sheet_AvatarMyth& Sheet_AvatarMyth::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+Sheet_AvatarMyth* Sheet_AvatarMyth::default_instance_ = NULL;
+
+Sheet_AvatarMyth* Sheet_AvatarMyth::New() const {
+  return new Sheet_AvatarMyth;
+}
+
+void Sheet_AvatarMyth::Clear() {
+  e_avatarmyth_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_AvatarMyth::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_AvatarMyth E_AvatarMyth_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_AvatarMyth_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_avatarmyth_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_AvatarMyth_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_AvatarMyth::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_AvatarMyth E_AvatarMyth_List = 1;
+  for (int i = 0; i < this->e_avatarmyth_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_avatarmyth_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_AvatarMyth::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_AvatarMyth E_AvatarMyth_List = 1;
+  for (int i = 0; i < this->e_avatarmyth_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_avatarmyth_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_AvatarMyth::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_AvatarMyth E_AvatarMyth_List = 1;
+  total_size += 1 * this->e_avatarmyth_list_size();
+  for (int i = 0; i < this->e_avatarmyth_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_avatarmyth_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_AvatarMyth::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_AvatarMyth* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AvatarMyth*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_AvatarMyth::MergeFrom(const Sheet_AvatarMyth& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_avatarmyth_list_.MergeFrom(from.e_avatarmyth_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_AvatarMyth::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMyth::CopyFrom(const Sheet_AvatarMyth& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_AvatarMyth::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_AvatarMyth::Swap(Sheet_AvatarMyth* other) {
+  if (other != this) {
+    e_avatarmyth_list_.Swap(&other->e_avatarmyth_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_AvatarMyth::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_AvatarMyth_descriptor_;
+  metadata.reflection = Sheet_AvatarMyth_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythwayAttributeDesc::kMValueFieldNumber;
+const int E_AvatarMythwayAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythwayAttributeDesc::E_AvatarMythwayAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythwayAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_AvatarMythwayAttributeDesc::E_AvatarMythwayAttributeDesc(const E_AvatarMythwayAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythwayAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythwayAttributeDesc::~E_AvatarMythwayAttributeDesc() {
+  SharedDtor();
+}
+
+void E_AvatarMythwayAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythwayAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythwayAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythwayAttributeDesc_descriptor_;
+}
+
+const E_AvatarMythwayAttributeDesc& E_AvatarMythwayAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythwayAttributeDesc* E_AvatarMythwayAttributeDesc::default_instance_ = NULL;
+
+E_AvatarMythwayAttributeDesc* E_AvatarMythwayAttributeDesc::New() const {
+  return new E_AvatarMythwayAttributeDesc;
+}
+
+void E_AvatarMythwayAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythwayAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythwayAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythwayAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythwayAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythwayAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythwayAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythwayAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythwayAttributeDesc::MergeFrom(const E_AvatarMythwayAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythwayAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythwayAttributeDesc::CopyFrom(const E_AvatarMythwayAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythwayAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythwayAttributeDesc::Swap(E_AvatarMythwayAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythwayAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythwayAttributeDesc_descriptor_;
+  metadata.reflection = E_AvatarMythwayAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythway::kMIdFieldNumber;
+const int E_AvatarMythway::kMGroupIDFieldNumber;
+const int E_AvatarMythway::kMStageFieldNumber;
+const int E_AvatarMythway::kMStarFieldNumber;
+const int E_AvatarMythway::kMShowStarFieldNumber;
+const int E_AvatarMythway::kMMythCoreConditionFieldNumber;
+const int E_AvatarMythway::kMPosXFieldNumber;
+const int E_AvatarMythway::kMPosYFieldNumber;
+const int E_AvatarMythway::kMEquipIDFieldNumber;
+const int E_AvatarMythway::kMSpecialIDFieldNumber;
+const int E_AvatarMythway::kMAttributeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythway::E_AvatarMythway()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythway::InitAsDefaultInstance() {
+}
+
+E_AvatarMythway::E_AvatarMythway(const E_AvatarMythway& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythway::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_stage_ = 0;
+  m_star_ = 0;
+  m_showstar_ = 0;
+  m_mythcorecondition_ = 0;
+  m_posx_ = 0;
+  m_posy_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythway::~E_AvatarMythway() {
+  SharedDtor();
+}
+
+void E_AvatarMythway::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythway::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythway::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythway_descriptor_;
+}
+
+const E_AvatarMythway& E_AvatarMythway::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythway* E_AvatarMythway::default_instance_ = NULL;
+
+E_AvatarMythway* E_AvatarMythway::New() const {
+  return new E_AvatarMythway;
+}
+
+void E_AvatarMythway::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_stage_ = 0;
+    m_star_ = 0;
+    m_showstar_ = 0;
+    m_mythcorecondition_ = 0;
+    m_posx_ = 0;
+    m_posy_ = 0;
+  }
+  m_equipid_.Clear();
+  m_specialid_.Clear();
+  m_attribute_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythway::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_stage;
+        break;
+      }
+
+      // optional int32 m_stage = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_stage:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_stage_)));
+          set_has_m_stage();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_star;
+        break;
+      }
+
+      // optional int32 m_star = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_star:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_star_)));
+          set_has_m_star();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_showStar;
+        break;
+      }
+
+      // optional int32 m_showStar = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_showStar:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_showstar_)));
+          set_has_m_showstar();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_mythCoreCondition;
+        break;
+      }
+
+      // optional int32 m_mythCoreCondition = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_mythCoreCondition:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_mythcorecondition_)));
+          set_has_m_mythcorecondition();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_posX;
+        break;
+      }
+
+      // optional int32 m_posX = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_posX:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_posx_)));
+          set_has_m_posx();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(64)) goto parse_m_posY;
+        break;
+      }
+
+      // optional int32 m_posY = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_posY:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_posy_)));
+          set_has_m_posy();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_equipID;
+        break;
+      }
+
+      // repeated int32 m_equipID = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_equipID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 72, input, this->mutable_m_equipid())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_m_equipid())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_m_equipID;
+        if (input->ExpectTag(80)) goto parse_m_specialID;
+        break;
+      }
+
+      // repeated int32 m_specialID = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_specialID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 80, input, this->mutable_m_specialid())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_m_specialid())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(80)) goto parse_m_specialID;
+        if (input->ExpectTag(90)) goto parse_m_Attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_AvatarMythwayAttributeDesc m_Attribute = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_Attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(90)) goto parse_m_Attribute;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythway::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_stage = 3;
+  if (has_m_stage()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_stage(), output);
+  }
+
+  // optional int32 m_star = 4;
+  if (has_m_star()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_star(), output);
+  }
+
+  // optional int32 m_showStar = 5;
+  if (has_m_showstar()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_showstar(), output);
+  }
+
+  // optional int32 m_mythCoreCondition = 6;
+  if (has_m_mythcorecondition()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_mythcorecondition(), output);
+  }
+
+  // optional int32 m_posX = 7;
+  if (has_m_posx()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_posx(), output);
+  }
+
+  // optional int32 m_posY = 8;
+  if (has_m_posy()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_posy(), output);
+  }
+
+  // repeated int32 m_equipID = 9;
+  for (int i = 0; i < this->m_equipid_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      9, this->m_equipid(i), output);
+  }
+
+  // repeated int32 m_specialID = 10;
+  for (int i = 0; i < this->m_specialid_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      10, this->m_specialid(i), output);
+  }
+
+  // repeated .proto_ff.E_AvatarMythwayAttributeDesc m_Attribute = 11;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, this->m_attribute(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythway::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_stage = 3;
+  if (has_m_stage()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_stage(), target);
+  }
+
+  // optional int32 m_star = 4;
+  if (has_m_star()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_star(), target);
+  }
+
+  // optional int32 m_showStar = 5;
+  if (has_m_showstar()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_showstar(), target);
+  }
+
+  // optional int32 m_mythCoreCondition = 6;
+  if (has_m_mythcorecondition()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_mythcorecondition(), target);
+  }
+
+  // optional int32 m_posX = 7;
+  if (has_m_posx()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_posx(), target);
+  }
+
+  // optional int32 m_posY = 8;
+  if (has_m_posy()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_posy(), target);
+  }
+
+  // repeated int32 m_equipID = 9;
+  for (int i = 0; i < this->m_equipid_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(9, this->m_equipid(i), target);
+  }
+
+  // repeated int32 m_specialID = 10;
+  for (int i = 0; i < this->m_specialid_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(10, this->m_specialid(i), target);
+  }
+
+  // repeated .proto_ff.E_AvatarMythwayAttributeDesc m_Attribute = 11;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        11, this->m_attribute(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythway::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_stage = 3;
+    if (has_m_stage()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_stage());
+    }
+
+    // optional int32 m_star = 4;
+    if (has_m_star()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_star());
+    }
+
+    // optional int32 m_showStar = 5;
+    if (has_m_showstar()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_showstar());
+    }
+
+    // optional int32 m_mythCoreCondition = 6;
+    if (has_m_mythcorecondition()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_mythcorecondition());
+    }
+
+    // optional int32 m_posX = 7;
+    if (has_m_posx()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_posx());
+    }
+
+    // optional int32 m_posY = 8;
+    if (has_m_posy()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_posy());
+    }
+
+  }
+  // repeated int32 m_equipID = 9;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->m_equipid_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->m_equipid(i));
+    }
+    total_size += 1 * this->m_equipid_size() + data_size;
+  }
+
+  // repeated int32 m_specialID = 10;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->m_specialid_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->m_specialid(i));
+    }
+    total_size += 1 * this->m_specialid_size() + data_size;
+  }
+
+  // repeated .proto_ff.E_AvatarMythwayAttributeDesc m_Attribute = 11;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythway::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythway* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythway*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythway::MergeFrom(const E_AvatarMythway& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_equipid_.MergeFrom(from.m_equipid_);
+  m_specialid_.MergeFrom(from.m_specialid_);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_stage()) {
+      set_m_stage(from.m_stage());
+    }
+    if (from.has_m_star()) {
+      set_m_star(from.m_star());
+    }
+    if (from.has_m_showstar()) {
+      set_m_showstar(from.m_showstar());
+    }
+    if (from.has_m_mythcorecondition()) {
+      set_m_mythcorecondition(from.m_mythcorecondition());
+    }
+    if (from.has_m_posx()) {
+      set_m_posx(from.m_posx());
+    }
+    if (from.has_m_posy()) {
+      set_m_posy(from.m_posy());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythway::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythway::CopyFrom(const E_AvatarMythway& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythway::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythway::Swap(E_AvatarMythway* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_stage_, other->m_stage_);
+    std::swap(m_star_, other->m_star_);
+    std::swap(m_showstar_, other->m_showstar_);
+    std::swap(m_mythcorecondition_, other->m_mythcorecondition_);
+    std::swap(m_posx_, other->m_posx_);
+    std::swap(m_posy_, other->m_posy_);
+    m_equipid_.Swap(&other->m_equipid_);
+    m_specialid_.Swap(&other->m_specialid_);
+    m_attribute_.Swap(&other->m_attribute_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythway::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythway_descriptor_;
+  metadata.reflection = E_AvatarMythway_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_AvatarMythway::kEAvatarMythwayListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_AvatarMythway::Sheet_AvatarMythway()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_AvatarMythway::InitAsDefaultInstance() {
+}
+
+Sheet_AvatarMythway::Sheet_AvatarMythway(const Sheet_AvatarMythway& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMythway::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_AvatarMythway::~Sheet_AvatarMythway() {
+  SharedDtor();
+}
+
+void Sheet_AvatarMythway::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_AvatarMythway::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_AvatarMythway::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_AvatarMythway_descriptor_;
+}
+
+const Sheet_AvatarMythway& Sheet_AvatarMythway::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+Sheet_AvatarMythway* Sheet_AvatarMythway::default_instance_ = NULL;
+
+Sheet_AvatarMythway* Sheet_AvatarMythway::New() const {
+  return new Sheet_AvatarMythway;
+}
+
+void Sheet_AvatarMythway::Clear() {
+  e_avatarmythway_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_AvatarMythway::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_AvatarMythway E_AvatarMythway_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_AvatarMythway_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_avatarmythway_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_AvatarMythway_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_AvatarMythway::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_AvatarMythway E_AvatarMythway_List = 1;
+  for (int i = 0; i < this->e_avatarmythway_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_avatarmythway_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_AvatarMythway::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_AvatarMythway E_AvatarMythway_List = 1;
+  for (int i = 0; i < this->e_avatarmythway_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_avatarmythway_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_AvatarMythway::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_AvatarMythway E_AvatarMythway_List = 1;
+  total_size += 1 * this->e_avatarmythway_list_size();
+  for (int i = 0; i < this->e_avatarmythway_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_avatarmythway_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_AvatarMythway::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_AvatarMythway* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AvatarMythway*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_AvatarMythway::MergeFrom(const Sheet_AvatarMythway& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_avatarmythway_list_.MergeFrom(from.e_avatarmythway_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_AvatarMythway::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMythway::CopyFrom(const Sheet_AvatarMythway& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_AvatarMythway::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_AvatarMythway::Swap(Sheet_AvatarMythway* other) {
+  if (other != this) {
+    e_avatarmythway_list_.Swap(&other->e_avatarmythway_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_AvatarMythway::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_AvatarMythway_descriptor_;
+  metadata.reflection = Sheet_AvatarMythway_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythcoreAttributeDesc::kMValueFieldNumber;
+const int E_AvatarMythcoreAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythcoreAttributeDesc::E_AvatarMythcoreAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythcoreAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_AvatarMythcoreAttributeDesc::E_AvatarMythcoreAttributeDesc(const E_AvatarMythcoreAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythcoreAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythcoreAttributeDesc::~E_AvatarMythcoreAttributeDesc() {
+  SharedDtor();
+}
+
+void E_AvatarMythcoreAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythcoreAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythcoreAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythcoreAttributeDesc_descriptor_;
+}
+
+const E_AvatarMythcoreAttributeDesc& E_AvatarMythcoreAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythcoreAttributeDesc* E_AvatarMythcoreAttributeDesc::default_instance_ = NULL;
+
+E_AvatarMythcoreAttributeDesc* E_AvatarMythcoreAttributeDesc::New() const {
+  return new E_AvatarMythcoreAttributeDesc;
+}
+
+void E_AvatarMythcoreAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythcoreAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythcoreAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythcoreAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythcoreAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythcoreAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythcoreAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythcoreAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythcoreAttributeDesc::MergeFrom(const E_AvatarMythcoreAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythcoreAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythcoreAttributeDesc::CopyFrom(const E_AvatarMythcoreAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythcoreAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythcoreAttributeDesc::Swap(E_AvatarMythcoreAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythcoreAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythcoreAttributeDesc_descriptor_;
+  metadata.reflection = E_AvatarMythcoreAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythcore::kMIdFieldNumber;
+const int E_AvatarMythcore::kMGroupIDFieldNumber;
+const int E_AvatarMythcore::kMLVFieldNumber;
+const int E_AvatarMythcore::kMCostIDFieldNumber;
+const int E_AvatarMythcore::kMCostNumFieldNumber;
+const int E_AvatarMythcore::kMSuccessFieldNumber;
+const int E_AvatarMythcore::kMAttributeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythcore::E_AvatarMythcore()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythcore::InitAsDefaultInstance() {
+}
+
+E_AvatarMythcore::E_AvatarMythcore(const E_AvatarMythcore& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythcore::SharedCtor() {
+  _cached_size_ = 0;
+  m_id_ = 0;
+  m_groupid_ = 0;
+  m_lv_ = 0;
+  m_costid_ = 0;
+  m_costnum_ = 0;
+  m_success_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythcore::~E_AvatarMythcore() {
+  SharedDtor();
+}
+
+void E_AvatarMythcore::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythcore::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythcore::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythcore_descriptor_;
+}
+
+const E_AvatarMythcore& E_AvatarMythcore::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythcore* E_AvatarMythcore::default_instance_ = NULL;
+
+E_AvatarMythcore* E_AvatarMythcore::New() const {
+  return new E_AvatarMythcore;
+}
+
+void E_AvatarMythcore::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_id_ = 0;
+    m_groupid_ = 0;
+    m_lv_ = 0;
+    m_costid_ = 0;
+    m_costnum_ = 0;
+    m_success_ = 0;
+  }
+  m_attribute_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythcore::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_groupID;
+        break;
+      }
+
+      // optional int32 m_groupID = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_groupID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_groupid_)));
+          set_has_m_groupid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_LV;
+        break;
+      }
+
+      // optional int32 m_LV = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_LV:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_lv_)));
+          set_has_m_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_costID;
+        break;
+      }
+
+      // optional int32 m_costID = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costID:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_costid_)));
+          set_has_m_costid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_costNum;
+        break;
+      }
+
+      // optional int32 m_costNum = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_costNum:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_costnum_)));
+          set_has_m_costnum();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_success;
+        break;
+      }
+
+      // optional int32 m_success = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_success:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_success_)));
+          set_has_m_success();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(58)) goto parse_m_Attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_AvatarMythcoreAttributeDesc m_Attribute = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_Attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(58)) goto parse_m_Attribute;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythcore::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_groupid(), output);
+  }
+
+  // optional int32 m_LV = 3;
+  if (has_m_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_lv(), output);
+  }
+
+  // optional int32 m_costID = 4;
+  if (has_m_costid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_costid(), output);
+  }
+
+  // optional int32 m_costNum = 5;
+  if (has_m_costnum()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_costnum(), output);
+  }
+
+  // optional int32 m_success = 6;
+  if (has_m_success()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_success(), output);
+  }
+
+  // repeated .proto_ff.E_AvatarMythcoreAttributeDesc m_Attribute = 7;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, this->m_attribute(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythcore::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_id = 1;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
+  }
+
+  // optional int32 m_groupID = 2;
+  if (has_m_groupid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_groupid(), target);
+  }
+
+  // optional int32 m_LV = 3;
+  if (has_m_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_lv(), target);
+  }
+
+  // optional int32 m_costID = 4;
+  if (has_m_costid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_costid(), target);
+  }
+
+  // optional int32 m_costNum = 5;
+  if (has_m_costnum()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_costnum(), target);
+  }
+
+  // optional int32 m_success = 6;
+  if (has_m_success()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_success(), target);
+  }
+
+  // repeated .proto_ff.E_AvatarMythcoreAttributeDesc m_Attribute = 7;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        7, this->m_attribute(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythcore::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_id = 1;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+    // optional int32 m_groupID = 2;
+    if (has_m_groupid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_groupid());
+    }
+
+    // optional int32 m_LV = 3;
+    if (has_m_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_lv());
+    }
+
+    // optional int32 m_costID = 4;
+    if (has_m_costid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_costid());
+    }
+
+    // optional int32 m_costNum = 5;
+    if (has_m_costnum()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_costnum());
+    }
+
+    // optional int32 m_success = 6;
+    if (has_m_success()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_success());
+    }
+
+  }
+  // repeated .proto_ff.E_AvatarMythcoreAttributeDesc m_Attribute = 7;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythcore::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythcore* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythcore*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythcore::MergeFrom(const E_AvatarMythcore& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+    if (from.has_m_groupid()) {
+      set_m_groupid(from.m_groupid());
+    }
+    if (from.has_m_lv()) {
+      set_m_lv(from.m_lv());
+    }
+    if (from.has_m_costid()) {
+      set_m_costid(from.m_costid());
+    }
+    if (from.has_m_costnum()) {
+      set_m_costnum(from.m_costnum());
+    }
+    if (from.has_m_success()) {
+      set_m_success(from.m_success());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythcore::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythcore::CopyFrom(const E_AvatarMythcore& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythcore::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythcore::Swap(E_AvatarMythcore* other) {
+  if (other != this) {
+    std::swap(m_id_, other->m_id_);
+    std::swap(m_groupid_, other->m_groupid_);
+    std::swap(m_lv_, other->m_lv_);
+    std::swap(m_costid_, other->m_costid_);
+    std::swap(m_costnum_, other->m_costnum_);
+    std::swap(m_success_, other->m_success_);
+    m_attribute_.Swap(&other->m_attribute_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythcore::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythcore_descriptor_;
+  metadata.reflection = E_AvatarMythcore_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_AvatarMythcore::kEAvatarMythcoreListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_AvatarMythcore::Sheet_AvatarMythcore()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_AvatarMythcore::InitAsDefaultInstance() {
+}
+
+Sheet_AvatarMythcore::Sheet_AvatarMythcore(const Sheet_AvatarMythcore& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMythcore::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_AvatarMythcore::~Sheet_AvatarMythcore() {
+  SharedDtor();
+}
+
+void Sheet_AvatarMythcore::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_AvatarMythcore::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_AvatarMythcore::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_AvatarMythcore_descriptor_;
+}
+
+const Sheet_AvatarMythcore& Sheet_AvatarMythcore::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+Sheet_AvatarMythcore* Sheet_AvatarMythcore::default_instance_ = NULL;
+
+Sheet_AvatarMythcore* Sheet_AvatarMythcore::New() const {
+  return new Sheet_AvatarMythcore;
+}
+
+void Sheet_AvatarMythcore::Clear() {
+  e_avatarmythcore_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_AvatarMythcore::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_AvatarMythcore E_AvatarMythcore_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_AvatarMythcore_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_avatarmythcore_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_AvatarMythcore_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_AvatarMythcore::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_AvatarMythcore E_AvatarMythcore_List = 1;
+  for (int i = 0; i < this->e_avatarmythcore_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_avatarmythcore_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_AvatarMythcore::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_AvatarMythcore E_AvatarMythcore_List = 1;
+  for (int i = 0; i < this->e_avatarmythcore_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_avatarmythcore_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_AvatarMythcore::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_AvatarMythcore E_AvatarMythcore_List = 1;
+  total_size += 1 * this->e_avatarmythcore_list_size();
+  for (int i = 0; i < this->e_avatarmythcore_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_avatarmythcore_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_AvatarMythcore::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_AvatarMythcore* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AvatarMythcore*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_AvatarMythcore::MergeFrom(const Sheet_AvatarMythcore& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_avatarmythcore_list_.MergeFrom(from.e_avatarmythcore_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_AvatarMythcore::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMythcore::CopyFrom(const Sheet_AvatarMythcore& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_AvatarMythcore::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_AvatarMythcore::Swap(Sheet_AvatarMythcore* other) {
+  if (other != this) {
+    e_avatarmythcore_list_.Swap(&other->e_avatarmythcore_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_AvatarMythcore::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_AvatarMythcore_descriptor_;
+  metadata.reflection = Sheet_AvatarMythcore_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythequipAttributeDesc::kMValueFieldNumber;
+const int E_AvatarMythequipAttributeDesc::kMTypeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythequipAttributeDesc::E_AvatarMythequipAttributeDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythequipAttributeDesc::InitAsDefaultInstance() {
+}
+
+E_AvatarMythequipAttributeDesc::E_AvatarMythequipAttributeDesc(const E_AvatarMythequipAttributeDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythequipAttributeDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_value_ = 0;
+  m_type_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythequipAttributeDesc::~E_AvatarMythequipAttributeDesc() {
+  SharedDtor();
+}
+
+void E_AvatarMythequipAttributeDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythequipAttributeDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythequipAttributeDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythequipAttributeDesc_descriptor_;
+}
+
+const E_AvatarMythequipAttributeDesc& E_AvatarMythequipAttributeDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythequipAttributeDesc* E_AvatarMythequipAttributeDesc::default_instance_ = NULL;
+
+E_AvatarMythequipAttributeDesc* E_AvatarMythequipAttributeDesc::New() const {
+  return new E_AvatarMythequipAttributeDesc;
+}
+
+void E_AvatarMythequipAttributeDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_value_ = 0;
+    m_type_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythequipAttributeDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_value = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_value_)));
+          set_has_m_value();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_type_)));
+          set_has_m_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythequipAttributeDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_value(), output);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_type(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythequipAttributeDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_value = 1;
+  if (has_m_value()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_value(), target);
+  }
+
+  // optional int32 m_type = 2;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_type(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythequipAttributeDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_value = 1;
+    if (has_m_value()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_value());
+    }
+
+    // optional int32 m_type = 2;
+    if (has_m_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_type());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythequipAttributeDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythequipAttributeDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythequipAttributeDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythequipAttributeDesc::MergeFrom(const E_AvatarMythequipAttributeDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_value()) {
+      set_m_value(from.m_value());
+    }
+    if (from.has_m_type()) {
+      set_m_type(from.m_type());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythequipAttributeDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythequipAttributeDesc::CopyFrom(const E_AvatarMythequipAttributeDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythequipAttributeDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythequipAttributeDesc::Swap(E_AvatarMythequipAttributeDesc* other) {
+  if (other != this) {
+    std::swap(m_value_, other->m_value_);
+    std::swap(m_type_, other->m_type_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythequipAttributeDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythequipAttributeDesc_descriptor_;
+  metadata.reflection = E_AvatarMythequipAttributeDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_AvatarMythequip::kMItemIDFieldNumber;
+const int E_AvatarMythequip::kMStarFieldNumber;
+const int E_AvatarMythequip::kMAttributeFieldNumber;
+#endif  // !_MSC_VER
+
+E_AvatarMythequip::E_AvatarMythequip()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_AvatarMythequip::InitAsDefaultInstance() {
+}
+
+E_AvatarMythequip::E_AvatarMythequip(const E_AvatarMythequip& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_AvatarMythequip::SharedCtor() {
+  _cached_size_ = 0;
+  m_itemid_ = 0;
+  m_star_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_AvatarMythequip::~E_AvatarMythequip() {
+  SharedDtor();
+}
+
+void E_AvatarMythequip::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_AvatarMythequip::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_AvatarMythequip::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_AvatarMythequip_descriptor_;
+}
+
+const E_AvatarMythequip& E_AvatarMythequip::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+E_AvatarMythequip* E_AvatarMythequip::default_instance_ = NULL;
+
+E_AvatarMythequip* E_AvatarMythequip::New() const {
+  return new E_AvatarMythequip;
+}
+
+void E_AvatarMythequip::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_itemid_ = 0;
+    m_star_ = 0;
+  }
+  m_attribute_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_AvatarMythequip::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_itemID = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_itemid_)));
+          set_has_m_itemid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_star;
+        break;
+      }
+
+      // optional int32 m_star = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_star:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_star_)));
+          set_has_m_star();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_Attribute;
+        break;
+      }
+
+      // repeated .proto_ff.E_AvatarMythequipAttributeDesc m_Attribute = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_Attribute:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_attribute()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_Attribute;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_AvatarMythequip::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_itemID = 1;
+  if (has_m_itemid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_itemid(), output);
+  }
+
+  // optional int32 m_star = 2;
+  if (has_m_star()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_star(), output);
+  }
+
+  // repeated .proto_ff.E_AvatarMythequipAttributeDesc m_Attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->m_attribute(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_AvatarMythequip::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_itemID = 1;
+  if (has_m_itemid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_itemid(), target);
+  }
+
+  // optional int32 m_star = 2;
+  if (has_m_star()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_star(), target);
+  }
+
+  // repeated .proto_ff.E_AvatarMythequipAttributeDesc m_Attribute = 3;
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->m_attribute(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_AvatarMythequip::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_itemID = 1;
+    if (has_m_itemid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_itemid());
+    }
+
+    // optional int32 m_star = 2;
+    if (has_m_star()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_star());
+    }
+
+  }
+  // repeated .proto_ff.E_AvatarMythequipAttributeDesc m_Attribute = 3;
+  total_size += 1 * this->m_attribute_size();
+  for (int i = 0; i < this->m_attribute_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_attribute(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_AvatarMythequip::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_AvatarMythequip* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_AvatarMythequip*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_AvatarMythequip::MergeFrom(const E_AvatarMythequip& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  m_attribute_.MergeFrom(from.m_attribute_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_itemid()) {
+      set_m_itemid(from.m_itemid());
+    }
+    if (from.has_m_star()) {
+      set_m_star(from.m_star());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_AvatarMythequip::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_AvatarMythequip::CopyFrom(const E_AvatarMythequip& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_AvatarMythequip::IsInitialized() const {
+
+  return true;
+}
+
+void E_AvatarMythequip::Swap(E_AvatarMythequip* other) {
+  if (other != this) {
+    std::swap(m_itemid_, other->m_itemid_);
+    std::swap(m_star_, other->m_star_);
+    m_attribute_.Swap(&other->m_attribute_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_AvatarMythequip::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_AvatarMythequip_descriptor_;
+  metadata.reflection = E_AvatarMythequip_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Sheet_AvatarMythequip::kEAvatarMythequipListFieldNumber;
+#endif  // !_MSC_VER
+
+Sheet_AvatarMythequip::Sheet_AvatarMythequip()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Sheet_AvatarMythequip::InitAsDefaultInstance() {
+}
+
+Sheet_AvatarMythequip::Sheet_AvatarMythequip(const Sheet_AvatarMythequip& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMythequip::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Sheet_AvatarMythequip::~Sheet_AvatarMythequip() {
+  SharedDtor();
+}
+
+void Sheet_AvatarMythequip::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Sheet_AvatarMythequip::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Sheet_AvatarMythequip::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Sheet_AvatarMythequip_descriptor_;
+}
+
+const Sheet_AvatarMythequip& Sheet_AvatarMythequip::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fAvatar_2eproto();
+  return *default_instance_;
+}
+
+Sheet_AvatarMythequip* Sheet_AvatarMythequip::default_instance_ = NULL;
+
+Sheet_AvatarMythequip* Sheet_AvatarMythequip::New() const {
+  return new Sheet_AvatarMythequip;
+}
+
+void Sheet_AvatarMythequip::Clear() {
+  e_avatarmythequip_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Sheet_AvatarMythequip::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.E_AvatarMythequip E_AvatarMythequip_List = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_E_AvatarMythequip_List:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_e_avatarmythequip_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_E_AvatarMythequip_List;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Sheet_AvatarMythequip::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.E_AvatarMythequip E_AvatarMythequip_List = 1;
+  for (int i = 0; i < this->e_avatarmythequip_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->e_avatarmythequip_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Sheet_AvatarMythequip::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.E_AvatarMythequip E_AvatarMythequip_List = 1;
+  for (int i = 0; i < this->e_avatarmythequip_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->e_avatarmythequip_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Sheet_AvatarMythequip::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.E_AvatarMythequip E_AvatarMythequip_List = 1;
+  total_size += 1 * this->e_avatarmythequip_list_size();
+  for (int i = 0; i < this->e_avatarmythequip_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->e_avatarmythequip_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Sheet_AvatarMythequip::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Sheet_AvatarMythequip* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Sheet_AvatarMythequip*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Sheet_AvatarMythequip::MergeFrom(const Sheet_AvatarMythequip& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  e_avatarmythequip_list_.MergeFrom(from.e_avatarmythequip_list_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Sheet_AvatarMythequip::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Sheet_AvatarMythequip::CopyFrom(const Sheet_AvatarMythequip& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Sheet_AvatarMythequip::IsInitialized() const {
+
+  return true;
+}
+
+void Sheet_AvatarMythequip::Swap(Sheet_AvatarMythequip* other) {
+  if (other != this) {
+    e_avatarmythequip_list_.Swap(&other->e_avatarmythequip_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Sheet_AvatarMythequip::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Sheet_AvatarMythequip_descriptor_;
+  metadata.reflection = Sheet_AvatarMythequip_reflection_;
   return metadata;
 }
 

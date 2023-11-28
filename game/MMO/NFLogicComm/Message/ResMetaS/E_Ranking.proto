@@ -17,7 +17,7 @@ message E_RankingRanking
 
 message Sheet_RankingRanking
 {
-	repeated E_RankingRanking E_RankingRanking_List = 1[(yd_fieldoptions.field_arysize)=16];
+	repeated E_RankingRanking E_RankingRanking_List = 1[(yd_fieldoptions.field_arysize)=32];
 }
 
 message E_RankingDate

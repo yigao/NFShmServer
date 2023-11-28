@@ -695,45 +695,66 @@ class E_MapItemdrop : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_odds() const;
   inline void set_m_odds(::google::protobuf::int32 value);
 
-  // optional int32 m_dropvaluea = 4;
+  // optional int32 m_ownProtect = 4;
+  inline bool has_m_ownprotect() const;
+  inline void clear_m_ownprotect();
+  static const int kMOwnProtectFieldNumber = 4;
+  inline ::google::protobuf::int32 m_ownprotect() const;
+  inline void set_m_ownprotect(::google::protobuf::int32 value);
+
+  // optional int32 m_belongType = 5;
+  inline bool has_m_belongtype() const;
+  inline void clear_m_belongtype();
+  static const int kMBelongTypeFieldNumber = 5;
+  inline ::google::protobuf::int32 m_belongtype() const;
+  inline void set_m_belongtype(::google::protobuf::int32 value);
+
+  // optional int32 m_numMax = 6;
+  inline bool has_m_nummax() const;
+  inline void clear_m_nummax();
+  static const int kMNumMaxFieldNumber = 6;
+  inline ::google::protobuf::int32 m_nummax() const;
+  inline void set_m_nummax(::google::protobuf::int32 value);
+
+  // optional int32 m_dropvaluea = 7;
   inline bool has_m_dropvaluea() const;
   inline void clear_m_dropvaluea();
-  static const int kMDropvalueaFieldNumber = 4;
+  static const int kMDropvalueaFieldNumber = 7;
   inline ::google::protobuf::int32 m_dropvaluea() const;
   inline void set_m_dropvaluea(::google::protobuf::int32 value);
 
-  // optional int32 m_dropvalueb = 5;
+  // optional int32 m_dropvalueb = 8;
   inline bool has_m_dropvalueb() const;
   inline void clear_m_dropvalueb();
-  static const int kMDropvaluebFieldNumber = 5;
+  static const int kMDropvaluebFieldNumber = 8;
   inline ::google::protobuf::int32 m_dropvalueb() const;
   inline void set_m_dropvalueb(::google::protobuf::int32 value);
 
-  // optional int32 m_dropvaluec = 6;
+  // optional int32 m_dropvaluec = 9;
   inline bool has_m_dropvaluec() const;
   inline void clear_m_dropvaluec();
-  static const int kMDropvaluecFieldNumber = 6;
+  static const int kMDropvaluecFieldNumber = 9;
   inline ::google::protobuf::int32 m_dropvaluec() const;
   inline void set_m_dropvaluec(::google::protobuf::int32 value);
 
-  // optional int32 m_dropvalued = 7;
+  // optional int32 m_dropvalued = 10;
   inline bool has_m_dropvalued() const;
   inline void clear_m_dropvalued();
-  static const int kMDropvaluedFieldNumber = 7;
+  static const int kMDropvaluedFieldNumber = 10;
   inline ::google::protobuf::int32 m_dropvalued() const;
   inline void set_m_dropvalued(::google::protobuf::int32 value);
 
-  // optional int32 m_dropvaluee = 8;
+  // optional int32 m_dropvaluee = 11;
   inline bool has_m_dropvaluee() const;
   inline void clear_m_dropvaluee();
-  static const int kMDropvalueeFieldNumber = 8;
+  static const int kMDropvalueeFieldNumber = 11;
   inline ::google::protobuf::int32 m_dropvaluee() const;
   inline void set_m_dropvaluee(::google::protobuf::int32 value);
 
-  // optional int32 m_dropvaluef = 9;
+  // optional int32 m_dropvaluef = 12;
   inline bool has_m_dropvaluef() const;
   inline void clear_m_dropvaluef();
-  static const int kMDropvaluefFieldNumber = 9;
+  static const int kMDropvaluefFieldNumber = 12;
   inline ::google::protobuf::int32 m_dropvaluef() const;
   inline void set_m_dropvaluef(::google::protobuf::int32 value);
 
@@ -745,6 +766,12 @@ class E_MapItemdrop : public ::google::protobuf::Message {
   inline void clear_has_m_droptype();
   inline void set_has_m_odds();
   inline void clear_has_m_odds();
+  inline void set_has_m_ownprotect();
+  inline void clear_has_m_ownprotect();
+  inline void set_has_m_belongtype();
+  inline void clear_has_m_belongtype();
+  inline void set_has_m_nummax();
+  inline void clear_has_m_nummax();
   inline void set_has_m_dropvaluea();
   inline void clear_has_m_dropvaluea();
   inline void set_has_m_dropvalueb();
@@ -763,6 +790,9 @@ class E_MapItemdrop : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_itemdropid_;
   ::google::protobuf::int32 m_droptype_;
   ::google::protobuf::int32 m_odds_;
+  ::google::protobuf::int32 m_ownprotect_;
+  ::google::protobuf::int32 m_belongtype_;
+  ::google::protobuf::int32 m_nummax_;
   ::google::protobuf::int32 m_dropvaluea_;
   ::google::protobuf::int32 m_dropvalueb_;
   ::google::protobuf::int32 m_dropvaluec_;
@@ -771,7 +801,7 @@ class E_MapItemdrop : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_dropvaluef_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fMap_2eproto();
   friend void protobuf_AssignDesc_E_5fMap_2eproto();
@@ -2770,15 +2800,81 @@ inline void E_MapItemdrop::set_m_odds(::google::protobuf::int32 value) {
   m_odds_ = value;
 }
 
-// optional int32 m_dropvaluea = 4;
-inline bool E_MapItemdrop::has_m_dropvaluea() const {
+// optional int32 m_ownProtect = 4;
+inline bool E_MapItemdrop::has_m_ownprotect() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void E_MapItemdrop::set_has_m_dropvaluea() {
+inline void E_MapItemdrop::set_has_m_ownprotect() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void E_MapItemdrop::clear_has_m_dropvaluea() {
+inline void E_MapItemdrop::clear_has_m_ownprotect() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_MapItemdrop::clear_m_ownprotect() {
+  m_ownprotect_ = 0;
+  clear_has_m_ownprotect();
+}
+inline ::google::protobuf::int32 E_MapItemdrop::m_ownprotect() const {
+  return m_ownprotect_;
+}
+inline void E_MapItemdrop::set_m_ownprotect(::google::protobuf::int32 value) {
+  set_has_m_ownprotect();
+  m_ownprotect_ = value;
+}
+
+// optional int32 m_belongType = 5;
+inline bool E_MapItemdrop::has_m_belongtype() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_MapItemdrop::set_has_m_belongtype() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_MapItemdrop::clear_has_m_belongtype() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_MapItemdrop::clear_m_belongtype() {
+  m_belongtype_ = 0;
+  clear_has_m_belongtype();
+}
+inline ::google::protobuf::int32 E_MapItemdrop::m_belongtype() const {
+  return m_belongtype_;
+}
+inline void E_MapItemdrop::set_m_belongtype(::google::protobuf::int32 value) {
+  set_has_m_belongtype();
+  m_belongtype_ = value;
+}
+
+// optional int32 m_numMax = 6;
+inline bool E_MapItemdrop::has_m_nummax() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_MapItemdrop::set_has_m_nummax() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_MapItemdrop::clear_has_m_nummax() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_MapItemdrop::clear_m_nummax() {
+  m_nummax_ = 0;
+  clear_has_m_nummax();
+}
+inline ::google::protobuf::int32 E_MapItemdrop::m_nummax() const {
+  return m_nummax_;
+}
+inline void E_MapItemdrop::set_m_nummax(::google::protobuf::int32 value) {
+  set_has_m_nummax();
+  m_nummax_ = value;
+}
+
+// optional int32 m_dropvaluea = 7;
+inline bool E_MapItemdrop::has_m_dropvaluea() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_MapItemdrop::set_has_m_dropvaluea() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_MapItemdrop::clear_has_m_dropvaluea() {
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void E_MapItemdrop::clear_m_dropvaluea() {
   m_dropvaluea_ = 0;
@@ -2792,15 +2888,15 @@ inline void E_MapItemdrop::set_m_dropvaluea(::google::protobuf::int32 value) {
   m_dropvaluea_ = value;
 }
 
-// optional int32 m_dropvalueb = 5;
+// optional int32 m_dropvalueb = 8;
 inline bool E_MapItemdrop::has_m_dropvalueb() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void E_MapItemdrop::set_has_m_dropvalueb() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void E_MapItemdrop::clear_has_m_dropvalueb() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void E_MapItemdrop::clear_m_dropvalueb() {
   m_dropvalueb_ = 0;
@@ -2814,15 +2910,15 @@ inline void E_MapItemdrop::set_m_dropvalueb(::google::protobuf::int32 value) {
   m_dropvalueb_ = value;
 }
 
-// optional int32 m_dropvaluec = 6;
+// optional int32 m_dropvaluec = 9;
 inline bool E_MapItemdrop::has_m_dropvaluec() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void E_MapItemdrop::set_has_m_dropvaluec() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void E_MapItemdrop::clear_has_m_dropvaluec() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void E_MapItemdrop::clear_m_dropvaluec() {
   m_dropvaluec_ = 0;
@@ -2836,15 +2932,15 @@ inline void E_MapItemdrop::set_m_dropvaluec(::google::protobuf::int32 value) {
   m_dropvaluec_ = value;
 }
 
-// optional int32 m_dropvalued = 7;
+// optional int32 m_dropvalued = 10;
 inline bool E_MapItemdrop::has_m_dropvalued() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void E_MapItemdrop::set_has_m_dropvalued() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void E_MapItemdrop::clear_has_m_dropvalued() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void E_MapItemdrop::clear_m_dropvalued() {
   m_dropvalued_ = 0;
@@ -2858,15 +2954,15 @@ inline void E_MapItemdrop::set_m_dropvalued(::google::protobuf::int32 value) {
   m_dropvalued_ = value;
 }
 
-// optional int32 m_dropvaluee = 8;
+// optional int32 m_dropvaluee = 11;
 inline bool E_MapItemdrop::has_m_dropvaluee() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void E_MapItemdrop::set_has_m_dropvaluee() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void E_MapItemdrop::clear_has_m_dropvaluee() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void E_MapItemdrop::clear_m_dropvaluee() {
   m_dropvaluee_ = 0;
@@ -2880,15 +2976,15 @@ inline void E_MapItemdrop::set_m_dropvaluee(::google::protobuf::int32 value) {
   m_dropvaluee_ = value;
 }
 
-// optional int32 m_dropvaluef = 9;
+// optional int32 m_dropvaluef = 12;
 inline bool E_MapItemdrop::has_m_dropvaluef() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void E_MapItemdrop::set_has_m_dropvaluef() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void E_MapItemdrop::clear_has_m_dropvaluef() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void E_MapItemdrop::clear_m_dropvaluef() {
   m_dropvaluef_ = 0;

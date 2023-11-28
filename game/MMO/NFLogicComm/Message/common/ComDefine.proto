@@ -94,8 +94,9 @@ enum EItemType
 	EItemType_Pet = 6;		//宠物
 	EItemType_MountEgg = 12; //坐骑蛋
 	EItemType_HandBook = 13; //藏经阁图鉴
+	EItemType_GodHand = 14; //天神神格
 
-	EItemType_Limit = 14;
+	EItemType_Limit = 15;
 };
 
 //包裹类型
@@ -115,14 +116,18 @@ enum EPackageType
 	EPackageType_shenji_aq = 11;	//神机装备暗器
 	EPackageType_shenji_lj = 12;	//神机装备灵甲
 	EPackageType_GodEvil = 13;		//神魔背包
-	EPackageType_star = 14;		//不灭星辰
-	EPackageType_turn = 15;		//转生装备
+	EPackageType_star = 14;			//不灭星辰
+	EPackageType_turn = 15;			//转生装备
 	EPackageType_MountKun = 16;		//坐化鲲装备
-	EPackageType_YaoHun = 17;	//妖魂装备
-	EPackageType_MoFa = 18; //奇门八卦
-	EPackageType_hungu = 19;    //魂骨
-	EPackageType_rune = 20;		//符文背包
-	EPackageType_Limit = 21;
+	EPackageType_YaoHun = 17;		//妖魂装备
+	EPackageType_MoFa = 18;			//奇门八卦
+	EPackageType_hungu = 19;		//魂骨
+	EPackageType_rune = 20;			//符文背包
+	EPackageType_fengshen = 21;		//封神之战背包
+	EPackageType_hunjing = 22;		//魂晶
+	EPackageType_guwen = 23;		//骨纹
+	EPackageType_godhood = 24;      //天神神格
+	EPackageType_Limit = 25;
 };
 
 //品质
@@ -187,6 +192,7 @@ enum EConst
 	EConst_CrossChatLevLimit = 76;			//跨服聊天频道等级限制
 	EConst_CrossChatCost = 113;				//跨服聊天消耗绑钻
 
+	EConst_DropBelongProtectSec = 117;		//掉落归属保护时间,单位：秒
 	EConst_OnlineReduceKillValue = 118;		//杀戮值在线减少时间（需要时间（分），减少点数）
 
 	EConst_WorldChannelNeedPay= 142;		//世界聊天频道需要的充值金额
@@ -202,8 +208,6 @@ enum EConst
 
 	EConst_CorpseTime = 192;				//默认尸体时间
 	EConst_BossCorpseTime = 193;			//BOSS尸体时间
-
-	EConst_DropProtectSec = 195;			//掉落保护时间,单位：秒
 
 	EConstTiredReliveNum = 200;				//疲劳复活的次数要求
 	EConstTiredContiSec = 201;				//疲劳状态的持续时间
@@ -722,6 +726,8 @@ enum ERetCode
 	RET_FACTION_NOT_WIN_FACTION_MEM				= 1949; //不是主宰帮派成员
 	RET_FACTION_ALREADY_FETCH_WAR_WIN_REWARD	= 1950; //已领取主宰帮派每日俸禄
 	RET_FACTION_GUARD_ALREAD_JOIN_NOT_AGAIN		= 1951;	//本次活动，公会守护已经进行过了，不能再次参与
+	RET_FACTION_MAG_RECORD_NOT_UPGRADE			= 1952;	//不能升级十二守护
+	RET_FACTION_MAG_RECORD_UPGRADE_LACK_ITEM	= 1953;	//缺少升级道具
 
 	//竞技场
 	RET_ARENA_CAN_NOT_CHALL_MYSELF				= 2000;	//不能挑战自己
@@ -766,6 +772,7 @@ enum ERetCode
 	RET_DEITY_MAX_LEVEL = 2207; //天神等级达到最大等级了
 	RET_DEITY_MAX_STAR = 2208; //天神星级达到最大等级了
 	RET_DEITY_EQUP_QUALITY_max = 2209; //装备品质超过天神能穿戴的最高品质
+	RET_DEITY_GODHOOD_LV_FAIL = 2210; //天神神格升级概率小，导致升级失败
 
 	//藏经阁图鉴
 	RET_ENCYLOPSEDDIA_HOOD_BOOK_EXIST = 2250; //图鉴已经存在
@@ -912,7 +919,7 @@ enum ERetCode
 	RET_PVP_1V1_CAN_NOT_MATCH					= 3311;	//不允许匹配
 	RET_PVP_1V1_IN_MATCH						= 3312; //已经在匹配中
 	RET_PVP_1V1_IN_READY						= 3313; //准备进入战斗场景，不允许匹配
-
+	
 
 	//支付 3800-3860
 	RET_PAY_USED_PAYMENT						= 3800;    //已生效的支付
@@ -1042,7 +1049,8 @@ enum ERetCode
 	RET_VIP_RECVED_EXP						= 4477;		//已领取过vip缓存经验
 
 
-	//节日活动 4500 - 4600
+	//节日活动 4490 - 4520
+	RET_FEST_LACK_RESET_LOTTERY_ITEM		= 4490;		//缺少重置道具
 	RET_FEST_SHOP_NUM_LIMIT					= 4500;		//购买次数限制
 	RET_FEST_SIGN_ALREADY					= 4501;		//已经签到
 	RET_FEST_DIG_EGG_CAN_NOT_LOTTERY		= 4502;		//不能抽奖了
@@ -1055,9 +1063,14 @@ enum ERetCode
 	RET_FEST_DIG_EGG_TASK_NOT_FETCH			= 4509;		//不能领取奖励
 	RET_FEST_REWARD_NOT_EXIST				= 4510;		//奖励不存在
 	RET_FEST_LACK_RECHARGE_NOT_FETCH		= 4511;		//充值金额不足，不能领取奖励
-	RET_FEST_HAS_PRE_GEAR_REWARD			= 4512;		//请先领取前面挡位的奖励
-	RET_FEST_OPEN_DAY_LIMIT					= 4513;		//开放时间限制
-	RTE_FEST_FUNC_UNLOCK_LIMIT				= 4514;		//功能开放限制
+	RET_FEST_OPEN_DAY_LIMIT					= 4512;		//开放时间限制
+	RET_FEST_FUNC_UNLOCK_LIMIT				= 4513;		//功能开放限制
+	RET_FEST_DAY_MALL_NOT_EXIST				= 4514;		//找不到当天商城信息
+	RET_FEST_MALL_NOT_OPEN					= 4515;		//商城未开启
+	RET_FEST_MALL_NOT_EXIST					= 4516;		//商城不存在
+	RET_FEST_MALL_ITEM_NOT_EXIST			= 4517;		//商品不存在
+	RET_FEST_CAN_NOT_RESET_LOTTERY			= 4518;		//不能重置抽奖
+
 
 
 	//交易行
@@ -1129,7 +1142,7 @@ enum ERetCode
 	RET_CLAN3_ACT_OPEN_NO_LEAVE			= 5279;	//活动期间不能离开战队
 	RET_CLAN3_HAS_CLAN					= 5280;	//已有战队
 	RET_CLAN3_MATCH_MEM_LACK			= 5281;	//战队匹配人数不足
-
+	RET_CLAN3_NOT_IN_ACTIVE				= 5282; //不在活动时间内
 	//神体错误码
 	RET_TURN_LV_MAX						= 5290; //当前转生等级已满
 	RET_TURN_LV_EXP_LACK				= 5291;	//神元不足,不能升级
@@ -1158,7 +1171,17 @@ enum ERetCode
 	RET_HUNLING_LACK					= 5320; //魂灵不足
 	RET_SOUL_STEP_MAX					= 5321; //战魂阶数已满
 	RET_SOUL_POOL_BLESS_MAX				= 5322;	//聚灵池祝福已满级
-
+	RET_SOUL_SPIRIT_SAME				= 5323; //已镶嵌同类魂晶,无法镶嵌或替换
+	RET_SOUL_SPIRIT_SLOT_NOT_OPEN		= 5324;	//元神槽位未解锁
+	RET_SOUL_SPIRIT_NOT_DRESS		    = 5325;	//没有穿戴魂晶
+	RET_SOUL_SPIRIT_BREAK_MAX			= 5326; //突破已满级
+	RET_SOUL_SPIRIT_STRONG_MAX			= 5327; //强化等级已满级
+	RET_SOUL_SPIRIT_MAKE_MAX			= 5328; //已满级不能在融合
+	RET_SOUL_MATIAL_LACK				= 5329; //材料不足
+	RET_SOUL_BONE_NOT_DRESS				= 5330;	//骨纹未穿戴
+	RET_SOUL_BONE_IS_WAKE				= 5331; //骨纹已觉醒
+	RET_SOUL_GUWEN_IS_DRESSED			= 5332;	//骨纹已镶嵌
+	RET_SOUL_LAST_SUIT_NOT_FULL			= 5333;	//上一个骨纹套装未镶嵌满
 
 	//淬炼
 	RET_RUNE_CORE_CAN_CORE_DRESS	   = 5500;	//核心孔位只能装备核心符文
@@ -1218,14 +1241,14 @@ enum CHAT_CHANNEL
 	CHAT_CHANNEL_CROSS		= 6;	//跨服频道
 	CHAT_CHANNEL_SYSTEM		= 7;	//系统
 	CHAT_CHANNEL_PRIVATE    = 8;	//私聊
-	CHAT_CHANNEL_RUMORANDHORSE		= 9;	//发传闻同时发跑马灯
+	CHAT_CHANNEL_RUMOR		= 9;	//发传闻同时发跑马灯
 	CHAT_CHANNEL_HORN = 10;		//喇叭
 	CHAT_CHANNEL_BACKEND_RUMOR = 11; //运营后台跑马灯
 	CHAT_CHANNEL_ACTIVITY = 12;		//活动频道
 	CHAT_CHANNEL_POKERROOM = 13;	//扑克聊天室
 	CHAT_CHANNEL_CLAN3		= 14;	//战队
 	CHAT_CHANNEL_CLAN5		= 15; 	//战团
-	CHAT_CHANNEL_RUMOR		= 16;	//只发 传闻 不发跑马灯
+	CHAT_CHANNEL_RUMOR_NO_DHORSE		= 16;	//只发 传闻 不发跑马灯
 	CHAT_CHANNEL_LIMIT = 17;
 }
 

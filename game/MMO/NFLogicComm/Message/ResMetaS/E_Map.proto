@@ -57,18 +57,21 @@ message E_MapItemdrop
 	optional int32 m_itemDropID = 1[(yd_fieldoptions.field_cname) = "掉落ID"];
 	optional int32 m_dropType = 2[(yd_fieldoptions.field_cname) = "掉落类型"];
 	optional int32 m_odds = 3[(yd_fieldoptions.field_cname) = "触发几率"];
-	optional int32 m_dropvaluea = 4[(yd_fieldoptions.field_cname) = "掉落参数a"];
-	optional int32 m_dropvalueb = 5[(yd_fieldoptions.field_cname) = "掉落参数b"];
-	optional int32 m_dropvaluec = 6[(yd_fieldoptions.field_cname) = "掉落参数c"];
-	optional int32 m_dropvalued = 7[(yd_fieldoptions.field_cname) = "掉落参数d"];
-	optional int32 m_dropvaluee = 8[(yd_fieldoptions.field_cname) = "掉落参数e"];
-	optional int32 m_dropvaluef = 9[(yd_fieldoptions.field_cname) = "掉落参数f"];
+	optional int32 m_ownProtect = 4[(yd_fieldoptions.field_cname) = "归属保护"];
+	optional int32 m_belongType = 5[(yd_fieldoptions.field_cname) = "归属类型"];
+	optional int32 m_numMax = 6[(yd_fieldoptions.field_cname) = "掉落最大数量"];
+	optional int32 m_dropvaluea = 7[(yd_fieldoptions.field_cname) = "掉落参数a"];
+	optional int32 m_dropvalueb = 8[(yd_fieldoptions.field_cname) = "掉落参数b"];
+	optional int32 m_dropvaluec = 9[(yd_fieldoptions.field_cname) = "掉落参数c"];
+	optional int32 m_dropvalued = 10[(yd_fieldoptions.field_cname) = "掉落参数d"];
+	optional int32 m_dropvaluee = 11[(yd_fieldoptions.field_cname) = "掉落参数e"];
+	optional int32 m_dropvaluef = 12[(yd_fieldoptions.field_cname) = "掉落参数f"];
 }
 
 
 message Sheet_MapItemdrop
 {
-	repeated E_MapItemdrop E_MapItemdrop_List = 1[(yd_fieldoptions.field_arysize)=32];
+	repeated E_MapItemdrop E_MapItemdrop_List = 1[(yd_fieldoptions.field_arysize)=4];
 }
 
 message E_MapDestroyitem

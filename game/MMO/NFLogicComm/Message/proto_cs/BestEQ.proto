@@ -154,8 +154,13 @@ message BestEQStrongRsp
 {
 	optional int32 ret = 1;
 	optional int32 bagtype = 2;
-	optional int32 pos = 3;
-	repeated int32 costpos = 4;
+	repeated int32 pos = 3; //合成成功的位置
+	
+//	repeated BestEQStrongEntry entrys = 1;
+//	optional int32 ret = 1;
+//	optional int32 bagtype = 2;
+//	optional int32 pos = 3;
+//	repeated int32 costpos = 4;
 }
 
 

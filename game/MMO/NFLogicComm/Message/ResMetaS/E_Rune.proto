@@ -1,0 +1,198 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_RuneConst
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_costItem = 2[(yd_fieldoptions.field_cname) = "保护道具id"];
+	optional int32 m_lokCostNum = 3[(yd_fieldoptions.field_cname) = "封印单个格子扣除物品"];
+	optional int32 m_mallID = 4[(yd_fieldoptions.field_cname) = "商品id"];
+	optional int32 m_quenching_max = 5[(yd_fieldoptions.field_cname) = "淬炼格子最大数"];
+}
+
+
+message Sheet_RuneConst
+{
+	repeated E_RuneConst E_RuneConst_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_RuneRuneAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_RuneRune
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_positionType = 2[(yd_fieldoptions.field_cname) = "符文部位类型"];
+	optional int32 m_attributeType = 3[(yd_fieldoptions.field_cname) = "符文属性类型"];
+	optional int32 m_subType = 4[(yd_fieldoptions.field_cname) = "符文子类型"];
+	optional int32 m_quality = 5[(yd_fieldoptions.field_cname) = "符文品质"];
+	optional int32 m_level = 6[(yd_fieldoptions.field_cname) = "穿戴等级限制"];
+	optional int32 m_quenchingLminit = 7[(yd_fieldoptions.field_cname) = "淬炼上限"];
+	optional int32 m_disassemble = 8[(yd_fieldoptions.field_cname) = "是否可分解"];
+	optional int32 m_disassembleId = 9[(yd_fieldoptions.field_cname) = "分解物品id"];
+	optional int32 m_disassembleNum = 10[(yd_fieldoptions.field_cname) = "分解物品数量"];
+	repeated E_RuneRuneAttributeDesc m_attribute = 11[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_RuneRune
+{
+	repeated E_RuneRune E_RuneRune_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_RuneRunewords
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "符文之语名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_skill = 3[(yd_fieldoptions.field_cname) = "符文之语技能"];
+	optional int32 m_quenchingLminit = 4[(yd_fieldoptions.field_cname) = "淬炼上限"];
+	optional int32 m_disassembleId = 5[(yd_fieldoptions.field_cname) = "分解物品id"];
+	optional int32 m_disassembleNum = 6[(yd_fieldoptions.field_cname) = "分解物品数量"];
+	optional int32 m_starLvMax = 7[(yd_fieldoptions.field_cname) = "最大升星等级"];
+	optional int32 m_costItem = 8[(yd_fieldoptions.field_cname) = "升星材料"];
+	optional int32 m_costNum = 9[(yd_fieldoptions.field_cname) = "升星材料数量"];
+}
+
+
+message Sheet_RuneRunewords
+{
+	repeated E_RuneRunewords E_RuneRunewords_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_RuneQuenching
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "槽位id"];
+	optional int32 m_expandProb = 2[(yd_fieldoptions.field_cname) = "淬炼拓展概率"];
+	optional int32 m_qualityLimit = 3[(yd_fieldoptions.field_cname) = "扩展符文品质要求"];
+}
+
+
+message Sheet_RuneQuenching
+{
+	repeated E_RuneQuenching E_RuneQuenching_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_RuneStuntskillActivateDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_attributeType = 3[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_positionType = 4[(yd_fieldoptions.field_cname) = "部位类型"];
+}
+
+message E_RuneStuntskill
+{
+	optional int32 m_skillId = 1[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "技能品质"];
+	repeated E_RuneStuntskillActivateDesc m_activate = 4[(yd_fieldoptions.field_cname) = "激活条件", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_RuneStuntskill
+{
+	repeated E_RuneStuntskill E_RuneStuntskill_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_RunePassiveskillTypeDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_RunePassiveskill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "被动等级"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "技能品质"];
+	optional int32 m_activateQuality = 5[(yd_fieldoptions.field_cname) = "激活条件品质"];
+	optional int32 m_activateNum = 6[(yd_fieldoptions.field_cname) = "激活条件数量"];
+	repeated E_RunePassiveskillTypeDesc m_type = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_RunePassiveskill
+{
+	repeated E_RunePassiveskill E_RunePassiveskill_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_RuneUpgradeTypeDesc
+{
+	optional string m_num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_RuneUpgrade
+{
+	optional int32 m_runeId = 1[(yd_fieldoptions.field_cname) = "符文id"];
+	optional int32 m_upgradeUp = 2[(yd_fieldoptions.field_cname) = "升级上限"];
+	repeated E_RuneUpgradeTypeDesc m_type = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_RuneUpgrade
+{
+	repeated E_RuneUpgrade E_RuneUpgrade_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_RuneUpgradeexp
+{
+	optional int32 m_Lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_costItem = 2[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_costNum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_RuneUpgradeexp
+{
+	repeated E_RuneUpgradeexp E_RuneUpgradeexp_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_RuneAdvancedAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_RuneAdvanced
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_wearQuality = 2[(yd_fieldoptions.field_cname) = "品阶"];
+	optional int32 m_runeId = 3[(yd_fieldoptions.field_cname) = "符文id"];
+	optional int32 m_costItem = 4[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "道具数量"];
+	repeated E_RuneAdvancedAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_RuneAdvanced
+{
+	repeated E_RuneAdvanced E_RuneAdvanced_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_RuneSoaringAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_RuneSoaring
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lvId = 2[(yd_fieldoptions.field_cname) = "飞升等级"];
+	optional int32 m_wearQuality = 3[(yd_fieldoptions.field_cname) = "品阶要求"];
+	optional int32 m_runeId = 4[(yd_fieldoptions.field_cname) = "符文id"];
+	repeated E_RuneSoaringAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_RuneSoaring
+{
+	repeated E_RuneSoaring E_RuneSoaring_List = 1[(yd_fieldoptions.field_arysize)=64];
+}

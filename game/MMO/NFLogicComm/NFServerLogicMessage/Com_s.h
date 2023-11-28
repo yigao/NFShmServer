@@ -80,6 +80,7 @@
 #define DEFINE_FACADESOULDATA_ACVIITY_DATA_MAX_NUM 1
 #define DEFINE_DEITYEQUIPDATA_INFOS_MAX_NUM 1
 #define DEFINE_DEITYEQUIPDATA_LV_ATTR_MAX_NUM 1
+#define DEFINE_DEITYGODHOODEQUIP_INFOS_MAX_NUM 1
 #define DEFINE_DEITYFANTASYDATA_SKILL_DATA_MAX_NUM 1
 #define DEFINE_DEITYFANTASYDATA_EQUIP_SUIT_DATA_MAX_NUM 1
 #define DEFINE_ARMORINFO_SUITS_MAX_NUM 1
@@ -179,6 +180,9 @@
 #define DEFINE_FESTDRAWPIZELOGDBPROTO_INFO_MAX_NUM 1
 #define DEFINE_FESTRANKDATA_DATA_MAX_NUM 1
 #define DEFINE_FESTRANKDBDATA_DATA_MAX_NUM 1
+#define DEFINE_FESTRECHARGEPRIZEDATA_TASK_MAX_NUM 1
+#define DEFINE_FESTRECHARGEPRIZEDBDATA_TASK_MAX_NUM 1
+#define DEFINE_FESTRECHARGEPRIZEDBDATA_RECORD_MAX_NUM 1
 #define DEFINE_SYNWORLDINFOREQ_INFOS_MAX_NUM 1
 #define DEFINE_FESTHUIMENGXIYOUDATA_REWARD_MAX_NUM 1
 #define DEFINE_FESTHUIMENGXIYOUDATA_GAME_MAX_NUM 1
@@ -194,6 +198,11 @@
 #define DEFINE_MOFAEQUIPINFO_EQUIP_MAX_NUM 1
 #define DEFINE_RUNESLOT_WORDS_MAX_NUM 1
 #define DEFINE_RUNEENTRY_SLOTS_MAX_NUM 1
+#define DEFINE_NGDBDATAS_OPENEDLIST_MAX_NUM 1
+#define DEFINE_NGDBDATAS_ITEMSLOG_MAX_NUM 1
+#define DEFINE_NGDBDATAS_PRIVILEGERECVLOG_MAX_NUM 1
+#define DEFINE_NGDBDATAS_STOREPURCHASELOG_MAX_NUM 1
+#define DEFINE_NGDBDATAS_PAYACCRECVLOG_MAX_NUM 1
 
 
 namespace proto_ff_s {
@@ -489,6 +498,24 @@ namespace proto_ff_s {
 	};
 	typedef struct AoPlatProto_s AoPlatProto_t;
 
+	struct FactionMagRecordProto_s : public NFDescStoreSeqOP {
+		FactionMagRecordProto_s();
+		virtual ~FactionMagRecordProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t mag_id;//
+		int32_t lamp_id;//
+		int32_t guard_id;//
+		int32_t reel_id;//
+		int32_t point;//
+
+		virtual void write_to_pbmsg(::proto_ff::FactionMagRecordProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionMagRecordProto & msg);
+		static ::proto_ff::FactionMagRecordProto* new_pbmsg(){ return new ::proto_ff::FactionMagRecordProto(); }
+		static ::proto_ff::FactionMagRecordProto make_pbmsg(){ return ::proto_ff::FactionMagRecordProto(); }
+	};
+	typedef struct FactionMagRecordProto_s FactionMagRecordProto_t;
+
 	struct LoginSyncProto_s : public NFDescStoreSeqOP {
 		LoginSyncProto_s();
 		virtual ~LoginSyncProto_s(){}
@@ -505,6 +532,7 @@ namespace proto_ff_s {
 		int32_t cloness_lev;//
 		struct LoginSynMarry_s marry;//
 		struct AoPlatProto_s plat;//
+		struct FactionMagRecordProto_s mag;//
 
 		virtual void write_to_pbmsg(::proto_ff::LoginSyncProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::LoginSyncProto & msg);
@@ -1269,6 +1297,7 @@ namespace proto_ff_s {
 		uint32_t friends_add;//
 		NFShmVector<struct RelationGiftRecord_s, DEFINE_RELATIONDBINFO_GIFTRECORDS_MAX_NUM> giftRecords;//
 		NFShmVector<struct ArenaChallResult_s, DEFINE_RELATIONDBINFO_ARENA_RESULT_MAX_NUM> arena_result;//
+		uint32_t charm_value;//
 
 		virtual void write_to_pbmsg(::proto_ff::RelationDBInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RelationDBInfo & msg);
@@ -2353,6 +2382,52 @@ namespace proto_ff_s {
 	};
 	typedef struct DeityEquipSuitData_s DeityEquipSuitData_t;
 
+	struct DeityGodHoodEquipData_s : public NFDescStoreSeqOP {
+		DeityGodHoodEquipData_s();
+		virtual ~DeityGodHoodEquipData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t pos;//
+		int64_t item_id;//
+
+		virtual void write_to_pbmsg(::proto_ff::DeityGodHoodEquipData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityGodHoodEquipData & msg);
+		static ::proto_ff::DeityGodHoodEquipData* new_pbmsg(){ return new ::proto_ff::DeityGodHoodEquipData(); }
+		static ::proto_ff::DeityGodHoodEquipData make_pbmsg(){ return ::proto_ff::DeityGodHoodEquipData(); }
+	};
+	typedef struct DeityGodHoodEquipData_s DeityGodHoodEquipData_t;
+
+	struct DeityGodHoodEquip_s : public NFDescStoreSeqOP {
+		DeityGodHoodEquip_s();
+		virtual ~DeityGodHoodEquip_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct DeityGodHoodEquipData_s, DEFINE_DEITYGODHOODEQUIP_INFOS_MAX_NUM> infos;//
+
+		virtual void write_to_pbmsg(::proto_ff::DeityGodHoodEquip & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityGodHoodEquip & msg);
+		static ::proto_ff::DeityGodHoodEquip* new_pbmsg(){ return new ::proto_ff::DeityGodHoodEquip(); }
+		static ::proto_ff::DeityGodHoodEquip make_pbmsg(){ return ::proto_ff::DeityGodHoodEquip(); }
+	};
+	typedef struct DeityGodHoodEquip_s DeityGodHoodEquip_t;
+
+	struct DeityGodHoodData_s : public NFDescStoreSeqOP {
+		DeityGodHoodData_s();
+		virtual ~DeityGodHoodData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t lv;//
+		uint32_t star;//
+		uint32_t stage;//
+		struct DeityGodHoodEquip_s equip;//
+
+		virtual void write_to_pbmsg(::proto_ff::DeityGodHoodData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::DeityGodHoodData & msg);
+		static ::proto_ff::DeityGodHoodData* new_pbmsg(){ return new ::proto_ff::DeityGodHoodData(); }
+		static ::proto_ff::DeityGodHoodData make_pbmsg(){ return ::proto_ff::DeityGodHoodData(); }
+	};
+	typedef struct DeityGodHoodData_s DeityGodHoodData_t;
+
 	struct DeityFantasyData_s : public NFDescStoreSeqOP {
 		DeityFantasyData_s();
 		virtual ~DeityFantasyData_s(){}
@@ -2366,6 +2441,7 @@ namespace proto_ff_s {
 		uint64_t fantasy_fight;//
 		struct DeityEquipData_s equip_data;//
 		NFShmVector<struct DeityEquipSuitData_s, DEFINE_DEITYFANTASYDATA_EQUIP_SUIT_DATA_MAX_NUM> equip_suit_data;//
+		struct DeityGodHoodData_s godhood_data;//
 
 		virtual void write_to_pbmsg(::proto_ff::DeityFantasyData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::DeityFantasyData & msg);
@@ -3035,6 +3111,7 @@ namespace proto_ff_s {
 		int32_t card_surplus_day;//
 		int32_t recv_self_box_days;//
 		int32_t task_state;//
+		int32_t express_exp_sum;//
 
 		virtual void write_to_pbmsg(::proto_ff::MarrySelfInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::MarrySelfInfo & msg);
@@ -4665,6 +4742,74 @@ namespace proto_ff_s {
 	};
 	typedef struct FestRankDBData_s FestRankDBData_t;
 
+	struct FestRechargePrizeTaskData_s : public NFDescStoreSeqOP {
+		FestRechargePrizeTaskData_s();
+		virtual ~FestRechargePrizeTaskData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t task_id;//
+		int32_t task_status;//
+
+		virtual void write_to_pbmsg(::proto_ff::FestRechargePrizeTaskData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FestRechargePrizeTaskData & msg);
+		static ::proto_ff::FestRechargePrizeTaskData* new_pbmsg(){ return new ::proto_ff::FestRechargePrizeTaskData(); }
+		static ::proto_ff::FestRechargePrizeTaskData make_pbmsg(){ return ::proto_ff::FestRechargePrizeTaskData(); }
+	};
+	typedef struct FestRechargePrizeTaskData_s FestRechargePrizeTaskData_t;
+
+	struct FestRechargePrizeRecord_s : public NFDescStoreSeqOP {
+		FestRechargePrizeRecord_s();
+		virtual ~FestRechargePrizeRecord_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t jiang_num;//
+		int64_t time;//
+
+		virtual void write_to_pbmsg(::proto_ff::FestRechargePrizeRecord & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FestRechargePrizeRecord & msg);
+		static ::proto_ff::FestRechargePrizeRecord* new_pbmsg(){ return new ::proto_ff::FestRechargePrizeRecord(); }
+		static ::proto_ff::FestRechargePrizeRecord make_pbmsg(){ return ::proto_ff::FestRechargePrizeRecord(); }
+	};
+	typedef struct FestRechargePrizeRecord_s FestRechargePrizeRecord_t;
+
+	struct FestRechargePrizeData_s : public NFDescStoreSeqOP {
+		FestRechargePrizeData_s();
+		virtual ~FestRechargePrizeData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t left_pool_num;//
+		uint32_t left_prize;//
+		uint32_t free_status;//
+		NFShmVector<struct FestRechargePrizeTaskData_s, DEFINE_FESTRECHARGEPRIZEDATA_TASK_MAX_NUM> task;//
+
+		virtual void write_to_pbmsg(::proto_ff::FestRechargePrizeData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FestRechargePrizeData & msg);
+		static ::proto_ff::FestRechargePrizeData* new_pbmsg(){ return new ::proto_ff::FestRechargePrizeData(); }
+		static ::proto_ff::FestRechargePrizeData make_pbmsg(){ return ::proto_ff::FestRechargePrizeData(); }
+	};
+	typedef struct FestRechargePrizeData_s FestRechargePrizeData_t;
+
+	struct FestRechargePrizeDBData_s : public NFDescStoreSeqOP {
+		FestRechargePrizeDBData_s();
+		virtual ~FestRechargePrizeDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t left_pool_num;//
+		uint32_t left_prize;//
+		uint32_t free_status;//
+		NFShmVector<struct FestRechargePrizeTaskData_s, DEFINE_FESTRECHARGEPRIZEDBDATA_TASK_MAX_NUM> task;//
+		NFShmVector<struct FestRechargePrizeRecord_s, DEFINE_FESTRECHARGEPRIZEDBDATA_RECORD_MAX_NUM> record;//
+		uint64_t flush_time;//
+		uint32_t cur_choujiang_num;//
+		uint32_t acc_recharge_num;//
+
+		virtual void write_to_pbmsg(::proto_ff::FestRechargePrizeDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FestRechargePrizeDBData & msg);
+		static ::proto_ff::FestRechargePrizeDBData* new_pbmsg(){ return new ::proto_ff::FestRechargePrizeDBData(); }
+		static ::proto_ff::FestRechargePrizeDBData make_pbmsg(){ return ::proto_ff::FestRechargePrizeDBData(); }
+	};
+	typedef struct FestRechargePrizeDBData_s FestRechargePrizeDBData_t;
+
 	struct NotifyWorldInfo_s : public NFDescStoreSeqOP {
 		NotifyWorldInfo_s();
 		virtual ~NotifyWorldInfo_s(){}
@@ -5045,6 +5190,8 @@ namespace proto_ff_s {
 		int32_t id;//
 		int32_t lv;//
 		int32_t steplv;//
+		int32_t auto_skill;//
+		int32_t quality_prot;//
 
 		virtual void write_to_pbmsg(::proto_ff::SoulEntry & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SoulEntry & msg);
@@ -5052,6 +5199,59 @@ namespace proto_ff_s {
 		static ::proto_ff::SoulEntry make_pbmsg(){ return ::proto_ff::SoulEntry(); }
 	};
 	typedef struct SoulEntry_s SoulEntry_t;
+
+	struct SoulSpirit_s : public NFDescStoreSeqOP {
+		SoulSpirit_s();
+		virtual ~SoulSpirit_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot_pos;//
+		int32_t bag_pos;//
+		int32_t strong_lv;//
+		int32_t break_lv;//
+
+		virtual void write_to_pbmsg(::proto_ff::SoulSpirit & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::SoulSpirit & msg);
+		static ::proto_ff::SoulSpirit* new_pbmsg(){ return new ::proto_ff::SoulSpirit(); }
+		static ::proto_ff::SoulSpirit make_pbmsg(){ return ::proto_ff::SoulSpirit(); }
+	};
+	typedef struct SoulSpirit_s SoulSpirit_t;
+
+	struct SoulBone_s : public NFDescStoreSeqOP {
+		SoulBone_s();
+		virtual ~SoulBone_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot_pos;//
+		int32_t bag_pos;//
+		int32_t is_wake;//
+		int32_t progress;//
+		int32_t wake_lv;//
+		int32_t fix_id;//
+
+		virtual void write_to_pbmsg(::proto_ff::SoulBone & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::SoulBone & msg);
+		static ::proto_ff::SoulBone* new_pbmsg(){ return new ::proto_ff::SoulBone(); }
+		static ::proto_ff::SoulBone make_pbmsg(){ return ::proto_ff::SoulBone(); }
+	};
+	typedef struct SoulBone_s SoulBone_t;
+
+	struct SoulGuwen_s : public NFDescStoreSeqOP {
+		SoulGuwen_s();
+		virtual ~SoulGuwen_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t suit_id;//
+		int32_t bone_pos;//
+		int32_t slot_pos;//
+		int32_t bag_pos;//
+
+		virtual void write_to_pbmsg(::proto_ff::SoulGuwen & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::SoulGuwen & msg);
+		static ::proto_ff::SoulGuwen* new_pbmsg(){ return new ::proto_ff::SoulGuwen(); }
+		static ::proto_ff::SoulGuwen make_pbmsg(){ return ::proto_ff::SoulGuwen(); }
+	};
+	typedef struct SoulGuwen_s SoulGuwen_t;
 
 	struct SoulPool_s : public NFDescStoreSeqOP {
 		SoulPool_s();
@@ -5150,6 +5350,91 @@ namespace proto_ff_s {
 		static ::proto_ff::RuneEntry make_pbmsg(){ return ::proto_ff::RuneEntry(); }
 	};
 	typedef struct RuneEntry_s RuneEntry_t;
+
+	struct FestBossProto_s : public NFDescStoreSeqOP {
+		FestBossProto_s();
+		virtual ~FestBossProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t tplid;//
+		uint64_t time;//
+
+		virtual void write_to_pbmsg(::proto_ff::FestBossProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FestBossProto & msg);
+		static ::proto_ff::FestBossProto* new_pbmsg(){ return new ::proto_ff::FestBossProto(); }
+		static ::proto_ff::FestBossProto make_pbmsg(){ return ::proto_ff::FestBossProto(); }
+	};
+	typedef struct FestBossProto_s FestBossProto_t;
+
+	struct NGTBoxOpened_s : public NFDescStoreSeqOP {
+		NGTBoxOpened_s();
+		virtual ~NGTBoxOpened_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t idx;//
+		uint32_t itemId;//
+		uint32_t itemIdx;//
+
+		virtual void write_to_pbmsg(::proto_ff::NGTBoxOpened & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::NGTBoxOpened & msg);
+		static ::proto_ff::NGTBoxOpened* new_pbmsg(){ return new ::proto_ff::NGTBoxOpened(); }
+		static ::proto_ff::NGTBoxOpened make_pbmsg(){ return ::proto_ff::NGTBoxOpened(); }
+	};
+	typedef struct NGTBoxOpened_s NGTBoxOpened_t;
+
+	struct NGTBoxItem_s : public NFDescStoreSeqOP {
+		NGTBoxItem_s();
+		virtual ~NGTBoxItem_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t itemId;//
+		uint32_t itemCount;//
+
+		virtual void write_to_pbmsg(::proto_ff::NGTBoxItem & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::NGTBoxItem & msg);
+		static ::proto_ff::NGTBoxItem* new_pbmsg(){ return new ::proto_ff::NGTBoxItem(); }
+		static ::proto_ff::NGTBoxItem make_pbmsg(){ return ::proto_ff::NGTBoxItem(); }
+	};
+	typedef struct NGTBoxItem_s NGTBoxItem_t;
+
+	struct NGStorePurchaseLog_s : public NFDescStoreSeqOP {
+		NGStorePurchaseLog_s();
+		virtual ~NGStorePurchaseLog_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t cfgId;//
+		uint32_t times;//
+
+		virtual void write_to_pbmsg(::proto_ff::NGStorePurchaseLog & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::NGStorePurchaseLog & msg);
+		static ::proto_ff::NGStorePurchaseLog* new_pbmsg(){ return new ::proto_ff::NGStorePurchaseLog(); }
+		static ::proto_ff::NGStorePurchaseLog make_pbmsg(){ return ::proto_ff::NGStorePurchaseLog(); }
+	};
+	typedef struct NGStorePurchaseLog_s NGStorePurchaseLog_t;
+
+	struct NGDbDatas_s : public NFDescStoreSeqOP {
+		NGDbDatas_s();
+		virtual ~NGDbDatas_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t layers;//
+		NFShmVector<struct NGTBoxOpened_s, DEFINE_NGDBDATAS_OPENEDLIST_MAX_NUM> openedList;//
+		uint64_t weekTime;//
+		uint32_t battleWeekTimes;//
+		uint64_t battleId;//
+		NFShmVector<struct NGTBoxItem_s, DEFINE_NGDBDATAS_ITEMSLOG_MAX_NUM> itemsLog;//
+		uint32_t privilege;//
+		NFShmVector<uint32_t, DEFINE_NGDBDATAS_PRIVILEGERECVLOG_MAX_NUM> privilegeRecvLog;//
+		NFShmVector<struct NGStorePurchaseLog_s, DEFINE_NGDBDATAS_STOREPURCHASELOG_MAX_NUM> storePurchaseLog;//
+		uint32_t payAcc;//
+		NFShmVector<uint32_t, DEFINE_NGDBDATAS_PAYACCRECVLOG_MAX_NUM> payAccRecvLog;//
+
+		virtual void write_to_pbmsg(::proto_ff::NGDbDatas & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::NGDbDatas & msg);
+		static ::proto_ff::NGDbDatas* new_pbmsg(){ return new ::proto_ff::NGDbDatas(); }
+		static ::proto_ff::NGDbDatas make_pbmsg(){ return ::proto_ff::NGDbDatas(); }
+	};
+	typedef struct NGDbDatas_s NGDbDatas_t;
 
 }
 

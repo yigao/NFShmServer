@@ -10,6 +10,7 @@
 
 #define DEFINE_SHEET_SOULOPEN_E_SOULOPEN_LIST_MAX_NUM 8
 #define DEFINE_SHEET_SOULSOUL_E_SOULSOUL_LIST_MAX_NUM 2
+#define DEFINE_SHEET_SOUL3DMODEL_E_SOUL3DMODEL_LIST_MAX_NUM 32
 #define DEFINE_E_SOULSOULBASIC_M_ATTRIBUTE_MAX_NUM 6
 #define DEFINE_SHEET_SOULSOULBASIC_E_SOULSOULBASIC_LIST_MAX_NUM 1024
 #define DEFINE_E_SOULSOULADVANCE_M_ATTRIBUTE_MAX_NUM 6
@@ -17,34 +18,38 @@
 #define DEFINE_SHEET_SOULBLESS_E_SOULBLESS_LIST_MAX_NUM 4
 #define DEFINE_E_SOULPRIVILEGE_M_ATTRIBUTE_MAX_NUM 4
 #define DEFINE_SHEET_SOULPRIVILEGE_E_SOULPRIVILEGE_LIST_MAX_NUM 4
-#define DEFINE_SHEET_SOULCRYSTAL_E_SOULCRYSTAL_LIST_MAX_NUM 512
+#define DEFINE_E_SOULCRYSTAL_M_OTHER_SKILLID_MAX_NUM 3
+#define DEFINE_SHEET_SOULCRYSTAL_E_SOULCRYSTAL_LIST_MAX_NUM 128
 #define DEFINE_SHEET_SOULCRYSTALLV_E_SOULCRYSTALLV_LIST_MAX_NUM 1024
-#define DEFINE_E_SOULCRYSTALTOP_M_ATTRIBUTE_MAX_NUM 6
-#define DEFINE_SHEET_SOULCRYSTALTOP_E_SOULCRYSTALTOP_LIST_MAX_NUM 64
+#define DEFINE_E_SOULCRYSTALTOP_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_SHEET_SOULCRYSTALTOP_E_SOULCRYSTALTOP_LIST_MAX_NUM 1024
 #define DEFINE_SHEET_SOULCRYSTALHOLE_E_SOULCRYSTALHOLE_LIST_MAX_NUM 16
-#define DEFINE_E_SOULFUSION_M_FUSION_MAX_NUM 2
-#define DEFINE_SHEET_SOULFUSION_E_SOULFUSION_LIST_MAX_NUM 32
-#define DEFINE_SHEET_SOULBONE_E_SOULBONE_LIST_MAX_NUM 8
-#define DEFINE_E_SOULBONESKILL_M_PASSIVE_SKILL_MAX_NUM 4
-#define DEFINE_SHEET_SOULBONESKILL_E_SOULBONESKILL_LIST_MAX_NUM 32
+#define DEFINE_E_SOULFUSION_M_FUSION_MAX_NUM 3
+#define DEFINE_SHEET_SOULFUSION_E_SOULFUSION_LIST_MAX_NUM 128
+#define DEFINE_E_SOULATTR_M_ATT_MAX_NUM 6
+#define DEFINE_E_SOULATTR_M_STARATT_MAX_NUM 3
+#define DEFINE_SHEET_SOULATTR_E_SOULATTR_LIST_MAX_NUM 512
+#define DEFINE_SHEET_SOULSKILL_E_SOULSKILL_LIST_MAX_NUM 256
+#define DEFINE_E_SOULBONE_M_OTHER_SKILLID_MAX_NUM 4
+#define DEFINE_SHEET_SOULBONE_E_SOULBONE_LIST_MAX_NUM 32
 #define DEFINE_SHEET_SOULBONEKILL_E_SOULBONEKILL_LIST_MAX_NUM 1024
-#define DEFINE_E_SOULBONESTRONG_M_TYPE_MAX_NUM 4
-#define DEFINE_SHEET_SOULBONESTRONG_E_SOULBONESTRONG_LIST_MAX_NUM 256
+#define DEFINE_E_SOULBONESTRONG_M_TYPE_MAX_NUM 6
+#define DEFINE_SHEET_SOULBONESTRONG_E_SOULBONESTRONG_LIST_MAX_NUM 1024
+#define DEFINE_SHEET_SOULGUWEN_E_SOULGUWEN_LIST_MAX_NUM 32
 #define DEFINE_SHEET_SOULGUWENTYPE_E_SOULGUWENTYPE_LIST_MAX_NUM 4
 #define DEFINE_E_SOULGUWENTYPESUIT_M_ATTRIBUTE_MAX_NUM 9
 #define DEFINE_SHEET_SOULGUWENTYPESUIT_E_SOULGUWENTYPESUIT_LIST_MAX_NUM 16
-#define DEFINE_E_SOULGUWENSKILL_M_SKILLLEVEL_MAX_NUM 7
-#define DEFINE_E_SOULGUWENSKILL_M_NUM_MAX_NUM 7
+#define DEFINE_E_SOULGUWENSKILL_M_SKILL_MAX_NUM 7
 #define DEFINE_SHEET_SOULGUWENSKILL_E_SOULGUWENSKILL_LIST_MAX_NUM 8
-#define DEFINE_SHEET_SOULGUWENSLOT_E_SOULGUWENSLOT_LIST_MAX_NUM 8
 #define DEFINE_E_SOULGUWENSUIT_M_ATTRIBUTE_MAX_NUM 8
 #define DEFINE_SHEET_SOULGUWENSUIT_E_SOULGUWENSUIT_LIST_MAX_NUM 64
-#define DEFINE_SHEET_SOULGUWENUPSTAR_E_SOULGUWENUPSTAR_LIST_MAX_NUM 64
 #define DEFINE_E_SOULAFFIXES_M_ATTRIBUTE_MAX_NUM 6
 #define DEFINE_SHEET_SOULAFFIXES_E_SOULAFFIXES_LIST_MAX_NUM 32
+#define DEFINE_SHEET_SOULAFFIXESFUMO_E_SOULAFFIXESFUMO_LIST_MAX_NUM 8
 #define DEFINE_E_SOULAFFIXESSUIT_M_SKILL_MAX_NUM 2
 #define DEFINE_E_SOULAFFIXESSUIT_M_ATTRIBUTE_MAX_NUM 6
 #define DEFINE_SHEET_SOULAFFIXESSUIT_E_SOULAFFIXESSUIT_LIST_MAX_NUM 128
+#define DEFINE_SHEET_SOULGUWENATTR_E_SOULGUWENATTR_LIST_MAX_NUM 128
 
 
 namespace proto_ff_s {
@@ -90,6 +95,7 @@ namespace proto_ff_s {
 		int32_t m_advanceItem;//进阶所需道具
 		int32_t m_sacrificeSkill;//牺牲技
 		NFShmString<128> m_SkillLv;//牺牲技等级[等级;升级需要的阶级]
+		int32_t m_monsterId;//模型
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulSoul & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulSoul & msg);
@@ -111,6 +117,35 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_SoulSoul make_pbmsg(){ return ::proto_ff::Sheet_SoulSoul(); }
 	};
 	typedef struct Sheet_SoulSoul_s Sheet_SoulSoul_t;
+
+	struct E_Soul3dmodel_s : public NFDescStoreSeqOP {
+		E_Soul3dmodel_s();
+		virtual ~E_Soul3dmodel_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_position;//装备位置
+
+		virtual void write_to_pbmsg(::proto_ff::E_Soul3dmodel & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_Soul3dmodel & msg);
+		static ::proto_ff::E_Soul3dmodel* new_pbmsg(){ return new ::proto_ff::E_Soul3dmodel(); }
+		static ::proto_ff::E_Soul3dmodel make_pbmsg(){ return ::proto_ff::E_Soul3dmodel(); }
+	};
+	typedef struct E_Soul3dmodel_s E_Soul3dmodel_t;
+
+	struct Sheet_Soul3dmodel_s : public NFDescStoreSeqOP {
+		Sheet_Soul3dmodel_s();
+		virtual ~Sheet_Soul3dmodel_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_Soul3dmodel_s, DEFINE_SHEET_SOUL3DMODEL_E_SOUL3DMODEL_LIST_MAX_NUM> E_Soul3dmodel_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_Soul3dmodel & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_Soul3dmodel & msg);
+		static ::proto_ff::Sheet_Soul3dmodel* new_pbmsg(){ return new ::proto_ff::Sheet_Soul3dmodel(); }
+		static ::proto_ff::Sheet_Soul3dmodel make_pbmsg(){ return ::proto_ff::Sheet_Soul3dmodel(); }
+	};
+	typedef struct Sheet_Soul3dmodel_s Sheet_Soul3dmodel_t;
 
 	struct E_SoulSoulbasicAttributeDesc_s : public NFDescStoreSeqOP {
 		E_SoulSoulbasicAttributeDesc_s();
@@ -292,14 +327,17 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_equipId;//装备id
 		NFShmString<64> m_name;//魂晶命名
-		int32_t m_crystalType;//魂晶类型
+		int32_t m_skillType;//技能类型
+		int32_t m_type;//魂晶类型
 		int32_t m_quality;//品质
 		int32_t m_star;//星级
+		int32_t m_makeid;//打造id
+		int32_t m_first_skill;//主动
+		int32_t m_attrid;//魂晶属性组id
+		int32_t m_intensify;//强化类型
 		int32_t m_dismantleTime;//分解获得
 		int32_t m_dismantleNum;//分解数量
-		int32_t m_skill;//技能类型
-		int32_t m_skillLv;//技能等级
-		int32_t m_handbook;//是否显示图鉴
+		NFShmVector<int32_t, DEFINE_E_SOULCRYSTAL_M_OTHER_SKILLID_MAX_NUM> m_other_skillId;//技能信息
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulCrystal & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulCrystal & msg);
@@ -372,6 +410,9 @@ namespace proto_ff_s {
 		virtual ~E_SoulCrystaltop_s(){}
 		int CreateInit();
 		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_intensify;//强化类型
+		int32_t m_lv;//强化等级
 		int32_t m_topLv;//突破等级
 		int32_t m_wraithsItem;//道具消耗
 		int32_t m_wraithsMun;//消耗数量
@@ -404,7 +445,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//魂晶孔位
-		NFShmString<64> m_unlock;//解锁条件
+		int32_t m_unlock_type;//解锁条件
+		int32_t m_unlock_param;//解锁参数
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulCrystalhole & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulCrystalhole & msg);
@@ -432,6 +474,8 @@ namespace proto_ff_s {
 		virtual ~E_SoulFusionFusionDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
+		int32_t m_num;//数量
+		int32_t m_condition;//条件
 		int32_t m_star;//星级
 		int32_t m_quality;//品质
 
@@ -449,12 +493,12 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//id
 		int32_t m_fusionType;//融合类型
-		int32_t m_quality;//魂晶品质
-		int32_t m_star;//魂晶星数
-		int32_t m_condition;//是否需要自身材料
+		int32_t m_makeid;//打造id
+		int32_t m_step;//打造阶段
+		int32_t m_quality;//品质
+		int32_t m_star;//星数
 		int32_t m_qualityGet;//融合后品质
 		int32_t m_starGet;//融合后星级
-		int32_t m_attributeBer;//属性提升
 		NFShmVector<struct E_SoulFusionFusionDesc_s, DEFINE_E_SOULFUSION_M_FUSION_MAX_NUM> m_fusion;//融合材料
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulFusion & msg) const;
@@ -478,6 +522,104 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_SoulFusion_s Sheet_SoulFusion_t;
 
+	struct E_SoulAttrAttDesc_s : public NFDescStoreSeqOP {
+		E_SoulAttrAttDesc_s();
+		virtual ~E_SoulAttrAttDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;//值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAttrAttDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAttrAttDesc & msg);
+		static ::proto_ff::E_SoulAttrAttDesc* new_pbmsg(){ return new ::proto_ff::E_SoulAttrAttDesc(); }
+		static ::proto_ff::E_SoulAttrAttDesc make_pbmsg(){ return ::proto_ff::E_SoulAttrAttDesc(); }
+	};
+	typedef struct E_SoulAttrAttDesc_s E_SoulAttrAttDesc_t;
+
+	struct E_SoulAttrStarattDesc_s : public NFDescStoreSeqOP {
+		E_SoulAttrStarattDesc_s();
+		virtual ~E_SoulAttrStarattDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;//值
+		int32_t m_type;//
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAttrStarattDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAttrStarattDesc & msg);
+		static ::proto_ff::E_SoulAttrStarattDesc* new_pbmsg(){ return new ::proto_ff::E_SoulAttrStarattDesc(); }
+		static ::proto_ff::E_SoulAttrStarattDesc make_pbmsg(){ return ::proto_ff::E_SoulAttrStarattDesc(); }
+	};
+	typedef struct E_SoulAttrStarattDesc_s E_SoulAttrStarattDesc_t;
+
+	struct E_SoulAttr_s : public NFDescStoreSeqOP {
+		E_SoulAttr_s();
+		virtual ~E_SoulAttr_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_attr;//属性组
+		int32_t m_lv;//属性组等级
+		NFShmVector<struct E_SoulAttrAttDesc_s, DEFINE_E_SOULATTR_M_ATT_MAX_NUM> m_att;//属性
+		NFShmVector<struct E_SoulAttrStarattDesc_s, DEFINE_E_SOULATTR_M_STARATT_MAX_NUM> m_starAtt;//星级属性
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAttr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAttr & msg);
+		static ::proto_ff::E_SoulAttr* new_pbmsg(){ return new ::proto_ff::E_SoulAttr(); }
+		static ::proto_ff::E_SoulAttr make_pbmsg(){ return ::proto_ff::E_SoulAttr(); }
+	};
+	typedef struct E_SoulAttr_s E_SoulAttr_t;
+
+	struct Sheet_SoulAttr_s : public NFDescStoreSeqOP {
+		Sheet_SoulAttr_s();
+		virtual ~Sheet_SoulAttr_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulAttr_s, DEFINE_SHEET_SOULATTR_E_SOULATTR_LIST_MAX_NUM> E_SoulAttr_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulAttr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulAttr & msg);
+		static ::proto_ff::Sheet_SoulAttr* new_pbmsg(){ return new ::proto_ff::Sheet_SoulAttr(); }
+		static ::proto_ff::Sheet_SoulAttr make_pbmsg(){ return ::proto_ff::Sheet_SoulAttr(); }
+	};
+	typedef struct Sheet_SoulAttr_s Sheet_SoulAttr_t;
+
+	struct E_SoulSkill_s : public NFDescStoreSeqOP {
+		E_SoulSkill_s();
+		virtual ~E_SoulSkill_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//技能信息
+		int32_t m_skillId;//技能
+		int32_t m_fackSkill;//是否假技能
+		int32_t m_skill_lv;//解锁的技能等级
+		int32_t m_need_quailty;//品质
+		int32_t m_need_star;//需要的星级
+		int32_t m_attr;//属性id
+		int32_t m_num;//值
+		int32_t m_skill_type;//技能类型
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulSkill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulSkill & msg);
+		static ::proto_ff::E_SoulSkill* new_pbmsg(){ return new ::proto_ff::E_SoulSkill(); }
+		static ::proto_ff::E_SoulSkill make_pbmsg(){ return ::proto_ff::E_SoulSkill(); }
+	};
+	typedef struct E_SoulSkill_s E_SoulSkill_t;
+
+	struct Sheet_SoulSkill_s : public NFDescStoreSeqOP {
+		Sheet_SoulSkill_s();
+		virtual ~Sheet_SoulSkill_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulSkill_s, DEFINE_SHEET_SOULSKILL_E_SOULSKILL_LIST_MAX_NUM> E_SoulSkill_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulSkill & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulSkill & msg);
+		static ::proto_ff::Sheet_SoulSkill* new_pbmsg(){ return new ::proto_ff::Sheet_SoulSkill(); }
+		static ::proto_ff::Sheet_SoulSkill make_pbmsg(){ return ::proto_ff::Sheet_SoulSkill(); }
+	};
+	typedef struct Sheet_SoulSkill_s Sheet_SoulSkill_t;
+
 	struct E_SoulBone_s : public NFDescStoreSeqOP {
 		E_SoulBone_s();
 		virtual ~E_SoulBone_s(){}
@@ -486,10 +628,15 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_position;//装备位置
 		int32_t m_type;//魂骨类型
-		int32_t m_awakening;//觉醒类型
+		int32_t m_quality;//品质
+		int32_t m_star;//星级
 		int32_t m_awakeningTime;//觉醒消耗
 		int32_t m_awakeningNum;//消耗数量
-		int32_t m_modelId;//模型id
+		NFShmString<64> m_modelId;//模型id
+		int32_t m_makeid;//打造id
+		int32_t m_first_skill;//主动
+		int32_t m_attrid;//属性组id
+		NFShmVector<int32_t, DEFINE_E_SOULBONE_M_OTHER_SKILLID_MAX_NUM> m_other_skillId;//技能信息
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBone & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulBone & msg);
@@ -511,40 +658,6 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_SoulBone make_pbmsg(){ return ::proto_ff::Sheet_SoulBone(); }
 	};
 	typedef struct Sheet_SoulBone_s Sheet_SoulBone_t;
-
-	struct E_SoulBoneskill_s : public NFDescStoreSeqOP {
-		E_SoulBoneskill_s();
-		virtual ~E_SoulBoneskill_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_boneId;//魂骨部位id
-		int32_t m_quality;//品质
-		int32_t m_star;//星级
-		int32_t m_ActiveSkill;//主动技能
-		int32_t m_ActiveSkillLv;//技能等级
-		NFShmVector<int32_t, DEFINE_E_SOULBONESKILL_M_PASSIVE_SKILL_MAX_NUM> m_passive_Skill;//被动技能
-
-		virtual void write_to_pbmsg(::proto_ff::E_SoulBoneskill & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_SoulBoneskill & msg);
-		static ::proto_ff::E_SoulBoneskill* new_pbmsg(){ return new ::proto_ff::E_SoulBoneskill(); }
-		static ::proto_ff::E_SoulBoneskill make_pbmsg(){ return ::proto_ff::E_SoulBoneskill(); }
-	};
-	typedef struct E_SoulBoneskill_s E_SoulBoneskill_t;
-
-	struct Sheet_SoulBoneskill_s : public NFDescStoreSeqOP {
-		Sheet_SoulBoneskill_s();
-		virtual ~Sheet_SoulBoneskill_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_SoulBoneskill_s, DEFINE_SHEET_SOULBONESKILL_E_SOULBONESKILL_LIST_MAX_NUM> E_SoulBoneskill_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulBoneskill & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulBoneskill & msg);
-		static ::proto_ff::Sheet_SoulBoneskill* new_pbmsg(){ return new ::proto_ff::Sheet_SoulBoneskill(); }
-		static ::proto_ff::Sheet_SoulBoneskill make_pbmsg(){ return ::proto_ff::Sheet_SoulBoneskill(); }
-	};
-	typedef struct Sheet_SoulBoneskill_s Sheet_SoulBoneskill_t;
 
 	struct E_SoulBonekill_s : public NFDescStoreSeqOP {
 		E_SoulBonekill_s();
@@ -595,9 +708,7 @@ namespace proto_ff_s {
 		virtual ~E_SoulBonestrong_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_position;//装备部位
-		int32_t m_srtongUp;//强化上限
+		int32_t m_id;//魂骨位置id
 		NFShmVector<struct E_SoulBonestrongTypeDesc_s, DEFINE_E_SOULBONESTRONG_M_TYPE_MAX_NUM> m_type;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulBonestrong & msg) const;
@@ -620,6 +731,41 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_SoulBonestrong make_pbmsg(){ return ::proto_ff::Sheet_SoulBonestrong(); }
 	};
 	typedef struct Sheet_SoulBonestrong_s Sheet_SoulBonestrong_t;
+
+	struct E_SoulGuwen_s : public NFDescStoreSeqOP {
+		E_SoulGuwen_s();
+		virtual ~E_SoulGuwen_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//装备id
+		NFShmString<64> m_name;//骨纹命名
+		int32_t m_position;//装备位置
+		int32_t m_type;//骨纹类型
+		int32_t m_quality;//品质
+		int32_t m_star;//星级
+		int32_t m_makeid;//打造id
+		int32_t m_attrid;//属性组id
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwen & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwen & msg);
+		static ::proto_ff::E_SoulGuwen* new_pbmsg(){ return new ::proto_ff::E_SoulGuwen(); }
+		static ::proto_ff::E_SoulGuwen make_pbmsg(){ return ::proto_ff::E_SoulGuwen(); }
+	};
+	typedef struct E_SoulGuwen_s E_SoulGuwen_t;
+
+	struct Sheet_SoulGuwen_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwen_s();
+		virtual ~Sheet_SoulGuwen_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwen_s, DEFINE_SHEET_SOULGUWEN_E_SOULGUWEN_LIST_MAX_NUM> E_SoulGuwen_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwen & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen & msg);
+		static ::proto_ff::Sheet_SoulGuwen* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwen(); }
+		static ::proto_ff::Sheet_SoulGuwen make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwen(); }
+	};
+	typedef struct Sheet_SoulGuwen_s Sheet_SoulGuwen_t;
 
 	struct E_SoulGuwentype_s : public NFDescStoreSeqOP {
 		E_SoulGuwentype_s();
@@ -697,17 +843,31 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_SoulGuwentypesuit_s Sheet_SoulGuwentypesuit_t;
 
+	struct E_SoulGuwenskillSkillDesc_s : public NFDescStoreSeqOP {
+		E_SoulGuwenskillSkillDesc_s();
+		virtual ~E_SoulGuwenskillSkillDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;//条件
+		int32_t m_level;//等级
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwenskillSkillDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwenskillSkillDesc & msg);
+		static ::proto_ff::E_SoulGuwenskillSkillDesc* new_pbmsg(){ return new ::proto_ff::E_SoulGuwenskillSkillDesc(); }
+		static ::proto_ff::E_SoulGuwenskillSkillDesc make_pbmsg(){ return ::proto_ff::E_SoulGuwenskillSkillDesc(); }
+	};
+	typedef struct E_SoulGuwenskillSkillDesc_s E_SoulGuwenskillSkillDesc_t;
+
 	struct E_SoulGuwenskill_s : public NFDescStoreSeqOP {
 		E_SoulGuwenskill_s();
 		virtual ~E_SoulGuwenskill_s(){}
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_type;//技能类型(1专属2被动)
+		int32_t m_type;//技能类型
 		int32_t m_skillId;//技能Id
 		int32_t m_quality;//解锁需要骨纹的品质
-		NFShmVector<int32_t, DEFINE_E_SOULGUWENSKILL_M_SKILLLEVEL_MAX_NUM> m_skillLevel;//技能等级
-		NFShmVector<int32_t, DEFINE_E_SOULGUWENSKILL_M_NUM_MAX_NUM> m_num;//升级条件
+		NFShmVector<struct E_SoulGuwenskillSkillDesc_s, DEFINE_E_SOULGUWENSKILL_M_SKILL_MAX_NUM> m_skill;//技能
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwenskill & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwenskill & msg);
@@ -730,36 +890,6 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_SoulGuwenskill_s Sheet_SoulGuwenskill_t;
 
-	struct E_SoulGuwenslot_s : public NFDescStoreSeqOP {
-		E_SoulGuwenslot_s();
-		virtual ~E_SoulGuwenslot_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_id;//id
-		NFShmString<64> m_name;//名字
-		int32_t m_position;//装备位置
-
-		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwenslot & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwenslot & msg);
-		static ::proto_ff::E_SoulGuwenslot* new_pbmsg(){ return new ::proto_ff::E_SoulGuwenslot(); }
-		static ::proto_ff::E_SoulGuwenslot make_pbmsg(){ return ::proto_ff::E_SoulGuwenslot(); }
-	};
-	typedef struct E_SoulGuwenslot_s E_SoulGuwenslot_t;
-
-	struct Sheet_SoulGuwenslot_s : public NFDescStoreSeqOP {
-		Sheet_SoulGuwenslot_s();
-		virtual ~Sheet_SoulGuwenslot_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_SoulGuwenslot_s, DEFINE_SHEET_SOULGUWENSLOT_E_SOULGUWENSLOT_LIST_MAX_NUM> E_SoulGuwenslot_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwenslot & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwenslot & msg);
-		static ::proto_ff::Sheet_SoulGuwenslot* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwenslot(); }
-		static ::proto_ff::Sheet_SoulGuwenslot make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwenslot(); }
-	};
-	typedef struct Sheet_SoulGuwenslot_s Sheet_SoulGuwenslot_t;
-
 	struct E_SoulGuwensuitAttributeDesc_s : public NFDescStoreSeqOP {
 		E_SoulGuwensuitAttributeDesc_s();
 		virtual ~E_SoulGuwensuitAttributeDesc_s(){}
@@ -781,7 +911,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
-		int32_t m_boneId;//魂骨id
+		int32_t m_position;//魂骨部位
 		int32_t m_typeId;//类型id
 		int32_t m_num;//件数
 		NFShmVector<struct E_SoulGuwensuitAttributeDesc_s, DEFINE_E_SOULGUWENSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
@@ -807,41 +937,6 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_SoulGuwensuit_s Sheet_SoulGuwensuit_t;
 
-	struct E_SoulGuwenupstar_s : public NFDescStoreSeqOP {
-		E_SoulGuwenupstar_s();
-		virtual ~E_SoulGuwenupstar_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_id;//id
-		int32_t m_quality;//当前品质
-		int32_t m_star;//当前星数
-		int32_t m_targetQuality;//目标品质
-		int32_t m_targetStar;//目标星数
-		int32_t m_samePosNum;//融合需要相同孔位的数量
-		int32_t m_samePosQuality;//融合需要相同孔位的品质
-		int32_t m_samePosStar;//融合需要相同孔位的星级
-
-		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwenupstar & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwenupstar & msg);
-		static ::proto_ff::E_SoulGuwenupstar* new_pbmsg(){ return new ::proto_ff::E_SoulGuwenupstar(); }
-		static ::proto_ff::E_SoulGuwenupstar make_pbmsg(){ return ::proto_ff::E_SoulGuwenupstar(); }
-	};
-	typedef struct E_SoulGuwenupstar_s E_SoulGuwenupstar_t;
-
-	struct Sheet_SoulGuwenupstar_s : public NFDescStoreSeqOP {
-		Sheet_SoulGuwenupstar_s();
-		virtual ~Sheet_SoulGuwenupstar_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_SoulGuwenupstar_s, DEFINE_SHEET_SOULGUWENUPSTAR_E_SOULGUWENUPSTAR_LIST_MAX_NUM> E_SoulGuwenupstar_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwenupstar & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwenupstar & msg);
-		static ::proto_ff::Sheet_SoulGuwenupstar* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwenupstar(); }
-		static ::proto_ff::Sheet_SoulGuwenupstar make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwenupstar(); }
-	};
-	typedef struct Sheet_SoulGuwenupstar_s Sheet_SoulGuwenupstar_t;
-
 	struct E_SoulAffixesAttributeDesc_s : public NFDescStoreSeqOP {
 		E_SoulAffixesAttributeDesc_s();
 		virtual ~E_SoulAffixesAttributeDesc_s(){}
@@ -863,9 +958,10 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//id
+		NFShmString<64> m_name;//名字
 		int32_t m_type;//类型(1攻2防3全)
 		int32_t m_quality;//品质
-		NFShmString<64> m_name;//名字
+		int32_t m_probability;//附魔概率
 		NFShmVector<struct E_SoulAffixesAttributeDesc_s, DEFINE_E_SOULAFFIXES_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixes & msg) const;
@@ -888,6 +984,38 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_SoulAffixes make_pbmsg(){ return ::proto_ff::Sheet_SoulAffixes(); }
 	};
 	typedef struct Sheet_SoulAffixes_s Sheet_SoulAffixes_t;
+
+	struct E_SoulAffixesfumo_s : public NFDescStoreSeqOP {
+		E_SoulAffixesfumo_s();
+		virtual ~E_SoulAffixesfumo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//词缀品质id
+		int32_t m_item;//道具消耗
+		int32_t m_num;//消耗道具数量
+		int32_t m_lock;//品质保护
+		int32_t m_lockNum;//保护消耗数量
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixesfumo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulAffixesfumo & msg);
+		static ::proto_ff::E_SoulAffixesfumo* new_pbmsg(){ return new ::proto_ff::E_SoulAffixesfumo(); }
+		static ::proto_ff::E_SoulAffixesfumo make_pbmsg(){ return ::proto_ff::E_SoulAffixesfumo(); }
+	};
+	typedef struct E_SoulAffixesfumo_s E_SoulAffixesfumo_t;
+
+	struct Sheet_SoulAffixesfumo_s : public NFDescStoreSeqOP {
+		Sheet_SoulAffixesfumo_s();
+		virtual ~Sheet_SoulAffixesfumo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulAffixesfumo_s, DEFINE_SHEET_SOULAFFIXESFUMO_E_SOULAFFIXESFUMO_LIST_MAX_NUM> E_SoulAffixesfumo_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulAffixesfumo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulAffixesfumo & msg);
+		static ::proto_ff::Sheet_SoulAffixesfumo* new_pbmsg(){ return new ::proto_ff::Sheet_SoulAffixesfumo(); }
+		static ::proto_ff::Sheet_SoulAffixesfumo make_pbmsg(){ return ::proto_ff::Sheet_SoulAffixesfumo(); }
+	};
+	typedef struct Sheet_SoulAffixesfumo_s Sheet_SoulAffixesfumo_t;
 
 	struct E_SoulAffixessuitSkillDesc_s : public NFDescStoreSeqOP {
 		E_SoulAffixessuitSkillDesc_s();
@@ -927,7 +1055,7 @@ namespace proto_ff_s {
 		int32_t m_id;//id
 		int32_t m_affixesId;//id
 		int32_t m_num;//件数
-		NFShmVector<struct E_SoulAffixessuitSkillDesc_s, DEFINE_E_SOULAFFIXESSUIT_M_SKILL_MAX_NUM> m_skill;//技能
+		NFShmVector<struct E_SoulAffixessuitSkillDesc_s, DEFINE_E_SOULAFFIXESSUIT_M_SKILL_MAX_NUM> m_skill;//属性组
 		NFShmVector<struct E_SoulAffixessuitAttributeDesc_s, DEFINE_E_SOULAFFIXESSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;//基础属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_SoulAffixessuit & msg) const;
@@ -950,6 +1078,38 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_SoulAffixessuit make_pbmsg(){ return ::proto_ff::Sheet_SoulAffixessuit(); }
 	};
 	typedef struct Sheet_SoulAffixessuit_s Sheet_SoulAffixessuit_t;
+
+	struct E_SoulGuwenattr_s : public NFDescStoreSeqOP {
+		E_SoulGuwenattr_s();
+		virtual ~E_SoulGuwenattr_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_id;//id
+		int32_t m_skill;//技能类型
+		int32_t m_lv;//等级
+		int32_t m_att;//属性id
+		int32_t m_num;//值
+
+		virtual void write_to_pbmsg(::proto_ff::E_SoulGuwenattr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_SoulGuwenattr & msg);
+		static ::proto_ff::E_SoulGuwenattr* new_pbmsg(){ return new ::proto_ff::E_SoulGuwenattr(); }
+		static ::proto_ff::E_SoulGuwenattr make_pbmsg(){ return ::proto_ff::E_SoulGuwenattr(); }
+	};
+	typedef struct E_SoulGuwenattr_s E_SoulGuwenattr_t;
+
+	struct Sheet_SoulGuwenattr_s : public NFDescStoreSeqOP {
+		Sheet_SoulGuwenattr_s();
+		virtual ~Sheet_SoulGuwenattr_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct E_SoulGuwenattr_s, DEFINE_SHEET_SOULGUWENATTR_E_SOULGUWENATTR_LIST_MAX_NUM> E_SoulGuwenattr_List;//
+
+		virtual void write_to_pbmsg(::proto_ff::Sheet_SoulGuwenattr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwenattr & msg);
+		static ::proto_ff::Sheet_SoulGuwenattr* new_pbmsg(){ return new ::proto_ff::Sheet_SoulGuwenattr(); }
+		static ::proto_ff::Sheet_SoulGuwenattr make_pbmsg(){ return ::proto_ff::Sheet_SoulGuwenattr(); }
+	};
+	typedef struct Sheet_SoulGuwenattr_s Sheet_SoulGuwenattr_t;
 
 }
 

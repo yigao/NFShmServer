@@ -973,11 +973,12 @@ void protobuf_AssignDesc_E_5fXingchen_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_XingchenXjatt));
   E_XingchenXingji_descriptor_ = file->message_type(47);
-  static const int E_XingchenXingji_offsets_[6] = {
+  static const int E_XingchenXingji_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_xjid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_xjclass_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_xjskill_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_skillid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_skillmax_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_unlock_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_XingchenXingji, m_unlocklv_),
   };
@@ -1511,33 +1512,34 @@ void protobuf_AddDesc_E_5fXingchen_2eproto() {
     ".proto_ff.E_XingchenXjattXjDescB\016\302\377\024\006\345\261\236"
     "\346\200\247\210\301\024\005\"T\n\023Sheet_XingchenXjatt\022=\n\024E_Xing"
     "chenXjatt_List\030\001 \003(\0132\031.proto_ff.E_Xingch"
-    "enXjattB\004\210\301\024 \"\355\001\n\020E_XingchenXingji\022\026\n\006m_"
+    "enXjattB\004\210\301\024 \"\223\002\n\020E_XingchenXingji\022\026\n\006m_"
     "XJId\030\001 \001(\005B\006\302\377\024\002id\022#\n\tm_XJClass\030\002 \001(\005B\020\302"
     "\377\024\014\346\230\237\346\212\200\345\210\206\347\261\273\022#\n\tm_XJSkill\030\003 \001(\005B\020\302\377\024\014"
     "\346\230\237\346\212\200\346\212\200\350\203\275\022\037\n\tm_SkillId\030\004 \001(\005B\014\302\377\024\010\346\212\200"
-    "\350\203\275id\022&\n\010m_Unlock\030\005 \003(\005B\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273"
-    "\266\210\301\024\003\022.\n\nm_UnlockLV\030\006 \003(\005B\032\302\377\024\022\350\247\243\351\224\201\346\212\200"
-    "\350\203\275\347\255\211\347\272\247\210\301\024\003\"W\n\024Sheet_XingchenXingji\022\?\n"
-    "\025E_XingchenXingji_List\030\001 \003(\0132\032.proto_ff."
-    "E_XingchenXingjiB\004\210\301\024@\"y\n\016E_XingchenXjcw"
-    "\022\"\n\010m_XjSlot\030\001 \001(\005B\020\302\377\024\014\346\230\237\346\212\200\346\247\275\344\275\215\022\"\n\010"
-    "m_Unlock\030\002 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\350\264\247\345\270\201\022\037\n\005m_Nu"
-    "m\030\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\"Q\n\022Sheet_Xingc"
-    "henXjcw\022;\n\023E_XingchenXjcw_List\030\001 \003(\0132\030.p"
-    "roto_ff.E_XingchenXjcwB\004\210\301\024\004\"p\n\021E_Xingch"
-    "enXjlvexp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m"
-    "_exp\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\350\264\247\345\270\201\022\032\n\006m_"
-    "time\030\003 \001(\005B\n\302\377\024\006\346\227\266\351\227\264\"Z\n\025Sheet_Xingchen"
-    "Xjlvexp\022A\n\026E_XingchenXjlvexp_List\030\001 \003(\0132"
-    "\033.proto_ff.E_XingchenXjlvexpB\004\210\301\024 \"\343\001\n\020E"
-    "_XingchenZbshop\022\030\n\010m_ShopId\030\001 \001(\005B\006\302\377\024\002i"
-    "d\022 \n\nm_ShopItem\030\002 \001(\005B\014\302\377\024\010\347\211\251\345\223\201ID\022\037\n\013m"
-    "_ShopQuota\030\003 \001(\005B\n\302\377\024\006\351\231\220\350\264\255\022&\n\tm_ShopNu"
-    "m\030\004 \001(\005B\023\302\377\024\017\345\217\257\350\264\255\344\271\260\346\254\241\346\225\260\022&\n\014m_BuyCon"
-    "sume\030\005 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022\"\n\010m_BuyNum"
-    "\030\006 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\"W\n\024Sheet_Xingch"
-    "enZbshop\022\?\n\025E_XingchenZbshop_List\030\001 \003(\0132"
-    "\032.proto_ff.E_XingchenZbshopB\004\210\301\024\020", 7393);
+    "\350\203\275id\022$\n\nm_SkillMax\030\005 \001(\005B\020\302\377\024\014\346\212\200\350\203\275\347\255\211"
+    "\347\272\247\022&\n\010m_Unlock\030\006 \003(\005B\024\302\377\024\014\350\247\243\351\224\201\346\235\241\344\273\266\210"
+    "\301\024\003\022.\n\nm_UnlockLV\030\007 \003(\005B\032\302\377\024\022\350\247\243\351\224\201\346\212\200\350\203"
+    "\275\347\255\211\347\272\247\210\301\024\003\"W\n\024Sheet_XingchenXingji\022\?\n\025E"
+    "_XingchenXingji_List\030\001 \003(\0132\032.proto_ff.E_"
+    "XingchenXingjiB\004\210\301\024@\"y\n\016E_XingchenXjcw\022\""
+    "\n\010m_XjSlot\030\001 \001(\005B\020\302\377\024\014\346\230\237\346\212\200\346\247\275\344\275\215\022\"\n\010m_"
+    "Unlock\030\002 \001(\005B\020\302\377\024\014\350\247\243\351\224\201\350\264\247\345\270\201\022\037\n\005m_Num\030"
+    "\003 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\"Q\n\022Sheet_Xingche"
+    "nXjcw\022;\n\023E_XingchenXjcw_List\030\001 \003(\0132\030.pro"
+    "to_ff.E_XingchenXjcwB\004\210\301\024\004\"p\n\021E_Xingchen"
+    "Xjlvexp\022\030\n\004m_lv\030\001 \001(\005B\n\302\377\024\006\347\255\211\347\272\247\022%\n\005m_e"
+    "xp\030\002 \001(\005B\026\302\377\024\022\345\215\207\347\272\247\346\211\200\351\234\200\350\264\247\345\270\201\022\032\n\006m_ti"
+    "me\030\003 \001(\005B\n\302\377\024\006\346\227\266\351\227\264\"Z\n\025Sheet_XingchenXj"
+    "lvexp\022A\n\026E_XingchenXjlvexp_List\030\001 \003(\0132\033."
+    "proto_ff.E_XingchenXjlvexpB\004\210\301\024 \"\343\001\n\020E_X"
+    "ingchenZbshop\022\030\n\010m_ShopId\030\001 \001(\005B\006\302\377\024\002id\022"
+    " \n\nm_ShopItem\030\002 \001(\005B\014\302\377\024\010\347\211\251\345\223\201ID\022\037\n\013m_S"
+    "hopQuota\030\003 \001(\005B\n\302\377\024\006\351\231\220\350\264\255\022&\n\tm_ShopNum\030"
+    "\004 \001(\005B\023\302\377\024\017\345\217\257\350\264\255\344\271\260\346\254\241\346\225\260\022&\n\014m_BuyConsu"
+    "me\030\005 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022\"\n\010m_BuyNum\030\006"
+    " \001(\005B\020\302\377\024\014\346\266\210\350\200\227\346\225\260\351\207\217\"W\n\024Sheet_Xingchen"
+    "Zbshop\022\?\n\025E_XingchenZbshop_List\030\001 \003(\0132\032."
+    "proto_ff.E_XingchenZbshopB\004\210\301\024\020", 7431);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Xingchen.proto", &protobuf_RegisterTypes);
   E_XingchenXcsetup::default_instance_ = new E_XingchenXcsetup();
@@ -14299,6 +14301,7 @@ const int E_XingchenXingji::kMXJIdFieldNumber;
 const int E_XingchenXingji::kMXJClassFieldNumber;
 const int E_XingchenXingji::kMXJSkillFieldNumber;
 const int E_XingchenXingji::kMSkillIdFieldNumber;
+const int E_XingchenXingji::kMSkillMaxFieldNumber;
 const int E_XingchenXingji::kMUnlockFieldNumber;
 const int E_XingchenXingji::kMUnlockLVFieldNumber;
 #endif  // !_MSC_VER
@@ -14323,6 +14326,7 @@ void E_XingchenXingji::SharedCtor() {
   m_xjclass_ = 0;
   m_xjskill_ = 0;
   m_skillid_ = 0;
+  m_skillmax_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -14362,6 +14366,7 @@ void E_XingchenXingji::Clear() {
     m_xjclass_ = 0;
     m_xjskill_ = 0;
     m_skillid_ = 0;
+    m_skillmax_ = 0;
   }
   m_unlock_.Clear();
   m_unlocklv_.Clear();
@@ -14434,18 +14439,34 @@ bool E_XingchenXingji::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_Unlock;
+        if (input->ExpectTag(40)) goto parse_m_SkillMax;
         break;
       }
 
-      // repeated int32 m_Unlock = 5;
+      // optional int32 m_SkillMax = 5;
       case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_SkillMax:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_skillmax_)));
+          set_has_m_skillmax();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_Unlock;
+        break;
+      }
+
+      // repeated int32 m_Unlock = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_Unlock:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 40, input, this->mutable_m_unlock())));
+                 1, 48, input, this->mutable_m_unlock())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -14455,19 +14476,19 @@ bool E_XingchenXingji::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_Unlock;
-        if (input->ExpectTag(48)) goto parse_m_UnlockLV;
+        if (input->ExpectTag(48)) goto parse_m_Unlock;
+        if (input->ExpectTag(56)) goto parse_m_UnlockLV;
         break;
       }
 
-      // repeated int32 m_UnlockLV = 6;
-      case 6: {
+      // repeated int32 m_UnlockLV = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_UnlockLV:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 48, input, this->mutable_m_unlocklv())));
+                 1, 56, input, this->mutable_m_unlocklv())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -14477,7 +14498,7 @@ bool E_XingchenXingji::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_UnlockLV;
+        if (input->ExpectTag(56)) goto parse_m_UnlockLV;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -14520,16 +14541,21 @@ void E_XingchenXingji::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_skillid(), output);
   }
 
-  // repeated int32 m_Unlock = 5;
-  for (int i = 0; i < this->m_unlock_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      5, this->m_unlock(i), output);
+  // optional int32 m_SkillMax = 5;
+  if (has_m_skillmax()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_skillmax(), output);
   }
 
-  // repeated int32 m_UnlockLV = 6;
+  // repeated int32 m_Unlock = 6;
+  for (int i = 0; i < this->m_unlock_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      6, this->m_unlock(i), output);
+  }
+
+  // repeated int32 m_UnlockLV = 7;
   for (int i = 0; i < this->m_unlocklv_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      6, this->m_unlocklv(i), output);
+      7, this->m_unlocklv(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -14560,16 +14586,21 @@ void E_XingchenXingji::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_skillid(), target);
   }
 
-  // repeated int32 m_Unlock = 5;
-  for (int i = 0; i < this->m_unlock_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(5, this->m_unlock(i), target);
+  // optional int32 m_SkillMax = 5;
+  if (has_m_skillmax()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_skillmax(), target);
   }
 
-  // repeated int32 m_UnlockLV = 6;
+  // repeated int32 m_Unlock = 6;
+  for (int i = 0; i < this->m_unlock_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(6, this->m_unlock(i), target);
+  }
+
+  // repeated int32 m_UnlockLV = 7;
   for (int i = 0; i < this->m_unlocklv_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(6, this->m_unlocklv(i), target);
+      WriteInt32ToArray(7, this->m_unlocklv(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -14611,8 +14642,15 @@ int E_XingchenXingji::ByteSize() const {
           this->m_skillid());
     }
 
+    // optional int32 m_SkillMax = 5;
+    if (has_m_skillmax()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_skillmax());
+    }
+
   }
-  // repeated int32 m_Unlock = 5;
+  // repeated int32 m_Unlock = 6;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_unlock_size(); i++) {
@@ -14622,7 +14660,7 @@ int E_XingchenXingji::ByteSize() const {
     total_size += 1 * this->m_unlock_size() + data_size;
   }
 
-  // repeated int32 m_UnlockLV = 6;
+  // repeated int32 m_UnlockLV = 7;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_unlocklv_size(); i++) {
@@ -14672,6 +14710,9 @@ void E_XingchenXingji::MergeFrom(const E_XingchenXingji& from) {
     if (from.has_m_skillid()) {
       set_m_skillid(from.m_skillid());
     }
+    if (from.has_m_skillmax()) {
+      set_m_skillmax(from.m_skillmax());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -14699,6 +14740,7 @@ void E_XingchenXingji::Swap(E_XingchenXingji* other) {
     std::swap(m_xjclass_, other->m_xjclass_);
     std::swap(m_xjskill_, other->m_xjskill_);
     std::swap(m_skillid_, other->m_skillid_);
+    std::swap(m_skillmax_, other->m_skillmax_);
     m_unlock_.Swap(&other->m_unlock_);
     m_unlocklv_.Swap(&other->m_unlocklv_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

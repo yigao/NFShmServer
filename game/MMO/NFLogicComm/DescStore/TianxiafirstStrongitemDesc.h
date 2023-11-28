@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Tianxiafirst_s.h"
 
-#define MAX_TIANXIAFIRST_STRONGITEM_NUM 2
+#define MAX_TIANXIAFIRST_STRONGITEM_NUM 4
 
 class TianxiafirstStrongitemDesc : public NFIDescTemplate<TianxiafirstStrongitemDesc, proto_ff_s::E_TianxiafirstStrongitem_s, EOT_CONST_TIANXIAFIRST_STRONGITEM_DESC_ID, MAX_TIANXIAFIRST_STRONGITEM_NUM>
 {

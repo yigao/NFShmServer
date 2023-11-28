@@ -3302,19 +3302,68 @@ class E_RoleExp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_yaochi() const;
   inline void set_m_yaochi(::google::protobuf::int32 value);
 
-  // optional int32 m_wedding = 14;
+  // optional int32 m_yaochiAct = 14;
+  inline bool has_m_yaochiact() const;
+  inline void clear_m_yaochiact();
+  static const int kMYaochiActFieldNumber = 14;
+  inline ::google::protobuf::int32 m_yaochiact() const;
+  inline void set_m_yaochiact(::google::protobuf::int32 value);
+
+  // optional int32 m_wedding = 15;
   inline bool has_m_wedding() const;
   inline void clear_m_wedding();
-  static const int kMWeddingFieldNumber = 14;
+  static const int kMWeddingFieldNumber = 15;
   inline ::google::protobuf::int32 m_wedding() const;
   inline void set_m_wedding(::google::protobuf::int32 value);
 
-  // optional int32 m_bagua = 15;
+  // optional int32 m_bagua = 16;
   inline bool has_m_bagua() const;
   inline void clear_m_bagua();
-  static const int kMBaguaFieldNumber = 15;
+  static const int kMBaguaFieldNumber = 16;
   inline ::google::protobuf::int32 m_bagua() const;
   inline void set_m_bagua(::google::protobuf::int32 value);
+
+  // optional int32 m_guildTask = 17;
+  inline bool has_m_guildtask() const;
+  inline void clear_m_guildtask();
+  static const int kMGuildTaskFieldNumber = 17;
+  inline ::google::protobuf::int32 m_guildtask() const;
+  inline void set_m_guildtask(::google::protobuf::int32 value);
+
+  // optional int32 m_PrestigeMissions = 18;
+  inline bool has_m_prestigemissions() const;
+  inline void clear_m_prestigemissions();
+  static const int kMPrestigeMissionsFieldNumber = 18;
+  inline ::google::protobuf::int32 m_prestigemissions() const;
+  inline void set_m_prestigemissions(::google::protobuf::int32 value);
+
+  // optional int32 m_xianyuanDungeon = 19;
+  inline bool has_m_xianyuandungeon() const;
+  inline void clear_m_xianyuandungeon();
+  static const int kMXianyuanDungeonFieldNumber = 19;
+  inline ::google::protobuf::int32 m_xianyuandungeon() const;
+  inline void set_m_xianyuandungeon(::google::protobuf::int32 value);
+
+  // optional int32 m_guardian = 20;
+  inline bool has_m_guardian() const;
+  inline void clear_m_guardian();
+  static const int kMGuardianFieldNumber = 20;
+  inline ::google::protobuf::int32 m_guardian() const;
+  inline void set_m_guardian(::google::protobuf::int32 value);
+
+  // optional int32 m_guildWar = 21;
+  inline bool has_m_guildwar() const;
+  inline void clear_m_guildwar();
+  static const int kMGuildWarFieldNumber = 21;
+  inline ::google::protobuf::int32 m_guildwar() const;
+  inline void set_m_guildwar(::google::protobuf::int32 value);
+
+  // optional int32 m_valley = 22;
+  inline bool has_m_valley() const;
+  inline void clear_m_valley();
+  static const int kMValleyFieldNumber = 22;
+  inline ::google::protobuf::int32 m_valley() const;
+  inline void set_m_valley(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_RoleExp)
  private:
@@ -3344,10 +3393,24 @@ class E_RoleExp : public ::google::protobuf::Message {
   inline void clear_has_m_qingyun();
   inline void set_has_m_yaochi();
   inline void clear_has_m_yaochi();
+  inline void set_has_m_yaochiact();
+  inline void clear_has_m_yaochiact();
   inline void set_has_m_wedding();
   inline void clear_has_m_wedding();
   inline void set_has_m_bagua();
   inline void clear_has_m_bagua();
+  inline void set_has_m_guildtask();
+  inline void clear_has_m_guildtask();
+  inline void set_has_m_prestigemissions();
+  inline void clear_has_m_prestigemissions();
+  inline void set_has_m_xianyuandungeon();
+  inline void clear_has_m_xianyuandungeon();
+  inline void set_has_m_guardian();
+  inline void clear_has_m_guardian();
+  inline void set_has_m_guildwar();
+  inline void clear_has_m_guildwar();
+  inline void set_has_m_valley();
+  inline void clear_has_m_valley();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3364,11 +3427,18 @@ class E_RoleExp : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_multibattle_;
   ::google::protobuf::int32 m_qingyun_;
   ::google::protobuf::int32 m_yaochi_;
+  ::google::protobuf::int32 m_yaochiact_;
   ::google::protobuf::int32 m_wedding_;
   ::google::protobuf::int32 m_bagua_;
+  ::google::protobuf::int32 m_guildtask_;
+  ::google::protobuf::int32 m_prestigemissions_;
+  ::google::protobuf::int32 m_xianyuandungeon_;
+  ::google::protobuf::int32 m_guardian_;
+  ::google::protobuf::int32 m_guildwar_;
+  ::google::protobuf::int32 m_valley_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(22 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fRole_2eproto();
   friend void protobuf_AssignDesc_E_5fRole_2eproto();
@@ -7005,15 +7075,37 @@ inline void E_RoleExp::set_m_yaochi(::google::protobuf::int32 value) {
   m_yaochi_ = value;
 }
 
-// optional int32 m_wedding = 14;
-inline bool E_RoleExp::has_m_wedding() const {
+// optional int32 m_yaochiAct = 14;
+inline bool E_RoleExp::has_m_yaochiact() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void E_RoleExp::set_has_m_wedding() {
+inline void E_RoleExp::set_has_m_yaochiact() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void E_RoleExp::clear_has_m_wedding() {
+inline void E_RoleExp::clear_has_m_yaochiact() {
   _has_bits_[0] &= ~0x00002000u;
+}
+inline void E_RoleExp::clear_m_yaochiact() {
+  m_yaochiact_ = 0;
+  clear_has_m_yaochiact();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_yaochiact() const {
+  return m_yaochiact_;
+}
+inline void E_RoleExp::set_m_yaochiact(::google::protobuf::int32 value) {
+  set_has_m_yaochiact();
+  m_yaochiact_ = value;
+}
+
+// optional int32 m_wedding = 15;
+inline bool E_RoleExp::has_m_wedding() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void E_RoleExp::set_has_m_wedding() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void E_RoleExp::clear_has_m_wedding() {
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void E_RoleExp::clear_m_wedding() {
   m_wedding_ = 0;
@@ -7027,15 +7119,15 @@ inline void E_RoleExp::set_m_wedding(::google::protobuf::int32 value) {
   m_wedding_ = value;
 }
 
-// optional int32 m_bagua = 15;
+// optional int32 m_bagua = 16;
 inline bool E_RoleExp::has_m_bagua() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void E_RoleExp::set_has_m_bagua() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void E_RoleExp::clear_has_m_bagua() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void E_RoleExp::clear_m_bagua() {
   m_bagua_ = 0;
@@ -7047,6 +7139,138 @@ inline ::google::protobuf::int32 E_RoleExp::m_bagua() const {
 inline void E_RoleExp::set_m_bagua(::google::protobuf::int32 value) {
   set_has_m_bagua();
   m_bagua_ = value;
+}
+
+// optional int32 m_guildTask = 17;
+inline bool E_RoleExp::has_m_guildtask() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void E_RoleExp::set_has_m_guildtask() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void E_RoleExp::clear_has_m_guildtask() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void E_RoleExp::clear_m_guildtask() {
+  m_guildtask_ = 0;
+  clear_has_m_guildtask();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_guildtask() const {
+  return m_guildtask_;
+}
+inline void E_RoleExp::set_m_guildtask(::google::protobuf::int32 value) {
+  set_has_m_guildtask();
+  m_guildtask_ = value;
+}
+
+// optional int32 m_PrestigeMissions = 18;
+inline bool E_RoleExp::has_m_prestigemissions() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void E_RoleExp::set_has_m_prestigemissions() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void E_RoleExp::clear_has_m_prestigemissions() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void E_RoleExp::clear_m_prestigemissions() {
+  m_prestigemissions_ = 0;
+  clear_has_m_prestigemissions();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_prestigemissions() const {
+  return m_prestigemissions_;
+}
+inline void E_RoleExp::set_m_prestigemissions(::google::protobuf::int32 value) {
+  set_has_m_prestigemissions();
+  m_prestigemissions_ = value;
+}
+
+// optional int32 m_xianyuanDungeon = 19;
+inline bool E_RoleExp::has_m_xianyuandungeon() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void E_RoleExp::set_has_m_xianyuandungeon() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void E_RoleExp::clear_has_m_xianyuandungeon() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void E_RoleExp::clear_m_xianyuandungeon() {
+  m_xianyuandungeon_ = 0;
+  clear_has_m_xianyuandungeon();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_xianyuandungeon() const {
+  return m_xianyuandungeon_;
+}
+inline void E_RoleExp::set_m_xianyuandungeon(::google::protobuf::int32 value) {
+  set_has_m_xianyuandungeon();
+  m_xianyuandungeon_ = value;
+}
+
+// optional int32 m_guardian = 20;
+inline bool E_RoleExp::has_m_guardian() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void E_RoleExp::set_has_m_guardian() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void E_RoleExp::clear_has_m_guardian() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void E_RoleExp::clear_m_guardian() {
+  m_guardian_ = 0;
+  clear_has_m_guardian();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_guardian() const {
+  return m_guardian_;
+}
+inline void E_RoleExp::set_m_guardian(::google::protobuf::int32 value) {
+  set_has_m_guardian();
+  m_guardian_ = value;
+}
+
+// optional int32 m_guildWar = 21;
+inline bool E_RoleExp::has_m_guildwar() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void E_RoleExp::set_has_m_guildwar() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void E_RoleExp::clear_has_m_guildwar() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void E_RoleExp::clear_m_guildwar() {
+  m_guildwar_ = 0;
+  clear_has_m_guildwar();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_guildwar() const {
+  return m_guildwar_;
+}
+inline void E_RoleExp::set_m_guildwar(::google::protobuf::int32 value) {
+  set_has_m_guildwar();
+  m_guildwar_ = value;
+}
+
+// optional int32 m_valley = 22;
+inline bool E_RoleExp::has_m_valley() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void E_RoleExp::set_has_m_valley() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void E_RoleExp::clear_has_m_valley() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void E_RoleExp::clear_m_valley() {
+  m_valley_ = 0;
+  clear_has_m_valley();
+}
+inline ::google::protobuf::int32 E_RoleExp::m_valley() const {
+  return m_valley_;
+}
+inline void E_RoleExp::set_m_valley(::google::protobuf::int32 value) {
+  set_has_m_valley();
+  m_valley_ = value;
 }
 
 // -------------------------------------------------------------------

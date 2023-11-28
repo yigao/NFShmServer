@@ -59,6 +59,18 @@ class Sheet_AvatarSkill;
 class E_AvatarEquipsuitAttributeDesc;
 class E_AvatarEquipsuit;
 class Sheet_AvatarEquipsuit;
+class E_AvatarMythAttributeDesc;
+class E_AvatarMyth;
+class Sheet_AvatarMyth;
+class E_AvatarMythwayAttributeDesc;
+class E_AvatarMythway;
+class Sheet_AvatarMythway;
+class E_AvatarMythcoreAttributeDesc;
+class E_AvatarMythcore;
+class Sheet_AvatarMythcore;
+class E_AvatarMythequipAttributeDesc;
+class E_AvatarMythequip;
+class Sheet_AvatarMythequip;
 
 // ===================================================================
 
@@ -1371,10 +1383,55 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_starber() const;
   inline void set_m_starber(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+  // optional string m_mythSkill = 22;
+  inline bool has_m_mythskill() const;
+  inline void clear_m_mythskill();
+  static const int kMMythSkillFieldNumber = 22;
+  inline const ::std::string& m_mythskill() const;
+  inline void set_m_mythskill(const ::std::string& value);
+  inline void set_m_mythskill(const char* value);
+  inline void set_m_mythskill(const char* value, size_t size);
+  inline ::std::string* mutable_m_mythskill();
+  inline ::std::string* release_m_mythskill();
+  inline void set_allocated_m_mythskill(::std::string* m_mythskill);
+
+  // optional string m_mythSPSkill = 23;
+  inline bool has_m_mythspskill() const;
+  inline void clear_m_mythspskill();
+  static const int kMMythSPSkillFieldNumber = 23;
+  inline const ::std::string& m_mythspskill() const;
+  inline void set_m_mythspskill(const ::std::string& value);
+  inline void set_m_mythspskill(const char* value);
+  inline void set_m_mythspskill(const char* value, size_t size);
+  inline ::std::string* mutable_m_mythspskill();
+  inline ::std::string* release_m_mythspskill();
+  inline void set_allocated_m_mythspskill(::std::string* m_mythspskill);
+
+  // optional int32 m_mythID = 24;
+  inline bool has_m_mythid() const;
+  inline void clear_m_mythid();
+  static const int kMMythIDFieldNumber = 24;
+  inline ::google::protobuf::int32 m_mythid() const;
+  inline void set_m_mythid(::google::protobuf::int32 value);
+
+  // optional int32 m_mythWayID = 25;
+  inline bool has_m_mythwayid() const;
+  inline void clear_m_mythwayid();
+  static const int kMMythWayIDFieldNumber = 25;
+  inline ::google::protobuf::int32 m_mythwayid() const;
+  inline void set_m_mythwayid(::google::protobuf::int32 value);
+
+  // optional int32 m_mythCoreID = 26;
+  inline bool has_m_mythcoreid() const;
+  inline void clear_m_mythcoreid();
+  static const int kMMythCoreIDFieldNumber = 26;
+  inline ::google::protobuf::int32 m_mythcoreid() const;
+  inline void set_m_mythcoreid(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 27;
   inline int m_material_size() const;
   inline void clear_m_material();
-  static const int kMMaterialFieldNumber = 22;
+  static const int kMMaterialFieldNumber = 27;
   inline const ::proto_ff::E_AvatarChangeMaterialDesc& m_material(int index) const;
   inline ::proto_ff::E_AvatarChangeMaterialDesc* mutable_m_material(int index);
   inline ::proto_ff::E_AvatarChangeMaterialDesc* add_m_material();
@@ -1383,10 +1440,10 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeMaterialDesc >*
       mutable_m_material();
 
-  // repeated int64 m_InitiativeSkill = 23;
+  // repeated int64 m_InitiativeSkill = 28;
   inline int m_initiativeskill_size() const;
   inline void clear_m_initiativeskill();
-  static const int kMInitiativeSkillFieldNumber = 23;
+  static const int kMInitiativeSkillFieldNumber = 28;
   inline ::google::protobuf::int64 m_initiativeskill(int index) const;
   inline void set_m_initiativeskill(int index, ::google::protobuf::int64 value);
   inline void add_m_initiativeskill(::google::protobuf::int64 value);
@@ -1395,10 +1452,10 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
       mutable_m_initiativeskill();
 
-  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
+  // repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 29;
   inline int m_attribute_size() const;
   inline void clear_m_attribute();
-  static const int kMAttributeFieldNumber = 24;
+  static const int kMAttributeFieldNumber = 29;
   inline const ::proto_ff::E_AvatarChangeAttributeDesc& m_attribute(int index) const;
   inline ::proto_ff::E_AvatarChangeAttributeDesc* mutable_m_attribute(int index);
   inline ::proto_ff::E_AvatarChangeAttributeDesc* add_m_attribute();
@@ -1451,6 +1508,16 @@ class E_AvatarChange : public ::google::protobuf::Message {
   inline void clear_has_m_equipsuit();
   inline void set_has_m_starber();
   inline void clear_has_m_starber();
+  inline void set_has_m_mythskill();
+  inline void clear_has_m_mythskill();
+  inline void set_has_m_mythspskill();
+  inline void clear_has_m_mythspskill();
+  inline void set_has_m_mythid();
+  inline void clear_has_m_mythid();
+  inline void set_has_m_mythwayid();
+  inline void clear_has_m_mythwayid();
+  inline void set_has_m_mythcoreid();
+  inline void clear_has_m_mythcoreid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1475,12 +1542,17 @@ class E_AvatarChange : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_maxequip_;
   ::google::protobuf::int32 m_equipsuit_;
   ::google::protobuf::int32 m_starber_;
+  ::std::string* m_mythskill_;
+  ::std::string* m_mythspskill_;
+  ::google::protobuf::int32 m_mythid_;
+  ::google::protobuf::int32 m_mythwayid_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeMaterialDesc > m_material_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int64 > m_initiativeskill_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarChangeAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_mythcoreid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(24 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(29 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
   friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
@@ -2733,6 +2805,1270 @@ class Sheet_AvatarEquipsuit : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Sheet_AvatarEquipsuit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythAttributeDesc();
+  virtual ~E_AvatarMythAttributeDesc();
+
+  E_AvatarMythAttributeDesc(const E_AvatarMythAttributeDesc& from);
+
+  inline E_AvatarMythAttributeDesc& operator=(const E_AvatarMythAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythAttributeDesc& default_instance();
+
+  void Swap(E_AvatarMythAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythAttributeDesc& from);
+  void MergeFrom(const E_AvatarMythAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMyth : public ::google::protobuf::Message {
+ public:
+  E_AvatarMyth();
+  virtual ~E_AvatarMyth();
+
+  E_AvatarMyth(const E_AvatarMyth& from);
+
+  inline E_AvatarMyth& operator=(const E_AvatarMyth& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMyth& default_instance();
+
+  void Swap(E_AvatarMyth* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMyth* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMyth& from);
+  void MergeFrom(const E_AvatarMyth& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_stage = 3;
+  inline bool has_m_stage() const;
+  inline void clear_m_stage();
+  static const int kMStageFieldNumber = 3;
+  inline ::google::protobuf::int32 m_stage() const;
+  inline void set_m_stage(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_AvatarMythAttributeDesc m_Attribute = 4;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 4;
+  inline const ::proto_ff::E_AvatarMythAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_AvatarMythAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_AvatarMythAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMyth)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_stage();
+  inline void clear_has_m_stage();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythAttributeDesc > m_attribute_;
+  ::google::protobuf::int32 m_stage_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMyth* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_AvatarMyth : public ::google::protobuf::Message {
+ public:
+  Sheet_AvatarMyth();
+  virtual ~Sheet_AvatarMyth();
+
+  Sheet_AvatarMyth(const Sheet_AvatarMyth& from);
+
+  inline Sheet_AvatarMyth& operator=(const Sheet_AvatarMyth& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_AvatarMyth& default_instance();
+
+  void Swap(Sheet_AvatarMyth* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_AvatarMyth* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_AvatarMyth& from);
+  void MergeFrom(const Sheet_AvatarMyth& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_AvatarMyth E_AvatarMyth_List = 1;
+  inline int e_avatarmyth_list_size() const;
+  inline void clear_e_avatarmyth_list();
+  static const int kEAvatarMythListFieldNumber = 1;
+  inline const ::proto_ff::E_AvatarMyth& e_avatarmyth_list(int index) const;
+  inline ::proto_ff::E_AvatarMyth* mutable_e_avatarmyth_list(int index);
+  inline ::proto_ff::E_AvatarMyth* add_e_avatarmyth_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMyth >&
+      e_avatarmyth_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMyth >*
+      mutable_e_avatarmyth_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AvatarMyth)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMyth > e_avatarmyth_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_AvatarMyth* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythwayAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythwayAttributeDesc();
+  virtual ~E_AvatarMythwayAttributeDesc();
+
+  E_AvatarMythwayAttributeDesc(const E_AvatarMythwayAttributeDesc& from);
+
+  inline E_AvatarMythwayAttributeDesc& operator=(const E_AvatarMythwayAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythwayAttributeDesc& default_instance();
+
+  void Swap(E_AvatarMythwayAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythwayAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythwayAttributeDesc& from);
+  void MergeFrom(const E_AvatarMythwayAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythwayAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythwayAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythway : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythway();
+  virtual ~E_AvatarMythway();
+
+  E_AvatarMythway(const E_AvatarMythway& from);
+
+  inline E_AvatarMythway& operator=(const E_AvatarMythway& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythway& default_instance();
+
+  void Swap(E_AvatarMythway* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythway* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythway& from);
+  void MergeFrom(const E_AvatarMythway& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_stage = 3;
+  inline bool has_m_stage() const;
+  inline void clear_m_stage();
+  static const int kMStageFieldNumber = 3;
+  inline ::google::protobuf::int32 m_stage() const;
+  inline void set_m_stage(::google::protobuf::int32 value);
+
+  // optional int32 m_star = 4;
+  inline bool has_m_star() const;
+  inline void clear_m_star();
+  static const int kMStarFieldNumber = 4;
+  inline ::google::protobuf::int32 m_star() const;
+  inline void set_m_star(::google::protobuf::int32 value);
+
+  // optional int32 m_showStar = 5;
+  inline bool has_m_showstar() const;
+  inline void clear_m_showstar();
+  static const int kMShowStarFieldNumber = 5;
+  inline ::google::protobuf::int32 m_showstar() const;
+  inline void set_m_showstar(::google::protobuf::int32 value);
+
+  // optional int32 m_mythCoreCondition = 6;
+  inline bool has_m_mythcorecondition() const;
+  inline void clear_m_mythcorecondition();
+  static const int kMMythCoreConditionFieldNumber = 6;
+  inline ::google::protobuf::int32 m_mythcorecondition() const;
+  inline void set_m_mythcorecondition(::google::protobuf::int32 value);
+
+  // optional int32 m_posX = 7;
+  inline bool has_m_posx() const;
+  inline void clear_m_posx();
+  static const int kMPosXFieldNumber = 7;
+  inline ::google::protobuf::int32 m_posx() const;
+  inline void set_m_posx(::google::protobuf::int32 value);
+
+  // optional int32 m_posY = 8;
+  inline bool has_m_posy() const;
+  inline void clear_m_posy();
+  static const int kMPosYFieldNumber = 8;
+  inline ::google::protobuf::int32 m_posy() const;
+  inline void set_m_posy(::google::protobuf::int32 value);
+
+  // repeated int32 m_equipID = 9;
+  inline int m_equipid_size() const;
+  inline void clear_m_equipid();
+  static const int kMEquipIDFieldNumber = 9;
+  inline ::google::protobuf::int32 m_equipid(int index) const;
+  inline void set_m_equipid(int index, ::google::protobuf::int32 value);
+  inline void add_m_equipid(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_equipid() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_equipid();
+
+  // repeated int32 m_specialID = 10;
+  inline int m_specialid_size() const;
+  inline void clear_m_specialid();
+  static const int kMSpecialIDFieldNumber = 10;
+  inline ::google::protobuf::int32 m_specialid(int index) const;
+  inline void set_m_specialid(int index, ::google::protobuf::int32 value);
+  inline void add_m_specialid(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_specialid() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_specialid();
+
+  // repeated .proto_ff.E_AvatarMythwayAttributeDesc m_Attribute = 11;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 11;
+  inline const ::proto_ff::E_AvatarMythwayAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_AvatarMythwayAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_AvatarMythwayAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythwayAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythwayAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythway)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_stage();
+  inline void clear_has_m_stage();
+  inline void set_has_m_star();
+  inline void clear_has_m_star();
+  inline void set_has_m_showstar();
+  inline void clear_has_m_showstar();
+  inline void set_has_m_mythcorecondition();
+  inline void clear_has_m_mythcorecondition();
+  inline void set_has_m_posx();
+  inline void clear_has_m_posx();
+  inline void set_has_m_posy();
+  inline void clear_has_m_posy();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_stage_;
+  ::google::protobuf::int32 m_star_;
+  ::google::protobuf::int32 m_showstar_;
+  ::google::protobuf::int32 m_mythcorecondition_;
+  ::google::protobuf::int32 m_posx_;
+  ::google::protobuf::int32 m_posy_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_equipid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_specialid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythwayAttributeDesc > m_attribute_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythway* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_AvatarMythway : public ::google::protobuf::Message {
+ public:
+  Sheet_AvatarMythway();
+  virtual ~Sheet_AvatarMythway();
+
+  Sheet_AvatarMythway(const Sheet_AvatarMythway& from);
+
+  inline Sheet_AvatarMythway& operator=(const Sheet_AvatarMythway& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_AvatarMythway& default_instance();
+
+  void Swap(Sheet_AvatarMythway* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_AvatarMythway* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_AvatarMythway& from);
+  void MergeFrom(const Sheet_AvatarMythway& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_AvatarMythway E_AvatarMythway_List = 1;
+  inline int e_avatarmythway_list_size() const;
+  inline void clear_e_avatarmythway_list();
+  static const int kEAvatarMythwayListFieldNumber = 1;
+  inline const ::proto_ff::E_AvatarMythway& e_avatarmythway_list(int index) const;
+  inline ::proto_ff::E_AvatarMythway* mutable_e_avatarmythway_list(int index);
+  inline ::proto_ff::E_AvatarMythway* add_e_avatarmythway_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythway >&
+      e_avatarmythway_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythway >*
+      mutable_e_avatarmythway_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AvatarMythway)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythway > e_avatarmythway_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_AvatarMythway* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythcoreAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythcoreAttributeDesc();
+  virtual ~E_AvatarMythcoreAttributeDesc();
+
+  E_AvatarMythcoreAttributeDesc(const E_AvatarMythcoreAttributeDesc& from);
+
+  inline E_AvatarMythcoreAttributeDesc& operator=(const E_AvatarMythcoreAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythcoreAttributeDesc& default_instance();
+
+  void Swap(E_AvatarMythcoreAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythcoreAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythcoreAttributeDesc& from);
+  void MergeFrom(const E_AvatarMythcoreAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythcoreAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythcoreAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythcore : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythcore();
+  virtual ~E_AvatarMythcore();
+
+  E_AvatarMythcore(const E_AvatarMythcore& from);
+
+  inline E_AvatarMythcore& operator=(const E_AvatarMythcore& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythcore& default_instance();
+
+  void Swap(E_AvatarMythcore* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythcore* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythcore& from);
+  void MergeFrom(const E_AvatarMythcore& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_id = 1;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 1;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // optional int32 m_groupID = 2;
+  inline bool has_m_groupid() const;
+  inline void clear_m_groupid();
+  static const int kMGroupIDFieldNumber = 2;
+  inline ::google::protobuf::int32 m_groupid() const;
+  inline void set_m_groupid(::google::protobuf::int32 value);
+
+  // optional int32 m_LV = 3;
+  inline bool has_m_lv() const;
+  inline void clear_m_lv();
+  static const int kMLVFieldNumber = 3;
+  inline ::google::protobuf::int32 m_lv() const;
+  inline void set_m_lv(::google::protobuf::int32 value);
+
+  // optional int32 m_costID = 4;
+  inline bool has_m_costid() const;
+  inline void clear_m_costid();
+  static const int kMCostIDFieldNumber = 4;
+  inline ::google::protobuf::int32 m_costid() const;
+  inline void set_m_costid(::google::protobuf::int32 value);
+
+  // optional int32 m_costNum = 5;
+  inline bool has_m_costnum() const;
+  inline void clear_m_costnum();
+  static const int kMCostNumFieldNumber = 5;
+  inline ::google::protobuf::int32 m_costnum() const;
+  inline void set_m_costnum(::google::protobuf::int32 value);
+
+  // optional int32 m_success = 6;
+  inline bool has_m_success() const;
+  inline void clear_m_success();
+  static const int kMSuccessFieldNumber = 6;
+  inline ::google::protobuf::int32 m_success() const;
+  inline void set_m_success(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_AvatarMythcoreAttributeDesc m_Attribute = 7;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 7;
+  inline const ::proto_ff::E_AvatarMythcoreAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_AvatarMythcoreAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_AvatarMythcoreAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcoreAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcoreAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythcore)
+ private:
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+  inline void set_has_m_groupid();
+  inline void clear_has_m_groupid();
+  inline void set_has_m_lv();
+  inline void clear_has_m_lv();
+  inline void set_has_m_costid();
+  inline void clear_has_m_costid();
+  inline void set_has_m_costnum();
+  inline void clear_has_m_costnum();
+  inline void set_has_m_success();
+  inline void clear_has_m_success();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_groupid_;
+  ::google::protobuf::int32 m_lv_;
+  ::google::protobuf::int32 m_costid_;
+  ::google::protobuf::int32 m_costnum_;
+  ::google::protobuf::int32 m_success_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcoreAttributeDesc > m_attribute_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythcore* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_AvatarMythcore : public ::google::protobuf::Message {
+ public:
+  Sheet_AvatarMythcore();
+  virtual ~Sheet_AvatarMythcore();
+
+  Sheet_AvatarMythcore(const Sheet_AvatarMythcore& from);
+
+  inline Sheet_AvatarMythcore& operator=(const Sheet_AvatarMythcore& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_AvatarMythcore& default_instance();
+
+  void Swap(Sheet_AvatarMythcore* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_AvatarMythcore* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_AvatarMythcore& from);
+  void MergeFrom(const Sheet_AvatarMythcore& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_AvatarMythcore E_AvatarMythcore_List = 1;
+  inline int e_avatarmythcore_list_size() const;
+  inline void clear_e_avatarmythcore_list();
+  static const int kEAvatarMythcoreListFieldNumber = 1;
+  inline const ::proto_ff::E_AvatarMythcore& e_avatarmythcore_list(int index) const;
+  inline ::proto_ff::E_AvatarMythcore* mutable_e_avatarmythcore_list(int index);
+  inline ::proto_ff::E_AvatarMythcore* add_e_avatarmythcore_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcore >&
+      e_avatarmythcore_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcore >*
+      mutable_e_avatarmythcore_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AvatarMythcore)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcore > e_avatarmythcore_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_AvatarMythcore* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythequipAttributeDesc : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythequipAttributeDesc();
+  virtual ~E_AvatarMythequipAttributeDesc();
+
+  E_AvatarMythequipAttributeDesc(const E_AvatarMythequipAttributeDesc& from);
+
+  inline E_AvatarMythequipAttributeDesc& operator=(const E_AvatarMythequipAttributeDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythequipAttributeDesc& default_instance();
+
+  void Swap(E_AvatarMythequipAttributeDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythequipAttributeDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythequipAttributeDesc& from);
+  void MergeFrom(const E_AvatarMythequipAttributeDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_value = 1;
+  inline bool has_m_value() const;
+  inline void clear_m_value();
+  static const int kMValueFieldNumber = 1;
+  inline ::google::protobuf::int32 m_value() const;
+  inline void set_m_value(::google::protobuf::int32 value);
+
+  // optional int32 m_type = 2;
+  inline bool has_m_type() const;
+  inline void clear_m_type();
+  static const int kMTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 m_type() const;
+  inline void set_m_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythequipAttributeDesc)
+ private:
+  inline void set_has_m_value();
+  inline void clear_has_m_value();
+  inline void set_has_m_type();
+  inline void clear_has_m_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythequipAttributeDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class E_AvatarMythequip : public ::google::protobuf::Message {
+ public:
+  E_AvatarMythequip();
+  virtual ~E_AvatarMythequip();
+
+  E_AvatarMythequip(const E_AvatarMythequip& from);
+
+  inline E_AvatarMythequip& operator=(const E_AvatarMythequip& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_AvatarMythequip& default_instance();
+
+  void Swap(E_AvatarMythequip* other);
+
+  // implements Message ----------------------------------------------
+
+  E_AvatarMythequip* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_AvatarMythequip& from);
+  void MergeFrom(const E_AvatarMythequip& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_itemID = 1;
+  inline bool has_m_itemid() const;
+  inline void clear_m_itemid();
+  static const int kMItemIDFieldNumber = 1;
+  inline ::google::protobuf::int32 m_itemid() const;
+  inline void set_m_itemid(::google::protobuf::int32 value);
+
+  // optional int32 m_star = 2;
+  inline bool has_m_star() const;
+  inline void clear_m_star();
+  static const int kMStarFieldNumber = 2;
+  inline ::google::protobuf::int32 m_star() const;
+  inline void set_m_star(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_AvatarMythequipAttributeDesc m_Attribute = 3;
+  inline int m_attribute_size() const;
+  inline void clear_m_attribute();
+  static const int kMAttributeFieldNumber = 3;
+  inline const ::proto_ff::E_AvatarMythequipAttributeDesc& m_attribute(int index) const;
+  inline ::proto_ff::E_AvatarMythequipAttributeDesc* mutable_m_attribute(int index);
+  inline ::proto_ff::E_AvatarMythequipAttributeDesc* add_m_attribute();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequipAttributeDesc >&
+      m_attribute() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequipAttributeDesc >*
+      mutable_m_attribute();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_AvatarMythequip)
+ private:
+  inline void set_has_m_itemid();
+  inline void clear_has_m_itemid();
+  inline void set_has_m_star();
+  inline void clear_has_m_star();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_itemid_;
+  ::google::protobuf::int32 m_star_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequipAttributeDesc > m_attribute_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_AvatarMythequip* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Sheet_AvatarMythequip : public ::google::protobuf::Message {
+ public:
+  Sheet_AvatarMythequip();
+  virtual ~Sheet_AvatarMythequip();
+
+  Sheet_AvatarMythequip(const Sheet_AvatarMythequip& from);
+
+  inline Sheet_AvatarMythequip& operator=(const Sheet_AvatarMythequip& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Sheet_AvatarMythequip& default_instance();
+
+  void Swap(Sheet_AvatarMythequip* other);
+
+  // implements Message ----------------------------------------------
+
+  Sheet_AvatarMythequip* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Sheet_AvatarMythequip& from);
+  void MergeFrom(const Sheet_AvatarMythequip& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.E_AvatarMythequip E_AvatarMythequip_List = 1;
+  inline int e_avatarmythequip_list_size() const;
+  inline void clear_e_avatarmythequip_list();
+  static const int kEAvatarMythequipListFieldNumber = 1;
+  inline const ::proto_ff::E_AvatarMythequip& e_avatarmythequip_list(int index) const;
+  inline ::proto_ff::E_AvatarMythequip* mutable_e_avatarmythequip_list(int index);
+  inline ::proto_ff::E_AvatarMythequip* add_e_avatarmythequip_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequip >&
+      e_avatarmythequip_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequip >*
+      mutable_e_avatarmythequip_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Sheet_AvatarMythequip)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequip > e_avatarmythequip_list_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fAvatar_2eproto();
+  friend void protobuf_AssignDesc_E_5fAvatar_2eproto();
+  friend void protobuf_ShutdownFile_E_5fAvatar_2eproto();
+
+  void InitAsDefaultInstance();
+  static Sheet_AvatarMythequip* default_instance_;
 };
 // ===================================================================
 
@@ -4028,7 +5364,213 @@ inline void E_AvatarChange::set_m_starber(::google::protobuf::int32 value) {
   m_starber_ = value;
 }
 
-// repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 22;
+// optional string m_mythSkill = 22;
+inline bool E_AvatarChange::has_m_mythskill() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void E_AvatarChange::set_has_m_mythskill() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void E_AvatarChange::clear_has_m_mythskill() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void E_AvatarChange::clear_m_mythskill() {
+  if (m_mythskill_ != &::google::protobuf::internal::kEmptyString) {
+    m_mythskill_->clear();
+  }
+  clear_has_m_mythskill();
+}
+inline const ::std::string& E_AvatarChange::m_mythskill() const {
+  return *m_mythskill_;
+}
+inline void E_AvatarChange::set_m_mythskill(const ::std::string& value) {
+  set_has_m_mythskill();
+  if (m_mythskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythskill_ = new ::std::string;
+  }
+  m_mythskill_->assign(value);
+}
+inline void E_AvatarChange::set_m_mythskill(const char* value) {
+  set_has_m_mythskill();
+  if (m_mythskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythskill_ = new ::std::string;
+  }
+  m_mythskill_->assign(value);
+}
+inline void E_AvatarChange::set_m_mythskill(const char* value, size_t size) {
+  set_has_m_mythskill();
+  if (m_mythskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythskill_ = new ::std::string;
+  }
+  m_mythskill_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_AvatarChange::mutable_m_mythskill() {
+  set_has_m_mythskill();
+  if (m_mythskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythskill_ = new ::std::string;
+  }
+  return m_mythskill_;
+}
+inline ::std::string* E_AvatarChange::release_m_mythskill() {
+  clear_has_m_mythskill();
+  if (m_mythskill_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_mythskill_;
+    m_mythskill_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_AvatarChange::set_allocated_m_mythskill(::std::string* m_mythskill) {
+  if (m_mythskill_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mythskill_;
+  }
+  if (m_mythskill) {
+    set_has_m_mythskill();
+    m_mythskill_ = m_mythskill;
+  } else {
+    clear_has_m_mythskill();
+    m_mythskill_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string m_mythSPSkill = 23;
+inline bool E_AvatarChange::has_m_mythspskill() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void E_AvatarChange::set_has_m_mythspskill() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void E_AvatarChange::clear_has_m_mythspskill() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void E_AvatarChange::clear_m_mythspskill() {
+  if (m_mythspskill_ != &::google::protobuf::internal::kEmptyString) {
+    m_mythspskill_->clear();
+  }
+  clear_has_m_mythspskill();
+}
+inline const ::std::string& E_AvatarChange::m_mythspskill() const {
+  return *m_mythspskill_;
+}
+inline void E_AvatarChange::set_m_mythspskill(const ::std::string& value) {
+  set_has_m_mythspskill();
+  if (m_mythspskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythspskill_ = new ::std::string;
+  }
+  m_mythspskill_->assign(value);
+}
+inline void E_AvatarChange::set_m_mythspskill(const char* value) {
+  set_has_m_mythspskill();
+  if (m_mythspskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythspskill_ = new ::std::string;
+  }
+  m_mythspskill_->assign(value);
+}
+inline void E_AvatarChange::set_m_mythspskill(const char* value, size_t size) {
+  set_has_m_mythspskill();
+  if (m_mythspskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythspskill_ = new ::std::string;
+  }
+  m_mythspskill_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_AvatarChange::mutable_m_mythspskill() {
+  set_has_m_mythspskill();
+  if (m_mythspskill_ == &::google::protobuf::internal::kEmptyString) {
+    m_mythspskill_ = new ::std::string;
+  }
+  return m_mythspskill_;
+}
+inline ::std::string* E_AvatarChange::release_m_mythspskill() {
+  clear_has_m_mythspskill();
+  if (m_mythspskill_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_mythspskill_;
+    m_mythspskill_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_AvatarChange::set_allocated_m_mythspskill(::std::string* m_mythspskill) {
+  if (m_mythspskill_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_mythspskill_;
+  }
+  if (m_mythspskill) {
+    set_has_m_mythspskill();
+    m_mythspskill_ = m_mythspskill;
+  } else {
+    clear_has_m_mythspskill();
+    m_mythspskill_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 m_mythID = 24;
+inline bool E_AvatarChange::has_m_mythid() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void E_AvatarChange::set_has_m_mythid() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void E_AvatarChange::clear_has_m_mythid() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void E_AvatarChange::clear_m_mythid() {
+  m_mythid_ = 0;
+  clear_has_m_mythid();
+}
+inline ::google::protobuf::int32 E_AvatarChange::m_mythid() const {
+  return m_mythid_;
+}
+inline void E_AvatarChange::set_m_mythid(::google::protobuf::int32 value) {
+  set_has_m_mythid();
+  m_mythid_ = value;
+}
+
+// optional int32 m_mythWayID = 25;
+inline bool E_AvatarChange::has_m_mythwayid() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+inline void E_AvatarChange::set_has_m_mythwayid() {
+  _has_bits_[0] |= 0x01000000u;
+}
+inline void E_AvatarChange::clear_has_m_mythwayid() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline void E_AvatarChange::clear_m_mythwayid() {
+  m_mythwayid_ = 0;
+  clear_has_m_mythwayid();
+}
+inline ::google::protobuf::int32 E_AvatarChange::m_mythwayid() const {
+  return m_mythwayid_;
+}
+inline void E_AvatarChange::set_m_mythwayid(::google::protobuf::int32 value) {
+  set_has_m_mythwayid();
+  m_mythwayid_ = value;
+}
+
+// optional int32 m_mythCoreID = 26;
+inline bool E_AvatarChange::has_m_mythcoreid() const {
+  return (_has_bits_[0] & 0x02000000u) != 0;
+}
+inline void E_AvatarChange::set_has_m_mythcoreid() {
+  _has_bits_[0] |= 0x02000000u;
+}
+inline void E_AvatarChange::clear_has_m_mythcoreid() {
+  _has_bits_[0] &= ~0x02000000u;
+}
+inline void E_AvatarChange::clear_m_mythcoreid() {
+  m_mythcoreid_ = 0;
+  clear_has_m_mythcoreid();
+}
+inline ::google::protobuf::int32 E_AvatarChange::m_mythcoreid() const {
+  return m_mythcoreid_;
+}
+inline void E_AvatarChange::set_m_mythcoreid(::google::protobuf::int32 value) {
+  set_has_m_mythcoreid();
+  m_mythcoreid_ = value;
+}
+
+// repeated .proto_ff.E_AvatarChangeMaterialDesc m_material = 27;
 inline int E_AvatarChange::m_material_size() const {
   return m_material_.size();
 }
@@ -4053,7 +5595,7 @@ E_AvatarChange::mutable_m_material() {
   return &m_material_;
 }
 
-// repeated int64 m_InitiativeSkill = 23;
+// repeated int64 m_InitiativeSkill = 28;
 inline int E_AvatarChange::m_initiativeskill_size() const {
   return m_initiativeskill_.size();
 }
@@ -4078,7 +5620,7 @@ E_AvatarChange::mutable_m_initiativeskill() {
   return &m_initiativeskill_;
 }
 
-// repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 24;
+// repeated .proto_ff.E_AvatarChangeAttributeDesc m_Attribute = 29;
 inline int E_AvatarChange::m_attribute_size() const {
   return m_attribute_.size();
 }
@@ -4841,6 +6383,898 @@ Sheet_AvatarEquipsuit::e_avatarequipsuit_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarEquipsuit >*
 Sheet_AvatarEquipsuit::mutable_e_avatarequipsuit_list() {
   return &e_avatarequipsuit_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_AvatarMythAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_AvatarMythAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_AvatarMythAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_AvatarMythAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_AvatarMythAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_AvatarMythAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMyth
+
+// optional int32 m_id = 1;
+inline bool E_AvatarMyth::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMyth::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMyth::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMyth::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_AvatarMyth::m_id() const {
+  return m_id_;
+}
+inline void E_AvatarMyth::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_AvatarMyth::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMyth::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMyth::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMyth::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_AvatarMyth::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_AvatarMyth::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_stage = 3;
+inline bool E_AvatarMyth::has_m_stage() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_AvatarMyth::set_has_m_stage() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_AvatarMyth::clear_has_m_stage() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_AvatarMyth::clear_m_stage() {
+  m_stage_ = 0;
+  clear_has_m_stage();
+}
+inline ::google::protobuf::int32 E_AvatarMyth::m_stage() const {
+  return m_stage_;
+}
+inline void E_AvatarMyth::set_m_stage(::google::protobuf::int32 value) {
+  set_has_m_stage();
+  m_stage_ = value;
+}
+
+// repeated .proto_ff.E_AvatarMythAttributeDesc m_Attribute = 4;
+inline int E_AvatarMyth::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_AvatarMyth::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythAttributeDesc& E_AvatarMyth::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythAttributeDesc* E_AvatarMyth::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythAttributeDesc* E_AvatarMyth::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythAttributeDesc >&
+E_AvatarMyth::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythAttributeDesc >*
+E_AvatarMyth::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_AvatarMyth
+
+// repeated .proto_ff.E_AvatarMyth E_AvatarMyth_List = 1;
+inline int Sheet_AvatarMyth::e_avatarmyth_list_size() const {
+  return e_avatarmyth_list_.size();
+}
+inline void Sheet_AvatarMyth::clear_e_avatarmyth_list() {
+  e_avatarmyth_list_.Clear();
+}
+inline const ::proto_ff::E_AvatarMyth& Sheet_AvatarMyth::e_avatarmyth_list(int index) const {
+  return e_avatarmyth_list_.Get(index);
+}
+inline ::proto_ff::E_AvatarMyth* Sheet_AvatarMyth::mutable_e_avatarmyth_list(int index) {
+  return e_avatarmyth_list_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMyth* Sheet_AvatarMyth::add_e_avatarmyth_list() {
+  return e_avatarmyth_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMyth >&
+Sheet_AvatarMyth::e_avatarmyth_list() const {
+  return e_avatarmyth_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMyth >*
+Sheet_AvatarMyth::mutable_e_avatarmyth_list() {
+  return &e_avatarmyth_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythwayAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_AvatarMythwayAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythwayAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythwayAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythwayAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_AvatarMythwayAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_AvatarMythwayAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_AvatarMythwayAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythwayAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythwayAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythwayAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_AvatarMythwayAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_AvatarMythwayAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythway
+
+// optional int32 m_id = 1;
+inline bool E_AvatarMythway::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythway::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythway::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_id() const {
+  return m_id_;
+}
+inline void E_AvatarMythway::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_AvatarMythway::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythway::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythway::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_AvatarMythway::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_stage = 3;
+inline bool E_AvatarMythway::has_m_stage() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_stage() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_AvatarMythway::clear_has_m_stage() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_AvatarMythway::clear_m_stage() {
+  m_stage_ = 0;
+  clear_has_m_stage();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_stage() const {
+  return m_stage_;
+}
+inline void E_AvatarMythway::set_m_stage(::google::protobuf::int32 value) {
+  set_has_m_stage();
+  m_stage_ = value;
+}
+
+// optional int32 m_star = 4;
+inline bool E_AvatarMythway::has_m_star() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_star() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_AvatarMythway::clear_has_m_star() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_AvatarMythway::clear_m_star() {
+  m_star_ = 0;
+  clear_has_m_star();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_star() const {
+  return m_star_;
+}
+inline void E_AvatarMythway::set_m_star(::google::protobuf::int32 value) {
+  set_has_m_star();
+  m_star_ = value;
+}
+
+// optional int32 m_showStar = 5;
+inline bool E_AvatarMythway::has_m_showstar() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_showstar() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_AvatarMythway::clear_has_m_showstar() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_AvatarMythway::clear_m_showstar() {
+  m_showstar_ = 0;
+  clear_has_m_showstar();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_showstar() const {
+  return m_showstar_;
+}
+inline void E_AvatarMythway::set_m_showstar(::google::protobuf::int32 value) {
+  set_has_m_showstar();
+  m_showstar_ = value;
+}
+
+// optional int32 m_mythCoreCondition = 6;
+inline bool E_AvatarMythway::has_m_mythcorecondition() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_mythcorecondition() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_AvatarMythway::clear_has_m_mythcorecondition() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_AvatarMythway::clear_m_mythcorecondition() {
+  m_mythcorecondition_ = 0;
+  clear_has_m_mythcorecondition();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_mythcorecondition() const {
+  return m_mythcorecondition_;
+}
+inline void E_AvatarMythway::set_m_mythcorecondition(::google::protobuf::int32 value) {
+  set_has_m_mythcorecondition();
+  m_mythcorecondition_ = value;
+}
+
+// optional int32 m_posX = 7;
+inline bool E_AvatarMythway::has_m_posx() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_posx() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_AvatarMythway::clear_has_m_posx() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_AvatarMythway::clear_m_posx() {
+  m_posx_ = 0;
+  clear_has_m_posx();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_posx() const {
+  return m_posx_;
+}
+inline void E_AvatarMythway::set_m_posx(::google::protobuf::int32 value) {
+  set_has_m_posx();
+  m_posx_ = value;
+}
+
+// optional int32 m_posY = 8;
+inline bool E_AvatarMythway::has_m_posy() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void E_AvatarMythway::set_has_m_posy() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void E_AvatarMythway::clear_has_m_posy() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void E_AvatarMythway::clear_m_posy() {
+  m_posy_ = 0;
+  clear_has_m_posy();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_posy() const {
+  return m_posy_;
+}
+inline void E_AvatarMythway::set_m_posy(::google::protobuf::int32 value) {
+  set_has_m_posy();
+  m_posy_ = value;
+}
+
+// repeated int32 m_equipID = 9;
+inline int E_AvatarMythway::m_equipid_size() const {
+  return m_equipid_.size();
+}
+inline void E_AvatarMythway::clear_m_equipid() {
+  m_equipid_.Clear();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_equipid(int index) const {
+  return m_equipid_.Get(index);
+}
+inline void E_AvatarMythway::set_m_equipid(int index, ::google::protobuf::int32 value) {
+  m_equipid_.Set(index, value);
+}
+inline void E_AvatarMythway::add_m_equipid(::google::protobuf::int32 value) {
+  m_equipid_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_AvatarMythway::m_equipid() const {
+  return m_equipid_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_AvatarMythway::mutable_m_equipid() {
+  return &m_equipid_;
+}
+
+// repeated int32 m_specialID = 10;
+inline int E_AvatarMythway::m_specialid_size() const {
+  return m_specialid_.size();
+}
+inline void E_AvatarMythway::clear_m_specialid() {
+  m_specialid_.Clear();
+}
+inline ::google::protobuf::int32 E_AvatarMythway::m_specialid(int index) const {
+  return m_specialid_.Get(index);
+}
+inline void E_AvatarMythway::set_m_specialid(int index, ::google::protobuf::int32 value) {
+  m_specialid_.Set(index, value);
+}
+inline void E_AvatarMythway::add_m_specialid(::google::protobuf::int32 value) {
+  m_specialid_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_AvatarMythway::m_specialid() const {
+  return m_specialid_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_AvatarMythway::mutable_m_specialid() {
+  return &m_specialid_;
+}
+
+// repeated .proto_ff.E_AvatarMythwayAttributeDesc m_Attribute = 11;
+inline int E_AvatarMythway::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_AvatarMythway::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythwayAttributeDesc& E_AvatarMythway::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythwayAttributeDesc* E_AvatarMythway::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythwayAttributeDesc* E_AvatarMythway::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythwayAttributeDesc >&
+E_AvatarMythway::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythwayAttributeDesc >*
+E_AvatarMythway::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_AvatarMythway
+
+// repeated .proto_ff.E_AvatarMythway E_AvatarMythway_List = 1;
+inline int Sheet_AvatarMythway::e_avatarmythway_list_size() const {
+  return e_avatarmythway_list_.size();
+}
+inline void Sheet_AvatarMythway::clear_e_avatarmythway_list() {
+  e_avatarmythway_list_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythway& Sheet_AvatarMythway::e_avatarmythway_list(int index) const {
+  return e_avatarmythway_list_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythway* Sheet_AvatarMythway::mutable_e_avatarmythway_list(int index) {
+  return e_avatarmythway_list_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythway* Sheet_AvatarMythway::add_e_avatarmythway_list() {
+  return e_avatarmythway_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythway >&
+Sheet_AvatarMythway::e_avatarmythway_list() const {
+  return e_avatarmythway_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythway >*
+Sheet_AvatarMythway::mutable_e_avatarmythway_list() {
+  return &e_avatarmythway_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythcoreAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_AvatarMythcoreAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythcoreAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythcoreAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythcoreAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_AvatarMythcoreAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_AvatarMythcoreAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_AvatarMythcoreAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythcoreAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythcoreAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythcoreAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_AvatarMythcoreAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_AvatarMythcoreAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythcore
+
+// optional int32 m_id = 1;
+inline bool E_AvatarMythcore::has_m_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythcore::set_has_m_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythcore::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythcore::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_AvatarMythcore::m_id() const {
+  return m_id_;
+}
+inline void E_AvatarMythcore::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// optional int32 m_groupID = 2;
+inline bool E_AvatarMythcore::has_m_groupid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythcore::set_has_m_groupid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythcore::clear_has_m_groupid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythcore::clear_m_groupid() {
+  m_groupid_ = 0;
+  clear_has_m_groupid();
+}
+inline ::google::protobuf::int32 E_AvatarMythcore::m_groupid() const {
+  return m_groupid_;
+}
+inline void E_AvatarMythcore::set_m_groupid(::google::protobuf::int32 value) {
+  set_has_m_groupid();
+  m_groupid_ = value;
+}
+
+// optional int32 m_LV = 3;
+inline bool E_AvatarMythcore::has_m_lv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_AvatarMythcore::set_has_m_lv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_AvatarMythcore::clear_has_m_lv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_AvatarMythcore::clear_m_lv() {
+  m_lv_ = 0;
+  clear_has_m_lv();
+}
+inline ::google::protobuf::int32 E_AvatarMythcore::m_lv() const {
+  return m_lv_;
+}
+inline void E_AvatarMythcore::set_m_lv(::google::protobuf::int32 value) {
+  set_has_m_lv();
+  m_lv_ = value;
+}
+
+// optional int32 m_costID = 4;
+inline bool E_AvatarMythcore::has_m_costid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_AvatarMythcore::set_has_m_costid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_AvatarMythcore::clear_has_m_costid() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_AvatarMythcore::clear_m_costid() {
+  m_costid_ = 0;
+  clear_has_m_costid();
+}
+inline ::google::protobuf::int32 E_AvatarMythcore::m_costid() const {
+  return m_costid_;
+}
+inline void E_AvatarMythcore::set_m_costid(::google::protobuf::int32 value) {
+  set_has_m_costid();
+  m_costid_ = value;
+}
+
+// optional int32 m_costNum = 5;
+inline bool E_AvatarMythcore::has_m_costnum() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_AvatarMythcore::set_has_m_costnum() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_AvatarMythcore::clear_has_m_costnum() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_AvatarMythcore::clear_m_costnum() {
+  m_costnum_ = 0;
+  clear_has_m_costnum();
+}
+inline ::google::protobuf::int32 E_AvatarMythcore::m_costnum() const {
+  return m_costnum_;
+}
+inline void E_AvatarMythcore::set_m_costnum(::google::protobuf::int32 value) {
+  set_has_m_costnum();
+  m_costnum_ = value;
+}
+
+// optional int32 m_success = 6;
+inline bool E_AvatarMythcore::has_m_success() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_AvatarMythcore::set_has_m_success() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_AvatarMythcore::clear_has_m_success() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_AvatarMythcore::clear_m_success() {
+  m_success_ = 0;
+  clear_has_m_success();
+}
+inline ::google::protobuf::int32 E_AvatarMythcore::m_success() const {
+  return m_success_;
+}
+inline void E_AvatarMythcore::set_m_success(::google::protobuf::int32 value) {
+  set_has_m_success();
+  m_success_ = value;
+}
+
+// repeated .proto_ff.E_AvatarMythcoreAttributeDesc m_Attribute = 7;
+inline int E_AvatarMythcore::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_AvatarMythcore::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythcoreAttributeDesc& E_AvatarMythcore::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythcoreAttributeDesc* E_AvatarMythcore::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythcoreAttributeDesc* E_AvatarMythcore::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcoreAttributeDesc >&
+E_AvatarMythcore::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcoreAttributeDesc >*
+E_AvatarMythcore::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_AvatarMythcore
+
+// repeated .proto_ff.E_AvatarMythcore E_AvatarMythcore_List = 1;
+inline int Sheet_AvatarMythcore::e_avatarmythcore_list_size() const {
+  return e_avatarmythcore_list_.size();
+}
+inline void Sheet_AvatarMythcore::clear_e_avatarmythcore_list() {
+  e_avatarmythcore_list_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythcore& Sheet_AvatarMythcore::e_avatarmythcore_list(int index) const {
+  return e_avatarmythcore_list_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythcore* Sheet_AvatarMythcore::mutable_e_avatarmythcore_list(int index) {
+  return e_avatarmythcore_list_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythcore* Sheet_AvatarMythcore::add_e_avatarmythcore_list() {
+  return e_avatarmythcore_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcore >&
+Sheet_AvatarMythcore::e_avatarmythcore_list() const {
+  return e_avatarmythcore_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythcore >*
+Sheet_AvatarMythcore::mutable_e_avatarmythcore_list() {
+  return &e_avatarmythcore_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythequipAttributeDesc
+
+// optional int32 m_value = 1;
+inline bool E_AvatarMythequipAttributeDesc::has_m_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythequipAttributeDesc::set_has_m_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythequipAttributeDesc::clear_has_m_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythequipAttributeDesc::clear_m_value() {
+  m_value_ = 0;
+  clear_has_m_value();
+}
+inline ::google::protobuf::int32 E_AvatarMythequipAttributeDesc::m_value() const {
+  return m_value_;
+}
+inline void E_AvatarMythequipAttributeDesc::set_m_value(::google::protobuf::int32 value) {
+  set_has_m_value();
+  m_value_ = value;
+}
+
+// optional int32 m_type = 2;
+inline bool E_AvatarMythequipAttributeDesc::has_m_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythequipAttributeDesc::set_has_m_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythequipAttributeDesc::clear_has_m_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythequipAttributeDesc::clear_m_type() {
+  m_type_ = 0;
+  clear_has_m_type();
+}
+inline ::google::protobuf::int32 E_AvatarMythequipAttributeDesc::m_type() const {
+  return m_type_;
+}
+inline void E_AvatarMythequipAttributeDesc::set_m_type(::google::protobuf::int32 value) {
+  set_has_m_type();
+  m_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// E_AvatarMythequip
+
+// optional int32 m_itemID = 1;
+inline bool E_AvatarMythequip::has_m_itemid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_AvatarMythequip::set_has_m_itemid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_AvatarMythequip::clear_has_m_itemid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_AvatarMythequip::clear_m_itemid() {
+  m_itemid_ = 0;
+  clear_has_m_itemid();
+}
+inline ::google::protobuf::int32 E_AvatarMythequip::m_itemid() const {
+  return m_itemid_;
+}
+inline void E_AvatarMythequip::set_m_itemid(::google::protobuf::int32 value) {
+  set_has_m_itemid();
+  m_itemid_ = value;
+}
+
+// optional int32 m_star = 2;
+inline bool E_AvatarMythequip::has_m_star() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_AvatarMythequip::set_has_m_star() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_AvatarMythequip::clear_has_m_star() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_AvatarMythequip::clear_m_star() {
+  m_star_ = 0;
+  clear_has_m_star();
+}
+inline ::google::protobuf::int32 E_AvatarMythequip::m_star() const {
+  return m_star_;
+}
+inline void E_AvatarMythequip::set_m_star(::google::protobuf::int32 value) {
+  set_has_m_star();
+  m_star_ = value;
+}
+
+// repeated .proto_ff.E_AvatarMythequipAttributeDesc m_Attribute = 3;
+inline int E_AvatarMythequip::m_attribute_size() const {
+  return m_attribute_.size();
+}
+inline void E_AvatarMythequip::clear_m_attribute() {
+  m_attribute_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythequipAttributeDesc& E_AvatarMythequip::m_attribute(int index) const {
+  return m_attribute_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythequipAttributeDesc* E_AvatarMythequip::mutable_m_attribute(int index) {
+  return m_attribute_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythequipAttributeDesc* E_AvatarMythequip::add_m_attribute() {
+  return m_attribute_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequipAttributeDesc >&
+E_AvatarMythequip::m_attribute() const {
+  return m_attribute_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequipAttributeDesc >*
+E_AvatarMythequip::mutable_m_attribute() {
+  return &m_attribute_;
+}
+
+// -------------------------------------------------------------------
+
+// Sheet_AvatarMythequip
+
+// repeated .proto_ff.E_AvatarMythequip E_AvatarMythequip_List = 1;
+inline int Sheet_AvatarMythequip::e_avatarmythequip_list_size() const {
+  return e_avatarmythequip_list_.size();
+}
+inline void Sheet_AvatarMythequip::clear_e_avatarmythequip_list() {
+  e_avatarmythequip_list_.Clear();
+}
+inline const ::proto_ff::E_AvatarMythequip& Sheet_AvatarMythequip::e_avatarmythequip_list(int index) const {
+  return e_avatarmythequip_list_.Get(index);
+}
+inline ::proto_ff::E_AvatarMythequip* Sheet_AvatarMythequip::mutable_e_avatarmythequip_list(int index) {
+  return e_avatarmythequip_list_.Mutable(index);
+}
+inline ::proto_ff::E_AvatarMythequip* Sheet_AvatarMythequip::add_e_avatarmythequip_list() {
+  return e_avatarmythequip_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequip >&
+Sheet_AvatarMythequip::e_avatarmythequip_list() const {
+  return e_avatarmythequip_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_AvatarMythequip >*
+Sheet_AvatarMythequip::mutable_e_avatarmythequip_list() {
+  return &e_avatarmythequip_list_;
 }
 
 

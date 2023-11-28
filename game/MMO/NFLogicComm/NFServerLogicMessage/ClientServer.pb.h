@@ -237,6 +237,16 @@ class DeityEquipDecomposeReq;
 class DeityEquipDecomposeRsp;
 class DeityEquipDisassembleReq;
 class DeityEquipDisassembleRsp;
+class DeityGodHoodInfoReq;
+class DeityGodHoodInfoRsp;
+class DeityGodHoodDressReq;
+class DeityGodHoodDressRsp;
+class DeityGodHoodHuaShengReq;
+class DeityGodHoodHuaShengRsp;
+class DeityGodHoodLvReq;
+class DeityGodHoodLvRsp;
+class DeityGodHoodStarReq;
+class DeityGodHoodStarRsp;
 class CGTitleInfoReq;
 class GCTitleInfoRsp;
 class CGTitleInfoActiveReq;
@@ -19012,6 +19022,936 @@ class DeityEquipDisassembleRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class DeityGodHoodInfoReq : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodInfoReq();
+  virtual ~DeityGodHoodInfoReq();
+
+  DeityGodHoodInfoReq(const DeityGodHoodInfoReq& from);
+
+  inline DeityGodHoodInfoReq& operator=(const DeityGodHoodInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodInfoReq& default_instance();
+
+  void Swap(DeityGodHoodInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodInfoReq& from);
+  void MergeFrom(const DeityGodHoodInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fantasy_id = 1;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodInfoReq)
+ private:
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodInfoRsp : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodInfoRsp();
+  virtual ~DeityGodHoodInfoRsp();
+
+  DeityGodHoodInfoRsp(const DeityGodHoodInfoRsp& from);
+
+  inline DeityGodHoodInfoRsp& operator=(const DeityGodHoodInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodInfoRsp& default_instance();
+
+  void Swap(DeityGodHoodInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodInfoRsp& from);
+  void MergeFrom(const DeityGodHoodInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fantasy_id = 1;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.DeityGodHoodData data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::proto_ff::DeityGodHoodData& data() const;
+  inline ::proto_ff::DeityGodHoodData* mutable_data();
+  inline ::proto_ff::DeityGodHoodData* release_data();
+  inline void set_allocated_data(::proto_ff::DeityGodHoodData* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodInfoRsp)
+ private:
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+  ::proto_ff::DeityGodHoodData* data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodInfoRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodDressReq : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodDressReq();
+  virtual ~DeityGodHoodDressReq();
+
+  DeityGodHoodDressReq(const DeityGodHoodDressReq& from);
+
+  inline DeityGodHoodDressReq& operator=(const DeityGodHoodDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodDressReq& default_instance();
+
+  void Swap(DeityGodHoodDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodDressReq& from);
+  void MergeFrom(const DeityGodHoodDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fantasy_id = 1;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // optional int32 pos = 3;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 3;
+  inline ::google::protobuf::int32 pos() const;
+  inline void set_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodDressReq)
+ private:
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+  ::google::protobuf::int32 pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodDressRsp : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodDressRsp();
+  virtual ~DeityGodHoodDressRsp();
+
+  DeityGodHoodDressRsp(const DeityGodHoodDressRsp& from);
+
+  inline DeityGodHoodDressRsp& operator=(const DeityGodHoodDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodDressRsp& default_instance();
+
+  void Swap(DeityGodHoodDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodDressRsp& from);
+  void MergeFrom(const DeityGodHoodDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 fantasy_id = 2;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 3;
+  inline const ::proto_ff::DeityGodHoodData& data() const;
+  inline ::proto_ff::DeityGodHoodData* mutable_data();
+  inline ::proto_ff::DeityGodHoodData* release_data();
+  inline void set_allocated_data(::proto_ff::DeityGodHoodData* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodDressRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+  ::proto_ff::DeityGodHoodData* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodDressRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodHuaShengReq : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodHuaShengReq();
+  virtual ~DeityGodHoodHuaShengReq();
+
+  DeityGodHoodHuaShengReq(const DeityGodHoodHuaShengReq& from);
+
+  inline DeityGodHoodHuaShengReq& operator=(const DeityGodHoodHuaShengReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodHuaShengReq& default_instance();
+
+  void Swap(DeityGodHoodHuaShengReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodHuaShengReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodHuaShengReq& from);
+  void MergeFrom(const DeityGodHoodHuaShengReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fantasy_id = 1;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodHuaShengReq)
+ private:
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodHuaShengReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodHuaShengRsp : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodHuaShengRsp();
+  virtual ~DeityGodHoodHuaShengRsp();
+
+  DeityGodHoodHuaShengRsp(const DeityGodHoodHuaShengRsp& from);
+
+  inline DeityGodHoodHuaShengRsp& operator=(const DeityGodHoodHuaShengRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodHuaShengRsp& default_instance();
+
+  void Swap(DeityGodHoodHuaShengRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodHuaShengRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodHuaShengRsp& from);
+  void MergeFrom(const DeityGodHoodHuaShengRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 fantasy_id = 2;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 3;
+  inline const ::proto_ff::DeityGodHoodData& data() const;
+  inline ::proto_ff::DeityGodHoodData* mutable_data();
+  inline ::proto_ff::DeityGodHoodData* release_data();
+  inline void set_allocated_data(::proto_ff::DeityGodHoodData* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodHuaShengRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+  ::proto_ff::DeityGodHoodData* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodHuaShengRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodLvReq : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodLvReq();
+  virtual ~DeityGodHoodLvReq();
+
+  DeityGodHoodLvReq(const DeityGodHoodLvReq& from);
+
+  inline DeityGodHoodLvReq& operator=(const DeityGodHoodLvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodLvReq& default_instance();
+
+  void Swap(DeityGodHoodLvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodLvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodLvReq& from);
+  void MergeFrom(const DeityGodHoodLvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fantasy_id = 1;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodLvReq)
+ private:
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodLvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodLvRsp : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodLvRsp();
+  virtual ~DeityGodHoodLvRsp();
+
+  DeityGodHoodLvRsp(const DeityGodHoodLvRsp& from);
+
+  inline DeityGodHoodLvRsp& operator=(const DeityGodHoodLvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodLvRsp& default_instance();
+
+  void Swap(DeityGodHoodLvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodLvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodLvRsp& from);
+  void MergeFrom(const DeityGodHoodLvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 fantasy_id = 2;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 3;
+  inline const ::proto_ff::DeityGodHoodData& data() const;
+  inline ::proto_ff::DeityGodHoodData* mutable_data();
+  inline ::proto_ff::DeityGodHoodData* release_data();
+  inline void set_allocated_data(::proto_ff::DeityGodHoodData* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodLvRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+  ::proto_ff::DeityGodHoodData* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodLvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodStarReq : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodStarReq();
+  virtual ~DeityGodHoodStarReq();
+
+  DeityGodHoodStarReq(const DeityGodHoodStarReq& from);
+
+  inline DeityGodHoodStarReq& operator=(const DeityGodHoodStarReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodStarReq& default_instance();
+
+  void Swap(DeityGodHoodStarReq* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodStarReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodStarReq& from);
+  void MergeFrom(const DeityGodHoodStarReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 fantasy_id = 1;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodStarReq)
+ private:
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodStarReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodStarRsp : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodStarRsp();
+  virtual ~DeityGodHoodStarRsp();
+
+  DeityGodHoodStarRsp(const DeityGodHoodStarRsp& from);
+
+  inline DeityGodHoodStarRsp& operator=(const DeityGodHoodStarRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodStarRsp& default_instance();
+
+  void Swap(DeityGodHoodStarRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodStarRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodStarRsp& from);
+  void MergeFrom(const DeityGodHoodStarRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint64 fantasy_id = 2;
+  inline bool has_fantasy_id() const;
+  inline void clear_fantasy_id();
+  static const int kFantasyIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 fantasy_id() const;
+  inline void set_fantasy_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 3;
+  inline const ::proto_ff::DeityGodHoodData& data() const;
+  inline ::proto_ff::DeityGodHoodData* mutable_data();
+  inline ::proto_ff::DeityGodHoodData* release_data();
+  inline void set_allocated_data(::proto_ff::DeityGodHoodData* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodStarRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_fantasy_id();
+  inline void clear_has_fantasy_id();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 fantasy_id_;
+  ::proto_ff::DeityGodHoodData* data_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodStarRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CGTitleInfoReq : public ::google::protobuf::Message {
  public:
   CGTitleInfoReq();
@@ -35287,6 +36227,566 @@ inline ::google::protobuf::int32 DeityEquipDisassembleRsp::ret_code() const {
 inline void DeityEquipDisassembleRsp::set_ret_code(::google::protobuf::int32 value) {
   set_has_ret_code();
   ret_code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodInfoReq
+
+// optional uint64 fantasy_id = 1;
+inline bool DeityGodHoodInfoReq::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodInfoReq::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodInfoReq::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodInfoReq::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodInfoReq::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodInfoReq::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodInfoRsp
+
+// optional uint64 fantasy_id = 1;
+inline bool DeityGodHoodInfoRsp::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodInfoRsp::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodInfoRsp::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodInfoRsp::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodInfoRsp::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodInfoRsp::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// optional .proto_ff.DeityGodHoodData data = 2;
+inline bool DeityGodHoodInfoRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodInfoRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodInfoRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodInfoRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::DeityGodHoodData& DeityGodHoodInfoRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodInfoRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::DeityGodHoodData;
+  return data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodInfoRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::DeityGodHoodData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void DeityGodHoodInfoRsp::set_allocated_data(::proto_ff::DeityGodHoodData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodDressReq
+
+// optional uint64 fantasy_id = 1;
+inline bool DeityGodHoodDressReq::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodDressReq::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodDressReq::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodDressReq::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodDressReq::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodDressReq::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// optional int32 pos = 3;
+inline bool DeityGodHoodDressReq::has_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodDressReq::set_has_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodDressReq::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodDressReq::clear_pos() {
+  pos_ = 0;
+  clear_has_pos();
+}
+inline ::google::protobuf::int32 DeityGodHoodDressReq::pos() const {
+  return pos_;
+}
+inline void DeityGodHoodDressReq::set_pos(::google::protobuf::int32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodDressRsp
+
+// optional int32 ret_code = 1;
+inline bool DeityGodHoodDressRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodDressRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodDressRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodDressRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 DeityGodHoodDressRsp::ret_code() const {
+  return ret_code_;
+}
+inline void DeityGodHoodDressRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 fantasy_id = 2;
+inline bool DeityGodHoodDressRsp::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodDressRsp::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodDressRsp::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodDressRsp::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodDressRsp::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodDressRsp::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// optional .proto_ff.DeityGodHoodData data = 3;
+inline bool DeityGodHoodDressRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DeityGodHoodDressRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DeityGodHoodDressRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DeityGodHoodDressRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::DeityGodHoodData& DeityGodHoodDressRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodDressRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::DeityGodHoodData;
+  return data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodDressRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::DeityGodHoodData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void DeityGodHoodDressRsp::set_allocated_data(::proto_ff::DeityGodHoodData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodHuaShengReq
+
+// optional uint64 fantasy_id = 1;
+inline bool DeityGodHoodHuaShengReq::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodHuaShengReq::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodHuaShengReq::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodHuaShengReq::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodHuaShengReq::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodHuaShengReq::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodHuaShengRsp
+
+// optional int32 ret_code = 1;
+inline bool DeityGodHoodHuaShengRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodHuaShengRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodHuaShengRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodHuaShengRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 DeityGodHoodHuaShengRsp::ret_code() const {
+  return ret_code_;
+}
+inline void DeityGodHoodHuaShengRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 fantasy_id = 2;
+inline bool DeityGodHoodHuaShengRsp::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodHuaShengRsp::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodHuaShengRsp::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodHuaShengRsp::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodHuaShengRsp::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodHuaShengRsp::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// optional .proto_ff.DeityGodHoodData data = 3;
+inline bool DeityGodHoodHuaShengRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DeityGodHoodHuaShengRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DeityGodHoodHuaShengRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DeityGodHoodHuaShengRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::DeityGodHoodData& DeityGodHoodHuaShengRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodHuaShengRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::DeityGodHoodData;
+  return data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodHuaShengRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::DeityGodHoodData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void DeityGodHoodHuaShengRsp::set_allocated_data(::proto_ff::DeityGodHoodData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodLvReq
+
+// optional uint64 fantasy_id = 1;
+inline bool DeityGodHoodLvReq::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodLvReq::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodLvReq::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodLvReq::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodLvReq::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodLvReq::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodLvRsp
+
+// optional int32 ret_code = 1;
+inline bool DeityGodHoodLvRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodLvRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodLvRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodLvRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 DeityGodHoodLvRsp::ret_code() const {
+  return ret_code_;
+}
+inline void DeityGodHoodLvRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 fantasy_id = 2;
+inline bool DeityGodHoodLvRsp::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodLvRsp::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodLvRsp::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodLvRsp::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodLvRsp::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodLvRsp::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// optional .proto_ff.DeityGodHoodData data = 3;
+inline bool DeityGodHoodLvRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DeityGodHoodLvRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DeityGodHoodLvRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DeityGodHoodLvRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::DeityGodHoodData& DeityGodHoodLvRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodLvRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::DeityGodHoodData;
+  return data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodLvRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::DeityGodHoodData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void DeityGodHoodLvRsp::set_allocated_data(::proto_ff::DeityGodHoodData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodStarReq
+
+// optional uint64 fantasy_id = 1;
+inline bool DeityGodHoodStarReq::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodStarReq::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodStarReq::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodStarReq::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodStarReq::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodStarReq::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodStarRsp
+
+// optional int32 ret_code = 1;
+inline bool DeityGodHoodStarRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodStarRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodStarRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodStarRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 DeityGodHoodStarRsp::ret_code() const {
+  return ret_code_;
+}
+inline void DeityGodHoodStarRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint64 fantasy_id = 2;
+inline bool DeityGodHoodStarRsp::has_fantasy_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodStarRsp::set_has_fantasy_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodStarRsp::clear_has_fantasy_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodStarRsp::clear_fantasy_id() {
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_fantasy_id();
+}
+inline ::google::protobuf::uint64 DeityGodHoodStarRsp::fantasy_id() const {
+  return fantasy_id_;
+}
+inline void DeityGodHoodStarRsp::set_fantasy_id(::google::protobuf::uint64 value) {
+  set_has_fantasy_id();
+  fantasy_id_ = value;
+}
+
+// optional .proto_ff.DeityGodHoodData data = 3;
+inline bool DeityGodHoodStarRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DeityGodHoodStarRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DeityGodHoodStarRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DeityGodHoodStarRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::DeityGodHoodData& DeityGodHoodStarRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodStarRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::DeityGodHoodData;
+  return data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityGodHoodStarRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::DeityGodHoodData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void DeityGodHoodStarRsp::set_allocated_data(::proto_ff::DeityGodHoodData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
 }
 
 // -------------------------------------------------------------------

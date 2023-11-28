@@ -1644,6 +1644,7 @@ int E_PetRefineconversion_s::CreateInit() {
 	m_group = (int32_t)0;
 	m_num = (int32_t)0;
 	m_condition = (int32_t)0;
+	m_conversion = (int32_t)0;
 	return 0;
 }
 
@@ -1656,6 +1657,7 @@ void E_PetRefineconversion_s::write_to_pbmsg(::proto_ff::E_PetRefineconversion &
 	msg.set_m_group((int32_t)m_group);
 	msg.set_m_num((int32_t)m_num);
 	msg.set_m_condition((int32_t)m_condition);
+	msg.set_m_conversion((int32_t)m_conversion);
 }
 
 void E_PetRefineconversion_s::read_from_pbmsg(const ::proto_ff::E_PetRefineconversion & msg) {
@@ -1663,6 +1665,7 @@ void E_PetRefineconversion_s::read_from_pbmsg(const ::proto_ff::E_PetRefineconve
 	m_group = msg.m_group();
 	m_num = msg.m_num();
 	m_condition = msg.m_condition();
+	m_conversion = msg.m_conversion();
 }
 
 Sheet_PetRefineconversion_s::Sheet_PetRefineconversion_s() {
@@ -1951,6 +1954,8 @@ int E_PetConst_s::CreateInit() {
 	m_solt = (int32_t)0;
 	m_item = (int32_t)0;
 	m_num = (int32_t)0;
+	m_items = (int32_t)0;
+	m_nums = (int32_t)0;
 	return 0;
 }
 
@@ -1964,6 +1969,8 @@ void E_PetConst_s::write_to_pbmsg(::proto_ff::E_PetConst & msg) const {
 	msg.set_m_solt((int32_t)m_solt);
 	msg.set_m_item((int32_t)m_item);
 	msg.set_m_num((int32_t)m_num);
+	msg.set_m_items((int32_t)m_items);
+	msg.set_m_nums((int32_t)m_nums);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_PetConstMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
@@ -1976,6 +1983,8 @@ void E_PetConst_s::read_from_pbmsg(const ::proto_ff::E_PetConst & msg) {
 	m_solt = msg.m_solt();
 	m_item = msg.m_item();
 	m_num = msg.m_num();
+	m_items = msg.m_items();
+	m_nums = msg.m_nums();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_PetConstMaterialDesc & temp_m_material = msg.m_material(i);

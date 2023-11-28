@@ -8,7 +8,7 @@ message E_GmcommandGmcommand
 	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "命令索引"];
 	optional string m_Key = 2[(yd_fieldoptions.field_cname) = "命令关键字", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_ParamCount = 3[(yd_fieldoptions.field_cname) = "参数数量"];
-	optional string m_Des = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_Des = 4[(yd_fieldoptions.field_cname) = "描述", (yd_fieldoptions.field_bufsize) = 128];
 }
 
 

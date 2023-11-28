@@ -9,14 +9,15 @@
 #include "E_Nickgod_s.h"
 
 #define DEFINE_SHEET_NICKGODCONSTANT_E_NICKGODCONSTANT_LIST_MAX_NUM 2
-#define DEFINE_SHEET_NICKGODNAME_E_NICKGODNAME_LIST_MAX_NUM 4
+#define DEFINE_SHEET_NICKGODNAME_E_NICKGODNAME_LIST_MAX_NUM 32
 #define DEFINE_E_NICKGODSTAGE_M_MOS_MAX_NUM 10
-#define DEFINE_E_NICKGODSTAGE_M_BOSS_MAX_NUM 3
+#define DEFINE_E_NICKGODSTAGE_M_BOSS_MAX_NUM 4
 #define DEFINE_E_NICKGODSTAGE_M_REVIVALPOINT_MAX_NUM 8
 #define DEFINE_SHEET_NICKGODSTAGE_E_NICKGODSTAGE_LIST_MAX_NUM 4
 #define DEFINE_E_NICKGODREWARDS_M_REWARD_MAX_NUM 5
 #define DEFINE_SHEET_NICKGODREWARDS_E_NICKGODREWARDS_LIST_MAX_NUM 16
 #define DEFINE_SHEET_NICKGODLATTICE_E_NICKGODLATTICE_LIST_MAX_NUM 64
+#define DEFINE_E_NICKGODTREASURY_M_ITEM_MAX_NUM 37
 #define DEFINE_SHEET_NICKGODTREASURY_E_NICKGODTREASURY_LIST_MAX_NUM 16
 #define DEFINE_E_NICKGODPRIVILEGE_M_REWARD_MAX_NUM 5
 #define DEFINE_SHEET_NICKGODPRIVILEGE_E_NICKGODPRIVILEGE_LIST_MAX_NUM 16
@@ -121,7 +122,7 @@ namespace proto_ff_s {
 		virtual ~E_NickgodStageBossDesc_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_dropPreview;//掉落预览
+		NFShmString<64> m_dropPreview;//掉落预览
 		int32_t m_id;//id
 		int32_t m_point;//刷新点
 
@@ -227,7 +228,7 @@ namespace proto_ff_s {
 		virtual ~E_NickgodLattice_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;//格子id
+		int32_t m_id;//进度id
 		int32_t m_itemId;//消耗道具
 		int32_t m_itemNum;//道具数量
 
@@ -252,13 +253,30 @@ namespace proto_ff_s {
 	};
 	typedef struct Sheet_NickgodLattice_s Sheet_NickgodLattice_t;
 
+	struct E_NickgodTreasuryItemDesc_s : public NFDescStoreSeqOP {
+		E_NickgodTreasuryItemDesc_s();
+		virtual ~E_NickgodTreasuryItemDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_show;//展示
+		int32_t m_rand;//权重
+		int32_t m_num;//数量
+		int32_t m_id;//id
+
+		virtual void write_to_pbmsg(::proto_ff::E_NickgodTreasuryItemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_NickgodTreasuryItemDesc & msg);
+		static ::proto_ff::E_NickgodTreasuryItemDesc* new_pbmsg(){ return new ::proto_ff::E_NickgodTreasuryItemDesc(); }
+		static ::proto_ff::E_NickgodTreasuryItemDesc make_pbmsg(){ return ::proto_ff::E_NickgodTreasuryItemDesc(); }
+	};
+	typedef struct E_NickgodTreasuryItemDesc_s E_NickgodTreasuryItemDesc_t;
+
 	struct E_NickgodTreasury_s : public NFDescStoreSeqOP {
 		E_NickgodTreasury_s();
 		virtual ~E_NickgodTreasury_s(){}
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//层数
-		int32_t m_boxId;//宝库box
+		NFShmVector<struct E_NickgodTreasuryItemDesc_s, DEFINE_E_NICKGODTREASURY_M_ITEM_MAX_NUM> m_item;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_NickgodTreasury & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_NickgodTreasury & msg);
@@ -397,6 +415,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//累充id
+		int32_t m_pay;//充值金额
 		NFShmVector<struct E_NickgodChargeupRewardDesc_s, DEFINE_E_NICKGODCHARGEUP_M_REWARD_MAX_NUM> m_reward;//奖励
 
 		virtual void write_to_pbmsg(::proto_ff::E_NickgodChargeup & msg) const;

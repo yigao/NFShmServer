@@ -334,6 +334,7 @@ int E_SkillSkill_s::CreateInit() {
 	m_Relation = (int64_t)0;
 	m_type = (int32_t)0;
 	m_cd = (int32_t)0;
+	m_FirstCD = (int32_t)0;
 	m_noLock = (int32_t)0;
 	m_priority = (int32_t)0;
 	m_fighting = (int32_t)0;
@@ -393,6 +394,7 @@ void E_SkillSkill_s::write_to_pbmsg(::proto_ff::E_SkillSkill & msg) const {
 	msg.set_m_unlockcondition(m_unlockCondition.data());
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_cd((int32_t)m_cd);
+	msg.set_m_firstcd((int32_t)m_FirstCD);
 	msg.set_m_nolock((int32_t)m_noLock);
 	msg.set_m_priority((int32_t)m_priority);
 	msg.set_m_fighting((int32_t)m_fighting);
@@ -473,6 +475,7 @@ void E_SkillSkill_s::read_from_pbmsg(const ::proto_ff::E_SkillSkill & msg) {
 	m_unlockCondition = msg.m_unlockcondition();
 	m_type = msg.m_type();
 	m_cd = msg.m_cd();
+	m_FirstCD = msg.m_firstcd();
 	m_noLock = msg.m_nolock();
 	m_priority = msg.m_priority();
 	m_fighting = msg.m_fighting();

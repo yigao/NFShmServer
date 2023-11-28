@@ -395,6 +395,9 @@ int E_AvatarChange_s::CreateInit() {
 	m_maxEquip = (int32_t)0;
 	m_equipSuit = (int32_t)0;
 	m_starBer = (int32_t)0;
+	m_mythID = (int32_t)0;
+	m_mythWayID = (int32_t)0;
+	m_mythCoreID = (int32_t)0;
 	return 0;
 }
 
@@ -424,6 +427,11 @@ void E_AvatarChange_s::write_to_pbmsg(::proto_ff::E_AvatarChange & msg) const {
 	msg.set_m_maxequip((int32_t)m_maxEquip);
 	msg.set_m_equipsuit((int32_t)m_equipSuit);
 	msg.set_m_starber((int32_t)m_starBer);
+	msg.set_m_mythskill(m_mythSkill.data());
+	msg.set_m_mythspskill(m_mythSPSkill.data());
+	msg.set_m_mythid((int32_t)m_mythID);
+	msg.set_m_mythwayid((int32_t)m_mythWayID);
+	msg.set_m_mythcoreid((int32_t)m_mythCoreID);
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		::proto_ff::E_AvatarChangeMaterialDesc* temp_m_material = msg.add_m_material();
 		m_material[i].write_to_pbmsg(*temp_m_material);
@@ -459,6 +467,11 @@ void E_AvatarChange_s::read_from_pbmsg(const ::proto_ff::E_AvatarChange & msg) {
 	m_maxEquip = msg.m_maxequip();
 	m_equipSuit = msg.m_equipsuit();
 	m_starBer = msg.m_starber();
+	m_mythSkill = msg.m_mythskill();
+	m_mythSPSkill = msg.m_mythspskill();
+	m_mythID = msg.m_mythid();
+	m_mythWayID = msg.m_mythwayid();
+	m_mythCoreID = msg.m_mythcoreid();
 	m_material.resize((int)msg.m_material_size() > (int)m_material.max_size() ? m_material.max_size() : msg.m_material_size());
 	for(int32_t i = 0; i < (int32_t)m_material.size(); ++i) {
 		const ::proto_ff::E_AvatarChangeMaterialDesc & temp_m_material = msg.m_material(i);
@@ -889,6 +902,437 @@ void Sheet_AvatarEquipsuit_s::read_from_pbmsg(const ::proto_ff::Sheet_AvatarEqui
 	for(int32_t i = 0; i < (int32_t)E_AvatarEquipsuit_List.size(); ++i) {
 		const ::proto_ff::E_AvatarEquipsuit & temp_e_avatarequipsuit_list = msg.e_avatarequipsuit_list(i);
 		E_AvatarEquipsuit_List[i].read_from_pbmsg(temp_e_avatarequipsuit_list);
+	}
+}
+
+E_AvatarMythAttributeDesc_s::E_AvatarMythAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythAttributeDesc_s::write_to_pbmsg(::proto_ff::E_AvatarMythAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_AvatarMythAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_AvatarMyth_s::E_AvatarMyth_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMyth_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_stage = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMyth_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMyth_s::write_to_pbmsg(::proto_ff::E_AvatarMyth & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_stage((int32_t)m_stage);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		::proto_ff::E_AvatarMythAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+}
+
+void E_AvatarMyth_s::read_from_pbmsg(const ::proto_ff::E_AvatarMyth & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_stage = msg.m_stage();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		const ::proto_ff::E_AvatarMythAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+}
+
+Sheet_AvatarMyth_s::Sheet_AvatarMyth_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_AvatarMyth_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_AvatarMyth_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_AvatarMyth_s::write_to_pbmsg(::proto_ff::Sheet_AvatarMyth & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_AvatarMyth_List.size(); ++i) {
+		::proto_ff::E_AvatarMyth* temp_e_avatarmyth_list = msg.add_e_avatarmyth_list();
+		E_AvatarMyth_List[i].write_to_pbmsg(*temp_e_avatarmyth_list);
+	}
+}
+
+void Sheet_AvatarMyth_s::read_from_pbmsg(const ::proto_ff::Sheet_AvatarMyth & msg) {
+	E_AvatarMyth_List.resize((int)msg.e_avatarmyth_list_size() > (int)E_AvatarMyth_List.max_size() ? E_AvatarMyth_List.max_size() : msg.e_avatarmyth_list_size());
+	for(int32_t i = 0; i < (int32_t)E_AvatarMyth_List.size(); ++i) {
+		const ::proto_ff::E_AvatarMyth & temp_e_avatarmyth_list = msg.e_avatarmyth_list(i);
+		E_AvatarMyth_List[i].read_from_pbmsg(temp_e_avatarmyth_list);
+	}
+}
+
+E_AvatarMythwayAttributeDesc_s::E_AvatarMythwayAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythwayAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythwayAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythwayAttributeDesc_s::write_to_pbmsg(::proto_ff::E_AvatarMythwayAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_AvatarMythwayAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythwayAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_AvatarMythway_s::E_AvatarMythway_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythway_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_stage = (int32_t)0;
+	m_star = (int32_t)0;
+	m_showStar = (int32_t)0;
+	m_mythCoreCondition = (int32_t)0;
+	m_posX = (int32_t)0;
+	m_posY = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythway_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythway_s::write_to_pbmsg(::proto_ff::E_AvatarMythway & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_stage((int32_t)m_stage);
+	msg.set_m_star((int32_t)m_star);
+	msg.set_m_showstar((int32_t)m_showStar);
+	msg.set_m_mythcorecondition((int32_t)m_mythCoreCondition);
+	msg.set_m_posx((int32_t)m_posX);
+	msg.set_m_posy((int32_t)m_posY);
+	for(int32_t i = 0; i < (int32_t)m_equipID.size(); ++i) {
+		msg.add_m_equipid((int32_t)m_equipID[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)m_specialID.size(); ++i) {
+		msg.add_m_specialid((int32_t)m_specialID[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		::proto_ff::E_AvatarMythwayAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+}
+
+void E_AvatarMythway_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythway & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_stage = msg.m_stage();
+	m_star = msg.m_star();
+	m_showStar = msg.m_showstar();
+	m_mythCoreCondition = msg.m_mythcorecondition();
+	m_posX = msg.m_posx();
+	m_posY = msg.m_posy();
+	m_equipID.resize((int)msg.m_equipid_size() > (int)m_equipID.max_size() ? m_equipID.max_size() : msg.m_equipid_size());
+	for(int32_t i = 0; i < (int32_t)m_equipID.size(); ++i) {
+		m_equipID[i] = msg.m_equipid(i);
+	}
+	m_specialID.resize((int)msg.m_specialid_size() > (int)m_specialID.max_size() ? m_specialID.max_size() : msg.m_specialid_size());
+	for(int32_t i = 0; i < (int32_t)m_specialID.size(); ++i) {
+		m_specialID[i] = msg.m_specialid(i);
+	}
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		const ::proto_ff::E_AvatarMythwayAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+}
+
+Sheet_AvatarMythway_s::Sheet_AvatarMythway_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_AvatarMythway_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_AvatarMythway_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_AvatarMythway_s::write_to_pbmsg(::proto_ff::Sheet_AvatarMythway & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_AvatarMythway_List.size(); ++i) {
+		::proto_ff::E_AvatarMythway* temp_e_avatarmythway_list = msg.add_e_avatarmythway_list();
+		E_AvatarMythway_List[i].write_to_pbmsg(*temp_e_avatarmythway_list);
+	}
+}
+
+void Sheet_AvatarMythway_s::read_from_pbmsg(const ::proto_ff::Sheet_AvatarMythway & msg) {
+	E_AvatarMythway_List.resize((int)msg.e_avatarmythway_list_size() > (int)E_AvatarMythway_List.max_size() ? E_AvatarMythway_List.max_size() : msg.e_avatarmythway_list_size());
+	for(int32_t i = 0; i < (int32_t)E_AvatarMythway_List.size(); ++i) {
+		const ::proto_ff::E_AvatarMythway & temp_e_avatarmythway_list = msg.e_avatarmythway_list(i);
+		E_AvatarMythway_List[i].read_from_pbmsg(temp_e_avatarmythway_list);
+	}
+}
+
+E_AvatarMythcoreAttributeDesc_s::E_AvatarMythcoreAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythcoreAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythcoreAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythcoreAttributeDesc_s::write_to_pbmsg(::proto_ff::E_AvatarMythcoreAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_AvatarMythcoreAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythcoreAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_AvatarMythcore_s::E_AvatarMythcore_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythcore_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_LV = (int32_t)0;
+	m_costID = (int32_t)0;
+	m_costNum = (int32_t)0;
+	m_success = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythcore_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythcore_s::write_to_pbmsg(::proto_ff::E_AvatarMythcore & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_lv((int32_t)m_LV);
+	msg.set_m_costid((int32_t)m_costID);
+	msg.set_m_costnum((int32_t)m_costNum);
+	msg.set_m_success((int32_t)m_success);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		::proto_ff::E_AvatarMythcoreAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+}
+
+void E_AvatarMythcore_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythcore & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_LV = msg.m_lv();
+	m_costID = msg.m_costid();
+	m_costNum = msg.m_costnum();
+	m_success = msg.m_success();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		const ::proto_ff::E_AvatarMythcoreAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+}
+
+Sheet_AvatarMythcore_s::Sheet_AvatarMythcore_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_AvatarMythcore_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_AvatarMythcore_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_AvatarMythcore_s::write_to_pbmsg(::proto_ff::Sheet_AvatarMythcore & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_AvatarMythcore_List.size(); ++i) {
+		::proto_ff::E_AvatarMythcore* temp_e_avatarmythcore_list = msg.add_e_avatarmythcore_list();
+		E_AvatarMythcore_List[i].write_to_pbmsg(*temp_e_avatarmythcore_list);
+	}
+}
+
+void Sheet_AvatarMythcore_s::read_from_pbmsg(const ::proto_ff::Sheet_AvatarMythcore & msg) {
+	E_AvatarMythcore_List.resize((int)msg.e_avatarmythcore_list_size() > (int)E_AvatarMythcore_List.max_size() ? E_AvatarMythcore_List.max_size() : msg.e_avatarmythcore_list_size());
+	for(int32_t i = 0; i < (int32_t)E_AvatarMythcore_List.size(); ++i) {
+		const ::proto_ff::E_AvatarMythcore & temp_e_avatarmythcore_list = msg.e_avatarmythcore_list(i);
+		E_AvatarMythcore_List[i].read_from_pbmsg(temp_e_avatarmythcore_list);
+	}
+}
+
+E_AvatarMythequipAttributeDesc_s::E_AvatarMythequipAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythequipAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythequipAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythequipAttributeDesc_s::write_to_pbmsg(::proto_ff::E_AvatarMythequipAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_AvatarMythequipAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythequipAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_AvatarMythequip_s::E_AvatarMythequip_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_AvatarMythequip_s::CreateInit() {
+	m_itemID = (int32_t)0;
+	m_star = (int32_t)0;
+	return 0;
+}
+
+int E_AvatarMythequip_s::ResumeInit() {
+	return 0;
+}
+
+void E_AvatarMythequip_s::write_to_pbmsg(::proto_ff::E_AvatarMythequip & msg) const {
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_star((int32_t)m_star);
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		::proto_ff::E_AvatarMythequipAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_Attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+}
+
+void E_AvatarMythequip_s::read_from_pbmsg(const ::proto_ff::E_AvatarMythequip & msg) {
+	m_itemID = msg.m_itemid();
+	m_star = msg.m_star();
+	m_Attribute.resize((int)msg.m_attribute_size() > (int)m_Attribute.max_size() ? m_Attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_Attribute.size(); ++i) {
+		const ::proto_ff::E_AvatarMythequipAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_Attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+}
+
+Sheet_AvatarMythequip_s::Sheet_AvatarMythequip_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_AvatarMythequip_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_AvatarMythequip_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_AvatarMythequip_s::write_to_pbmsg(::proto_ff::Sheet_AvatarMythequip & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_AvatarMythequip_List.size(); ++i) {
+		::proto_ff::E_AvatarMythequip* temp_e_avatarmythequip_list = msg.add_e_avatarmythequip_list();
+		E_AvatarMythequip_List[i].write_to_pbmsg(*temp_e_avatarmythequip_list);
+	}
+}
+
+void Sheet_AvatarMythequip_s::read_from_pbmsg(const ::proto_ff::Sheet_AvatarMythequip & msg) {
+	E_AvatarMythequip_List.resize((int)msg.e_avatarmythequip_list_size() > (int)E_AvatarMythequip_List.max_size() ? E_AvatarMythequip_List.max_size() : msg.e_avatarmythequip_list_size());
+	for(int32_t i = 0; i < (int32_t)E_AvatarMythequip_List.size(); ++i) {
+		const ::proto_ff::E_AvatarMythequip & temp_e_avatarmythequip_list = msg.e_avatarmythequip_list(i);
+		E_AvatarMythequip_List[i].read_from_pbmsg(temp_e_avatarmythequip_list);
 	}
 }
 

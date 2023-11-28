@@ -77,6 +77,7 @@ int E_SoulSoul_s::CreateInit() {
 	m_lvItem = (int32_t)0;
 	m_advanceItem = (int32_t)0;
 	m_sacrificeSkill = (int32_t)0;
+	m_monsterId = (int32_t)0;
 	return 0;
 }
 
@@ -91,6 +92,7 @@ void E_SoulSoul_s::write_to_pbmsg(::proto_ff::E_SoulSoul & msg) const {
 	msg.set_m_advanceitem((int32_t)m_advanceItem);
 	msg.set_m_sacrificeskill((int32_t)m_sacrificeSkill);
 	msg.set_m_skilllv(m_SkillLv.data());
+	msg.set_m_monsterid((int32_t)m_monsterId);
 }
 
 void E_SoulSoul_s::read_from_pbmsg(const ::proto_ff::E_SoulSoul & msg) {
@@ -100,6 +102,7 @@ void E_SoulSoul_s::read_from_pbmsg(const ::proto_ff::E_SoulSoul & msg) {
 	m_advanceItem = msg.m_advanceitem();
 	m_sacrificeSkill = msg.m_sacrificeskill();
 	m_SkillLv = msg.m_skilllv();
+	m_monsterId = msg.m_monsterid();
 }
 
 Sheet_SoulSoul_s::Sheet_SoulSoul_s() {
@@ -130,6 +133,65 @@ void Sheet_SoulSoul_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulSoul & msg) {
 	for(int32_t i = 0; i < (int32_t)E_SoulSoul_List.size(); ++i) {
 		const ::proto_ff::E_SoulSoul & temp_e_soulsoul_list = msg.e_soulsoul_list(i);
 		E_SoulSoul_List[i].read_from_pbmsg(temp_e_soulsoul_list);
+	}
+}
+
+E_Soul3dmodel_s::E_Soul3dmodel_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_Soul3dmodel_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_position = (int32_t)0;
+	return 0;
+}
+
+int E_Soul3dmodel_s::ResumeInit() {
+	return 0;
+}
+
+void E_Soul3dmodel_s::write_to_pbmsg(::proto_ff::E_Soul3dmodel & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_position((int32_t)m_position);
+}
+
+void E_Soul3dmodel_s::read_from_pbmsg(const ::proto_ff::E_Soul3dmodel & msg) {
+	m_id = msg.m_id();
+	m_position = msg.m_position();
+}
+
+Sheet_Soul3dmodel_s::Sheet_Soul3dmodel_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_Soul3dmodel_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_Soul3dmodel_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_Soul3dmodel_s::write_to_pbmsg(::proto_ff::Sheet_Soul3dmodel & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_Soul3dmodel_List.size(); ++i) {
+		::proto_ff::E_Soul3dmodel* temp_e_soul3dmodel_list = msg.add_e_soul3dmodel_list();
+		E_Soul3dmodel_List[i].write_to_pbmsg(*temp_e_soul3dmodel_list);
+	}
+}
+
+void Sheet_Soul3dmodel_s::read_from_pbmsg(const ::proto_ff::Sheet_Soul3dmodel & msg) {
+	E_Soul3dmodel_List.resize((int)msg.e_soul3dmodel_list_size() > (int)E_Soul3dmodel_List.max_size() ? E_Soul3dmodel_List.max_size() : msg.e_soul3dmodel_list_size());
+	for(int32_t i = 0; i < (int32_t)E_Soul3dmodel_List.size(); ++i) {
+		const ::proto_ff::E_Soul3dmodel & temp_e_soul3dmodel_list = msg.e_soul3dmodel_list(i);
+		E_Soul3dmodel_List[i].read_from_pbmsg(temp_e_soul3dmodel_list);
 	}
 }
 
@@ -516,14 +578,16 @@ E_SoulCrystal_s::E_SoulCrystal_s() {
 
 int E_SoulCrystal_s::CreateInit() {
 	m_equipId = (int32_t)0;
-	m_crystalType = (int32_t)0;
+	m_skillType = (int32_t)0;
+	m_type = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
+	m_makeid = (int32_t)0;
+	m_first_skill = (int32_t)0;
+	m_attrid = (int32_t)0;
+	m_intensify = (int32_t)0;
 	m_dismantleTime = (int32_t)0;
 	m_dismantleNum = (int32_t)0;
-	m_skill = (int32_t)0;
-	m_skillLv = (int32_t)0;
-	m_handbook = (int32_t)0;
 	return 0;
 }
 
@@ -534,27 +598,38 @@ int E_SoulCrystal_s::ResumeInit() {
 void E_SoulCrystal_s::write_to_pbmsg(::proto_ff::E_SoulCrystal & msg) const {
 	msg.set_m_equipid((int32_t)m_equipId);
 	msg.set_m_name(m_name.data());
-	msg.set_m_crystaltype((int32_t)m_crystalType);
+	msg.set_m_skilltype((int32_t)m_skillType);
+	msg.set_m_type((int32_t)m_type);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
+	msg.set_m_makeid((int32_t)m_makeid);
+	msg.set_m_first_skill((int32_t)m_first_skill);
+	msg.set_m_attrid((int32_t)m_attrid);
+	msg.set_m_intensify((int32_t)m_intensify);
 	msg.set_m_dismantletime((int32_t)m_dismantleTime);
 	msg.set_m_dismantlenum((int32_t)m_dismantleNum);
-	msg.set_m_skill((int32_t)m_skill);
-	msg.set_m_skilllv((int32_t)m_skillLv);
-	msg.set_m_handbook((int32_t)m_handbook);
+	for(int32_t i = 0; i < (int32_t)m_other_skillId.size(); ++i) {
+		msg.add_m_other_skillid((int32_t)m_other_skillId[i]);
+	}
 }
 
 void E_SoulCrystal_s::read_from_pbmsg(const ::proto_ff::E_SoulCrystal & msg) {
 	m_equipId = msg.m_equipid();
 	m_name = msg.m_name();
-	m_crystalType = msg.m_crystaltype();
+	m_skillType = msg.m_skilltype();
+	m_type = msg.m_type();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
+	m_makeid = msg.m_makeid();
+	m_first_skill = msg.m_first_skill();
+	m_attrid = msg.m_attrid();
+	m_intensify = msg.m_intensify();
 	m_dismantleTime = msg.m_dismantletime();
 	m_dismantleNum = msg.m_dismantlenum();
-	m_skill = msg.m_skill();
-	m_skillLv = msg.m_skilllv();
-	m_handbook = msg.m_handbook();
+	m_other_skillId.resize((int)msg.m_other_skillid_size() > (int)m_other_skillId.max_size() ? m_other_skillId.max_size() : msg.m_other_skillid_size());
+	for(int32_t i = 0; i < (int32_t)m_other_skillId.size(); ++i) {
+		m_other_skillId[i] = msg.m_other_skillid(i);
+	}
 }
 
 Sheet_SoulCrystal_s::Sheet_SoulCrystal_s() {
@@ -687,6 +762,9 @@ E_SoulCrystaltop_s::E_SoulCrystaltop_s() {
 }
 
 int E_SoulCrystaltop_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_intensify = (int32_t)0;
+	m_lv = (int32_t)0;
 	m_topLv = (int32_t)0;
 	m_wraithsItem = (int32_t)0;
 	m_wraithsMun = (int32_t)0;
@@ -698,6 +776,9 @@ int E_SoulCrystaltop_s::ResumeInit() {
 }
 
 void E_SoulCrystaltop_s::write_to_pbmsg(::proto_ff::E_SoulCrystaltop & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_intensify((int32_t)m_intensify);
+	msg.set_m_lv((int32_t)m_lv);
 	msg.set_m_toplv((int32_t)m_topLv);
 	msg.set_m_wraithsitem((int32_t)m_wraithsItem);
 	msg.set_m_wraithsmun((int32_t)m_wraithsMun);
@@ -708,6 +789,9 @@ void E_SoulCrystaltop_s::write_to_pbmsg(::proto_ff::E_SoulCrystaltop & msg) cons
 }
 
 void E_SoulCrystaltop_s::read_from_pbmsg(const ::proto_ff::E_SoulCrystaltop & msg) {
+	m_id = msg.m_id();
+	m_intensify = msg.m_intensify();
+	m_lv = msg.m_lv();
 	m_topLv = msg.m_toplv();
 	m_wraithsItem = msg.m_wraithsitem();
 	m_wraithsMun = msg.m_wraithsmun();
@@ -759,6 +843,8 @@ E_SoulCrystalhole_s::E_SoulCrystalhole_s() {
 
 int E_SoulCrystalhole_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_unlock_type = (int32_t)0;
+	m_unlock_param = (int32_t)0;
 	return 0;
 }
 
@@ -768,12 +854,14 @@ int E_SoulCrystalhole_s::ResumeInit() {
 
 void E_SoulCrystalhole_s::write_to_pbmsg(::proto_ff::E_SoulCrystalhole & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_unlock(m_unlock.data());
+	msg.set_m_unlock_type((int32_t)m_unlock_type);
+	msg.set_m_unlock_param((int32_t)m_unlock_param);
 }
 
 void E_SoulCrystalhole_s::read_from_pbmsg(const ::proto_ff::E_SoulCrystalhole & msg) {
 	m_id = msg.m_id();
-	m_unlock = msg.m_unlock();
+	m_unlock_type = msg.m_unlock_type();
+	m_unlock_param = msg.m_unlock_param();
 }
 
 Sheet_SoulCrystalhole_s::Sheet_SoulCrystalhole_s() {
@@ -816,6 +904,8 @@ E_SoulFusionFusionDesc_s::E_SoulFusionFusionDesc_s() {
 }
 
 int E_SoulFusionFusionDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_condition = (int32_t)0;
 	m_star = (int32_t)0;
 	m_quality = (int32_t)0;
 	return 0;
@@ -826,11 +916,15 @@ int E_SoulFusionFusionDesc_s::ResumeInit() {
 }
 
 void E_SoulFusionFusionDesc_s::write_to_pbmsg(::proto_ff::E_SoulFusionFusionDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_condition((int32_t)m_condition);
 	msg.set_m_star((int32_t)m_star);
 	msg.set_m_quality((int32_t)m_quality);
 }
 
 void E_SoulFusionFusionDesc_s::read_from_pbmsg(const ::proto_ff::E_SoulFusionFusionDesc & msg) {
+	m_num = msg.m_num();
+	m_condition = msg.m_condition();
 	m_star = msg.m_star();
 	m_quality = msg.m_quality();
 }
@@ -846,12 +940,12 @@ E_SoulFusion_s::E_SoulFusion_s() {
 int E_SoulFusion_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_fusionType = (int32_t)0;
+	m_makeid = (int32_t)0;
+	m_step = (int32_t)0;
 	m_quality = (int32_t)0;
 	m_star = (int32_t)0;
-	m_condition = (int32_t)0;
 	m_qualityGet = (int32_t)0;
 	m_starGet = (int32_t)0;
-	m_attributeBer = (int32_t)0;
 	return 0;
 }
 
@@ -862,12 +956,12 @@ int E_SoulFusion_s::ResumeInit() {
 void E_SoulFusion_s::write_to_pbmsg(::proto_ff::E_SoulFusion & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_fusiontype((int32_t)m_fusionType);
+	msg.set_m_makeid((int32_t)m_makeid);
+	msg.set_m_step((int32_t)m_step);
 	msg.set_m_quality((int32_t)m_quality);
 	msg.set_m_star((int32_t)m_star);
-	msg.set_m_condition((int32_t)m_condition);
 	msg.set_m_qualityget((int32_t)m_qualityGet);
 	msg.set_m_starget((int32_t)m_starGet);
-	msg.set_m_attributeber((int32_t)m_attributeBer);
 	for(int32_t i = 0; i < (int32_t)m_fusion.size(); ++i) {
 		::proto_ff::E_SoulFusionFusionDesc* temp_m_fusion = msg.add_m_fusion();
 		m_fusion[i].write_to_pbmsg(*temp_m_fusion);
@@ -877,12 +971,12 @@ void E_SoulFusion_s::write_to_pbmsg(::proto_ff::E_SoulFusion & msg) const {
 void E_SoulFusion_s::read_from_pbmsg(const ::proto_ff::E_SoulFusion & msg) {
 	m_id = msg.m_id();
 	m_fusionType = msg.m_fusiontype();
+	m_makeid = msg.m_makeid();
+	m_step = msg.m_step();
 	m_quality = msg.m_quality();
 	m_star = msg.m_star();
-	m_condition = msg.m_condition();
 	m_qualityGet = msg.m_qualityget();
 	m_starGet = msg.m_starget();
-	m_attributeBer = msg.m_attributeber();
 	m_fusion.resize((int)msg.m_fusion_size() > (int)m_fusion.max_size() ? m_fusion.max_size() : msg.m_fusion_size());
 	for(int32_t i = 0; i < (int32_t)m_fusion.size(); ++i) {
 		const ::proto_ff::E_SoulFusionFusionDesc & temp_m_fusion = msg.m_fusion(i);
@@ -921,6 +1015,222 @@ void Sheet_SoulFusion_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulFusion & ms
 	}
 }
 
+E_SoulAttrAttDesc_s::E_SoulAttrAttDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulAttrAttDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_SoulAttrAttDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulAttrAttDesc_s::write_to_pbmsg(::proto_ff::E_SoulAttrAttDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_SoulAttrAttDesc_s::read_from_pbmsg(const ::proto_ff::E_SoulAttrAttDesc & msg) {
+	m_num = msg.m_num();
+	m_type = msg.m_type();
+}
+
+E_SoulAttrStarattDesc_s::E_SoulAttrStarattDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulAttrStarattDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_SoulAttrStarattDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulAttrStarattDesc_s::write_to_pbmsg(::proto_ff::E_SoulAttrStarattDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_SoulAttrStarattDesc_s::read_from_pbmsg(const ::proto_ff::E_SoulAttrStarattDesc & msg) {
+	m_num = msg.m_num();
+	m_type = msg.m_type();
+}
+
+E_SoulAttr_s::E_SoulAttr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulAttr_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_attr = (int32_t)0;
+	m_lv = (int32_t)0;
+	return 0;
+}
+
+int E_SoulAttr_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulAttr_s::write_to_pbmsg(::proto_ff::E_SoulAttr & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_attr((int32_t)m_attr);
+	msg.set_m_lv((int32_t)m_lv);
+	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
+		::proto_ff::E_SoulAttrAttDesc* temp_m_att = msg.add_m_att();
+		m_att[i].write_to_pbmsg(*temp_m_att);
+	}
+	for(int32_t i = 0; i < (int32_t)m_starAtt.size(); ++i) {
+		::proto_ff::E_SoulAttrStarattDesc* temp_m_staratt = msg.add_m_staratt();
+		m_starAtt[i].write_to_pbmsg(*temp_m_staratt);
+	}
+}
+
+void E_SoulAttr_s::read_from_pbmsg(const ::proto_ff::E_SoulAttr & msg) {
+	m_id = msg.m_id();
+	m_attr = msg.m_attr();
+	m_lv = msg.m_lv();
+	m_att.resize((int)msg.m_att_size() > (int)m_att.max_size() ? m_att.max_size() : msg.m_att_size());
+	for(int32_t i = 0; i < (int32_t)m_att.size(); ++i) {
+		const ::proto_ff::E_SoulAttrAttDesc & temp_m_att = msg.m_att(i);
+		m_att[i].read_from_pbmsg(temp_m_att);
+	}
+	m_starAtt.resize((int)msg.m_staratt_size() > (int)m_starAtt.max_size() ? m_starAtt.max_size() : msg.m_staratt_size());
+	for(int32_t i = 0; i < (int32_t)m_starAtt.size(); ++i) {
+		const ::proto_ff::E_SoulAttrStarattDesc & temp_m_staratt = msg.m_staratt(i);
+		m_starAtt[i].read_from_pbmsg(temp_m_staratt);
+	}
+}
+
+Sheet_SoulAttr_s::Sheet_SoulAttr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_SoulAttr_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_SoulAttr_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_SoulAttr_s::write_to_pbmsg(::proto_ff::Sheet_SoulAttr & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_SoulAttr_List.size(); ++i) {
+		::proto_ff::E_SoulAttr* temp_e_soulattr_list = msg.add_e_soulattr_list();
+		E_SoulAttr_List[i].write_to_pbmsg(*temp_e_soulattr_list);
+	}
+}
+
+void Sheet_SoulAttr_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulAttr & msg) {
+	E_SoulAttr_List.resize((int)msg.e_soulattr_list_size() > (int)E_SoulAttr_List.max_size() ? E_SoulAttr_List.max_size() : msg.e_soulattr_list_size());
+	for(int32_t i = 0; i < (int32_t)E_SoulAttr_List.size(); ++i) {
+		const ::proto_ff::E_SoulAttr & temp_e_soulattr_list = msg.e_soulattr_list(i);
+		E_SoulAttr_List[i].read_from_pbmsg(temp_e_soulattr_list);
+	}
+}
+
+E_SoulSkill_s::E_SoulSkill_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulSkill_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_skillId = (int32_t)0;
+	m_fackSkill = (int32_t)0;
+	m_skill_lv = (int32_t)0;
+	m_need_quailty = (int32_t)0;
+	m_need_star = (int32_t)0;
+	m_attr = (int32_t)0;
+	m_num = (int32_t)0;
+	m_skill_type = (int32_t)0;
+	return 0;
+}
+
+int E_SoulSkill_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulSkill_s::write_to_pbmsg(::proto_ff::E_SoulSkill & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_skillid((int32_t)m_skillId);
+	msg.set_m_fackskill((int32_t)m_fackSkill);
+	msg.set_m_skill_lv((int32_t)m_skill_lv);
+	msg.set_m_need_quailty((int32_t)m_need_quailty);
+	msg.set_m_need_star((int32_t)m_need_star);
+	msg.set_m_attr((int32_t)m_attr);
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_skill_type((int32_t)m_skill_type);
+}
+
+void E_SoulSkill_s::read_from_pbmsg(const ::proto_ff::E_SoulSkill & msg) {
+	m_id = msg.m_id();
+	m_skillId = msg.m_skillid();
+	m_fackSkill = msg.m_fackskill();
+	m_skill_lv = msg.m_skill_lv();
+	m_need_quailty = msg.m_need_quailty();
+	m_need_star = msg.m_need_star();
+	m_attr = msg.m_attr();
+	m_num = msg.m_num();
+	m_skill_type = msg.m_skill_type();
+}
+
+Sheet_SoulSkill_s::Sheet_SoulSkill_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_SoulSkill_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_SoulSkill_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_SoulSkill_s::write_to_pbmsg(::proto_ff::Sheet_SoulSkill & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_SoulSkill_List.size(); ++i) {
+		::proto_ff::E_SoulSkill* temp_e_soulskill_list = msg.add_e_soulskill_list();
+		E_SoulSkill_List[i].write_to_pbmsg(*temp_e_soulskill_list);
+	}
+}
+
+void Sheet_SoulSkill_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulSkill & msg) {
+	E_SoulSkill_List.resize((int)msg.e_soulskill_list_size() > (int)E_SoulSkill_List.max_size() ? E_SoulSkill_List.max_size() : msg.e_soulskill_list_size());
+	for(int32_t i = 0; i < (int32_t)E_SoulSkill_List.size(); ++i) {
+		const ::proto_ff::E_SoulSkill & temp_e_soulskill_list = msg.e_soulskill_list(i);
+		E_SoulSkill_List[i].read_from_pbmsg(temp_e_soulskill_list);
+	}
+}
+
 E_SoulBone_s::E_SoulBone_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -933,10 +1243,13 @@ int E_SoulBone_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_position = (int32_t)0;
 	m_type = (int32_t)0;
-	m_awakening = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_star = (int32_t)0;
 	m_awakeningTime = (int32_t)0;
 	m_awakeningNum = (int32_t)0;
-	m_modelId = (int32_t)0;
+	m_makeid = (int32_t)0;
+	m_first_skill = (int32_t)0;
+	m_attrid = (int32_t)0;
 	return 0;
 }
 
@@ -948,20 +1261,35 @@ void E_SoulBone_s::write_to_pbmsg(::proto_ff::E_SoulBone & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_position((int32_t)m_position);
 	msg.set_m_type((int32_t)m_type);
-	msg.set_m_awakening((int32_t)m_awakening);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_star((int32_t)m_star);
 	msg.set_m_awakeningtime((int32_t)m_awakeningTime);
 	msg.set_m_awakeningnum((int32_t)m_awakeningNum);
-	msg.set_m_modelid((int32_t)m_modelId);
+	msg.set_m_modelid(m_modelId.data());
+	msg.set_m_makeid((int32_t)m_makeid);
+	msg.set_m_first_skill((int32_t)m_first_skill);
+	msg.set_m_attrid((int32_t)m_attrid);
+	for(int32_t i = 0; i < (int32_t)m_other_skillId.size(); ++i) {
+		msg.add_m_other_skillid((int32_t)m_other_skillId[i]);
+	}
 }
 
 void E_SoulBone_s::read_from_pbmsg(const ::proto_ff::E_SoulBone & msg) {
 	m_id = msg.m_id();
 	m_position = msg.m_position();
 	m_type = msg.m_type();
-	m_awakening = msg.m_awakening();
+	m_quality = msg.m_quality();
+	m_star = msg.m_star();
 	m_awakeningTime = msg.m_awakeningtime();
 	m_awakeningNum = msg.m_awakeningnum();
 	m_modelId = msg.m_modelid();
+	m_makeid = msg.m_makeid();
+	m_first_skill = msg.m_first_skill();
+	m_attrid = msg.m_attrid();
+	m_other_skillId.resize((int)msg.m_other_skillid_size() > (int)m_other_skillId.max_size() ? m_other_skillId.max_size() : msg.m_other_skillid_size());
+	for(int32_t i = 0; i < (int32_t)m_other_skillId.size(); ++i) {
+		m_other_skillId[i] = msg.m_other_skillid(i);
+	}
 }
 
 Sheet_SoulBone_s::Sheet_SoulBone_s() {
@@ -992,84 +1320,6 @@ void Sheet_SoulBone_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulBone & msg) {
 	for(int32_t i = 0; i < (int32_t)E_SoulBone_List.size(); ++i) {
 		const ::proto_ff::E_SoulBone & temp_e_soulbone_list = msg.e_soulbone_list(i);
 		E_SoulBone_List[i].read_from_pbmsg(temp_e_soulbone_list);
-	}
-}
-
-E_SoulBoneskill_s::E_SoulBoneskill_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_SoulBoneskill_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_boneId = (int32_t)0;
-	m_quality = (int32_t)0;
-	m_star = (int32_t)0;
-	m_ActiveSkill = (int32_t)0;
-	m_ActiveSkillLv = (int32_t)0;
-	return 0;
-}
-
-int E_SoulBoneskill_s::ResumeInit() {
-	return 0;
-}
-
-void E_SoulBoneskill_s::write_to_pbmsg(::proto_ff::E_SoulBoneskill & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_boneid((int32_t)m_boneId);
-	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_star((int32_t)m_star);
-	msg.set_m_activeskill((int32_t)m_ActiveSkill);
-	msg.set_m_activeskilllv((int32_t)m_ActiveSkillLv);
-	for(int32_t i = 0; i < (int32_t)m_passive_Skill.size(); ++i) {
-		msg.add_m_passive_skill((int32_t)m_passive_Skill[i]);
-	}
-}
-
-void E_SoulBoneskill_s::read_from_pbmsg(const ::proto_ff::E_SoulBoneskill & msg) {
-	m_id = msg.m_id();
-	m_boneId = msg.m_boneid();
-	m_quality = msg.m_quality();
-	m_star = msg.m_star();
-	m_ActiveSkill = msg.m_activeskill();
-	m_ActiveSkillLv = msg.m_activeskilllv();
-	m_passive_Skill.resize((int)msg.m_passive_skill_size() > (int)m_passive_Skill.max_size() ? m_passive_Skill.max_size() : msg.m_passive_skill_size());
-	for(int32_t i = 0; i < (int32_t)m_passive_Skill.size(); ++i) {
-		m_passive_Skill[i] = msg.m_passive_skill(i);
-	}
-}
-
-Sheet_SoulBoneskill_s::Sheet_SoulBoneskill_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_SoulBoneskill_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_SoulBoneskill_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_SoulBoneskill_s::write_to_pbmsg(::proto_ff::Sheet_SoulBoneskill & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_SoulBoneskill_List.size(); ++i) {
-		::proto_ff::E_SoulBoneskill* temp_e_soulboneskill_list = msg.add_e_soulboneskill_list();
-		E_SoulBoneskill_List[i].write_to_pbmsg(*temp_e_soulboneskill_list);
-	}
-}
-
-void Sheet_SoulBoneskill_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulBoneskill & msg) {
-	E_SoulBoneskill_List.resize((int)msg.e_soulboneskill_list_size() > (int)E_SoulBoneskill_List.max_size() ? E_SoulBoneskill_List.max_size() : msg.e_soulboneskill_list_size());
-	for(int32_t i = 0; i < (int32_t)E_SoulBoneskill_List.size(); ++i) {
-		const ::proto_ff::E_SoulBoneskill & temp_e_soulboneskill_list = msg.e_soulboneskill_list(i);
-		E_SoulBoneskill_List[i].read_from_pbmsg(temp_e_soulboneskill_list);
 	}
 }
 
@@ -1169,8 +1419,6 @@ E_SoulBonestrong_s::E_SoulBonestrong_s() {
 
 int E_SoulBonestrong_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_position = (int32_t)0;
-	m_srtongUp = (int32_t)0;
 	return 0;
 }
 
@@ -1180,8 +1428,6 @@ int E_SoulBonestrong_s::ResumeInit() {
 
 void E_SoulBonestrong_s::write_to_pbmsg(::proto_ff::E_SoulBonestrong & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_position((int32_t)m_position);
-	msg.set_m_srtongup((int32_t)m_srtongUp);
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		::proto_ff::E_SoulBonestrongTypeDesc* temp_m_type = msg.add_m_type();
 		m_type[i].write_to_pbmsg(*temp_m_type);
@@ -1190,8 +1436,6 @@ void E_SoulBonestrong_s::write_to_pbmsg(::proto_ff::E_SoulBonestrong & msg) cons
 
 void E_SoulBonestrong_s::read_from_pbmsg(const ::proto_ff::E_SoulBonestrong & msg) {
 	m_id = msg.m_id();
-	m_position = msg.m_position();
-	m_srtongUp = msg.m_srtongup();
 	m_type.resize((int)msg.m_type_size() > (int)m_type.max_size() ? m_type.max_size() : msg.m_type_size());
 	for(int32_t i = 0; i < (int32_t)m_type.size(); ++i) {
 		const ::proto_ff::E_SoulBonestrongTypeDesc & temp_m_type = msg.m_type(i);
@@ -1227,6 +1471,82 @@ void Sheet_SoulBonestrong_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulBonestr
 	for(int32_t i = 0; i < (int32_t)E_SoulBonestrong_List.size(); ++i) {
 		const ::proto_ff::E_SoulBonestrong & temp_e_soulbonestrong_list = msg.e_soulbonestrong_list(i);
 		E_SoulBonestrong_List[i].read_from_pbmsg(temp_e_soulbonestrong_list);
+	}
+}
+
+E_SoulGuwen_s::E_SoulGuwen_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulGuwen_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_position = (int32_t)0;
+	m_type = (int32_t)0;
+	m_quality = (int32_t)0;
+	m_star = (int32_t)0;
+	m_makeid = (int32_t)0;
+	m_attrid = (int32_t)0;
+	return 0;
+}
+
+int E_SoulGuwen_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulGuwen_s::write_to_pbmsg(::proto_ff::E_SoulGuwen & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name(m_name.data());
+	msg.set_m_position((int32_t)m_position);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_quality((int32_t)m_quality);
+	msg.set_m_star((int32_t)m_star);
+	msg.set_m_makeid((int32_t)m_makeid);
+	msg.set_m_attrid((int32_t)m_attrid);
+}
+
+void E_SoulGuwen_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwen & msg) {
+	m_id = msg.m_id();
+	m_name = msg.m_name();
+	m_position = msg.m_position();
+	m_type = msg.m_type();
+	m_quality = msg.m_quality();
+	m_star = msg.m_star();
+	m_makeid = msg.m_makeid();
+	m_attrid = msg.m_attrid();
+}
+
+Sheet_SoulGuwen_s::Sheet_SoulGuwen_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_SoulGuwen_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_SoulGuwen_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_SoulGuwen_s::write_to_pbmsg(::proto_ff::Sheet_SoulGuwen & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_SoulGuwen_List.size(); ++i) {
+		::proto_ff::E_SoulGuwen* temp_e_soulguwen_list = msg.add_e_soulguwen_list();
+		E_SoulGuwen_List[i].write_to_pbmsg(*temp_e_soulguwen_list);
+	}
+}
+
+void Sheet_SoulGuwen_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwen & msg) {
+	E_SoulGuwen_List.resize((int)msg.e_soulguwen_list_size() > (int)E_SoulGuwen_List.max_size() ? E_SoulGuwen_List.max_size() : msg.e_soulguwen_list_size());
+	for(int32_t i = 0; i < (int32_t)E_SoulGuwen_List.size(); ++i) {
+		const ::proto_ff::E_SoulGuwen & temp_e_soulguwen_list = msg.e_soulguwen_list(i);
+		E_SoulGuwen_List[i].read_from_pbmsg(temp_e_soulguwen_list);
 	}
 }
 
@@ -1390,6 +1710,34 @@ void Sheet_SoulGuwentypesuit_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwe
 	}
 }
 
+E_SoulGuwenskillSkillDesc_s::E_SoulGuwenskillSkillDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulGuwenskillSkillDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_level = (int32_t)0;
+	return 0;
+}
+
+int E_SoulGuwenskillSkillDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulGuwenskillSkillDesc_s::write_to_pbmsg(::proto_ff::E_SoulGuwenskillSkillDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_level((int32_t)m_level);
+}
+
+void E_SoulGuwenskillSkillDesc_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwenskillSkillDesc & msg) {
+	m_num = msg.m_num();
+	m_level = msg.m_level();
+}
+
 E_SoulGuwenskill_s::E_SoulGuwenskill_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1415,11 +1763,9 @@ void E_SoulGuwenskill_s::write_to_pbmsg(::proto_ff::E_SoulGuwenskill & msg) cons
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_skillid((int32_t)m_skillId);
 	msg.set_m_quality((int32_t)m_quality);
-	for(int32_t i = 0; i < (int32_t)m_skillLevel.size(); ++i) {
-		msg.add_m_skilllevel((int32_t)m_skillLevel[i]);
-	}
-	for(int32_t i = 0; i < (int32_t)m_num.size(); ++i) {
-		msg.add_m_num((int32_t)m_num[i]);
+	for(int32_t i = 0; i < (int32_t)m_skill.size(); ++i) {
+		::proto_ff::E_SoulGuwenskillSkillDesc* temp_m_skill = msg.add_m_skill();
+		m_skill[i].write_to_pbmsg(*temp_m_skill);
 	}
 }
 
@@ -1428,13 +1774,10 @@ void E_SoulGuwenskill_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwenskill & ms
 	m_type = msg.m_type();
 	m_skillId = msg.m_skillid();
 	m_quality = msg.m_quality();
-	m_skillLevel.resize((int)msg.m_skilllevel_size() > (int)m_skillLevel.max_size() ? m_skillLevel.max_size() : msg.m_skilllevel_size());
-	for(int32_t i = 0; i < (int32_t)m_skillLevel.size(); ++i) {
-		m_skillLevel[i] = msg.m_skilllevel(i);
-	}
-	m_num.resize((int)msg.m_num_size() > (int)m_num.max_size() ? m_num.max_size() : msg.m_num_size());
-	for(int32_t i = 0; i < (int32_t)m_num.size(); ++i) {
-		m_num[i] = msg.m_num(i);
+	m_skill.resize((int)msg.m_skill_size() > (int)m_skill.max_size() ? m_skill.max_size() : msg.m_skill_size());
+	for(int32_t i = 0; i < (int32_t)m_skill.size(); ++i) {
+		const ::proto_ff::E_SoulGuwenskillSkillDesc & temp_m_skill = msg.m_skill(i);
+		m_skill[i].read_from_pbmsg(temp_m_skill);
 	}
 }
 
@@ -1466,67 +1809,6 @@ void Sheet_SoulGuwenskill_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwensk
 	for(int32_t i = 0; i < (int32_t)E_SoulGuwenskill_List.size(); ++i) {
 		const ::proto_ff::E_SoulGuwenskill & temp_e_soulguwenskill_list = msg.e_soulguwenskill_list(i);
 		E_SoulGuwenskill_List[i].read_from_pbmsg(temp_e_soulguwenskill_list);
-	}
-}
-
-E_SoulGuwenslot_s::E_SoulGuwenslot_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_SoulGuwenslot_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_position = (int32_t)0;
-	return 0;
-}
-
-int E_SoulGuwenslot_s::ResumeInit() {
-	return 0;
-}
-
-void E_SoulGuwenslot_s::write_to_pbmsg(::proto_ff::E_SoulGuwenslot & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_name(m_name.data());
-	msg.set_m_position((int32_t)m_position);
-}
-
-void E_SoulGuwenslot_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwenslot & msg) {
-	m_id = msg.m_id();
-	m_name = msg.m_name();
-	m_position = msg.m_position();
-}
-
-Sheet_SoulGuwenslot_s::Sheet_SoulGuwenslot_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_SoulGuwenslot_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_SoulGuwenslot_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_SoulGuwenslot_s::write_to_pbmsg(::proto_ff::Sheet_SoulGuwenslot & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_SoulGuwenslot_List.size(); ++i) {
-		::proto_ff::E_SoulGuwenslot* temp_e_soulguwenslot_list = msg.add_e_soulguwenslot_list();
-		E_SoulGuwenslot_List[i].write_to_pbmsg(*temp_e_soulguwenslot_list);
-	}
-}
-
-void Sheet_SoulGuwenslot_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwenslot & msg) {
-	E_SoulGuwenslot_List.resize((int)msg.e_soulguwenslot_list_size() > (int)E_SoulGuwenslot_List.max_size() ? E_SoulGuwenslot_List.max_size() : msg.e_soulguwenslot_list_size());
-	for(int32_t i = 0; i < (int32_t)E_SoulGuwenslot_List.size(); ++i) {
-		const ::proto_ff::E_SoulGuwenslot & temp_e_soulguwenslot_list = msg.e_soulguwenslot_list(i);
-		E_SoulGuwenslot_List[i].read_from_pbmsg(temp_e_soulguwenslot_list);
 	}
 }
 
@@ -1568,7 +1850,7 @@ E_SoulGuwensuit_s::E_SoulGuwensuit_s() {
 
 int E_SoulGuwensuit_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_boneId = (int32_t)0;
+	m_position = (int32_t)0;
 	m_typeId = (int32_t)0;
 	m_num = (int32_t)0;
 	return 0;
@@ -1580,7 +1862,7 @@ int E_SoulGuwensuit_s::ResumeInit() {
 
 void E_SoulGuwensuit_s::write_to_pbmsg(::proto_ff::E_SoulGuwensuit & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_boneid((int32_t)m_boneId);
+	msg.set_m_position((int32_t)m_position);
 	msg.set_m_typeid((int32_t)m_typeId);
 	msg.set_m_num((int32_t)m_num);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
@@ -1591,7 +1873,7 @@ void E_SoulGuwensuit_s::write_to_pbmsg(::proto_ff::E_SoulGuwensuit & msg) const 
 
 void E_SoulGuwensuit_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwensuit & msg) {
 	m_id = msg.m_id();
-	m_boneId = msg.m_boneid();
+	m_position = msg.m_position();
 	m_typeId = msg.m_typeid();
 	m_num = msg.m_num();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
@@ -1629,83 +1911,6 @@ void Sheet_SoulGuwensuit_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwensui
 	for(int32_t i = 0; i < (int32_t)E_SoulGuwensuit_List.size(); ++i) {
 		const ::proto_ff::E_SoulGuwensuit & temp_e_soulguwensuit_list = msg.e_soulguwensuit_list(i);
 		E_SoulGuwensuit_List[i].read_from_pbmsg(temp_e_soulguwensuit_list);
-	}
-}
-
-E_SoulGuwenupstar_s::E_SoulGuwenupstar_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_SoulGuwenupstar_s::CreateInit() {
-	m_id = (int32_t)0;
-	m_quality = (int32_t)0;
-	m_star = (int32_t)0;
-	m_targetQuality = (int32_t)0;
-	m_targetStar = (int32_t)0;
-	m_samePosNum = (int32_t)0;
-	m_samePosQuality = (int32_t)0;
-	m_samePosStar = (int32_t)0;
-	return 0;
-}
-
-int E_SoulGuwenupstar_s::ResumeInit() {
-	return 0;
-}
-
-void E_SoulGuwenupstar_s::write_to_pbmsg(::proto_ff::E_SoulGuwenupstar & msg) const {
-	msg.set_m_id((int32_t)m_id);
-	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_star((int32_t)m_star);
-	msg.set_m_targetquality((int32_t)m_targetQuality);
-	msg.set_m_targetstar((int32_t)m_targetStar);
-	msg.set_m_sameposnum((int32_t)m_samePosNum);
-	msg.set_m_sameposquality((int32_t)m_samePosQuality);
-	msg.set_m_sameposstar((int32_t)m_samePosStar);
-}
-
-void E_SoulGuwenupstar_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwenupstar & msg) {
-	m_id = msg.m_id();
-	m_quality = msg.m_quality();
-	m_star = msg.m_star();
-	m_targetQuality = msg.m_targetquality();
-	m_targetStar = msg.m_targetstar();
-	m_samePosNum = msg.m_sameposnum();
-	m_samePosQuality = msg.m_sameposquality();
-	m_samePosStar = msg.m_sameposstar();
-}
-
-Sheet_SoulGuwenupstar_s::Sheet_SoulGuwenupstar_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_SoulGuwenupstar_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_SoulGuwenupstar_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_SoulGuwenupstar_s::write_to_pbmsg(::proto_ff::Sheet_SoulGuwenupstar & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_SoulGuwenupstar_List.size(); ++i) {
-		::proto_ff::E_SoulGuwenupstar* temp_e_soulguwenupstar_list = msg.add_e_soulguwenupstar_list();
-		E_SoulGuwenupstar_List[i].write_to_pbmsg(*temp_e_soulguwenupstar_list);
-	}
-}
-
-void Sheet_SoulGuwenupstar_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwenupstar & msg) {
-	E_SoulGuwenupstar_List.resize((int)msg.e_soulguwenupstar_list_size() > (int)E_SoulGuwenupstar_List.max_size() ? E_SoulGuwenupstar_List.max_size() : msg.e_soulguwenupstar_list_size());
-	for(int32_t i = 0; i < (int32_t)E_SoulGuwenupstar_List.size(); ++i) {
-		const ::proto_ff::E_SoulGuwenupstar & temp_e_soulguwenupstar_list = msg.e_soulguwenupstar_list(i);
-		E_SoulGuwenupstar_List[i].read_from_pbmsg(temp_e_soulguwenupstar_list);
 	}
 }
 
@@ -1749,6 +1954,7 @@ int E_SoulAffixes_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_type = (int32_t)0;
 	m_quality = (int32_t)0;
+	m_probability = (int32_t)0;
 	return 0;
 }
 
@@ -1758,9 +1964,10 @@ int E_SoulAffixes_s::ResumeInit() {
 
 void E_SoulAffixes_s::write_to_pbmsg(::proto_ff::E_SoulAffixes & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_name(m_name.data());
 	msg.set_m_type((int32_t)m_type);
 	msg.set_m_quality((int32_t)m_quality);
-	msg.set_m_name(m_name.data());
+	msg.set_m_probability((int32_t)m_probability);
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		::proto_ff::E_SoulAffixesAttributeDesc* temp_m_attribute = msg.add_m_attribute();
 		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
@@ -1769,9 +1976,10 @@ void E_SoulAffixes_s::write_to_pbmsg(::proto_ff::E_SoulAffixes & msg) const {
 
 void E_SoulAffixes_s::read_from_pbmsg(const ::proto_ff::E_SoulAffixes & msg) {
 	m_id = msg.m_id();
+	m_name = msg.m_name();
 	m_type = msg.m_type();
 	m_quality = msg.m_quality();
-	m_name = msg.m_name();
+	m_probability = msg.m_probability();
 	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
 	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
 		const ::proto_ff::E_SoulAffixesAttributeDesc & temp_m_attribute = msg.m_attribute(i);
@@ -1807,6 +2015,74 @@ void Sheet_SoulAffixes_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulAffixes & 
 	for(int32_t i = 0; i < (int32_t)E_SoulAffixes_List.size(); ++i) {
 		const ::proto_ff::E_SoulAffixes & temp_e_soulaffixes_list = msg.e_soulaffixes_list(i);
 		E_SoulAffixes_List[i].read_from_pbmsg(temp_e_soulaffixes_list);
+	}
+}
+
+E_SoulAffixesfumo_s::E_SoulAffixesfumo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulAffixesfumo_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_item = (int32_t)0;
+	m_num = (int32_t)0;
+	m_lock = (int32_t)0;
+	m_lockNum = (int32_t)0;
+	return 0;
+}
+
+int E_SoulAffixesfumo_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulAffixesfumo_s::write_to_pbmsg(::proto_ff::E_SoulAffixesfumo & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_item((int32_t)m_item);
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_lock((int32_t)m_lock);
+	msg.set_m_locknum((int32_t)m_lockNum);
+}
+
+void E_SoulAffixesfumo_s::read_from_pbmsg(const ::proto_ff::E_SoulAffixesfumo & msg) {
+	m_id = msg.m_id();
+	m_item = msg.m_item();
+	m_num = msg.m_num();
+	m_lock = msg.m_lock();
+	m_lockNum = msg.m_locknum();
+}
+
+Sheet_SoulAffixesfumo_s::Sheet_SoulAffixesfumo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_SoulAffixesfumo_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_SoulAffixesfumo_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_SoulAffixesfumo_s::write_to_pbmsg(::proto_ff::Sheet_SoulAffixesfumo & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_SoulAffixesfumo_List.size(); ++i) {
+		::proto_ff::E_SoulAffixesfumo* temp_e_soulaffixesfumo_list = msg.add_e_soulaffixesfumo_list();
+		E_SoulAffixesfumo_List[i].write_to_pbmsg(*temp_e_soulaffixesfumo_list);
+	}
+}
+
+void Sheet_SoulAffixesfumo_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulAffixesfumo & msg) {
+	E_SoulAffixesfumo_List.resize((int)msg.e_soulaffixesfumo_list_size() > (int)E_SoulAffixesfumo_List.max_size() ? E_SoulAffixesfumo_List.max_size() : msg.e_soulaffixesfumo_list_size());
+	for(int32_t i = 0; i < (int32_t)E_SoulAffixesfumo_List.size(); ++i) {
+		const ::proto_ff::E_SoulAffixesfumo & temp_e_soulaffixesfumo_list = msg.e_soulaffixesfumo_list(i);
+		E_SoulAffixesfumo_List[i].read_from_pbmsg(temp_e_soulaffixesfumo_list);
 	}
 }
 
@@ -1943,6 +2219,74 @@ void Sheet_SoulAffixessuit_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulAffixe
 	for(int32_t i = 0; i < (int32_t)E_SoulAffixessuit_List.size(); ++i) {
 		const ::proto_ff::E_SoulAffixessuit & temp_e_soulaffixessuit_list = msg.e_soulaffixessuit_list(i);
 		E_SoulAffixessuit_List[i].read_from_pbmsg(temp_e_soulaffixessuit_list);
+	}
+}
+
+E_SoulGuwenattr_s::E_SoulGuwenattr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_SoulGuwenattr_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_skill = (int32_t)0;
+	m_lv = (int32_t)0;
+	m_att = (int32_t)0;
+	m_num = (int32_t)0;
+	return 0;
+}
+
+int E_SoulGuwenattr_s::ResumeInit() {
+	return 0;
+}
+
+void E_SoulGuwenattr_s::write_to_pbmsg(::proto_ff::E_SoulGuwenattr & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_skill((int32_t)m_skill);
+	msg.set_m_lv((int32_t)m_lv);
+	msg.set_m_att((int32_t)m_att);
+	msg.set_m_num((int32_t)m_num);
+}
+
+void E_SoulGuwenattr_s::read_from_pbmsg(const ::proto_ff::E_SoulGuwenattr & msg) {
+	m_id = msg.m_id();
+	m_skill = msg.m_skill();
+	m_lv = msg.m_lv();
+	m_att = msg.m_att();
+	m_num = msg.m_num();
+}
+
+Sheet_SoulGuwenattr_s::Sheet_SoulGuwenattr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_SoulGuwenattr_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_SoulGuwenattr_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_SoulGuwenattr_s::write_to_pbmsg(::proto_ff::Sheet_SoulGuwenattr & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_SoulGuwenattr_List.size(); ++i) {
+		::proto_ff::E_SoulGuwenattr* temp_e_soulguwenattr_list = msg.add_e_soulguwenattr_list();
+		E_SoulGuwenattr_List[i].write_to_pbmsg(*temp_e_soulguwenattr_list);
+	}
+}
+
+void Sheet_SoulGuwenattr_s::read_from_pbmsg(const ::proto_ff::Sheet_SoulGuwenattr & msg) {
+	E_SoulGuwenattr_List.resize((int)msg.e_soulguwenattr_list_size() > (int)E_SoulGuwenattr_List.max_size() ? E_SoulGuwenattr_List.max_size() : msg.e_soulguwenattr_list_size());
+	for(int32_t i = 0; i < (int32_t)E_SoulGuwenattr_List.size(); ++i) {
+		const ::proto_ff::E_SoulGuwenattr & temp_e_soulguwenattr_list = msg.e_soulguwenattr_list(i);
+		E_SoulGuwenattr_List[i].read_from_pbmsg(temp_e_soulguwenattr_list);
 	}
 }
 

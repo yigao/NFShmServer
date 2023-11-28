@@ -59,6 +59,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_NickgodLattice_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_NickgodLattice_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_NickgodTreasuryItemDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_NickgodTreasuryItemDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_NickgodTreasury_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_NickgodTreasury_reflection_ = NULL;
@@ -339,10 +342,28 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_NickgodLattice));
-  E_NickgodTreasury_descriptor_ = file->message_type(13);
+  E_NickgodTreasuryItemDesc_descriptor_ = file->message_type(13);
+  static const int E_NickgodTreasuryItemDesc_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasuryItemDesc, m_show_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasuryItemDesc, m_rand_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasuryItemDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasuryItemDesc, m_id_),
+  };
+  E_NickgodTreasuryItemDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_NickgodTreasuryItemDesc_descriptor_,
+      E_NickgodTreasuryItemDesc::default_instance_,
+      E_NickgodTreasuryItemDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasuryItemDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasuryItemDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_NickgodTreasuryItemDesc));
+  E_NickgodTreasury_descriptor_ = file->message_type(14);
   static const int E_NickgodTreasury_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasury, m_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasury, m_boxid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodTreasury, m_item_),
   };
   E_NickgodTreasury_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -355,7 +376,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodTreasury));
-  Sheet_NickgodTreasury_descriptor_ = file->message_type(14);
+  Sheet_NickgodTreasury_descriptor_ = file->message_type(15);
   static const int Sheet_NickgodTreasury_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_NickgodTreasury, e_nickgodtreasury_list_),
   };
@@ -370,7 +391,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_NickgodTreasury));
-  E_NickgodPrivilegeRewardDesc_descriptor_ = file->message_type(15);
+  E_NickgodPrivilegeRewardDesc_descriptor_ = file->message_type(16);
   static const int E_NickgodPrivilegeRewardDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodPrivilegeRewardDesc, m_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodPrivilegeRewardDesc, m_id_),
@@ -386,7 +407,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodPrivilegeRewardDesc));
-  E_NickgodPrivilege_descriptor_ = file->message_type(16);
+  E_NickgodPrivilege_descriptor_ = file->message_type(17);
   static const int E_NickgodPrivilege_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodPrivilege, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodPrivilege, m_condition_),
@@ -405,7 +426,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodPrivilege));
-  Sheet_NickgodPrivilege_descriptor_ = file->message_type(17);
+  Sheet_NickgodPrivilege_descriptor_ = file->message_type(18);
   static const int Sheet_NickgodPrivilege_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_NickgodPrivilege, e_nickgodprivilege_list_),
   };
@@ -420,7 +441,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_NickgodPrivilege));
-  E_NickgodSaleItemDesc_descriptor_ = file->message_type(18);
+  E_NickgodSaleItemDesc_descriptor_ = file->message_type(19);
   static const int E_NickgodSaleItemDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodSaleItemDesc, m_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodSaleItemDesc, m_id_),
@@ -436,7 +457,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodSaleItemDesc));
-  E_NickgodSale_descriptor_ = file->message_type(19);
+  E_NickgodSale_descriptor_ = file->message_type(20);
   static const int E_NickgodSale_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodSale, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodSale, m_discount_),
@@ -456,7 +477,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodSale));
-  Sheet_NickgodSale_descriptor_ = file->message_type(20);
+  Sheet_NickgodSale_descriptor_ = file->message_type(21);
   static const int Sheet_NickgodSale_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_NickgodSale, e_nickgodsale_list_),
   };
@@ -471,7 +492,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_NickgodSale));
-  E_NickgodChargeupRewardDesc_descriptor_ = file->message_type(21);
+  E_NickgodChargeupRewardDesc_descriptor_ = file->message_type(22);
   static const int E_NickgodChargeupRewardDesc_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodChargeupRewardDesc, m_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodChargeupRewardDesc, m_id_),
@@ -487,9 +508,10 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodChargeupRewardDesc));
-  E_NickgodChargeup_descriptor_ = file->message_type(22);
-  static const int E_NickgodChargeup_offsets_[2] = {
+  E_NickgodChargeup_descriptor_ = file->message_type(23);
+  static const int E_NickgodChargeup_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodChargeup, m_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodChargeup, m_pay_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_NickgodChargeup, m_reward_),
   };
   E_NickgodChargeup_reflection_ =
@@ -503,7 +525,7 @@ void protobuf_AssignDesc_E_5fNickgod_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_NickgodChargeup));
-  Sheet_NickgodChargeup_descriptor_ = file->message_type(23);
+  Sheet_NickgodChargeup_descriptor_ = file->message_type(24);
   static const int Sheet_NickgodChargeup_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_NickgodChargeup, e_nickgodchargeup_list_),
   };
@@ -557,6 +579,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_NickgodLattice_descriptor_, &Sheet_NickgodLattice::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_NickgodTreasuryItemDesc_descriptor_, &E_NickgodTreasuryItemDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_NickgodTreasury_descriptor_, &E_NickgodTreasury::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_NickgodTreasury_descriptor_, &Sheet_NickgodTreasury::default_instance());
@@ -609,6 +633,8 @@ void protobuf_ShutdownFile_E_5fNickgod_2eproto() {
   delete E_NickgodLattice_reflection_;
   delete Sheet_NickgodLattice::default_instance_;
   delete Sheet_NickgodLattice_reflection_;
+  delete E_NickgodTreasuryItemDesc::default_instance_;
+  delete E_NickgodTreasuryItemDesc_reflection_;
   delete E_NickgodTreasury::default_instance_;
   delete E_NickgodTreasury_reflection_;
   delete Sheet_NickgodTreasury::default_instance_;
@@ -666,83 +692,88 @@ void protobuf_AddDesc_E_5fNickgod_2eproto() {
     "kgodName\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\006m_name"
     "\030\002 \001(\tB\016\302\377\024\006\345\220\215\347\247\260\220\301\024@\"N\n\021Sheet_NickgodN"
     "ame\0229\n\022E_NickgodName_List\030\001 \003(\0132\027.proto_"
-    "ff.E_NickgodNameB\004\210\301\024\004\"M\n\025E_NickgodStage"
+    "ff.E_NickgodNameB\004\210\301\024 \"M\n\025E_NickgodStage"
     "MosDesc\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\036\n\007m_point"
-    "\030\002 \001(\005B\r\302\377\024\t\345\210\267\346\226\260\347\202\271\"w\n\026E_NickgodStageB"
-    "ossDesc\022\'\n\rm_dropPreview\030\001 \001(\005B\020\302\377\024\014\346\216\211\350"
-    "\220\275\351\242\204\350\247\210\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\022\036\n\007m_poin"
-    "t\030\003 \001(\005B\r\302\377\024\t\345\210\267\346\226\260\347\202\271\"\301\006\n\016E_NickgodStag"
-    "e\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\351\230\266\346\256\265id\022!\n\005m_map\030\002"
-    " \001(\005B\022\302\377\024\016\351\230\266\346\256\265\345\234\260\345\233\276id\022*\n\nm_duration\030\003"
-    " \001(\005B\026\302\377\024\022\351\230\266\346\256\265\346\214\201\347\273\255\346\227\266\351\227\264\0225\n\017m_mosDie"
-    "Refresh\030\004 \001(\005B\034\302\377\024\030\345\260\217\346\200\252\346\255\273\344\272\241\345\210\267\346\226\260\346\227\266"
-    "\351\227\264\0226\n\022m_bossFirstRefresh\030\005 \001(\005B\032\302\377\024\026bos"
-    "s\345\210\235\345\247\213\345\210\267\346\226\260\346\227\266\351\227\264\0224\n\020m_bossDieRefresh\030"
-    "\006 \001(\005B\032\302\377\024\026boss\346\255\273\344\272\241\345\210\267\346\226\260\346\227\266\351\227\264\022;\n\017m_p"
-    "layerDieDrop\030\007 \001(\005B\"\302\377\024\036\347\216\251\345\256\266\346\255\273\344\272\241\346\216\211\350"
-    "\220\275\350\243\205\345\244\207\346\246\202\347\216\207\0229\n\023m_sceneIntegralTime\030\010 "
-    "\001(\005B\034\302\377\024\030\345\234\272\346\231\257\347\247\257\345\210\206\351\227\264\351\232\224\346\227\266\351\227\264\022)\n\017m_s"
-    "ceneIntegral\030\t \001(\005B\020\302\377\024\014\345\234\272\346\231\257\347\247\257\345\210\206\0221\n\021"
-    "m_killmosIntegral\030\n \001(\005B\026\302\377\024\022\345\207\273\346\235\200\345\260\217\346\200"
-    "\252\347\247\257\345\210\206\0220\n\022m_killbossIntegral\030\013 \001(\005B\024\302\377\024"
-    "\020\345\207\273\346\235\200boss\347\247\257\345\210\206\0224\n\024m_killplayerIntegra"
-    "l\030\014 \001(\005B\026\302\377\024\022\345\207\273\346\235\200\347\216\251\345\256\266\347\247\257\345\210\206\0226\n\026m_ass"
-    "istplayerIntegral\030\r \001(\005B\026\302\377\024\022\345\212\251\346\224\273\347\216\251\345\256"
-    "\266\347\247\257\345\210\206\022>\n\005m_mos\030\016 \003(\0132\037.proto_ff.E_Nick"
-    "godStageMosDescB\016\302\377\024\006\345\260\217\346\200\252\210\301\024\n\022>\n\006m_bos"
-    "s\030\017 \003(\0132 .proto_ff.E_NickgodStageBossDes"
-    "cB\014\302\377\024\004boss\210\301\024\003\022)\n\016m_revivalPoint\030\020 \003(\005B"
-    "\021\302\377\024\t\345\244\215\346\264\273\347\202\271\210\301\024\010\"Q\n\022Sheet_NickgodStage"
-    "\022;\n\023E_NickgodStage_List\030\001 \003(\0132\030.proto_ff"
-    ".E_NickgodStageB\004\210\301\024\004\"M\n\032E_NickgodReward"
-    "sRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024"
-    "\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\355\001\n\020E_NickgodReward"
-    "s\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022)\n\014m_ranking"
-    "Min\030\002 \001(\005B\023\302\377\024\017\345\220\215\346\254\241\346\234\200\345\260\217\345\200\274\022)\n\014m_rank"
-    "ingMax\030\003 \001(\005B\023\302\377\024\017\345\220\215\346\254\241\346\234\200\345\244\247\345\200\274\022!\n\007m_s"
-    "core\030\004 \001(\005B\020\302\377\024\014\347\247\257\345\210\206\346\225\260\351\207\217\022F\n\010m_reward"
-    "\030\005 \003(\0132$.proto_ff.E_NickgodRewardsReward"
-    "DescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"W\n\024Sheet_NickgodRew"
-    "ards\022\?\n\025E_NickgodRewards_List\030\001 \003(\0132\032.pr"
-    "oto_ff.E_NickgodRewardsB\004\210\301\024\020\"w\n\020E_Nickg"
-    "odLattice\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\346\240\274\345\255\220id\022\"\n"
-    "\010m_itemId\030\002 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022#\n\tm_i"
-    "temNum\030\003 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"W\n\024Sheet_"
-    "NickgodLattice\022\?\n\025E_NickgodLattice_List\030"
-    "\001 \003(\0132\032.proto_ff.E_NickgodLatticeB\004\210\301\024@\""
-    "M\n\021E_NickgodTreasury\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006"
-    "\345\261\202\346\225\260\022\036\n\007m_boxId\030\002 \001(\005B\r\302\377\024\t\345\256\235\345\272\223box\"Z"
-    "\n\025Sheet_NickgodTreasury\022A\n\026E_NickgodTrea"
-    "sury_List\030\001 \003(\0132\033.proto_ff.E_NickgodTrea"
-    "suryB\004\210\301\024\020\"O\n\034E_NickgodPrivilegeRewardDe"
-    "sc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 "
-    "\001(\003B\006\302\377\024\002ID\"\354\001\n\022E_NickgodPrivilege\022\032\n\004m_"
-    "id\030\001 \001(\005B\014\302\377\024\010\345\245\226\345\212\261id\022%\n\013m_condition\030\002 "
-    "\001(\005B\020\302\377\024\014\351\242\206\345\217\226\346\235\241\344\273\266\022\033\n\007m_param\030\003 \001(\005B\n"
-    "\302\377\024\006\345\217\202\346\225\260\022,\n\006m_open\030\004 \001(\005B\034\302\377\024\030\346\230\257\345\220\246\351\234"
-    "\200\350\246\201\345\274\200\351\200\232\347\211\271\346\235\203\022H\n\010m_reward\030\005 \003(\0132&.pro"
-    "to_ff.E_NickgodPrivilegeRewardDescB\016\302\377\024\006"
-    "\345\245\226\345\212\261\210\301\024\005\"]\n\026Sheet_NickgodPrivilege\022C\n\027"
-    "E_NickgodPrivilege_List\030\001 \003(\0132\034.proto_ff"
-    ".E_NickgodPrivilegeB\004\210\301\024\020\"H\n\025E_NickgodSa"
-    "leItemDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n"
-    "\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\374\001\n\rE_NickgodSale\022\032\n"
-    "\004m_id\030\001 \001(\005B\014\302\377\024\010\347\244\274\345\214\205id\022\"\n\nm_discount\030"
-    "\002 \001(\tB\016\302\377\024\006\346\212\230\346\211\243\220\301\024@\022!\n\007m_money\030\003 \001(\005B\020"
-    "\302\377\024\014\350\264\255\344\271\260\350\264\247\345\270\201\022!\n\007m_price\030\004 \001(\005B\020\302\377\024\014\350"
-    "\264\255\344\271\260\344\273\267\346\240\274\022$\n\nm_buyLimit\030\005 \001(\005B\020\302\377\024\014\351\231\220"
-    "\350\264\255\346\254\241\346\225\260\022\?\n\006m_item\030\006 \003(\0132\037.proto_ff.E_N"
-    "ickgodSaleItemDescB\016\302\377\024\006\347\211\251\345\223\201\210\301\024\004\"N\n\021Sh"
-    "eet_NickgodSale\0229\n\022E_NickgodSale_List\030\001 "
-    "\003(\0132\027.proto_ff.E_NickgodSaleB\004\210\301\024\010\"N\n\033E_"
-    "NickgodChargeupRewardDesc\022\031\n\005m_Num\030\001 \001(\005"
-    "B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"x\n\021E_"
-    "NickgodChargeup\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\347\264\257\345\205"
-    "\205id\022G\n\010m_reward\030\002 \003(\0132%.proto_ff.E_Nickg"
-    "odChargeupRewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"Z\n\025"
-    "Sheet_NickgodChargeup\022A\n\026E_NickgodCharge"
-    "up_List\030\001 \003(\0132\033.proto_ff.E_NickgodCharge"
-    "upB\004\210\301\024\010", 4048);
+    "\030\002 \001(\005B\r\302\377\024\t\345\210\267\346\226\260\347\202\271\"{\n\026E_NickgodStageB"
+    "ossDesc\022+\n\rm_dropPreview\030\001 \001(\tB\024\302\377\024\014\346\216\211\350"
+    "\220\275\351\242\204\350\247\210\220\301\024@\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\022\036\n\007m_"
+    "point\030\003 \001(\005B\r\302\377\024\t\345\210\267\346\226\260\347\202\271\"\301\006\n\016E_Nickgod"
+    "Stage\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\351\230\266\346\256\265id\022!\n\005m_m"
+    "ap\030\002 \001(\005B\022\302\377\024\016\351\230\266\346\256\265\345\234\260\345\233\276id\022*\n\nm_durati"
+    "on\030\003 \001(\005B\026\302\377\024\022\351\230\266\346\256\265\346\214\201\347\273\255\346\227\266\351\227\264\0225\n\017m_mo"
+    "sDieRefresh\030\004 \001(\005B\034\302\377\024\030\345\260\217\346\200\252\346\255\273\344\272\241\345\210\267\346\226"
+    "\260\346\227\266\351\227\264\0226\n\022m_bossFirstRefresh\030\005 \001(\005B\032\302\377\024"
+    "\026boss\345\210\235\345\247\213\345\210\267\346\226\260\346\227\266\351\227\264\0224\n\020m_bossDieRefr"
+    "esh\030\006 \001(\005B\032\302\377\024\026boss\346\255\273\344\272\241\345\210\267\346\226\260\346\227\266\351\227\264\022;\n"
+    "\017m_playerDieDrop\030\007 \001(\005B\"\302\377\024\036\347\216\251\345\256\266\346\255\273\344\272\241"
+    "\346\216\211\350\220\275\350\243\205\345\244\207\346\246\202\347\216\207\0229\n\023m_sceneIntegralTim"
+    "e\030\010 \001(\005B\034\302\377\024\030\345\234\272\346\231\257\347\247\257\345\210\206\351\227\264\351\232\224\346\227\266\351\227\264\022)\n"
+    "\017m_sceneIntegral\030\t \001(\005B\020\302\377\024\014\345\234\272\346\231\257\347\247\257\345\210\206"
+    "\0221\n\021m_killmosIntegral\030\n \001(\005B\026\302\377\024\022\345\207\273\346\235\200\345"
+    "\260\217\346\200\252\347\247\257\345\210\206\0220\n\022m_killbossIntegral\030\013 \001(\005B"
+    "\024\302\377\024\020\345\207\273\346\235\200boss\347\247\257\345\210\206\0224\n\024m_killplayerInt"
+    "egral\030\014 \001(\005B\026\302\377\024\022\345\207\273\346\235\200\347\216\251\345\256\266\347\247\257\345\210\206\0226\n\026m"
+    "_assistplayerIntegral\030\r \001(\005B\026\302\377\024\022\345\212\251\346\224\273\347"
+    "\216\251\345\256\266\347\247\257\345\210\206\022>\n\005m_mos\030\016 \003(\0132\037.proto_ff.E_"
+    "NickgodStageMosDescB\016\302\377\024\006\345\260\217\346\200\252\210\301\024\n\022>\n\006m"
+    "_boss\030\017 \003(\0132 .proto_ff.E_NickgodStageBos"
+    "sDescB\014\302\377\024\004boss\210\301\024\004\022)\n\016m_revivalPoint\030\020 "
+    "\003(\005B\021\302\377\024\t\345\244\215\346\264\273\347\202\271\210\301\024\010\"Q\n\022Sheet_NickgodS"
+    "tage\022;\n\023E_NickgodStage_List\030\001 \003(\0132\030.prot"
+    "o_ff.E_NickgodStageB\004\210\301\024\004\"M\n\032E_NickgodRe"
+    "wardsRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351"
+    "\207\217\022\024\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\355\001\n\020E_NickgodRe"
+    "wards\022\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\272\217\345\217\267\022)\n\014m_ran"
+    "kingMin\030\002 \001(\005B\023\302\377\024\017\345\220\215\346\254\241\346\234\200\345\260\217\345\200\274\022)\n\014m_"
+    "rankingMax\030\003 \001(\005B\023\302\377\024\017\345\220\215\346\254\241\346\234\200\345\244\247\345\200\274\022!\n"
+    "\007m_score\030\004 \001(\005B\020\302\377\024\014\347\247\257\345\210\206\346\225\260\351\207\217\022F\n\010m_re"
+    "ward\030\005 \003(\0132$.proto_ff.E_NickgodRewardsRe"
+    "wardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"W\n\024Sheet_Nickgo"
+    "dRewards\022\?\n\025E_NickgodRewards_List\030\001 \003(\0132"
+    "\032.proto_ff.E_NickgodRewardsB\004\210\301\024\020\"w\n\020E_N"
+    "ickgodLattice\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\350\277\233\345\272\246i"
+    "d\022\"\n\010m_itemId\030\002 \001(\005B\020\302\377\024\014\346\266\210\350\200\227\351\201\223\345\205\267\022#\n"
+    "\tm_itemNum\030\003 \001(\005B\020\302\377\024\014\351\201\223\345\205\267\346\225\260\351\207\217\"W\n\024Sh"
+    "eet_NickgodLattice\022\?\n\025E_NickgodLattice_L"
+    "ist\030\001 \003(\0132\032.proto_ff.E_NickgodLatticeB\004\210"
+    "\301\024@\"\204\001\n\031E_NickgodTreasuryItemDesc\022\032\n\006m_s"
+    "how\030\001 \001(\005B\n\302\377\024\006\345\261\225\347\244\272\022\032\n\006m_rand\030\002 \001(\005B\n\302"
+    "\377\024\006\346\235\203\351\207\215\022\031\n\005m_num\030\003 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004"
+    "m_id\030\004 \001(\005B\006\302\377\024\002id\"r\n\021E_NickgodTreasury\022"
+    "\030\n\004m_id\030\001 \001(\005B\n\302\377\024\006\345\261\202\346\225\260\022C\n\006m_item\030\002 \003("
+    "\0132#.proto_ff.E_NickgodTreasuryItemDescB\016"
+    "\302\377\024\006\345\245\226\345\212\261\210\301\024%\"Z\n\025Sheet_NickgodTreasury\022"
+    "A\n\026E_NickgodTreasury_List\030\001 \003(\0132\033.proto_"
+    "ff.E_NickgodTreasuryB\004\210\301\024\020\"O\n\034E_NickgodP"
+    "rivilegeRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346"
+    "\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\354\001\n\022E_Nickgo"
+    "dPrivilege\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\245\226\345\212\261id\022%"
+    "\n\013m_condition\030\002 \001(\005B\020\302\377\024\014\351\242\206\345\217\226\346\235\241\344\273\266\022\033\n"
+    "\007m_param\030\003 \001(\005B\n\302\377\024\006\345\217\202\346\225\260\022,\n\006m_open\030\004 \001"
+    "(\005B\034\302\377\024\030\346\230\257\345\220\246\351\234\200\350\246\201\345\274\200\351\200\232\347\211\271\346\235\203\022H\n\010m_re"
+    "ward\030\005 \003(\0132&.proto_ff.E_NickgodPrivilege"
+    "RewardDescB\016\302\377\024\006\345\245\226\345\212\261\210\301\024\005\"]\n\026Sheet_Nick"
+    "godPrivilege\022C\n\027E_NickgodPrivilege_List\030"
+    "\001 \003(\0132\034.proto_ff.E_NickgodPrivilegeB\004\210\301\024"
+    "\020\"H\n\025E_NickgodSaleItemDesc\022\031\n\005m_Num\030\001 \001("
+    "\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001(\003B\006\302\377\024\002ID\"\374\001\n\r"
+    "E_NickgodSale\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\347\244\274\345\214\205i"
+    "d\022\"\n\nm_discount\030\002 \001(\tB\016\302\377\024\006\346\212\230\346\211\243\220\301\024@\022!\n"
+    "\007m_money\030\003 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\350\264\247\345\270\201\022!\n\007m_pr"
+    "ice\030\004 \001(\005B\020\302\377\024\014\350\264\255\344\271\260\344\273\267\346\240\274\022$\n\nm_buyLimi"
+    "t\030\005 \001(\005B\020\302\377\024\014\351\231\220\350\264\255\346\254\241\346\225\260\022\?\n\006m_item\030\006 \003("
+    "\0132\037.proto_ff.E_NickgodSaleItemDescB\016\302\377\024\006"
+    "\347\211\251\345\223\201\210\301\024\004\"N\n\021Sheet_NickgodSale\0229\n\022E_Nic"
+    "kgodSale_List\030\001 \003(\0132\027.proto_ff.E_Nickgod"
+    "SaleB\004\210\301\024\010\"N\n\033E_NickgodChargeupRewardDes"
+    "c\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006\346\225\260\351\207\217\022\024\n\004m_ID\030\002 \001"
+    "(\003B\006\302\377\024\002ID\"\231\001\n\021E_NickgodChargeup\022\032\n\004m_id"
+    "\030\001 \001(\005B\014\302\377\024\010\347\264\257\345\205\205id\022\037\n\005m_pay\030\002 \001(\005B\020\302\377\024"
+    "\014\345\205\205\345\200\274\351\207\221\351\242\235\022G\n\010m_reward\030\003 \003(\0132%.proto_"
+    "ff.E_NickgodChargeupRewardDescB\016\302\377\024\006\345\245\226\345"
+    "\212\261\210\301\024\005\"Z\n\025Sheet_NickgodChargeup\022A\n\026E_Nic"
+    "kgodChargeup_List\030\001 \003(\0132\033.proto_ff.E_Nic"
+    "kgodChargeupB\004\210\301\024\010", 4258);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Nickgod.proto", &protobuf_RegisterTypes);
   E_NickgodConstant::default_instance_ = new E_NickgodConstant();
@@ -758,6 +789,7 @@ void protobuf_AddDesc_E_5fNickgod_2eproto() {
   Sheet_NickgodRewards::default_instance_ = new Sheet_NickgodRewards();
   E_NickgodLattice::default_instance_ = new E_NickgodLattice();
   Sheet_NickgodLattice::default_instance_ = new Sheet_NickgodLattice();
+  E_NickgodTreasuryItemDesc::default_instance_ = new E_NickgodTreasuryItemDesc();
   E_NickgodTreasury::default_instance_ = new E_NickgodTreasury();
   Sheet_NickgodTreasury::default_instance_ = new Sheet_NickgodTreasury();
   E_NickgodPrivilegeRewardDesc::default_instance_ = new E_NickgodPrivilegeRewardDesc();
@@ -782,6 +814,7 @@ void protobuf_AddDesc_E_5fNickgod_2eproto() {
   Sheet_NickgodRewards::default_instance_->InitAsDefaultInstance();
   E_NickgodLattice::default_instance_->InitAsDefaultInstance();
   Sheet_NickgodLattice::default_instance_->InitAsDefaultInstance();
+  E_NickgodTreasuryItemDesc::default_instance_->InitAsDefaultInstance();
   E_NickgodTreasury::default_instance_->InitAsDefaultInstance();
   Sheet_NickgodTreasury::default_instance_->InitAsDefaultInstance();
   E_NickgodPrivilegeRewardDesc::default_instance_->InitAsDefaultInstance();
@@ -2623,7 +2656,7 @@ E_NickgodStageBossDesc::E_NickgodStageBossDesc(const E_NickgodStageBossDesc& fro
 
 void E_NickgodStageBossDesc::SharedCtor() {
   _cached_size_ = 0;
-  m_droppreview_ = 0;
+  m_droppreview_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   m_id_ = 0;
   m_point_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2634,6 +2667,9 @@ E_NickgodStageBossDesc::~E_NickgodStageBossDesc() {
 }
 
 void E_NickgodStageBossDesc::SharedDtor() {
+  if (m_droppreview_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_droppreview_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -2661,7 +2697,11 @@ E_NickgodStageBossDesc* E_NickgodStageBossDesc::New() const {
 
 void E_NickgodStageBossDesc::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    m_droppreview_ = 0;
+    if (has_m_droppreview()) {
+      if (m_droppreview_ != &::google::protobuf::internal::kEmptyString) {
+        m_droppreview_->clear();
+      }
+    }
     m_id_ = 0;
     m_point_ = 0;
   }
@@ -2675,14 +2715,15 @@ bool E_NickgodStageBossDesc::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_dropPreview = 1;
+      // optional string m_dropPreview = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_droppreview_)));
-          set_has_m_droppreview();
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_m_droppreview()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->m_droppreview().data(), this->m_droppreview().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -2740,9 +2781,13 @@ bool E_NickgodStageBossDesc::MergePartialFromCodedStream(
 
 void E_NickgodStageBossDesc::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_dropPreview = 1;
+  // optional string m_dropPreview = 1;
   if (has_m_droppreview()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_droppreview(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_droppreview().data(), this->m_droppreview().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      1, this->m_droppreview(), output);
   }
 
   // optional int32 m_id = 2;
@@ -2763,9 +2808,14 @@ void E_NickgodStageBossDesc::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_NickgodStageBossDesc::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_dropPreview = 1;
+  // optional string m_dropPreview = 1;
   if (has_m_droppreview()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_droppreview(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->m_droppreview().data(), this->m_droppreview().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->m_droppreview(), target);
   }
 
   // optional int32 m_id = 2;
@@ -2789,10 +2839,10 @@ int E_NickgodStageBossDesc::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_dropPreview = 1;
+    // optional string m_dropPreview = 1;
     if (has_m_droppreview()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_droppreview());
     }
 
@@ -5225,8 +5275,336 @@ void Sheet_NickgodLattice::Swap(Sheet_NickgodLattice* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int E_NickgodTreasuryItemDesc::kMShowFieldNumber;
+const int E_NickgodTreasuryItemDesc::kMRandFieldNumber;
+const int E_NickgodTreasuryItemDesc::kMNumFieldNumber;
+const int E_NickgodTreasuryItemDesc::kMIdFieldNumber;
+#endif  // !_MSC_VER
+
+E_NickgodTreasuryItemDesc::E_NickgodTreasuryItemDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_NickgodTreasuryItemDesc::InitAsDefaultInstance() {
+}
+
+E_NickgodTreasuryItemDesc::E_NickgodTreasuryItemDesc(const E_NickgodTreasuryItemDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_NickgodTreasuryItemDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_show_ = 0;
+  m_rand_ = 0;
+  m_num_ = 0;
+  m_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_NickgodTreasuryItemDesc::~E_NickgodTreasuryItemDesc() {
+  SharedDtor();
+}
+
+void E_NickgodTreasuryItemDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_NickgodTreasuryItemDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_NickgodTreasuryItemDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_NickgodTreasuryItemDesc_descriptor_;
+}
+
+const E_NickgodTreasuryItemDesc& E_NickgodTreasuryItemDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_E_5fNickgod_2eproto();
+  return *default_instance_;
+}
+
+E_NickgodTreasuryItemDesc* E_NickgodTreasuryItemDesc::default_instance_ = NULL;
+
+E_NickgodTreasuryItemDesc* E_NickgodTreasuryItemDesc::New() const {
+  return new E_NickgodTreasuryItemDesc;
+}
+
+void E_NickgodTreasuryItemDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_show_ = 0;
+    m_rand_ = 0;
+    m_num_ = 0;
+    m_id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_NickgodTreasuryItemDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_show = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_show_)));
+          set_has_m_show();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_rand;
+        break;
+      }
+
+      // optional int32 m_rand = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_rand:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_rand_)));
+          set_has_m_rand();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_m_num;
+        break;
+      }
+
+      // optional int32 m_num = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_id;
+        break;
+      }
+
+      // optional int32 m_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_NickgodTreasuryItemDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_show = 1;
+  if (has_m_show()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_show(), output);
+  }
+
+  // optional int32 m_rand = 2;
+  if (has_m_rand()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_rand(), output);
+  }
+
+  // optional int32 m_num = 3;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_num(), output);
+  }
+
+  // optional int32 m_id = 4;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_NickgodTreasuryItemDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_show = 1;
+  if (has_m_show()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_show(), target);
+  }
+
+  // optional int32 m_rand = 2;
+  if (has_m_rand()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_rand(), target);
+  }
+
+  // optional int32 m_num = 3;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_num(), target);
+  }
+
+  // optional int32 m_id = 4;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_NickgodTreasuryItemDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_show = 1;
+    if (has_m_show()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_show());
+    }
+
+    // optional int32 m_rand = 2;
+    if (has_m_rand()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_rand());
+    }
+
+    // optional int32 m_num = 3;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int32 m_id = 4;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_NickgodTreasuryItemDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_NickgodTreasuryItemDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_NickgodTreasuryItemDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_NickgodTreasuryItemDesc::MergeFrom(const E_NickgodTreasuryItemDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_show()) {
+      set_m_show(from.m_show());
+    }
+    if (from.has_m_rand()) {
+      set_m_rand(from.m_rand());
+    }
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_NickgodTreasuryItemDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_NickgodTreasuryItemDesc::CopyFrom(const E_NickgodTreasuryItemDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_NickgodTreasuryItemDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_NickgodTreasuryItemDesc::Swap(E_NickgodTreasuryItemDesc* other) {
+  if (other != this) {
+    std::swap(m_show_, other->m_show_);
+    std::swap(m_rand_, other->m_rand_);
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_NickgodTreasuryItemDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_NickgodTreasuryItemDesc_descriptor_;
+  metadata.reflection = E_NickgodTreasuryItemDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int E_NickgodTreasury::kMIdFieldNumber;
-const int E_NickgodTreasury::kMBoxIdFieldNumber;
+const int E_NickgodTreasury::kMItemFieldNumber;
 #endif  // !_MSC_VER
 
 E_NickgodTreasury::E_NickgodTreasury()
@@ -5246,7 +5624,6 @@ E_NickgodTreasury::E_NickgodTreasury(const E_NickgodTreasury& from)
 void E_NickgodTreasury::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
-  m_boxid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5283,8 +5660,8 @@ E_NickgodTreasury* E_NickgodTreasury::New() const {
 void E_NickgodTreasury::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
-    m_boxid_ = 0;
   }
+  m_item_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -5306,22 +5683,21 @@ bool E_NickgodTreasury::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_boxId;
+        if (input->ExpectTag(18)) goto parse_m_item;
         break;
       }
 
-      // optional int32 m_boxId = 2;
+      // repeated .proto_ff.E_NickgodTreasuryItemDesc m_item = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_boxId:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_boxid_)));
-          set_has_m_boxid();
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_item:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_item()));
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(18)) goto parse_m_item;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -5349,9 +5725,10 @@ void E_NickgodTreasury::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_boxId = 2;
-  if (has_m_boxid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_boxid(), output);
+  // repeated .proto_ff.E_NickgodTreasuryItemDesc m_item = 2;
+  for (int i = 0; i < this->m_item_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->m_item(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5367,9 +5744,11 @@ void E_NickgodTreasury::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_boxId = 2;
-  if (has_m_boxid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_boxid(), target);
+  // repeated .proto_ff.E_NickgodTreasuryItemDesc m_item = 2;
+  for (int i = 0; i < this->m_item_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->m_item(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5390,14 +5769,15 @@ int E_NickgodTreasury::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_boxId = 2;
-    if (has_m_boxid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_boxid());
-    }
-
   }
+  // repeated .proto_ff.E_NickgodTreasuryItemDesc m_item = 2;
+  total_size += 1 * this->m_item_size();
+  for (int i = 0; i < this->m_item_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_item(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -5423,12 +5803,10 @@ void E_NickgodTreasury::MergeFrom(const ::google::protobuf::Message& from) {
 
 void E_NickgodTreasury::MergeFrom(const E_NickgodTreasury& from) {
   GOOGLE_CHECK_NE(&from, this);
+  m_item_.MergeFrom(from.m_item_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
-    }
-    if (from.has_m_boxid()) {
-      set_m_boxid(from.m_boxid());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -5454,7 +5832,7 @@ bool E_NickgodTreasury::IsInitialized() const {
 void E_NickgodTreasury::Swap(E_NickgodTreasury* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
-    std::swap(m_boxid_, other->m_boxid_);
+    m_item_.Swap(&other->m_item_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7620,6 +7998,7 @@ void E_NickgodChargeupRewardDesc::Swap(E_NickgodChargeupRewardDesc* other) {
 
 #ifndef _MSC_VER
 const int E_NickgodChargeup::kMIdFieldNumber;
+const int E_NickgodChargeup::kMPayFieldNumber;
 const int E_NickgodChargeup::kMRewardFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7640,6 +8019,7 @@ E_NickgodChargeup::E_NickgodChargeup(const E_NickgodChargeup& from)
 void E_NickgodChargeup::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
+  m_pay_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7676,6 +8056,7 @@ E_NickgodChargeup* E_NickgodChargeup::New() const {
 void E_NickgodChargeup::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
+    m_pay_ = 0;
   }
   m_reward_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -7699,12 +8080,28 @@ bool E_NickgodChargeup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_reward;
+        if (input->ExpectTag(16)) goto parse_m_pay;
         break;
       }
 
-      // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 2;
+      // optional int32 m_pay = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_pay:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_pay_)));
+          set_has_m_pay();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_m_reward;
+        break;
+      }
+
+      // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_m_reward:
@@ -7713,7 +8110,7 @@ bool E_NickgodChargeup::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_m_reward;
+        if (input->ExpectTag(26)) goto parse_m_reward;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -7741,10 +8138,15 @@ void E_NickgodChargeup::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 2;
+  // optional int32 m_pay = 2;
+  if (has_m_pay()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_pay(), output);
+  }
+
+  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 3;
   for (int i = 0; i < this->m_reward_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->m_reward(i), output);
+      3, this->m_reward(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7760,11 +8162,16 @@ void E_NickgodChargeup::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 2;
+  // optional int32 m_pay = 2;
+  if (has_m_pay()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_pay(), target);
+  }
+
+  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 3;
   for (int i = 0; i < this->m_reward_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->m_reward(i), target);
+        3, this->m_reward(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7785,8 +8192,15 @@ int E_NickgodChargeup::ByteSize() const {
           this->m_id());
     }
 
+    // optional int32 m_pay = 2;
+    if (has_m_pay()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_pay());
+    }
+
   }
-  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 2;
+  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 3;
   total_size += 1 * this->m_reward_size();
   for (int i = 0; i < this->m_reward_size(); i++) {
     total_size +=
@@ -7824,6 +8238,9 @@ void E_NickgodChargeup::MergeFrom(const E_NickgodChargeup& from) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
     }
+    if (from.has_m_pay()) {
+      set_m_pay(from.m_pay());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -7848,6 +8265,7 @@ bool E_NickgodChargeup::IsInitialized() const {
 void E_NickgodChargeup::Swap(E_NickgodChargeup* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
+    std::swap(m_pay_, other->m_pay_);
     m_reward_.Swap(&other->m_reward_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

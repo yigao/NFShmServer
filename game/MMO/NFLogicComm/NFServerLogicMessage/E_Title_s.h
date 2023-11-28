@@ -78,6 +78,7 @@ namespace proto_ff_s {
 		NFShmString<256> m_starNum;//升星道具数量
 		int32_t m_starUp;//升星等级上限
 		int32_t m_starBer;//每次升星属性增加的万分比值
+		int32_t m_broadcast;//是否传闻
 		NFShmVector<struct E_TitleTitleAttributeDesc_s, DEFINE_E_TITLETITLE_M_ATTRIBUTE_MAX_NUM> m_attribute;//属性
 
 		virtual void write_to_pbmsg(::proto_ff::E_TitleTitle & msg) const;

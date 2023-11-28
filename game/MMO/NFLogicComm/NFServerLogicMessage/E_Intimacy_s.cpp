@@ -115,6 +115,7 @@ int E_IntimacyGift_s::CreateInit() {
 	m_nameType = (int32_t)0;
 	m_intimacy = (int32_t)0;
 	m_charm = (int32_t)0;
+	m_acceptCharm = (int32_t)0;
 	return 0;
 }
 
@@ -129,6 +130,7 @@ void E_IntimacyGift_s::write_to_pbmsg(::proto_ff::E_IntimacyGift & msg) const {
 	msg.set_m_uipic(m_uiPic.data());
 	msg.set_m_intimacy((int32_t)m_intimacy);
 	msg.set_m_charm((int32_t)m_charm);
+	msg.set_m_acceptcharm((int32_t)m_acceptCharm);
 }
 
 void E_IntimacyGift_s::read_from_pbmsg(const ::proto_ff::E_IntimacyGift & msg) {
@@ -138,6 +140,7 @@ void E_IntimacyGift_s::read_from_pbmsg(const ::proto_ff::E_IntimacyGift & msg) {
 	m_uiPic = msg.m_uipic();
 	m_intimacy = msg.m_intimacy();
 	m_charm = msg.m_charm();
+	m_acceptCharm = msg.m_acceptcharm();
 }
 
 Sheet_IntimacyGift_s::Sheet_IntimacyGift_s() {

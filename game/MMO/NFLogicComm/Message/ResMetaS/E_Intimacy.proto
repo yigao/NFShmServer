@@ -31,6 +31,7 @@ message E_IntimacyGift
 	optional string m_uiPic = 4[(yd_fieldoptions.field_cname) = "底框图片", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_intimacy = 5[(yd_fieldoptions.field_cname) = "亲密度"];
 	optional int32 m_charm = 6[(yd_fieldoptions.field_cname) = "魅力值"];
+	optional int32 m_acceptCharm = 7[(yd_fieldoptions.field_cname) = "接受魅力值"];
 }
 
 

@@ -203,6 +203,37 @@ message FestLimitSaleProto
 	repeated FestLimitShopProto sale = 1;
 }
 
+//神秘商人
+message FestMysteryProto
+{
+	optional int32 open_id = 1;		//当前使用的商店组开放ID，muban_MystMall表中的 open_ID 字段
+	repeated ComPair buy = 2;		//已购买的信息 muban_MystMall_Mall 表ID - 已购买的次数
+}
+
+
+//(后羿射日)抽奖日志
+message FestShootSunLogProto
+{
+	optional bytes name = 1;
+	optional int32 id = 2;		//muban_eggsDraw_pool 表 id
+	optional uint64 cid = 3;    
+}
+
+//后羿射日)任务
+message FestShootSunTaskProto
+{
+	optional int32 id = 1;		//配置ID
+	optional int32 cur = 2;		//当前进度
+	optional int32 fetch = 3;	//是否已领取 0-未领取，1-已领取
+}
+
+//(后羿射日)抽奖
+message FestShootSunProto
+{
+	repeated ComPair info = 1;					//muban_eggsDraw_pool 表 id列表 - 客户端的位置
+	optional int32 free = 2;					//已经免费重置的次数
+	repeated FestShootSunTaskProto task = 3;	//任务
+}
 
 
 //节日活动详细信息
@@ -232,6 +263,9 @@ message FestDetailProto
 	optional FestLoginProto	login = 20;											//登录奖励 serverType = 24
 	optional FestLimitSaleProto limit_sale = 21;								//限时秒杀 serverType = 26
 	optional FestContiRechargeProto conti_recharge = 22;						//连续累充 serverType = 25
+	optional FestMysteryProto mystery = 23;										//神秘商人 serverType = 29
+	optional FestShootSunProto shoot_sun = 24;									//后羿射日 serverType = 33
+	optional FestRechargePrizeData recharge_prize = 25;                         //累充喵喵 serverType = 28
 }
 
 
@@ -695,8 +729,9 @@ message FestServerRankGetAllRankReq
 {
 	optional int32 template_id = 1;
 	optional int32 rank_id = 2;
-	optional uint64 cid = 3; //服务器用的，客户端不管
-	optional uint32 rank_type = 4; //服务器用的，客户端不管
+	optional int32 sex_type = 3; //1:男榜  2:女榜
+	optional uint64 cid = 4; //服务器用的，客户端不管
+	optional uint32 rank_type = 5; //服务器用的，客户端不管
 }
 
 //FEST_SERVERRANK_GET_ALL_RANK_RSP = 4111; //获取排行榜数据
@@ -1500,4 +1535,155 @@ message Fest_LimitSaleUpdateRsp
 	optional uint32 total = 3;			//累计消费，type为1时才有效
 	repeated int32 fetch_total = 4;		//已领取奖励的 累计消费额度 的奖励(具体的额度值)，type为1时才有效 (有改变的才更新)
 	repeated ComPair buy = 5;			//已购买的信息 muban_RebateStore_mall表ID - 已购买的数量  (有改变的才更新)
+}
+
+
+/////////////////////////////////////////////////// 神秘商人 serverType = 29  /////////////////////////////////////////////////////
+
+//请求购买 神秘商人 商品 FEST_MYSTERY_BUY_REQ
+message Fest_MysteryBuyReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 id = 2;				//商品ID,muban_MystMall_Mall 表ID
+}
+//返回 购买 神秘商人 商品结果 FEST_MYSTERY_BUY_RSP
+message Fest_MysteryBuyRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 ret = 2;			//返回码
+	optional int32 id = 3;			//商品ID,muban_MystMall_Mall 表ID
+	optional int32 count = 4;		//已购买的次数
+}
+
+//更新 神秘商人 信息 FEST_MYSTERY_UPDATE_RSP
+message Fest_MysteryUpdateRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 open_id = 2;		//当前使用的商店组开放ID，muban_MystMall表中的 open_ID 字段
+	repeated ComPair buy = 3;		//已购买的信息 muban_MystMall_Mall 表ID - 已购买的次数 (所有已购买过商品列表)
+}
+
+/////////////////////////////////////////////////////  后羿射日 serverType = 33 //////////////////////////////////////////////////////////////
+
+//请求抽奖(后羿射日) FEST_SHOOT_SUN_REQ
+message Fest_ShootSunReq
+{
+	optional int32 template_id = 1;		//活动模板ID	
+	optional uint32 pos = 2;			//客户端位置
+}
+
+//返回抽奖 结果(后羿射日) FEST_SHOOT_SUN_RSP
+message Fest_ShootSunRsp
+{
+	required int32 ret = 1;         //返回码
+	required int32 template_id = 2; //活动模板ID	
+	optional int32 id = 3;			//muban_eggsDraw_pool 表 id
+	optional uint32 pos = 4;		//客户端位置
+}
+ //请求重置抽奖(后羿射日) FEST_SHOOT_SUN_RESET_REQ
+ message Fest_ShootSunRestReq
+{
+	optional int32 template_id = 1; //活动模板ID	
+}
+//返回重置抽奖 结果(后羿射日) FEST_SHOOT_SUN_RESET_RSP
+message Fest_ShootSunRestRsp
+{
+	required int32 ret = 1;         //返回码
+	required int32 template_id = 2; //活动模板ID
+	optional int32 free = 3;		//已经免费重置的次数
+}
+//请求抽奖日志(后羿射日) FEST_SHOOT_SUN_LOG_REQ
+message Fest_ShootSunLogReq
+{
+	optional int32 template_id = 1; //活动模板ID	
+}
+//返回抽奖日志(后羿射日) FEST_SHOOT_SUN_LOG_RSP 
+message Fest_ShootSunLogRsp
+{
+	required int32 ret = 1;					//返回码
+	required int32 template_id = 2;			//活动模板ID
+	repeated FestShootSunLogProto log = 3;	//日志
+}
+//请求任务领奖(后羿射日) FEST_SHOOT_SUN_TASK_FETCH_REQ
+message Fest_ShootSunTaskFetchReq
+{
+	required int32 template_id = 1;			//活动模板ID
+	required int32 id = 2;					//
+}
+//返回任务领奖 结果(后羿射日) FEST_SHOOT_SUN_TASK_FETCH_RSP
+message Fest_ShootSunTaskFetchRsp
+{
+	required int32 ret = 1;					//返回码
+	required int32 template_id = 2;			//活动模板ID
+}
+//更新任务信息(后羿射日) FEST_SHOOT_SUN_TASK_UPDATE_RSP
+message Fest_ShootSunTaskUpdateRsp
+{
+	required int32 template_id = 1;			//活动模板ID
+	repeated FestShootSunTaskProto task = 2;
+}
+
+//////////////////////////////////////累充喵喵///////////////////////////////////////////
+//FEST_RECHARGE_PRIZE_CHOUJIANG_REQ;  //累充喵喵抽奖
+message FestRechargePrizeChouJiangReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_CHOUJIANG_RSP;  //累充喵喵抽奖
+message FestRechargePrizeChouJiangRsp
+{
+	optional int32 ret_code = 1;
+	optional FestRechargePrizeData data = 2;
+	optional int32 template_id = 3;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_CHOUJIANG_RECORD_REQ;  //累充喵喵抽奖记录
+message FestRechargePrizeChouJiangRecordReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_CHOUJIANG_RECORD_RSP;  //累充喵喵抽奖记录
+message FestRechargePrizeChouJiangRecordRsp
+{
+	optional int32 ret_code = 1;
+	repeated FestRechargePrizeRecord record = 2;
+	optional int32 template_id = 3;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_GET_TASK_REWARD_REQ;  //累充喵喵获取奖励
+message FestRechargePrizeGetTaskRewardReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 task_id = 2;
+}
+
+//FEST_RECHARGE_PRIZE_GET_TASK_REWARD_RSP;  //累充喵喵获取奖励
+message FestRechargePrizeGetTaskRewardRsp
+{
+	optional int32 ret_code = 1;
+	optional FestRechargePrizeTaskData task = 2;
+	optional int32 template_id = 3;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_GET_FREE_REWARD_REQ;  //累充喵喵获取免费奖励
+message FestRechargePrizeGetFreeRewardReq
+{
+	optional int32 template_id = 1;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_GET_FREE_REWARD_RSP;  //累充喵喵获取免费奖励
+message FestRechargePrizeGetFreeRewardRsp
+{
+	optional int32 ret_code = 1;
+	optional uint32 free_status = 2;//0:可领取，1:已经领取
+	optional int32 template_id = 3;		//活动模板ID
+}
+
+//FEST_RECHARGE_PRIZE_TASK_STATUS_NOTIFY;  //累充喵喵任务状态修改
+message FestRechargePrizeTaskStatusNotify
+{
+	repeated FestRechargePrizeTaskData task = 1;
+	optional int32 template_id = 2;		//活动模板ID
 }

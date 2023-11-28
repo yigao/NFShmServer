@@ -334,8 +334,9 @@ message E_XingchenXingji
 	optional int32 m_XJClass = 2[(yd_fieldoptions.field_cname) = "星技分类"];
 	optional int32 m_XJSkill = 3[(yd_fieldoptions.field_cname) = "星技技能"];
 	optional int32 m_SkillId = 4[(yd_fieldoptions.field_cname) = "技能id"];
-	repeated int32 m_Unlock = 5[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_arysize) = 3];
-	repeated int32 m_UnlockLV = 6[(yd_fieldoptions.field_cname) = "解锁技能等级", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_SkillMax = 5[(yd_fieldoptions.field_cname) = "技能等级"];
+	repeated int32 m_Unlock = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_arysize) = 3];
+	repeated int32 m_UnlockLV = 7[(yd_fieldoptions.field_cname) = "解锁技能等级", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

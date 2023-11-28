@@ -64,6 +64,10 @@ class FestContiDayRewardProto;
 class FestContiRechargeProto;
 class FestLimitShopProto;
 class FestLimitSaleProto;
+class FestMysteryProto;
+class FestShootSunLogProto;
+class FestShootSunTaskProto;
+class FestShootSunProto;
 class FestDetailProto;
 class Fest_SimpleListRsp;
 class Fest_SimpleInfoNotify;
@@ -230,6 +234,27 @@ class Fest_LimitSaleBuyRsp;
 class Fest_LimitSaleFetchReq;
 class Fest_LimitSaleFetchRsp;
 class Fest_LimitSaleUpdateRsp;
+class Fest_MysteryBuyReq;
+class Fest_MysteryBuyRsp;
+class Fest_MysteryUpdateRsp;
+class Fest_ShootSunReq;
+class Fest_ShootSunRsp;
+class Fest_ShootSunRestReq;
+class Fest_ShootSunRestRsp;
+class Fest_ShootSunLogReq;
+class Fest_ShootSunLogRsp;
+class Fest_ShootSunTaskFetchReq;
+class Fest_ShootSunTaskFetchRsp;
+class Fest_ShootSunTaskUpdateRsp;
+class FestRechargePrizeChouJiangReq;
+class FestRechargePrizeChouJiangRsp;
+class FestRechargePrizeChouJiangRecordReq;
+class FestRechargePrizeChouJiangRecordRsp;
+class FestRechargePrizeGetTaskRewardReq;
+class FestRechargePrizeGetTaskRewardRsp;
+class FestRechargePrizeGetFreeRewardReq;
+class FestRechargePrizeGetFreeRewardRsp;
+class FestRechargePrizeTaskStatusNotify;
 
 // ===================================================================
 
@@ -3097,6 +3122,418 @@ class FestLimitSaleProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class FestMysteryProto : public ::google::protobuf::Message {
+ public:
+  FestMysteryProto();
+  virtual ~FestMysteryProto();
+
+  FestMysteryProto(const FestMysteryProto& from);
+
+  inline FestMysteryProto& operator=(const FestMysteryProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestMysteryProto& default_instance();
+
+  void Swap(FestMysteryProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestMysteryProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestMysteryProto& from);
+  void MergeFrom(const FestMysteryProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 open_id = 1;
+  inline bool has_open_id() const;
+  inline void clear_open_id();
+  static const int kOpenIdFieldNumber = 1;
+  inline ::google::protobuf::int32 open_id() const;
+  inline void set_open_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair buy = 2;
+  inline int buy_size() const;
+  inline void clear_buy();
+  static const int kBuyFieldNumber = 2;
+  inline const ::proto_ff::ComPair& buy(int index) const;
+  inline ::proto_ff::ComPair* mutable_buy(int index);
+  inline ::proto_ff::ComPair* add_buy();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      buy() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_buy();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestMysteryProto)
+ private:
+  inline void set_has_open_id();
+  inline void clear_has_open_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > buy_;
+  ::google::protobuf::int32 open_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestMysteryProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestShootSunLogProto : public ::google::protobuf::Message {
+ public:
+  FestShootSunLogProto();
+  virtual ~FestShootSunLogProto();
+
+  FestShootSunLogProto(const FestShootSunLogProto& from);
+
+  inline FestShootSunLogProto& operator=(const FestShootSunLogProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestShootSunLogProto& default_instance();
+
+  void Swap(FestShootSunLogProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestShootSunLogProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestShootSunLogProto& from);
+  void MergeFrom(const FestShootSunLogProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bytes name = 1;
+  inline bool has_name() const;
+  inline void clear_name();
+  static const int kNameFieldNumber = 1;
+  inline const ::std::string& name() const;
+  inline void set_name(const ::std::string& value);
+  inline void set_name(const char* value);
+  inline void set_name(const void* value, size_t size);
+  inline ::std::string* mutable_name();
+  inline ::std::string* release_name();
+  inline void set_allocated_name(::std::string* name);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional uint64 cid = 3;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 3;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestShootSunLogProto)
+ private:
+  inline void set_has_name();
+  inline void clear_has_name();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* name_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestShootSunLogProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestShootSunTaskProto : public ::google::protobuf::Message {
+ public:
+  FestShootSunTaskProto();
+  virtual ~FestShootSunTaskProto();
+
+  FestShootSunTaskProto(const FestShootSunTaskProto& from);
+
+  inline FestShootSunTaskProto& operator=(const FestShootSunTaskProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestShootSunTaskProto& default_instance();
+
+  void Swap(FestShootSunTaskProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestShootSunTaskProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestShootSunTaskProto& from);
+  void MergeFrom(const FestShootSunTaskProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 cur = 2;
+  inline bool has_cur() const;
+  inline void clear_cur();
+  static const int kCurFieldNumber = 2;
+  inline ::google::protobuf::int32 cur() const;
+  inline void set_cur(::google::protobuf::int32 value);
+
+  // optional int32 fetch = 3;
+  inline bool has_fetch() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 3;
+  inline ::google::protobuf::int32 fetch() const;
+  inline void set_fetch(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestShootSunTaskProto)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_cur();
+  inline void clear_has_cur();
+  inline void set_has_fetch();
+  inline void clear_has_fetch();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 cur_;
+  ::google::protobuf::int32 fetch_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestShootSunTaskProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestShootSunProto : public ::google::protobuf::Message {
+ public:
+  FestShootSunProto();
+  virtual ~FestShootSunProto();
+
+  FestShootSunProto(const FestShootSunProto& from);
+
+  inline FestShootSunProto& operator=(const FestShootSunProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestShootSunProto& default_instance();
+
+  void Swap(FestShootSunProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestShootSunProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestShootSunProto& from);
+  void MergeFrom(const FestShootSunProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.ComPair info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::ComPair& info(int index) const;
+  inline ::proto_ff::ComPair* mutable_info(int index);
+  inline ::proto_ff::ComPair* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_info();
+
+  // optional int32 free = 2;
+  inline bool has_free() const;
+  inline void clear_free();
+  static const int kFreeFieldNumber = 2;
+  inline ::google::protobuf::int32 free() const;
+  inline void set_free(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.FestShootSunTaskProto task = 3;
+  inline int task_size() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 3;
+  inline const ::proto_ff::FestShootSunTaskProto& task(int index) const;
+  inline ::proto_ff::FestShootSunTaskProto* mutable_task(int index);
+  inline ::proto_ff::FestShootSunTaskProto* add_task();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >&
+      task() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >*
+      mutable_task();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestShootSunProto)
+ private:
+  inline void set_has_free();
+  inline void clear_has_free();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > info_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto > task_;
+  ::google::protobuf::int32 free_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestShootSunProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class FestDetailProto : public ::google::protobuf::Message {
  public:
   FestDetailProto();
@@ -3347,6 +3784,33 @@ class FestDetailProto : public ::google::protobuf::Message {
   inline ::proto_ff::FestContiRechargeProto* release_conti_recharge();
   inline void set_allocated_conti_recharge(::proto_ff::FestContiRechargeProto* conti_recharge);
 
+  // optional .proto_ff.FestMysteryProto mystery = 23;
+  inline bool has_mystery() const;
+  inline void clear_mystery();
+  static const int kMysteryFieldNumber = 23;
+  inline const ::proto_ff::FestMysteryProto& mystery() const;
+  inline ::proto_ff::FestMysteryProto* mutable_mystery();
+  inline ::proto_ff::FestMysteryProto* release_mystery();
+  inline void set_allocated_mystery(::proto_ff::FestMysteryProto* mystery);
+
+  // optional .proto_ff.FestShootSunProto shoot_sun = 24;
+  inline bool has_shoot_sun() const;
+  inline void clear_shoot_sun();
+  static const int kShootSunFieldNumber = 24;
+  inline const ::proto_ff::FestShootSunProto& shoot_sun() const;
+  inline ::proto_ff::FestShootSunProto* mutable_shoot_sun();
+  inline ::proto_ff::FestShootSunProto* release_shoot_sun();
+  inline void set_allocated_shoot_sun(::proto_ff::FestShootSunProto* shoot_sun);
+
+  // optional .proto_ff.FestRechargePrizeData recharge_prize = 25;
+  inline bool has_recharge_prize() const;
+  inline void clear_recharge_prize();
+  static const int kRechargePrizeFieldNumber = 25;
+  inline const ::proto_ff::FestRechargePrizeData& recharge_prize() const;
+  inline ::proto_ff::FestRechargePrizeData* mutable_recharge_prize();
+  inline ::proto_ff::FestRechargePrizeData* release_recharge_prize();
+  inline void set_allocated_recharge_prize(::proto_ff::FestRechargePrizeData* recharge_prize);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FestDetailProto)
  private:
   inline void set_has_template_id();
@@ -3393,6 +3857,12 @@ class FestDetailProto : public ::google::protobuf::Message {
   inline void clear_has_limit_sale();
   inline void set_has_conti_recharge();
   inline void clear_has_conti_recharge();
+  inline void set_has_mystery();
+  inline void clear_has_mystery();
+  inline void set_has_shoot_sun();
+  inline void clear_has_shoot_sun();
+  inline void set_has_recharge_prize();
+  inline void clear_has_recharge_prize();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3417,10 +3887,13 @@ class FestDetailProto : public ::google::protobuf::Message {
   ::proto_ff::FestLoginProto* login_;
   ::proto_ff::FestLimitSaleProto* limit_sale_;
   ::proto_ff::FestContiRechargeProto* conti_recharge_;
+  ::proto_ff::FestMysteryProto* mystery_;
+  ::proto_ff::FestShootSunProto* shoot_sun_;
+  ::proto_ff::FestRechargePrizeData* recharge_prize_;
   ::google::protobuf::int32 template_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(22 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(25 + 31) / 32];
 
   friend void  protobuf_AddDesc_Fest_2eproto();
   friend void protobuf_AssignDesc_Fest_2eproto();
@@ -9280,17 +9753,24 @@ class FestServerRankGetAllRankReq : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 rank_id() const;
   inline void set_rank_id(::google::protobuf::int32 value);
 
-  // optional uint64 cid = 3;
+  // optional int32 sex_type = 3;
+  inline bool has_sex_type() const;
+  inline void clear_sex_type();
+  static const int kSexTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 sex_type() const;
+  inline void set_sex_type(::google::protobuf::int32 value);
+
+  // optional uint64 cid = 4;
   inline bool has_cid() const;
   inline void clear_cid();
-  static const int kCidFieldNumber = 3;
+  static const int kCidFieldNumber = 4;
   inline ::google::protobuf::uint64 cid() const;
   inline void set_cid(::google::protobuf::uint64 value);
 
-  // optional uint32 rank_type = 4;
+  // optional uint32 rank_type = 5;
   inline bool has_rank_type() const;
   inline void clear_rank_type();
-  static const int kRankTypeFieldNumber = 4;
+  static const int kRankTypeFieldNumber = 5;
   inline ::google::protobuf::uint32 rank_type() const;
   inline void set_rank_type(::google::protobuf::uint32 value);
 
@@ -9300,6 +9780,8 @@ class FestServerRankGetAllRankReq : public ::google::protobuf::Message {
   inline void clear_has_template_id();
   inline void set_has_rank_id();
   inline void clear_has_rank_id();
+  inline void set_has_sex_type();
+  inline void clear_has_sex_type();
   inline void set_has_cid();
   inline void clear_has_cid();
   inline void set_has_rank_type();
@@ -9310,10 +9792,11 @@ class FestServerRankGetAllRankReq : public ::google::protobuf::Message {
   ::google::protobuf::int32 template_id_;
   ::google::protobuf::int32 rank_id_;
   ::google::protobuf::uint64 cid_;
+  ::google::protobuf::int32 sex_type_;
   ::google::protobuf::uint32 rank_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_Fest_2eproto();
   friend void protobuf_AssignDesc_Fest_2eproto();
@@ -19933,6 +20416,2017 @@ class Fest_LimitSaleUpdateRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Fest_LimitSaleUpdateRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Fest_MysteryBuyReq : public ::google::protobuf::Message {
+ public:
+  Fest_MysteryBuyReq();
+  virtual ~Fest_MysteryBuyReq();
+
+  Fest_MysteryBuyReq(const Fest_MysteryBuyReq& from);
+
+  inline Fest_MysteryBuyReq& operator=(const Fest_MysteryBuyReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_MysteryBuyReq& default_instance();
+
+  void Swap(Fest_MysteryBuyReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_MysteryBuyReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_MysteryBuyReq& from);
+  void MergeFrom(const Fest_MysteryBuyReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_MysteryBuyReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_MysteryBuyReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_MysteryBuyRsp : public ::google::protobuf::Message {
+ public:
+  Fest_MysteryBuyRsp();
+  virtual ~Fest_MysteryBuyRsp();
+
+  Fest_MysteryBuyRsp(const Fest_MysteryBuyRsp& from);
+
+  inline Fest_MysteryBuyRsp& operator=(const Fest_MysteryBuyRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_MysteryBuyRsp& default_instance();
+
+  void Swap(Fest_MysteryBuyRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_MysteryBuyRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_MysteryBuyRsp& from);
+  void MergeFrom(const Fest_MysteryBuyRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 ret = 2;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 2;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 id = 3;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 3;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 count = 4;
+  inline bool has_count() const;
+  inline void clear_count();
+  static const int kCountFieldNumber = 4;
+  inline ::google::protobuf::int32 count() const;
+  inline void set_count(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_MysteryBuyRsp)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_count();
+  inline void clear_has_count();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 count_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_MysteryBuyRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_MysteryUpdateRsp : public ::google::protobuf::Message {
+ public:
+  Fest_MysteryUpdateRsp();
+  virtual ~Fest_MysteryUpdateRsp();
+
+  Fest_MysteryUpdateRsp(const Fest_MysteryUpdateRsp& from);
+
+  inline Fest_MysteryUpdateRsp& operator=(const Fest_MysteryUpdateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_MysteryUpdateRsp& default_instance();
+
+  void Swap(Fest_MysteryUpdateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_MysteryUpdateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_MysteryUpdateRsp& from);
+  void MergeFrom(const Fest_MysteryUpdateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 open_id = 2;
+  inline bool has_open_id() const;
+  inline void clear_open_id();
+  static const int kOpenIdFieldNumber = 2;
+  inline ::google::protobuf::int32 open_id() const;
+  inline void set_open_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair buy = 3;
+  inline int buy_size() const;
+  inline void clear_buy();
+  static const int kBuyFieldNumber = 3;
+  inline const ::proto_ff::ComPair& buy(int index) const;
+  inline ::proto_ff::ComPair* mutable_buy(int index);
+  inline ::proto_ff::ComPair* add_buy();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      buy() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_buy();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_MysteryUpdateRsp)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_open_id();
+  inline void clear_has_open_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 open_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > buy_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_MysteryUpdateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunReq : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunReq();
+  virtual ~Fest_ShootSunReq();
+
+  Fest_ShootSunReq(const Fest_ShootSunReq& from);
+
+  inline Fest_ShootSunReq& operator=(const Fest_ShootSunReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunReq& default_instance();
+
+  void Swap(Fest_ShootSunReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunReq& from);
+  void MergeFrom(const Fest_ShootSunReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional uint32 pos = 2;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 2;
+  inline ::google::protobuf::uint32 pos() const;
+  inline void set_pos(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::uint32 pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunRsp : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunRsp();
+  virtual ~Fest_ShootSunRsp();
+
+  Fest_ShootSunRsp(const Fest_ShootSunRsp& from);
+
+  inline Fest_ShootSunRsp& operator=(const Fest_ShootSunRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunRsp& default_instance();
+
+  void Swap(Fest_ShootSunRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunRsp& from);
+  void MergeFrom(const Fest_ShootSunRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // required int32 template_id = 2;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 2;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 id = 3;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 3;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional uint32 pos = 4;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 4;
+  inline ::google::protobuf::uint32 pos() const;
+  inline void set_pos(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::uint32 pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunRestReq : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunRestReq();
+  virtual ~Fest_ShootSunRestReq();
+
+  Fest_ShootSunRestReq(const Fest_ShootSunRestReq& from);
+
+  inline Fest_ShootSunRestReq& operator=(const Fest_ShootSunRestReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunRestReq& default_instance();
+
+  void Swap(Fest_ShootSunRestReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunRestReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunRestReq& from);
+  void MergeFrom(const Fest_ShootSunRestReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunRestReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunRestReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunRestRsp : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunRestRsp();
+  virtual ~Fest_ShootSunRestRsp();
+
+  Fest_ShootSunRestRsp(const Fest_ShootSunRestRsp& from);
+
+  inline Fest_ShootSunRestRsp& operator=(const Fest_ShootSunRestRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunRestRsp& default_instance();
+
+  void Swap(Fest_ShootSunRestRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunRestRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunRestRsp& from);
+  void MergeFrom(const Fest_ShootSunRestRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // required int32 template_id = 2;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 2;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 free = 3;
+  inline bool has_free() const;
+  inline void clear_free();
+  static const int kFreeFieldNumber = 3;
+  inline ::google::protobuf::int32 free() const;
+  inline void set_free(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunRestRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_free();
+  inline void clear_has_free();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 free_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunRestRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunLogReq : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunLogReq();
+  virtual ~Fest_ShootSunLogReq();
+
+  Fest_ShootSunLogReq(const Fest_ShootSunLogReq& from);
+
+  inline Fest_ShootSunLogReq& operator=(const Fest_ShootSunLogReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunLogReq& default_instance();
+
+  void Swap(Fest_ShootSunLogReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunLogReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunLogReq& from);
+  void MergeFrom(const Fest_ShootSunLogReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunLogReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunLogReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunLogRsp : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunLogRsp();
+  virtual ~Fest_ShootSunLogRsp();
+
+  Fest_ShootSunLogRsp(const Fest_ShootSunLogRsp& from);
+
+  inline Fest_ShootSunLogRsp& operator=(const Fest_ShootSunLogRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunLogRsp& default_instance();
+
+  void Swap(Fest_ShootSunLogRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunLogRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunLogRsp& from);
+  void MergeFrom(const Fest_ShootSunLogRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // required int32 template_id = 2;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 2;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.FestShootSunLogProto log = 3;
+  inline int log_size() const;
+  inline void clear_log();
+  static const int kLogFieldNumber = 3;
+  inline const ::proto_ff::FestShootSunLogProto& log(int index) const;
+  inline ::proto_ff::FestShootSunLogProto* mutable_log(int index);
+  inline ::proto_ff::FestShootSunLogProto* add_log();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunLogProto >&
+      log() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunLogProto >*
+      mutable_log();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunLogRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunLogProto > log_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunLogRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunTaskFetchReq : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunTaskFetchReq();
+  virtual ~Fest_ShootSunTaskFetchReq();
+
+  Fest_ShootSunTaskFetchReq(const Fest_ShootSunTaskFetchReq& from);
+
+  inline Fest_ShootSunTaskFetchReq& operator=(const Fest_ShootSunTaskFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunTaskFetchReq& default_instance();
+
+  void Swap(Fest_ShootSunTaskFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunTaskFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunTaskFetchReq& from);
+  void MergeFrom(const Fest_ShootSunTaskFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // required int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunTaskFetchReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunTaskFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunTaskFetchRsp : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunTaskFetchRsp();
+  virtual ~Fest_ShootSunTaskFetchRsp();
+
+  Fest_ShootSunTaskFetchRsp(const Fest_ShootSunTaskFetchRsp& from);
+
+  inline Fest_ShootSunTaskFetchRsp& operator=(const Fest_ShootSunTaskFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunTaskFetchRsp& default_instance();
+
+  void Swap(Fest_ShootSunTaskFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunTaskFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunTaskFetchRsp& from);
+  void MergeFrom(const Fest_ShootSunTaskFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // required int32 template_id = 2;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 2;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunTaskFetchRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunTaskFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Fest_ShootSunTaskUpdateRsp : public ::google::protobuf::Message {
+ public:
+  Fest_ShootSunTaskUpdateRsp();
+  virtual ~Fest_ShootSunTaskUpdateRsp();
+
+  Fest_ShootSunTaskUpdateRsp(const Fest_ShootSunTaskUpdateRsp& from);
+
+  inline Fest_ShootSunTaskUpdateRsp& operator=(const Fest_ShootSunTaskUpdateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Fest_ShootSunTaskUpdateRsp& default_instance();
+
+  void Swap(Fest_ShootSunTaskUpdateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Fest_ShootSunTaskUpdateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Fest_ShootSunTaskUpdateRsp& from);
+  void MergeFrom(const Fest_ShootSunTaskUpdateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.FestShootSunTaskProto task = 2;
+  inline int task_size() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 2;
+  inline const ::proto_ff::FestShootSunTaskProto& task(int index) const;
+  inline ::proto_ff::FestShootSunTaskProto* mutable_task(int index);
+  inline ::proto_ff::FestShootSunTaskProto* add_task();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >&
+      task() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >*
+      mutable_task();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Fest_ShootSunTaskUpdateRsp)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto > task_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static Fest_ShootSunTaskUpdateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeChouJiangReq : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeChouJiangReq();
+  virtual ~FestRechargePrizeChouJiangReq();
+
+  FestRechargePrizeChouJiangReq(const FestRechargePrizeChouJiangReq& from);
+
+  inline FestRechargePrizeChouJiangReq& operator=(const FestRechargePrizeChouJiangReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeChouJiangReq& default_instance();
+
+  void Swap(FestRechargePrizeChouJiangReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeChouJiangReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeChouJiangReq& from);
+  void MergeFrom(const FestRechargePrizeChouJiangReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeChouJiangReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeChouJiangReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeChouJiangRsp : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeChouJiangRsp();
+  virtual ~FestRechargePrizeChouJiangRsp();
+
+  FestRechargePrizeChouJiangRsp(const FestRechargePrizeChouJiangRsp& from);
+
+  inline FestRechargePrizeChouJiangRsp& operator=(const FestRechargePrizeChouJiangRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeChouJiangRsp& default_instance();
+
+  void Swap(FestRechargePrizeChouJiangRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeChouJiangRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeChouJiangRsp& from);
+  void MergeFrom(const FestRechargePrizeChouJiangRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional .proto_ff.FestRechargePrizeData data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::proto_ff::FestRechargePrizeData& data() const;
+  inline ::proto_ff::FestRechargePrizeData* mutable_data();
+  inline ::proto_ff::FestRechargePrizeData* release_data();
+  inline void set_allocated_data(::proto_ff::FestRechargePrizeData* data);
+
+  // optional int32 template_id = 3;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 3;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeChouJiangRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_data();
+  inline void clear_has_data();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::FestRechargePrizeData* data_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeChouJiangRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeChouJiangRecordReq : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeChouJiangRecordReq();
+  virtual ~FestRechargePrizeChouJiangRecordReq();
+
+  FestRechargePrizeChouJiangRecordReq(const FestRechargePrizeChouJiangRecordReq& from);
+
+  inline FestRechargePrizeChouJiangRecordReq& operator=(const FestRechargePrizeChouJiangRecordReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeChouJiangRecordReq& default_instance();
+
+  void Swap(FestRechargePrizeChouJiangRecordReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeChouJiangRecordReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeChouJiangRecordReq& from);
+  void MergeFrom(const FestRechargePrizeChouJiangRecordReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeChouJiangRecordReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeChouJiangRecordReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeChouJiangRecordRsp : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeChouJiangRecordRsp();
+  virtual ~FestRechargePrizeChouJiangRecordRsp();
+
+  FestRechargePrizeChouJiangRecordRsp(const FestRechargePrizeChouJiangRecordRsp& from);
+
+  inline FestRechargePrizeChouJiangRecordRsp& operator=(const FestRechargePrizeChouJiangRecordRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeChouJiangRecordRsp& default_instance();
+
+  void Swap(FestRechargePrizeChouJiangRecordRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeChouJiangRecordRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeChouJiangRecordRsp& from);
+  void MergeFrom(const FestRechargePrizeChouJiangRecordRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.FestRechargePrizeRecord record = 2;
+  inline int record_size() const;
+  inline void clear_record();
+  static const int kRecordFieldNumber = 2;
+  inline const ::proto_ff::FestRechargePrizeRecord& record(int index) const;
+  inline ::proto_ff::FestRechargePrizeRecord* mutable_record(int index);
+  inline ::proto_ff::FestRechargePrizeRecord* add_record();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >&
+      record() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >*
+      mutable_record();
+
+  // optional int32 template_id = 3;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 3;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeChouJiangRecordRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord > record_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeChouJiangRecordRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeGetTaskRewardReq : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeGetTaskRewardReq();
+  virtual ~FestRechargePrizeGetTaskRewardReq();
+
+  FestRechargePrizeGetTaskRewardReq(const FestRechargePrizeGetTaskRewardReq& from);
+
+  inline FestRechargePrizeGetTaskRewardReq& operator=(const FestRechargePrizeGetTaskRewardReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeGetTaskRewardReq& default_instance();
+
+  void Swap(FestRechargePrizeGetTaskRewardReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeGetTaskRewardReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeGetTaskRewardReq& from);
+  void MergeFrom(const FestRechargePrizeGetTaskRewardReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // optional int32 task_id = 2;
+  inline bool has_task_id() const;
+  inline void clear_task_id();
+  static const int kTaskIdFieldNumber = 2;
+  inline ::google::protobuf::int32 task_id() const;
+  inline void set_task_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeGetTaskRewardReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+  inline void set_has_task_id();
+  inline void clear_has_task_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+  ::google::protobuf::int32 task_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeGetTaskRewardReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeGetTaskRewardRsp : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeGetTaskRewardRsp();
+  virtual ~FestRechargePrizeGetTaskRewardRsp();
+
+  FestRechargePrizeGetTaskRewardRsp(const FestRechargePrizeGetTaskRewardRsp& from);
+
+  inline FestRechargePrizeGetTaskRewardRsp& operator=(const FestRechargePrizeGetTaskRewardRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeGetTaskRewardRsp& default_instance();
+
+  void Swap(FestRechargePrizeGetTaskRewardRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeGetTaskRewardRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeGetTaskRewardRsp& from);
+  void MergeFrom(const FestRechargePrizeGetTaskRewardRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional .proto_ff.FestRechargePrizeTaskData task = 2;
+  inline bool has_task() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 2;
+  inline const ::proto_ff::FestRechargePrizeTaskData& task() const;
+  inline ::proto_ff::FestRechargePrizeTaskData* mutable_task();
+  inline ::proto_ff::FestRechargePrizeTaskData* release_task();
+  inline void set_allocated_task(::proto_ff::FestRechargePrizeTaskData* task);
+
+  // optional int32 template_id = 3;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 3;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeGetTaskRewardRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_task();
+  inline void clear_has_task();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::FestRechargePrizeTaskData* task_;
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeGetTaskRewardRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeGetFreeRewardReq : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeGetFreeRewardReq();
+  virtual ~FestRechargePrizeGetFreeRewardReq();
+
+  FestRechargePrizeGetFreeRewardReq(const FestRechargePrizeGetFreeRewardReq& from);
+
+  inline FestRechargePrizeGetFreeRewardReq& operator=(const FestRechargePrizeGetFreeRewardReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeGetFreeRewardReq& default_instance();
+
+  void Swap(FestRechargePrizeGetFreeRewardReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeGetFreeRewardReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeGetFreeRewardReq& from);
+  void MergeFrom(const FestRechargePrizeGetFreeRewardReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 template_id = 1;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 1;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeGetFreeRewardReq)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeGetFreeRewardReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeGetFreeRewardRsp : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeGetFreeRewardRsp();
+  virtual ~FestRechargePrizeGetFreeRewardRsp();
+
+  FestRechargePrizeGetFreeRewardRsp(const FestRechargePrizeGetFreeRewardRsp& from);
+
+  inline FestRechargePrizeGetFreeRewardRsp& operator=(const FestRechargePrizeGetFreeRewardRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeGetFreeRewardRsp& default_instance();
+
+  void Swap(FestRechargePrizeGetFreeRewardRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeGetFreeRewardRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeGetFreeRewardRsp& from);
+  void MergeFrom(const FestRechargePrizeGetFreeRewardRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint32 free_status = 2;
+  inline bool has_free_status() const;
+  inline void clear_free_status();
+  static const int kFreeStatusFieldNumber = 2;
+  inline ::google::protobuf::uint32 free_status() const;
+  inline void set_free_status(::google::protobuf::uint32 value);
+
+  // optional int32 template_id = 3;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 3;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeGetFreeRewardRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_free_status();
+  inline void clear_has_free_status();
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::uint32 free_status_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeGetFreeRewardRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeTaskStatusNotify : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeTaskStatusNotify();
+  virtual ~FestRechargePrizeTaskStatusNotify();
+
+  FestRechargePrizeTaskStatusNotify(const FestRechargePrizeTaskStatusNotify& from);
+
+  inline FestRechargePrizeTaskStatusNotify& operator=(const FestRechargePrizeTaskStatusNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeTaskStatusNotify& default_instance();
+
+  void Swap(FestRechargePrizeTaskStatusNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeTaskStatusNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeTaskStatusNotify& from);
+  void MergeFrom(const FestRechargePrizeTaskStatusNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.FestRechargePrizeTaskData task = 1;
+  inline int task_size() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 1;
+  inline const ::proto_ff::FestRechargePrizeTaskData& task(int index) const;
+  inline ::proto_ff::FestRechargePrizeTaskData* mutable_task(int index);
+  inline ::proto_ff::FestRechargePrizeTaskData* add_task();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >&
+      task() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >*
+      mutable_task();
+
+  // optional int32 template_id = 2;
+  inline bool has_template_id() const;
+  inline void clear_template_id();
+  static const int kTemplateIdFieldNumber = 2;
+  inline ::google::protobuf::int32 template_id() const;
+  inline void set_template_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeTaskStatusNotify)
+ private:
+  inline void set_has_template_id();
+  inline void clear_has_template_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData > task_;
+  ::google::protobuf::int32 template_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fest_2eproto();
+  friend void protobuf_AssignDesc_Fest_2eproto();
+  friend void protobuf_ShutdownFile_Fest_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeTaskStatusNotify* default_instance_;
+};
 // ===================================================================
 
 
@@ -21720,6 +24214,321 @@ FestLimitSaleProto::mutable_sale() {
 
 // -------------------------------------------------------------------
 
+// FestMysteryProto
+
+// optional int32 open_id = 1;
+inline bool FestMysteryProto::has_open_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestMysteryProto::set_has_open_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestMysteryProto::clear_has_open_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestMysteryProto::clear_open_id() {
+  open_id_ = 0;
+  clear_has_open_id();
+}
+inline ::google::protobuf::int32 FestMysteryProto::open_id() const {
+  return open_id_;
+}
+inline void FestMysteryProto::set_open_id(::google::protobuf::int32 value) {
+  set_has_open_id();
+  open_id_ = value;
+}
+
+// repeated .proto_ff.ComPair buy = 2;
+inline int FestMysteryProto::buy_size() const {
+  return buy_.size();
+}
+inline void FestMysteryProto::clear_buy() {
+  buy_.Clear();
+}
+inline const ::proto_ff::ComPair& FestMysteryProto::buy(int index) const {
+  return buy_.Get(index);
+}
+inline ::proto_ff::ComPair* FestMysteryProto::mutable_buy(int index) {
+  return buy_.Mutable(index);
+}
+inline ::proto_ff::ComPair* FestMysteryProto::add_buy() {
+  return buy_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+FestMysteryProto::buy() const {
+  return buy_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+FestMysteryProto::mutable_buy() {
+  return &buy_;
+}
+
+// -------------------------------------------------------------------
+
+// FestShootSunLogProto
+
+// optional bytes name = 1;
+inline bool FestShootSunLogProto::has_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestShootSunLogProto::set_has_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestShootSunLogProto::clear_has_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestShootSunLogProto::clear_name() {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    name_->clear();
+  }
+  clear_has_name();
+}
+inline const ::std::string& FestShootSunLogProto::name() const {
+  return *name_;
+}
+inline void FestShootSunLogProto::set_name(const ::std::string& value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void FestShootSunLogProto::set_name(const char* value) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(value);
+}
+inline void FestShootSunLogProto::set_name(const void* value, size_t size) {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* FestShootSunLogProto::mutable_name() {
+  set_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    name_ = new ::std::string;
+  }
+  return name_;
+}
+inline ::std::string* FestShootSunLogProto::release_name() {
+  clear_has_name();
+  if (name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = name_;
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void FestShootSunLogProto::set_allocated_name(::std::string* name) {
+  if (name_ != &::google::protobuf::internal::kEmptyString) {
+    delete name_;
+  }
+  if (name) {
+    set_has_name();
+    name_ = name;
+  } else {
+    clear_has_name();
+    name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 id = 2;
+inline bool FestShootSunLogProto::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestShootSunLogProto::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestShootSunLogProto::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestShootSunLogProto::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 FestShootSunLogProto::id() const {
+  return id_;
+}
+inline void FestShootSunLogProto::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional uint64 cid = 3;
+inline bool FestShootSunLogProto::has_cid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestShootSunLogProto::set_has_cid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestShootSunLogProto::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestShootSunLogProto::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 FestShootSunLogProto::cid() const {
+  return cid_;
+}
+inline void FestShootSunLogProto::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestShootSunTaskProto
+
+// optional int32 id = 1;
+inline bool FestShootSunTaskProto::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestShootSunTaskProto::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestShootSunTaskProto::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestShootSunTaskProto::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 FestShootSunTaskProto::id() const {
+  return id_;
+}
+inline void FestShootSunTaskProto::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 cur = 2;
+inline bool FestShootSunTaskProto::has_cur() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestShootSunTaskProto::set_has_cur() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestShootSunTaskProto::clear_has_cur() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestShootSunTaskProto::clear_cur() {
+  cur_ = 0;
+  clear_has_cur();
+}
+inline ::google::protobuf::int32 FestShootSunTaskProto::cur() const {
+  return cur_;
+}
+inline void FestShootSunTaskProto::set_cur(::google::protobuf::int32 value) {
+  set_has_cur();
+  cur_ = value;
+}
+
+// optional int32 fetch = 3;
+inline bool FestShootSunTaskProto::has_fetch() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestShootSunTaskProto::set_has_fetch() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestShootSunTaskProto::clear_has_fetch() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestShootSunTaskProto::clear_fetch() {
+  fetch_ = 0;
+  clear_has_fetch();
+}
+inline ::google::protobuf::int32 FestShootSunTaskProto::fetch() const {
+  return fetch_;
+}
+inline void FestShootSunTaskProto::set_fetch(::google::protobuf::int32 value) {
+  set_has_fetch();
+  fetch_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestShootSunProto
+
+// repeated .proto_ff.ComPair info = 1;
+inline int FestShootSunProto::info_size() const {
+  return info_.size();
+}
+inline void FestShootSunProto::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::ComPair& FestShootSunProto::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::ComPair* FestShootSunProto::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::ComPair* FestShootSunProto::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+FestShootSunProto::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+FestShootSunProto::mutable_info() {
+  return &info_;
+}
+
+// optional int32 free = 2;
+inline bool FestShootSunProto::has_free() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestShootSunProto::set_has_free() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestShootSunProto::clear_has_free() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestShootSunProto::clear_free() {
+  free_ = 0;
+  clear_has_free();
+}
+inline ::google::protobuf::int32 FestShootSunProto::free() const {
+  return free_;
+}
+inline void FestShootSunProto::set_free(::google::protobuf::int32 value) {
+  set_has_free();
+  free_ = value;
+}
+
+// repeated .proto_ff.FestShootSunTaskProto task = 3;
+inline int FestShootSunProto::task_size() const {
+  return task_.size();
+}
+inline void FestShootSunProto::clear_task() {
+  task_.Clear();
+}
+inline const ::proto_ff::FestShootSunTaskProto& FestShootSunProto::task(int index) const {
+  return task_.Get(index);
+}
+inline ::proto_ff::FestShootSunTaskProto* FestShootSunProto::mutable_task(int index) {
+  return task_.Mutable(index);
+}
+inline ::proto_ff::FestShootSunTaskProto* FestShootSunProto::add_task() {
+  return task_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >&
+FestShootSunProto::task() const {
+  return task_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >*
+FestShootSunProto::mutable_task() {
+  return &task_;
+}
+
+// -------------------------------------------------------------------
+
 // FestDetailProto
 
 // optional int32 template_id = 1;
@@ -22539,6 +25348,120 @@ inline void FestDetailProto::set_allocated_conti_recharge(::proto_ff::FestContiR
     set_has_conti_recharge();
   } else {
     clear_has_conti_recharge();
+  }
+}
+
+// optional .proto_ff.FestMysteryProto mystery = 23;
+inline bool FestDetailProto::has_mystery() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void FestDetailProto::set_has_mystery() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void FestDetailProto::clear_has_mystery() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void FestDetailProto::clear_mystery() {
+  if (mystery_ != NULL) mystery_->::proto_ff::FestMysteryProto::Clear();
+  clear_has_mystery();
+}
+inline const ::proto_ff::FestMysteryProto& FestDetailProto::mystery() const {
+  return mystery_ != NULL ? *mystery_ : *default_instance_->mystery_;
+}
+inline ::proto_ff::FestMysteryProto* FestDetailProto::mutable_mystery() {
+  set_has_mystery();
+  if (mystery_ == NULL) mystery_ = new ::proto_ff::FestMysteryProto;
+  return mystery_;
+}
+inline ::proto_ff::FestMysteryProto* FestDetailProto::release_mystery() {
+  clear_has_mystery();
+  ::proto_ff::FestMysteryProto* temp = mystery_;
+  mystery_ = NULL;
+  return temp;
+}
+inline void FestDetailProto::set_allocated_mystery(::proto_ff::FestMysteryProto* mystery) {
+  delete mystery_;
+  mystery_ = mystery;
+  if (mystery) {
+    set_has_mystery();
+  } else {
+    clear_has_mystery();
+  }
+}
+
+// optional .proto_ff.FestShootSunProto shoot_sun = 24;
+inline bool FestDetailProto::has_shoot_sun() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void FestDetailProto::set_has_shoot_sun() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void FestDetailProto::clear_has_shoot_sun() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void FestDetailProto::clear_shoot_sun() {
+  if (shoot_sun_ != NULL) shoot_sun_->::proto_ff::FestShootSunProto::Clear();
+  clear_has_shoot_sun();
+}
+inline const ::proto_ff::FestShootSunProto& FestDetailProto::shoot_sun() const {
+  return shoot_sun_ != NULL ? *shoot_sun_ : *default_instance_->shoot_sun_;
+}
+inline ::proto_ff::FestShootSunProto* FestDetailProto::mutable_shoot_sun() {
+  set_has_shoot_sun();
+  if (shoot_sun_ == NULL) shoot_sun_ = new ::proto_ff::FestShootSunProto;
+  return shoot_sun_;
+}
+inline ::proto_ff::FestShootSunProto* FestDetailProto::release_shoot_sun() {
+  clear_has_shoot_sun();
+  ::proto_ff::FestShootSunProto* temp = shoot_sun_;
+  shoot_sun_ = NULL;
+  return temp;
+}
+inline void FestDetailProto::set_allocated_shoot_sun(::proto_ff::FestShootSunProto* shoot_sun) {
+  delete shoot_sun_;
+  shoot_sun_ = shoot_sun;
+  if (shoot_sun) {
+    set_has_shoot_sun();
+  } else {
+    clear_has_shoot_sun();
+  }
+}
+
+// optional .proto_ff.FestRechargePrizeData recharge_prize = 25;
+inline bool FestDetailProto::has_recharge_prize() const {
+  return (_has_bits_[0] & 0x01000000u) != 0;
+}
+inline void FestDetailProto::set_has_recharge_prize() {
+  _has_bits_[0] |= 0x01000000u;
+}
+inline void FestDetailProto::clear_has_recharge_prize() {
+  _has_bits_[0] &= ~0x01000000u;
+}
+inline void FestDetailProto::clear_recharge_prize() {
+  if (recharge_prize_ != NULL) recharge_prize_->::proto_ff::FestRechargePrizeData::Clear();
+  clear_has_recharge_prize();
+}
+inline const ::proto_ff::FestRechargePrizeData& FestDetailProto::recharge_prize() const {
+  return recharge_prize_ != NULL ? *recharge_prize_ : *default_instance_->recharge_prize_;
+}
+inline ::proto_ff::FestRechargePrizeData* FestDetailProto::mutable_recharge_prize() {
+  set_has_recharge_prize();
+  if (recharge_prize_ == NULL) recharge_prize_ = new ::proto_ff::FestRechargePrizeData;
+  return recharge_prize_;
+}
+inline ::proto_ff::FestRechargePrizeData* FestDetailProto::release_recharge_prize() {
+  clear_has_recharge_prize();
+  ::proto_ff::FestRechargePrizeData* temp = recharge_prize_;
+  recharge_prize_ = NULL;
+  return temp;
+}
+inline void FestDetailProto::set_allocated_recharge_prize(::proto_ff::FestRechargePrizeData* recharge_prize) {
+  delete recharge_prize_;
+  recharge_prize_ = recharge_prize;
+  if (recharge_prize) {
+    set_has_recharge_prize();
+  } else {
+    clear_has_recharge_prize();
   }
 }
 
@@ -26125,15 +29048,37 @@ inline void FestServerRankGetAllRankReq::set_rank_id(::google::protobuf::int32 v
   rank_id_ = value;
 }
 
-// optional uint64 cid = 3;
-inline bool FestServerRankGetAllRankReq::has_cid() const {
+// optional int32 sex_type = 3;
+inline bool FestServerRankGetAllRankReq::has_sex_type() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void FestServerRankGetAllRankReq::set_has_cid() {
+inline void FestServerRankGetAllRankReq::set_has_sex_type() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void FestServerRankGetAllRankReq::clear_has_cid() {
+inline void FestServerRankGetAllRankReq::clear_has_sex_type() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestServerRankGetAllRankReq::clear_sex_type() {
+  sex_type_ = 0;
+  clear_has_sex_type();
+}
+inline ::google::protobuf::int32 FestServerRankGetAllRankReq::sex_type() const {
+  return sex_type_;
+}
+inline void FestServerRankGetAllRankReq::set_sex_type(::google::protobuf::int32 value) {
+  set_has_sex_type();
+  sex_type_ = value;
+}
+
+// optional uint64 cid = 4;
+inline bool FestServerRankGetAllRankReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void FestServerRankGetAllRankReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void FestServerRankGetAllRankReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void FestServerRankGetAllRankReq::clear_cid() {
   cid_ = GOOGLE_ULONGLONG(0);
@@ -26147,15 +29092,15 @@ inline void FestServerRankGetAllRankReq::set_cid(::google::protobuf::uint64 valu
   cid_ = value;
 }
 
-// optional uint32 rank_type = 4;
+// optional uint32 rank_type = 5;
 inline bool FestServerRankGetAllRankReq::has_rank_type() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void FestServerRankGetAllRankReq::set_has_rank_type() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void FestServerRankGetAllRankReq::clear_has_rank_type() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void FestServerRankGetAllRankReq::clear_rank_type() {
   rank_type_ = 0u;
@@ -33554,6 +36499,1193 @@ Fest_LimitSaleUpdateRsp::buy() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
 Fest_LimitSaleUpdateRsp::mutable_buy() {
   return &buy_;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_MysteryBuyReq
+
+// optional int32 template_id = 1;
+inline bool Fest_MysteryBuyReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_MysteryBuyReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_MysteryBuyReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_MysteryBuyReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_MysteryBuyReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_MysteryBuyReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 id = 2;
+inline bool Fest_MysteryBuyReq::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_MysteryBuyReq::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_MysteryBuyReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_MysteryBuyReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Fest_MysteryBuyReq::id() const {
+  return id_;
+}
+inline void Fest_MysteryBuyReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_MysteryBuyRsp
+
+// optional int32 template_id = 1;
+inline bool Fest_MysteryBuyRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_MysteryBuyRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_MysteryBuyRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_MysteryBuyRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_MysteryBuyRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_MysteryBuyRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 ret = 2;
+inline bool Fest_MysteryBuyRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_MysteryBuyRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_MysteryBuyRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_MysteryBuyRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_MysteryBuyRsp::ret() const {
+  return ret_;
+}
+inline void Fest_MysteryBuyRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 id = 3;
+inline bool Fest_MysteryBuyRsp::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Fest_MysteryBuyRsp::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Fest_MysteryBuyRsp::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Fest_MysteryBuyRsp::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Fest_MysteryBuyRsp::id() const {
+  return id_;
+}
+inline void Fest_MysteryBuyRsp::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 count = 4;
+inline bool Fest_MysteryBuyRsp::has_count() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Fest_MysteryBuyRsp::set_has_count() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Fest_MysteryBuyRsp::clear_has_count() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Fest_MysteryBuyRsp::clear_count() {
+  count_ = 0;
+  clear_has_count();
+}
+inline ::google::protobuf::int32 Fest_MysteryBuyRsp::count() const {
+  return count_;
+}
+inline void Fest_MysteryBuyRsp::set_count(::google::protobuf::int32 value) {
+  set_has_count();
+  count_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_MysteryUpdateRsp
+
+// optional int32 template_id = 1;
+inline bool Fest_MysteryUpdateRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_MysteryUpdateRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_MysteryUpdateRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_MysteryUpdateRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_MysteryUpdateRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_MysteryUpdateRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 open_id = 2;
+inline bool Fest_MysteryUpdateRsp::has_open_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_MysteryUpdateRsp::set_has_open_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_MysteryUpdateRsp::clear_has_open_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_MysteryUpdateRsp::clear_open_id() {
+  open_id_ = 0;
+  clear_has_open_id();
+}
+inline ::google::protobuf::int32 Fest_MysteryUpdateRsp::open_id() const {
+  return open_id_;
+}
+inline void Fest_MysteryUpdateRsp::set_open_id(::google::protobuf::int32 value) {
+  set_has_open_id();
+  open_id_ = value;
+}
+
+// repeated .proto_ff.ComPair buy = 3;
+inline int Fest_MysteryUpdateRsp::buy_size() const {
+  return buy_.size();
+}
+inline void Fest_MysteryUpdateRsp::clear_buy() {
+  buy_.Clear();
+}
+inline const ::proto_ff::ComPair& Fest_MysteryUpdateRsp::buy(int index) const {
+  return buy_.Get(index);
+}
+inline ::proto_ff::ComPair* Fest_MysteryUpdateRsp::mutable_buy(int index) {
+  return buy_.Mutable(index);
+}
+inline ::proto_ff::ComPair* Fest_MysteryUpdateRsp::add_buy() {
+  return buy_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+Fest_MysteryUpdateRsp::buy() const {
+  return buy_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+Fest_MysteryUpdateRsp::mutable_buy() {
+  return &buy_;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunReq
+
+// optional int32 template_id = 1;
+inline bool Fest_ShootSunReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional uint32 pos = 2;
+inline bool Fest_ShootSunReq::has_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_ShootSunReq::set_has_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_ShootSunReq::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_ShootSunReq::clear_pos() {
+  pos_ = 0u;
+  clear_has_pos();
+}
+inline ::google::protobuf::uint32 Fest_ShootSunReq::pos() const {
+  return pos_;
+}
+inline void Fest_ShootSunReq::set_pos(::google::protobuf::uint32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunRsp
+
+// required int32 ret = 1;
+inline bool Fest_ShootSunRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRsp::ret() const {
+  return ret_;
+}
+inline void Fest_ShootSunRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// required int32 template_id = 2;
+inline bool Fest_ShootSunRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_ShootSunRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_ShootSunRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_ShootSunRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 id = 3;
+inline bool Fest_ShootSunRsp::has_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Fest_ShootSunRsp::set_has_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Fest_ShootSunRsp::clear_has_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Fest_ShootSunRsp::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRsp::id() const {
+  return id_;
+}
+inline void Fest_ShootSunRsp::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional uint32 pos = 4;
+inline bool Fest_ShootSunRsp::has_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Fest_ShootSunRsp::set_has_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Fest_ShootSunRsp::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Fest_ShootSunRsp::clear_pos() {
+  pos_ = 0u;
+  clear_has_pos();
+}
+inline ::google::protobuf::uint32 Fest_ShootSunRsp::pos() const {
+  return pos_;
+}
+inline void Fest_ShootSunRsp::set_pos(::google::protobuf::uint32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunRestReq
+
+// optional int32 template_id = 1;
+inline bool Fest_ShootSunRestReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunRestReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunRestReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunRestReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRestReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunRestReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunRestRsp
+
+// required int32 ret = 1;
+inline bool Fest_ShootSunRestRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunRestRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunRestRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunRestRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRestRsp::ret() const {
+  return ret_;
+}
+inline void Fest_ShootSunRestRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// required int32 template_id = 2;
+inline bool Fest_ShootSunRestRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_ShootSunRestRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_ShootSunRestRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_ShootSunRestRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRestRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunRestRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 free = 3;
+inline bool Fest_ShootSunRestRsp::has_free() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Fest_ShootSunRestRsp::set_has_free() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Fest_ShootSunRestRsp::clear_has_free() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Fest_ShootSunRestRsp::clear_free() {
+  free_ = 0;
+  clear_has_free();
+}
+inline ::google::protobuf::int32 Fest_ShootSunRestRsp::free() const {
+  return free_;
+}
+inline void Fest_ShootSunRestRsp::set_free(::google::protobuf::int32 value) {
+  set_has_free();
+  free_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunLogReq
+
+// optional int32 template_id = 1;
+inline bool Fest_ShootSunLogReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunLogReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunLogReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunLogReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunLogReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunLogReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunLogRsp
+
+// required int32 ret = 1;
+inline bool Fest_ShootSunLogRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunLogRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunLogRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunLogRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_ShootSunLogRsp::ret() const {
+  return ret_;
+}
+inline void Fest_ShootSunLogRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// required int32 template_id = 2;
+inline bool Fest_ShootSunLogRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_ShootSunLogRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_ShootSunLogRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_ShootSunLogRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunLogRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunLogRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// repeated .proto_ff.FestShootSunLogProto log = 3;
+inline int Fest_ShootSunLogRsp::log_size() const {
+  return log_.size();
+}
+inline void Fest_ShootSunLogRsp::clear_log() {
+  log_.Clear();
+}
+inline const ::proto_ff::FestShootSunLogProto& Fest_ShootSunLogRsp::log(int index) const {
+  return log_.Get(index);
+}
+inline ::proto_ff::FestShootSunLogProto* Fest_ShootSunLogRsp::mutable_log(int index) {
+  return log_.Mutable(index);
+}
+inline ::proto_ff::FestShootSunLogProto* Fest_ShootSunLogRsp::add_log() {
+  return log_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunLogProto >&
+Fest_ShootSunLogRsp::log() const {
+  return log_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunLogProto >*
+Fest_ShootSunLogRsp::mutable_log() {
+  return &log_;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunTaskFetchReq
+
+// required int32 template_id = 1;
+inline bool Fest_ShootSunTaskFetchReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunTaskFetchReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunTaskFetchReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunTaskFetchReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunTaskFetchReq::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunTaskFetchReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// required int32 id = 2;
+inline bool Fest_ShootSunTaskFetchReq::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_ShootSunTaskFetchReq::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_ShootSunTaskFetchReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_ShootSunTaskFetchReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunTaskFetchReq::id() const {
+  return id_;
+}
+inline void Fest_ShootSunTaskFetchReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunTaskFetchRsp
+
+// required int32 ret = 1;
+inline bool Fest_ShootSunTaskFetchRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunTaskFetchRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunTaskFetchRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunTaskFetchRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Fest_ShootSunTaskFetchRsp::ret() const {
+  return ret_;
+}
+inline void Fest_ShootSunTaskFetchRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// required int32 template_id = 2;
+inline bool Fest_ShootSunTaskFetchRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Fest_ShootSunTaskFetchRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Fest_ShootSunTaskFetchRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Fest_ShootSunTaskFetchRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunTaskFetchRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunTaskFetchRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Fest_ShootSunTaskUpdateRsp
+
+// required int32 template_id = 1;
+inline bool Fest_ShootSunTaskUpdateRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Fest_ShootSunTaskUpdateRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Fest_ShootSunTaskUpdateRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Fest_ShootSunTaskUpdateRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 Fest_ShootSunTaskUpdateRsp::template_id() const {
+  return template_id_;
+}
+inline void Fest_ShootSunTaskUpdateRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// repeated .proto_ff.FestShootSunTaskProto task = 2;
+inline int Fest_ShootSunTaskUpdateRsp::task_size() const {
+  return task_.size();
+}
+inline void Fest_ShootSunTaskUpdateRsp::clear_task() {
+  task_.Clear();
+}
+inline const ::proto_ff::FestShootSunTaskProto& Fest_ShootSunTaskUpdateRsp::task(int index) const {
+  return task_.Get(index);
+}
+inline ::proto_ff::FestShootSunTaskProto* Fest_ShootSunTaskUpdateRsp::mutable_task(int index) {
+  return task_.Mutable(index);
+}
+inline ::proto_ff::FestShootSunTaskProto* Fest_ShootSunTaskUpdateRsp::add_task() {
+  return task_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >&
+Fest_ShootSunTaskUpdateRsp::task() const {
+  return task_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestShootSunTaskProto >*
+Fest_ShootSunTaskUpdateRsp::mutable_task() {
+  return &task_;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeChouJiangReq
+
+// optional int32 template_id = 1;
+inline bool FestRechargePrizeChouJiangReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeChouJiangReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeChouJiangReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeChouJiangReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeChouJiangReq::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeChouJiangReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeChouJiangRsp
+
+// optional int32 ret_code = 1;
+inline bool FestRechargePrizeChouJiangRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeChouJiangRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeChouJiangRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeChouJiangRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 FestRechargePrizeChouJiangRsp::ret_code() const {
+  return ret_code_;
+}
+inline void FestRechargePrizeChouJiangRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional .proto_ff.FestRechargePrizeData data = 2;
+inline bool FestRechargePrizeChouJiangRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeChouJiangRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeChouJiangRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeChouJiangRsp::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::FestRechargePrizeData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::FestRechargePrizeData& FestRechargePrizeChouJiangRsp::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::FestRechargePrizeData* FestRechargePrizeChouJiangRsp::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::FestRechargePrizeData;
+  return data_;
+}
+inline ::proto_ff::FestRechargePrizeData* FestRechargePrizeChouJiangRsp::release_data() {
+  clear_has_data();
+  ::proto_ff::FestRechargePrizeData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void FestRechargePrizeChouJiangRsp::set_allocated_data(::proto_ff::FestRechargePrizeData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// optional int32 template_id = 3;
+inline bool FestRechargePrizeChouJiangRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestRechargePrizeChouJiangRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestRechargePrizeChouJiangRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestRechargePrizeChouJiangRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeChouJiangRsp::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeChouJiangRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeChouJiangRecordReq
+
+// optional int32 template_id = 1;
+inline bool FestRechargePrizeChouJiangRecordReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeChouJiangRecordReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeChouJiangRecordReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeChouJiangRecordReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeChouJiangRecordReq::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeChouJiangRecordReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeChouJiangRecordRsp
+
+// optional int32 ret_code = 1;
+inline bool FestRechargePrizeChouJiangRecordRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 FestRechargePrizeChouJiangRecordRsp::ret_code() const {
+  return ret_code_;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// repeated .proto_ff.FestRechargePrizeRecord record = 2;
+inline int FestRechargePrizeChouJiangRecordRsp::record_size() const {
+  return record_.size();
+}
+inline void FestRechargePrizeChouJiangRecordRsp::clear_record() {
+  record_.Clear();
+}
+inline const ::proto_ff::FestRechargePrizeRecord& FestRechargePrizeChouJiangRecordRsp::record(int index) const {
+  return record_.Get(index);
+}
+inline ::proto_ff::FestRechargePrizeRecord* FestRechargePrizeChouJiangRecordRsp::mutable_record(int index) {
+  return record_.Mutable(index);
+}
+inline ::proto_ff::FestRechargePrizeRecord* FestRechargePrizeChouJiangRecordRsp::add_record() {
+  return record_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >&
+FestRechargePrizeChouJiangRecordRsp::record() const {
+  return record_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >*
+FestRechargePrizeChouJiangRecordRsp::mutable_record() {
+  return &record_;
+}
+
+// optional int32 template_id = 3;
+inline bool FestRechargePrizeChouJiangRecordRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeChouJiangRecordRsp::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeChouJiangRecordRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeGetTaskRewardReq
+
+// optional int32 template_id = 1;
+inline bool FestRechargePrizeGetTaskRewardReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeGetTaskRewardReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeGetTaskRewardReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeGetTaskRewardReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetTaskRewardReq::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeGetTaskRewardReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// optional int32 task_id = 2;
+inline bool FestRechargePrizeGetTaskRewardReq::has_task_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeGetTaskRewardReq::set_has_task_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeGetTaskRewardReq::clear_has_task_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeGetTaskRewardReq::clear_task_id() {
+  task_id_ = 0;
+  clear_has_task_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetTaskRewardReq::task_id() const {
+  return task_id_;
+}
+inline void FestRechargePrizeGetTaskRewardReq::set_task_id(::google::protobuf::int32 value) {
+  set_has_task_id();
+  task_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeGetTaskRewardRsp
+
+// optional int32 ret_code = 1;
+inline bool FestRechargePrizeGetTaskRewardRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetTaskRewardRsp::ret_code() const {
+  return ret_code_;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional .proto_ff.FestRechargePrizeTaskData task = 2;
+inline bool FestRechargePrizeGetTaskRewardRsp::has_task() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::set_has_task() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::clear_has_task() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::clear_task() {
+  if (task_ != NULL) task_->::proto_ff::FestRechargePrizeTaskData::Clear();
+  clear_has_task();
+}
+inline const ::proto_ff::FestRechargePrizeTaskData& FestRechargePrizeGetTaskRewardRsp::task() const {
+  return task_ != NULL ? *task_ : *default_instance_->task_;
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeGetTaskRewardRsp::mutable_task() {
+  set_has_task();
+  if (task_ == NULL) task_ = new ::proto_ff::FestRechargePrizeTaskData;
+  return task_;
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeGetTaskRewardRsp::release_task() {
+  clear_has_task();
+  ::proto_ff::FestRechargePrizeTaskData* temp = task_;
+  task_ = NULL;
+  return temp;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::set_allocated_task(::proto_ff::FestRechargePrizeTaskData* task) {
+  delete task_;
+  task_ = task;
+  if (task) {
+    set_has_task();
+  } else {
+    clear_has_task();
+  }
+}
+
+// optional int32 template_id = 3;
+inline bool FestRechargePrizeGetTaskRewardRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetTaskRewardRsp::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeGetTaskRewardRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeGetFreeRewardReq
+
+// optional int32 template_id = 1;
+inline bool FestRechargePrizeGetFreeRewardReq::has_template_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeGetFreeRewardReq::set_has_template_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeGetFreeRewardReq::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeGetFreeRewardReq::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetFreeRewardReq::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeGetFreeRewardReq::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeGetFreeRewardRsp
+
+// optional int32 ret_code = 1;
+inline bool FestRechargePrizeGetFreeRewardRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetFreeRewardRsp::ret_code() const {
+  return ret_code_;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint32 free_status = 2;
+inline bool FestRechargePrizeGetFreeRewardRsp::has_free_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::set_has_free_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::clear_has_free_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::clear_free_status() {
+  free_status_ = 0u;
+  clear_has_free_status();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeGetFreeRewardRsp::free_status() const {
+  return free_status_;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::set_free_status(::google::protobuf::uint32 value) {
+  set_has_free_status();
+  free_status_ = value;
+}
+
+// optional int32 template_id = 3;
+inline bool FestRechargePrizeGetFreeRewardRsp::has_template_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::set_has_template_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeGetFreeRewardRsp::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeGetFreeRewardRsp::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeTaskStatusNotify
+
+// repeated .proto_ff.FestRechargePrizeTaskData task = 1;
+inline int FestRechargePrizeTaskStatusNotify::task_size() const {
+  return task_.size();
+}
+inline void FestRechargePrizeTaskStatusNotify::clear_task() {
+  task_.Clear();
+}
+inline const ::proto_ff::FestRechargePrizeTaskData& FestRechargePrizeTaskStatusNotify::task(int index) const {
+  return task_.Get(index);
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeTaskStatusNotify::mutable_task(int index) {
+  return task_.Mutable(index);
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeTaskStatusNotify::add_task() {
+  return task_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >&
+FestRechargePrizeTaskStatusNotify::task() const {
+  return task_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >*
+FestRechargePrizeTaskStatusNotify::mutable_task() {
+  return &task_;
+}
+
+// optional int32 template_id = 2;
+inline bool FestRechargePrizeTaskStatusNotify::has_template_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeTaskStatusNotify::set_has_template_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeTaskStatusNotify::clear_has_template_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeTaskStatusNotify::clear_template_id() {
+  template_id_ = 0;
+  clear_has_template_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeTaskStatusNotify::template_id() const {
+  return template_id_;
+}
+inline void FestRechargePrizeTaskStatusNotify::set_template_id(::google::protobuf::int32 value) {
+  set_has_template_id();
+  template_id_ = value;
 }
 
 

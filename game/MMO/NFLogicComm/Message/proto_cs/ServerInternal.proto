@@ -410,3 +410,28 @@ message C2L_VersionIdRsp
 {
 	required int32 version_id = 1;  //版本号
 }
+
+
+//----------------------------------  野外BOSS(运营活动) ---------------------------------------
+//逻辑服向中心服 请求野外BOSS初始数据 LC_FIELD_BOSS_INIT_REQ
+message LC_FieldBossInitReq
+{
+	//空
+}
+//中心服返回逻辑服 野外BOSS初始数据 LC_FIELD_BOSS_INIT_RSP		
+message LC_FieldBossInitRsp
+{
+	repeated FestBossProto info = 1; 
+	optional uint32 zid = 2;
+}
+//逻辑服向中心服 返回 野外BOSS信息 LC_FIELD_BOSS_INFO_REQ
+message LC_FieldBossInfoReq
+{
+	repeated FestBossProto info = 1; 
+}
+//中心服通知逻辑服  更新野外BOSS数据 CL_FIELD_BOSS_INFO_NOTIFY		
+message LC_FieldBossInfoNotify
+{
+	repeated FestBossProto info = 1; 
+	optional uint32 zid = 2;
+}

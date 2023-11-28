@@ -5108,6 +5108,13 @@ class E_PetRefineconversion : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_condition() const;
   inline void set_m_condition(::google::protobuf::int32 value);
 
+  // optional int32 m_conversion = 5;
+  inline bool has_m_conversion() const;
+  inline void clear_m_conversion();
+  static const int kMConversionFieldNumber = 5;
+  inline ::google::protobuf::int32 m_conversion() const;
+  inline void set_m_conversion(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_PetRefineconversion)
  private:
   inline void set_has_m_itemid();
@@ -5118,6 +5125,8 @@ class E_PetRefineconversion : public ::google::protobuf::Message {
   inline void clear_has_m_num();
   inline void set_has_m_condition();
   inline void clear_has_m_condition();
+  inline void set_has_m_conversion();
+  inline void clear_has_m_conversion();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -5125,9 +5134,10 @@ class E_PetRefineconversion : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_group_;
   ::google::protobuf::int32 m_num_;
   ::google::protobuf::int32 m_condition_;
+  ::google::protobuf::int32 m_conversion_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fPet_2eproto();
   friend void protobuf_AssignDesc_E_5fPet_2eproto();
@@ -6038,10 +6048,24 @@ class E_PetConst : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_num() const;
   inline void set_m_num(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_PetConstMaterialDesc m_material = 6;
+  // optional int32 m_items = 6;
+  inline bool has_m_items() const;
+  inline void clear_m_items();
+  static const int kMItemsFieldNumber = 6;
+  inline ::google::protobuf::int32 m_items() const;
+  inline void set_m_items(::google::protobuf::int32 value);
+
+  // optional int32 m_nums = 7;
+  inline bool has_m_nums() const;
+  inline void clear_m_nums();
+  static const int kMNumsFieldNumber = 7;
+  inline ::google::protobuf::int32 m_nums() const;
+  inline void set_m_nums(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_PetConstMaterialDesc m_material = 8;
   inline int m_material_size() const;
   inline void clear_m_material();
-  static const int kMMaterialFieldNumber = 6;
+  static const int kMMaterialFieldNumber = 8;
   inline const ::proto_ff::E_PetConstMaterialDesc& m_material(int index) const;
   inline ::proto_ff::E_PetConstMaterialDesc* mutable_m_material(int index);
   inline ::proto_ff::E_PetConstMaterialDesc* add_m_material();
@@ -6062,6 +6086,10 @@ class E_PetConst : public ::google::protobuf::Message {
   inline void clear_has_m_item();
   inline void set_has_m_num();
   inline void clear_has_m_num();
+  inline void set_has_m_items();
+  inline void clear_has_m_items();
+  inline void set_has_m_nums();
+  inline void clear_has_m_nums();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -6069,11 +6097,13 @@ class E_PetConst : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_open_;
   ::google::protobuf::int32 m_solt_;
   ::google::protobuf::int32 m_item_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetConstMaterialDesc > m_material_;
   ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_items_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_PetConstMaterialDesc > m_material_;
+  ::google::protobuf::int32 m_nums_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fPet_2eproto();
   friend void protobuf_AssignDesc_E_5fPet_2eproto();
@@ -11370,6 +11400,28 @@ inline void E_PetRefineconversion::set_m_condition(::google::protobuf::int32 val
   m_condition_ = value;
 }
 
+// optional int32 m_conversion = 5;
+inline bool E_PetRefineconversion::has_m_conversion() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_PetRefineconversion::set_has_m_conversion() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_PetRefineconversion::clear_has_m_conversion() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_PetRefineconversion::clear_m_conversion() {
+  m_conversion_ = 0;
+  clear_has_m_conversion();
+}
+inline ::google::protobuf::int32 E_PetRefineconversion::m_conversion() const {
+  return m_conversion_;
+}
+inline void E_PetRefineconversion::set_m_conversion(::google::protobuf::int32 value) {
+  set_has_m_conversion();
+  m_conversion_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // Sheet_PetRefineconversion
@@ -12015,7 +12067,51 @@ inline void E_PetConst::set_m_num(::google::protobuf::int32 value) {
   m_num_ = value;
 }
 
-// repeated .proto_ff.E_PetConstMaterialDesc m_material = 6;
+// optional int32 m_items = 6;
+inline bool E_PetConst::has_m_items() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_PetConst::set_has_m_items() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_PetConst::clear_has_m_items() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_PetConst::clear_m_items() {
+  m_items_ = 0;
+  clear_has_m_items();
+}
+inline ::google::protobuf::int32 E_PetConst::m_items() const {
+  return m_items_;
+}
+inline void E_PetConst::set_m_items(::google::protobuf::int32 value) {
+  set_has_m_items();
+  m_items_ = value;
+}
+
+// optional int32 m_nums = 7;
+inline bool E_PetConst::has_m_nums() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_PetConst::set_has_m_nums() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_PetConst::clear_has_m_nums() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_PetConst::clear_m_nums() {
+  m_nums_ = 0;
+  clear_has_m_nums();
+}
+inline ::google::protobuf::int32 E_PetConst::m_nums() const {
+  return m_nums_;
+}
+inline void E_PetConst::set_m_nums(::google::protobuf::int32 value) {
+  set_has_m_nums();
+  m_nums_ = value;
+}
+
+// repeated .proto_ff.E_PetConstMaterialDesc m_material = 8;
 inline int E_PetConst::m_material_size() const {
   return m_material_.size();
 }

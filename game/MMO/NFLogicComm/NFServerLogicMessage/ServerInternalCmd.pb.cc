@@ -61,7 +61,7 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\027ServerInternalCmd.proto\022\010proto_ff\032\tCom"
-    ".proto\032\017ComDefine.proto*\314b\n\021ServerIntern"
+    ".proto\032\017ComDefine.proto*\327d\n\021ServerIntern"
     "alCmd\022\014\n\010SYS_PING\020\001\022\024\n\020SYS_CLOSE_SERVER\020"
     "\002\022\037\n\033SYS_REDIRECT_CLIENT_BY_GATE\020\n\022!\n\035SY"
     "S_REDIRECT_CLIENT_BY_CENTER\020\013\022!\n\035SYS_RED"
@@ -374,10 +374,16 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
     "\013\022\035\n\030CL_FACTION_MOYU_RECV_REQ\020\343\013\022\033\n\026L2C_"
     "SYN_PASS_YAOTA_REQ\020\346\013\022\034\n\027NOTIFY_DUP_TEAM"
     "_DIS_REQ\020\347\013\022#\n\036LC_NOTIFY_YAOTA_FIRST_PAS"
-    "S_REQ\020\350\013\022\026\n\021CL_YAOTA_RECV_REQ\020\351\013\022\023\n\016NGPD"
-    "_BattleReq\020\372\013\022\023\n\016NGPD_BattleRsp\020\373\013\022\027\n\022NG"
-    "PD_BattleSaveReq\020\374\013\022\031\n\024SERVER_INTER_MAX_"
-    "CMD\020\210\'", 12686);
+    "S_REQ\020\350\013\022\026\n\021CL_YAOTA_RECV_REQ\020\351\013\022\033\n\026LC_F"
+    "IELD_BOSS_INIT_REQ\020\354\013\022\033\n\026LC_FIELD_BOSS_I"
+    "NIT_RSP\020\355\013\022\033\n\026LC_FIELD_BOSS_INFO_REQ\020\356\013\022"
+    "\036\n\031CL_FIELD_BOSS_INFO_NOTIFY\020\357\013\022\023\n\016NGPD_"
+    "BattleReq\020\372\013\022\023\n\016NGPD_BattleRsp\020\373\013\022\027\n\022NGP"
+    "D_BattleSaveReq\020\374\013\022\025\n\020NGPD_PlayerPDReq\020\375"
+    "\013\022\025\n\020NGPD_PlayerPDRsp\020\376\013\022\027\n\022NGPD_PlayerS"
+    "aveReq\020\377\013\022\030\n\023NGPD_AddTBoxOpenLog\020\200\014\022\021\n\014N"
+    "GPD_RankReq\020\201\014\022\036\n\031NGPD_TBoxOpenServerLog"
+    "Req\020\202\014\022\031\n\024SERVER_INTER_MAX_CMD\020\210\'", 12953);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -788,9 +794,19 @@ bool ServerInternalCmd_IsValid(int value) {
     case 1511:
     case 1512:
     case 1513:
+    case 1516:
+    case 1517:
+    case 1518:
+    case 1519:
     case 1530:
     case 1531:
     case 1532:
+    case 1533:
+    case 1534:
+    case 1535:
+    case 1536:
+    case 1537:
+    case 1538:
     case 5000:
       return true;
     default:

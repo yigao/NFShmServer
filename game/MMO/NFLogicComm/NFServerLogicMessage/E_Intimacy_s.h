@@ -72,6 +72,7 @@ namespace proto_ff_s {
 		NFShmString<64> m_uiPic;//底框图片
 		int32_t m_intimacy;//亲密度
 		int32_t m_charm;//魅力值
+		int32_t m_acceptCharm;//接受魅力值
 
 		virtual void write_to_pbmsg(::proto_ff::E_IntimacyGift & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_IntimacyGift & msg);

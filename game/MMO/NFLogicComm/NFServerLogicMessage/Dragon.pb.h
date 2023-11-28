@@ -153,6 +153,18 @@ class ShadowProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 curstar() const;
   inline void set_curstar(::google::protobuf::int32 value);
 
+  // repeated .proto_ff.ComPair64 skill = 7;
+  inline int skill_size() const;
+  inline void clear_skill();
+  static const int kSkillFieldNumber = 7;
+  inline const ::proto_ff::ComPair64& skill(int index) const;
+  inline ::proto_ff::ComPair64* mutable_skill(int index);
+  inline ::proto_ff::ComPair64* add_skill();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+      skill() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+      mutable_skill();
+
   // @@protoc_insertion_point(class_scope:proto_ff.ShadowProto)
  private:
   inline void set_has_lev();
@@ -173,10 +185,11 @@ class ShadowProto : public ::google::protobuf::Message {
   ::google::protobuf::int32 star_;
   ::google::protobuf::int32 lucky_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > frag_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 > skill_;
   ::google::protobuf::int32 curstar_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Dragon_2eproto();
   friend void protobuf_AssignDesc_Dragon_2eproto();
@@ -1452,6 +1465,31 @@ inline ::google::protobuf::int32 ShadowProto::curstar() const {
 inline void ShadowProto::set_curstar(::google::protobuf::int32 value) {
   set_has_curstar();
   curstar_ = value;
+}
+
+// repeated .proto_ff.ComPair64 skill = 7;
+inline int ShadowProto::skill_size() const {
+  return skill_.size();
+}
+inline void ShadowProto::clear_skill() {
+  skill_.Clear();
+}
+inline const ::proto_ff::ComPair64& ShadowProto::skill(int index) const {
+  return skill_.Get(index);
+}
+inline ::proto_ff::ComPair64* ShadowProto::mutable_skill(int index) {
+  return skill_.Mutable(index);
+}
+inline ::proto_ff::ComPair64* ShadowProto::add_skill() {
+  return skill_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+ShadowProto::skill() const {
+  return skill_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+ShadowProto::mutable_skill() {
+  return &skill_;
 }
 
 // -------------------------------------------------------------------

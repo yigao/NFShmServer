@@ -39,12 +39,38 @@ class NotifySoulModule;
 class NotifySoulEntry;
 class NotifySoulPool;
 class NotifySoulTask;
+class NotifySoulSpirit;
+class NotifySoulBone;
+class NotifySoulGuwen;
 class SoulRecvTaskReq;
 class SoulRecvTaskRsp;
 class SoulEntryOptReq;
 class SoulEntryOptRsp;
 class SoulPoolOptReq;
 class SoulPoolOptRsp;
+class SoulMakeInfo;
+class SoulSpiritDressReq;
+class SoulSpiritDressRsp;
+class SoulSpiritLvReq;
+class SoulSpiritLvRsp;
+class SoulSpiritMakeReq;
+class SoulSpiritMakeRsp;
+class SoulSpiritDecomposeReq;
+class SoulSpiritDecomposeRsp;
+class SoulBoneDressReq;
+class SoulBoneDressRsp;
+class SoulBoneWakeReq;
+class SoulBoneWakeRsp;
+class SoulBoneMakeReq;
+class SoulBoneMakeRsp;
+class SoulCheckBoxReq;
+class SoulCheckBoxRsp;
+class SoulFixReq;
+class SoulFixRsp;
+class SoulGuwenDressReq;
+class SoulGuwenDressRsp;
+class SoulGuwenMakeReq;
+class SoulGuwenMakeRsp;
 
 // ===================================================================
 
@@ -132,6 +158,42 @@ class NotifySoulModule : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
       mutable_tasks();
 
+  // repeated .proto_ff.SoulSpirit spirits_list = 4;
+  inline int spirits_list_size() const;
+  inline void clear_spirits_list();
+  static const int kSpiritsListFieldNumber = 4;
+  inline const ::proto_ff::SoulSpirit& spirits_list(int index) const;
+  inline ::proto_ff::SoulSpirit* mutable_spirits_list(int index);
+  inline ::proto_ff::SoulSpirit* add_spirits_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulSpirit >&
+      spirits_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulSpirit >*
+      mutable_spirits_list();
+
+  // repeated .proto_ff.SoulBone bone_list = 5;
+  inline int bone_list_size() const;
+  inline void clear_bone_list();
+  static const int kBoneListFieldNumber = 5;
+  inline const ::proto_ff::SoulBone& bone_list(int index) const;
+  inline ::proto_ff::SoulBone* mutable_bone_list(int index);
+  inline ::proto_ff::SoulBone* add_bone_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >&
+      bone_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >*
+      mutable_bone_list();
+
+  // repeated .proto_ff.SoulGuwen guwen_list = 6;
+  inline int guwen_list_size() const;
+  inline void clear_guwen_list();
+  static const int kGuwenListFieldNumber = 6;
+  inline const ::proto_ff::SoulGuwen& guwen_list(int index) const;
+  inline ::proto_ff::SoulGuwen* mutable_guwen_list(int index);
+  inline ::proto_ff::SoulGuwen* add_guwen_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >&
+      guwen_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >*
+      mutable_guwen_list();
+
   // @@protoc_insertion_point(class_scope:proto_ff.NotifySoulModule)
  private:
   inline void set_has_entry();
@@ -144,9 +206,12 @@ class NotifySoulModule : public ::google::protobuf::Message {
   ::proto_ff::SoulEntry* entry_;
   ::proto_ff::SoulPool* pool_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > tasks_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulSpirit > spirits_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone > bone_list_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen > guwen_list_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_Soul_2eproto();
   friend void protobuf_AssignDesc_Soul_2eproto();
@@ -407,6 +472,260 @@ class NotifySoulTask : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static NotifySoulTask* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifySoulSpirit : public ::google::protobuf::Message {
+ public:
+  NotifySoulSpirit();
+  virtual ~NotifySoulSpirit();
+
+  NotifySoulSpirit(const NotifySoulSpirit& from);
+
+  inline NotifySoulSpirit& operator=(const NotifySoulSpirit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifySoulSpirit& default_instance();
+
+  void Swap(NotifySoulSpirit* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifySoulSpirit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifySoulSpirit& from);
+  void MergeFrom(const NotifySoulSpirit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.SoulSpirit info = 1;
+  inline bool has_info() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::SoulSpirit& info() const;
+  inline ::proto_ff::SoulSpirit* mutable_info();
+  inline ::proto_ff::SoulSpirit* release_info();
+  inline void set_allocated_info(::proto_ff::SoulSpirit* info);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifySoulSpirit)
+ private:
+  inline void set_has_info();
+  inline void clear_has_info();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::SoulSpirit* info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifySoulSpirit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifySoulBone : public ::google::protobuf::Message {
+ public:
+  NotifySoulBone();
+  virtual ~NotifySoulBone();
+
+  NotifySoulBone(const NotifySoulBone& from);
+
+  inline NotifySoulBone& operator=(const NotifySoulBone& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifySoulBone& default_instance();
+
+  void Swap(NotifySoulBone* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifySoulBone* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifySoulBone& from);
+  void MergeFrom(const NotifySoulBone& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.SoulBone info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::SoulBone& info(int index) const;
+  inline ::proto_ff::SoulBone* mutable_info(int index);
+  inline ::proto_ff::SoulBone* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >*
+      mutable_info();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifySoulBone)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone > info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifySoulBone* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifySoulGuwen : public ::google::protobuf::Message {
+ public:
+  NotifySoulGuwen();
+  virtual ~NotifySoulGuwen();
+
+  NotifySoulGuwen(const NotifySoulGuwen& from);
+
+  inline NotifySoulGuwen& operator=(const NotifySoulGuwen& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifySoulGuwen& default_instance();
+
+  void Swap(NotifySoulGuwen* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifySoulGuwen* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifySoulGuwen& from);
+  void MergeFrom(const NotifySoulGuwen& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.SoulGuwen info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::SoulGuwen& info(int index) const;
+  inline ::proto_ff::SoulGuwen* mutable_info(int index);
+  inline ::proto_ff::SoulGuwen* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >*
+      mutable_info();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifySoulGuwen)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen > info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifySoulGuwen* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -930,6 +1249,2039 @@ class SoulPoolOptRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SoulPoolOptRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class SoulMakeInfo : public ::google::protobuf::Message {
+ public:
+  SoulMakeInfo();
+  virtual ~SoulMakeInfo();
+
+  SoulMakeInfo(const SoulMakeInfo& from);
+
+  inline SoulMakeInfo& operator=(const SoulMakeInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulMakeInfo& default_instance();
+
+  void Swap(SoulMakeInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulMakeInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulMakeInfo& from);
+  void MergeFrom(const SoulMakeInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 bag_pos = 1;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 1;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // repeated int32 cost_bag_pos_list = 2;
+  inline int cost_bag_pos_list_size() const;
+  inline void clear_cost_bag_pos_list();
+  static const int kCostBagPosListFieldNumber = 2;
+  inline ::google::protobuf::int32 cost_bag_pos_list(int index) const;
+  inline void set_cost_bag_pos_list(int index, ::google::protobuf::int32 value);
+  inline void add_cost_bag_pos_list(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      cost_bag_pos_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_cost_bag_pos_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulMakeInfo)
+ private:
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > cost_bag_pos_list_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulMakeInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritDressReq : public ::google::protobuf::Message {
+ public:
+  SoulSpiritDressReq();
+  virtual ~SoulSpiritDressReq();
+
+  SoulSpiritDressReq(const SoulSpiritDressReq& from);
+
+  inline SoulSpiritDressReq& operator=(const SoulSpiritDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritDressReq& default_instance();
+
+  void Swap(SoulSpiritDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritDressReq& from);
+  void MergeFrom(const SoulSpiritDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritDressReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritDressRsp : public ::google::protobuf::Message {
+ public:
+  SoulSpiritDressRsp();
+  virtual ~SoulSpiritDressRsp();
+
+  SoulSpiritDressRsp(const SoulSpiritDressRsp& from);
+
+  inline SoulSpiritDressRsp& operator=(const SoulSpiritDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritDressRsp& default_instance();
+
+  void Swap(SoulSpiritDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritDressRsp& from);
+  void MergeFrom(const SoulSpiritDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 3;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 3;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritDressRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritDressRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritLvReq : public ::google::protobuf::Message {
+ public:
+  SoulSpiritLvReq();
+  virtual ~SoulSpiritLvReq();
+
+  SoulSpiritLvReq(const SoulSpiritLvReq& from);
+
+  inline SoulSpiritLvReq& operator=(const SoulSpiritLvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritLvReq& default_instance();
+
+  void Swap(SoulSpiritLvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritLvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritLvReq& from);
+  void MergeFrom(const SoulSpiritLvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritLvReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritLvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritLvRsp : public ::google::protobuf::Message {
+ public:
+  SoulSpiritLvRsp();
+  virtual ~SoulSpiritLvRsp();
+
+  SoulSpiritLvRsp(const SoulSpiritLvRsp& from);
+
+  inline SoulSpiritLvRsp& operator=(const SoulSpiritLvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritLvRsp& default_instance();
+
+  void Swap(SoulSpiritLvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritLvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritLvRsp& from);
+  void MergeFrom(const SoulSpiritLvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritLvRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritLvRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritMakeReq : public ::google::protobuf::Message {
+ public:
+  SoulSpiritMakeReq();
+  virtual ~SoulSpiritMakeReq();
+
+  SoulSpiritMakeReq(const SoulSpiritMakeReq& from);
+
+  inline SoulSpiritMakeReq& operator=(const SoulSpiritMakeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritMakeReq& default_instance();
+
+  void Swap(SoulSpiritMakeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritMakeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritMakeReq& from);
+  void MergeFrom(const SoulSpiritMakeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.SoulMakeInfo infos = 1;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  inline const ::proto_ff::SoulMakeInfo& infos(int index) const;
+  inline ::proto_ff::SoulMakeInfo* mutable_infos(int index);
+  inline ::proto_ff::SoulMakeInfo* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritMakeReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo > infos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritMakeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritMakeRsp : public ::google::protobuf::Message {
+ public:
+  SoulSpiritMakeRsp();
+  virtual ~SoulSpiritMakeRsp();
+
+  SoulSpiritMakeRsp(const SoulSpiritMakeRsp& from);
+
+  inline SoulSpiritMakeRsp& operator=(const SoulSpiritMakeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritMakeRsp& default_instance();
+
+  void Swap(SoulSpiritMakeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritMakeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritMakeRsp& from);
+  void MergeFrom(const SoulSpiritMakeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // repeated int32 gen_pos_list = 2;
+  inline int gen_pos_list_size() const;
+  inline void clear_gen_pos_list();
+  static const int kGenPosListFieldNumber = 2;
+  inline ::google::protobuf::int32 gen_pos_list(int index) const;
+  inline void set_gen_pos_list(int index, ::google::protobuf::int32 value);
+  inline void add_gen_pos_list(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      gen_pos_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_gen_pos_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritMakeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > gen_pos_list_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritMakeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritDecomposeReq : public ::google::protobuf::Message {
+ public:
+  SoulSpiritDecomposeReq();
+  virtual ~SoulSpiritDecomposeReq();
+
+  SoulSpiritDecomposeReq(const SoulSpiritDecomposeReq& from);
+
+  inline SoulSpiritDecomposeReq& operator=(const SoulSpiritDecomposeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritDecomposeReq& default_instance();
+
+  void Swap(SoulSpiritDecomposeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritDecomposeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritDecomposeReq& from);
+  void MergeFrom(const SoulSpiritDecomposeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritDecomposeReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritDecomposeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpiritDecomposeRsp : public ::google::protobuf::Message {
+ public:
+  SoulSpiritDecomposeRsp();
+  virtual ~SoulSpiritDecomposeRsp();
+
+  SoulSpiritDecomposeRsp(const SoulSpiritDecomposeRsp& from);
+
+  inline SoulSpiritDecomposeRsp& operator=(const SoulSpiritDecomposeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpiritDecomposeRsp& default_instance();
+
+  void Swap(SoulSpiritDecomposeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpiritDecomposeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpiritDecomposeRsp& from);
+  void MergeFrom(const SoulSpiritDecomposeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 value = 2;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 2;
+  inline ::google::protobuf::int32 value() const;
+  inline void set_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpiritDecomposeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpiritDecomposeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBoneDressReq : public ::google::protobuf::Message {
+ public:
+  SoulBoneDressReq();
+  virtual ~SoulBoneDressReq();
+
+  SoulBoneDressReq(const SoulBoneDressReq& from);
+
+  inline SoulBoneDressReq& operator=(const SoulBoneDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBoneDressReq& default_instance();
+
+  void Swap(SoulBoneDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBoneDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBoneDressReq& from);
+  void MergeFrom(const SoulBoneDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBoneDressReq)
+ private:
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBoneDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBoneDressRsp : public ::google::protobuf::Message {
+ public:
+  SoulBoneDressRsp();
+  virtual ~SoulBoneDressRsp();
+
+  SoulBoneDressRsp(const SoulBoneDressRsp& from);
+
+  inline SoulBoneDressRsp& operator=(const SoulBoneDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBoneDressRsp& default_instance();
+
+  void Swap(SoulBoneDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBoneDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBoneDressRsp& from);
+  void MergeFrom(const SoulBoneDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBoneDressRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBoneDressRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBoneWakeReq : public ::google::protobuf::Message {
+ public:
+  SoulBoneWakeReq();
+  virtual ~SoulBoneWakeReq();
+
+  SoulBoneWakeReq(const SoulBoneWakeReq& from);
+
+  inline SoulBoneWakeReq& operator=(const SoulBoneWakeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBoneWakeReq& default_instance();
+
+  void Swap(SoulBoneWakeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBoneWakeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBoneWakeReq& from);
+  void MergeFrom(const SoulBoneWakeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBoneWakeReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBoneWakeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBoneWakeRsp : public ::google::protobuf::Message {
+ public:
+  SoulBoneWakeRsp();
+  virtual ~SoulBoneWakeRsp();
+
+  SoulBoneWakeRsp(const SoulBoneWakeRsp& from);
+
+  inline SoulBoneWakeRsp& operator=(const SoulBoneWakeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBoneWakeRsp& default_instance();
+
+  void Swap(SoulBoneWakeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBoneWakeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBoneWakeRsp& from);
+  void MergeFrom(const SoulBoneWakeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBoneWakeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBoneWakeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBoneMakeReq : public ::google::protobuf::Message {
+ public:
+  SoulBoneMakeReq();
+  virtual ~SoulBoneMakeReq();
+
+  SoulBoneMakeReq(const SoulBoneMakeReq& from);
+
+  inline SoulBoneMakeReq& operator=(const SoulBoneMakeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBoneMakeReq& default_instance();
+
+  void Swap(SoulBoneMakeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBoneMakeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBoneMakeReq& from);
+  void MergeFrom(const SoulBoneMakeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.SoulMakeInfo infos = 1;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  inline const ::proto_ff::SoulMakeInfo& infos(int index) const;
+  inline ::proto_ff::SoulMakeInfo* mutable_infos(int index);
+  inline ::proto_ff::SoulMakeInfo* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBoneMakeReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo > infos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBoneMakeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBoneMakeRsp : public ::google::protobuf::Message {
+ public:
+  SoulBoneMakeRsp();
+  virtual ~SoulBoneMakeRsp();
+
+  SoulBoneMakeRsp(const SoulBoneMakeRsp& from);
+
+  inline SoulBoneMakeRsp& operator=(const SoulBoneMakeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBoneMakeRsp& default_instance();
+
+  void Swap(SoulBoneMakeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBoneMakeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBoneMakeRsp& from);
+  void MergeFrom(const SoulBoneMakeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // repeated int32 gen_pos_list = 2;
+  inline int gen_pos_list_size() const;
+  inline void clear_gen_pos_list();
+  static const int kGenPosListFieldNumber = 2;
+  inline ::google::protobuf::int32 gen_pos_list(int index) const;
+  inline void set_gen_pos_list(int index, ::google::protobuf::int32 value);
+  inline void add_gen_pos_list(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      gen_pos_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_gen_pos_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBoneMakeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > gen_pos_list_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBoneMakeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulCheckBoxReq : public ::google::protobuf::Message {
+ public:
+  SoulCheckBoxReq();
+  virtual ~SoulCheckBoxReq();
+
+  SoulCheckBoxReq(const SoulCheckBoxReq& from);
+
+  inline SoulCheckBoxReq& operator=(const SoulCheckBoxReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulCheckBoxReq& default_instance();
+
+  void Swap(SoulCheckBoxReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulCheckBoxReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulCheckBoxReq& from);
+  void MergeFrom(const SoulCheckBoxReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulCheckBoxReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulCheckBoxReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulCheckBoxRsp : public ::google::protobuf::Message {
+ public:
+  SoulCheckBoxRsp();
+  virtual ~SoulCheckBoxRsp();
+
+  SoulCheckBoxRsp(const SoulCheckBoxRsp& from);
+
+  inline SoulCheckBoxRsp& operator=(const SoulCheckBoxRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulCheckBoxRsp& default_instance();
+
+  void Swap(SoulCheckBoxRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulCheckBoxRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulCheckBoxRsp& from);
+  void MergeFrom(const SoulCheckBoxRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulCheckBoxRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulCheckBoxRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulFixReq : public ::google::protobuf::Message {
+ public:
+  SoulFixReq();
+  virtual ~SoulFixReq();
+
+  SoulFixReq(const SoulFixReq& from);
+
+  inline SoulFixReq& operator=(const SoulFixReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulFixReq& default_instance();
+
+  void Swap(SoulFixReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulFixReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulFixReq& from);
+  void MergeFrom(const SoulFixReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulFixReq)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulFixReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulFixRsp : public ::google::protobuf::Message {
+ public:
+  SoulFixRsp();
+  virtual ~SoulFixRsp();
+
+  SoulFixRsp(const SoulFixRsp& from);
+
+  inline SoulFixRsp& operator=(const SoulFixRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulFixRsp& default_instance();
+
+  void Swap(SoulFixRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulFixRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulFixRsp& from);
+  void MergeFrom(const SoulFixRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 2;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 2;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulFixRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 slot_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulFixRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulGuwenDressReq : public ::google::protobuf::Message {
+ public:
+  SoulGuwenDressReq();
+  virtual ~SoulGuwenDressReq();
+
+  SoulGuwenDressReq(const SoulGuwenDressReq& from);
+
+  inline SoulGuwenDressReq& operator=(const SoulGuwenDressReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulGuwenDressReq& default_instance();
+
+  void Swap(SoulGuwenDressReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulGuwenDressReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulGuwenDressReq& from);
+  void MergeFrom(const SoulGuwenDressReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.ComPair infos = 1;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  inline const ::proto_ff::ComPair& infos(int index) const;
+  inline ::proto_ff::ComPair* mutable_infos(int index);
+  inline ::proto_ff::ComPair* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulGuwenDressReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > infos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulGuwenDressReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulGuwenDressRsp : public ::google::protobuf::Message {
+ public:
+  SoulGuwenDressRsp();
+  virtual ~SoulGuwenDressRsp();
+
+  SoulGuwenDressRsp(const SoulGuwenDressRsp& from);
+
+  inline SoulGuwenDressRsp& operator=(const SoulGuwenDressRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulGuwenDressRsp& default_instance();
+
+  void Swap(SoulGuwenDressRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulGuwenDressRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulGuwenDressRsp& from);
+  void MergeFrom(const SoulGuwenDressRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair infos = 2;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 2;
+  inline const ::proto_ff::ComPair& infos(int index) const;
+  inline ::proto_ff::ComPair* mutable_infos(int index);
+  inline ::proto_ff::ComPair* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulGuwenDressRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > infos_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulGuwenDressRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulGuwenMakeReq : public ::google::protobuf::Message {
+ public:
+  SoulGuwenMakeReq();
+  virtual ~SoulGuwenMakeReq();
+
+  SoulGuwenMakeReq(const SoulGuwenMakeReq& from);
+
+  inline SoulGuwenMakeReq& operator=(const SoulGuwenMakeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulGuwenMakeReq& default_instance();
+
+  void Swap(SoulGuwenMakeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulGuwenMakeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulGuwenMakeReq& from);
+  void MergeFrom(const SoulGuwenMakeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.SoulMakeInfo infos = 1;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  inline const ::proto_ff::SoulMakeInfo& infos(int index) const;
+  inline ::proto_ff::SoulMakeInfo* mutable_infos(int index);
+  inline ::proto_ff::SoulMakeInfo* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulGuwenMakeReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo > infos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulGuwenMakeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulGuwenMakeRsp : public ::google::protobuf::Message {
+ public:
+  SoulGuwenMakeRsp();
+  virtual ~SoulGuwenMakeRsp();
+
+  SoulGuwenMakeRsp(const SoulGuwenMakeRsp& from);
+
+  inline SoulGuwenMakeRsp& operator=(const SoulGuwenMakeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulGuwenMakeRsp& default_instance();
+
+  void Swap(SoulGuwenMakeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulGuwenMakeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulGuwenMakeRsp& from);
+  void MergeFrom(const SoulGuwenMakeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // repeated int32 gen_pos_list = 2;
+  inline int gen_pos_list_size() const;
+  inline void clear_gen_pos_list();
+  static const int kGenPosListFieldNumber = 2;
+  inline ::google::protobuf::int32 gen_pos_list(int index) const;
+  inline void set_gen_pos_list(int index, ::google::protobuf::int32 value);
+  inline void add_gen_pos_list(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      gen_pos_list() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_gen_pos_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulGuwenMakeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > gen_pos_list_;
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Soul_2eproto();
+  friend void protobuf_AssignDesc_Soul_2eproto();
+  friend void protobuf_ShutdownFile_Soul_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulGuwenMakeRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -1036,6 +3388,81 @@ NotifySoulModule::tasks() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
 NotifySoulModule::mutable_tasks() {
   return &tasks_;
+}
+
+// repeated .proto_ff.SoulSpirit spirits_list = 4;
+inline int NotifySoulModule::spirits_list_size() const {
+  return spirits_list_.size();
+}
+inline void NotifySoulModule::clear_spirits_list() {
+  spirits_list_.Clear();
+}
+inline const ::proto_ff::SoulSpirit& NotifySoulModule::spirits_list(int index) const {
+  return spirits_list_.Get(index);
+}
+inline ::proto_ff::SoulSpirit* NotifySoulModule::mutable_spirits_list(int index) {
+  return spirits_list_.Mutable(index);
+}
+inline ::proto_ff::SoulSpirit* NotifySoulModule::add_spirits_list() {
+  return spirits_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulSpirit >&
+NotifySoulModule::spirits_list() const {
+  return spirits_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulSpirit >*
+NotifySoulModule::mutable_spirits_list() {
+  return &spirits_list_;
+}
+
+// repeated .proto_ff.SoulBone bone_list = 5;
+inline int NotifySoulModule::bone_list_size() const {
+  return bone_list_.size();
+}
+inline void NotifySoulModule::clear_bone_list() {
+  bone_list_.Clear();
+}
+inline const ::proto_ff::SoulBone& NotifySoulModule::bone_list(int index) const {
+  return bone_list_.Get(index);
+}
+inline ::proto_ff::SoulBone* NotifySoulModule::mutable_bone_list(int index) {
+  return bone_list_.Mutable(index);
+}
+inline ::proto_ff::SoulBone* NotifySoulModule::add_bone_list() {
+  return bone_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >&
+NotifySoulModule::bone_list() const {
+  return bone_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >*
+NotifySoulModule::mutable_bone_list() {
+  return &bone_list_;
+}
+
+// repeated .proto_ff.SoulGuwen guwen_list = 6;
+inline int NotifySoulModule::guwen_list_size() const {
+  return guwen_list_.size();
+}
+inline void NotifySoulModule::clear_guwen_list() {
+  guwen_list_.Clear();
+}
+inline const ::proto_ff::SoulGuwen& NotifySoulModule::guwen_list(int index) const {
+  return guwen_list_.Get(index);
+}
+inline ::proto_ff::SoulGuwen* NotifySoulModule::mutable_guwen_list(int index) {
+  return guwen_list_.Mutable(index);
+}
+inline ::proto_ff::SoulGuwen* NotifySoulModule::add_guwen_list() {
+  return guwen_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >&
+NotifySoulModule::guwen_list() const {
+  return guwen_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >*
+NotifySoulModule::mutable_guwen_list() {
+  return &guwen_list_;
 }
 
 // -------------------------------------------------------------------
@@ -1149,6 +3576,106 @@ NotifySoulTask::tasks() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
 NotifySoulTask::mutable_tasks() {
   return &tasks_;
+}
+
+// -------------------------------------------------------------------
+
+// NotifySoulSpirit
+
+// optional .proto_ff.SoulSpirit info = 1;
+inline bool NotifySoulSpirit::has_info() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifySoulSpirit::set_has_info() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifySoulSpirit::clear_has_info() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifySoulSpirit::clear_info() {
+  if (info_ != NULL) info_->::proto_ff::SoulSpirit::Clear();
+  clear_has_info();
+}
+inline const ::proto_ff::SoulSpirit& NotifySoulSpirit::info() const {
+  return info_ != NULL ? *info_ : *default_instance_->info_;
+}
+inline ::proto_ff::SoulSpirit* NotifySoulSpirit::mutable_info() {
+  set_has_info();
+  if (info_ == NULL) info_ = new ::proto_ff::SoulSpirit;
+  return info_;
+}
+inline ::proto_ff::SoulSpirit* NotifySoulSpirit::release_info() {
+  clear_has_info();
+  ::proto_ff::SoulSpirit* temp = info_;
+  info_ = NULL;
+  return temp;
+}
+inline void NotifySoulSpirit::set_allocated_info(::proto_ff::SoulSpirit* info) {
+  delete info_;
+  info_ = info;
+  if (info) {
+    set_has_info();
+  } else {
+    clear_has_info();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// NotifySoulBone
+
+// repeated .proto_ff.SoulBone info = 1;
+inline int NotifySoulBone::info_size() const {
+  return info_.size();
+}
+inline void NotifySoulBone::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::SoulBone& NotifySoulBone::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::SoulBone* NotifySoulBone::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::SoulBone* NotifySoulBone::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >&
+NotifySoulBone::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulBone >*
+NotifySoulBone::mutable_info() {
+  return &info_;
+}
+
+// -------------------------------------------------------------------
+
+// NotifySoulGuwen
+
+// repeated .proto_ff.SoulGuwen info = 1;
+inline int NotifySoulGuwen::info_size() const {
+  return info_.size();
+}
+inline void NotifySoulGuwen::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::SoulGuwen& NotifySoulGuwen::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::SoulGuwen* NotifySoulGuwen::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::SoulGuwen* NotifySoulGuwen::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >&
+NotifySoulGuwen::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulGuwen >*
+NotifySoulGuwen::mutable_info() {
+  return &info_;
 }
 
 // -------------------------------------------------------------------
@@ -1371,6 +3898,895 @@ inline ::google::protobuf::int32 SoulPoolOptRsp::type() const {
 inline void SoulPoolOptRsp::set_type(::google::protobuf::int32 value) {
   set_has_type();
   type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulMakeInfo
+
+// optional int32 bag_pos = 1;
+inline bool SoulMakeInfo::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulMakeInfo::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulMakeInfo::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulMakeInfo::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulMakeInfo::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulMakeInfo::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// repeated int32 cost_bag_pos_list = 2;
+inline int SoulMakeInfo::cost_bag_pos_list_size() const {
+  return cost_bag_pos_list_.size();
+}
+inline void SoulMakeInfo::clear_cost_bag_pos_list() {
+  cost_bag_pos_list_.Clear();
+}
+inline ::google::protobuf::int32 SoulMakeInfo::cost_bag_pos_list(int index) const {
+  return cost_bag_pos_list_.Get(index);
+}
+inline void SoulMakeInfo::set_cost_bag_pos_list(int index, ::google::protobuf::int32 value) {
+  cost_bag_pos_list_.Set(index, value);
+}
+inline void SoulMakeInfo::add_cost_bag_pos_list(::google::protobuf::int32 value) {
+  cost_bag_pos_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+SoulMakeInfo::cost_bag_pos_list() const {
+  return cost_bag_pos_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+SoulMakeInfo::mutable_cost_bag_pos_list() {
+  return &cost_bag_pos_list_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritDressReq
+
+// optional int32 slot_pos = 1;
+inline bool SoulSpiritDressReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpiritDressReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpiritDressReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpiritDressReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulSpiritDressReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulSpiritDressReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 bag_pos = 2;
+inline bool SoulSpiritDressReq::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulSpiritDressReq::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulSpiritDressReq::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulSpiritDressReq::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulSpiritDressReq::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulSpiritDressReq::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritDressRsp
+
+// optional int32 ret = 1;
+inline bool SoulSpiritDressRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpiritDressRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpiritDressRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpiritDressRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulSpiritDressRsp::ret() const {
+  return ret_;
+}
+inline void SoulSpiritDressRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool SoulSpiritDressRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulSpiritDressRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulSpiritDressRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulSpiritDressRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulSpiritDressRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulSpiritDressRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 bag_pos = 3;
+inline bool SoulSpiritDressRsp::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SoulSpiritDressRsp::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SoulSpiritDressRsp::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SoulSpiritDressRsp::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulSpiritDressRsp::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulSpiritDressRsp::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritLvReq
+
+// optional int32 slot_pos = 1;
+inline bool SoulSpiritLvReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpiritLvReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpiritLvReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpiritLvReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulSpiritLvReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulSpiritLvReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritLvRsp
+
+// optional int32 ret = 1;
+inline bool SoulSpiritLvRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpiritLvRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpiritLvRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpiritLvRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulSpiritLvRsp::ret() const {
+  return ret_;
+}
+inline void SoulSpiritLvRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool SoulSpiritLvRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulSpiritLvRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulSpiritLvRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulSpiritLvRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulSpiritLvRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulSpiritLvRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritMakeReq
+
+// repeated .proto_ff.SoulMakeInfo infos = 1;
+inline int SoulSpiritMakeReq::infos_size() const {
+  return infos_.size();
+}
+inline void SoulSpiritMakeReq::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::SoulMakeInfo& SoulSpiritMakeReq::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::SoulMakeInfo* SoulSpiritMakeReq::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::SoulMakeInfo* SoulSpiritMakeReq::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >&
+SoulSpiritMakeReq::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >*
+SoulSpiritMakeReq::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritMakeRsp
+
+// optional int32 ret = 1;
+inline bool SoulSpiritMakeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpiritMakeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpiritMakeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpiritMakeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulSpiritMakeRsp::ret() const {
+  return ret_;
+}
+inline void SoulSpiritMakeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// repeated int32 gen_pos_list = 2;
+inline int SoulSpiritMakeRsp::gen_pos_list_size() const {
+  return gen_pos_list_.size();
+}
+inline void SoulSpiritMakeRsp::clear_gen_pos_list() {
+  gen_pos_list_.Clear();
+}
+inline ::google::protobuf::int32 SoulSpiritMakeRsp::gen_pos_list(int index) const {
+  return gen_pos_list_.Get(index);
+}
+inline void SoulSpiritMakeRsp::set_gen_pos_list(int index, ::google::protobuf::int32 value) {
+  gen_pos_list_.Set(index, value);
+}
+inline void SoulSpiritMakeRsp::add_gen_pos_list(::google::protobuf::int32 value) {
+  gen_pos_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+SoulSpiritMakeRsp::gen_pos_list() const {
+  return gen_pos_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+SoulSpiritMakeRsp::mutable_gen_pos_list() {
+  return &gen_pos_list_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpiritDecomposeReq
+
+// -------------------------------------------------------------------
+
+// SoulSpiritDecomposeRsp
+
+// optional int32 ret = 1;
+inline bool SoulSpiritDecomposeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpiritDecomposeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpiritDecomposeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpiritDecomposeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulSpiritDecomposeRsp::ret() const {
+  return ret_;
+}
+inline void SoulSpiritDecomposeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 value = 2;
+inline bool SoulSpiritDecomposeRsp::has_value() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulSpiritDecomposeRsp::set_has_value() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulSpiritDecomposeRsp::clear_has_value() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulSpiritDecomposeRsp::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+inline ::google::protobuf::int32 SoulSpiritDecomposeRsp::value() const {
+  return value_;
+}
+inline void SoulSpiritDecomposeRsp::set_value(::google::protobuf::int32 value) {
+  set_has_value();
+  value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBoneDressReq
+
+// optional int32 bag_pos = 2;
+inline bool SoulBoneDressReq::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulBoneDressReq::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulBoneDressReq::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulBoneDressReq::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulBoneDressReq::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulBoneDressReq::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBoneDressRsp
+
+// optional int32 ret = 1;
+inline bool SoulBoneDressRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulBoneDressRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulBoneDressRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulBoneDressRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulBoneDressRsp::ret() const {
+  return ret_;
+}
+inline void SoulBoneDressRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 bag_pos = 2;
+inline bool SoulBoneDressRsp::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulBoneDressRsp::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulBoneDressRsp::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulBoneDressRsp::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulBoneDressRsp::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulBoneDressRsp::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBoneWakeReq
+
+// optional int32 slot_pos = 1;
+inline bool SoulBoneWakeReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulBoneWakeReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulBoneWakeReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulBoneWakeReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulBoneWakeReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulBoneWakeReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBoneWakeRsp
+
+// optional int32 ret = 1;
+inline bool SoulBoneWakeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulBoneWakeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulBoneWakeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulBoneWakeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulBoneWakeRsp::ret() const {
+  return ret_;
+}
+inline void SoulBoneWakeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool SoulBoneWakeRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulBoneWakeRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulBoneWakeRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulBoneWakeRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulBoneWakeRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulBoneWakeRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBoneMakeReq
+
+// repeated .proto_ff.SoulMakeInfo infos = 1;
+inline int SoulBoneMakeReq::infos_size() const {
+  return infos_.size();
+}
+inline void SoulBoneMakeReq::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::SoulMakeInfo& SoulBoneMakeReq::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::SoulMakeInfo* SoulBoneMakeReq::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::SoulMakeInfo* SoulBoneMakeReq::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >&
+SoulBoneMakeReq::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >*
+SoulBoneMakeReq::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBoneMakeRsp
+
+// optional int32 ret = 1;
+inline bool SoulBoneMakeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulBoneMakeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulBoneMakeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulBoneMakeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulBoneMakeRsp::ret() const {
+  return ret_;
+}
+inline void SoulBoneMakeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// repeated int32 gen_pos_list = 2;
+inline int SoulBoneMakeRsp::gen_pos_list_size() const {
+  return gen_pos_list_.size();
+}
+inline void SoulBoneMakeRsp::clear_gen_pos_list() {
+  gen_pos_list_.Clear();
+}
+inline ::google::protobuf::int32 SoulBoneMakeRsp::gen_pos_list(int index) const {
+  return gen_pos_list_.Get(index);
+}
+inline void SoulBoneMakeRsp::set_gen_pos_list(int index, ::google::protobuf::int32 value) {
+  gen_pos_list_.Set(index, value);
+}
+inline void SoulBoneMakeRsp::add_gen_pos_list(::google::protobuf::int32 value) {
+  gen_pos_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+SoulBoneMakeRsp::gen_pos_list() const {
+  return gen_pos_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+SoulBoneMakeRsp::mutable_gen_pos_list() {
+  return &gen_pos_list_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulCheckBoxReq
+
+// optional int32 type = 1;
+inline bool SoulCheckBoxReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulCheckBoxReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulCheckBoxReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulCheckBoxReq::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 SoulCheckBoxReq::type() const {
+  return type_;
+}
+inline void SoulCheckBoxReq::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulCheckBoxRsp
+
+// optional int32 ret = 1;
+inline bool SoulCheckBoxRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulCheckBoxRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulCheckBoxRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulCheckBoxRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulCheckBoxRsp::ret() const {
+  return ret_;
+}
+inline void SoulCheckBoxRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulFixReq
+
+// optional int32 slot_pos = 1;
+inline bool SoulFixReq::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulFixReq::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulFixReq::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulFixReq::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulFixReq::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulFixReq::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulFixRsp
+
+// optional int32 ret = 1;
+inline bool SoulFixRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulFixRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulFixRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulFixRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulFixRsp::ret() const {
+  return ret_;
+}
+inline void SoulFixRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 slot_pos = 2;
+inline bool SoulFixRsp::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulFixRsp::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulFixRsp::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulFixRsp::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulFixRsp::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulFixRsp::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulGuwenDressReq
+
+// repeated .proto_ff.ComPair infos = 1;
+inline int SoulGuwenDressReq::infos_size() const {
+  return infos_.size();
+}
+inline void SoulGuwenDressReq::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::ComPair& SoulGuwenDressReq::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::ComPair* SoulGuwenDressReq::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::ComPair* SoulGuwenDressReq::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+SoulGuwenDressReq::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+SoulGuwenDressReq::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulGuwenDressRsp
+
+// optional int32 ret = 1;
+inline bool SoulGuwenDressRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulGuwenDressRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulGuwenDressRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulGuwenDressRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulGuwenDressRsp::ret() const {
+  return ret_;
+}
+inline void SoulGuwenDressRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// repeated .proto_ff.ComPair infos = 2;
+inline int SoulGuwenDressRsp::infos_size() const {
+  return infos_.size();
+}
+inline void SoulGuwenDressRsp::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::ComPair& SoulGuwenDressRsp::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::ComPair* SoulGuwenDressRsp::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::ComPair* SoulGuwenDressRsp::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+SoulGuwenDressRsp::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+SoulGuwenDressRsp::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulGuwenMakeReq
+
+// repeated .proto_ff.SoulMakeInfo infos = 1;
+inline int SoulGuwenMakeReq::infos_size() const {
+  return infos_.size();
+}
+inline void SoulGuwenMakeReq::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::SoulMakeInfo& SoulGuwenMakeReq::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::SoulMakeInfo* SoulGuwenMakeReq::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::SoulMakeInfo* SoulGuwenMakeReq::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >&
+SoulGuwenMakeReq::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::SoulMakeInfo >*
+SoulGuwenMakeReq::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// SoulGuwenMakeRsp
+
+// optional int32 ret = 1;
+inline bool SoulGuwenMakeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulGuwenMakeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulGuwenMakeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulGuwenMakeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 SoulGuwenMakeRsp::ret() const {
+  return ret_;
+}
+inline void SoulGuwenMakeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// repeated int32 gen_pos_list = 2;
+inline int SoulGuwenMakeRsp::gen_pos_list_size() const {
+  return gen_pos_list_.size();
+}
+inline void SoulGuwenMakeRsp::clear_gen_pos_list() {
+  gen_pos_list_.Clear();
+}
+inline ::google::protobuf::int32 SoulGuwenMakeRsp::gen_pos_list(int index) const {
+  return gen_pos_list_.Get(index);
+}
+inline void SoulGuwenMakeRsp::set_gen_pos_list(int index, ::google::protobuf::int32 value) {
+  gen_pos_list_.Set(index, value);
+}
+inline void SoulGuwenMakeRsp::add_gen_pos_list(::google::protobuf::int32 value) {
+  gen_pos_list_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+SoulGuwenMakeRsp::gen_pos_list() const {
+  return gen_pos_list_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+SoulGuwenMakeRsp::mutable_gen_pos_list() {
+  return &gen_pos_list_;
 }
 
 

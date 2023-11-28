@@ -378,6 +378,7 @@ int E_GuildPosition_s::CreateInit() {
 	m_changeName = (int32_t)0;
 	m_recruitChat = (int32_t)0;
 	m_guildPacket = (int32_t)0;
+	m_UpGuard = (int32_t)0;
 	return 0;
 }
 
@@ -404,6 +405,7 @@ void E_GuildPosition_s::write_to_pbmsg(::proto_ff::E_GuildPosition & msg) const 
 	msg.set_m_changename((int32_t)m_changeName);
 	msg.set_m_recruitchat((int32_t)m_recruitChat);
 	msg.set_m_guildpacket((int32_t)m_guildPacket);
+	msg.set_m_upguard((int32_t)m_UpGuard);
 }
 
 void E_GuildPosition_s::read_from_pbmsg(const ::proto_ff::E_GuildPosition & msg) {
@@ -425,6 +427,7 @@ void E_GuildPosition_s::read_from_pbmsg(const ::proto_ff::E_GuildPosition & msg)
 	m_changeName = msg.m_changename();
 	m_recruitChat = msg.m_recruitchat();
 	m_guildPacket = msg.m_guildpacket();
+	m_UpGuard = msg.m_upguard();
 }
 
 Sheet_GuildPosition_s::Sheet_GuildPosition_s() {
@@ -823,9 +826,9 @@ E_GuildLvreward_s::E_GuildLvreward_s() {
 
 int E_GuildLvreward_s::CreateInit() {
 	m_lv = (int32_t)0;
-	m_partyExp = (int32_t)0;
+	m_partyExp = (int64_t)0;
 	m_partyEontribution = (int32_t)0;
-	m_linkExp = (int32_t)0;
+	m_linkExp = (int64_t)0;
 	return 0;
 }
 
@@ -835,9 +838,9 @@ int E_GuildLvreward_s::ResumeInit() {
 
 void E_GuildLvreward_s::write_to_pbmsg(::proto_ff::E_GuildLvreward & msg) const {
 	msg.set_m_lv((int32_t)m_lv);
-	msg.set_m_partyexp((int32_t)m_partyExp);
+	msg.set_m_partyexp((int64_t)m_partyExp);
 	msg.set_m_partyeontribution((int32_t)m_partyEontribution);
-	msg.set_m_linkexp((int32_t)m_linkExp);
+	msg.set_m_linkexp((int64_t)m_linkExp);
 }
 
 void E_GuildLvreward_s::read_from_pbmsg(const ::proto_ff::E_GuildLvreward & msg) {
@@ -1430,6 +1433,207 @@ void Sheet_GuildTtower_s::read_from_pbmsg(const ::proto_ff::Sheet_GuildTtower & 
 	for(int32_t i = 0; i < (int32_t)E_GuildTtower_List.size(); ++i) {
 		const ::proto_ff::E_GuildTtower & temp_e_guildttower_list = msg.e_guildttower_list(i);
 		E_GuildTtower_List[i].read_from_pbmsg(temp_e_guildttower_list);
+	}
+}
+
+E_GuildTtowerdevelopAttributeDesc_s::E_GuildTtowerdevelopAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_GuildTtowerdevelopAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_GuildTtowerdevelopAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_GuildTtowerdevelopAttributeDesc_s::write_to_pbmsg(::proto_ff::E_GuildTtowerdevelopAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_GuildTtowerdevelopAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelopAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_GuildTtowerdevelop_s::E_GuildTtowerdevelop_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_GuildTtowerdevelop_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_type = (int32_t)0;
+	m_dataGroup = (int32_t)0;
+	return 0;
+}
+
+int E_GuildTtowerdevelop_s::ResumeInit() {
+	return 0;
+}
+
+void E_GuildTtowerdevelop_s::write_to_pbmsg(::proto_ff::E_GuildTtowerdevelop & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_datagroup((int32_t)m_dataGroup);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_GuildTtowerdevelopAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+}
+
+void E_GuildTtowerdevelop_s::read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelop & msg) {
+	m_id = msg.m_id();
+	m_type = msg.m_type();
+	m_dataGroup = msg.m_datagroup();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_GuildTtowerdevelopAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+}
+
+Sheet_GuildTtowerdevelop_s::Sheet_GuildTtowerdevelop_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_GuildTtowerdevelop_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_GuildTtowerdevelop_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_GuildTtowerdevelop_s::write_to_pbmsg(::proto_ff::Sheet_GuildTtowerdevelop & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_GuildTtowerdevelop_List.size(); ++i) {
+		::proto_ff::E_GuildTtowerdevelop* temp_e_guildttowerdevelop_list = msg.add_e_guildttowerdevelop_list();
+		E_GuildTtowerdevelop_List[i].write_to_pbmsg(*temp_e_guildttowerdevelop_list);
+	}
+}
+
+void Sheet_GuildTtowerdevelop_s::read_from_pbmsg(const ::proto_ff::Sheet_GuildTtowerdevelop & msg) {
+	E_GuildTtowerdevelop_List.resize((int)msg.e_guildttowerdevelop_list_size() > (int)E_GuildTtowerdevelop_List.max_size() ? E_GuildTtowerdevelop_List.max_size() : msg.e_guildttowerdevelop_list_size());
+	for(int32_t i = 0; i < (int32_t)E_GuildTtowerdevelop_List.size(); ++i) {
+		const ::proto_ff::E_GuildTtowerdevelop & temp_e_guildttowerdevelop_list = msg.e_guildttowerdevelop_list(i);
+		E_GuildTtowerdevelop_List[i].read_from_pbmsg(temp_e_guildttowerdevelop_list);
+	}
+}
+
+E_GuildTtowerdevelop_dataAttributeDesc_s::E_GuildTtowerdevelop_dataAttributeDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_GuildTtowerdevelop_dataAttributeDesc_s::CreateInit() {
+	m_value = (int32_t)0;
+	m_type = (int32_t)0;
+	return 0;
+}
+
+int E_GuildTtowerdevelop_dataAttributeDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc_s::write_to_pbmsg(::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc & msg) const {
+	msg.set_m_value((int32_t)m_value);
+	msg.set_m_type((int32_t)m_type);
+}
+
+void E_GuildTtowerdevelop_dataAttributeDesc_s::read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc & msg) {
+	m_value = msg.m_value();
+	m_type = msg.m_type();
+}
+
+E_GuildTtowerdevelop_data_s::E_GuildTtowerdevelop_data_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_GuildTtowerdevelop_data_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_costItem = (int32_t)0;
+	m_costnum = (int32_t)0;
+	return 0;
+}
+
+int E_GuildTtowerdevelop_data_s::ResumeInit() {
+	return 0;
+}
+
+void E_GuildTtowerdevelop_data_s::write_to_pbmsg(::proto_ff::E_GuildTtowerdevelop_data & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_costitem((int32_t)m_costItem);
+	msg.set_m_costnum((int32_t)m_costnum);
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc* temp_m_attribute = msg.add_m_attribute();
+		m_attribute[i].write_to_pbmsg(*temp_m_attribute);
+	}
+}
+
+void E_GuildTtowerdevelop_data_s::read_from_pbmsg(const ::proto_ff::E_GuildTtowerdevelop_data & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_costItem = msg.m_costitem();
+	m_costnum = msg.m_costnum();
+	m_attribute.resize((int)msg.m_attribute_size() > (int)m_attribute.max_size() ? m_attribute.max_size() : msg.m_attribute_size());
+	for(int32_t i = 0; i < (int32_t)m_attribute.size(); ++i) {
+		const ::proto_ff::E_GuildTtowerdevelop_dataAttributeDesc & temp_m_attribute = msg.m_attribute(i);
+		m_attribute[i].read_from_pbmsg(temp_m_attribute);
+	}
+}
+
+Sheet_GuildTtowerdevelop_data_s::Sheet_GuildTtowerdevelop_data_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_GuildTtowerdevelop_data_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_GuildTtowerdevelop_data_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_GuildTtowerdevelop_data_s::write_to_pbmsg(::proto_ff::Sheet_GuildTtowerdevelop_data & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_GuildTtowerdevelop_data_List.size(); ++i) {
+		::proto_ff::E_GuildTtowerdevelop_data* temp_e_guildttowerdevelop_data_list = msg.add_e_guildttowerdevelop_data_list();
+		E_GuildTtowerdevelop_data_List[i].write_to_pbmsg(*temp_e_guildttowerdevelop_data_list);
+	}
+}
+
+void Sheet_GuildTtowerdevelop_data_s::read_from_pbmsg(const ::proto_ff::Sheet_GuildTtowerdevelop_data & msg) {
+	E_GuildTtowerdevelop_data_List.resize((int)msg.e_guildttowerdevelop_data_list_size() > (int)E_GuildTtowerdevelop_data_List.max_size() ? E_GuildTtowerdevelop_data_List.max_size() : msg.e_guildttowerdevelop_data_list_size());
+	for(int32_t i = 0; i < (int32_t)E_GuildTtowerdevelop_data_List.size(); ++i) {
+		const ::proto_ff::E_GuildTtowerdevelop_data & temp_e_guildttowerdevelop_data_list = msg.e_guildttowerdevelop_data_list(i);
+		E_GuildTtowerdevelop_data_List[i].read_from_pbmsg(temp_e_guildttowerdevelop_data_list);
 	}
 }
 

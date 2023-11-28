@@ -1041,8 +1041,15 @@ int E_RoleExp_s::CreateInit() {
 	m_multiBattle = (int32_t)0;
 	m_qingyun = (int32_t)0;
 	m_yaochi = (int32_t)0;
+	m_yaochiAct = (int32_t)0;
 	m_wedding = (int32_t)0;
 	m_bagua = (int32_t)0;
+	m_guildTask = (int32_t)0;
+	m_PrestigeMissions = (int32_t)0;
+	m_xianyuanDungeon = (int32_t)0;
+	m_guardian = (int32_t)0;
+	m_guildWar = (int32_t)0;
+	m_valley = (int32_t)0;
 	return 0;
 }
 
@@ -1064,8 +1071,15 @@ void E_RoleExp_s::write_to_pbmsg(::proto_ff::E_RoleExp & msg) const {
 	msg.set_m_multibattle((int32_t)m_multiBattle);
 	msg.set_m_qingyun((int32_t)m_qingyun);
 	msg.set_m_yaochi((int32_t)m_yaochi);
+	msg.set_m_yaochiact((int32_t)m_yaochiAct);
 	msg.set_m_wedding((int32_t)m_wedding);
 	msg.set_m_bagua((int32_t)m_bagua);
+	msg.set_m_guildtask((int32_t)m_guildTask);
+	msg.set_m_prestigemissions((int32_t)m_PrestigeMissions);
+	msg.set_m_xianyuandungeon((int32_t)m_xianyuanDungeon);
+	msg.set_m_guardian((int32_t)m_guardian);
+	msg.set_m_guildwar((int32_t)m_guildWar);
+	msg.set_m_valley((int32_t)m_valley);
 }
 
 void E_RoleExp_s::read_from_pbmsg(const ::proto_ff::E_RoleExp & msg) {
@@ -1082,8 +1096,15 @@ void E_RoleExp_s::read_from_pbmsg(const ::proto_ff::E_RoleExp & msg) {
 	m_multiBattle = msg.m_multibattle();
 	m_qingyun = msg.m_qingyun();
 	m_yaochi = msg.m_yaochi();
+	m_yaochiAct = msg.m_yaochiact();
 	m_wedding = msg.m_wedding();
 	m_bagua = msg.m_bagua();
+	m_guildTask = msg.m_guildtask();
+	m_PrestigeMissions = msg.m_prestigemissions();
+	m_xianyuanDungeon = msg.m_xianyuandungeon();
+	m_guardian = msg.m_guardian();
+	m_guildWar = msg.m_guildwar();
+	m_valley = msg.m_valley();
 }
 
 Sheet_RoleExp_s::Sheet_RoleExp_s() {

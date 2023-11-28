@@ -21,7 +21,7 @@ namespace proto_ff_s {
 		int32_t m_ID;//命令索引
 		NFShmString<64> m_Key;//命令关键字
 		int32_t m_ParamCount;//参数数量
-		NFShmString<64> m_Des;//描述
+		NFShmString<128> m_Des;//描述
 
 		virtual void write_to_pbmsg(::proto_ff::E_GmcommandGmcommand & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_GmcommandGmcommand & msg);

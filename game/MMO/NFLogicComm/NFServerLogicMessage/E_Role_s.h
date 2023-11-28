@@ -514,9 +514,16 @@ namespace proto_ff_s {
 		int32_t m_solo;//单人pk
 		int32_t m_multiBattle;//三人组
 		int32_t m_qingyun;//青云之巅
-		int32_t m_yaochi;//瑶池
+		int32_t m_yaochi;//瑶池挂机
+		int32_t m_yaochiAct;//瑶池行为
 		int32_t m_wedding;//婚礼
 		int32_t m_bagua;//八卦迷阵
+		int32_t m_guildTask;//公会环任务
+		int32_t m_PrestigeMissions;//声望任务
+		int32_t m_xianyuanDungeon;//仙缘副本
+		int32_t m_guardian;//帮派守护
+		int32_t m_guildWar;//公会战
+		int32_t m_valley;//神机谷
 
 		virtual void write_to_pbmsg(::proto_ff::E_RoleExp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_RoleExp & msg);

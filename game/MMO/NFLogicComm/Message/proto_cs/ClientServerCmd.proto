@@ -51,6 +51,9 @@ enum ClientServerCmd
 	BROAD_TOUR_STATE = 111;						//广播巡游状态
 	BROAD_CLAN_VIEW = 112;						//广播战队视野数据
 	BROAD_VIP_HIDE = 113;						//广播VIP状态是否隐藏
+	BROAD_DROP_BELONG = 114;					//广播掉落归属数据
+	BROAD_SOUL_EQUIP = 115;						//广播战魂装备变化
+	
 	//场景 151 - 200
 	NOTIFY_CLIENT_LOAD_MAP	= 151;				//通知客户端加载场景
 	NOTIFY_CLIENT_TRANS_SCENE_RSP = 152;		//通知客户端切换场景结果
@@ -752,6 +755,17 @@ enum ClientServerCmd
 	CLIENT_DEITY_EQUIP_DISASSEMBLE_REQ = 1640; //天神装备拆解
 	CLIENT_DEITY_EQUIP_DISASSEMBLE_RSP = 1641; //天神装备拆解
 
+	CLIENT_DEITY_GODHOOD_INFO_REQ = 1650; //天神神格信息
+	CLIENT_DEITY_GODHOOD_INFO_RSP = 1651; //天神神格信息
+	CLIENT_DEITY_GODHOOD_DRESS_REQ = 1652; //天神神格穿戴
+	CLIENT_DEITY_GODHOOD_DRESS_RSP = 1653; //天神神格穿戴
+	CLIENT_DEITY_GODHOOD_HUASHENG_REQ = 1654;//天神神格化神
+	CLIENT_DEITY_GODHOOD_HUASHENG_RSP = 1655;//天神神格化神
+	CLIENT_DEITY_GODHOOD_LV_REQ = 1656; //天神神格升级
+	CLIENT_DEITY_GODHOOD_LV_RSP = 1657; //天神神格升级
+	CLIENT_DEITY_GODHOOD_STAR_REQ = 1658; //天神神格升星
+	CLIENT_DEITY_GODHOOD_STAR_RSP = 1659; //天神神格升星
+
 	//宠物 1701-1750
 	NOTIFY_PET_MODULE_RSP			= 1701;	//宠物数据通知
 	NOTIFY_PET_RSP					= 1702;	//更新宠物信息
@@ -890,7 +904,6 @@ enum ClientServerCmd
 	FACTION_ANSWER_CUR_RANK_RSP		= 2164;  //返回 当前答题活动的答题排名
 	FACTION_ANSWER_STAGE_RSP		= 2165;  //返回 答题阶段信息
 	FACTION_ANSWER_RESULT_RSP		= 2166;  //返回 答题结果
-	FACTION_ANSWER_FINAL_RSP		= 2174;  //返回 答题最终的排名信息
 
 	FACTION_BEAST_INFO_REQ			= 2167;	//请求帮派神兽信息
 	FACTION_BEAST_INFO_RSP			= 2168;	//返回帮派神兽信息
@@ -900,18 +913,25 @@ enum ClientServerCmd
 	FACTION_BEAST_CUR_HARM_RANK_RSP	= 2172; //返回帮派神兽当前实时伤害排名
 	FACTION_BEAST_FINISH_RSP		= 2173;	//返回帮派神兽完成信息
 
-	FACTION_GUARD_PERSON_RANK_INFO_REQ			= 2180;	//请求帮派守卫个人排名信息(外部)
-	FACTION_GUARD_PERSON_RANK_INFO_RSP			= 2181;	//返回帮派守卫个人排名信息(外部)
-	FACTION_GUARD_PERSON_INTO_UPDATE = 2182; //通知帮派守卫个人排名信息(个人排名更新(场景里自动推送))
-	FACTION_GUARD_SOCIAL_RANK_LIST_REQ	= 2183;  //请求帮派守卫跨服排名(外部)
-	FACTION_GUARD_SOCIAL_RANK_LIST_RSP	= 2184;  //返回 帮派守卫跨服排名(外部)
-	FATION_GUARD_SOCIAL_RANK_LIST_UPDATE		= 2185;  //通知帮派守卫跨服排名信息(个人排名更新(场景里自动推送))
-	FACTION_GUARD_SCENE_INFO_REQ	= 2186;	//请求帮派守卫场景信息
-	FACTION_GUARD_SCENE_INFO_RSP	= 2187;	//返回帮派守卫场景信息
-	FACTION_GUARD_MONSTER_INFO_NOTIFY = 2188; //怪物信息返回
-	FACTION_GUARD_FINISH_RSP = 2189; ////返回帮派守卫完成信息
-	FACTION_GUARD_ENCOURAGEMENT_REQ = 2190; //帮派守卫鼓舞
-	FACTION_GUARD_ENCOURAGEMENT_RSP = 2191; //帮派守卫鼓舞
+	FACTION_ANSWER_FINAL_RSP		= 2174;  //返回 答题最终的排名信息
+
+	FACTION_MAG_RECORD_UPGRADE_REQ	= 2175;	 //请求升级伏魔录守护
+	FACTION_MAG_RECORD_UPGRADE_RSP	= 2176;	 //返回 升级伏魔录守护 结果
+	FACTION_MAG_RECORD_NOTIFY		= 2177;	 //通知 伏魔录信息
+
+
+	FACTION_GUARD_PERSON_RANK_INFO_REQ		= 2180;	//请求帮派守卫个人排名信息(外部)
+	FACTION_GUARD_PERSON_RANK_INFO_RSP		= 2181;	//返回帮派守卫个人排名信息(外部)
+	FACTION_GUARD_PERSON_INTO_UPDATE		= 2182; //通知帮派守卫个人排名信息(个人排名更新(场景里自动推送))
+	FACTION_GUARD_SOCIAL_RANK_LIST_REQ		= 2183; //请求帮派守卫跨服排名(外部)
+	FACTION_GUARD_SOCIAL_RANK_LIST_RSP		= 2184; //返回 帮派守卫跨服排名(外部)
+	FATION_GUARD_SOCIAL_RANK_LIST_UPDATE	= 2185; //通知帮派守卫跨服排名信息(个人排名更新(场景里自动推送))
+	FACTION_GUARD_SCENE_INFO_REQ			= 2186;	//请求帮派守卫场景信息
+	FACTION_GUARD_SCENE_INFO_RSP			= 2187;	//返回帮派守卫场景信息
+	FACTION_GUARD_MONSTER_INFO_NOTIFY		= 2188; //怪物信息返回
+	FACTION_GUARD_FINISH_RSP				= 2189; //返回帮派守卫完成信息
+	FACTION_GUARD_ENCOURAGEMENT_REQ			= 2190; //帮派守卫鼓舞
+	FACTION_GUARD_ENCOURAGEMENT_RSP			= 2191; //帮派守卫鼓舞
 
 	//护送
 	NOTIFY_CONVOY_INFO				= 2200; //护送信息
@@ -1803,6 +1823,10 @@ enum ClientServerCmd
 	FEST_LIMIT_SALE_FETCH_TOTAL_RSP = 4088;			//返回 限时秒杀 累计消费奖励 结果
 	FEST_LIMIT_SALE_UPDATE_RSP = 4089;				//更新 限时秒杀 信息
 
+	FEST_MYSTERY_BUY_REQ = 4091;					//请求购买 神秘商人 商品
+	FEST_MYSTERY_BUY_RSP = 4092;					//返回 购买 神秘商人 商品结果
+	FEST_MYSTERY_UPDATE_RSP = 4093;					//更新 神秘商人 信息
+
 
 
 	//开服比拼 4100-4120
@@ -1849,6 +1873,26 @@ enum ClientServerCmd
 	F_MARRY_ROLE_RECV_REQ = 4157;	//领取奖励
 	F_MARRY_ROLE_RECV_RSP = 4158;	//领取奖励返回
 
+	FEST_SHOOT_SUN_REQ = 4170;				//请求抽奖(后羿射日)
+	FEST_SHOOT_SUN_RSP = 4171;				//返回抽奖 结果(后羿射日)
+	FEST_SHOOT_SUN_RESET_REQ = 4172;		//请求重置抽奖(后羿射日)
+	FEST_SHOOT_SUN_RESET_RSP = 4173;		//返回重置抽奖 结果(后羿射日)
+	FEST_SHOOT_SUN_LOG_REQ = 4174;			//请求抽奖日志(后羿射日)
+	FEST_SHOOT_SUN_LOG_RSP = 4175;			//返回抽奖日志(后羿射日)
+	FEST_SHOOT_SUN_TASK_FETCH_REQ = 4176;	//请求任务领奖(后羿射日)
+	FEST_SHOOT_SUN_TASK_FETCH_RSP = 4177;	//返回任务领奖 结果(后羿射日)
+	FEST_SHOOT_SUN_TASK_UPDATE_RSP = 4178;	//更新任务信息(后羿射日)
+
+	//累充喵喵
+	FEST_RECHARGE_PRIZE_CHOUJIANG_REQ = 4180;  //累充喵喵抽奖
+	FEST_RECHARGE_PRIZE_CHOUJIANG_RSP = 4181;  //累充喵喵抽奖
+	FEST_RECHARGE_PRIZE_CHOUJIANG_RECORD_REQ = 4182;  //累充喵喵抽奖记录
+	FEST_RECHARGE_PRIZE_CHOUJIANG_RECORD_RSP = 4183;  //累充喵喵抽奖记录
+	FEST_RECHARGE_PRIZE_GET_TASK_REWARD_REQ = 4184;  //累充喵喵获取奖励
+	FEST_RECHARGE_PRIZE_GET_TASK_REWARD_RSP = 4185;  //累充喵喵获取奖励
+	FEST_RECHARGE_PRIZE_GET_FREE_REWARD_REQ = 4186;  //累充喵喵获取免费奖励
+	FEST_RECHARGE_PRIZE_GET_FREE_REWARD_RSP = 4187;  //累充喵喵获取免费奖励
+	FEST_RECHARGE_PRIZE_TASK_STATUS_NOTIFY = 4188;  //累充喵喵任务状态修改
 
 	
 	//幻世烛龙 4350 - 4380
@@ -2009,7 +2053,37 @@ enum ClientServerCmd
 	SOUL_ENTRY_OPT_RSP = 4618;				//战魂操作返回
 	SOUL_POOL_OPT_REQ = 4619;				//战魂聚灵池操作
 	SOUL_POOL_OPT_RSP = 4620;				//战魂聚灵池操作返回
-
+	
+	NOTIFY_SOUL_SPIRIT = 4621;				//更新魂晶
+	NOTIFY_SOUL_BONE = 4622;				//更新魂骨信息
+	NOTIFY_SOUL_GUWEN = 4623;				//更新骨纹
+	
+	SOUL_SPIRIT_DRESS_REQ = 4624;			//元神穿戴
+	SOUL_SPIRIT_DRESS_RSP = 4625;			//元神穿戴
+	SOUL_SPIRIT_LV_REQ = 4626;				//元神升级
+	SOUL_SPIRIT_LV_RSP = 4627;				//元神升级
+	SOUL_SPIRIT_MAKE_REQ = 4628;			//元神打造
+	SOUL_SPIRIT_MAKE_RSP = 4629;			//元神打造
+	
+	SOUL_BONE_DRESS_REQ = 4630;				//魂骨穿戴
+	SOUL_BONE_DRESS_RSP = 4631;				//魂骨穿戴
+	SOUL_BONE_WAKE_REQ = 4632;				//魂骨觉醒
+	SOUL_BONE_WAKE_RSP = 4633;				//魂骨觉醒
+	SOUL_BONE_MAKE_REQ = 4634;				//魂骨打造
+	SOUL_BONE_MAKE_RSP = 4635;				//魂骨打造
+	SOUL_CHECK_BOX_REQ = 4636;				//战魂复选框设置
+	SOUL_CHECK_BOX_RSP = 4637;				//战魂复选框设置
+	SOUL_FIX_REQ	   = 4638;				//魂骨词缀
+	SOUL_FIX_RSP	   = 4639;				//魂骨词缀
+	
+	SOUL_GUWEN_DRESS_REQ = 4640;			//骨纹穿戴
+	SOUL_GUWEN_DRESS_RSP = 4641;			//骨纹穿戴
+	SOUL_GUWEN_MAKE_REQ = 4642;				//骨纹打造
+	SOUL_GUWEN_MAKE_RSP = 4643;				//骨纹打造
+	
+	SOUL_SPIRIT_DECOMPOSE_REQ = 4644;		//绿晶分解
+	SOUL_SPIRIT_DECOMPOSE_RSP = 4645;		//绿晶分解
+	
 	//奇门八卦4700-4750
 	CL_MOFA_GET_INFO_REQ = 4700; //奇门八卦获取信息
 	LC_MOFA_GET_INFO_RSP = 4701; //奇门八卦获取信息
@@ -2033,9 +2107,30 @@ enum ClientServerCmd
 	LC_MOFA_SLOT_UNLOCK_RSP = 4719; //解锁
 
 	//封神之战4750-4780
-	NGP_DataReq=4750;//请求数据
-	NGP_DataRsp=4751;
-
+	NG_DataRsp=4750;//战场数据推送
+	NG_EnterReq=4752;//请求进战场
+	NG_ExitReq=4753;//请求退出战场
+	NG_RankReq=4754;//排行榜数据请求
+	NG_RankRsp=4755;
+	NG_FinishNt=4756;//结束通知
+	NG_ScoreRewardRecvReq=4757;//领取积分奖励
+	NG_ScoreRewardRecvRsp=4758;//
+	NG_TBoxOpenReq=4759;//开宝箱
+	NG_TBoxOpenRsp=4760;//开宝箱返回
+	NG_TBoxOpenServerLogReq=4761;//全服挖宝记录
+	NG_TBoxOpenServerLogRsp=4762;//全服挖宝记录返回
+	NG_DbDatasRsp=4763;
+	NG_PrivilegePayReq=4764;//充特权
+	NG_PrivilegePayRsp=4765;
+	NG_PrivilegeRewardRecvReq=4766;//特权奖励领取
+	NG_PrivilegeRewardRecvRsp=4767;
+	NG_StorePurchaseReq=4768;//特惠商店购买
+	NG_StorePurchaseRsp=4769;
+	NG_PayAccRecvReq	=4770;//特惠商店累充领取
+	NG_PayAccRecvRsp	=4771;
+	NG_BossInfoNt		=4772;
+	NG_TBoxNxtLayerReq	=4773;//下一层
+	NG_TBoxNxtLayerRsp	=4774;//
 
 	//淬炼
 	NOTIFY_RUNE_LIST = 4800;				//淬炼通知

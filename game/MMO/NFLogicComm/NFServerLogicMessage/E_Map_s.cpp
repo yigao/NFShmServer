@@ -179,6 +179,9 @@ int E_MapItemdrop_s::CreateInit() {
 	m_itemDropID = (int32_t)0;
 	m_dropType = (int32_t)0;
 	m_odds = (int32_t)0;
+	m_ownProtect = (int32_t)0;
+	m_belongType = (int32_t)0;
+	m_numMax = (int32_t)0;
 	m_dropvaluea = (int32_t)0;
 	m_dropvalueb = (int32_t)0;
 	m_dropvaluec = (int32_t)0;
@@ -196,6 +199,9 @@ void E_MapItemdrop_s::write_to_pbmsg(::proto_ff::E_MapItemdrop & msg) const {
 	msg.set_m_itemdropid((int32_t)m_itemDropID);
 	msg.set_m_droptype((int32_t)m_dropType);
 	msg.set_m_odds((int32_t)m_odds);
+	msg.set_m_ownprotect((int32_t)m_ownProtect);
+	msg.set_m_belongtype((int32_t)m_belongType);
+	msg.set_m_nummax((int32_t)m_numMax);
 	msg.set_m_dropvaluea((int32_t)m_dropvaluea);
 	msg.set_m_dropvalueb((int32_t)m_dropvalueb);
 	msg.set_m_dropvaluec((int32_t)m_dropvaluec);
@@ -208,6 +214,9 @@ void E_MapItemdrop_s::read_from_pbmsg(const ::proto_ff::E_MapItemdrop & msg) {
 	m_itemDropID = msg.m_itemdropid();
 	m_dropType = msg.m_droptype();
 	m_odds = msg.m_odds();
+	m_ownProtect = msg.m_ownprotect();
+	m_belongType = msg.m_belongtype();
+	m_numMax = msg.m_nummax();
 	m_dropvaluea = msg.m_dropvaluea();
 	m_dropvalueb = msg.m_dropvalueb();
 	m_dropvaluec = msg.m_dropvaluec();

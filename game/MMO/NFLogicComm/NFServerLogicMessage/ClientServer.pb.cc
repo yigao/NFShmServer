@@ -626,6 +626,36 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* DeityEquipDisassembleRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   DeityEquipDisassembleRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodInfoReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodInfoReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodInfoRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodInfoRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodDressReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodDressReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodDressRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodDressRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodHuaShengReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodHuaShengReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodHuaShengRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodHuaShengRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodLvReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodLvReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodLvRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodLvRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodStarReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodStarReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* DeityGodHoodStarRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  DeityGodHoodStarRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CGTitleInfoReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CGTitleInfoReq_reflection_ = NULL;
@@ -4046,7 +4076,167 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DeityEquipDisassembleRsp));
-  CGTitleInfoReq_descriptor_ = file->message_type(202);
+  DeityGodHoodInfoReq_descriptor_ = file->message_type(202);
+  static const int DeityGodHoodInfoReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoReq, fantasy_id_),
+  };
+  DeityGodHoodInfoReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodInfoReq_descriptor_,
+      DeityGodHoodInfoReq::default_instance_,
+      DeityGodHoodInfoReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodInfoReq));
+  DeityGodHoodInfoRsp_descriptor_ = file->message_type(203);
+  static const int DeityGodHoodInfoRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoRsp, fantasy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoRsp, data_),
+  };
+  DeityGodHoodInfoRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodInfoRsp_descriptor_,
+      DeityGodHoodInfoRsp::default_instance_,
+      DeityGodHoodInfoRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodInfoRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodInfoRsp));
+  DeityGodHoodDressReq_descriptor_ = file->message_type(204);
+  static const int DeityGodHoodDressReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressReq, fantasy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressReq, pos_),
+  };
+  DeityGodHoodDressReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodDressReq_descriptor_,
+      DeityGodHoodDressReq::default_instance_,
+      DeityGodHoodDressReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodDressReq));
+  DeityGodHoodDressRsp_descriptor_ = file->message_type(205);
+  static const int DeityGodHoodDressRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressRsp, fantasy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressRsp, data_),
+  };
+  DeityGodHoodDressRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodDressRsp_descriptor_,
+      DeityGodHoodDressRsp::default_instance_,
+      DeityGodHoodDressRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodDressRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodDressRsp));
+  DeityGodHoodHuaShengReq_descriptor_ = file->message_type(206);
+  static const int DeityGodHoodHuaShengReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengReq, fantasy_id_),
+  };
+  DeityGodHoodHuaShengReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodHuaShengReq_descriptor_,
+      DeityGodHoodHuaShengReq::default_instance_,
+      DeityGodHoodHuaShengReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodHuaShengReq));
+  DeityGodHoodHuaShengRsp_descriptor_ = file->message_type(207);
+  static const int DeityGodHoodHuaShengRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengRsp, fantasy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengRsp, data_),
+  };
+  DeityGodHoodHuaShengRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodHuaShengRsp_descriptor_,
+      DeityGodHoodHuaShengRsp::default_instance_,
+      DeityGodHoodHuaShengRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodHuaShengRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodHuaShengRsp));
+  DeityGodHoodLvReq_descriptor_ = file->message_type(208);
+  static const int DeityGodHoodLvReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvReq, fantasy_id_),
+  };
+  DeityGodHoodLvReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodLvReq_descriptor_,
+      DeityGodHoodLvReq::default_instance_,
+      DeityGodHoodLvReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodLvReq));
+  DeityGodHoodLvRsp_descriptor_ = file->message_type(209);
+  static const int DeityGodHoodLvRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvRsp, fantasy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvRsp, data_),
+  };
+  DeityGodHoodLvRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodLvRsp_descriptor_,
+      DeityGodHoodLvRsp::default_instance_,
+      DeityGodHoodLvRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodLvRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodLvRsp));
+  DeityGodHoodStarReq_descriptor_ = file->message_type(210);
+  static const int DeityGodHoodStarReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarReq, fantasy_id_),
+  };
+  DeityGodHoodStarReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodStarReq_descriptor_,
+      DeityGodHoodStarReq::default_instance_,
+      DeityGodHoodStarReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodStarReq));
+  DeityGodHoodStarRsp_descriptor_ = file->message_type(211);
+  static const int DeityGodHoodStarRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarRsp, fantasy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarRsp, data_),
+  };
+  DeityGodHoodStarRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      DeityGodHoodStarRsp_descriptor_,
+      DeityGodHoodStarRsp::default_instance_,
+      DeityGodHoodStarRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DeityGodHoodStarRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(DeityGodHoodStarRsp));
+  CGTitleInfoReq_descriptor_ = file->message_type(212);
   static const int CGTitleInfoReq_offsets_[1] = {
   };
   CGTitleInfoReq_reflection_ =
@@ -4060,7 +4250,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleInfoReq));
-  GCTitleInfoRsp_descriptor_ = file->message_type(203);
+  GCTitleInfoRsp_descriptor_ = file->message_type(213);
   static const int GCTitleInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoRsp, cur_wearing_title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoRsp, data_),
@@ -4076,7 +4266,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleInfoRsp));
-  CGTitleInfoActiveReq_descriptor_ = file->message_type(204);
+  CGTitleInfoActiveReq_descriptor_ = file->message_type(214);
   static const int CGTitleInfoActiveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleInfoActiveReq, title_id_),
   };
@@ -4091,7 +4281,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleInfoActiveReq));
-  GCTitleInfoActiveRsp_descriptor_ = file->message_type(205);
+  GCTitleInfoActiveRsp_descriptor_ = file->message_type(215);
   static const int GCTitleInfoActiveRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoActiveRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleInfoActiveRsp, data_),
@@ -4107,7 +4297,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleInfoActiveRsp));
-  CGTitleStarLvReq_descriptor_ = file->message_type(206);
+  CGTitleStarLvReq_descriptor_ = file->message_type(216);
   static const int CGTitleStarLvReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleStarLvReq, title_id_),
   };
@@ -4122,7 +4312,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleStarLvReq));
-  GCTitleStarLvRsp_descriptor_ = file->message_type(207);
+  GCTitleStarLvRsp_descriptor_ = file->message_type(217);
   static const int GCTitleStarLvRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleStarLvRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleStarLvRsp, data_),
@@ -4138,7 +4328,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleStarLvRsp));
-  CGTitleDressReq_descriptor_ = file->message_type(208);
+  CGTitleDressReq_descriptor_ = file->message_type(218);
   static const int CGTitleDressReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleDressReq, title_id_),
   };
@@ -4153,7 +4343,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleDressReq));
-  GCTitleDressRsp_descriptor_ = file->message_type(209);
+  GCTitleDressRsp_descriptor_ = file->message_type(219);
   static const int GCTitleDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleDressRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleDressRsp, cur_wearing_title_),
@@ -4170,7 +4360,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleDressRsp));
-  CGTitleUnDressReq_descriptor_ = file->message_type(210);
+  CGTitleUnDressReq_descriptor_ = file->message_type(220);
   static const int CGTitleUnDressReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTitleUnDressReq, title_id_),
   };
@@ -4185,7 +4375,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTitleUnDressReq));
-  GCTitleUnDressRsp_descriptor_ = file->message_type(211);
+  GCTitleUnDressRsp_descriptor_ = file->message_type(221);
   static const int GCTitleUnDressRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleUnDressRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCTitleUnDressRsp, cur_wearing_title_),
@@ -4202,7 +4392,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCTitleUnDressRsp));
-  CGOccupationSoulInfoReq_descriptor_ = file->message_type(212);
+  CGOccupationSoulInfoReq_descriptor_ = file->message_type(222);
   static const int CGOccupationSoulInfoReq_offsets_[1] = {
   };
   CGOccupationSoulInfoReq_reflection_ =
@@ -4216,7 +4406,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOccupationSoulInfoReq));
-  GCOccupationSoulInfoRsp_descriptor_ = file->message_type(213);
+  GCOccupationSoulInfoRsp_descriptor_ = file->message_type(223);
   static const int GCOccupationSoulInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCOccupationSoulInfoRsp, grade_data_),
   };
@@ -4231,7 +4421,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCOccupationSoulInfoRsp));
-  CGOccupationLightSoulReq_descriptor_ = file->message_type(214);
+  CGOccupationLightSoulReq_descriptor_ = file->message_type(224);
   static const int CGOccupationLightSoulReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOccupationLightSoulReq, grade_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOccupationLightSoulReq, stage_),
@@ -4249,7 +4439,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOccupationLightSoulReq));
-  GCOccupationLightSoulRsp_descriptor_ = file->message_type(215);
+  GCOccupationLightSoulRsp_descriptor_ = file->message_type(225);
   static const int GCOccupationLightSoulRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCOccupationLightSoulRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCOccupationLightSoulRsp, grade_),
@@ -4267,7 +4457,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCOccupationLightSoulRsp));
-  CGUnlockFlyUpwardReq_descriptor_ = file->message_type(216);
+  CGUnlockFlyUpwardReq_descriptor_ = file->message_type(226);
   static const int CGUnlockFlyUpwardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGUnlockFlyUpwardReq, stage_),
   };
@@ -4282,7 +4472,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGUnlockFlyUpwardReq));
-  GCUnlockFlyUpwardRsp_descriptor_ = file->message_type(217);
+  GCUnlockFlyUpwardRsp_descriptor_ = file->message_type(227);
   static const int GCUnlockFlyUpwardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCUnlockFlyUpwardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCUnlockFlyUpwardRsp, stage_),
@@ -4298,7 +4488,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCUnlockFlyUpwardRsp));
-  CGAchievementInfoReq_descriptor_ = file->message_type(218);
+  CGAchievementInfoReq_descriptor_ = file->message_type(228);
   static const int CGAchievementInfoReq_offsets_[1] = {
   };
   CGAchievementInfoReq_reflection_ =
@@ -4312,7 +4502,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGAchievementInfoReq));
-  GCAchievementInfoRsp_descriptor_ = file->message_type(219);
+  GCAchievementInfoRsp_descriptor_ = file->message_type(229);
   static const int GCAchievementInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementInfoRsp, data_),
   };
@@ -4327,7 +4517,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCAchievementInfoRsp));
-  CGAchievementGetRewardReq_descriptor_ = file->message_type(220);
+  CGAchievementGetRewardReq_descriptor_ = file->message_type(230);
   static const int CGAchievementGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGAchievementGetRewardReq, id_),
   };
@@ -4342,7 +4532,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGAchievementGetRewardReq));
-  GCAchievementGetRewardRsp_descriptor_ = file->message_type(221);
+  GCAchievementGetRewardRsp_descriptor_ = file->message_type(231);
   static const int GCAchievementGetRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementGetRewardRsp, id_),
@@ -4358,7 +4548,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCAchievementGetRewardRsp));
-  CGAchievementTotalGetRewardReq_descriptor_ = file->message_type(222);
+  CGAchievementTotalGetRewardReq_descriptor_ = file->message_type(232);
   static const int CGAchievementTotalGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGAchievementTotalGetRewardReq, id_),
   };
@@ -4373,7 +4563,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGAchievementTotalGetRewardReq));
-  GCAchievementTotalGetRewardRsp_descriptor_ = file->message_type(223);
+  GCAchievementTotalGetRewardRsp_descriptor_ = file->message_type(233);
   static const int GCAchievementTotalGetRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementTotalGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCAchievementTotalGetRewardRsp, id_),
@@ -4389,7 +4579,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCAchievementTotalGetRewardRsp));
-  NotifyAchievementDataChange_descriptor_ = file->message_type(224);
+  NotifyAchievementDataChange_descriptor_ = file->message_type(234);
   static const int NotifyAchievementDataChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementDataChange, ach_point_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementDataChange, data_),
@@ -4405,7 +4595,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyAchievementDataChange));
-  NotifyAchievementTotalDataChange_descriptor_ = file->message_type(225);
+  NotifyAchievementTotalDataChange_descriptor_ = file->message_type(235);
   static const int NotifyAchievementTotalDataChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementTotalDataChange, ach_point_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyAchievementTotalDataChange, data_),
@@ -4421,7 +4611,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyAchievementTotalDataChange));
-  GuidelinesSaveReq_descriptor_ = file->message_type(226);
+  GuidelinesSaveReq_descriptor_ = file->message_type(236);
   static const int GuidelinesSaveReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuidelinesSaveReq, strsave_),
   };
@@ -4436,7 +4626,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GuidelinesSaveReq));
-  XiuZhenRoadInfoReq_descriptor_ = file->message_type(227);
+  XiuZhenRoadInfoReq_descriptor_ = file->message_type(237);
   static const int XiuZhenRoadInfoReq_offsets_[1] = {
   };
   XiuZhenRoadInfoReq_reflection_ =
@@ -4450,7 +4640,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadInfoReq));
-  XiuZhenRoadInfoRsp_descriptor_ = file->message_type(228);
+  XiuZhenRoadInfoRsp_descriptor_ = file->message_type(238);
   static const int XiuZhenRoadInfoRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadInfoRsp, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadInfoRsp, xiuezhenroad_point_),
@@ -4469,7 +4659,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadInfoRsp));
-  XiuZhenRoadGetRewardReq_descriptor_ = file->message_type(229);
+  XiuZhenRoadGetRewardReq_descriptor_ = file->message_type(239);
   static const int XiuZhenRoadGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetRewardReq, id_),
   };
@@ -4484,7 +4674,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetRewardReq));
-  XiuZhenRoadGetRewardRsp_descriptor_ = file->message_type(230);
+  XiuZhenRoadGetRewardRsp_descriptor_ = file->message_type(240);
   static const int XiuZhenRoadGetRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetRewardRsp, data_),
@@ -4501,7 +4691,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetRewardRsp));
-  XiuZhenRoadChangeNotify_descriptor_ = file->message_type(231);
+  XiuZhenRoadChangeNotify_descriptor_ = file->message_type(241);
   static const int XiuZhenRoadChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadChangeNotify, data_),
   };
@@ -4516,7 +4706,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadChangeNotify));
-  XiuZhenRoadPointsGetRewardReq_descriptor_ = file->message_type(232);
+  XiuZhenRoadPointsGetRewardReq_descriptor_ = file->message_type(242);
   static const int XiuZhenRoadPointsGetRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsGetRewardReq, id_),
   };
@@ -4531,7 +4721,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadPointsGetRewardReq));
-  XiuZhenRoadPointsGetRewardRsp_descriptor_ = file->message_type(233);
+  XiuZhenRoadPointsGetRewardRsp_descriptor_ = file->message_type(243);
   static const int XiuZhenRoadPointsGetRewardRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsGetRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsGetRewardRsp, data_),
@@ -4547,7 +4737,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadPointsGetRewardRsp));
-  XiuZhenRoadPointsChangeNotify_descriptor_ = file->message_type(234);
+  XiuZhenRoadPointsChangeNotify_descriptor_ = file->message_type(244);
   static const int XiuZhenRoadPointsChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadPointsChangeNotify, data_),
   };
@@ -4562,7 +4752,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadPointsChangeNotify));
-  XiuZhenRoadRechargeChangeNotify_descriptor_ = file->message_type(235);
+  XiuZhenRoadRechargeChangeNotify_descriptor_ = file->message_type(245);
   static const int XiuZhenRoadRechargeChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadRechargeChangeNotify, data_),
   };
@@ -4577,7 +4767,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadRechargeChangeNotify));
-  XiuZhenRoadBackInfoReq_descriptor_ = file->message_type(236);
+  XiuZhenRoadBackInfoReq_descriptor_ = file->message_type(246);
   static const int XiuZhenRoadBackInfoReq_offsets_[1] = {
   };
   XiuZhenRoadBackInfoReq_reflection_ =
@@ -4591,7 +4781,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadBackInfoReq));
-  XiuZhenRoadBackInfoRsp_descriptor_ = file->message_type(237);
+  XiuZhenRoadBackInfoRsp_descriptor_ = file->message_type(247);
   static const int XiuZhenRoadBackInfoRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadBackInfoRsp, xiuzhenroad_back_status_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadBackInfoRsp, attr_),
@@ -4610,7 +4800,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadBackInfoRsp));
-  XiuZhenRoadGetBackRewardInfoReq_descriptor_ = file->message_type(238);
+  XiuZhenRoadGetBackRewardInfoReq_descriptor_ = file->message_type(248);
   static const int XiuZhenRoadGetBackRewardInfoReq_offsets_[1] = {
   };
   XiuZhenRoadGetBackRewardInfoReq_reflection_ =
@@ -4624,7 +4814,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetBackRewardInfoReq));
-  XiuZhenRoadGetBackRewardInfoRsp_descriptor_ = file->message_type(239);
+  XiuZhenRoadGetBackRewardInfoRsp_descriptor_ = file->message_type(249);
   static const int XiuZhenRoadGetBackRewardInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetBackRewardInfoRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(XiuZhenRoadGetBackRewardInfoRsp, xiuzhenroad_back_status_),
@@ -4640,7 +4830,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(XiuZhenRoadGetBackRewardInfoRsp));
-  CLGetGoalInfoReq_descriptor_ = file->message_type(240);
+  CLGetGoalInfoReq_descriptor_ = file->message_type(250);
   static const int CLGetGoalInfoReq_offsets_[1] = {
   };
   CLGetGoalInfoReq_reflection_ =
@@ -4654,7 +4844,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetGoalInfoReq));
-  LCGetGoalInfoRsp_descriptor_ = file->message_type(241);
+  LCGetGoalInfoRsp_descriptor_ = file->message_type(251);
   static const int LCGetGoalInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalInfoRsp, goal_data_),
   };
@@ -4669,7 +4859,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetGoalInfoRsp));
-  CLGetGloalRewardReq_descriptor_ = file->message_type(242);
+  CLGetGloalRewardReq_descriptor_ = file->message_type(252);
   static const int CLGetGloalRewardReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetGloalRewardReq, group_id_),
   };
@@ -4684,7 +4874,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetGloalRewardReq));
-  LCGetGoalRewardRsp_descriptor_ = file->message_type(243);
+  LCGetGoalRewardRsp_descriptor_ = file->message_type(253);
   static const int LCGetGoalRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalRewardRsp, group_id_),
@@ -4701,7 +4891,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetGoalRewardRsp));
-  CLGetGoalTaskRewardReq_descriptor_ = file->message_type(244);
+  CLGetGoalTaskRewardReq_descriptor_ = file->message_type(254);
   static const int CLGetGoalTaskRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetGoalTaskRewardReq, group_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetGoalTaskRewardReq, task_id_),
@@ -4717,7 +4907,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetGoalTaskRewardReq));
-  LCGetGoalTaskRewardRsp_descriptor_ = file->message_type(245);
+  LCGetGoalTaskRewardRsp_descriptor_ = file->message_type(255);
   static const int LCGetGoalTaskRewardRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalTaskRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetGoalTaskRewardRsp, group_id_),
@@ -4736,7 +4926,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetGoalTaskRewardRsp));
-  LCGoalTaskChangeNotify_descriptor_ = file->message_type(246);
+  LCGoalTaskChangeNotify_descriptor_ = file->message_type(256);
   static const int LCGoalTaskChangeNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGoalTaskChangeNotify, data_),
   };
@@ -4751,7 +4941,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGoalTaskChangeNotify));
-  CLGetBattlePassInfoReq_descriptor_ = file->message_type(247);
+  CLGetBattlePassInfoReq_descriptor_ = file->message_type(257);
   static const int CLGetBattlePassInfoReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassInfoReq, type_),
   };
@@ -4766,7 +4956,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBattlePassInfoReq));
-  LCGetBattlePassInfoRsp_descriptor_ = file->message_type(248);
+  LCGetBattlePassInfoRsp_descriptor_ = file->message_type(258);
   static const int LCGetBattlePassInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassInfoRsp, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassInfoRsp, data_),
@@ -4782,7 +4972,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBattlePassInfoRsp));
-  LCGetBattlePassRewardReq_descriptor_ = file->message_type(249);
+  LCGetBattlePassRewardReq_descriptor_ = file->message_type(259);
   static const int LCGetBattlePassRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassRewardReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassRewardReq, id_),
@@ -4798,7 +4988,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBattlePassRewardReq));
-  CLGetBattlePassRewardRsp_descriptor_ = file->message_type(250);
+  CLGetBattlePassRewardRsp_descriptor_ = file->message_type(260);
   static const int CLGetBattlePassRewardRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassRewardRsp, type_),
@@ -4815,7 +5005,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBattlePassRewardRsp));
-  CLGetBattlePassTaskRewardReq_descriptor_ = file->message_type(251);
+  CLGetBattlePassTaskRewardReq_descriptor_ = file->message_type(261);
   static const int CLGetBattlePassTaskRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassTaskRewardReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBattlePassTaskRewardReq, id_),
@@ -4831,7 +5021,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBattlePassTaskRewardReq));
-  LCGetBattlePassTaskRewardRsp_descriptor_ = file->message_type(252);
+  LCGetBattlePassTaskRewardRsp_descriptor_ = file->message_type(262);
   static const int LCGetBattlePassTaskRewardRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassTaskRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBattlePassTaskRewardRsp, type_),
@@ -4851,7 +5041,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBattlePassTaskRewardRsp));
-  CLGetBuyBattlePassShopReq_descriptor_ = file->message_type(253);
+  CLGetBuyBattlePassShopReq_descriptor_ = file->message_type(263);
   static const int CLGetBuyBattlePassShopReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBuyBattlePassShopReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLGetBuyBattlePassShopReq, id_),
@@ -4868,7 +5058,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLGetBuyBattlePassShopReq));
-  LCGetBuyBattlePassShopRsp_descriptor_ = file->message_type(254);
+  LCGetBuyBattlePassShopRsp_descriptor_ = file->message_type(264);
   static const int LCGetBuyBattlePassShopRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBuyBattlePassShopRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCGetBuyBattlePassShopRsp, type_),
@@ -4885,7 +5075,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCGetBuyBattlePassShopRsp));
-  NotifyBattlePassTaskChange_descriptor_ = file->message_type(255);
+  NotifyBattlePassTaskChange_descriptor_ = file->message_type(265);
   static const int NotifyBattlePassTaskChange_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBattlePassTaskChange, data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyBattlePassTaskChange, type_),
@@ -4901,7 +5091,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyBattlePassTaskChange));
-  CLBuyBattlePassSuperReq_descriptor_ = file->message_type(256);
+  CLBuyBattlePassSuperReq_descriptor_ = file->message_type(266);
   static const int CLBuyBattlePassSuperReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLBuyBattlePassSuperReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLBuyBattlePassSuperReq, buy_ver_),
@@ -4917,7 +5107,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLBuyBattlePassSuperReq));
-  LCBuyBattlePassSuperRsp_descriptor_ = file->message_type(257);
+  LCBuyBattlePassSuperRsp_descriptor_ = file->message_type(267);
   static const int LCBuyBattlePassSuperRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCBuyBattlePassSuperRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCBuyBattlePassSuperRsp, type_),
@@ -4937,7 +5127,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCBuyBattlePassSuperRsp));
-  CLImmediatelyGetBattlePassRewardReq_descriptor_ = file->message_type(258);
+  CLImmediatelyGetBattlePassRewardReq_descriptor_ = file->message_type(268);
   static const int CLImmediatelyGetBattlePassRewardReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLImmediatelyGetBattlePassRewardReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLImmediatelyGetBattlePassRewardReq, id_),
@@ -4953,7 +5143,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLImmediatelyGetBattlePassRewardReq));
-  LCImmediatelyGetBattlePassRewardRsp_descriptor_ = file->message_type(259);
+  LCImmediatelyGetBattlePassRewardRsp_descriptor_ = file->message_type(269);
   static const int LCImmediatelyGetBattlePassRewardRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCImmediatelyGetBattlePassRewardRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCImmediatelyGetBattlePassRewardRsp, type_),
@@ -4972,7 +5162,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCImmediatelyGetBattlePassRewardRsp));
-  CLRefreshBattlePassTaskReq_descriptor_ = file->message_type(260);
+  CLRefreshBattlePassTaskReq_descriptor_ = file->message_type(270);
   static const int CLRefreshBattlePassTaskReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLRefreshBattlePassTaskReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CLRefreshBattlePassTaskReq, id_),
@@ -4988,7 +5178,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CLRefreshBattlePassTaskReq));
-  LCRefreshBattlePassTaskRsp_descriptor_ = file->message_type(261);
+  LCRefreshBattlePassTaskRsp_descriptor_ = file->message_type(271);
   static const int LCRefreshBattlePassTaskRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCRefreshBattlePassTaskRsp, ret_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LCRefreshBattlePassTaskRsp, type_),
@@ -5006,7 +5196,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LCRefreshBattlePassTaskRsp));
-  EncourageReq_descriptor_ = file->message_type(262);
+  EncourageReq_descriptor_ = file->message_type(272);
   static const int EncourageReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EncourageReq, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EncourageReq, num_),
@@ -5022,7 +5212,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EncourageReq));
-  EncourageRsp_descriptor_ = file->message_type(263);
+  EncourageRsp_descriptor_ = file->message_type(273);
   static const int EncourageRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EncourageRsp, ret_),
   };
@@ -5037,7 +5227,7 @@ void protobuf_AssignDesc_ClientServer_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EncourageRsp));
-  NotifyEncourage_descriptor_ = file->message_type(264);
+  NotifyEncourage_descriptor_ = file->message_type(274);
   static const int NotifyEncourage_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyEncourage, infos_),
   };
@@ -5468,6 +5658,26 @@ void protobuf_RegisterTypes(const ::std::string&) {
     DeityEquipDisassembleReq_descriptor_, &DeityEquipDisassembleReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     DeityEquipDisassembleRsp_descriptor_, &DeityEquipDisassembleRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodInfoReq_descriptor_, &DeityGodHoodInfoReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodInfoRsp_descriptor_, &DeityGodHoodInfoRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodDressReq_descriptor_, &DeityGodHoodDressReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodDressRsp_descriptor_, &DeityGodHoodDressRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodHuaShengReq_descriptor_, &DeityGodHoodHuaShengReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodHuaShengRsp_descriptor_, &DeityGodHoodHuaShengRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodLvReq_descriptor_, &DeityGodHoodLvReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodLvRsp_descriptor_, &DeityGodHoodLvRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodStarReq_descriptor_, &DeityGodHoodStarReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    DeityGodHoodStarRsp_descriptor_, &DeityGodHoodStarRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CGTitleInfoReq_descriptor_, &CGTitleInfoReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -6003,6 +6213,26 @@ void protobuf_ShutdownFile_ClientServer_2eproto() {
   delete DeityEquipDisassembleReq_reflection_;
   delete DeityEquipDisassembleRsp::default_instance_;
   delete DeityEquipDisassembleRsp_reflection_;
+  delete DeityGodHoodInfoReq::default_instance_;
+  delete DeityGodHoodInfoReq_reflection_;
+  delete DeityGodHoodInfoRsp::default_instance_;
+  delete DeityGodHoodInfoRsp_reflection_;
+  delete DeityGodHoodDressReq::default_instance_;
+  delete DeityGodHoodDressReq_reflection_;
+  delete DeityGodHoodDressRsp::default_instance_;
+  delete DeityGodHoodDressRsp_reflection_;
+  delete DeityGodHoodHuaShengReq::default_instance_;
+  delete DeityGodHoodHuaShengReq_reflection_;
+  delete DeityGodHoodHuaShengRsp::default_instance_;
+  delete DeityGodHoodHuaShengRsp_reflection_;
+  delete DeityGodHoodLvReq::default_instance_;
+  delete DeityGodHoodLvReq_reflection_;
+  delete DeityGodHoodLvRsp::default_instance_;
+  delete DeityGodHoodLvRsp_reflection_;
+  delete DeityGodHoodStarReq::default_instance_;
+  delete DeityGodHoodStarReq_reflection_;
+  delete DeityGodHoodStarRsp::default_instance_;
+  delete DeityGodHoodStarRsp_reflection_;
   delete CGTitleInfoReq::default_instance_;
   delete CGTitleInfoReq_reflection_;
   delete GCTitleInfoRsp::default_instance_;
@@ -6511,125 +6741,143 @@ void protobuf_AddDesc_ClientServer_2eproto() {
     "st\030\001 \003(\r\"*\n\026DeityEquipDecomposeRsp\022\020\n\010re"
     "t_code\030\001 \001(\005\"(\n\030DeityEquipDisassembleReq"
     "\022\014\n\004grid\030\001 \001(\r\",\n\030DeityEquipDisassembleR"
-    "sp\022\020\n\010ret_code\030\001 \001(\005\"\020\n\016CGTitleInfoReq\"N"
-    "\n\016GCTitleInfoRsp\022\031\n\021cur_wearing_title\030\001 "
-    "\001(\004\022!\n\004data\030\002 \003(\0132\023.proto_ff.TitleInfo\"("
-    "\n\024CGTitleInfoActiveReq\022\020\n\010title_id\030\001 \001(\003"
-    "\"K\n\024GCTitleInfoActiveRsp\022\020\n\010ret_code\030\001 \001"
-    "(\005\022!\n\004data\030\002 \001(\0132\023.proto_ff.TitleInfo\"$\n"
-    "\020CGTitleStarLvReq\022\020\n\010title_id\030\001 \001(\003\"G\n\020G"
-    "CTitleStarLvRsp\022\020\n\010ret_code\030\001 \001(\005\022!\n\004dat"
-    "a\030\002 \001(\0132\023.proto_ff.TitleInfo\"#\n\017CGTitleD"
-    "ressReq\022\020\n\010title_id\030\001 \001(\003\"a\n\017GCTitleDres"
-    "sRsp\022\020\n\010ret_code\030\001 \001(\005\022\031\n\021cur_wearing_ti"
-    "tle\030\002 \001(\004\022!\n\004data\030\003 \001(\0132\023.proto_ff.Title"
-    "Info\"%\n\021CGTitleUnDressReq\022\020\n\010title_id\030\001 "
-    "\001(\003\"c\n\021GCTitleUnDressRsp\022\020\n\010ret_code\030\001 \001"
-    "(\005\022\031\n\021cur_wearing_title\030\002 \001(\004\022!\n\004data\030\003 "
-    "\001(\0132\023.proto_ff.TitleInfo\"\031\n\027CGOccupation"
-    "SoulInfoReq\"S\n\027GCOccupationSoulInfoRsp\0228"
-    "\n\ngrade_data\030\001 \003(\0132$.proto_ff.Occupation"
-    "MissionGradeData\"]\n\030CGOccupationLightSou"
-    "lReq\022\r\n\005grade\030\001 \001(\005\022\r\n\005stage\030\002 \001(\005\022\021\n\tso"
-    "ul_type\030\003 \001(\005\022\020\n\010soul_pos\030\004 \001(\005\"\202\001\n\030GCOc"
-    "cupationLightSoulRsp\022\020\n\010ret_code\030\001 \001(\005\022\r"
-    "\n\005grade\030\002 \001(\005\022\r\n\005stage\030\003 \001(\005\0226\n\tsoul_dat"
-    "a\030\004 \001(\0132#.proto_ff.OccupationMissionSoul"
-    "Data\"%\n\024CGUnlockFlyUpwardReq\022\r\n\005stage\030\001 "
-    "\001(\005\"7\n\024GCUnlockFlyUpwardRsp\022\020\n\010ret_code\030"
-    "\001 \001(\005\022\r\n\005stage\030\002 \001(\005\"\026\n\024CGAchievementInf"
-    "oReq\"\?\n\024GCAchievementInfoRsp\022\'\n\004data\030\001 \001"
-    "(\0132\031.proto_ff.AchievementData\"\'\n\031CGAchie"
-    "vementGetRewardReq\022\n\n\002id\030\001 \001(\003\"9\n\031GCAchi"
-    "evementGetRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\n\n"
-    "\002id\030\002 \001(\003\",\n\036CGAchievementTotalGetReward"
-    "Req\022\n\n\002id\030\001 \001(\003\">\n\036GCAchievementTotalGet"
-    "RewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\n\n\002id\030\002 \001(\003\""
-    "\\\n\033NotifyAchievementDataChange\022\021\n\tach_po"
-    "int\030\001 \001(\003\022*\n\004data\030\002 \001(\0132\034.proto_ff.OneAc"
-    "hievementData\"a\n NotifyAchievementTotalD"
-    "ataChange\022\021\n\tach_point\030\001 \001(\003\022*\n\004data\030\002 \001"
-    "(\0132\034.proto_ff.OneAchievementData\"$\n\021Guid"
-    "elinesSaveReq\022\017\n\007strSave\030\001 \002(\t\"\024\n\022XiuZhe"
-    "nRoadInfoReq\"\214\002\n\022XiuZhenRoadInfoRsp\022.\n\004d"
-    "ata\030\001 \003(\0132 .proto_ff.OneXiuZhenRoadTaskD"
-    "ata\022\032\n\022xiuezhenroad_point\030\002 \001(\004\022C\n\027xiuzh"
-    "enroad_points_data\030\003 \003(\0132\".proto_ff.OneX"
-    "iuZhenRoadPointsData\022F\n\030xiuzheroad_recha"
-    "rge_data\030\004 \003(\0132$.proto_ff.OneXiuZhenRoad"
-    "RechargeData\022\035\n\025xiuzhenroad_open_time\030\005 "
-    "\001(\004\"%\n\027XiuZhenRoadGetRewardReq\022\n\n\002id\030\001 \001"
-    "(\005\"w\n\027XiuZhenRoadGetRewardRsp\022\020\n\010ret_cod"
-    "e\030\001 \001(\005\022.\n\004data\030\002 \001(\0132 .proto_ff.OneXiuZ"
-    "henRoadTaskData\022\032\n\022xiuezhenroad_point\030\003 "
-    "\001(\003\"I\n\027XiuZhenRoadChangeNotify\022.\n\004data\030\001"
-    " \001(\0132 .proto_ff.OneXiuZhenRoadTaskData\"+"
-    "\n\035XiuZhenRoadPointsGetRewardReq\022\n\n\002id\030\001 "
-    "\001(\005\"c\n\035XiuZhenRoadPointsGetRewardRsp\022\020\n\010"
-    "ret_code\030\001 \001(\005\0220\n\004data\030\002 \001(\0132\".proto_ff."
-    "OneXiuZhenRoadPointsData\"Q\n\035XiuZhenRoadP"
-    "ointsChangeNotify\0220\n\004data\030\001 \001(\0132\".proto_"
-    "ff.OneXiuZhenRoadPointsData\"U\n\037XiuZhenRo"
-    "adRechargeChangeNotify\0222\n\004data\030\001 \001(\0132$.p"
-    "roto_ff.OneXiuZhenRoadRechargeData\"\030\n\026Xi"
-    "uZhenRoadBackInfoReq\"\245\001\n\026XiuZhenRoadBack"
-    "InfoRsp\022\037\n\027xiuzhenroad_back_status\030\001 \001(\005"
-    "\022\037\n\004attr\030\002 \003(\0132\021.proto_ff.ComItem\022 \n\005ite"
-    "ms\030\003 \003(\0132\021.proto_ff.ComItem\022\020\n\010need_num\030"
-    "\004 \001(\005\022\025\n\rback_end_time\030\005 \001(\004\"!\n\037XiuZhenR"
-    "oadGetBackRewardInfoReq\"T\n\037XiuZhenRoadGe"
-    "tBackRewardInfoRsp\022\020\n\010ret_code\030\001 \001(\005\022\037\n\027"
-    "xiuzhenroad_back_status\030\002 \001(\005\"\022\n\020CLGetGo"
-    "alInfoReq\"<\n\020LCGetGoalInfoRsp\022(\n\tgoal_da"
-    "ta\030\001 \003(\0132\025.proto_ff.OneGoalData\"\'\n\023CLGet"
-    "GloalRewardReq\022\020\n\010group_id\030\001 \001(\005\"N\n\022LCGe"
-    "tGoalRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\020\n\010grou"
-    "p_id\030\002 \001(\005\022\024\n\014group_status\030\003 \001(\005\";\n\026CLGe"
-    "tGoalTaskRewardReq\022\020\n\010group_id\030\001 \001(\005\022\017\n\007"
-    "task_id\030\002 \001(\003\"x\n\026LCGetGoalTaskRewardRsp\022"
-    "\020\n\010ret_code\030\001 \001(\005\022\020\n\010group_id\030\002 \001(\005\022\024\n\014g"
-    "roup_status\030\003 \001(\005\022\017\n\007task_id\030\004 \001(\003\022\023\n\013ta"
-    "sk_status\030\005 \001(\005\"=\n\026LCGoalTaskChangeNotif"
-    "y\022#\n\004data\030\001 \001(\0132\025.proto_ff.OneGoalData\"&"
-    "\n\026CLGetBattlePassInfoReq\022\014\n\004type\030\001 \001(\005\"Q"
-    "\n\026LCGetBattlePassInfoRsp\022\014\n\004type\030\001 \001(\005\022)"
-    "\n\004data\030\002 \001(\0132\033.proto_ff.OneBattlePassDat"
-    "a\"4\n\030LCGetBattlePassRewardReq\022\014\n\004type\030\001 "
-    "\001(\005\022\n\n\002id\030\002 \001(\005\"k\n\030CLGetBattlePassReward"
-    "Rsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022/\n\004d"
-    "ata\030\003 \003(\0132!.proto_ff.OneBattlePassReward"
-    "Data\"8\n\034CLGetBattlePassTaskRewardReq\022\014\n\004"
-    "type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\271\001\n\034LCGetBattlePa"
-    "ssTaskRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004typ"
-    "e\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.proto_ff.OneBatt"
-    "lePassTaskData\022\013\n\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\022"
-    "1\n\006reward\030\006 \003(\0132!.proto_ff.OneBattlePass"
-    "RewardData\"B\n\031CLGetBuyBattlePassShopReq\022"
-    "\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\013\n\003num\030\003 \001(\005\"j"
-    "\n\031LCGetBuyBattlePassShopRsp\022\020\n\010ret_code\030"
-    "\001 \001(\005\022\014\n\004type\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.prot"
-    "o_ff.OneBattlePassShopData\"Y\n\032NotifyBatt"
-    "lePassTaskChange\022-\n\004data\030\001 \001(\0132\037.proto_f"
-    "f.OneBattlePassTaskData\022\014\n\004type\030\002 \001(\005\"8\n"
-    "\027CLBuyBattlePassSuperReq\022\014\n\004type\030\001 \001(\005\022\017"
-    "\n\007buy_ver\030\002 \001(\005\"\231\001\n\027LCBuyBattlePassSuper"
-    "Rsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\022\n\nb"
-    "uy_status\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005"
-    "\0221\n\006reward\030\006 \003(\0132!.proto_ff.OneBattlePas"
-    "sRewardData\"\?\n#CLImmediatelyGetBattlePas"
-    "sRewardReq\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\217\001\n"
-    "#LCImmediatelyGetBattlePassRewardRsp\022\020\n\010"
-    "ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022/\n\004data\030\003 \003"
-    "(\0132!.proto_ff.OneBattlePassRewardData\022\013\n"
-    "\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\"6\n\032CLRefreshBattl"
-    "ePassTaskReq\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\177"
-    "\n\032LCRefreshBattlePassTaskRsp\022\020\n\010ret_code"
-    "\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\016\n\006old_id\030\003 \001(\005\0221\n\010"
-    "new_task\030\005 \001(\0132\037.proto_ff.OneBattlePassT"
-    "askData\"\'\n\014EncourageReq\022\n\n\002id\030\001 \001(\005\022\013\n\003n"
-    "um\030\002 \001(\005\"\033\n\014EncourageRsp\022\013\n\003ret\030\001 \001(\005\"3\n"
-    "\017NotifyEncourage\022 \n\005infos\030\001 \003(\0132\021.proto_"
-    "ff.ComPair", 19570);
+    "sp\022\020\n\010ret_code\030\001 \001(\005\")\n\023DeityGodHoodInfo"
+    "Req\022\022\n\nfantasy_id\030\001 \001(\004\"S\n\023DeityGodHoodI"
+    "nfoRsp\022\022\n\nfantasy_id\030\001 \001(\004\022(\n\004data\030\002 \001(\013"
+    "2\032.proto_ff.DeityGodHoodData\"7\n\024DeityGod"
+    "HoodDressReq\022\022\n\nfantasy_id\030\001 \001(\004\022\013\n\003pos\030"
+    "\003 \001(\005\"f\n\024DeityGodHoodDressRsp\022\020\n\010ret_cod"
+    "e\030\001 \001(\005\022\022\n\nfantasy_id\030\002 \001(\004\022(\n\004data\030\003 \001("
+    "\0132\032.proto_ff.DeityGodHoodData\"-\n\027DeityGo"
+    "dHoodHuaShengReq\022\022\n\nfantasy_id\030\001 \001(\004\"i\n\027"
+    "DeityGodHoodHuaShengRsp\022\020\n\010ret_code\030\001 \001("
+    "\005\022\022\n\nfantasy_id\030\002 \001(\004\022(\n\004data\030\003 \001(\0132\032.pr"
+    "oto_ff.DeityGodHoodData\"\'\n\021DeityGodHoodL"
+    "vReq\022\022\n\nfantasy_id\030\001 \001(\004\"c\n\021DeityGodHood"
+    "LvRsp\022\020\n\010ret_code\030\001 \001(\005\022\022\n\nfantasy_id\030\002 "
+    "\001(\004\022(\n\004data\030\003 \001(\0132\032.proto_ff.DeityGodHoo"
+    "dData\")\n\023DeityGodHoodStarReq\022\022\n\nfantasy_"
+    "id\030\001 \001(\004\"e\n\023DeityGodHoodStarRsp\022\020\n\010ret_c"
+    "ode\030\001 \001(\005\022\022\n\nfantasy_id\030\002 \001(\004\022(\n\004data\030\003 "
+    "\001(\0132\032.proto_ff.DeityGodHoodData\"\020\n\016CGTit"
+    "leInfoReq\"N\n\016GCTitleInfoRsp\022\031\n\021cur_weari"
+    "ng_title\030\001 \001(\004\022!\n\004data\030\002 \003(\0132\023.proto_ff."
+    "TitleInfo\"(\n\024CGTitleInfoActiveReq\022\020\n\010tit"
+    "le_id\030\001 \001(\003\"K\n\024GCTitleInfoActiveRsp\022\020\n\010r"
+    "et_code\030\001 \001(\005\022!\n\004data\030\002 \001(\0132\023.proto_ff.T"
+    "itleInfo\"$\n\020CGTitleStarLvReq\022\020\n\010title_id"
+    "\030\001 \001(\003\"G\n\020GCTitleStarLvRsp\022\020\n\010ret_code\030\001"
+    " \001(\005\022!\n\004data\030\002 \001(\0132\023.proto_ff.TitleInfo\""
+    "#\n\017CGTitleDressReq\022\020\n\010title_id\030\001 \001(\003\"a\n\017"
+    "GCTitleDressRsp\022\020\n\010ret_code\030\001 \001(\005\022\031\n\021cur"
+    "_wearing_title\030\002 \001(\004\022!\n\004data\030\003 \001(\0132\023.pro"
+    "to_ff.TitleInfo\"%\n\021CGTitleUnDressReq\022\020\n\010"
+    "title_id\030\001 \001(\003\"c\n\021GCTitleUnDressRsp\022\020\n\010r"
+    "et_code\030\001 \001(\005\022\031\n\021cur_wearing_title\030\002 \001(\004"
+    "\022!\n\004data\030\003 \001(\0132\023.proto_ff.TitleInfo\"\031\n\027C"
+    "GOccupationSoulInfoReq\"S\n\027GCOccupationSo"
+    "ulInfoRsp\0228\n\ngrade_data\030\001 \003(\0132$.proto_ff"
+    ".OccupationMissionGradeData\"]\n\030CGOccupat"
+    "ionLightSoulReq\022\r\n\005grade\030\001 \001(\005\022\r\n\005stage\030"
+    "\002 \001(\005\022\021\n\tsoul_type\030\003 \001(\005\022\020\n\010soul_pos\030\004 \001"
+    "(\005\"\202\001\n\030GCOccupationLightSoulRsp\022\020\n\010ret_c"
+    "ode\030\001 \001(\005\022\r\n\005grade\030\002 \001(\005\022\r\n\005stage\030\003 \001(\005\022"
+    "6\n\tsoul_data\030\004 \001(\0132#.proto_ff.Occupation"
+    "MissionSoulData\"%\n\024CGUnlockFlyUpwardReq\022"
+    "\r\n\005stage\030\001 \001(\005\"7\n\024GCUnlockFlyUpwardRsp\022\020"
+    "\n\010ret_code\030\001 \001(\005\022\r\n\005stage\030\002 \001(\005\"\026\n\024CGAch"
+    "ievementInfoReq\"\?\n\024GCAchievementInfoRsp\022"
+    "\'\n\004data\030\001 \001(\0132\031.proto_ff.AchievementData"
+    "\"\'\n\031CGAchievementGetRewardReq\022\n\n\002id\030\001 \001("
+    "\003\"9\n\031GCAchievementGetRewardRsp\022\020\n\010ret_co"
+    "de\030\001 \001(\005\022\n\n\002id\030\002 \001(\003\",\n\036CGAchievementTot"
+    "alGetRewardReq\022\n\n\002id\030\001 \001(\003\">\n\036GCAchievem"
+    "entTotalGetRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\n"
+    "\n\002id\030\002 \001(\003\"\\\n\033NotifyAchievementDataChang"
+    "e\022\021\n\tach_point\030\001 \001(\003\022*\n\004data\030\002 \001(\0132\034.pro"
+    "to_ff.OneAchievementData\"a\n NotifyAchiev"
+    "ementTotalDataChange\022\021\n\tach_point\030\001 \001(\003\022"
+    "*\n\004data\030\002 \001(\0132\034.proto_ff.OneAchievementD"
+    "ata\"$\n\021GuidelinesSaveReq\022\017\n\007strSave\030\001 \002("
+    "\t\"\024\n\022XiuZhenRoadInfoReq\"\214\002\n\022XiuZhenRoadI"
+    "nfoRsp\022.\n\004data\030\001 \003(\0132 .proto_ff.OneXiuZh"
+    "enRoadTaskData\022\032\n\022xiuezhenroad_point\030\002 \001"
+    "(\004\022C\n\027xiuzhenroad_points_data\030\003 \003(\0132\".pr"
+    "oto_ff.OneXiuZhenRoadPointsData\022F\n\030xiuzh"
+    "eroad_recharge_data\030\004 \003(\0132$.proto_ff.One"
+    "XiuZhenRoadRechargeData\022\035\n\025xiuzhenroad_o"
+    "pen_time\030\005 \001(\004\"%\n\027XiuZhenRoadGetRewardRe"
+    "q\022\n\n\002id\030\001 \001(\005\"w\n\027XiuZhenRoadGetRewardRsp"
+    "\022\020\n\010ret_code\030\001 \001(\005\022.\n\004data\030\002 \001(\0132 .proto"
+    "_ff.OneXiuZhenRoadTaskData\022\032\n\022xiuezhenro"
+    "ad_point\030\003 \001(\003\"I\n\027XiuZhenRoadChangeNotif"
+    "y\022.\n\004data\030\001 \001(\0132 .proto_ff.OneXiuZhenRoa"
+    "dTaskData\"+\n\035XiuZhenRoadPointsGetRewardR"
+    "eq\022\n\n\002id\030\001 \001(\005\"c\n\035XiuZhenRoadPointsGetRe"
+    "wardRsp\022\020\n\010ret_code\030\001 \001(\005\0220\n\004data\030\002 \001(\0132"
+    "\".proto_ff.OneXiuZhenRoadPointsData\"Q\n\035X"
+    "iuZhenRoadPointsChangeNotify\0220\n\004data\030\001 \001"
+    "(\0132\".proto_ff.OneXiuZhenRoadPointsData\"U"
+    "\n\037XiuZhenRoadRechargeChangeNotify\0222\n\004dat"
+    "a\030\001 \001(\0132$.proto_ff.OneXiuZhenRoadRecharg"
+    "eData\"\030\n\026XiuZhenRoadBackInfoReq\"\245\001\n\026XiuZ"
+    "henRoadBackInfoRsp\022\037\n\027xiuzhenroad_back_s"
+    "tatus\030\001 \001(\005\022\037\n\004attr\030\002 \003(\0132\021.proto_ff.Com"
+    "Item\022 \n\005items\030\003 \003(\0132\021.proto_ff.ComItem\022\020"
+    "\n\010need_num\030\004 \001(\005\022\025\n\rback_end_time\030\005 \001(\004\""
+    "!\n\037XiuZhenRoadGetBackRewardInfoReq\"T\n\037Xi"
+    "uZhenRoadGetBackRewardInfoRsp\022\020\n\010ret_cod"
+    "e\030\001 \001(\005\022\037\n\027xiuzhenroad_back_status\030\002 \001(\005"
+    "\"\022\n\020CLGetGoalInfoReq\"<\n\020LCGetGoalInfoRsp"
+    "\022(\n\tgoal_data\030\001 \003(\0132\025.proto_ff.OneGoalDa"
+    "ta\"\'\n\023CLGetGloalRewardReq\022\020\n\010group_id\030\001 "
+    "\001(\005\"N\n\022LCGetGoalRewardRsp\022\020\n\010ret_code\030\001 "
+    "\001(\005\022\020\n\010group_id\030\002 \001(\005\022\024\n\014group_status\030\003 "
+    "\001(\005\";\n\026CLGetGoalTaskRewardReq\022\020\n\010group_i"
+    "d\030\001 \001(\005\022\017\n\007task_id\030\002 \001(\003\"x\n\026LCGetGoalTas"
+    "kRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\020\n\010group_id"
+    "\030\002 \001(\005\022\024\n\014group_status\030\003 \001(\005\022\017\n\007task_id\030"
+    "\004 \001(\003\022\023\n\013task_status\030\005 \001(\005\"=\n\026LCGoalTask"
+    "ChangeNotify\022#\n\004data\030\001 \001(\0132\025.proto_ff.On"
+    "eGoalData\"&\n\026CLGetBattlePassInfoReq\022\014\n\004t"
+    "ype\030\001 \001(\005\"Q\n\026LCGetBattlePassInfoRsp\022\014\n\004t"
+    "ype\030\001 \001(\005\022)\n\004data\030\002 \001(\0132\033.proto_ff.OneBa"
+    "ttlePassData\"4\n\030LCGetBattlePassRewardReq"
+    "\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"k\n\030CLGetBattl"
+    "ePassRewardRsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type"
+    "\030\002 \001(\005\022/\n\004data\030\003 \003(\0132!.proto_ff.OneBattl"
+    "ePassRewardData\"8\n\034CLGetBattlePassTaskRe"
+    "wardReq\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\"\271\001\n\034LC"
+    "GetBattlePassTaskRewardRsp\022\020\n\010ret_code\030\001"
+    " \001(\005\022\014\n\004type\030\002 \001(\005\022-\n\004data\030\003 \001(\0132\037.proto"
+    "_ff.OneBattlePassTaskData\022\013\n\003exp\030\004 \001(\005\022\n"
+    "\n\002lv\030\005 \001(\005\0221\n\006reward\030\006 \003(\0132!.proto_ff.On"
+    "eBattlePassRewardData\"B\n\031CLGetBuyBattleP"
+    "assShopReq\022\014\n\004type\030\001 \001(\005\022\n\n\002id\030\002 \001(\005\022\013\n\003"
+    "num\030\003 \001(\005\"j\n\031LCGetBuyBattlePassShopRsp\022\020"
+    "\n\010ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022-\n\004data\030\003"
+    " \001(\0132\037.proto_ff.OneBattlePassShopData\"Y\n"
+    "\032NotifyBattlePassTaskChange\022-\n\004data\030\001 \001("
+    "\0132\037.proto_ff.OneBattlePassTaskData\022\014\n\004ty"
+    "pe\030\002 \001(\005\"8\n\027CLBuyBattlePassSuperReq\022\014\n\004t"
+    "ype\030\001 \001(\005\022\017\n\007buy_ver\030\002 \001(\005\"\231\001\n\027LCBuyBatt"
+    "lePassSuperRsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type"
+    "\030\002 \001(\005\022\022\n\nbuy_status\030\003 \001(\005\022\013\n\003exp\030\004 \001(\005\022"
+    "\n\n\002lv\030\005 \001(\005\0221\n\006reward\030\006 \003(\0132!.proto_ff.O"
+    "neBattlePassRewardData\"\?\n#CLImmediatelyG"
+    "etBattlePassRewardReq\022\014\n\004type\030\001 \001(\005\022\n\n\002i"
+    "d\030\002 \001(\005\"\217\001\n#LCImmediatelyGetBattlePassRe"
+    "wardRsp\022\020\n\010ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022"
+    "/\n\004data\030\003 \003(\0132!.proto_ff.OneBattlePassRe"
+    "wardData\022\013\n\003exp\030\004 \001(\005\022\n\n\002lv\030\005 \001(\005\"6\n\032CLR"
+    "efreshBattlePassTaskReq\022\014\n\004type\030\001 \001(\005\022\n\n"
+    "\002id\030\002 \001(\005\"\177\n\032LCRefreshBattlePassTaskRsp\022"
+    "\020\n\010ret_code\030\001 \001(\005\022\014\n\004type\030\002 \001(\005\022\016\n\006old_i"
+    "d\030\003 \001(\005\0221\n\010new_task\030\005 \001(\0132\037.proto_ff.One"
+    "BattlePassTaskData\"\'\n\014EncourageReq\022\n\n\002id"
+    "\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"\033\n\014EncourageRsp\022\013\n\003r"
+    "et\030\001 \001(\005\"3\n\017NotifyEncourage\022 \n\005infos\030\001 \003"
+    "(\0132\021.proto_ff.ComPair", 20301);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ClientServer.proto", &protobuf_RegisterTypes);
   FunctionUnlockInfoRsp::default_instance_ = new FunctionUnlockInfoRsp();
@@ -6834,6 +7082,16 @@ void protobuf_AddDesc_ClientServer_2eproto() {
   DeityEquipDecomposeRsp::default_instance_ = new DeityEquipDecomposeRsp();
   DeityEquipDisassembleReq::default_instance_ = new DeityEquipDisassembleReq();
   DeityEquipDisassembleRsp::default_instance_ = new DeityEquipDisassembleRsp();
+  DeityGodHoodInfoReq::default_instance_ = new DeityGodHoodInfoReq();
+  DeityGodHoodInfoRsp::default_instance_ = new DeityGodHoodInfoRsp();
+  DeityGodHoodDressReq::default_instance_ = new DeityGodHoodDressReq();
+  DeityGodHoodDressRsp::default_instance_ = new DeityGodHoodDressRsp();
+  DeityGodHoodHuaShengReq::default_instance_ = new DeityGodHoodHuaShengReq();
+  DeityGodHoodHuaShengRsp::default_instance_ = new DeityGodHoodHuaShengRsp();
+  DeityGodHoodLvReq::default_instance_ = new DeityGodHoodLvReq();
+  DeityGodHoodLvRsp::default_instance_ = new DeityGodHoodLvRsp();
+  DeityGodHoodStarReq::default_instance_ = new DeityGodHoodStarReq();
+  DeityGodHoodStarRsp::default_instance_ = new DeityGodHoodStarRsp();
   CGTitleInfoReq::default_instance_ = new CGTitleInfoReq();
   GCTitleInfoRsp::default_instance_ = new GCTitleInfoRsp();
   CGTitleInfoActiveReq::default_instance_ = new CGTitleInfoActiveReq();
@@ -7099,6 +7357,16 @@ void protobuf_AddDesc_ClientServer_2eproto() {
   DeityEquipDecomposeRsp::default_instance_->InitAsDefaultInstance();
   DeityEquipDisassembleReq::default_instance_->InitAsDefaultInstance();
   DeityEquipDisassembleRsp::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodInfoReq::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodInfoRsp::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodDressReq::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodDressRsp::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodHuaShengReq::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodHuaShengRsp::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodLvReq::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodLvRsp::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodStarReq::default_instance_->InitAsDefaultInstance();
+  DeityGodHoodStarRsp::default_instance_->InitAsDefaultInstance();
   CGTitleInfoReq::default_instance_->InitAsDefaultInstance();
   GCTitleInfoRsp::default_instance_->InitAsDefaultInstance();
   CGTitleInfoActiveReq::default_instance_->InitAsDefaultInstance();
@@ -56891,6 +57159,2511 @@ void DeityEquipDisassembleRsp::Swap(DeityEquipDisassembleRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = DeityEquipDisassembleRsp_descriptor_;
   metadata.reflection = DeityEquipDisassembleRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodInfoReq::kFantasyIdFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodInfoReq::DeityGodHoodInfoReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodInfoReq::InitAsDefaultInstance() {
+}
+
+DeityGodHoodInfoReq::DeityGodHoodInfoReq(const DeityGodHoodInfoReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodInfoReq::SharedCtor() {
+  _cached_size_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodInfoReq::~DeityGodHoodInfoReq() {
+  SharedDtor();
+}
+
+void DeityGodHoodInfoReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityGodHoodInfoReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodInfoReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodInfoReq_descriptor_;
+}
+
+const DeityGodHoodInfoReq& DeityGodHoodInfoReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodInfoReq* DeityGodHoodInfoReq::default_instance_ = NULL;
+
+DeityGodHoodInfoReq* DeityGodHoodInfoReq::New() const {
+  return new DeityGodHoodInfoReq;
+}
+
+void DeityGodHoodInfoReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodInfoReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 fantasy_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodInfoReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->fantasy_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodInfoReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->fantasy_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodInfoReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 fantasy_id = 1;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodInfoReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodInfoReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodInfoReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodInfoReq::MergeFrom(const DeityGodHoodInfoReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodInfoReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodInfoReq::CopyFrom(const DeityGodHoodInfoReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodInfoReq::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodInfoReq::Swap(DeityGodHoodInfoReq* other) {
+  if (other != this) {
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodInfoReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodInfoReq_descriptor_;
+  metadata.reflection = DeityGodHoodInfoReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodInfoRsp::kFantasyIdFieldNumber;
+const int DeityGodHoodInfoRsp::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodInfoRsp::DeityGodHoodInfoRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodInfoRsp::InitAsDefaultInstance() {
+  data_ = const_cast< ::proto_ff::DeityGodHoodData*>(&::proto_ff::DeityGodHoodData::default_instance());
+}
+
+DeityGodHoodInfoRsp::DeityGodHoodInfoRsp(const DeityGodHoodInfoRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodInfoRsp::SharedCtor() {
+  _cached_size_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodInfoRsp::~DeityGodHoodInfoRsp() {
+  SharedDtor();
+}
+
+void DeityGodHoodInfoRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete data_;
+  }
+}
+
+void DeityGodHoodInfoRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodInfoRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodInfoRsp_descriptor_;
+}
+
+const DeityGodHoodInfoRsp& DeityGodHoodInfoRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodInfoRsp* DeityGodHoodInfoRsp::default_instance_ = NULL;
+
+DeityGodHoodInfoRsp* DeityGodHoodInfoRsp::New() const {
+  return new DeityGodHoodInfoRsp;
+}
+
+void DeityGodHoodInfoRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+    if (has_data()) {
+      if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodInfoRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 fantasy_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_data;
+        break;
+      }
+
+      // optional .proto_ff.DeityGodHoodData data = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodInfoRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->fantasy_id(), output);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 2;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodInfoRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->fantasy_id(), target);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 2;
+  if (has_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodInfoRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 fantasy_id = 1;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+    // optional .proto_ff.DeityGodHoodData data = 2;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodInfoRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodInfoRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodInfoRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodInfoRsp::MergeFrom(const DeityGodHoodInfoRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+    if (from.has_data()) {
+      mutable_data()->::proto_ff::DeityGodHoodData::MergeFrom(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodInfoRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodInfoRsp::CopyFrom(const DeityGodHoodInfoRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodInfoRsp::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodInfoRsp::Swap(DeityGodHoodInfoRsp* other) {
+  if (other != this) {
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodInfoRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodInfoRsp_descriptor_;
+  metadata.reflection = DeityGodHoodInfoRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodDressReq::kFantasyIdFieldNumber;
+const int DeityGodHoodDressReq::kPosFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodDressReq::DeityGodHoodDressReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodDressReq::InitAsDefaultInstance() {
+}
+
+DeityGodHoodDressReq::DeityGodHoodDressReq(const DeityGodHoodDressReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodDressReq::SharedCtor() {
+  _cached_size_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  pos_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodDressReq::~DeityGodHoodDressReq() {
+  SharedDtor();
+}
+
+void DeityGodHoodDressReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityGodHoodDressReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodDressReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodDressReq_descriptor_;
+}
+
+const DeityGodHoodDressReq& DeityGodHoodDressReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodDressReq* DeityGodHoodDressReq::default_instance_ = NULL;
+
+DeityGodHoodDressReq* DeityGodHoodDressReq::New() const {
+  return new DeityGodHoodDressReq;
+}
+
+void DeityGodHoodDressReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+    pos_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodDressReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 fantasy_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_pos;
+        break;
+      }
+
+      // optional int32 pos = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_pos:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &pos_)));
+          set_has_pos();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodDressReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->fantasy_id(), output);
+  }
+
+  // optional int32 pos = 3;
+  if (has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->pos(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodDressReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->fantasy_id(), target);
+  }
+
+  // optional int32 pos = 3;
+  if (has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->pos(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodDressReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 fantasy_id = 1;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+    // optional int32 pos = 3;
+    if (has_pos()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->pos());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodDressReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodDressReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodDressReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodDressReq::MergeFrom(const DeityGodHoodDressReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+    if (from.has_pos()) {
+      set_pos(from.pos());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodDressReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodDressReq::CopyFrom(const DeityGodHoodDressReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodDressReq::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodDressReq::Swap(DeityGodHoodDressReq* other) {
+  if (other != this) {
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(pos_, other->pos_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodDressReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodDressReq_descriptor_;
+  metadata.reflection = DeityGodHoodDressReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodDressRsp::kRetCodeFieldNumber;
+const int DeityGodHoodDressRsp::kFantasyIdFieldNumber;
+const int DeityGodHoodDressRsp::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodDressRsp::DeityGodHoodDressRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodDressRsp::InitAsDefaultInstance() {
+  data_ = const_cast< ::proto_ff::DeityGodHoodData*>(&::proto_ff::DeityGodHoodData::default_instance());
+}
+
+DeityGodHoodDressRsp::DeityGodHoodDressRsp(const DeityGodHoodDressRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodDressRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodDressRsp::~DeityGodHoodDressRsp() {
+  SharedDtor();
+}
+
+void DeityGodHoodDressRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete data_;
+  }
+}
+
+void DeityGodHoodDressRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodDressRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodDressRsp_descriptor_;
+}
+
+const DeityGodHoodDressRsp& DeityGodHoodDressRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodDressRsp* DeityGodHoodDressRsp::default_instance_ = NULL;
+
+DeityGodHoodDressRsp* DeityGodHoodDressRsp::New() const {
+  return new DeityGodHoodDressRsp;
+}
+
+void DeityGodHoodDressRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+    if (has_data()) {
+      if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodDressRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fantasy_id;
+        break;
+      }
+
+      // optional uint64 fantasy_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fantasy_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_data;
+        break;
+      }
+
+      // optional .proto_ff.DeityGodHoodData data = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodDressRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->fantasy_id(), output);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodDressRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->fantasy_id(), target);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodDressRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 fantasy_id = 2;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+    // optional .proto_ff.DeityGodHoodData data = 3;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodDressRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodDressRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodDressRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodDressRsp::MergeFrom(const DeityGodHoodDressRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+    if (from.has_data()) {
+      mutable_data()->::proto_ff::DeityGodHoodData::MergeFrom(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodDressRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodDressRsp::CopyFrom(const DeityGodHoodDressRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodDressRsp::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodDressRsp::Swap(DeityGodHoodDressRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodDressRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodDressRsp_descriptor_;
+  metadata.reflection = DeityGodHoodDressRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodHuaShengReq::kFantasyIdFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodHuaShengReq::DeityGodHoodHuaShengReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodHuaShengReq::InitAsDefaultInstance() {
+}
+
+DeityGodHoodHuaShengReq::DeityGodHoodHuaShengReq(const DeityGodHoodHuaShengReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodHuaShengReq::SharedCtor() {
+  _cached_size_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodHuaShengReq::~DeityGodHoodHuaShengReq() {
+  SharedDtor();
+}
+
+void DeityGodHoodHuaShengReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityGodHoodHuaShengReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodHuaShengReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodHuaShengReq_descriptor_;
+}
+
+const DeityGodHoodHuaShengReq& DeityGodHoodHuaShengReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodHuaShengReq* DeityGodHoodHuaShengReq::default_instance_ = NULL;
+
+DeityGodHoodHuaShengReq* DeityGodHoodHuaShengReq::New() const {
+  return new DeityGodHoodHuaShengReq;
+}
+
+void DeityGodHoodHuaShengReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodHuaShengReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 fantasy_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodHuaShengReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->fantasy_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodHuaShengReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->fantasy_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodHuaShengReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 fantasy_id = 1;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodHuaShengReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodHuaShengReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodHuaShengReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodHuaShengReq::MergeFrom(const DeityGodHoodHuaShengReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodHuaShengReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodHuaShengReq::CopyFrom(const DeityGodHoodHuaShengReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodHuaShengReq::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodHuaShengReq::Swap(DeityGodHoodHuaShengReq* other) {
+  if (other != this) {
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodHuaShengReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodHuaShengReq_descriptor_;
+  metadata.reflection = DeityGodHoodHuaShengReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodHuaShengRsp::kRetCodeFieldNumber;
+const int DeityGodHoodHuaShengRsp::kFantasyIdFieldNumber;
+const int DeityGodHoodHuaShengRsp::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodHuaShengRsp::DeityGodHoodHuaShengRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodHuaShengRsp::InitAsDefaultInstance() {
+  data_ = const_cast< ::proto_ff::DeityGodHoodData*>(&::proto_ff::DeityGodHoodData::default_instance());
+}
+
+DeityGodHoodHuaShengRsp::DeityGodHoodHuaShengRsp(const DeityGodHoodHuaShengRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodHuaShengRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodHuaShengRsp::~DeityGodHoodHuaShengRsp() {
+  SharedDtor();
+}
+
+void DeityGodHoodHuaShengRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete data_;
+  }
+}
+
+void DeityGodHoodHuaShengRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodHuaShengRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodHuaShengRsp_descriptor_;
+}
+
+const DeityGodHoodHuaShengRsp& DeityGodHoodHuaShengRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodHuaShengRsp* DeityGodHoodHuaShengRsp::default_instance_ = NULL;
+
+DeityGodHoodHuaShengRsp* DeityGodHoodHuaShengRsp::New() const {
+  return new DeityGodHoodHuaShengRsp;
+}
+
+void DeityGodHoodHuaShengRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+    if (has_data()) {
+      if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodHuaShengRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fantasy_id;
+        break;
+      }
+
+      // optional uint64 fantasy_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fantasy_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_data;
+        break;
+      }
+
+      // optional .proto_ff.DeityGodHoodData data = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodHuaShengRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->fantasy_id(), output);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodHuaShengRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->fantasy_id(), target);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodHuaShengRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 fantasy_id = 2;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+    // optional .proto_ff.DeityGodHoodData data = 3;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodHuaShengRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodHuaShengRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodHuaShengRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodHuaShengRsp::MergeFrom(const DeityGodHoodHuaShengRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+    if (from.has_data()) {
+      mutable_data()->::proto_ff::DeityGodHoodData::MergeFrom(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodHuaShengRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodHuaShengRsp::CopyFrom(const DeityGodHoodHuaShengRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodHuaShengRsp::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodHuaShengRsp::Swap(DeityGodHoodHuaShengRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodHuaShengRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodHuaShengRsp_descriptor_;
+  metadata.reflection = DeityGodHoodHuaShengRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodLvReq::kFantasyIdFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodLvReq::DeityGodHoodLvReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodLvReq::InitAsDefaultInstance() {
+}
+
+DeityGodHoodLvReq::DeityGodHoodLvReq(const DeityGodHoodLvReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodLvReq::SharedCtor() {
+  _cached_size_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodLvReq::~DeityGodHoodLvReq() {
+  SharedDtor();
+}
+
+void DeityGodHoodLvReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityGodHoodLvReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodLvReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodLvReq_descriptor_;
+}
+
+const DeityGodHoodLvReq& DeityGodHoodLvReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodLvReq* DeityGodHoodLvReq::default_instance_ = NULL;
+
+DeityGodHoodLvReq* DeityGodHoodLvReq::New() const {
+  return new DeityGodHoodLvReq;
+}
+
+void DeityGodHoodLvReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodLvReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 fantasy_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodLvReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->fantasy_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodLvReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->fantasy_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodLvReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 fantasy_id = 1;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodLvReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodLvReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodLvReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodLvReq::MergeFrom(const DeityGodHoodLvReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodLvReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodLvReq::CopyFrom(const DeityGodHoodLvReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodLvReq::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodLvReq::Swap(DeityGodHoodLvReq* other) {
+  if (other != this) {
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodLvReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodLvReq_descriptor_;
+  metadata.reflection = DeityGodHoodLvReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodLvRsp::kRetCodeFieldNumber;
+const int DeityGodHoodLvRsp::kFantasyIdFieldNumber;
+const int DeityGodHoodLvRsp::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodLvRsp::DeityGodHoodLvRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodLvRsp::InitAsDefaultInstance() {
+  data_ = const_cast< ::proto_ff::DeityGodHoodData*>(&::proto_ff::DeityGodHoodData::default_instance());
+}
+
+DeityGodHoodLvRsp::DeityGodHoodLvRsp(const DeityGodHoodLvRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodLvRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodLvRsp::~DeityGodHoodLvRsp() {
+  SharedDtor();
+}
+
+void DeityGodHoodLvRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete data_;
+  }
+}
+
+void DeityGodHoodLvRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodLvRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodLvRsp_descriptor_;
+}
+
+const DeityGodHoodLvRsp& DeityGodHoodLvRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodLvRsp* DeityGodHoodLvRsp::default_instance_ = NULL;
+
+DeityGodHoodLvRsp* DeityGodHoodLvRsp::New() const {
+  return new DeityGodHoodLvRsp;
+}
+
+void DeityGodHoodLvRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+    if (has_data()) {
+      if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodLvRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fantasy_id;
+        break;
+      }
+
+      // optional uint64 fantasy_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fantasy_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_data;
+        break;
+      }
+
+      // optional .proto_ff.DeityGodHoodData data = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodLvRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->fantasy_id(), output);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodLvRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->fantasy_id(), target);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodLvRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 fantasy_id = 2;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+    // optional .proto_ff.DeityGodHoodData data = 3;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodLvRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodLvRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodLvRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodLvRsp::MergeFrom(const DeityGodHoodLvRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+    if (from.has_data()) {
+      mutable_data()->::proto_ff::DeityGodHoodData::MergeFrom(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodLvRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodLvRsp::CopyFrom(const DeityGodHoodLvRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodLvRsp::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodLvRsp::Swap(DeityGodHoodLvRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodLvRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodLvRsp_descriptor_;
+  metadata.reflection = DeityGodHoodLvRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodStarReq::kFantasyIdFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodStarReq::DeityGodHoodStarReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodStarReq::InitAsDefaultInstance() {
+}
+
+DeityGodHoodStarReq::DeityGodHoodStarReq(const DeityGodHoodStarReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodStarReq::SharedCtor() {
+  _cached_size_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodStarReq::~DeityGodHoodStarReq() {
+  SharedDtor();
+}
+
+void DeityGodHoodStarReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void DeityGodHoodStarReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodStarReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodStarReq_descriptor_;
+}
+
+const DeityGodHoodStarReq& DeityGodHoodStarReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodStarReq* DeityGodHoodStarReq::default_instance_ = NULL;
+
+DeityGodHoodStarReq* DeityGodHoodStarReq::New() const {
+  return new DeityGodHoodStarReq;
+}
+
+void DeityGodHoodStarReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodStarReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 fantasy_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodStarReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->fantasy_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodStarReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 fantasy_id = 1;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->fantasy_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodStarReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 fantasy_id = 1;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodStarReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodStarReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodStarReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodStarReq::MergeFrom(const DeityGodHoodStarReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodStarReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodStarReq::CopyFrom(const DeityGodHoodStarReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodStarReq::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodStarReq::Swap(DeityGodHoodStarReq* other) {
+  if (other != this) {
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodStarReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodStarReq_descriptor_;
+  metadata.reflection = DeityGodHoodStarReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int DeityGodHoodStarRsp::kRetCodeFieldNumber;
+const int DeityGodHoodStarRsp::kFantasyIdFieldNumber;
+const int DeityGodHoodStarRsp::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+DeityGodHoodStarRsp::DeityGodHoodStarRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void DeityGodHoodStarRsp::InitAsDefaultInstance() {
+  data_ = const_cast< ::proto_ff::DeityGodHoodData*>(&::proto_ff::DeityGodHoodData::default_instance());
+}
+
+DeityGodHoodStarRsp::DeityGodHoodStarRsp(const DeityGodHoodStarRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void DeityGodHoodStarRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  fantasy_id_ = GOOGLE_ULONGLONG(0);
+  data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+DeityGodHoodStarRsp::~DeityGodHoodStarRsp() {
+  SharedDtor();
+}
+
+void DeityGodHoodStarRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete data_;
+  }
+}
+
+void DeityGodHoodStarRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* DeityGodHoodStarRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return DeityGodHoodStarRsp_descriptor_;
+}
+
+const DeityGodHoodStarRsp& DeityGodHoodStarRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ClientServer_2eproto();
+  return *default_instance_;
+}
+
+DeityGodHoodStarRsp* DeityGodHoodStarRsp::default_instance_ = NULL;
+
+DeityGodHoodStarRsp* DeityGodHoodStarRsp::New() const {
+  return new DeityGodHoodStarRsp;
+}
+
+void DeityGodHoodStarRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    fantasy_id_ = GOOGLE_ULONGLONG(0);
+    if (has_data()) {
+      if (data_ != NULL) data_->::proto_ff::DeityGodHoodData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool DeityGodHoodStarRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fantasy_id;
+        break;
+      }
+
+      // optional uint64 fantasy_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fantasy_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &fantasy_id_)));
+          set_has_fantasy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_data;
+        break;
+      }
+
+      // optional .proto_ff.DeityGodHoodData data = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void DeityGodHoodStarRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->fantasy_id(), output);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* DeityGodHoodStarRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 fantasy_id = 2;
+  if (has_fantasy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->fantasy_id(), target);
+  }
+
+  // optional .proto_ff.DeityGodHoodData data = 3;
+  if (has_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int DeityGodHoodStarRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 fantasy_id = 2;
+    if (has_fantasy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->fantasy_id());
+    }
+
+    // optional .proto_ff.DeityGodHoodData data = 3;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void DeityGodHoodStarRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const DeityGodHoodStarRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const DeityGodHoodStarRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void DeityGodHoodStarRsp::MergeFrom(const DeityGodHoodStarRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_fantasy_id()) {
+      set_fantasy_id(from.fantasy_id());
+    }
+    if (from.has_data()) {
+      mutable_data()->::proto_ff::DeityGodHoodData::MergeFrom(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void DeityGodHoodStarRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void DeityGodHoodStarRsp::CopyFrom(const DeityGodHoodStarRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool DeityGodHoodStarRsp::IsInitialized() const {
+
+  return true;
+}
+
+void DeityGodHoodStarRsp::Swap(DeityGodHoodStarRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(fantasy_id_, other->fantasy_id_);
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata DeityGodHoodStarRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = DeityGodHoodStarRsp_descriptor_;
+  metadata.reflection = DeityGodHoodStarRsp_reflection_;
   return metadata;
 }
 

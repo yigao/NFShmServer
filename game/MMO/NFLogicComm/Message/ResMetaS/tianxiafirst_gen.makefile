@@ -17,4 +17,6 @@ ${PROTOCGEN_FILE_PATH}/module_tianxiafirst_bin:${PROTOCGEN_FILE_PATH}/tianxiafir
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/TianxiafirstStrongitemDesc.h ${PROTOCGEN_FILE_PATH}/TianxiafirstStrongitemDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_TianxiafirstRefine.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/TianxiafirstRefineDesc.h ${PROTOCGEN_FILE_PATH}/TianxiafirstRefineDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_TianxiafirstSqskill.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/TianxiafirstSqskillDesc.h ${PROTOCGEN_FILE_PATH}/TianxiafirstSqskillDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_tianxiafirst_bin

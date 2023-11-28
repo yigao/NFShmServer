@@ -35,6 +35,7 @@ void  protobuf_AddDesc_View_2eproto();
 void protobuf_AssignDesc_View_2eproto();
 void protobuf_ShutdownFile_View_2eproto();
 
+class SoulEquip;
 class CreatureCreateData;
 class CreatureCreateData_Player;
 class CreatureCreateData_Monster;
@@ -51,8 +52,102 @@ class BroadMarryDstName;
 class BroadTourState;
 class BroadClanView;
 class BroadVipHide;
+class BroadDropBelong;
+class BroadSoulEquip;
 
 // ===================================================================
+
+class SoulEquip : public ::google::protobuf::Message {
+ public:
+  SoulEquip();
+  virtual ~SoulEquip();
+
+  SoulEquip(const SoulEquip& from);
+
+  inline SoulEquip& operator=(const SoulEquip& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulEquip& default_instance();
+
+  void Swap(SoulEquip* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulEquip* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulEquip& from);
+  void MergeFrom(const SoulEquip& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 equipid = 1;
+  inline bool has_equipid() const;
+  inline void clear_equipid();
+  static const int kEquipidFieldNumber = 1;
+  inline ::google::protobuf::int32 equipid() const;
+  inline void set_equipid(::google::protobuf::int32 value);
+
+  // optional int32 quality = 2;
+  inline bool has_quality() const;
+  inline void clear_quality();
+  static const int kQualityFieldNumber = 2;
+  inline ::google::protobuf::int32 quality() const;
+  inline void set_quality(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulEquip)
+ private:
+  inline void set_has_equipid();
+  inline void clear_has_equipid();
+  inline void set_has_quality();
+  inline void clear_has_quality();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 equipid_;
+  ::google::protobuf::int32 quality_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_View_2eproto();
+  friend void protobuf_AssignDesc_View_2eproto();
+  friend void protobuf_ShutdownFile_View_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulEquip* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class CreatureCreateData_Player : public ::google::protobuf::Message {
  public:
@@ -593,6 +688,18 @@ class CreatureCreateData_Monster : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 cur_shield() const;
   inline void set_cur_shield(::google::protobuf::int64 value);
 
+  // repeated int32 soul_equip = 19;
+  inline int soul_equip_size() const;
+  inline void clear_soul_equip();
+  static const int kSoulEquipFieldNumber = 19;
+  inline ::google::protobuf::int32 soul_equip(int index) const;
+  inline void set_soul_equip(int index, ::google::protobuf::int32 value);
+  inline void add_soul_equip(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      soul_equip() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_soul_equip();
+
   // @@protoc_insertion_point(class_scope:proto_ff.CreatureCreateData.Monster)
  private:
   inline void set_has_cid();
@@ -650,9 +757,10 @@ class CreatureCreateData_Monster : public ::google::protobuf::Message {
   ::proto_ff::BuffListProto* bufflst_;
   ::google::protobuf::int64 max_shield_;
   ::google::protobuf::int64 cur_shield_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > soul_equip_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(18 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(19 + 31) / 32];
 
   friend void  protobuf_AddDesc_View_2eproto();
   friend void protobuf_AssignDesc_View_2eproto();
@@ -2111,10 +2219,258 @@ class BroadVipHide : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static BroadVipHide* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class BroadDropBelong : public ::google::protobuf::Message {
+ public:
+  BroadDropBelong();
+  virtual ~BroadDropBelong();
+
+  BroadDropBelong(const BroadDropBelong& from);
+
+  inline BroadDropBelong& operator=(const BroadDropBelong& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BroadDropBelong& default_instance();
+
+  void Swap(BroadDropBelong* other);
+
+  // implements Message ----------------------------------------------
+
+  BroadDropBelong* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BroadDropBelong& from);
+  void MergeFrom(const BroadDropBelong& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional int32 type = 2;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 2;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // repeated uint64 value = 3;
+  inline int value_size() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 3;
+  inline ::google::protobuf::uint64 value(int index) const;
+  inline void set_value(int index, ::google::protobuf::uint64 value);
+  inline void add_value(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      value() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_value();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BroadDropBelong)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_type();
+  inline void clear_has_type();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > value_;
+  ::google::protobuf::int32 type_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_View_2eproto();
+  friend void protobuf_AssignDesc_View_2eproto();
+  friend void protobuf_ShutdownFile_View_2eproto();
+
+  void InitAsDefaultInstance();
+  static BroadDropBelong* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BroadSoulEquip : public ::google::protobuf::Message {
+ public:
+  BroadSoulEquip();
+  virtual ~BroadSoulEquip();
+
+  BroadSoulEquip(const BroadSoulEquip& from);
+
+  inline BroadSoulEquip& operator=(const BroadSoulEquip& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BroadSoulEquip& default_instance();
+
+  void Swap(BroadSoulEquip* other);
+
+  // implements Message ----------------------------------------------
+
+  BroadSoulEquip* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BroadSoulEquip& from);
+  void MergeFrom(const BroadSoulEquip& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // repeated int32 soul_equip = 2;
+  inline int soul_equip_size() const;
+  inline void clear_soul_equip();
+  static const int kSoulEquipFieldNumber = 2;
+  inline ::google::protobuf::int32 soul_equip(int index) const;
+  inline void set_soul_equip(int index, ::google::protobuf::int32 value);
+  inline void add_soul_equip(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      soul_equip() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_soul_equip();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BroadSoulEquip)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > soul_equip_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_View_2eproto();
+  friend void protobuf_AssignDesc_View_2eproto();
+  friend void protobuf_ShutdownFile_View_2eproto();
+
+  void InitAsDefaultInstance();
+  static BroadSoulEquip* default_instance_;
+};
 // ===================================================================
 
 
 // ===================================================================
+
+// SoulEquip
+
+// optional int32 equipid = 1;
+inline bool SoulEquip::has_equipid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulEquip::set_has_equipid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulEquip::clear_has_equipid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulEquip::clear_equipid() {
+  equipid_ = 0;
+  clear_has_equipid();
+}
+inline ::google::protobuf::int32 SoulEquip::equipid() const {
+  return equipid_;
+}
+inline void SoulEquip::set_equipid(::google::protobuf::int32 value) {
+  set_has_equipid();
+  equipid_ = value;
+}
+
+// optional int32 quality = 2;
+inline bool SoulEquip::has_quality() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulEquip::set_has_quality() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulEquip::clear_has_quality() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulEquip::clear_quality() {
+  quality_ = 0;
+  clear_has_quality();
+}
+inline ::google::protobuf::int32 SoulEquip::quality() const {
+  return quality_;
+}
+inline void SoulEquip::set_quality(::google::protobuf::int32 value) {
+  set_has_quality();
+  quality_ = value;
+}
+
+// -------------------------------------------------------------------
 
 // CreatureCreateData_Player
 
@@ -3449,6 +3805,31 @@ inline void CreatureCreateData_Monster::set_cur_shield(::google::protobuf::int64
   cur_shield_ = value;
 }
 
+// repeated int32 soul_equip = 19;
+inline int CreatureCreateData_Monster::soul_equip_size() const {
+  return soul_equip_.size();
+}
+inline void CreatureCreateData_Monster::clear_soul_equip() {
+  soul_equip_.Clear();
+}
+inline ::google::protobuf::int32 CreatureCreateData_Monster::soul_equip(int index) const {
+  return soul_equip_.Get(index);
+}
+inline void CreatureCreateData_Monster::set_soul_equip(int index, ::google::protobuf::int32 value) {
+  soul_equip_.Set(index, value);
+}
+inline void CreatureCreateData_Monster::add_soul_equip(::google::protobuf::int32 value) {
+  soul_equip_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+CreatureCreateData_Monster::soul_equip() const {
+  return soul_equip_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+CreatureCreateData_Monster::mutable_soul_equip() {
+  return &soul_equip_;
+}
+
 // -------------------------------------------------------------------
 
 // CreatureCreateData_Drop
@@ -4606,6 +4987,130 @@ inline ::google::protobuf::int32 BroadVipHide::vip_hide() const {
 inline void BroadVipHide::set_vip_hide(::google::protobuf::int32 value) {
   set_has_vip_hide();
   vip_hide_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BroadDropBelong
+
+// required uint64 cid = 1;
+inline bool BroadDropBelong::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BroadDropBelong::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BroadDropBelong::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BroadDropBelong::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 BroadDropBelong::cid() const {
+  return cid_;
+}
+inline void BroadDropBelong::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional int32 type = 2;
+inline bool BroadDropBelong::has_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BroadDropBelong::set_has_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BroadDropBelong::clear_has_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BroadDropBelong::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 BroadDropBelong::type() const {
+  return type_;
+}
+inline void BroadDropBelong::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// repeated uint64 value = 3;
+inline int BroadDropBelong::value_size() const {
+  return value_.size();
+}
+inline void BroadDropBelong::clear_value() {
+  value_.Clear();
+}
+inline ::google::protobuf::uint64 BroadDropBelong::value(int index) const {
+  return value_.Get(index);
+}
+inline void BroadDropBelong::set_value(int index, ::google::protobuf::uint64 value) {
+  value_.Set(index, value);
+}
+inline void BroadDropBelong::add_value(::google::protobuf::uint64 value) {
+  value_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+BroadDropBelong::value() const {
+  return value_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+BroadDropBelong::mutable_value() {
+  return &value_;
+}
+
+// -------------------------------------------------------------------
+
+// BroadSoulEquip
+
+// optional uint64 cid = 1;
+inline bool BroadSoulEquip::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BroadSoulEquip::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BroadSoulEquip::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BroadSoulEquip::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 BroadSoulEquip::cid() const {
+  return cid_;
+}
+inline void BroadSoulEquip::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// repeated int32 soul_equip = 2;
+inline int BroadSoulEquip::soul_equip_size() const {
+  return soul_equip_.size();
+}
+inline void BroadSoulEquip::clear_soul_equip() {
+  soul_equip_.Clear();
+}
+inline ::google::protobuf::int32 BroadSoulEquip::soul_equip(int index) const {
+  return soul_equip_.Get(index);
+}
+inline void BroadSoulEquip::set_soul_equip(int index, ::google::protobuf::int32 value) {
+  soul_equip_.Set(index, value);
+}
+inline void BroadSoulEquip::add_soul_equip(::google::protobuf::int32 value) {
+  soul_equip_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+BroadSoulEquip::soul_equip() const {
+  return soul_equip_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+BroadSoulEquip::mutable_soul_equip() {
+  return &soul_equip_;
 }
 
 

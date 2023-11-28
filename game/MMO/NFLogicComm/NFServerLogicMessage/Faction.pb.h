@@ -167,6 +167,7 @@ class SL_FactionGuardRank;
 class SL_FactionGuardCurRankReq;
 class SC_FactionGuardRankResultNotify;
 class LS_FactionGuardEndRsp;
+class LC_FactionGuardEndFactionReward;
 class LC_FactionGuardEndRsp;
 class GuardPlayerHarm;
 class LC_FactionGuardPlayerHarm;
@@ -191,6 +192,9 @@ class FactionSynMoyuReq;
 class FactionMoyuPassReq;
 class LCFactionMoyuRankReq;
 class CLFactionMoyuRecvReq;
+class Faction_MagRecordUpgradeReq;
+class Faction_MagRecordUpgradeRsp;
+class Faction_MagRecordNotify;
 
 // ===================================================================
 
@@ -2990,20 +2994,32 @@ class Faction_SyncLoginRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 duty() const;
   inline void set_duty(::google::protobuf::int32 value);
 
+  // optional .proto_ff.FactionMagRecordProto mag_record = 3;
+  inline bool has_mag_record() const;
+  inline void clear_mag_record();
+  static const int kMagRecordFieldNumber = 3;
+  inline const ::proto_ff::FactionMagRecordProto& mag_record() const;
+  inline ::proto_ff::FactionMagRecordProto* mutable_mag_record();
+  inline ::proto_ff::FactionMagRecordProto* release_mag_record();
+  inline void set_allocated_mag_record(::proto_ff::FactionMagRecordProto* mag_record);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Faction_SyncLoginRsp)
  private:
   inline void set_has_info();
   inline void clear_has_info();
   inline void set_has_duty();
   inline void clear_has_duty();
+  inline void set_has_mag_record();
+  inline void clear_has_mag_record();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::proto_ff::FactionProto* info_;
+  ::proto_ff::FactionMagRecordProto* mag_record_;
   ::google::protobuf::int32 duty_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Faction_2eproto();
   friend void protobuf_AssignDesc_Faction_2eproto();
@@ -9670,6 +9686,15 @@ class CL_FactionRoleUpdateRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 leader() const;
   inline void set_leader(::google::protobuf::uint64 value);
 
+  // required .proto_ff.FactionMagRecordProto mag = 7;
+  inline bool has_mag() const;
+  inline void clear_mag();
+  static const int kMagFieldNumber = 7;
+  inline const ::proto_ff::FactionMagRecordProto& mag() const;
+  inline ::proto_ff::FactionMagRecordProto* mutable_mag();
+  inline ::proto_ff::FactionMagRecordProto* release_mag();
+  inline void set_allocated_mag(::proto_ff::FactionMagRecordProto* mag);
+
   // @@protoc_insertion_point(class_scope:proto_ff.CL_FactionRoleUpdateRsp)
  private:
   inline void set_has_cid();
@@ -9684,6 +9709,8 @@ class CL_FactionRoleUpdateRsp : public ::google::protobuf::Message {
   inline void clear_has_level();
   inline void set_has_leader();
   inline void clear_has_leader();
+  inline void set_has_mag();
+  inline void clear_has_mag();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -9692,10 +9719,11 @@ class CL_FactionRoleUpdateRsp : public ::google::protobuf::Message {
   ::google::protobuf::uint32 faction_id_;
   ::google::protobuf::int32 duty_;
   ::google::protobuf::uint64 leader_;
+  ::proto_ff::FactionMagRecordProto* mag_;
   ::google::protobuf::int32 level_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Faction_2eproto();
   friend void protobuf_AssignDesc_Faction_2eproto();
@@ -13278,6 +13306,101 @@ class LS_FactionGuardEndRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class LC_FactionGuardEndFactionReward : public ::google::protobuf::Message {
+ public:
+  LC_FactionGuardEndFactionReward();
+  virtual ~LC_FactionGuardEndFactionReward();
+
+  LC_FactionGuardEndFactionReward(const LC_FactionGuardEndFactionReward& from);
+
+  inline LC_FactionGuardEndFactionReward& operator=(const LC_FactionGuardEndFactionReward& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LC_FactionGuardEndFactionReward& default_instance();
+
+  void Swap(LC_FactionGuardEndFactionReward* other);
+
+  // implements Message ----------------------------------------------
+
+  LC_FactionGuardEndFactionReward* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LC_FactionGuardEndFactionReward& from);
+  void MergeFrom(const LC_FactionGuardEndFactionReward& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.ComItemBind reward = 2;
+  inline int reward_size() const;
+  inline void clear_reward();
+  static const int kRewardFieldNumber = 2;
+  inline const ::proto_ff::ComItemBind& reward(int index) const;
+  inline ::proto_ff::ComItemBind* mutable_reward(int index);
+  inline ::proto_ff::ComItemBind* add_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >&
+      reward() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >*
+      mutable_reward();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LC_FactionGuardEndFactionReward)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind > reward_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static LC_FactionGuardEndFactionReward* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class LC_FactionGuardEndRsp : public ::google::protobuf::Message {
  public:
   LC_FactionGuardEndRsp();
@@ -13339,28 +13462,16 @@ class LC_FactionGuardEndRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 factionid() const;
   inline void set_factionid(::google::protobuf::uint32 value);
 
-  // repeated uint64 cid_lst = 2;
-  inline int cid_lst_size() const;
-  inline void clear_cid_lst();
-  static const int kCidLstFieldNumber = 2;
-  inline ::google::protobuf::uint64 cid_lst(int index) const;
-  inline void set_cid_lst(int index, ::google::protobuf::uint64 value);
-  inline void add_cid_lst(::google::protobuf::uint64 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
-      cid_lst() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
-      mutable_cid_lst();
-
-  // repeated .proto_ff.ComItemBind reward = 3;
+  // repeated .proto_ff.LC_FactionGuardEndFactionReward reward = 2;
   inline int reward_size() const;
   inline void clear_reward();
-  static const int kRewardFieldNumber = 3;
-  inline const ::proto_ff::ComItemBind& reward(int index) const;
-  inline ::proto_ff::ComItemBind* mutable_reward(int index);
-  inline ::proto_ff::ComItemBind* add_reward();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >&
+  static const int kRewardFieldNumber = 2;
+  inline const ::proto_ff::LC_FactionGuardEndFactionReward& reward(int index) const;
+  inline ::proto_ff::LC_FactionGuardEndFactionReward* mutable_reward(int index);
+  inline ::proto_ff::LC_FactionGuardEndFactionReward* add_reward();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::LC_FactionGuardEndFactionReward >&
       reward() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >*
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::LC_FactionGuardEndFactionReward >*
       mutable_reward();
 
   // @@protoc_insertion_point(class_scope:proto_ff.LC_FactionGuardEndRsp)
@@ -13370,12 +13481,11 @@ class LC_FactionGuardEndRsp : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > cid_lst_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind > reward_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::LC_FactionGuardEndFactionReward > reward_;
   ::google::protobuf::uint32 factionid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Faction_2eproto();
   friend void protobuf_AssignDesc_Faction_2eproto();
@@ -15714,6 +15824,244 @@ class CLFactionMoyuRecvReq : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static CLFactionMoyuRecvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_MagRecordUpgradeReq : public ::google::protobuf::Message {
+ public:
+  Faction_MagRecordUpgradeReq();
+  virtual ~Faction_MagRecordUpgradeReq();
+
+  Faction_MagRecordUpgradeReq(const Faction_MagRecordUpgradeReq& from);
+
+  inline Faction_MagRecordUpgradeReq& operator=(const Faction_MagRecordUpgradeReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_MagRecordUpgradeReq& default_instance();
+
+  void Swap(Faction_MagRecordUpgradeReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_MagRecordUpgradeReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_MagRecordUpgradeReq& from);
+  void MergeFrom(const Faction_MagRecordUpgradeReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_MagRecordUpgradeReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_MagRecordUpgradeReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_MagRecordUpgradeRsp : public ::google::protobuf::Message {
+ public:
+  Faction_MagRecordUpgradeRsp();
+  virtual ~Faction_MagRecordUpgradeRsp();
+
+  Faction_MagRecordUpgradeRsp(const Faction_MagRecordUpgradeRsp& from);
+
+  inline Faction_MagRecordUpgradeRsp& operator=(const Faction_MagRecordUpgradeRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_MagRecordUpgradeRsp& default_instance();
+
+  void Swap(Faction_MagRecordUpgradeRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_MagRecordUpgradeRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_MagRecordUpgradeRsp& from);
+  void MergeFrom(const Faction_MagRecordUpgradeRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_MagRecordUpgradeRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_MagRecordUpgradeRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_MagRecordNotify : public ::google::protobuf::Message {
+ public:
+  Faction_MagRecordNotify();
+  virtual ~Faction_MagRecordNotify();
+
+  Faction_MagRecordNotify(const Faction_MagRecordNotify& from);
+
+  inline Faction_MagRecordNotify& operator=(const Faction_MagRecordNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_MagRecordNotify& default_instance();
+
+  void Swap(Faction_MagRecordNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_MagRecordNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_MagRecordNotify& from);
+  void MergeFrom(const Faction_MagRecordNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.FactionMagRecordProto mag_record = 1;
+  inline bool has_mag_record() const;
+  inline void clear_mag_record();
+  static const int kMagRecordFieldNumber = 1;
+  inline const ::proto_ff::FactionMagRecordProto& mag_record() const;
+  inline ::proto_ff::FactionMagRecordProto* mutable_mag_record();
+  inline ::proto_ff::FactionMagRecordProto* release_mag_record();
+  inline void set_allocated_mag_record(::proto_ff::FactionMagRecordProto* mag_record);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_MagRecordNotify)
+ private:
+  inline void set_has_mag_record();
+  inline void clear_has_mag_record();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::FactionMagRecordProto* mag_record_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_MagRecordNotify* default_instance_;
 };
 // ===================================================================
 
@@ -18990,6 +19338,44 @@ inline ::google::protobuf::int32 Faction_SyncLoginRsp::duty() const {
 inline void Faction_SyncLoginRsp::set_duty(::google::protobuf::int32 value) {
   set_has_duty();
   duty_ = value;
+}
+
+// optional .proto_ff.FactionMagRecordProto mag_record = 3;
+inline bool Faction_SyncLoginRsp::has_mag_record() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Faction_SyncLoginRsp::set_has_mag_record() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Faction_SyncLoginRsp::clear_has_mag_record() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Faction_SyncLoginRsp::clear_mag_record() {
+  if (mag_record_ != NULL) mag_record_->::proto_ff::FactionMagRecordProto::Clear();
+  clear_has_mag_record();
+}
+inline const ::proto_ff::FactionMagRecordProto& Faction_SyncLoginRsp::mag_record() const {
+  return mag_record_ != NULL ? *mag_record_ : *default_instance_->mag_record_;
+}
+inline ::proto_ff::FactionMagRecordProto* Faction_SyncLoginRsp::mutable_mag_record() {
+  set_has_mag_record();
+  if (mag_record_ == NULL) mag_record_ = new ::proto_ff::FactionMagRecordProto;
+  return mag_record_;
+}
+inline ::proto_ff::FactionMagRecordProto* Faction_SyncLoginRsp::release_mag_record() {
+  clear_has_mag_record();
+  ::proto_ff::FactionMagRecordProto* temp = mag_record_;
+  mag_record_ = NULL;
+  return temp;
+}
+inline void Faction_SyncLoginRsp::set_allocated_mag_record(::proto_ff::FactionMagRecordProto* mag_record) {
+  delete mag_record_;
+  mag_record_ = mag_record;
+  if (mag_record) {
+    set_has_mag_record();
+  } else {
+    clear_has_mag_record();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -22894,6 +23280,44 @@ inline void CL_FactionRoleUpdateRsp::set_leader(::google::protobuf::uint64 value
   leader_ = value;
 }
 
+// required .proto_ff.FactionMagRecordProto mag = 7;
+inline bool CL_FactionRoleUpdateRsp::has_mag() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void CL_FactionRoleUpdateRsp::set_has_mag() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void CL_FactionRoleUpdateRsp::clear_has_mag() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void CL_FactionRoleUpdateRsp::clear_mag() {
+  if (mag_ != NULL) mag_->::proto_ff::FactionMagRecordProto::Clear();
+  clear_has_mag();
+}
+inline const ::proto_ff::FactionMagRecordProto& CL_FactionRoleUpdateRsp::mag() const {
+  return mag_ != NULL ? *mag_ : *default_instance_->mag_;
+}
+inline ::proto_ff::FactionMagRecordProto* CL_FactionRoleUpdateRsp::mutable_mag() {
+  set_has_mag();
+  if (mag_ == NULL) mag_ = new ::proto_ff::FactionMagRecordProto;
+  return mag_;
+}
+inline ::proto_ff::FactionMagRecordProto* CL_FactionRoleUpdateRsp::release_mag() {
+  clear_has_mag();
+  ::proto_ff::FactionMagRecordProto* temp = mag_;
+  mag_ = NULL;
+  return temp;
+}
+inline void CL_FactionRoleUpdateRsp::set_allocated_mag(::proto_ff::FactionMagRecordProto* mag) {
+  delete mag_;
+  mag_ = mag;
+  if (mag) {
+    set_has_mag();
+  } else {
+    clear_has_mag();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // LC_FactionCreate
@@ -25696,6 +26120,57 @@ inline void LS_FactionGuardEndRsp::set_endtime(::google::protobuf::uint64 value)
 
 // -------------------------------------------------------------------
 
+// LC_FactionGuardEndFactionReward
+
+// optional uint64 cid = 1;
+inline bool LC_FactionGuardEndFactionReward::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LC_FactionGuardEndFactionReward::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LC_FactionGuardEndFactionReward::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LC_FactionGuardEndFactionReward::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 LC_FactionGuardEndFactionReward::cid() const {
+  return cid_;
+}
+inline void LC_FactionGuardEndFactionReward::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// repeated .proto_ff.ComItemBind reward = 2;
+inline int LC_FactionGuardEndFactionReward::reward_size() const {
+  return reward_.size();
+}
+inline void LC_FactionGuardEndFactionReward::clear_reward() {
+  reward_.Clear();
+}
+inline const ::proto_ff::ComItemBind& LC_FactionGuardEndFactionReward::reward(int index) const {
+  return reward_.Get(index);
+}
+inline ::proto_ff::ComItemBind* LC_FactionGuardEndFactionReward::mutable_reward(int index) {
+  return reward_.Mutable(index);
+}
+inline ::proto_ff::ComItemBind* LC_FactionGuardEndFactionReward::add_reward() {
+  return reward_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >&
+LC_FactionGuardEndFactionReward::reward() const {
+  return reward_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >*
+LC_FactionGuardEndFactionReward::mutable_reward() {
+  return &reward_;
+}
+
+// -------------------------------------------------------------------
+
 // LC_FactionGuardEndRsp
 
 // required uint32 factionid = 1;
@@ -25720,52 +26195,27 @@ inline void LC_FactionGuardEndRsp::set_factionid(::google::protobuf::uint32 valu
   factionid_ = value;
 }
 
-// repeated uint64 cid_lst = 2;
-inline int LC_FactionGuardEndRsp::cid_lst_size() const {
-  return cid_lst_.size();
-}
-inline void LC_FactionGuardEndRsp::clear_cid_lst() {
-  cid_lst_.Clear();
-}
-inline ::google::protobuf::uint64 LC_FactionGuardEndRsp::cid_lst(int index) const {
-  return cid_lst_.Get(index);
-}
-inline void LC_FactionGuardEndRsp::set_cid_lst(int index, ::google::protobuf::uint64 value) {
-  cid_lst_.Set(index, value);
-}
-inline void LC_FactionGuardEndRsp::add_cid_lst(::google::protobuf::uint64 value) {
-  cid_lst_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
-LC_FactionGuardEndRsp::cid_lst() const {
-  return cid_lst_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
-LC_FactionGuardEndRsp::mutable_cid_lst() {
-  return &cid_lst_;
-}
-
-// repeated .proto_ff.ComItemBind reward = 3;
+// repeated .proto_ff.LC_FactionGuardEndFactionReward reward = 2;
 inline int LC_FactionGuardEndRsp::reward_size() const {
   return reward_.size();
 }
 inline void LC_FactionGuardEndRsp::clear_reward() {
   reward_.Clear();
 }
-inline const ::proto_ff::ComItemBind& LC_FactionGuardEndRsp::reward(int index) const {
+inline const ::proto_ff::LC_FactionGuardEndFactionReward& LC_FactionGuardEndRsp::reward(int index) const {
   return reward_.Get(index);
 }
-inline ::proto_ff::ComItemBind* LC_FactionGuardEndRsp::mutable_reward(int index) {
+inline ::proto_ff::LC_FactionGuardEndFactionReward* LC_FactionGuardEndRsp::mutable_reward(int index) {
   return reward_.Mutable(index);
 }
-inline ::proto_ff::ComItemBind* LC_FactionGuardEndRsp::add_reward() {
+inline ::proto_ff::LC_FactionGuardEndFactionReward* LC_FactionGuardEndRsp::add_reward() {
   return reward_.Add();
 }
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >&
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::LC_FactionGuardEndFactionReward >&
 LC_FactionGuardEndRsp::reward() const {
   return reward_;
 }
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItemBind >*
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::LC_FactionGuardEndFactionReward >*
 LC_FactionGuardEndRsp::mutable_reward() {
   return &reward_;
 }
@@ -27446,6 +27896,78 @@ inline ::google::protobuf::uint64 CLFactionMoyuRecvReq::cid() const {
 inline void CLFactionMoyuRecvReq::set_cid(::google::protobuf::uint64 value) {
   set_has_cid();
   cid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Faction_MagRecordUpgradeReq
+
+// -------------------------------------------------------------------
+
+// Faction_MagRecordUpgradeRsp
+
+// required int32 ret = 1;
+inline bool Faction_MagRecordUpgradeRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_MagRecordUpgradeRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_MagRecordUpgradeRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_MagRecordUpgradeRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Faction_MagRecordUpgradeRsp::ret() const {
+  return ret_;
+}
+inline void Faction_MagRecordUpgradeRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Faction_MagRecordNotify
+
+// optional .proto_ff.FactionMagRecordProto mag_record = 1;
+inline bool Faction_MagRecordNotify::has_mag_record() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_MagRecordNotify::set_has_mag_record() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_MagRecordNotify::clear_has_mag_record() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_MagRecordNotify::clear_mag_record() {
+  if (mag_record_ != NULL) mag_record_->::proto_ff::FactionMagRecordProto::Clear();
+  clear_has_mag_record();
+}
+inline const ::proto_ff::FactionMagRecordProto& Faction_MagRecordNotify::mag_record() const {
+  return mag_record_ != NULL ? *mag_record_ : *default_instance_->mag_record_;
+}
+inline ::proto_ff::FactionMagRecordProto* Faction_MagRecordNotify::mutable_mag_record() {
+  set_has_mag_record();
+  if (mag_record_ == NULL) mag_record_ = new ::proto_ff::FactionMagRecordProto;
+  return mag_record_;
+}
+inline ::proto_ff::FactionMagRecordProto* Faction_MagRecordNotify::release_mag_record() {
+  clear_has_mag_record();
+  ::proto_ff::FactionMagRecordProto* temp = mag_record_;
+  mag_record_ = NULL;
+  return temp;
+}
+inline void Faction_MagRecordNotify::set_allocated_mag_record(::proto_ff::FactionMagRecordProto* mag_record) {
+  delete mag_record_;
+  mag_record_ = mag_record;
+  if (mag_record) {
+    set_has_mag_record();
+  } else {
+    clear_has_mag_record();
+  }
 }
 
 

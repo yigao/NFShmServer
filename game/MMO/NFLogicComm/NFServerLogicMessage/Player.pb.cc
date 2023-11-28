@@ -88,7 +88,7 @@ void protobuf_AssignDesc_Player_2eproto() {
       "Player.proto");
   GOOGLE_CHECK(file != NULL);
   PlayerInfoRsp_descriptor_ = file->message_type(0);
-  static const int PlayerInfoRsp_offsets_[33] = {
+  static const int PlayerInfoRsp_offsets_[34] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, name_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, zid_),
@@ -122,6 +122,7 @@ void protobuf_AssignDesc_Player_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, world_lv_8_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, world_lv_16_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, is_merge_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PlayerInfoRsp, ng_datas_),
   };
   PlayerInfoRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -519,7 +520,7 @@ void protobuf_AddDesc_Player_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014Player.proto\022\010proto_ff\032\tCom.proto\032\017Com"
-    "Define.proto\"\302\006\n\rPlayerInfoRsp\022\013\n\003cid\030\001 "
+    "Define.proto\"\351\006\n\rPlayerInfoRsp\022\013\n\003cid\030\001 "
     "\001(\004\022\014\n\004name\030\002 \001(\014\022\013\n\003zid\030\003 \001(\r\022\020\n\010openti"
     "me\030\004 \001(\004\022\022\n\ncreatetime\030\005 \001(\004\022)\n\006facade\030\006"
     " \001(\0132\031.proto_ff.RoleFacadeProto\022\036\n\004attr\030"
@@ -540,29 +541,30 @@ void protobuf_AddDesc_Player_2eproto() {
     "ype\030\033 \001(\005\022\025\n\rsubpack_fetch\030\034 \001(\005\022\020\n\010worl"
     "d_lv\030\035 \001(\005\022\022\n\nworld_lv_4\030\036 \001(\005\022\022\n\nworld_"
     "lv_8\030\037 \001(\005\022\023\n\013world_lv_16\030  \001(\005\022\020\n\010is_me"
-    "rge\030! \001(\005\">\n\017CreatureAttrSyn\022\013\n\003cid\030\001 \001("
-    "\004\022\036\n\004attr\030\002 \003(\0132\020.proto_ff.Attr64\"C\n\024Cre"
-    "atureAttrBroadRsp\022\013\n\003cid\030\001 \001(\004\022\036\n\004attr\030\002"
-    " \003(\0132\020.proto_ff.Attr64\"K\n\025CreatureStateB"
-    "roadRsp\022\013\n\003cid\030\001 \001(\004\022\020\n\010curstate\030\002 \001(\r\022\023"
-    "\n\013beforestate\030\003 \001(\r\"h\n\021NoticeShowInfoRsp"
-    "\022\021\n\tshow_type\030\001 \001(\005\022\017\n\007add_val\030\002 \001(\004\022/\n\010"
-    "item_lst\030\003 \001(\0132\035.proto_ff.MultItemSimple"
-    "Proto\"\032\n\nChgNameReq\022\014\n\004name\030\001 \001(\t\"+\n\nChg"
-    "NameRsp\022\017\n\007retcode\030\001 \002(\005\022\014\n\004name\030\002 \001(\014\"h"
-    "\n\022PlayerReliveNotify\022\014\n\004name\030\001 \001(\014\022\020\n\010le"
-    "ft_num\030\002 \001(\005\022\013\n\003sec\030\003 \001(\005\022\020\n\010is_tired\030\004 "
-    "\001(\010\022\023\n\013already_num\030\005 \001(\005\"\037\n\017PlayerRelive"
-    "Req\022\014\n\004type\030\001 \001(\005\"\036\n\017PlayerReliveRsp\022\013\n\003"
-    "ret\030\001 \002(\005\"\037\n\020PlayerCollectReq\022\013\n\003cid\030\001 \002"
-    "(\004\"1\n\020PlayerCollectRsp\022\013\n\003ret\030\001 \002(\005\022\020\n\010m"
-    "ons_cid\030\002 \001(\004\"\031\n\027PlayerCollectSuccessRsp"
-    "\")\n\024PlayerPvpStateNotify\022\021\n\tpvp_state\030\001 "
-    "\002(\005\"*\n\021PlayerExchangeReq\022\025\n\rexchange_cod"
-    "e\030\001 \002(\014\" \n\021PlayerExchangeRsp\022\013\n\003ret\030\001 \002("
-    "\005\"$\n\024PlayerSubPackSaveReq\022\014\n\004type\030\001 \002(\005\""
-    "\027\n\025PlayerSubPackFetchReq\"$\n\025PlayerSubPac"
-    "kFetchRsp\022\013\n\003ret\030\001 \002(\005", 1782);
+    "rge\030! \001(\005\022%\n\010ng_datas\030\" \001(\0132\023.proto_ff.N"
+    "GDbDatas\">\n\017CreatureAttrSyn\022\013\n\003cid\030\001 \001(\004"
+    "\022\036\n\004attr\030\002 \003(\0132\020.proto_ff.Attr64\"C\n\024Crea"
+    "tureAttrBroadRsp\022\013\n\003cid\030\001 \001(\004\022\036\n\004attr\030\002 "
+    "\003(\0132\020.proto_ff.Attr64\"K\n\025CreatureStateBr"
+    "oadRsp\022\013\n\003cid\030\001 \001(\004\022\020\n\010curstate\030\002 \001(\r\022\023\n"
+    "\013beforestate\030\003 \001(\r\"h\n\021NoticeShowInfoRsp\022"
+    "\021\n\tshow_type\030\001 \001(\005\022\017\n\007add_val\030\002 \001(\004\022/\n\010i"
+    "tem_lst\030\003 \001(\0132\035.proto_ff.MultItemSimpleP"
+    "roto\"\032\n\nChgNameReq\022\014\n\004name\030\001 \001(\t\"+\n\nChgN"
+    "ameRsp\022\017\n\007retcode\030\001 \002(\005\022\014\n\004name\030\002 \001(\014\"h\n"
+    "\022PlayerReliveNotify\022\014\n\004name\030\001 \001(\014\022\020\n\010lef"
+    "t_num\030\002 \001(\005\022\013\n\003sec\030\003 \001(\005\022\020\n\010is_tired\030\004 \001"
+    "(\010\022\023\n\013already_num\030\005 \001(\005\"\037\n\017PlayerReliveR"
+    "eq\022\014\n\004type\030\001 \001(\005\"\036\n\017PlayerReliveRsp\022\013\n\003r"
+    "et\030\001 \002(\005\"\037\n\020PlayerCollectReq\022\013\n\003cid\030\001 \002("
+    "\004\"1\n\020PlayerCollectRsp\022\013\n\003ret\030\001 \002(\005\022\020\n\010mo"
+    "ns_cid\030\002 \001(\004\"\031\n\027PlayerCollectSuccessRsp\""
+    ")\n\024PlayerPvpStateNotify\022\021\n\tpvp_state\030\001 \002"
+    "(\005\"*\n\021PlayerExchangeReq\022\025\n\rexchange_code"
+    "\030\001 \002(\014\" \n\021PlayerExchangeRsp\022\013\n\003ret\030\001 \002(\005"
+    "\"$\n\024PlayerSubPackSaveReq\022\014\n\004type\030\001 \002(\005\"\027"
+    "\n\025PlayerSubPackFetchReq\"$\n\025PlayerSubPack"
+    "FetchRsp\022\013\n\003ret\030\001 \002(\005", 1821);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Player.proto", &protobuf_RegisterTypes);
   PlayerInfoRsp::default_instance_ = new PlayerInfoRsp();
@@ -649,6 +651,7 @@ const int PlayerInfoRsp::kWorldLv4FieldNumber;
 const int PlayerInfoRsp::kWorldLv8FieldNumber;
 const int PlayerInfoRsp::kWorldLv16FieldNumber;
 const int PlayerInfoRsp::kIsMergeFieldNumber;
+const int PlayerInfoRsp::kNgDatasFieldNumber;
 #endif  // !_MSC_VER
 
 PlayerInfoRsp::PlayerInfoRsp()
@@ -664,6 +667,7 @@ void PlayerInfoRsp::InitAsDefaultInstance() {
   godevil_ = const_cast< ::proto_ff::GodEvilProto*>(&::proto_ff::GodEvilProto::default_instance());
   recharge_ = const_cast< ::proto_ff::RechargeProto*>(&::proto_ff::RechargeProto::default_instance());
   wpp_state_ = const_cast< ::proto_ff::WPPState*>(&::proto_ff::WPPState::default_instance());
+  ng_datas_ = const_cast< ::proto_ff::NGDbDatas*>(&::proto_ff::NGDbDatas::default_instance());
 }
 
 PlayerInfoRsp::PlayerInfoRsp(const PlayerInfoRsp& from)
@@ -705,6 +709,7 @@ void PlayerInfoRsp::SharedCtor() {
   world_lv_8_ = 0;
   world_lv_16_ = 0;
   is_merge_ = 0;
+  ng_datas_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -730,6 +735,7 @@ void PlayerInfoRsp::SharedDtor() {
     delete godevil_;
     delete recharge_;
     delete wpp_state_;
+    delete ng_datas_;
   }
 }
 
@@ -821,6 +827,9 @@ void PlayerInfoRsp::Clear() {
   }
   if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     is_merge_ = 0;
+    if (has_ng_datas()) {
+      if (ng_datas_ != NULL) ng_datas_->::proto_ff::NGDbDatas::Clear();
+    }
   }
   attr_.Clear();
   clan_infos_.Clear();
@@ -1338,6 +1347,20 @@ bool PlayerInfoRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(274)) goto parse_ng_datas;
+        break;
+      }
+
+      // optional .proto_ff.NGDbDatas ng_datas = 34;
+      case 34: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_ng_datas:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_ng_datas()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1540,6 +1563,12 @@ void PlayerInfoRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(33, this->is_merge(), output);
   }
 
+  // optional .proto_ff.NGDbDatas ng_datas = 34;
+  if (has_ng_datas()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      34, this->ng_datas(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1738,6 +1767,13 @@ void PlayerInfoRsp::SerializeWithCachedSizes(
   // optional int32 is_merge = 33;
   if (has_is_merge()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(33, this->is_merge(), target);
+  }
+
+  // optional .proto_ff.NGDbDatas ng_datas = 34;
+  if (has_ng_datas()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        34, this->ng_datas(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1976,6 +2012,13 @@ int PlayerInfoRsp::ByteSize() const {
           this->is_merge());
     }
 
+    // optional .proto_ff.NGDbDatas ng_datas = 34;
+    if (has_ng_datas()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->ng_datas());
+    }
+
   }
   // repeated .proto_ff.Attr64 attr = 7;
   total_size += 1 * this->attr_size();
@@ -2122,6 +2165,9 @@ void PlayerInfoRsp::MergeFrom(const PlayerInfoRsp& from) {
     if (from.has_is_merge()) {
       set_is_merge(from.is_merge());
     }
+    if (from.has_ng_datas()) {
+      mutable_ng_datas()->::proto_ff::NGDbDatas::MergeFrom(from.ng_datas());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2154,6 +2200,9 @@ bool PlayerInfoRsp::IsInitialized() const {
   }
   if (has_wpp_state()) {
     if (!this->wpp_state().IsInitialized()) return false;
+  }
+  if (has_ng_datas()) {
+    if (!this->ng_datas().IsInitialized()) return false;
   }
   return true;
 }
@@ -2193,6 +2242,7 @@ void PlayerInfoRsp::Swap(PlayerInfoRsp* other) {
     std::swap(world_lv_8_, other->world_lv_8_);
     std::swap(world_lv_16_, other->world_lv_16_);
     std::swap(is_merge_, other->is_merge_);
+    std::swap(ng_datas_, other->ng_datas_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     std::swap(_has_bits_[1], other->_has_bits_[1]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

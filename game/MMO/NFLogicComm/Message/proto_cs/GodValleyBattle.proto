@@ -221,6 +221,28 @@ message GVBRoomCloseReq{
     required uint32 option=3;
 }
 
+message GVBRoomSetEntryMapReq{
+    required uint64 roomId=1;
+    required uint32 mapId=2;
+    required uint32 fromZone=3;
+}
+
+message GVBRoomKickPlayer{
+    required uint64 cid=1;
+    required uint64 sceneid=2;
+}
+
+message GVBRoomUniqueIdReq{
+    required uint32 fromZone=1;
+    required uint32 fromLogic=2;
+    required uint64 sceneId=3;
+}
+message GVBRoomUniqueIdRsp{
+    required uint32 error=1;
+    required uint64 sceneId=2;
+    required uint64 uniqueId=3;
+}
+
 
 message GVBCrystalOwnerPosReq{
 
@@ -423,11 +445,7 @@ message GVBEnterError{
 };
 
 
-
-
-
 //-------------------------------------
-
 message GMADatas{
     optional uint32 remainTime=1;//总时间
     optional uint32 freeTimeRemain=2;//当前免费时间剩余
@@ -515,3 +533,184 @@ message GMAError{
 message GMATimeReq{
     required uint32 op =1;//0need ,1not need
 };
+
+
+
+
+//////////////////////////NickGod//////////////////
+
+//封神之战全局持久化数据(玩家)
+message NGPDPlayer{
+    optional uint64 cid=1;
+    optional uint32 kills=2;
+    optional uint32 scores=3;
+    optional uint32 aliveTime=4;
+    optional uint32 rank=5;
+    optional string name=6;
+    optional uint32 nickId=7;
+    optional uint64 fight=8;//战力
+    repeated uint32 scoreRewardsRecvLog=9;//积分奖励领取记录
+    optional uint32 zid=10;
+};
+
+message NGPDBattle{
+    required uint64 id=1;
+    repeated NGPDPlayer players=2;
+    optional uint64 saveTime=3;
+};
+message NGPDAddTBoxOpenLog{
+    required string name=1;
+    required uint32 itemId=2;
+    required uint32 itemCount=3;
+    required uint32 zid=4;
+};
+message NGTBoxItemServerLog{//返回挖宝获得道具全服记录
+    message record{
+        required string name=1;
+        required uint32 itemId=2;
+        required uint32 itemCount=3;
+    };
+    required uint32 zid=1;
+    repeated record records=2;
+};
+message NGPDGlobal{
+    repeated NGPDBattle battles=1;
+    repeated NGTBoxItemServerLog tboxItemLog=2;
+};
+message NGPDBattleReq{
+    required uint64 session=1;
+    required uint32 fromzone=2;
+    required uint32 fromlogic=3;
+    required uint64 id=4;
+};
+message NGPDBattleRsp{
+    required uint64 session=1;
+    optional NGPDBattle pd=2;
+};
+message NGPDBattleSaveReq{
+    required NGPDBattle pd=1;
+    optional bool finish=2;
+};
+message NGPDPlayerPDReq{
+    optional uint32 fromZone=1;
+    optional uint32 fromLogic=2;
+    optional uint64 cid=3;
+    required uint64 session=4;
+};
+message NGPDPlayerPDRsp{
+    required uint64 cid=1;
+    optional NGPDPlayer p=2;
+    required uint64 session=3;
+};
+message NGPDPlayerSaveReq{
+    optional NGPDPlayer p=1;
+};
+message NGPDRankReq{
+    required uint64 cid=1;
+};//请求积分排名
+message NGPDTBoxOpenServerLogReq//请求挖宝获得道具全服记录
+{
+    required uint64 cid=1;
+}
+///////////////client msg//////////////////////
+
+message NGBoss{
+    required uint32 cfgId=1;
+    required float x=2;
+    required float y=3;
+    required float z=4;
+}
+message NGEnterReq{}
+message NGExitReq{}//退出
+message NGDataRsp{//战场内完整数据
+    optional int32 stage=1;//0匹配阶段，1第一阶段，2第二阶段，3第三阶段
+    optional int32 countdown=2;//倒计时
+    optional bool nxtStageReady=3;//是否准备下一个阶段
+    optional uint32 scores=4;//积分
+    optional uint32 rank=5;//当前排名(第三阶段才有)
+    optional uint32 players=6;//剩余玩家数量(第三阶段才有)
+    repeated NGBoss bosses=7;
+    optional bool bossesSet=8;
+};
+message NGRankReq{};//请求积分排名
+message NGRankRsp{
+    repeated NGPDPlayer players=1;
+};
+message NGFinishNt{//战场结束通知
+    repeated NGPDPlayer rank=1;
+};
+message NGScoreRewardRecvReq{//领取积分奖励
+    required uint32 cfgId=1;
+};
+message NGScoreRewardRecvRsp{
+    required uint32 errCode=1;//0成功了，1无数据，2找不到配置,3积分不足,4已领取过,5背包空间不足
+    optional uint32 cfgId=2;//
+};
+message NGTBoxOpenReq{//开箱请求
+    required uint32 boxIdx=1;//从0开始
+    required bool useCurrency=2;
+};
+message NGTBoxOpenRsp{//返回
+    required uint32 errcode=1;//1已开启过，2道具不足,3背包已满,4格子索引错误(要小于37),5道具有重复ID
+    required uint32 boxIdx=2;
+};
+message NGDbDatasRsp{//个人数据更新
+	optional uint32 layers=1;//探宝当前第几层从0开始
+    repeated NGTBoxOpened openedList=2;//已开启过的列表
+	optional uint64 weekTime=3;//周一0点的时间(秒）用于周重置进度
+	optional uint32 battleWeekTimes=4;//本周封神之战完成的次数
+	optional uint64 battleId=5;//当前战场id
+	repeated NGTBoxItem itemsLog=6;//挖宝个人记录
+	optional uint32 privilege=7;//1表示已开通了宝库特权
+	repeated uint32 privilegeRecvLog=8;//特权领取记录
+	repeated NGStorePurchaseLog storePurchaseLog=9;//特惠商店够买记录
+	optional uint32 payAcc=10;//特惠商店累积充值
+	repeated uint32 payAccRecvLog=11;//累充领取记录
+	optional uint32 scores=12;//积分
+    repeated uint32 scoreRewardsRecvLog=13;//积分奖励领取列表
+    optional bool openedListSet=14;
+    optional bool itemsListSet=15;
+	optional bool privilegeRecvLogSet=16;
+	optional bool storePurchaseLogSet=17;
+	optional bool payAccRecvLogSet=18;
+    optional bool scoreRewardsRecvLogSet=19;//积分奖励领取列表
+};
+
+message NGPrivilegePayReq//充特权
+{};
+message NGPrivilegePayRsp{
+    required uint32 errcode=1;//1已开启 2钱不够
+};
+message NGPrivilegeRewardRecvReq{//领取特权奖励
+    required uint32 cfgId=1;
+};
+message NGPrivilegeRewardRecvRsp{
+    required uint32 errcode=1;//0成功, 1背包空间不够，2已领取过,3没有特权,4封神之战次数不够,5今天不能领取
+};
+message NGStorePurchaseReq{//特惠购买
+    required uint32 cfgId=1;
+};
+message NGStorePurchaseRsp{
+    required uint32 errcode=1;//背包空间不够,2钱不够,3购买次数上限 4不在活动期
+};
+
+message NGPayAccRecvReq{//累充领取
+    required uint32 cfgId=1;
+}
+message NGPayAccRecvRsp{//
+    required uint32 errcode=1;//1累充不够,2已领取过，不能再领,3背包空间不够
+    required uint32 cfgId=2;
+}
+message NGTBoxOpenServerLogReq//请求挖宝获得道具全服记录
+{
+}
+message NGTBoxOpenServerLogRsp
+{
+    required NGTBoxItemServerLog log=1;
+}
+message NGTBoxNxtLayerReq
+{
+}
+message NGTBoxNxtLayerRsp{
+    required uint32 errcode=1;//1已经是最后一层，2当前层没有完成
+}

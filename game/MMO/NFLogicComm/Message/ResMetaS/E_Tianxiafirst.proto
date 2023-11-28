@@ -59,7 +59,7 @@ message E_TianxiafirstStrongitem
 
 message Sheet_TianxiafirstStrongitem
 {
-	repeated E_TianxiafirstStrongitem E_TianxiafirstStrongitem_List = 1[(yd_fieldoptions.field_arysize)=2];
+	repeated E_TianxiafirstStrongitem E_TianxiafirstStrongitem_List = 1[(yd_fieldoptions.field_arysize)=4];
 }
 
 message E_TianxiafirstRefineAttDesc
@@ -85,4 +85,20 @@ message E_TianxiafirstRefine
 message Sheet_TianxiafirstRefine
 {
 	repeated E_TianxiafirstRefine E_TianxiafirstRefine_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_TianxiafirstSqskill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_artifactId = 2[(yd_fieldoptions.field_cname) = "神器id"];
+	optional int32 m_skillId = 3[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_level = 4[(yd_fieldoptions.field_cname) = "技能等级"];
+	optional int32 m_condition = 5[(yd_fieldoptions.field_cname) = "激活/升级条件"];
+	optional int32 m_score = 6[(yd_fieldoptions.field_cname) = "技能评分"];
+}
+
+
+message Sheet_TianxiafirstSqskill
+{
+	repeated E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1[(yd_fieldoptions.field_arysize)=64];
 }

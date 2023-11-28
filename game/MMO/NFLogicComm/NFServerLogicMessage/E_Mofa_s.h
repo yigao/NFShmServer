@@ -117,7 +117,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_EquipID;//装备ID
 		int32_t m_AttriType;//物品类型排序
-		int32_t m_mosaic;//可镶嵌部位
+		NFShmString<64> m_mosaic;//可镶嵌部位
 		int32_t m_LvItem;//升级道具
 		int32_t m_awaken_can;//是否可觉醒
 		int32_t m_awaken_Lvmax;//觉醒上限

@@ -47,6 +47,7 @@ class E_NickgodRewards;
 class Sheet_NickgodRewards;
 class E_NickgodLattice;
 class Sheet_NickgodLattice;
+class E_NickgodTreasuryItemDesc;
 class E_NickgodTreasury;
 class Sheet_NickgodTreasury;
 class E_NickgodPrivilegeRewardDesc;
@@ -721,12 +722,17 @@ class E_NickgodStageBossDesc : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_dropPreview = 1;
+  // optional string m_dropPreview = 1;
   inline bool has_m_droppreview() const;
   inline void clear_m_droppreview();
   static const int kMDropPreviewFieldNumber = 1;
-  inline ::google::protobuf::int32 m_droppreview() const;
-  inline void set_m_droppreview(::google::protobuf::int32 value);
+  inline const ::std::string& m_droppreview() const;
+  inline void set_m_droppreview(const ::std::string& value);
+  inline void set_m_droppreview(const char* value);
+  inline void set_m_droppreview(const char* value, size_t size);
+  inline ::std::string* mutable_m_droppreview();
+  inline ::std::string* release_m_droppreview();
+  inline void set_allocated_m_droppreview(::std::string* m_droppreview);
 
   // optional int32 m_id = 2;
   inline bool has_m_id() const;
@@ -753,7 +759,7 @@ class E_NickgodStageBossDesc : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 m_droppreview_;
+  ::std::string* m_droppreview_;
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_point_;
 
@@ -1584,6 +1590,118 @@ class Sheet_NickgodLattice : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class E_NickgodTreasuryItemDesc : public ::google::protobuf::Message {
+ public:
+  E_NickgodTreasuryItemDesc();
+  virtual ~E_NickgodTreasuryItemDesc();
+
+  E_NickgodTreasuryItemDesc(const E_NickgodTreasuryItemDesc& from);
+
+  inline E_NickgodTreasuryItemDesc& operator=(const E_NickgodTreasuryItemDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_NickgodTreasuryItemDesc& default_instance();
+
+  void Swap(E_NickgodTreasuryItemDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_NickgodTreasuryItemDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_NickgodTreasuryItemDesc& from);
+  void MergeFrom(const E_NickgodTreasuryItemDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_show = 1;
+  inline bool has_m_show() const;
+  inline void clear_m_show();
+  static const int kMShowFieldNumber = 1;
+  inline ::google::protobuf::int32 m_show() const;
+  inline void set_m_show(::google::protobuf::int32 value);
+
+  // optional int32 m_rand = 2;
+  inline bool has_m_rand() const;
+  inline void clear_m_rand();
+  static const int kMRandFieldNumber = 2;
+  inline ::google::protobuf::int32 m_rand() const;
+  inline void set_m_rand(::google::protobuf::int32 value);
+
+  // optional int32 m_num = 3;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 3;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int32 m_id = 4;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 4;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_NickgodTreasuryItemDesc)
+ private:
+  inline void set_has_m_show();
+  inline void clear_has_m_show();
+  inline void set_has_m_rand();
+  inline void clear_has_m_rand();
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_show_;
+  ::google::protobuf::int32 m_rand_;
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_E_5fNickgod_2eproto();
+  friend void protobuf_AssignDesc_E_5fNickgod_2eproto();
+  friend void protobuf_ShutdownFile_E_5fNickgod_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_NickgodTreasuryItemDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class E_NickgodTreasury : public ::google::protobuf::Message {
  public:
   E_NickgodTreasury();
@@ -1645,24 +1763,27 @@ class E_NickgodTreasury : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_boxId = 2;
-  inline bool has_m_boxid() const;
-  inline void clear_m_boxid();
-  static const int kMBoxIdFieldNumber = 2;
-  inline ::google::protobuf::int32 m_boxid() const;
-  inline void set_m_boxid(::google::protobuf::int32 value);
+  // repeated .proto_ff.E_NickgodTreasuryItemDesc m_item = 2;
+  inline int m_item_size() const;
+  inline void clear_m_item();
+  static const int kMItemFieldNumber = 2;
+  inline const ::proto_ff::E_NickgodTreasuryItemDesc& m_item(int index) const;
+  inline ::proto_ff::E_NickgodTreasuryItemDesc* mutable_m_item(int index);
+  inline ::proto_ff::E_NickgodTreasuryItemDesc* add_m_item();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodTreasuryItemDesc >&
+      m_item() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodTreasuryItemDesc >*
+      mutable_m_item();
 
   // @@protoc_insertion_point(class_scope:proto_ff.E_NickgodTreasury)
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
-  inline void set_has_m_boxid();
-  inline void clear_has_m_boxid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodTreasuryItemDesc > m_item_;
   ::google::protobuf::int32 m_id_;
-  ::google::protobuf::int32 m_boxid_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2533,10 +2654,17 @@ class E_NickgodChargeup : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 2;
+  // optional int32 m_pay = 2;
+  inline bool has_m_pay() const;
+  inline void clear_m_pay();
+  static const int kMPayFieldNumber = 2;
+  inline ::google::protobuf::int32 m_pay() const;
+  inline void set_m_pay(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 3;
   inline int m_reward_size() const;
   inline void clear_m_reward();
-  static const int kMRewardFieldNumber = 2;
+  static const int kMRewardFieldNumber = 3;
   inline const ::proto_ff::E_NickgodChargeupRewardDesc& m_reward(int index) const;
   inline ::proto_ff::E_NickgodChargeupRewardDesc* mutable_m_reward(int index);
   inline ::proto_ff::E_NickgodChargeupRewardDesc* add_m_reward();
@@ -2549,14 +2677,17 @@ class E_NickgodChargeup : public ::google::protobuf::Message {
  private:
   inline void set_has_m_id();
   inline void clear_has_m_id();
+  inline void set_has_m_pay();
+  inline void clear_has_m_pay();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodChargeupRewardDesc > m_reward_;
   ::google::protobuf::int32 m_id_;
+  ::google::protobuf::int32 m_pay_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodChargeupRewardDesc > m_reward_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fNickgod_2eproto();
   friend void protobuf_AssignDesc_E_5fNickgod_2eproto();
@@ -3285,7 +3416,7 @@ inline void E_NickgodStageMosDesc::set_m_point(::google::protobuf::int32 value) 
 
 // E_NickgodStageBossDesc
 
-// optional int32 m_dropPreview = 1;
+// optional string m_dropPreview = 1;
 inline bool E_NickgodStageBossDesc::has_m_droppreview() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3296,15 +3427,63 @@ inline void E_NickgodStageBossDesc::clear_has_m_droppreview() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void E_NickgodStageBossDesc::clear_m_droppreview() {
-  m_droppreview_ = 0;
+  if (m_droppreview_ != &::google::protobuf::internal::kEmptyString) {
+    m_droppreview_->clear();
+  }
   clear_has_m_droppreview();
 }
-inline ::google::protobuf::int32 E_NickgodStageBossDesc::m_droppreview() const {
+inline const ::std::string& E_NickgodStageBossDesc::m_droppreview() const {
+  return *m_droppreview_;
+}
+inline void E_NickgodStageBossDesc::set_m_droppreview(const ::std::string& value) {
+  set_has_m_droppreview();
+  if (m_droppreview_ == &::google::protobuf::internal::kEmptyString) {
+    m_droppreview_ = new ::std::string;
+  }
+  m_droppreview_->assign(value);
+}
+inline void E_NickgodStageBossDesc::set_m_droppreview(const char* value) {
+  set_has_m_droppreview();
+  if (m_droppreview_ == &::google::protobuf::internal::kEmptyString) {
+    m_droppreview_ = new ::std::string;
+  }
+  m_droppreview_->assign(value);
+}
+inline void E_NickgodStageBossDesc::set_m_droppreview(const char* value, size_t size) {
+  set_has_m_droppreview();
+  if (m_droppreview_ == &::google::protobuf::internal::kEmptyString) {
+    m_droppreview_ = new ::std::string;
+  }
+  m_droppreview_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* E_NickgodStageBossDesc::mutable_m_droppreview() {
+  set_has_m_droppreview();
+  if (m_droppreview_ == &::google::protobuf::internal::kEmptyString) {
+    m_droppreview_ = new ::std::string;
+  }
   return m_droppreview_;
 }
-inline void E_NickgodStageBossDesc::set_m_droppreview(::google::protobuf::int32 value) {
-  set_has_m_droppreview();
-  m_droppreview_ = value;
+inline ::std::string* E_NickgodStageBossDesc::release_m_droppreview() {
+  clear_has_m_droppreview();
+  if (m_droppreview_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = m_droppreview_;
+    m_droppreview_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void E_NickgodStageBossDesc::set_allocated_m_droppreview(::std::string* m_droppreview) {
+  if (m_droppreview_ != &::google::protobuf::internal::kEmptyString) {
+    delete m_droppreview_;
+  }
+  if (m_droppreview) {
+    set_has_m_droppreview();
+    m_droppreview_ = m_droppreview;
+  } else {
+    clear_has_m_droppreview();
+    m_droppreview_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 // optional int32 m_id = 2;
@@ -4040,6 +4219,98 @@ Sheet_NickgodLattice::mutable_e_nickgodlattice_list() {
 
 // -------------------------------------------------------------------
 
+// E_NickgodTreasuryItemDesc
+
+// optional int32 m_show = 1;
+inline bool E_NickgodTreasuryItemDesc::has_m_show() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_NickgodTreasuryItemDesc::set_has_m_show() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_has_m_show() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_m_show() {
+  m_show_ = 0;
+  clear_has_m_show();
+}
+inline ::google::protobuf::int32 E_NickgodTreasuryItemDesc::m_show() const {
+  return m_show_;
+}
+inline void E_NickgodTreasuryItemDesc::set_m_show(::google::protobuf::int32 value) {
+  set_has_m_show();
+  m_show_ = value;
+}
+
+// optional int32 m_rand = 2;
+inline bool E_NickgodTreasuryItemDesc::has_m_rand() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_NickgodTreasuryItemDesc::set_has_m_rand() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_has_m_rand() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_m_rand() {
+  m_rand_ = 0;
+  clear_has_m_rand();
+}
+inline ::google::protobuf::int32 E_NickgodTreasuryItemDesc::m_rand() const {
+  return m_rand_;
+}
+inline void E_NickgodTreasuryItemDesc::set_m_rand(::google::protobuf::int32 value) {
+  set_has_m_rand();
+  m_rand_ = value;
+}
+
+// optional int32 m_num = 3;
+inline bool E_NickgodTreasuryItemDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void E_NickgodTreasuryItemDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_NickgodTreasuryItemDesc::m_num() const {
+  return m_num_;
+}
+inline void E_NickgodTreasuryItemDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int32 m_id = 4;
+inline bool E_NickgodTreasuryItemDesc::has_m_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_NickgodTreasuryItemDesc::set_has_m_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void E_NickgodTreasuryItemDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_NickgodTreasuryItemDesc::m_id() const {
+  return m_id_;
+}
+inline void E_NickgodTreasuryItemDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // E_NickgodTreasury
 
 // optional int32 m_id = 1;
@@ -4064,26 +4335,29 @@ inline void E_NickgodTreasury::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_boxId = 2;
-inline bool E_NickgodTreasury::has_m_boxid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+// repeated .proto_ff.E_NickgodTreasuryItemDesc m_item = 2;
+inline int E_NickgodTreasury::m_item_size() const {
+  return m_item_.size();
 }
-inline void E_NickgodTreasury::set_has_m_boxid() {
-  _has_bits_[0] |= 0x00000002u;
+inline void E_NickgodTreasury::clear_m_item() {
+  m_item_.Clear();
 }
-inline void E_NickgodTreasury::clear_has_m_boxid() {
-  _has_bits_[0] &= ~0x00000002u;
+inline const ::proto_ff::E_NickgodTreasuryItemDesc& E_NickgodTreasury::m_item(int index) const {
+  return m_item_.Get(index);
 }
-inline void E_NickgodTreasury::clear_m_boxid() {
-  m_boxid_ = 0;
-  clear_has_m_boxid();
+inline ::proto_ff::E_NickgodTreasuryItemDesc* E_NickgodTreasury::mutable_m_item(int index) {
+  return m_item_.Mutable(index);
 }
-inline ::google::protobuf::int32 E_NickgodTreasury::m_boxid() const {
-  return m_boxid_;
+inline ::proto_ff::E_NickgodTreasuryItemDesc* E_NickgodTreasury::add_m_item() {
+  return m_item_.Add();
 }
-inline void E_NickgodTreasury::set_m_boxid(::google::protobuf::int32 value) {
-  set_has_m_boxid();
-  m_boxid_ = value;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodTreasuryItemDesc >&
+E_NickgodTreasury::m_item() const {
+  return m_item_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_NickgodTreasuryItemDesc >*
+E_NickgodTreasury::mutable_m_item() {
+  return &m_item_;
 }
 
 // -------------------------------------------------------------------
@@ -4647,7 +4921,29 @@ inline void E_NickgodChargeup::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 2;
+// optional int32 m_pay = 2;
+inline bool E_NickgodChargeup::has_m_pay() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_NickgodChargeup::set_has_m_pay() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_NickgodChargeup::clear_has_m_pay() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_NickgodChargeup::clear_m_pay() {
+  m_pay_ = 0;
+  clear_has_m_pay();
+}
+inline ::google::protobuf::int32 E_NickgodChargeup::m_pay() const {
+  return m_pay_;
+}
+inline void E_NickgodChargeup::set_m_pay(::google::protobuf::int32 value) {
+  set_has_m_pay();
+  m_pay_ = value;
+}
+
+// repeated .proto_ff.E_NickgodChargeupRewardDesc m_reward = 3;
 inline int E_NickgodChargeup::m_reward_size() const {
   return m_reward_.size();
 }

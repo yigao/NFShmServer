@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Nickgod_s.h"
 
-#define MAX_NICKGOD_NAME_NUM 4
+#define MAX_NICKGOD_NAME_NUM 32
 
 class NickgodNameDesc : public NFIDescTemplate<NickgodNameDesc, proto_ff_s::E_NickgodName_s, EOT_CONST_NICKGOD_NAME_DESC_ID, MAX_NICKGOD_NAME_NUM>
 {

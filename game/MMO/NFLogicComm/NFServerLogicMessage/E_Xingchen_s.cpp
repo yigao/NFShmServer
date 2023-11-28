@@ -1594,6 +1594,7 @@ int E_XingchenXingji_s::CreateInit() {
 	m_XJClass = (int32_t)0;
 	m_XJSkill = (int32_t)0;
 	m_SkillId = (int32_t)0;
+	m_SkillMax = (int32_t)0;
 	return 0;
 }
 
@@ -1606,6 +1607,7 @@ void E_XingchenXingji_s::write_to_pbmsg(::proto_ff::E_XingchenXingji & msg) cons
 	msg.set_m_xjclass((int32_t)m_XJClass);
 	msg.set_m_xjskill((int32_t)m_XJSkill);
 	msg.set_m_skillid((int32_t)m_SkillId);
+	msg.set_m_skillmax((int32_t)m_SkillMax);
 	for(int32_t i = 0; i < (int32_t)m_Unlock.size(); ++i) {
 		msg.add_m_unlock((int32_t)m_Unlock[i]);
 	}
@@ -1619,6 +1621,7 @@ void E_XingchenXingji_s::read_from_pbmsg(const ::proto_ff::E_XingchenXingji & ms
 	m_XJClass = msg.m_xjclass();
 	m_XJSkill = msg.m_xjskill();
 	m_SkillId = msg.m_skillid();
+	m_SkillMax = msg.m_skillmax();
 	m_Unlock.resize((int)msg.m_unlock_size() > (int)m_Unlock.max_size() ? m_Unlock.max_size() : msg.m_unlock_size());
 	for(int32_t i = 0; i < (int32_t)m_Unlock.size(); ++i) {
 		m_Unlock[i] = msg.m_unlock(i);

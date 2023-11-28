@@ -154,7 +154,9 @@ int E_FestivalTemplate_s::ResumeInit() {
 void E_FestivalTemplate_s::write_to_pbmsg(::proto_ff::E_FestivalTemplate & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_name(m_name.data());
+	msg.set_m_actionname(m_actionName.data());
 	msg.set_m_festivalid((int32_t)m_festivalId);
+	msg.set_m_actionfestivalid(m_actionFestivalId.data());
 	msg.set_m_timetype((int32_t)m_timeType);
 	msg.set_m_level((int32_t)m_level);
 	msg.set_m_viplevel((int32_t)m_vipLevel);
@@ -173,7 +175,9 @@ void E_FestivalTemplate_s::write_to_pbmsg(::proto_ff::E_FestivalTemplate & msg) 
 void E_FestivalTemplate_s::read_from_pbmsg(const ::proto_ff::E_FestivalTemplate & msg) {
 	m_id = msg.m_id();
 	m_name = msg.m_name();
+	m_actionName = msg.m_actionname();
 	m_festivalId = msg.m_festivalid();
+	m_actionFestivalId = msg.m_actionfestivalid();
 	m_timeType = msg.m_timetype();
 	m_level = msg.m_level();
 	m_vipLevel = msg.m_viplevel();
@@ -218,6 +222,604 @@ void Sheet_FestivalTemplate_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalT
 	for(int32_t i = 0; i < (int32_t)E_FestivalTemplate_List.size(); ++i) {
 		const ::proto_ff::E_FestivalTemplate & temp_e_festivaltemplate_list = msg.e_festivaltemplate_list(i);
 		E_FestivalTemplate_List[i].read_from_pbmsg(temp_e_festivaltemplate_list);
+	}
+}
+
+E_FestivalMuban_eggsdraw_s::E_FestivalMuban_eggsdraw_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_eggsdraw_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_costItem = (int32_t)0;
+	m_poolGroupID = (int32_t)0;
+	m_showType = (int32_t)0;
+	m_restartItem = (int32_t)0;
+	m_restartCost = (int32_t)0;
+	m_dailyRestart = (int32_t)0;
+	m_free = (int32_t)0;
+	m_taskGroupID = (int32_t)0;
+	m_dailyTaskRestart = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_eggsdraw_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_eggsdraw_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_eggsdraw & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_costitem((int32_t)m_costItem);
+	msg.set_m_costnum(m_costNum.data());
+	msg.set_m_poolgroupid((int32_t)m_poolGroupID);
+	msg.set_m_showtype((int32_t)m_showType);
+	msg.set_m_baseimage(m_baseImage.data());
+	msg.set_m_eggimage(m_eggImage.data());
+	msg.set_m_clickdesc(m_clickDesc.data());
+	msg.set_m_costdesc(m_costDesc.data());
+	msg.set_m_residuedesc(m_residueDesc.data());
+	msg.set_m_restartitem((int32_t)m_restartItem);
+	msg.set_m_restartcost((int32_t)m_restartCost);
+	msg.set_m_dailyrestart((int32_t)m_dailyRestart);
+	msg.set_m_free((int32_t)m_free);
+	msg.set_m_taskgroupid((int32_t)m_taskGroupID);
+	msg.set_m_dailytaskrestart((int32_t)m_dailyTaskRestart);
+}
+
+void E_FestivalMuban_eggsdraw_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_eggsdraw & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_costItem = msg.m_costitem();
+	m_costNum = msg.m_costnum();
+	m_poolGroupID = msg.m_poolgroupid();
+	m_showType = msg.m_showtype();
+	m_baseImage = msg.m_baseimage();
+	m_eggImage = msg.m_eggimage();
+	m_clickDesc = msg.m_clickdesc();
+	m_costDesc = msg.m_costdesc();
+	m_residueDesc = msg.m_residuedesc();
+	m_restartItem = msg.m_restartitem();
+	m_restartCost = msg.m_restartcost();
+	m_dailyRestart = msg.m_dailyrestart();
+	m_free = msg.m_free();
+	m_taskGroupID = msg.m_taskgroupid();
+	m_dailyTaskRestart = msg.m_dailytaskrestart();
+}
+
+Sheet_FestivalMuban_eggsdraw_s::Sheet_FestivalMuban_eggsdraw_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_eggsdraw_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_eggsdraw_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_eggsdraw_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_eggsdraw & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_eggsdraw_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_eggsdraw* temp_e_festivalmuban_eggsdraw_list = msg.add_e_festivalmuban_eggsdraw_list();
+		E_FestivalMuban_eggsdraw_List[i].write_to_pbmsg(*temp_e_festivalmuban_eggsdraw_list);
+	}
+}
+
+void Sheet_FestivalMuban_eggsdraw_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_eggsdraw & msg) {
+	E_FestivalMuban_eggsdraw_List.resize((int)msg.e_festivalmuban_eggsdraw_list_size() > (int)E_FestivalMuban_eggsdraw_List.max_size() ? E_FestivalMuban_eggsdraw_List.max_size() : msg.e_festivalmuban_eggsdraw_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_eggsdraw_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_eggsdraw & temp_e_festivalmuban_eggsdraw_list = msg.e_festivalmuban_eggsdraw_list(i);
+		E_FestivalMuban_eggsdraw_List[i].read_from_pbmsg(temp_e_festivalmuban_eggsdraw_list);
+	}
+}
+
+E_FestivalMuban_eggsdraw_pool_s::E_FestivalMuban_eggsdraw_pool_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_eggsdraw_pool_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_itemid = (int64_t)0;
+	m_num = (int32_t)0;
+	m_prof = (int32_t)0;
+	m_weights = (int32_t)0;
+	m_Record = (int32_t)0;
+	m_poolLv = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_eggsdraw_pool_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_eggsdraw_pool_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_eggsdraw_pool & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_itemid((int64_t)m_itemid);
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_prof((int32_t)m_prof);
+	msg.set_m_weights((int32_t)m_weights);
+	msg.set_m_record((int32_t)m_Record);
+	msg.set_m_poollv((int32_t)m_poolLv);
+}
+
+void E_FestivalMuban_eggsdraw_pool_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_eggsdraw_pool & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_itemid = msg.m_itemid();
+	m_num = msg.m_num();
+	m_prof = msg.m_prof();
+	m_weights = msg.m_weights();
+	m_Record = msg.m_record();
+	m_poolLv = msg.m_poollv();
+}
+
+Sheet_FestivalMuban_eggsdraw_pool_s::Sheet_FestivalMuban_eggsdraw_pool_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_eggsdraw_pool_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_eggsdraw_pool_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_eggsdraw_pool & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_eggsdraw_pool_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_eggsdraw_pool* temp_e_festivalmuban_eggsdraw_pool_list = msg.add_e_festivalmuban_eggsdraw_pool_list();
+		E_FestivalMuban_eggsdraw_pool_List[i].write_to_pbmsg(*temp_e_festivalmuban_eggsdraw_pool_list);
+	}
+}
+
+void Sheet_FestivalMuban_eggsdraw_pool_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_eggsdraw_pool & msg) {
+	E_FestivalMuban_eggsdraw_pool_List.resize((int)msg.e_festivalmuban_eggsdraw_pool_list_size() > (int)E_FestivalMuban_eggsdraw_pool_List.max_size() ? E_FestivalMuban_eggsdraw_pool_List.max_size() : msg.e_festivalmuban_eggsdraw_pool_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_eggsdraw_pool_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_eggsdraw_pool & temp_e_festivalmuban_eggsdraw_pool_list = msg.e_festivalmuban_eggsdraw_pool_list(i);
+		E_FestivalMuban_eggsdraw_pool_List[i].read_from_pbmsg(temp_e_festivalmuban_eggsdraw_pool_list);
+	}
+}
+
+E_FestivalMuban_eggsdraw_task_s::E_FestivalMuban_eggsdraw_task_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_eggsdraw_task_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_eventType = (int32_t)0;
+	m_reachPrice = (int32_t)0;
+	m_rewardItem = (int32_t)0;
+	m_rewardNum = (int32_t)0;
+	m_link = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_eggsdraw_task_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_eggsdraw_task_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_eggsdraw_task & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_eventtype((int32_t)m_eventType);
+	msg.set_m_reachprice((int32_t)m_reachPrice);
+	msg.set_m_rewarditem((int32_t)m_rewardItem);
+	msg.set_m_rewardnum((int32_t)m_rewardNum);
+	msg.set_m_link((int32_t)m_link);
+	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
+		msg.add_m_param((int32_t)m_param[i]);
+	}
+}
+
+void E_FestivalMuban_eggsdraw_task_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_eggsdraw_task & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_eventType = msg.m_eventtype();
+	m_reachPrice = msg.m_reachprice();
+	m_rewardItem = msg.m_rewarditem();
+	m_rewardNum = msg.m_rewardnum();
+	m_link = msg.m_link();
+	m_param.resize((int)msg.m_param_size() > (int)m_param.max_size() ? m_param.max_size() : msg.m_param_size());
+	for(int32_t i = 0; i < (int32_t)m_param.size(); ++i) {
+		m_param[i] = msg.m_param(i);
+	}
+}
+
+Sheet_FestivalMuban_eggsdraw_task_s::Sheet_FestivalMuban_eggsdraw_task_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_eggsdraw_task_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_eggsdraw_task_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_eggsdraw_task_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_eggsdraw_task & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_eggsdraw_task_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_eggsdraw_task* temp_e_festivalmuban_eggsdraw_task_list = msg.add_e_festivalmuban_eggsdraw_task_list();
+		E_FestivalMuban_eggsdraw_task_List[i].write_to_pbmsg(*temp_e_festivalmuban_eggsdraw_task_list);
+	}
+}
+
+void Sheet_FestivalMuban_eggsdraw_task_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_eggsdraw_task & msg) {
+	E_FestivalMuban_eggsdraw_task_List.resize((int)msg.e_festivalmuban_eggsdraw_task_list_size() > (int)E_FestivalMuban_eggsdraw_task_List.max_size() ? E_FestivalMuban_eggsdraw_task_List.max_size() : msg.e_festivalmuban_eggsdraw_task_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_eggsdraw_task_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_eggsdraw_task & temp_e_festivalmuban_eggsdraw_task_list = msg.e_festivalmuban_eggsdraw_task_list(i);
+		E_FestivalMuban_eggsdraw_task_List[i].read_from_pbmsg(temp_e_festivalmuban_eggsdraw_task_list);
+	}
+}
+
+E_FestivalMuban_ftreward_s::E_FestivalMuban_ftreward_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_ftreward_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_addItemID = (int32_t)0;
+	m_linkid = (int32_t)0;
+	m_functionID = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_ftreward_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_ftreward_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_ftreward & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_ftid(m_FTID.data());
+	msg.set_m_additemid((int32_t)m_addItemID);
+	msg.set_m_showreward(m_showReward.data());
+	msg.set_m_linkid((int32_t)m_linkid);
+	msg.set_m_functionid((int32_t)m_functionID);
+}
+
+void E_FestivalMuban_ftreward_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_ftreward & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_FTID = msg.m_ftid();
+	m_addItemID = msg.m_additemid();
+	m_showReward = msg.m_showreward();
+	m_linkid = msg.m_linkid();
+	m_functionID = msg.m_functionid();
+}
+
+Sheet_FestivalMuban_ftreward_s::Sheet_FestivalMuban_ftreward_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_ftreward_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_ftreward_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_ftreward_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_ftreward & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_ftreward_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_ftreward* temp_e_festivalmuban_ftreward_list = msg.add_e_festivalmuban_ftreward_list();
+		E_FestivalMuban_ftreward_List[i].write_to_pbmsg(*temp_e_festivalmuban_ftreward_list);
+	}
+}
+
+void Sheet_FestivalMuban_ftreward_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_ftreward & msg) {
+	E_FestivalMuban_ftreward_List.resize((int)msg.e_festivalmuban_ftreward_list_size() > (int)E_FestivalMuban_ftreward_List.max_size() ? E_FestivalMuban_ftreward_List.max_size() : msg.e_festivalmuban_ftreward_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_ftreward_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_ftreward & temp_e_festivalmuban_ftreward_list = msg.e_festivalmuban_ftreward_list(i);
+		E_FestivalMuban_ftreward_List[i].read_from_pbmsg(temp_e_festivalmuban_ftreward_list);
+	}
+}
+
+E_FestivalMuban_challenge_s::E_FestivalMuban_challenge_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_challenge_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_joinBox = (int32_t)0;
+	m_killBoxShow = (int32_t)0;
+	m_monster = (int32_t)0;
+	m_point = (int32_t)0;
+	m_faceid = (int32_t)0;
+	m_linkid = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_challenge_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_challenge_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_challenge & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_name(m_name.data());
+	msg.set_m_joinbox((int32_t)m_joinBox);
+	msg.set_m_killboxshow((int32_t)m_killBoxShow);
+	msg.set_m_monster((int32_t)m_monster);
+	msg.set_m_point((int32_t)m_point);
+	msg.set_m_showtime(m_showTime.data());
+	msg.set_m_faceid((int32_t)m_faceid);
+	msg.set_m_scalle(m_scalle.data());
+	msg.set_m_linkid((int32_t)m_linkid);
+}
+
+void E_FestivalMuban_challenge_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_challenge & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_name = msg.m_name();
+	m_joinBox = msg.m_joinbox();
+	m_killBoxShow = msg.m_killboxshow();
+	m_monster = msg.m_monster();
+	m_point = msg.m_point();
+	m_showTime = msg.m_showtime();
+	m_faceid = msg.m_faceid();
+	m_scalle = msg.m_scalle();
+	m_linkid = msg.m_linkid();
+}
+
+Sheet_FestivalMuban_challenge_s::Sheet_FestivalMuban_challenge_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_challenge_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_challenge_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_challenge_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_challenge & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_challenge_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_challenge* temp_e_festivalmuban_challenge_list = msg.add_e_festivalmuban_challenge_list();
+		E_FestivalMuban_challenge_List[i].write_to_pbmsg(*temp_e_festivalmuban_challenge_list);
+	}
+}
+
+void Sheet_FestivalMuban_challenge_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_challenge & msg) {
+	E_FestivalMuban_challenge_List.resize((int)msg.e_festivalmuban_challenge_list_size() > (int)E_FestivalMuban_challenge_List.max_size() ? E_FestivalMuban_challenge_List.max_size() : msg.e_festivalmuban_challenge_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_challenge_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_challenge & temp_e_festivalmuban_challenge_list = msg.e_festivalmuban_challenge_list(i);
+		E_FestivalMuban_challenge_List[i].read_from_pbmsg(temp_e_festivalmuban_challenge_list);
+	}
+}
+
+E_FestivalMuban_mystmallOpenDesc_s::E_FestivalMuban_mystmallOpenDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_mystmallOpenDesc_s::CreateInit() {
+	m_dur = (int32_t)0;
+	m_mallID = (int32_t)0;
+	m_ID = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_mystmallOpenDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_mystmallOpenDesc_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_mystmallOpenDesc & msg) const {
+	msg.set_m_dur((int32_t)m_dur);
+	msg.set_m_mallid((int32_t)m_mallID);
+	msg.set_m_time(m_time.data());
+	msg.set_m_id((int32_t)m_ID);
+}
+
+void E_FestivalMuban_mystmallOpenDesc_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_mystmallOpenDesc & msg) {
+	m_dur = msg.m_dur();
+	m_mallID = msg.m_mallid();
+	m_time = msg.m_time();
+	m_ID = msg.m_id();
+}
+
+E_FestivalMuban_mystmall_s::E_FestivalMuban_mystmall_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_mystmall_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_day = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_mystmall_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_mystmall_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_mystmall & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_day((int32_t)m_day);
+	for(int32_t i = 0; i < (int32_t)m_open.size(); ++i) {
+		::proto_ff::E_FestivalMuban_mystmallOpenDesc* temp_m_open = msg.add_m_open();
+		m_open[i].write_to_pbmsg(*temp_m_open);
+	}
+}
+
+void E_FestivalMuban_mystmall_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_mystmall & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_day = msg.m_day();
+	m_open.resize((int)msg.m_open_size() > (int)m_open.max_size() ? m_open.max_size() : msg.m_open_size());
+	for(int32_t i = 0; i < (int32_t)m_open.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_mystmallOpenDesc & temp_m_open = msg.m_open(i);
+		m_open[i].read_from_pbmsg(temp_m_open);
+	}
+}
+
+Sheet_FestivalMuban_mystmall_s::Sheet_FestivalMuban_mystmall_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_mystmall_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_mystmall_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_mystmall_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_mystmall & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_mystmall_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_mystmall* temp_e_festivalmuban_mystmall_list = msg.add_e_festivalmuban_mystmall_list();
+		E_FestivalMuban_mystmall_List[i].write_to_pbmsg(*temp_e_festivalmuban_mystmall_list);
+	}
+}
+
+void Sheet_FestivalMuban_mystmall_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_mystmall & msg) {
+	E_FestivalMuban_mystmall_List.resize((int)msg.e_festivalmuban_mystmall_list_size() > (int)E_FestivalMuban_mystmall_List.max_size() ? E_FestivalMuban_mystmall_List.max_size() : msg.e_festivalmuban_mystmall_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_mystmall_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_mystmall & temp_e_festivalmuban_mystmall_list = msg.e_festivalmuban_mystmall_list(i);
+		E_FestivalMuban_mystmall_List[i].read_from_pbmsg(temp_e_festivalmuban_mystmall_list);
+	}
+}
+
+E_FestivalMuban_mystmall_mall_s::E_FestivalMuban_mystmall_mall_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_mystmall_mall_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
+	m_priceType = (int32_t)0;
+	m_price = (int32_t)0;
+	m_originPrice = (int32_t)0;
+	m_discount = (int32_t)0;
+	m_buyAmount = (int32_t)0;
+	m_functionUnlock = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_mystmall_mall_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_mystmall_mall_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_mystmall_mall & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
+	msg.set_m_pricetype((int32_t)m_priceType);
+	msg.set_m_price((int32_t)m_price);
+	msg.set_m_originprice((int32_t)m_originPrice);
+	msg.set_m_discount((int32_t)m_discount);
+	msg.set_m_buyamount((int32_t)m_buyAmount);
+	msg.set_m_functionunlock((int32_t)m_functionUnlock);
+}
+
+void E_FestivalMuban_mystmall_mall_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_mystmall_mall & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
+	m_priceType = msg.m_pricetype();
+	m_price = msg.m_price();
+	m_originPrice = msg.m_originprice();
+	m_discount = msg.m_discount();
+	m_buyAmount = msg.m_buyamount();
+	m_functionUnlock = msg.m_functionunlock();
+}
+
+Sheet_FestivalMuban_mystmall_mall_s::Sheet_FestivalMuban_mystmall_mall_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_mystmall_mall_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_mystmall_mall_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_mystmall_mall_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_mystmall_mall & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_mystmall_mall_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_mystmall_mall* temp_e_festivalmuban_mystmall_mall_list = msg.add_e_festivalmuban_mystmall_mall_list();
+		E_FestivalMuban_mystmall_mall_List[i].write_to_pbmsg(*temp_e_festivalmuban_mystmall_mall_list);
+	}
+}
+
+void Sheet_FestivalMuban_mystmall_mall_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_mystmall_mall & msg) {
+	E_FestivalMuban_mystmall_mall_List.resize((int)msg.e_festivalmuban_mystmall_mall_list_size() > (int)E_FestivalMuban_mystmall_mall_List.max_size() ? E_FestivalMuban_mystmall_mall_List.max_size() : msg.e_festivalmuban_mystmall_mall_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_mystmall_mall_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_mystmall_mall & temp_e_festivalmuban_mystmall_mall_list = msg.e_festivalmuban_mystmall_mall_list(i);
+		E_FestivalMuban_mystmall_mall_List[i].read_from_pbmsg(temp_e_festivalmuban_mystmall_mall_list);
 	}
 }
 
@@ -333,6 +935,7 @@ int E_FestivalMuban_rebatestore_mall_s::CreateInit() {
 	m_groupID = (int32_t)0;
 	m_mallType = (int32_t)0;
 	m_itemID = (int32_t)0;
+	m_itemNum = (int32_t)0;
 	m_price = (int32_t)0;
 	m_originPrice = (int32_t)0;
 	m_discount = (int32_t)0;
@@ -353,6 +956,7 @@ void E_FestivalMuban_rebatestore_mall_s::write_to_pbmsg(::proto_ff::E_FestivalMu
 	msg.set_m_groupid((int32_t)m_groupID);
 	msg.set_m_malltype((int32_t)m_mallType);
 	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_itemnum((int32_t)m_itemNum);
 	msg.set_m_price((int32_t)m_price);
 	msg.set_m_originprice((int32_t)m_originPrice);
 	msg.set_m_discount((int32_t)m_discount);
@@ -368,6 +972,7 @@ void E_FestivalMuban_rebatestore_mall_s::read_from_pbmsg(const ::proto_ff::E_Fes
 	m_groupID = msg.m_groupid();
 	m_mallType = msg.m_malltype();
 	m_itemID = msg.m_itemid();
+	m_itemNum = msg.m_itemnum();
 	m_price = msg.m_price();
 	m_originPrice = msg.m_originprice();
 	m_discount = msg.m_discount();
@@ -1459,6 +2064,7 @@ int E_FestivalMuban_severrank_data_s::CreateInit() {
 	m_maxRank = (int32_t)0;
 	m_minRank = (int32_t)0;
 	m_rankValue = (int32_t)0;
+	m_addRankValue = (int32_t)0;
 	m_boxID = (int32_t)0;
 	return 0;
 }
@@ -1473,7 +2079,9 @@ void E_FestivalMuban_severrank_data_s::write_to_pbmsg(::proto_ff::E_FestivalMuba
 	msg.set_m_maxrank((int32_t)m_maxRank);
 	msg.set_m_minrank((int32_t)m_minRank);
 	msg.set_m_rankvalue((int32_t)m_rankValue);
+	msg.set_m_addrankvalue((int32_t)m_addRankValue);
 	msg.set_m_unachievedisplay(m_UnachieveDisplay.data());
+	msg.set_m_addunachievedisplay(m_addUnachieveDisplay.data());
 	msg.set_m_boxid((int32_t)m_boxID);
 }
 
@@ -1483,7 +2091,9 @@ void E_FestivalMuban_severrank_data_s::read_from_pbmsg(const ::proto_ff::E_Festi
 	m_maxRank = msg.m_maxrank();
 	m_minRank = msg.m_minrank();
 	m_rankValue = msg.m_rankvalue();
+	m_addRankValue = msg.m_addrankvalue();
 	m_UnachieveDisplay = msg.m_unachievedisplay();
+	m_addUnachieveDisplay = msg.m_addunachievedisplay();
 	m_boxID = msg.m_boxid();
 }
 
@@ -1901,6 +2511,74 @@ void Sheet_FestivalMuban_leiji_s::read_from_pbmsg(const ::proto_ff::Sheet_Festiv
 	}
 }
 
+E_FestivalZadanconstant_s::E_FestivalZadanconstant_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalZadanconstant_s::CreateInit() {
+	m_period = (int32_t)0;
+	m_costItem = (int64_t)0;
+	m_number = (int32_t)0;
+	m_free = (int32_t)0;
+	m_currency = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalZadanconstant_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalZadanconstant_s::write_to_pbmsg(::proto_ff::E_FestivalZadanconstant & msg) const {
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_costitem((int64_t)m_costItem);
+	msg.set_m_number((int32_t)m_number);
+	msg.set_m_free((int32_t)m_free);
+	msg.set_m_currency((int32_t)m_currency);
+}
+
+void E_FestivalZadanconstant_s::read_from_pbmsg(const ::proto_ff::E_FestivalZadanconstant & msg) {
+	m_period = msg.m_period();
+	m_costItem = msg.m_costitem();
+	m_number = msg.m_number();
+	m_free = msg.m_free();
+	m_currency = msg.m_currency();
+}
+
+Sheet_FestivalZadanconstant_s::Sheet_FestivalZadanconstant_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalZadanconstant_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalZadanconstant_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalZadanconstant_s::write_to_pbmsg(::proto_ff::Sheet_FestivalZadanconstant & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalZadanconstant_List.size(); ++i) {
+		::proto_ff::E_FestivalZadanconstant* temp_e_festivalzadanconstant_list = msg.add_e_festivalzadanconstant_list();
+		E_FestivalZadanconstant_List[i].write_to_pbmsg(*temp_e_festivalzadanconstant_list);
+	}
+}
+
+void Sheet_FestivalZadanconstant_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalZadanconstant & msg) {
+	E_FestivalZadanconstant_List.resize((int)msg.e_festivalzadanconstant_list_size() > (int)E_FestivalZadanconstant_List.max_size() ? E_FestivalZadanconstant_List.max_size() : msg.e_festivalzadanconstant_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalZadanconstant_List.size(); ++i) {
+		const ::proto_ff::E_FestivalZadanconstant & temp_e_festivalzadanconstant_list = msg.e_festivalzadanconstant_list(i);
+		E_FestivalZadanconstant_List[i].read_from_pbmsg(temp_e_festivalzadanconstant_list);
+	}
+}
+
 E_FestivalMuban_zadan_s::E_FestivalMuban_zadan_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1969,74 +2647,6 @@ void Sheet_FestivalMuban_zadan_s::read_from_pbmsg(const ::proto_ff::Sheet_Festiv
 	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_zadan_List.size(); ++i) {
 		const ::proto_ff::E_FestivalMuban_zadan & temp_e_festivalmuban_zadan_list = msg.e_festivalmuban_zadan_list(i);
 		E_FestivalMuban_zadan_List[i].read_from_pbmsg(temp_e_festivalmuban_zadan_list);
-	}
-}
-
-E_FestivalZadanconstant_s::E_FestivalZadanconstant_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int E_FestivalZadanconstant_s::CreateInit() {
-	m_period = (int32_t)0;
-	m_costItem = (int64_t)0;
-	m_number = (int32_t)0;
-	m_free = (int32_t)0;
-	m_currency = (int32_t)0;
-	return 0;
-}
-
-int E_FestivalZadanconstant_s::ResumeInit() {
-	return 0;
-}
-
-void E_FestivalZadanconstant_s::write_to_pbmsg(::proto_ff::E_FestivalZadanconstant & msg) const {
-	msg.set_m_period((int32_t)m_period);
-	msg.set_m_costitem((int64_t)m_costItem);
-	msg.set_m_number((int32_t)m_number);
-	msg.set_m_free((int32_t)m_free);
-	msg.set_m_currency((int32_t)m_currency);
-}
-
-void E_FestivalZadanconstant_s::read_from_pbmsg(const ::proto_ff::E_FestivalZadanconstant & msg) {
-	m_period = msg.m_period();
-	m_costItem = msg.m_costitem();
-	m_number = msg.m_number();
-	m_free = msg.m_free();
-	m_currency = msg.m_currency();
-}
-
-Sheet_FestivalZadanconstant_s::Sheet_FestivalZadanconstant_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Sheet_FestivalZadanconstant_s::CreateInit() {
-	return 0;
-}
-
-int Sheet_FestivalZadanconstant_s::ResumeInit() {
-	return 0;
-}
-
-void Sheet_FestivalZadanconstant_s::write_to_pbmsg(::proto_ff::Sheet_FestivalZadanconstant & msg) const {
-	for(int32_t i = 0; i < (int32_t)E_FestivalZadanconstant_List.size(); ++i) {
-		::proto_ff::E_FestivalZadanconstant* temp_e_festivalzadanconstant_list = msg.add_e_festivalzadanconstant_list();
-		E_FestivalZadanconstant_List[i].write_to_pbmsg(*temp_e_festivalzadanconstant_list);
-	}
-}
-
-void Sheet_FestivalZadanconstant_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalZadanconstant & msg) {
-	E_FestivalZadanconstant_List.resize((int)msg.e_festivalzadanconstant_list_size() > (int)E_FestivalZadanconstant_List.max_size() ? E_FestivalZadanconstant_List.max_size() : msg.e_festivalzadanconstant_list_size());
-	for(int32_t i = 0; i < (int32_t)E_FestivalZadanconstant_List.size(); ++i) {
-		const ::proto_ff::E_FestivalZadanconstant & temp_e_festivalzadanconstant_list = msg.e_festivalzadanconstant_list(i);
-		E_FestivalZadanconstant_List[i].read_from_pbmsg(temp_e_festivalzadanconstant_list);
 	}
 }
 
@@ -2822,7 +3432,9 @@ E_FestivalMuban_drawpize_s::E_FestivalMuban_drawpize_s() {
 int E_FestivalMuban_drawpize_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_period = (int32_t)0;
-	m_costID = (int64_t)0;
+	m_costID = (int32_t)0;
+	m_drawPutback = (int32_t)0;
+	m_costType = (int32_t)0;
 	m_poolGroupId = (int32_t)0;
 	m_totalGroupID = (int32_t)0;
 	m_severLimit = (int32_t)0;
@@ -2837,7 +3449,9 @@ int E_FestivalMuban_drawpize_s::ResumeInit() {
 void E_FestivalMuban_drawpize_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_drawpize & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_period((int32_t)m_period);
-	msg.set_m_costid((int64_t)m_costID);
+	msg.set_m_costid((int32_t)m_costID);
+	msg.set_m_drawputback((int32_t)m_drawPutback);
+	msg.set_m_costtype((int32_t)m_costType);
 	msg.set_m_costnum(m_costNum.data());
 	msg.set_m_poolgroupid((int32_t)m_poolGroupId);
 	msg.set_m_totalgroupid((int32_t)m_totalGroupID);
@@ -2849,6 +3463,8 @@ void E_FestivalMuban_drawpize_s::read_from_pbmsg(const ::proto_ff::E_FestivalMub
 	m_id = msg.m_id();
 	m_period = msg.m_period();
 	m_costID = msg.m_costid();
+	m_drawPutback = msg.m_drawputback();
+	m_costType = msg.m_costtype();
 	m_costNum = msg.m_costnum();
 	m_poolGroupId = msg.m_poolgroupid();
 	m_totalGroupID = msg.m_totalgroupid();
@@ -2905,6 +3521,7 @@ int E_FestivalMuban_drawpize_pool_s::CreateInit() {
 	m_proWeights = (int32_t)0;
 	m_timeLimit = (int32_t)0;
 	m_Record = (int32_t)0;
+	m_poolLv = (int32_t)0;
 	return 0;
 }
 
@@ -2922,6 +3539,9 @@ void E_FestivalMuban_drawpize_pool_s::write_to_pbmsg(::proto_ff::E_FestivalMuban
 	msg.set_m_proweights((int32_t)m_proWeights);
 	msg.set_m_timelimit((int32_t)m_timeLimit);
 	msg.set_m_record((int32_t)m_Record);
+	msg.set_m_poollv((int32_t)m_poolLv);
+	msg.set_m_image(m_image.data());
+	msg.set_m_point(m_point.data());
 }
 
 void E_FestivalMuban_drawpize_pool_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_drawpize_pool & msg) {
@@ -2934,6 +3554,9 @@ void E_FestivalMuban_drawpize_pool_s::read_from_pbmsg(const ::proto_ff::E_Festiv
 	m_proWeights = msg.m_proweights();
 	m_timeLimit = msg.m_timelimit();
 	m_Record = msg.m_record();
+	m_poolLv = msg.m_poollv();
+	m_image = msg.m_image();
+	m_point = msg.m_point();
 }
 
 Sheet_FestivalMuban_drawpize_pool_s::Sheet_FestivalMuban_drawpize_pool_s() {
@@ -3162,6 +3785,229 @@ void Sheet_FestivalMuban_dailytotalrecharge_s::read_from_pbmsg(const ::proto_ff:
 	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_dailytotalrecharge_List.size(); ++i) {
 		const ::proto_ff::E_FestivalMuban_dailytotalrecharge & temp_e_festivalmuban_dailytotalrecharge_list = msg.e_festivalmuban_dailytotalrecharge_list(i);
 		E_FestivalMuban_dailytotalrecharge_List[i].read_from_pbmsg(temp_e_festivalmuban_dailytotalrecharge_list);
+	}
+}
+
+E_FestivalMuban_rechargeprize_s::E_FestivalMuban_rechargeprize_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_rechargeprize_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_period = (int32_t)0;
+	m_poolType = (int32_t)0;
+	m_poolNum = (int32_t)0;
+	m_showBoost = (int32_t)0;
+	m_maxPrize = (int32_t)0;
+	m_taskID = (int32_t)0;
+	m_prizeID = (int32_t)0;
+	m_itemID = (int32_t)0;
+	m_freeBox = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_rechargeprize_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_rechargeprize_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rechargeprize & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_period((int32_t)m_period);
+	msg.set_m_pooltype((int32_t)m_poolType);
+	msg.set_m_poolnum((int32_t)m_poolNum);
+	msg.set_m_showboost((int32_t)m_showBoost);
+	msg.set_m_maxprize((int32_t)m_maxPrize);
+	msg.set_m_taskid((int32_t)m_taskID);
+	msg.set_m_prizeid((int32_t)m_prizeID);
+	msg.set_m_itemid((int32_t)m_itemID);
+	msg.set_m_freebox((int32_t)m_freeBox);
+}
+
+void E_FestivalMuban_rechargeprize_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rechargeprize & msg) {
+	m_id = msg.m_id();
+	m_period = msg.m_period();
+	m_poolType = msg.m_pooltype();
+	m_poolNum = msg.m_poolnum();
+	m_showBoost = msg.m_showboost();
+	m_maxPrize = msg.m_maxprize();
+	m_taskID = msg.m_taskid();
+	m_prizeID = msg.m_prizeid();
+	m_itemID = msg.m_itemid();
+	m_freeBox = msg.m_freebox();
+}
+
+Sheet_FestivalMuban_rechargeprize_s::Sheet_FestivalMuban_rechargeprize_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_rechargeprize_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_rechargeprize_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_rechargeprize_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_rechargeprize & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_rechargeprize_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_rechargeprize* temp_e_festivalmuban_rechargeprize_list = msg.add_e_festivalmuban_rechargeprize_list();
+		E_FestivalMuban_rechargeprize_List[i].write_to_pbmsg(*temp_e_festivalmuban_rechargeprize_list);
+	}
+}
+
+void Sheet_FestivalMuban_rechargeprize_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_rechargeprize & msg) {
+	E_FestivalMuban_rechargeprize_List.resize((int)msg.e_festivalmuban_rechargeprize_list_size() > (int)E_FestivalMuban_rechargeprize_List.max_size() ? E_FestivalMuban_rechargeprize_List.max_size() : msg.e_festivalmuban_rechargeprize_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_rechargeprize_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_rechargeprize & temp_e_festivalmuban_rechargeprize_list = msg.e_festivalmuban_rechargeprize_list(i);
+		E_FestivalMuban_rechargeprize_List[i].read_from_pbmsg(temp_e_festivalmuban_rechargeprize_list);
+	}
+}
+
+E_FestivalMuban_rptask_s::E_FestivalMuban_rptask_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_rptask_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_type = (int32_t)0;
+	m_prizeNum = (int32_t)0;
+	m_link = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_rptask_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_rptask_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rptask & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_type((int32_t)m_type);
+	msg.set_m_typearg(m_typeArg.data());
+	msg.set_m_prizenum((int32_t)m_prizeNum);
+	msg.set_m_desc(m_desc.data());
+	msg.set_m_link((int32_t)m_link);
+}
+
+void E_FestivalMuban_rptask_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rptask & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_type = msg.m_type();
+	m_typeArg = msg.m_typearg();
+	m_prizeNum = msg.m_prizenum();
+	m_desc = msg.m_desc();
+	m_link = msg.m_link();
+}
+
+Sheet_FestivalMuban_rptask_s::Sheet_FestivalMuban_rptask_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_rptask_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_rptask_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_rptask_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_rptask & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_rptask_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_rptask* temp_e_festivalmuban_rptask_list = msg.add_e_festivalmuban_rptask_list();
+		E_FestivalMuban_rptask_List[i].write_to_pbmsg(*temp_e_festivalmuban_rptask_list);
+	}
+}
+
+void Sheet_FestivalMuban_rptask_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_rptask & msg) {
+	E_FestivalMuban_rptask_List.resize((int)msg.e_festivalmuban_rptask_list_size() > (int)E_FestivalMuban_rptask_List.max_size() ? E_FestivalMuban_rptask_List.max_size() : msg.e_festivalmuban_rptask_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_rptask_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_rptask & temp_e_festivalmuban_rptask_list = msg.e_festivalmuban_rptask_list(i);
+		E_FestivalMuban_rptask_List[i].read_from_pbmsg(temp_e_festivalmuban_rptask_list);
+	}
+}
+
+E_FestivalMuban_rppool_s::E_FestivalMuban_rppool_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FestivalMuban_rppool_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_groupID = (int32_t)0;
+	m_prizeOrder = (int32_t)0;
+	m_prizeMix = (int32_t)0;
+	m_prizeMax = (int32_t)0;
+	return 0;
+}
+
+int E_FestivalMuban_rppool_s::ResumeInit() {
+	return 0;
+}
+
+void E_FestivalMuban_rppool_s::write_to_pbmsg(::proto_ff::E_FestivalMuban_rppool & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_groupid((int32_t)m_groupID);
+	msg.set_m_prizeorder((int32_t)m_prizeOrder);
+	msg.set_m_prizemix((int32_t)m_prizeMix);
+	msg.set_m_prizemax((int32_t)m_prizeMax);
+}
+
+void E_FestivalMuban_rppool_s::read_from_pbmsg(const ::proto_ff::E_FestivalMuban_rppool & msg) {
+	m_id = msg.m_id();
+	m_groupID = msg.m_groupid();
+	m_prizeOrder = msg.m_prizeorder();
+	m_prizeMix = msg.m_prizemix();
+	m_prizeMax = msg.m_prizemax();
+}
+
+Sheet_FestivalMuban_rppool_s::Sheet_FestivalMuban_rppool_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_FestivalMuban_rppool_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_FestivalMuban_rppool_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_FestivalMuban_rppool_s::write_to_pbmsg(::proto_ff::Sheet_FestivalMuban_rppool & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_rppool_List.size(); ++i) {
+		::proto_ff::E_FestivalMuban_rppool* temp_e_festivalmuban_rppool_list = msg.add_e_festivalmuban_rppool_list();
+		E_FestivalMuban_rppool_List[i].write_to_pbmsg(*temp_e_festivalmuban_rppool_list);
+	}
+}
+
+void Sheet_FestivalMuban_rppool_s::read_from_pbmsg(const ::proto_ff::Sheet_FestivalMuban_rppool & msg) {
+	E_FestivalMuban_rppool_List.resize((int)msg.e_festivalmuban_rppool_list_size() > (int)E_FestivalMuban_rppool_List.max_size() ? E_FestivalMuban_rppool_List.max_size() : msg.e_festivalmuban_rppool_list_size());
+	for(int32_t i = 0; i < (int32_t)E_FestivalMuban_rppool_List.size(); ++i) {
+		const ::proto_ff::E_FestivalMuban_rppool & temp_e_festivalmuban_rppool_list = msg.e_festivalmuban_rppool_list(i);
+		E_FestivalMuban_rppool_List[i].read_from_pbmsg(temp_e_festivalmuban_rppool_list);
 	}
 }
 

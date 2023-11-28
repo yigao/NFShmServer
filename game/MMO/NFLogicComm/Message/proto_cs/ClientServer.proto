@@ -1426,6 +1426,68 @@ message DeityEquipDisassembleRsp
   optional int32 ret_code = 1; //错误码
 }
 
+//CLIENT_DEITY_GODHOOD_INFO_REQ = 1650; //天神神格信息
+message DeityGodHoodInfoReq
+{
+  optional uint64 fantasy_id = 1;
+}
+//CLIENT_DEITY_GODHOOD_INFO_RSP = 1651; //天神神格信息
+message DeityGodHoodInfoRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional DeityGodHoodData data = 2;
+}
+//CLIENT_DEITY_GODHOOD_DRESS_REQ = 1652; //天神神格穿戴
+message DeityGodHoodDressReq
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 pos = 3;
+}
+//CLIENT_DEITY_GODHOOD_DRESS_RSP = 1653; //天神神格穿戴
+message DeityGodHoodDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 fantasy_id = 2;
+  optional DeityGodHoodData data = 3;
+}
+//CLIENT_DEITY_GODHOOD_HUASHENG_REQ = 1654;//天神神格化神
+message DeityGodHoodHuaShengReq
+{
+  optional uint64 fantasy_id = 1;
+}
+
+//CLIENT_DEITY_GODHOOD_HUASHENG_RSP = 1655;//天神神格化神
+message DeityGodHoodHuaShengRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 fantasy_id = 2;
+  optional DeityGodHoodData data = 3;
+}
+//CLIENT_DEITY_GODHOOD_LV_REQ = 1656; //天神神格升级
+message DeityGodHoodLvReq
+{
+  optional uint64 fantasy_id = 1;
+}
+//CLIENT_DEITY_GODHOOD_LV_RSP = 1657; //天神神格升级
+message DeityGodHoodLvRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 fantasy_id = 2;
+  optional DeityGodHoodData data = 3;
+}
+//CLIENT_DEITY_GODHOOD_STAR_REQ = 1658; //天神神格升星
+message DeityGodHoodStarReq
+{
+  optional uint64 fantasy_id = 1;
+}
+//CLIENT_DEITY_GODHOOD_STAR_RSP = 1659; //天神神格升星
+message DeityGodHoodStarRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 fantasy_id = 2;
+  optional DeityGodHoodData data = 3;
+}
+
 //CLIENT_TO_LOGIC_TITLE_INFO_REQ = 2300; //请求标题信息
 message CGTitleInfoReq
 {

@@ -408,4 +408,75 @@ void Sheet_TianxiafirstRefine_s::read_from_pbmsg(const ::proto_ff::Sheet_Tianxia
 	}
 }
 
+E_TianxiafirstSqskill_s::E_TianxiafirstSqskill_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_TianxiafirstSqskill_s::CreateInit() {
+	m_id = (int32_t)0;
+	m_artifactId = (int32_t)0;
+	m_skillId = (int32_t)0;
+	m_level = (int32_t)0;
+	m_condition = (int32_t)0;
+	m_score = (int32_t)0;
+	return 0;
+}
+
+int E_TianxiafirstSqskill_s::ResumeInit() {
+	return 0;
+}
+
+void E_TianxiafirstSqskill_s::write_to_pbmsg(::proto_ff::E_TianxiafirstSqskill & msg) const {
+	msg.set_m_id((int32_t)m_id);
+	msg.set_m_artifactid((int32_t)m_artifactId);
+	msg.set_m_skillid((int32_t)m_skillId);
+	msg.set_m_level((int32_t)m_level);
+	msg.set_m_condition((int32_t)m_condition);
+	msg.set_m_score((int32_t)m_score);
+}
+
+void E_TianxiafirstSqskill_s::read_from_pbmsg(const ::proto_ff::E_TianxiafirstSqskill & msg) {
+	m_id = msg.m_id();
+	m_artifactId = msg.m_artifactid();
+	m_skillId = msg.m_skillid();
+	m_level = msg.m_level();
+	m_condition = msg.m_condition();
+	m_score = msg.m_score();
+}
+
+Sheet_TianxiafirstSqskill_s::Sheet_TianxiafirstSqskill_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Sheet_TianxiafirstSqskill_s::CreateInit() {
+	return 0;
+}
+
+int Sheet_TianxiafirstSqskill_s::ResumeInit() {
+	return 0;
+}
+
+void Sheet_TianxiafirstSqskill_s::write_to_pbmsg(::proto_ff::Sheet_TianxiafirstSqskill & msg) const {
+	for(int32_t i = 0; i < (int32_t)E_TianxiafirstSqskill_List.size(); ++i) {
+		::proto_ff::E_TianxiafirstSqskill* temp_e_tianxiafirstsqskill_list = msg.add_e_tianxiafirstsqskill_list();
+		E_TianxiafirstSqskill_List[i].write_to_pbmsg(*temp_e_tianxiafirstsqskill_list);
+	}
+}
+
+void Sheet_TianxiafirstSqskill_s::read_from_pbmsg(const ::proto_ff::Sheet_TianxiafirstSqskill & msg) {
+	E_TianxiafirstSqskill_List.resize((int)msg.e_tianxiafirstsqskill_list_size() > (int)E_TianxiafirstSqskill_List.max_size() ? E_TianxiafirstSqskill_List.max_size() : msg.e_tianxiafirstsqskill_list_size());
+	for(int32_t i = 0; i < (int32_t)E_TianxiafirstSqskill_List.size(); ++i) {
+		const ::proto_ff::E_TianxiafirstSqskill & temp_e_tianxiafirstsqskill_list = msg.e_tianxiafirstsqskill_list(i);
+		E_TianxiafirstSqskill_List[i].read_from_pbmsg(temp_e_tianxiafirstsqskill_list);
+	}
+}
+
 }

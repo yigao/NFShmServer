@@ -234,9 +234,16 @@ message E_RoleExp
 	optional int32 m_solo = 10[(yd_fieldoptions.field_cname) = "单人pk"];
 	optional int32 m_multiBattle = 11[(yd_fieldoptions.field_cname) = "三人组"];
 	optional int32 m_qingyun = 12[(yd_fieldoptions.field_cname) = "青云之巅"];
-	optional int32 m_yaochi = 13[(yd_fieldoptions.field_cname) = "瑶池"];
-	optional int32 m_wedding = 14[(yd_fieldoptions.field_cname) = "婚礼"];
-	optional int32 m_bagua = 15[(yd_fieldoptions.field_cname) = "八卦迷阵"];
+	optional int32 m_yaochi = 13[(yd_fieldoptions.field_cname) = "瑶池挂机"];
+	optional int32 m_yaochiAct = 14[(yd_fieldoptions.field_cname) = "瑶池行为"];
+	optional int32 m_wedding = 15[(yd_fieldoptions.field_cname) = "婚礼"];
+	optional int32 m_bagua = 16[(yd_fieldoptions.field_cname) = "八卦迷阵"];
+	optional int32 m_guildTask = 17[(yd_fieldoptions.field_cname) = "公会环任务"];
+	optional int32 m_PrestigeMissions = 18[(yd_fieldoptions.field_cname) = "声望任务"];
+	optional int32 m_xianyuanDungeon = 19[(yd_fieldoptions.field_cname) = "仙缘副本"];
+	optional int32 m_guardian = 20[(yd_fieldoptions.field_cname) = "帮派守护"];
+	optional int32 m_guildWar = 21[(yd_fieldoptions.field_cname) = "公会战"];
+	optional int32 m_valley = 22[(yd_fieldoptions.field_cname) = "神机谷"];
 }
 
 

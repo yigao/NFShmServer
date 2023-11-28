@@ -132,10 +132,13 @@ void protobuf_AssignDesc_E_5fMap_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MapMap));
   E_MapItemdrop_descriptor_ = file->message_type(2);
-  static const int E_MapItemdrop_offsets_[9] = {
+  static const int E_MapItemdrop_offsets_[12] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_itemdropid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_droptype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_odds_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_ownprotect_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_belongtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_nummax_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_dropvaluea_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_dropvalueb_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MapItemdrop, m_dropvaluec_),
@@ -404,39 +407,42 @@ void protobuf_AddDesc_E_5fMap_2eproto() {
     "lvSupPvp\030& \001(\005B\020\302\377\024\014\347\255\211\347\272\247\345\216\213\345\210\266\022\'\n\rm_po"
     "werSupPvp\030\' \001(\005B\020\302\377\024\014\346\210\230\345\212\233\345\216\213\345\210\266\"@\n\014She"
     "et_MapMap\0220\n\rE_MapMap_List\030\001 \003(\0132\022.proto"
-    "_ff.E_MapMapB\005\210\301\024\200\001\"\361\002\n\rE_MapItemdrop\022\"\n"
+    "_ff.E_MapMapB\005\210\301\024\200\001\"\353\003\n\rE_MapItemdrop\022\"\n"
     "\014m_itemDropID\030\001 \001(\005B\014\302\377\024\010\346\216\211\350\220\275ID\022$\n\nm_d"
     "ropType\030\002 \001(\005B\020\302\377\024\014\346\216\211\350\220\275\347\261\273\345\236\213\022 \n\006m_odd"
-    "s\030\003 \001(\005B\020\302\377\024\014\350\247\246\345\217\221\345\207\240\347\216\207\022\'\n\014m_dropvalue"
-    "a\030\004 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260a\022\'\n\014m_dropvalu"
-    "eb\030\005 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260b\022\'\n\014m_dropval"
-    "uec\030\006 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260c\022\'\n\014m_dropva"
-    "lued\030\007 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260d\022\'\n\014m_dropv"
-    "aluee\030\010 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260e\022\'\n\014m_drop"
-    "valuef\030\t \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260f\"N\n\021Sheet"
-    "_MapItemdrop\0229\n\022E_MapItemdrop_List\030\001 \003(\013"
-    "2\027.proto_ff.E_MapItemdropB\004\210\301\024 \"E\n\020E_Map"
-    "Destroyitem\0221\n\017m_destroyitemID\030\001 \001(\003B\030\302\377"
-    "\024\024\350\247\246\345\217\221\346\221\247\346\257\201\351\201\223\345\205\267ID\"X\n\024Sheet_MapDestr"
-    "oyitem\022@\n\025E_MapDestroyitem_List\030\001 \003(\0132\032."
-    "proto_ff.E_MapDestroyitemB\005\210\301\024\200\002\"}\n\013E_Ma"
-    "pButton\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_type\030"
-    "\002 \001(\005B\020\302\377\024\014\345\212\237\350\203\275\347\261\273\345\236\213\022\032\n\006m_arg1\030\003 \001(\005B"
-    "\n\302\377\024\006\345\217\202\346\225\260\022\032\n\006m_arg2\030\004 \001(\005B\n\302\377\024\006\345\217\202\346\225\260\""
-    "H\n\017Sheet_MapButton\0225\n\020E_MapButton_List\030\001"
-    " \003(\0132\025.proto_ff.E_MapButtonB\004\210\301\024 \"I\n\026E_M"
-    "apInspireRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377\024\006"
-    "\346\225\260\351\207\217\022\024\n\004m_Id\030\002 \001(\005B\006\302\377\024\002id\"\245\002\n\014E_MapIn"
-    "spire\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\030\n\007m_group\030\002"
-    " \001(\005B\007\302\377\024\003\347\273\204\022\036\n\006m_name\030\003 \001(\tB\016\302\377\024\006\345\220\215\347\247"
-    "\260\220\301\024@\022\036\n\010m_costId\030\004 \001(\005B\014\302\377\024\010\350\212\261\350\264\271id\022#\n"
-    "\tm_costNum\030\005 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\tm_"
-    "skillid\030\006 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\022\033\n\007m_times\030\007"
-    " \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022B\n\010m_reward\030\010 \003(\0132 .pro"
-    "to_ff.E_MapInspireRewardDescB\016\302\377\024\006\345\245\226\345\212\261"
-    "\210\301\024\002\"K\n\020Sheet_MapInspire\0227\n\021E_MapInspire"
-    "_List\030\001 \003(\0132\026.proto_ff.E_MapInspireB\004\210\301\024"
-    "\010", 3201);
+    "s\030\003 \001(\005B\020\302\377\024\014\350\247\246\345\217\221\345\207\240\347\216\207\022&\n\014m_ownProtec"
+    "t\030\004 \001(\005B\020\302\377\024\014\345\275\222\345\261\236\344\277\235\346\212\244\022&\n\014m_belongTyp"
+    "e\030\005 \001(\005B\020\302\377\024\014\345\275\222\345\261\236\347\261\273\345\236\213\022(\n\010m_numMax\030\006 "
+    "\001(\005B\026\302\377\024\022\346\216\211\350\220\275\346\234\200\345\244\247\346\225\260\351\207\217\022\'\n\014m_dropval"
+    "uea\030\007 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260a\022\'\n\014m_dropva"
+    "lueb\030\010 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260b\022\'\n\014m_dropv"
+    "aluec\030\t \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260c\022\'\n\014m_drop"
+    "valued\030\n \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260d\022\'\n\014m_dro"
+    "pvaluee\030\013 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260e\022\'\n\014m_dr"
+    "opvaluef\030\014 \001(\005B\021\302\377\024\r\346\216\211\350\220\275\345\217\202\346\225\260f\"N\n\021She"
+    "et_MapItemdrop\0229\n\022E_MapItemdrop_List\030\001 \003"
+    "(\0132\027.proto_ff.E_MapItemdropB\004\210\301\024\004\"E\n\020E_M"
+    "apDestroyitem\0221\n\017m_destroyitemID\030\001 \001(\003B\030"
+    "\302\377\024\024\350\247\246\345\217\221\346\221\247\346\257\201\351\201\223\345\205\267ID\"X\n\024Sheet_MapDes"
+    "troyitem\022@\n\025E_MapDestroyitem_List\030\001 \003(\0132"
+    "\032.proto_ff.E_MapDestroyitemB\005\210\301\024\200\002\"}\n\013E_"
+    "MapButton\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022 \n\006m_typ"
+    "e\030\002 \001(\005B\020\302\377\024\014\345\212\237\350\203\275\347\261\273\345\236\213\022\032\n\006m_arg1\030\003 \001("
+    "\005B\n\302\377\024\006\345\217\202\346\225\260\022\032\n\006m_arg2\030\004 \001(\005B\n\302\377\024\006\345\217\202\346\225"
+    "\260\"H\n\017Sheet_MapButton\0225\n\020E_MapButton_List"
+    "\030\001 \003(\0132\025.proto_ff.E_MapButtonB\004\210\301\024 \"I\n\026E"
+    "_MapInspireRewardDesc\022\031\n\005m_Num\030\001 \001(\005B\n\302\377"
+    "\024\006\346\225\260\351\207\217\022\024\n\004m_Id\030\002 \001(\005B\006\302\377\024\002id\"\245\002\n\014E_Map"
+    "Inspire\022\024\n\004m_id\030\001 \001(\005B\006\302\377\024\002id\022\030\n\007m_group"
+    "\030\002 \001(\005B\007\302\377\024\003\347\273\204\022\036\n\006m_name\030\003 \001(\tB\016\302\377\024\006\345\220\215"
+    "\347\247\260\220\301\024@\022\036\n\010m_costId\030\004 \001(\005B\014\302\377\024\010\350\212\261\350\264\271id\022"
+    "#\n\tm_costNum\030\005 \001(\005B\020\302\377\024\014\350\212\261\350\264\271\346\225\260\351\207\217\022\037\n\t"
+    "m_skillid\030\006 \001(\005B\014\302\377\024\010\346\212\200\350\203\275id\022\033\n\007m_times"
+    "\030\007 \001(\005B\n\302\377\024\006\346\254\241\346\225\260\022B\n\010m_reward\030\010 \003(\0132 .p"
+    "roto_ff.E_MapInspireRewardDescB\016\302\377\024\006\345\245\226\345"
+    "\212\261\210\301\024\002\"K\n\020Sheet_MapInspire\0227\n\021E_MapInspi"
+    "re_List\030\001 \003(\0132\026.proto_ff.E_MapInspireB\004\210"
+    "\301\024\010", 3323);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Map.proto", &protobuf_RegisterTypes);
   E_MapMap::default_instance_ = new E_MapMap();
@@ -2518,6 +2524,9 @@ void Sheet_MapMap::Swap(Sheet_MapMap* other) {
 const int E_MapItemdrop::kMItemDropIDFieldNumber;
 const int E_MapItemdrop::kMDropTypeFieldNumber;
 const int E_MapItemdrop::kMOddsFieldNumber;
+const int E_MapItemdrop::kMOwnProtectFieldNumber;
+const int E_MapItemdrop::kMBelongTypeFieldNumber;
+const int E_MapItemdrop::kMNumMaxFieldNumber;
 const int E_MapItemdrop::kMDropvalueaFieldNumber;
 const int E_MapItemdrop::kMDropvaluebFieldNumber;
 const int E_MapItemdrop::kMDropvaluecFieldNumber;
@@ -2545,6 +2554,9 @@ void E_MapItemdrop::SharedCtor() {
   m_itemdropid_ = 0;
   m_droptype_ = 0;
   m_odds_ = 0;
+  m_ownprotect_ = 0;
+  m_belongtype_ = 0;
+  m_nummax_ = 0;
   m_dropvaluea_ = 0;
   m_dropvalueb_ = 0;
   m_dropvaluec_ = 0;
@@ -2589,13 +2601,16 @@ void E_MapItemdrop::Clear() {
     m_itemdropid_ = 0;
     m_droptype_ = 0;
     m_odds_ = 0;
+    m_ownprotect_ = 0;
+    m_belongtype_ = 0;
+    m_nummax_ = 0;
     m_dropvaluea_ = 0;
     m_dropvalueb_ = 0;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_dropvaluec_ = 0;
     m_dropvalued_ = 0;
     m_dropvaluee_ = 0;
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_dropvaluef_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2651,12 +2666,60 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_dropvaluea;
+        if (input->ExpectTag(32)) goto parse_m_ownProtect;
         break;
       }
 
-      // optional int32 m_dropvaluea = 4;
+      // optional int32 m_ownProtect = 4;
       case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_ownProtect:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_ownprotect_)));
+          set_has_m_ownprotect();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_belongType;
+        break;
+      }
+
+      // optional int32 m_belongType = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_belongType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_belongtype_)));
+          set_has_m_belongtype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_m_numMax;
+        break;
+      }
+
+      // optional int32 m_numMax = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_numMax:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_nummax_)));
+          set_has_m_nummax();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_dropvaluea;
+        break;
+      }
+
+      // optional int32 m_dropvaluea = 7;
+      case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dropvaluea:
@@ -2667,12 +2730,12 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_dropvalueb;
+        if (input->ExpectTag(64)) goto parse_m_dropvalueb;
         break;
       }
 
-      // optional int32 m_dropvalueb = 5;
-      case 5: {
+      // optional int32 m_dropvalueb = 8;
+      case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dropvalueb:
@@ -2683,12 +2746,12 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_dropvaluec;
+        if (input->ExpectTag(72)) goto parse_m_dropvaluec;
         break;
       }
 
-      // optional int32 m_dropvaluec = 6;
-      case 6: {
+      // optional int32 m_dropvaluec = 9;
+      case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dropvaluec:
@@ -2699,12 +2762,12 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(56)) goto parse_m_dropvalued;
+        if (input->ExpectTag(80)) goto parse_m_dropvalued;
         break;
       }
 
-      // optional int32 m_dropvalued = 7;
-      case 7: {
+      // optional int32 m_dropvalued = 10;
+      case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dropvalued:
@@ -2715,12 +2778,12 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_dropvaluee;
+        if (input->ExpectTag(88)) goto parse_m_dropvaluee;
         break;
       }
 
-      // optional int32 m_dropvaluee = 8;
-      case 8: {
+      // optional int32 m_dropvaluee = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dropvaluee:
@@ -2731,12 +2794,12 @@ bool E_MapItemdrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_dropvaluef;
+        if (input->ExpectTag(96)) goto parse_m_dropvaluef;
         break;
       }
 
-      // optional int32 m_dropvaluef = 9;
-      case 9: {
+      // optional int32 m_dropvaluef = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_dropvaluef:
@@ -2784,34 +2847,49 @@ void E_MapItemdrop::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_odds(), output);
   }
 
-  // optional int32 m_dropvaluea = 4;
+  // optional int32 m_ownProtect = 4;
+  if (has_m_ownprotect()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_ownprotect(), output);
+  }
+
+  // optional int32 m_belongType = 5;
+  if (has_m_belongtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_belongtype(), output);
+  }
+
+  // optional int32 m_numMax = 6;
+  if (has_m_nummax()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_nummax(), output);
+  }
+
+  // optional int32 m_dropvaluea = 7;
   if (has_m_dropvaluea()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_dropvaluea(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_dropvaluea(), output);
   }
 
-  // optional int32 m_dropvalueb = 5;
+  // optional int32 m_dropvalueb = 8;
   if (has_m_dropvalueb()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_dropvalueb(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_dropvalueb(), output);
   }
 
-  // optional int32 m_dropvaluec = 6;
+  // optional int32 m_dropvaluec = 9;
   if (has_m_dropvaluec()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_dropvaluec(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_dropvaluec(), output);
   }
 
-  // optional int32 m_dropvalued = 7;
+  // optional int32 m_dropvalued = 10;
   if (has_m_dropvalued()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->m_dropvalued(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_dropvalued(), output);
   }
 
-  // optional int32 m_dropvaluee = 8;
+  // optional int32 m_dropvaluee = 11;
   if (has_m_dropvaluee()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_dropvaluee(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_dropvaluee(), output);
   }
 
-  // optional int32 m_dropvaluef = 9;
+  // optional int32 m_dropvaluef = 12;
   if (has_m_dropvaluef()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_dropvaluef(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_dropvaluef(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2837,34 +2915,49 @@ void E_MapItemdrop::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_odds(), target);
   }
 
-  // optional int32 m_dropvaluea = 4;
+  // optional int32 m_ownProtect = 4;
+  if (has_m_ownprotect()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_ownprotect(), target);
+  }
+
+  // optional int32 m_belongType = 5;
+  if (has_m_belongtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_belongtype(), target);
+  }
+
+  // optional int32 m_numMax = 6;
+  if (has_m_nummax()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_nummax(), target);
+  }
+
+  // optional int32 m_dropvaluea = 7;
   if (has_m_dropvaluea()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_dropvaluea(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_dropvaluea(), target);
   }
 
-  // optional int32 m_dropvalueb = 5;
+  // optional int32 m_dropvalueb = 8;
   if (has_m_dropvalueb()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_dropvalueb(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_dropvalueb(), target);
   }
 
-  // optional int32 m_dropvaluec = 6;
+  // optional int32 m_dropvaluec = 9;
   if (has_m_dropvaluec()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_dropvaluec(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_dropvaluec(), target);
   }
 
-  // optional int32 m_dropvalued = 7;
+  // optional int32 m_dropvalued = 10;
   if (has_m_dropvalued()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->m_dropvalued(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_dropvalued(), target);
   }
 
-  // optional int32 m_dropvaluee = 8;
+  // optional int32 m_dropvaluee = 11;
   if (has_m_dropvaluee()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_dropvaluee(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_dropvaluee(), target);
   }
 
-  // optional int32 m_dropvaluef = 9;
+  // optional int32 m_dropvaluef = 12;
   if (has_m_dropvaluef()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_dropvaluef(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_dropvaluef(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2899,44 +2992,65 @@ int E_MapItemdrop::ByteSize() const {
           this->m_odds());
     }
 
-    // optional int32 m_dropvaluea = 4;
+    // optional int32 m_ownProtect = 4;
+    if (has_m_ownprotect()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_ownprotect());
+    }
+
+    // optional int32 m_belongType = 5;
+    if (has_m_belongtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_belongtype());
+    }
+
+    // optional int32 m_numMax = 6;
+    if (has_m_nummax()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_nummax());
+    }
+
+    // optional int32 m_dropvaluea = 7;
     if (has_m_dropvaluea()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dropvaluea());
     }
 
-    // optional int32 m_dropvalueb = 5;
+    // optional int32 m_dropvalueb = 8;
     if (has_m_dropvalueb()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dropvalueb());
     }
 
-    // optional int32 m_dropvaluec = 6;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional int32 m_dropvaluec = 9;
     if (has_m_dropvaluec()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dropvaluec());
     }
 
-    // optional int32 m_dropvalued = 7;
+    // optional int32 m_dropvalued = 10;
     if (has_m_dropvalued()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dropvalued());
     }
 
-    // optional int32 m_dropvaluee = 8;
+    // optional int32 m_dropvaluee = 11;
     if (has_m_dropvaluee()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_dropvaluee());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_dropvaluef = 9;
+    // optional int32 m_dropvaluef = 12;
     if (has_m_dropvaluef()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -2979,12 +3093,23 @@ void E_MapItemdrop::MergeFrom(const E_MapItemdrop& from) {
     if (from.has_m_odds()) {
       set_m_odds(from.m_odds());
     }
+    if (from.has_m_ownprotect()) {
+      set_m_ownprotect(from.m_ownprotect());
+    }
+    if (from.has_m_belongtype()) {
+      set_m_belongtype(from.m_belongtype());
+    }
+    if (from.has_m_nummax()) {
+      set_m_nummax(from.m_nummax());
+    }
     if (from.has_m_dropvaluea()) {
       set_m_dropvaluea(from.m_dropvaluea());
     }
     if (from.has_m_dropvalueb()) {
       set_m_dropvalueb(from.m_dropvalueb());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_dropvaluec()) {
       set_m_dropvaluec(from.m_dropvaluec());
     }
@@ -2994,8 +3119,6 @@ void E_MapItemdrop::MergeFrom(const E_MapItemdrop& from) {
     if (from.has_m_dropvaluee()) {
       set_m_dropvaluee(from.m_dropvaluee());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_m_dropvaluef()) {
       set_m_dropvaluef(from.m_dropvaluef());
     }
@@ -3025,6 +3148,9 @@ void E_MapItemdrop::Swap(E_MapItemdrop* other) {
     std::swap(m_itemdropid_, other->m_itemdropid_);
     std::swap(m_droptype_, other->m_droptype_);
     std::swap(m_odds_, other->m_odds_);
+    std::swap(m_ownprotect_, other->m_ownprotect_);
+    std::swap(m_belongtype_, other->m_belongtype_);
+    std::swap(m_nummax_, other->m_nummax_);
     std::swap(m_dropvaluea_, other->m_dropvaluea_);
     std::swap(m_dropvalueb_, other->m_dropvalueb_);
     std::swap(m_dropvaluec_, other->m_dropvaluec_);

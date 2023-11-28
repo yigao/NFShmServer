@@ -37,7 +37,8 @@ message E_TitleTitle
 	optional string m_starNum = 13[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 256];
 	optional int32 m_starUp = 14[(yd_fieldoptions.field_cname) = "升星等级上限"];
 	optional int32 m_starBer = 15[(yd_fieldoptions.field_cname) = "每次升星属性增加的万分比值"];
-	repeated E_TitleTitleAttributeDesc m_attribute = 16[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+	optional int32 m_broadcast = 16[(yd_fieldoptions.field_cname) = "是否传闻"];
+	repeated E_TitleTitleAttributeDesc m_attribute = 17[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
 }
 
 

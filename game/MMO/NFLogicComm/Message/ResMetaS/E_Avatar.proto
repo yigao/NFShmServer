@@ -101,9 +101,14 @@ message E_AvatarChange
 	optional int32 m_maxEquip = 19[(yd_fieldoptions.field_cname) = "最高装备品质"];
 	optional int32 m_equipSuit = 20[(yd_fieldoptions.field_cname) = "套装id"];
 	optional int32 m_starBer = 21[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
-	repeated E_AvatarChangeMaterialDesc m_material = 22[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
-	repeated int64 m_InitiativeSkill = 23[(yd_fieldoptions.field_cname) = "主动技能", (yd_fieldoptions.field_arysize) = 7];
-	repeated E_AvatarChangeAttributeDesc m_Attribute = 24[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+	optional string m_mythSkill = 22[(yd_fieldoptions.field_cname) = "化神被动技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_mythSPSkill = 23[(yd_fieldoptions.field_cname) = "化神专属技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_mythID = 24[(yd_fieldoptions.field_cname) = "化神组ID"];
+	optional int32 m_mythWayID = 25[(yd_fieldoptions.field_cname) = "神格组id"];
+	optional int32 m_mythCoreID = 26[(yd_fieldoptions.field_cname) = "神核组ID"];
+	repeated E_AvatarChangeMaterialDesc m_material = 27[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 m_InitiativeSkill = 28[(yd_fieldoptions.field_cname) = "主动技能", (yd_fieldoptions.field_arysize) = 7];
+	repeated E_AvatarChangeAttributeDesc m_Attribute = 29[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
 }
 
 
@@ -190,4 +195,93 @@ message E_AvatarEquipsuit
 message Sheet_AvatarEquipsuit
 {
 	repeated E_AvatarEquipsuit E_AvatarEquipsuit_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_AvatarMythAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarMyth
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组ID"];
+	optional int32 m_stage = 3[(yd_fieldoptions.field_cname) = "阶级"];
+	repeated E_AvatarMythAttributeDesc m_Attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_AvatarMyth
+{
+	repeated E_AvatarMyth E_AvatarMyth_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_AvatarMythwayAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarMythway
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_stage = 3[(yd_fieldoptions.field_cname) = "阶数"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "星数"];
+	optional int32 m_showStar = 5[(yd_fieldoptions.field_cname) = "显示星数"];
+	optional int32 m_mythCoreCondition = 6[(yd_fieldoptions.field_cname) = "要求神核等级"];
+	optional int32 m_posX = 7[(yd_fieldoptions.field_cname) = "坐标x"];
+	optional int32 m_posY = 8[(yd_fieldoptions.field_cname) = "坐标y"];
+	repeated int32 m_equipID = 9[(yd_fieldoptions.field_cname) = "装备id", (yd_fieldoptions.field_arysize) = 5];
+	repeated int32 m_specialID = 10[(yd_fieldoptions.field_cname) = "稀有装备id", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_AvatarMythwayAttributeDesc m_Attribute = 11[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_AvatarMythway
+{
+	repeated E_AvatarMythway E_AvatarMythway_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_AvatarMythcoreAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarMythcore
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组ID"];
+	optional int32 m_LV = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_costID = 4[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_success = 6[(yd_fieldoptions.field_cname) = "成功率"];
+	repeated E_AvatarMythcoreAttributeDesc m_Attribute = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_AvatarMythcore
+{
+	repeated E_AvatarMythcore E_AvatarMythcore_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_AvatarMythequipAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarMythequip
+{
+	optional int32 m_itemID = 1[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_star = 2[(yd_fieldoptions.field_cname) = "星级"];
+	repeated E_AvatarMythequipAttributeDesc m_Attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_AvatarMythequip
+{
+	repeated E_AvatarMythequip E_AvatarMythequip_List = 1[(yd_fieldoptions.field_arysize)=64];
 }

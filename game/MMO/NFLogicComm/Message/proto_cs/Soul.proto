@@ -9,6 +9,10 @@ message NotifySoulModule
 	optional SoulEntry entry = 1;  //战魂数据
 	optional SoulPool pool = 2;	   //聚灵池
 	repeated ComPair tasks = 3;    //任务 key:id value: //0:未达成，1可领取，2 已领取
+	repeated SoulSpirit spirits_list = 4; //魂晶列表(所有槽位都发)
+	repeated SoulBone bone_list = 5;		//魂骨
+	repeated SoulGuwen guwen_list = 6;		//镶嵌的骨纹列表
+	
 }
 //2:更新战魂  NOTIFY_SOUL_ENTRY
 message NotifySoulEntry
@@ -25,6 +29,24 @@ message NotifySoulPool
 message NotifySoulTask
 {
 	repeated ComPair tasks = 1;  //任务 key:id value: //0:未达成，1可领取，2 已领取
+}
+
+//5：更新魂晶（更新某一个) NOTIFY_SOUL_SPIRIT
+message NotifySoulSpirit
+{
+	optional SoulSpirit info = 1;
+}
+
+//6: 更新魂骨信息(可以更新一个或多个) NOTIFY_SOUL_BONE
+message NotifySoulBone
+{
+	repeated SoulBone info = 1;
+}
+
+//7: 更新骨纹 NOTIFY_SOUL_GUWEN
+message NotifySoulGuwen
+{
+	repeated SoulGuwen info = 1;
 }
 
 
@@ -67,13 +89,155 @@ message SoulPoolOptRsp
 	optional int32 type = 2; //1:祝福升級 2：特权升级
 }
 
+message SoulMakeInfo
+{
+	optional int32 bag_pos = 1;
+	repeated int32 cost_bag_pos_list = 2;
+}
+//------------------------元神-----------------------
+
+//元神穿戴 SOUL_SPIRIT_DRESS_REQ
+message SoulSpiritDressReq
+{
+	optional int32 slot_pos = 1;  //元神槽位
+	optional int32 bag_pos = 2;	  //元神背包位置
+}
+//元神穿戴返回 SOUL_SPIRIT_DRESS_RSP
+message SoulSpiritDressRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;  //元神槽位
+	optional int32 bag_pos = 3;	  //元神背包位置
+}
+
+//元神升级请求 SOUL_SPIRIT_LV_REQ
+message SoulSpiritLvReq
+{
+	optional int32 slot_pos = 1;
+}
+
+//元神升级返回 SOUL_SPIRIT_LV_RSP
+message SoulSpiritLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+}
+ 
+//元神打造请求 SOUL_SPIRIT_MAKE_REQ
+message SoulSpiritMakeReq
+{
+	repeated SoulMakeInfo infos = 1;
+}
+
+//元神打造返回 SOUL_SPIRIT_MAKE_RSP
+message SoulSpiritMakeRsp
+{
+	optional int32 ret = 1;
+	repeated int32 gen_pos_list = 2;  //生成物品列表(背包中的位置)
+}
+
+//一键分解 SOUL_SPIRIT_DECOMPOSE_REQ
+message SoulSpiritDecomposeReq
+{
+	
+}
+
+//一键分解 SOUL_SPIRIT_DECOMPOSE_RSP
+message SoulSpiritDecomposeRsp
+{
+	optional int32 ret = 1;
+	optional int32 value = 2; //获得多少值
+}
 
 
-//TODO ---后面功能在补
+//---------------------魂骨---------------------------------
 
+//魂骨穿戴 SOUL_BONE_DRESS_REQ
+message SoulBoneDressReq
+{
+	optional int32 bag_pos = 2;	  //魂骨背包位置
+}
+//魂骨穿戴 SOUL_BONE_DRESS_RSP
+message SoulBoneDressRsp
+{
+	optional int32 ret = 1;
+	optional int32 bag_pos = 2;	  //魂骨背包位置
+}
 
+//魂骨觉醒请求 SOUL_BONE_WAKE_REQ
+message SoulBoneWakeReq
+{
+	optional int32 slot_pos = 1;
+}
 
+//魂骨觉醒返回 SOUL_BONE_WAKE_RSP
+message SoulBoneWakeRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+}
 
+//魂骨打造请求 SOUL_BONE_MAKE_REQ
+message SoulBoneMakeReq
+{
+	repeated SoulMakeInfo infos = 1;
+}
 
+//魂骨打造返回 SOUL_BONE_MAKE_RSP
+message SoulBoneMakeRsp
+{
+	optional int32 ret = 1;
+	repeated int32 gen_pos_list = 2;  //生成物品列表(背包中的位置)
+}
 
+//战魂复选框设置 SOUL_CHECK_BOX_REQ
+message SoulCheckBoxReq
+{
+	optional int32 type = 1; //1:自动释放技能 2：词缀品质保护
+}
+//战魂复选框设置返回 SOUL_CHECK_BOX_RSP
+message SoulCheckBoxRsp
+{
+	optional int32 ret = 1; 
+}
+
+//魂骨词缀 SOUL_FIX_REQ
+message SoulFixReq
+{
+	optional int32 slot_pos = 1; //魂骨槽位
+}
+
+//魂骨词缀返回 SOUL_FIX_RSP
+message SoulFixRsp
+{
+	optional int32 ret = 1;		//错误码
+	optional int32 slot_pos = 2; //魂骨槽位
+}
+
+//---------骨纹----------------------
+//骨纹穿戴 SOUL_GUWEN_DRESS_REQ
+message SoulGuwenDressReq
+{
+	repeated ComPair infos = 1;  // key: bone_pos value: bag_pos
+}
+
+//骨纹穿戴返回 SOUL_GUWEN_DRESS_RSP
+message SoulGuwenDressRsp
+{
+	optional int32 ret = 1;
+	repeated ComPair infos = 2;  //镶嵌结果 key: bone_pos value: 装备id
+}
+
+//骨纹打造  SOUL_GUWEN_MAKE_REQ
+message SoulGuwenMakeReq
+{
+	repeated SoulMakeInfo infos = 1;
+}
+
+//骨纹打造返回 SOUL_GUWEN_MAKE_RSP
+message SoulGuwenMakeRsp
+{
+	optional int32 ret = 1;
+	repeated int32 gen_pos_list = 2;  //生成物品列表(背包中的位置)
+}
 

@@ -183,7 +183,7 @@ message E_PetFetters
 
 message Sheet_PetFetters
 {
-	repeated E_PetFetters E_PetFetters_List = 1[(yd_fieldoptions.field_arysize)=8];
+	repeated E_PetFetters E_PetFetters_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
 message E_PetPetequipActDesc
@@ -359,6 +359,7 @@ message E_PetRefineconversion
 	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组"];
 	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "兑换数量"];
 	optional int32 m_condition = 4[(yd_fieldoptions.field_cname) = "兑换条件"];
+	optional int32 m_conversion = 5[(yd_fieldoptions.field_cname) = "展示条件"];
 }
 
 
@@ -425,7 +426,9 @@ message E_PetConst
 	optional int32 m_solt = 3[(yd_fieldoptions.field_cname) = "槽位解锁"];
 	optional int32 m_item = 4[(yd_fieldoptions.field_cname) = "消耗"];
 	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "数量"];
-	repeated E_PetConstMaterialDesc m_material = 6[(yd_fieldoptions.field_cname) = "升级", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_items = 6[(yd_fieldoptions.field_cname) = "第五消耗"];
+	optional int32 m_nums = 7[(yd_fieldoptions.field_cname) = "第五数量"];
+	repeated E_PetConstMaterialDesc m_material = 8[(yd_fieldoptions.field_cname) = "升级", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

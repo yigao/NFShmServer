@@ -205,6 +205,7 @@ namespace proto_ff_s {
 		NFShmString<64> m_unlockCondition;//解锁条件
 		int32_t m_type;//目标类型
 		int32_t m_cd;//cd
+		int32_t m_FirstCD;//首次减CD
 		int32_t m_noLock;//是否锁定
 		int32_t m_priority;//挂机使用优先级
 		int32_t m_fighting;//初始战斗力

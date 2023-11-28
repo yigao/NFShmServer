@@ -9,7 +9,7 @@
 #include "E_Map_s.h"
 
 #define DEFINE_SHEET_MAPMAP_E_MAPMAP_LIST_MAX_NUM 128
-#define DEFINE_SHEET_MAPITEMDROP_E_MAPITEMDROP_LIST_MAX_NUM 32
+#define DEFINE_SHEET_MAPITEMDROP_E_MAPITEMDROP_LIST_MAX_NUM 4
 #define DEFINE_SHEET_MAPDESTROYITEM_E_MAPDESTROYITEM_LIST_MAX_NUM 256
 #define DEFINE_SHEET_MAPBUTTON_E_MAPBUTTON_LIST_MAX_NUM 32
 #define DEFINE_E_MAPINSPIRE_M_REWARD_MAX_NUM 2
@@ -92,6 +92,9 @@ namespace proto_ff_s {
 		int32_t m_itemDropID;//掉落ID
 		int32_t m_dropType;//掉落类型
 		int32_t m_odds;//触发几率
+		int32_t m_ownProtect;//归属保护
+		int32_t m_belongType;//归属类型
+		int32_t m_numMax;//掉落最大数量
 		int32_t m_dropvaluea;//掉落参数a
 		int32_t m_dropvalueb;//掉落参数b
 		int32_t m_dropvaluec;//掉落参数c

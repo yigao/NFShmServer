@@ -85,6 +85,10 @@ class CenterToLogicAchCommonAdd;
 class CenterToLogicFindTreasureSiShengGetServerTotalRewardReq;
 class CenterToLogicFindTreasureSiShengChouJiangReq;
 class C2L_VersionIdRsp;
+class LC_FieldBossInitReq;
+class LC_FieldBossInitRsp;
+class LC_FieldBossInfoReq;
+class LC_FieldBossInfoNotify;
 
 enum NotifyLogicDataUpdate_Type {
   NotifyLogicDataUpdate_Type_daily = 1,
@@ -5226,6 +5230,353 @@ class C2L_VersionIdRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static C2L_VersionIdRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class LC_FieldBossInitReq : public ::google::protobuf::Message {
+ public:
+  LC_FieldBossInitReq();
+  virtual ~LC_FieldBossInitReq();
+
+  LC_FieldBossInitReq(const LC_FieldBossInitReq& from);
+
+  inline LC_FieldBossInitReq& operator=(const LC_FieldBossInitReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LC_FieldBossInitReq& default_instance();
+
+  void Swap(LC_FieldBossInitReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LC_FieldBossInitReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LC_FieldBossInitReq& from);
+  void MergeFrom(const LC_FieldBossInitReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LC_FieldBossInitReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LC_FieldBossInitReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LC_FieldBossInitRsp : public ::google::protobuf::Message {
+ public:
+  LC_FieldBossInitRsp();
+  virtual ~LC_FieldBossInitRsp();
+
+  LC_FieldBossInitRsp(const LC_FieldBossInitRsp& from);
+
+  inline LC_FieldBossInitRsp& operator=(const LC_FieldBossInitRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LC_FieldBossInitRsp& default_instance();
+
+  void Swap(LC_FieldBossInitRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  LC_FieldBossInitRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LC_FieldBossInitRsp& from);
+  void MergeFrom(const LC_FieldBossInitRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.FestBossProto info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::FestBossProto& info(int index) const;
+  inline ::proto_ff::FestBossProto* mutable_info(int index);
+  inline ::proto_ff::FestBossProto* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >*
+      mutable_info();
+
+  // optional uint32 zid = 2;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 2;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LC_FieldBossInitRsp)
+ private:
+  inline void set_has_zid();
+  inline void clear_has_zid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto > info_;
+  ::google::protobuf::uint32 zid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LC_FieldBossInitRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LC_FieldBossInfoReq : public ::google::protobuf::Message {
+ public:
+  LC_FieldBossInfoReq();
+  virtual ~LC_FieldBossInfoReq();
+
+  LC_FieldBossInfoReq(const LC_FieldBossInfoReq& from);
+
+  inline LC_FieldBossInfoReq& operator=(const LC_FieldBossInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LC_FieldBossInfoReq& default_instance();
+
+  void Swap(LC_FieldBossInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LC_FieldBossInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LC_FieldBossInfoReq& from);
+  void MergeFrom(const LC_FieldBossInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.FestBossProto info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::FestBossProto& info(int index) const;
+  inline ::proto_ff::FestBossProto* mutable_info(int index);
+  inline ::proto_ff::FestBossProto* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >*
+      mutable_info();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LC_FieldBossInfoReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto > info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LC_FieldBossInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LC_FieldBossInfoNotify : public ::google::protobuf::Message {
+ public:
+  LC_FieldBossInfoNotify();
+  virtual ~LC_FieldBossInfoNotify();
+
+  LC_FieldBossInfoNotify(const LC_FieldBossInfoNotify& from);
+
+  inline LC_FieldBossInfoNotify& operator=(const LC_FieldBossInfoNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LC_FieldBossInfoNotify& default_instance();
+
+  void Swap(LC_FieldBossInfoNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  LC_FieldBossInfoNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LC_FieldBossInfoNotify& from);
+  void MergeFrom(const LC_FieldBossInfoNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.FestBossProto info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::FestBossProto& info(int index) const;
+  inline ::proto_ff::FestBossProto* mutable_info(int index);
+  inline ::proto_ff::FestBossProto* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >*
+      mutable_info();
+
+  // optional uint32 zid = 2;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 2;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LC_FieldBossInfoNotify)
+ private:
+  inline void set_has_zid();
+  inline void clear_has_zid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto > info_;
+  ::google::protobuf::uint32 zid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LC_FieldBossInfoNotify* default_instance_;
+};
 // ===================================================================
 
 
@@ -9024,6 +9375,141 @@ inline ::google::protobuf::int32 C2L_VersionIdRsp::version_id() const {
 inline void C2L_VersionIdRsp::set_version_id(::google::protobuf::int32 value) {
   set_has_version_id();
   version_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LC_FieldBossInitReq
+
+// -------------------------------------------------------------------
+
+// LC_FieldBossInitRsp
+
+// repeated .proto_ff.FestBossProto info = 1;
+inline int LC_FieldBossInitRsp::info_size() const {
+  return info_.size();
+}
+inline void LC_FieldBossInitRsp::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::FestBossProto& LC_FieldBossInitRsp::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::FestBossProto* LC_FieldBossInitRsp::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::FestBossProto* LC_FieldBossInitRsp::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >&
+LC_FieldBossInitRsp::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >*
+LC_FieldBossInitRsp::mutable_info() {
+  return &info_;
+}
+
+// optional uint32 zid = 2;
+inline bool LC_FieldBossInitRsp::has_zid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LC_FieldBossInitRsp::set_has_zid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LC_FieldBossInitRsp::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LC_FieldBossInitRsp::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 LC_FieldBossInitRsp::zid() const {
+  return zid_;
+}
+inline void LC_FieldBossInitRsp::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LC_FieldBossInfoReq
+
+// repeated .proto_ff.FestBossProto info = 1;
+inline int LC_FieldBossInfoReq::info_size() const {
+  return info_.size();
+}
+inline void LC_FieldBossInfoReq::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::FestBossProto& LC_FieldBossInfoReq::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::FestBossProto* LC_FieldBossInfoReq::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::FestBossProto* LC_FieldBossInfoReq::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >&
+LC_FieldBossInfoReq::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >*
+LC_FieldBossInfoReq::mutable_info() {
+  return &info_;
+}
+
+// -------------------------------------------------------------------
+
+// LC_FieldBossInfoNotify
+
+// repeated .proto_ff.FestBossProto info = 1;
+inline int LC_FieldBossInfoNotify::info_size() const {
+  return info_.size();
+}
+inline void LC_FieldBossInfoNotify::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::FestBossProto& LC_FieldBossInfoNotify::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::FestBossProto* LC_FieldBossInfoNotify::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::FestBossProto* LC_FieldBossInfoNotify::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >&
+LC_FieldBossInfoNotify::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestBossProto >*
+LC_FieldBossInfoNotify::mutable_info() {
+  return &info_;
+}
+
+// optional uint32 zid = 2;
+inline bool LC_FieldBossInfoNotify::has_zid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LC_FieldBossInfoNotify::set_has_zid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LC_FieldBossInfoNotify::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LC_FieldBossInfoNotify::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 LC_FieldBossInfoNotify::zid() const {
+  return zid_;
+}
+inline void LC_FieldBossInfoNotify::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
 }
 
 

@@ -435,6 +435,13 @@ class E_IntimacyGift : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_charm() const;
   inline void set_m_charm(::google::protobuf::int32 value);
 
+  // optional int32 m_acceptCharm = 7;
+  inline bool has_m_acceptcharm() const;
+  inline void clear_m_acceptcharm();
+  static const int kMAcceptCharmFieldNumber = 7;
+  inline ::google::protobuf::int32 m_acceptcharm() const;
+  inline void set_m_acceptcharm(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_IntimacyGift)
  private:
   inline void set_has_m_mallid();
@@ -449,6 +456,8 @@ class E_IntimacyGift : public ::google::protobuf::Message {
   inline void clear_has_m_intimacy();
   inline void set_has_m_charm();
   inline void clear_has_m_charm();
+  inline void set_has_m_acceptcharm();
+  inline void clear_has_m_acceptcharm();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -458,9 +467,10 @@ class E_IntimacyGift : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_nametype_;
   ::google::protobuf::int32 m_intimacy_;
   ::google::protobuf::int32 m_charm_;
+  ::google::protobuf::int32 m_acceptcharm_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fIntimacy_2eproto();
   friend void protobuf_AssignDesc_E_5fIntimacy_2eproto();
@@ -911,6 +921,28 @@ inline ::google::protobuf::int32 E_IntimacyGift::m_charm() const {
 inline void E_IntimacyGift::set_m_charm(::google::protobuf::int32 value) {
   set_has_m_charm();
   m_charm_ = value;
+}
+
+// optional int32 m_acceptCharm = 7;
+inline bool E_IntimacyGift::has_m_acceptcharm() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void E_IntimacyGift::set_has_m_acceptcharm() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void E_IntimacyGift::clear_has_m_acceptcharm() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void E_IntimacyGift::clear_m_acceptcharm() {
+  m_acceptcharm_ = 0;
+  clear_has_m_acceptcharm();
+}
+inline ::google::protobuf::int32 E_IntimacyGift::m_acceptcharm() const {
+  return m_acceptcharm_;
+}
+inline void E_IntimacyGift::set_m_acceptcharm(::google::protobuf::int32 value) {
+  set_has_m_acceptcharm();
+  m_acceptcharm_ = value;
 }
 
 // -------------------------------------------------------------------

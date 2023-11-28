@@ -200,7 +200,6 @@ E_NickgodStageBossDesc_s::E_NickgodStageBossDesc_s() {
 }
 
 int E_NickgodStageBossDesc_s::CreateInit() {
-	m_dropPreview = (int32_t)0;
 	m_id = (int32_t)0;
 	m_point = (int32_t)0;
 	return 0;
@@ -211,7 +210,7 @@ int E_NickgodStageBossDesc_s::ResumeInit() {
 }
 
 void E_NickgodStageBossDesc_s::write_to_pbmsg(::proto_ff::E_NickgodStageBossDesc & msg) const {
-	msg.set_m_droppreview((int32_t)m_dropPreview);
+	msg.set_m_droppreview(m_dropPreview.data());
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_point((int32_t)m_point);
 }
@@ -503,6 +502,40 @@ void Sheet_NickgodLattice_s::read_from_pbmsg(const ::proto_ff::Sheet_NickgodLatt
 	}
 }
 
+E_NickgodTreasuryItemDesc_s::E_NickgodTreasuryItemDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_NickgodTreasuryItemDesc_s::CreateInit() {
+	m_show = (int32_t)0;
+	m_rand = (int32_t)0;
+	m_num = (int32_t)0;
+	m_id = (int32_t)0;
+	return 0;
+}
+
+int E_NickgodTreasuryItemDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_NickgodTreasuryItemDesc_s::write_to_pbmsg(::proto_ff::E_NickgodTreasuryItemDesc & msg) const {
+	msg.set_m_show((int32_t)m_show);
+	msg.set_m_rand((int32_t)m_rand);
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_id((int32_t)m_id);
+}
+
+void E_NickgodTreasuryItemDesc_s::read_from_pbmsg(const ::proto_ff::E_NickgodTreasuryItemDesc & msg) {
+	m_show = msg.m_show();
+	m_rand = msg.m_rand();
+	m_num = msg.m_num();
+	m_id = msg.m_id();
+}
+
 E_NickgodTreasury_s::E_NickgodTreasury_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -513,7 +546,6 @@ E_NickgodTreasury_s::E_NickgodTreasury_s() {
 
 int E_NickgodTreasury_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_boxId = (int32_t)0;
 	return 0;
 }
 
@@ -523,12 +555,19 @@ int E_NickgodTreasury_s::ResumeInit() {
 
 void E_NickgodTreasury_s::write_to_pbmsg(::proto_ff::E_NickgodTreasury & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_boxid((int32_t)m_boxId);
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		::proto_ff::E_NickgodTreasuryItemDesc* temp_m_item = msg.add_m_item();
+		m_item[i].write_to_pbmsg(*temp_m_item);
+	}
 }
 
 void E_NickgodTreasury_s::read_from_pbmsg(const ::proto_ff::E_NickgodTreasury & msg) {
 	m_id = msg.m_id();
-	m_boxId = msg.m_boxid();
+	m_item.resize((int)msg.m_item_size() > (int)m_item.max_size() ? m_item.max_size() : msg.m_item_size());
+	for(int32_t i = 0; i < (int32_t)m_item.size(); ++i) {
+		const ::proto_ff::E_NickgodTreasuryItemDesc & temp_m_item = msg.m_item(i);
+		m_item[i].read_from_pbmsg(temp_m_item);
+	}
 }
 
 Sheet_NickgodTreasury_s::Sheet_NickgodTreasury_s() {
@@ -806,6 +845,7 @@ E_NickgodChargeup_s::E_NickgodChargeup_s() {
 
 int E_NickgodChargeup_s::CreateInit() {
 	m_id = (int32_t)0;
+	m_pay = (int32_t)0;
 	return 0;
 }
 
@@ -815,6 +855,7 @@ int E_NickgodChargeup_s::ResumeInit() {
 
 void E_NickgodChargeup_s::write_to_pbmsg(::proto_ff::E_NickgodChargeup & msg) const {
 	msg.set_m_id((int32_t)m_id);
+	msg.set_m_pay((int32_t)m_pay);
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
 		::proto_ff::E_NickgodChargeupRewardDesc* temp_m_reward = msg.add_m_reward();
 		m_reward[i].write_to_pbmsg(*temp_m_reward);
@@ -823,6 +864,7 @@ void E_NickgodChargeup_s::write_to_pbmsg(::proto_ff::E_NickgodChargeup & msg) co
 
 void E_NickgodChargeup_s::read_from_pbmsg(const ::proto_ff::E_NickgodChargeup & msg) {
 	m_id = msg.m_id();
+	m_pay = msg.m_pay();
 	m_reward.resize((int)msg.m_reward_size() > (int)m_reward.max_size() ? m_reward.max_size() : msg.m_reward_size());
 	for(int32_t i = 0; i < (int32_t)m_reward.size(); ++i) {
 		const ::proto_ff::E_NickgodChargeupRewardDesc & temp_m_reward = msg.m_reward(i);

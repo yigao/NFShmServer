@@ -391,10 +391,11 @@ void protobuf_AssignDesc_E_5fMonster_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_MonsterValueparam));
   E_MonsterDrop_descriptor_ = file->message_type(9);
-  static const int E_MonsterDrop_offsets_[5] = {
+  static const int E_MonsterDrop_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_group_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_own_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_ownprotect_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_MonsterDrop, m_boxid_),
   };
@@ -596,7 +597,7 @@ void protobuf_AddDesc_E_5fMonster_2eproto() {
     "proto_ff.E_MonsterDisplaySkillDescB\016\302\377\024\006"
     "\346\212\200\350\203\275\210\301\024\007\"X\n\024Sheet_MonsterDisplay\022@\n\025E_"
     "MonsterDisplay_List\030\001 \003(\0132\032.proto_ff.E_M"
-    "onsterDisplayB\005\210\301\024\200\002\"\343\026\n\016E_MonsterValue\022"
+    "onsterDisplayB\005\210\301\024\200\004\"\343\026\n\016E_MonsterValue\022"
     "\032\n\004m_ID\030\001 \001(\003B\014\302\377\024\010\346\225\260\345\200\274ID\022 \n\006m_type\030\002 "
     "\001(\005B\020\302\377\024\014\346\200\252\347\211\251\347\261\273\345\236\213\022%\n\013m_monsterLV\030\003 \001"
     "(\005B\020\302\377\024\014\346\200\252\347\211\251\347\255\211\347\272\247\022\"\n\010m_max_Hp\030\004 \001(\003B\020"
@@ -748,11 +749,12 @@ void protobuf_AddDesc_E_5fMonster_2eproto() {
     "\003B\n\302\377\024\006\346\212\244\347\233\276\022\037\n\005m_exp\030I \001(\003B\020\302\377\024\014\346\200\252\347\211\251"
     "\347\273\217\351\252\214\"a\n\027Sheet_MonsterValueparam\022F\n\030E_M"
     "onsterValueparam_List\030\001 \003(\0132\035.proto_ff.E"
-    "_MonsterValueparamB\005\210\301\024\200\001\"\254\001\n\rE_MonsterD"
+    "_MonsterValueparamB\005\210\301\024\200\001\"\324\001\n\rE_MonsterD"
     "rop\022\035\n\004m_id\030\001 \001(\005B\017\302\377\024\013\346\216\211\350\220\275\345\214\205ID\022\036\n\007m_"
     "group\030\002 \001(\005B\r\302\377\024\t\346\216\211\350\220\275\347\273\204\022\034\n\005m_own\030\003 \001("
-    "\005B\r\302\377\024\t\345\275\222\345\261\236\346\235\203\022 \n\006m_type\030\004 \001(\005B\020\302\377\024\014\346\216"
-    "\211\350\220\275\346\226\271\345\274\217\022\034\n\007m_boxID\030\005 \003(\003B\013\302\377\024\003box\210\301\024\005"
+    "\005B\r\302\377\024\t\345\275\222\345\261\236\346\235\203\022&\n\014m_ownProtect\030\004 \001(\005B\020"
+    "\302\377\024\014\345\275\222\345\261\236\344\277\235\346\212\244\022 \n\006m_type\030\005 \001(\005B\020\302\377\024\014\346\216"
+    "\211\350\220\275\346\226\271\345\274\217\022\034\n\007m_boxID\030\006 \003(\003B\013\302\377\024\003box\210\301\024\005"
     "\"O\n\021Sheet_MonsterDrop\022:\n\022E_MonsterDrop_L"
     "ist\030\001 \003(\0132\027.proto_ff.E_MonsterDropB\005\210\301\024\200"
     "\004\"\261\003\n\020E_MonsterCollect\022\030\n\004m_ID\030\001 \001(\005B\n\302\377"
@@ -768,7 +770,7 @@ void protobuf_AddDesc_E_5fMonster_2eproto() {
     "\254ID\022 \n\nm_monsteID\030\013 \001(\005B\014\302\377\024\010\346\200\252\347\211\251ID\"W\n"
     "\024Sheet_MonsterCollect\022\?\n\025E_MonsterCollec"
     "t_List\030\001 \003(\0132\032.proto_ff.E_MonsterCollect"
-    "B\004\210\301\024 ", 9006);
+    "B\004\210\301\024 ", 9046);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "E_Monster.proto", &protobuf_RegisterTypes);
   E_MonsterMonster::default_instance_ = new E_MonsterMonster();
@@ -10293,6 +10295,7 @@ void Sheet_MonsterValueparam::Swap(Sheet_MonsterValueparam* other) {
 const int E_MonsterDrop::kMIdFieldNumber;
 const int E_MonsterDrop::kMGroupFieldNumber;
 const int E_MonsterDrop::kMOwnFieldNumber;
+const int E_MonsterDrop::kMOwnProtectFieldNumber;
 const int E_MonsterDrop::kMTypeFieldNumber;
 const int E_MonsterDrop::kMBoxIDFieldNumber;
 #endif  // !_MSC_VER
@@ -10316,6 +10319,7 @@ void E_MonsterDrop::SharedCtor() {
   m_id_ = 0;
   m_group_ = 0;
   m_own_ = 0;
+  m_ownprotect_ = 0;
   m_type_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -10355,6 +10359,7 @@ void E_MonsterDrop::Clear() {
     m_id_ = 0;
     m_group_ = 0;
     m_own_ = 0;
+    m_ownprotect_ = 0;
     m_type_ = 0;
   }
   m_boxid_.Clear();
@@ -10411,12 +10416,28 @@ bool E_MonsterDrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_type;
+        if (input->ExpectTag(32)) goto parse_m_ownProtect;
         break;
       }
 
-      // optional int32 m_type = 4;
+      // optional int32 m_ownProtect = 4;
       case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_ownProtect:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_ownprotect_)));
+          set_has_m_ownprotect();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_m_type;
+        break;
+      }
+
+      // optional int32 m_type = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_type:
@@ -10427,18 +10448,18 @@ bool E_MonsterDrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_boxID;
+        if (input->ExpectTag(48)) goto parse_m_boxID;
         break;
       }
 
-      // repeated int64 m_boxID = 5;
-      case 5: {
+      // repeated int64 m_boxID = 6;
+      case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_boxID:
           DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
                    ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
-                 1, 40, input, this->mutable_m_boxid())));
+                 1, 48, input, this->mutable_m_boxid())));
         } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
                    == ::google::protobuf::internal::WireFormatLite::
                       WIRETYPE_LENGTH_DELIMITED) {
@@ -10448,7 +10469,7 @@ bool E_MonsterDrop::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_boxID;
+        if (input->ExpectTag(48)) goto parse_m_boxID;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -10486,15 +10507,20 @@ void E_MonsterDrop::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_own(), output);
   }
 
-  // optional int32 m_type = 4;
-  if (has_m_type()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_type(), output);
+  // optional int32 m_ownProtect = 4;
+  if (has_m_ownprotect()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_ownprotect(), output);
   }
 
-  // repeated int64 m_boxID = 5;
+  // optional int32 m_type = 5;
+  if (has_m_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_type(), output);
+  }
+
+  // repeated int64 m_boxID = 6;
   for (int i = 0; i < this->m_boxid_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteInt64(
-      5, this->m_boxid(i), output);
+      6, this->m_boxid(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -10520,15 +10546,20 @@ void E_MonsterDrop::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_own(), target);
   }
 
-  // optional int32 m_type = 4;
-  if (has_m_type()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_type(), target);
+  // optional int32 m_ownProtect = 4;
+  if (has_m_ownprotect()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_ownprotect(), target);
   }
 
-  // repeated int64 m_boxID = 5;
+  // optional int32 m_type = 5;
+  if (has_m_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_type(), target);
+  }
+
+  // repeated int64 m_boxID = 6;
   for (int i = 0; i < this->m_boxid_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt64ToArray(5, this->m_boxid(i), target);
+      WriteInt64ToArray(6, this->m_boxid(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -10563,7 +10594,14 @@ int E_MonsterDrop::ByteSize() const {
           this->m_own());
     }
 
-    // optional int32 m_type = 4;
+    // optional int32 m_ownProtect = 4;
+    if (has_m_ownprotect()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_ownprotect());
+    }
+
+    // optional int32 m_type = 5;
     if (has_m_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -10571,7 +10609,7 @@ int E_MonsterDrop::ByteSize() const {
     }
 
   }
-  // repeated int64 m_boxID = 5;
+  // repeated int64 m_boxID = 6;
   {
     int data_size = 0;
     for (int i = 0; i < this->m_boxid_size(); i++) {
@@ -10617,6 +10655,9 @@ void E_MonsterDrop::MergeFrom(const E_MonsterDrop& from) {
     if (from.has_m_own()) {
       set_m_own(from.m_own());
     }
+    if (from.has_m_ownprotect()) {
+      set_m_ownprotect(from.m_ownprotect());
+    }
     if (from.has_m_type()) {
       set_m_type(from.m_type());
     }
@@ -10646,6 +10687,7 @@ void E_MonsterDrop::Swap(E_MonsterDrop* other) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_group_, other->m_group_);
     std::swap(m_own_, other->m_own_);
+    std::swap(m_ownprotect_, other->m_ownprotect_);
     std::swap(m_type_, other->m_type_);
     m_boxid_.Swap(&other->m_boxid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

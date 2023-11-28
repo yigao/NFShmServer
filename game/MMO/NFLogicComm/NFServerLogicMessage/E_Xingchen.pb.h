@@ -4857,10 +4857,17 @@ class E_XingchenXingji : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_skillid() const;
   inline void set_m_skillid(::google::protobuf::int32 value);
 
-  // repeated int32 m_Unlock = 5;
+  // optional int32 m_SkillMax = 5;
+  inline bool has_m_skillmax() const;
+  inline void clear_m_skillmax();
+  static const int kMSkillMaxFieldNumber = 5;
+  inline ::google::protobuf::int32 m_skillmax() const;
+  inline void set_m_skillmax(::google::protobuf::int32 value);
+
+  // repeated int32 m_Unlock = 6;
   inline int m_unlock_size() const;
   inline void clear_m_unlock();
-  static const int kMUnlockFieldNumber = 5;
+  static const int kMUnlockFieldNumber = 6;
   inline ::google::protobuf::int32 m_unlock(int index) const;
   inline void set_m_unlock(int index, ::google::protobuf::int32 value);
   inline void add_m_unlock(::google::protobuf::int32 value);
@@ -4869,10 +4876,10 @@ class E_XingchenXingji : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_unlock();
 
-  // repeated int32 m_UnlockLV = 6;
+  // repeated int32 m_UnlockLV = 7;
   inline int m_unlocklv_size() const;
   inline void clear_m_unlocklv();
-  static const int kMUnlockLVFieldNumber = 6;
+  static const int kMUnlockLVFieldNumber = 7;
   inline ::google::protobuf::int32 m_unlocklv(int index) const;
   inline void set_m_unlocklv(int index, ::google::protobuf::int32 value);
   inline void add_m_unlocklv(::google::protobuf::int32 value);
@@ -4891,6 +4898,8 @@ class E_XingchenXingji : public ::google::protobuf::Message {
   inline void clear_has_m_xjskill();
   inline void set_has_m_skillid();
   inline void clear_has_m_skillid();
+  inline void set_has_m_skillmax();
+  inline void clear_has_m_skillmax();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -4900,9 +4909,10 @@ class E_XingchenXingji : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_skillid_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_unlock_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_unlocklv_;
+  ::google::protobuf::int32 m_skillmax_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fXingchen_2eproto();
   friend void protobuf_AssignDesc_E_5fXingchen_2eproto();
@@ -8683,7 +8693,29 @@ inline void E_XingchenXingji::set_m_skillid(::google::protobuf::int32 value) {
   m_skillid_ = value;
 }
 
-// repeated int32 m_Unlock = 5;
+// optional int32 m_SkillMax = 5;
+inline bool E_XingchenXingji::has_m_skillmax() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void E_XingchenXingji::set_has_m_skillmax() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void E_XingchenXingji::clear_has_m_skillmax() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void E_XingchenXingji::clear_m_skillmax() {
+  m_skillmax_ = 0;
+  clear_has_m_skillmax();
+}
+inline ::google::protobuf::int32 E_XingchenXingji::m_skillmax() const {
+  return m_skillmax_;
+}
+inline void E_XingchenXingji::set_m_skillmax(::google::protobuf::int32 value) {
+  set_has_m_skillmax();
+  m_skillmax_ = value;
+}
+
+// repeated int32 m_Unlock = 6;
 inline int E_XingchenXingji::m_unlock_size() const {
   return m_unlock_.size();
 }
@@ -8708,7 +8740,7 @@ E_XingchenXingji::mutable_m_unlock() {
   return &m_unlock_;
 }
 
-// repeated int32 m_UnlockLV = 6;
+// repeated int32 m_UnlockLV = 7;
 inline int E_XingchenXingji::m_unlocklv_size() const {
   return m_unlocklv_.size();
 }

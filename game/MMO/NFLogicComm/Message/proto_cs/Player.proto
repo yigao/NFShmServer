@@ -39,6 +39,7 @@ message	PlayerInfoRsp
 	optional int32 world_lv_8 = 31;					//世界等级
 	optional int32 world_lv_16 = 32;				//世界等级
 	optional int32 is_merge = 33;					//是否合服 1-是，0-否
+	optional NGDbDatas ng_datas=34;					//封神之战
 }
 
 

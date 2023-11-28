@@ -67,7 +67,7 @@ message E_MonsterDisplay
 
 message Sheet_MonsterDisplay
 {
-	repeated E_MonsterDisplay E_MonsterDisplay_List = 1[(yd_fieldoptions.field_arysize)=256];
+	repeated E_MonsterDisplay E_MonsterDisplay_List = 1[(yd_fieldoptions.field_arysize)=512];
 }
 
 message E_MonsterValue
@@ -243,8 +243,9 @@ message E_MonsterDrop
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "掉落包ID"];
 	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "掉落组"];
 	optional int32 m_own = 3[(yd_fieldoptions.field_cname) = "归属权"];
-	optional int32 m_type = 4[(yd_fieldoptions.field_cname) = "掉落方式"];
-	repeated int64 m_boxID = 5[(yd_fieldoptions.field_cname) = "box", (yd_fieldoptions.field_arysize) = 5];
+	optional int32 m_ownProtect = 4[(yd_fieldoptions.field_cname) = "归属保护"];
+	optional int32 m_type = 5[(yd_fieldoptions.field_cname) = "掉落方式"];
+	repeated int64 m_boxID = 6[(yd_fieldoptions.field_cname) = "box", (yd_fieldoptions.field_arysize) = 5];
 }
 
 

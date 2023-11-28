@@ -133,14 +133,21 @@
 #define DEFINE_SHOPPROTO_FETCH_MAX_NUM 1
 #define DEFINE_SHOPPROTO_BUY_MAX_NUM 1
 #define DEFINE_LIMITSALEDBPROTO_SHOP_MAX_NUM 1
+#define DEFINE_MYSTERYDBPROTO_BUY_MAX_NUM 1
+#define DEFINE_FESTSHOOTSUNDBPROTO_ID_LST_MAX_NUM 1
+#define DEFINE_FESTSHOOTSUNDBPROTO_TASK_MAX_NUM 1
 #define DEFINE_FESTDBDATA_INFO_MAX_NUM 1
 #define DEFINE_FESTDBDATA_CLOSE_MAX_NUM 1
 #define DEFINE_SHADOWDBPROTO_FRAG_MAX_NUM 1
+#define DEFINE_SHADOWDBPROTO_SKILL_MAX_NUM 1
 #define DEFINE_HALODBPROTO_INFO_MAX_NUM 1
 #define DEFINE_ROLEDBTURNDATA_ENTRYS_MAX_NUM 1
 #define DEFINE_ROLEDBTURNDATA_HELPER_MAX_NUM 1
 #define DEFINE_ROLEDBTURNDATA_TASKS_MAX_NUM 1
 #define DEFINE_SOULDBDATA_TASKS_MAX_NUM 1
+#define DEFINE_SOULDBDATA_SPIRITS_LIST_MAX_NUM 1
+#define DEFINE_SOULDBDATA_BONE_LIST_MAX_NUM 1
+#define DEFINE_SOULDBDATA_GUWEN_LIST_MAX_NUM 1
 #define DEFINE_MOFADBDATA_DATA_MAX_NUM 1
 #define DEFINE_RUNEDBDATA_ENTRYS_MAX_NUM 1
 #define DEFINE_ROLEREDDBDATA_SEND_LST_MAX_NUM 1
@@ -178,6 +185,7 @@
 #define DEFINE_GLOBALCOMDATA_TOWERDUPREWARD_MAX_NUM 1
 #define DEFINE_GLOBALYAOTADUPDBENTRY_INFO_MAX_NUM 1
 #define DEFINE_GLOBALYAOTADUPDBDATA_ENTRYS_MAX_NUM 1
+#define DEFINE_GLOBALFIELDBOSSDBDATA_INFO_MAX_NUM 1
 #define DEFINE_ACTDBRSP_LST_MAX_NUM 1
 #define DEFINE_ACTSAVEDBREQ_LST_MAX_NUM 1
 #define DEFINE_ARENAMOREDBINFO_INFO_MAX_NUM 1
@@ -280,6 +288,8 @@ namespace proto_ff_s {
 		int32_t subpack_type;//
 		int32_t subpack_fetch;//
 		uint64_t hunling;//
+		int32_t fuwen_money;//
+		int32_t hunjing;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg);
@@ -2024,6 +2034,57 @@ namespace proto_ff_s {
 	};
 	typedef struct LimitSaleDBProto_s LimitSaleDBProto_t;
 
+	struct MysteryDBProto_s : public NFDescStoreSeqOP {
+		MysteryDBProto_s();
+		virtual ~MysteryDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t openid;//
+		int32_t day;//
+		NFShmVector<struct ComPair_s, DEFINE_MYSTERYDBPROTO_BUY_MAX_NUM> buy;//
+
+		virtual void write_to_pbmsg(::proto_ff::MysteryDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MysteryDBProto & msg);
+		static ::proto_ff::MysteryDBProto* new_pbmsg(){ return new ::proto_ff::MysteryDBProto(); }
+		static ::proto_ff::MysteryDBProto make_pbmsg(){ return ::proto_ff::MysteryDBProto(); }
+	};
+	typedef struct MysteryDBProto_s MysteryDBProto_t;
+
+	struct TaskProto_s : public NFDescStoreSeqOP {
+		TaskProto_s();
+		virtual ~TaskProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;//
+		int32_t cur;//
+		int32_t fetch;//
+
+		virtual void write_to_pbmsg(::proto_ff::TaskProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::TaskProto & msg);
+		static ::proto_ff::TaskProto* new_pbmsg(){ return new ::proto_ff::TaskProto(); }
+		static ::proto_ff::TaskProto make_pbmsg(){ return ::proto_ff::TaskProto(); }
+	};
+	typedef struct TaskProto_s TaskProto_t;
+
+	struct FestShootSunDBProto_s : public NFDescStoreSeqOP {
+		FestShootSunDBProto_s();
+		virtual ~FestShootSunDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct ComPair_s, DEFINE_FESTSHOOTSUNDBPROTO_ID_LST_MAX_NUM> id_lst;//
+		int32_t free;//
+		uint64_t free_time;//
+		uint64_t auto_time;//
+		NFShmVector<struct TaskProto_s, DEFINE_FESTSHOOTSUNDBPROTO_TASK_MAX_NUM> task;//
+		uint64_t task_time;//
+
+		virtual void write_to_pbmsg(::proto_ff::FestShootSunDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FestShootSunDBProto & msg);
+		static ::proto_ff::FestShootSunDBProto* new_pbmsg(){ return new ::proto_ff::FestShootSunDBProto(); }
+		static ::proto_ff::FestShootSunDBProto make_pbmsg(){ return ::proto_ff::FestShootSunDBProto(); }
+	};
+	typedef struct FestShootSunDBProto_s FestShootSunDBProto_t;
+
 	struct FestDetailDBProto_s : public NFDescStoreSeqOP {
 		FestDetailDBProto_s();
 		virtual ~FestDetailDBProto_s(){}
@@ -2054,6 +2115,9 @@ namespace proto_ff_s {
 		struct LoginRewardDBProto_s login;//
 		struct ContiRechargeDBProto_s conti_recharge;//
 		struct LimitSaleDBProto_s limit_sale;//
+		struct MysteryDBProto_s mystery;//
+		struct FestShootSunDBProto_s shoot_sun;//
+		struct FestRechargePrizeDBData_s recharge_prize;//
 
 		virtual void write_to_pbmsg(::proto_ff::FestDetailDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FestDetailDBProto & msg);
@@ -2088,6 +2152,7 @@ namespace proto_ff_s {
 		int32_t lucky;//
 		NFShmVector<struct ComPair_s, DEFINE_SHADOWDBPROTO_FRAG_MAX_NUM> frag;//
 		int32_t curstar;//
+		NFShmVector<struct ComPair64_s, DEFINE_SHADOWDBPROTO_SKILL_MAX_NUM> skill;//
 
 		virtual void write_to_pbmsg(::proto_ff::ShadowDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ShadowDBProto & msg);
@@ -2173,6 +2238,9 @@ namespace proto_ff_s {
 		struct SoulEntry_s entry;//
 		struct SoulPool_s pool;//
 		NFShmVector<struct ComPair_s, DEFINE_SOULDBDATA_TASKS_MAX_NUM> tasks;//
+		NFShmVector<struct SoulSpirit_s, DEFINE_SOULDBDATA_SPIRITS_LIST_MAX_NUM> spirits_list;//
+		NFShmVector<struct SoulBone_s, DEFINE_SOULDBDATA_BONE_LIST_MAX_NUM> bone_list;//
+		NFShmVector<struct SoulGuwen_s, DEFINE_SOULDBDATA_GUWEN_LIST_MAX_NUM> guwen_list;//
 
 		virtual void write_to_pbmsg(::proto_ff::SoulDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::SoulDBData & msg);
@@ -2268,6 +2336,7 @@ namespace proto_ff_s {
 		struct SoulDBData_s soul;//
 		struct MoFaDBData_s mofa;//
 		struct RuneDBData_s rune;//
+		struct NGDbDatas_s ng_datas;//
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBData & msg);
@@ -2636,6 +2705,24 @@ namespace proto_ff_s {
 	};
 	typedef struct FactionMoyu_s FactionMoyu_t;
 
+	struct FactionMagRecordDBData_s : public NFDescStoreSeqOP {
+		FactionMagRecordDBData_s();
+		virtual ~FactionMagRecordDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t mag_id;//
+		int32_t lamp_id;//
+		int32_t guard_id;//
+		int32_t reel_id;//
+		int32_t point;//
+
+		virtual void write_to_pbmsg(::proto_ff::FactionMagRecordDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionMagRecordDBData & msg);
+		static ::proto_ff::FactionMagRecordDBData* new_pbmsg(){ return new ::proto_ff::FactionMagRecordDBData(); }
+		static ::proto_ff::FactionMagRecordDBData make_pbmsg(){ return ::proto_ff::FactionMagRecordDBData(); }
+	};
+	typedef struct FactionMagRecordDBData_s FactionMagRecordDBData_t;
+
 	struct FactionDBData_s : public NFDescStoreSeqOP {
 		FactionDBData_s();
 		virtual ~FactionDBData_s(){}
@@ -2644,6 +2731,7 @@ namespace proto_ff_s {
 		struct FactionBeastDBData_s beast;//
 		struct FactionGuardDBData_s guard;//
 		struct FactionMoyu_s moyu;//
+		struct FactionMagRecordDBData_s mag_record;//
 
 		virtual void write_to_pbmsg(::proto_ff::FactionDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::FactionDBData & msg);
@@ -3389,6 +3477,20 @@ namespace proto_ff_s {
 		static ::proto_ff::GlobalYaotaDupDBData make_pbmsg(){ return ::proto_ff::GlobalYaotaDupDBData(); }
 	};
 	typedef struct GlobalYaotaDupDBData_s GlobalYaotaDupDBData_t;
+
+	struct GlobalFieldBossDBData_s : public NFDescStoreSeqOP {
+		GlobalFieldBossDBData_s();
+		virtual ~GlobalFieldBossDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct FestBossProto_s, DEFINE_GLOBALFIELDBOSSDBDATA_INFO_MAX_NUM> info;//
+
+		virtual void write_to_pbmsg(::proto_ff::GlobalFieldBossDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GlobalFieldBossDBData & msg);
+		static ::proto_ff::GlobalFieldBossDBData* new_pbmsg(){ return new ::proto_ff::GlobalFieldBossDBData(); }
+		static ::proto_ff::GlobalFieldBossDBData make_pbmsg(){ return ::proto_ff::GlobalFieldBossDBData(); }
+	};
+	typedef struct GlobalFieldBossDBData_s GlobalFieldBossDBData_t;
 
 	struct ActDBProto_s : public NFDescStoreSeqOP {
 		ActDBProto_s();

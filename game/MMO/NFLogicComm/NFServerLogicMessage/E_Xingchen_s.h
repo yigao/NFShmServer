@@ -790,6 +790,7 @@ namespace proto_ff_s {
 		int32_t m_XJClass;//星技分类
 		int32_t m_XJSkill;//星技技能
 		int32_t m_SkillId;//技能id
+		int32_t m_SkillMax;//技能等级
 		NFShmVector<int32_t, DEFINE_E_XINGCHENXINGJI_M_UNLOCK_MAX_NUM> m_Unlock;//解锁条件
 		NFShmVector<int32_t, DEFINE_E_XINGCHENXINGJI_M_UNLOCKLV_MAX_NUM> m_UnlockLV;//解锁技能等级
 

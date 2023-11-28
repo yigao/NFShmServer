@@ -52,6 +52,7 @@ class LoginRoleProto;
 class MarryBrief;
 class LoginSynMarry;
 class AoPlatProto;
+class FactionMagRecordProto;
 class LoginSyncProto;
 class CenterRoleProto;
 class SocialRoleProto;
@@ -158,6 +159,9 @@ class ItemSellProto;
 class DeityFantasySkillData;
 class DeityEquipData;
 class DeityEquipSuitData;
+class DeityGodHoodEquipData;
+class DeityGodHoodEquip;
+class DeityGodHoodData;
 class DeityFantasyData;
 class DeityFragmentData;
 class DeitySkillData;
@@ -295,6 +299,10 @@ class FestDrawPizeLogDBProto;
 class FestRankRewardData;
 class FestRankData;
 class FestRankDBData;
+class FestRechargePrizeTaskData;
+class FestRechargePrizeRecord;
+class FestRechargePrizeData;
+class FestRechargePrizeDBData;
 class NotifyWorldInfo;
 class SynWorldInfoReq;
 class SceneTransParam;
@@ -318,12 +326,20 @@ class TurnHelper;
 class TurnTask;
 class FMarryTask;
 class SoulEntry;
+class SoulSpirit;
+class SoulBone;
+class SoulGuwen;
 class SoulPool;
 class MoFaEquipProtoInfo;
 class MoFaEquipInfo;
 class RuneWordInfo;
 class RuneSlot;
 class RuneEntry;
+class FestBossProto;
+class NGTBoxOpened;
+class NGTBoxItem;
+class NGStorePurchaseLog;
+class NGDbDatas;
 
 enum ECState {
   state_init = 0,
@@ -414,11 +430,12 @@ enum GrowType {
   GrowType_PARTNER_TYPE = 17,
   GrowType_MOUNT_TYPE = 18,
   GrowType_DEITY_TYPE = 19,
-  GrowType_dragon = 20
+  GrowType_dragon = 20,
+  GrowType_Star = 21
 };
 bool GrowType_IsValid(int value);
 const GrowType GrowType_MIN = GrowType_clothes;
-const GrowType GrowType_MAX = GrowType_dragon;
+const GrowType GrowType_MAX = GrowType_Star;
 const int GrowType_ARRAYSIZE = GrowType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* GrowType_descriptor();
@@ -599,6 +616,8 @@ enum ECreatureAttr {
   A_ST_SPEC_ADD = 187,
   A_PET_GROW_BASE_ADD = 188,
   A_RUNE_BASE_ADD = 189,
+  A_GUWEN_SUIT_BASE_ADD = 190,
+  A_GUWEN_SUIT_PRE_ADD = 191,
   A_FIGHT_END = 200,
   A_GOLD = 201,
   A_MAGIC = 202,
@@ -646,6 +665,7 @@ enum ECreatureAttr {
   A_GOD_META_EXP_ADD = 245,
   A_HUN_LING = 246,
   A_FUWEN_MONEY = 247,
+  A_HUNJING = 248,
   A_COMMON_END = 400
 };
 bool ECreatureAttr_IsValid(int value);
@@ -3213,6 +3233,128 @@ class AoPlatProto : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class FactionMagRecordProto : public ::google::protobuf::Message {
+ public:
+  FactionMagRecordProto();
+  virtual ~FactionMagRecordProto();
+
+  FactionMagRecordProto(const FactionMagRecordProto& from);
+
+  inline FactionMagRecordProto& operator=(const FactionMagRecordProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionMagRecordProto& default_instance();
+
+  void Swap(FactionMagRecordProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionMagRecordProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionMagRecordProto& from);
+  void MergeFrom(const FactionMagRecordProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 mag_id = 1;
+  inline bool has_mag_id() const;
+  inline void clear_mag_id();
+  static const int kMagIdFieldNumber = 1;
+  inline ::google::protobuf::int32 mag_id() const;
+  inline void set_mag_id(::google::protobuf::int32 value);
+
+  // optional int32 lamp_id = 2;
+  inline bool has_lamp_id() const;
+  inline void clear_lamp_id();
+  static const int kLampIdFieldNumber = 2;
+  inline ::google::protobuf::int32 lamp_id() const;
+  inline void set_lamp_id(::google::protobuf::int32 value);
+
+  // optional int32 guard_id = 3;
+  inline bool has_guard_id() const;
+  inline void clear_guard_id();
+  static const int kGuardIdFieldNumber = 3;
+  inline ::google::protobuf::int32 guard_id() const;
+  inline void set_guard_id(::google::protobuf::int32 value);
+
+  // optional int32 reel_id = 4;
+  inline bool has_reel_id() const;
+  inline void clear_reel_id();
+  static const int kReelIdFieldNumber = 4;
+  inline ::google::protobuf::int32 reel_id() const;
+  inline void set_reel_id(::google::protobuf::int32 value);
+
+  // optional int32 point = 5;
+  inline bool has_point() const;
+  inline void clear_point();
+  static const int kPointFieldNumber = 5;
+  inline ::google::protobuf::int32 point() const;
+  inline void set_point(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionMagRecordProto)
+ private:
+  inline void set_has_mag_id();
+  inline void clear_has_mag_id();
+  inline void set_has_lamp_id();
+  inline void clear_has_lamp_id();
+  inline void set_has_guard_id();
+  inline void clear_has_guard_id();
+  inline void set_has_reel_id();
+  inline void clear_has_reel_id();
+  inline void set_has_point();
+  inline void clear_has_point();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 mag_id_;
+  ::google::protobuf::int32 lamp_id_;
+  ::google::protobuf::int32 guard_id_;
+  ::google::protobuf::int32 reel_id_;
+  ::google::protobuf::int32 point_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionMagRecordProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class LoginSyncProto : public ::google::protobuf::Message {
  public:
   LoginSyncProto();
@@ -3353,6 +3495,15 @@ class LoginSyncProto : public ::google::protobuf::Message {
   inline ::proto_ff::AoPlatProto* release_plat();
   inline void set_allocated_plat(::proto_ff::AoPlatProto* plat);
 
+  // optional .proto_ff.FactionMagRecordProto mag = 12;
+  inline bool has_mag() const;
+  inline void clear_mag();
+  static const int kMagFieldNumber = 12;
+  inline const ::proto_ff::FactionMagRecordProto& mag() const;
+  inline ::proto_ff::FactionMagRecordProto* mutable_mag();
+  inline ::proto_ff::FactionMagRecordProto* release_mag();
+  inline void set_allocated_mag(::proto_ff::FactionMagRecordProto* mag);
+
   // @@protoc_insertion_point(class_scope:proto_ff.LoginSyncProto)
  private:
   inline void set_has_faction_id();
@@ -3377,6 +3528,8 @@ class LoginSyncProto : public ::google::protobuf::Message {
   inline void clear_has_marry();
   inline void set_has_plat();
   inline void clear_has_plat();
+  inline void set_has_mag();
+  inline void clear_has_mag();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3391,9 +3544,10 @@ class LoginSyncProto : public ::google::protobuf::Message {
   ::google::protobuf::int32 cloness_lev_;
   ::proto_ff::LoginSynMarry* marry_;
   ::proto_ff::AoPlatProto* plat_;
+  ::proto_ff::FactionMagRecordProto* mag_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -8901,10 +9055,19 @@ class RelationDBInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ArenaChallResult >*
       mutable_arena_result();
 
+  // optional uint32 charm_value = 8;
+  inline bool has_charm_value() const;
+  inline void clear_charm_value();
+  static const int kCharmValueFieldNumber = 8;
+  inline ::google::protobuf::uint32 charm_value() const;
+  inline void set_charm_value(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RelationDBInfo)
  private:
   inline void set_has_friends_add();
   inline void clear_has_friends_add();
+  inline void set_has_charm_value();
+  inline void clear_has_charm_value();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -8913,11 +9076,12 @@ class RelationDBInfo : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::proto_ff::RelationHateInfo > hatelist_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::FriendApplyInfo > applylist_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::RelationGiftRecord > giftrecords_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::ArenaChallResult > arena_result_;
   ::google::protobuf::uint32 friends_add_;
+  ::google::protobuf::uint32 charm_value_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ArenaChallResult > arena_result_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -16031,6 +16195,297 @@ class DeityEquipSuitData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class DeityGodHoodEquipData : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodEquipData();
+  virtual ~DeityGodHoodEquipData();
+
+  DeityGodHoodEquipData(const DeityGodHoodEquipData& from);
+
+  inline DeityGodHoodEquipData& operator=(const DeityGodHoodEquipData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodEquipData& default_instance();
+
+  void Swap(DeityGodHoodEquipData* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodEquipData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodEquipData& from);
+  void MergeFrom(const DeityGodHoodEquipData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 pos = 1;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 1;
+  inline ::google::protobuf::int32 pos() const;
+  inline void set_pos(::google::protobuf::int32 value);
+
+  // optional int64 item_id = 2;
+  inline bool has_item_id() const;
+  inline void clear_item_id();
+  static const int kItemIdFieldNumber = 2;
+  inline ::google::protobuf::int64 item_id() const;
+  inline void set_item_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodEquipData)
+ private:
+  inline void set_has_pos();
+  inline void clear_has_pos();
+  inline void set_has_item_id();
+  inline void clear_has_item_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 item_id_;
+  ::google::protobuf::int32 pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodEquipData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodEquip : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodEquip();
+  virtual ~DeityGodHoodEquip();
+
+  DeityGodHoodEquip(const DeityGodHoodEquip& from);
+
+  inline DeityGodHoodEquip& operator=(const DeityGodHoodEquip& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodEquip& default_instance();
+
+  void Swap(DeityGodHoodEquip* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodEquip* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodEquip& from);
+  void MergeFrom(const DeityGodHoodEquip& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.DeityGodHoodEquipData infos = 1;
+  inline int infos_size() const;
+  inline void clear_infos();
+  static const int kInfosFieldNumber = 1;
+  inline const ::proto_ff::DeityGodHoodEquipData& infos(int index) const;
+  inline ::proto_ff::DeityGodHoodEquipData* mutable_infos(int index);
+  inline ::proto_ff::DeityGodHoodEquipData* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityGodHoodEquipData >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityGodHoodEquipData >*
+      mutable_infos();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodEquip)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityGodHoodEquipData > infos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodEquip* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class DeityGodHoodData : public ::google::protobuf::Message {
+ public:
+  DeityGodHoodData();
+  virtual ~DeityGodHoodData();
+
+  DeityGodHoodData(const DeityGodHoodData& from);
+
+  inline DeityGodHoodData& operator=(const DeityGodHoodData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DeityGodHoodData& default_instance();
+
+  void Swap(DeityGodHoodData* other);
+
+  // implements Message ----------------------------------------------
+
+  DeityGodHoodData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const DeityGodHoodData& from);
+  void MergeFrom(const DeityGodHoodData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 lv = 1;
+  inline bool has_lv() const;
+  inline void clear_lv();
+  static const int kLvFieldNumber = 1;
+  inline ::google::protobuf::uint32 lv() const;
+  inline void set_lv(::google::protobuf::uint32 value);
+
+  // optional uint32 star = 2;
+  inline bool has_star() const;
+  inline void clear_star();
+  static const int kStarFieldNumber = 2;
+  inline ::google::protobuf::uint32 star() const;
+  inline void set_star(::google::protobuf::uint32 value);
+
+  // optional uint32 stage = 3;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 3;
+  inline ::google::protobuf::uint32 stage() const;
+  inline void set_stage(::google::protobuf::uint32 value);
+
+  // optional .proto_ff.DeityGodHoodEquip equip = 4;
+  inline bool has_equip() const;
+  inline void clear_equip();
+  static const int kEquipFieldNumber = 4;
+  inline const ::proto_ff::DeityGodHoodEquip& equip() const;
+  inline ::proto_ff::DeityGodHoodEquip* mutable_equip();
+  inline ::proto_ff::DeityGodHoodEquip* release_equip();
+  inline void set_allocated_equip(::proto_ff::DeityGodHoodEquip* equip);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.DeityGodHoodData)
+ private:
+  inline void set_has_lv();
+  inline void clear_has_lv();
+  inline void set_has_star();
+  inline void clear_has_star();
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_equip();
+  inline void clear_has_equip();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 lv_;
+  ::google::protobuf::uint32 star_;
+  ::proto_ff::DeityGodHoodEquip* equip_;
+  ::google::protobuf::uint32 stage_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static DeityGodHoodData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class DeityFantasyData : public ::google::protobuf::Message {
  public:
   DeityFantasyData();
@@ -16153,6 +16608,15 @@ class DeityFantasyData : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityEquipSuitData >*
       mutable_equip_suit_data();
 
+  // optional .proto_ff.DeityGodHoodData godhood_data = 9;
+  inline bool has_godhood_data() const;
+  inline void clear_godhood_data();
+  static const int kGodhoodDataFieldNumber = 9;
+  inline const ::proto_ff::DeityGodHoodData& godhood_data() const;
+  inline ::proto_ff::DeityGodHoodData* mutable_godhood_data();
+  inline ::proto_ff::DeityGodHoodData* release_godhood_data();
+  inline void set_allocated_godhood_data(::proto_ff::DeityGodHoodData* godhood_data);
+
   // @@protoc_insertion_point(class_scope:proto_ff.DeityFantasyData)
  private:
   inline void set_has_fantasy_id();
@@ -16167,6 +16631,8 @@ class DeityFantasyData : public ::google::protobuf::Message {
   inline void clear_has_fantasy_fight();
   inline void set_has_equip_data();
   inline void clear_has_equip_data();
+  inline void set_has_godhood_data();
+  inline void clear_has_godhood_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -16178,9 +16644,10 @@ class DeityFantasyData : public ::google::protobuf::Message {
   ::google::protobuf::uint64 fantasy_fight_;
   ::proto_ff::DeityEquipData* equip_data_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityEquipSuitData > equip_suit_data_;
+  ::proto_ff::DeityGodHoodData* godhood_data_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -20702,6 +21169,13 @@ class MarrySelfInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 task_state() const;
   inline void set_task_state(::google::protobuf::int32 value);
 
+  // optional int32 express_exp_sum = 24;
+  inline bool has_express_exp_sum() const;
+  inline void clear_express_exp_sum();
+  static const int kExpressExpSumFieldNumber = 24;
+  inline ::google::protobuf::int32 express_exp_sum() const;
+  inline void set_express_exp_sum(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.MarrySelfInfo)
  private:
   inline void set_has_marry_flag();
@@ -20744,6 +21218,8 @@ class MarrySelfInfo : public ::google::protobuf::Message {
   inline void clear_has_recv_self_box_days();
   inline void set_has_task_state();
   inline void clear_has_task_state();
+  inline void set_has_express_exp_sum();
+  inline void clear_has_express_exp_sum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -20770,9 +21246,10 @@ class MarrySelfInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 card_surplus_day_;
   ::google::protobuf::int32 recv_self_box_days_;
   ::google::protobuf::int32 task_state_;
+  ::google::protobuf::int32 express_exp_sum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(23 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(24 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -31607,6 +32084,463 @@ class FestRankDBData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class FestRechargePrizeTaskData : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeTaskData();
+  virtual ~FestRechargePrizeTaskData();
+
+  FestRechargePrizeTaskData(const FestRechargePrizeTaskData& from);
+
+  inline FestRechargePrizeTaskData& operator=(const FestRechargePrizeTaskData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeTaskData& default_instance();
+
+  void Swap(FestRechargePrizeTaskData* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeTaskData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeTaskData& from);
+  void MergeFrom(const FestRechargePrizeTaskData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 task_id = 1;
+  inline bool has_task_id() const;
+  inline void clear_task_id();
+  static const int kTaskIdFieldNumber = 1;
+  inline ::google::protobuf::int32 task_id() const;
+  inline void set_task_id(::google::protobuf::int32 value);
+
+  // optional int32 task_status = 2;
+  inline bool has_task_status() const;
+  inline void clear_task_status();
+  static const int kTaskStatusFieldNumber = 2;
+  inline ::google::protobuf::int32 task_status() const;
+  inline void set_task_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeTaskData)
+ private:
+  inline void set_has_task_id();
+  inline void clear_has_task_id();
+  inline void set_has_task_status();
+  inline void clear_has_task_status();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 task_id_;
+  ::google::protobuf::int32 task_status_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeTaskData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeRecord : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeRecord();
+  virtual ~FestRechargePrizeRecord();
+
+  FestRechargePrizeRecord(const FestRechargePrizeRecord& from);
+
+  inline FestRechargePrizeRecord& operator=(const FestRechargePrizeRecord& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeRecord& default_instance();
+
+  void Swap(FestRechargePrizeRecord* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeRecord* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeRecord& from);
+  void MergeFrom(const FestRechargePrizeRecord& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 jiang_num = 1;
+  inline bool has_jiang_num() const;
+  inline void clear_jiang_num();
+  static const int kJiangNumFieldNumber = 1;
+  inline ::google::protobuf::int32 jiang_num() const;
+  inline void set_jiang_num(::google::protobuf::int32 value);
+
+  // optional int64 time = 2;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 2;
+  inline ::google::protobuf::int64 time() const;
+  inline void set_time(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeRecord)
+ private:
+  inline void set_has_jiang_num();
+  inline void clear_has_jiang_num();
+  inline void set_has_time();
+  inline void clear_has_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 time_;
+  ::google::protobuf::int32 jiang_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeRecord* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeData : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeData();
+  virtual ~FestRechargePrizeData();
+
+  FestRechargePrizeData(const FestRechargePrizeData& from);
+
+  inline FestRechargePrizeData& operator=(const FestRechargePrizeData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeData& default_instance();
+
+  void Swap(FestRechargePrizeData* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeData& from);
+  void MergeFrom(const FestRechargePrizeData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 left_pool_num = 1;
+  inline bool has_left_pool_num() const;
+  inline void clear_left_pool_num();
+  static const int kLeftPoolNumFieldNumber = 1;
+  inline ::google::protobuf::uint32 left_pool_num() const;
+  inline void set_left_pool_num(::google::protobuf::uint32 value);
+
+  // optional uint32 left_prize = 2;
+  inline bool has_left_prize() const;
+  inline void clear_left_prize();
+  static const int kLeftPrizeFieldNumber = 2;
+  inline ::google::protobuf::uint32 left_prize() const;
+  inline void set_left_prize(::google::protobuf::uint32 value);
+
+  // optional uint32 free_status = 3;
+  inline bool has_free_status() const;
+  inline void clear_free_status();
+  static const int kFreeStatusFieldNumber = 3;
+  inline ::google::protobuf::uint32 free_status() const;
+  inline void set_free_status(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.FestRechargePrizeTaskData task = 4;
+  inline int task_size() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 4;
+  inline const ::proto_ff::FestRechargePrizeTaskData& task(int index) const;
+  inline ::proto_ff::FestRechargePrizeTaskData* mutable_task(int index);
+  inline ::proto_ff::FestRechargePrizeTaskData* add_task();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >&
+      task() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >*
+      mutable_task();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeData)
+ private:
+  inline void set_has_left_pool_num();
+  inline void clear_has_left_pool_num();
+  inline void set_has_left_prize();
+  inline void clear_has_left_prize();
+  inline void set_has_free_status();
+  inline void clear_has_free_status();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 left_pool_num_;
+  ::google::protobuf::uint32 left_prize_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData > task_;
+  ::google::protobuf::uint32 free_status_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestRechargePrizeDBData : public ::google::protobuf::Message {
+ public:
+  FestRechargePrizeDBData();
+  virtual ~FestRechargePrizeDBData();
+
+  FestRechargePrizeDBData(const FestRechargePrizeDBData& from);
+
+  inline FestRechargePrizeDBData& operator=(const FestRechargePrizeDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestRechargePrizeDBData& default_instance();
+
+  void Swap(FestRechargePrizeDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  FestRechargePrizeDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestRechargePrizeDBData& from);
+  void MergeFrom(const FestRechargePrizeDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 left_pool_num = 1;
+  inline bool has_left_pool_num() const;
+  inline void clear_left_pool_num();
+  static const int kLeftPoolNumFieldNumber = 1;
+  inline ::google::protobuf::uint32 left_pool_num() const;
+  inline void set_left_pool_num(::google::protobuf::uint32 value);
+
+  // optional uint32 left_prize = 2;
+  inline bool has_left_prize() const;
+  inline void clear_left_prize();
+  static const int kLeftPrizeFieldNumber = 2;
+  inline ::google::protobuf::uint32 left_prize() const;
+  inline void set_left_prize(::google::protobuf::uint32 value);
+
+  // optional uint32 free_status = 3;
+  inline bool has_free_status() const;
+  inline void clear_free_status();
+  static const int kFreeStatusFieldNumber = 3;
+  inline ::google::protobuf::uint32 free_status() const;
+  inline void set_free_status(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.FestRechargePrizeTaskData task = 4;
+  inline int task_size() const;
+  inline void clear_task();
+  static const int kTaskFieldNumber = 4;
+  inline const ::proto_ff::FestRechargePrizeTaskData& task(int index) const;
+  inline ::proto_ff::FestRechargePrizeTaskData* mutable_task(int index);
+  inline ::proto_ff::FestRechargePrizeTaskData* add_task();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >&
+      task() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >*
+      mutable_task();
+
+  // repeated .proto_ff.FestRechargePrizeRecord record = 5;
+  inline int record_size() const;
+  inline void clear_record();
+  static const int kRecordFieldNumber = 5;
+  inline const ::proto_ff::FestRechargePrizeRecord& record(int index) const;
+  inline ::proto_ff::FestRechargePrizeRecord* mutable_record(int index);
+  inline ::proto_ff::FestRechargePrizeRecord* add_record();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >&
+      record() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >*
+      mutable_record();
+
+  // optional uint64 flush_time = 6;
+  inline bool has_flush_time() const;
+  inline void clear_flush_time();
+  static const int kFlushTimeFieldNumber = 6;
+  inline ::google::protobuf::uint64 flush_time() const;
+  inline void set_flush_time(::google::protobuf::uint64 value);
+
+  // optional uint32 cur_choujiang_num = 7;
+  inline bool has_cur_choujiang_num() const;
+  inline void clear_cur_choujiang_num();
+  static const int kCurChoujiangNumFieldNumber = 7;
+  inline ::google::protobuf::uint32 cur_choujiang_num() const;
+  inline void set_cur_choujiang_num(::google::protobuf::uint32 value);
+
+  // optional uint32 acc_recharge_num = 8;
+  inline bool has_acc_recharge_num() const;
+  inline void clear_acc_recharge_num();
+  static const int kAccRechargeNumFieldNumber = 8;
+  inline ::google::protobuf::uint32 acc_recharge_num() const;
+  inline void set_acc_recharge_num(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestRechargePrizeDBData)
+ private:
+  inline void set_has_left_pool_num();
+  inline void clear_has_left_pool_num();
+  inline void set_has_left_prize();
+  inline void clear_has_left_prize();
+  inline void set_has_free_status();
+  inline void clear_has_free_status();
+  inline void set_has_flush_time();
+  inline void clear_has_flush_time();
+  inline void set_has_cur_choujiang_num();
+  inline void clear_has_cur_choujiang_num();
+  inline void set_has_acc_recharge_num();
+  inline void clear_has_acc_recharge_num();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 left_pool_num_;
+  ::google::protobuf::uint32 left_prize_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData > task_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord > record_;
+  ::google::protobuf::uint32 free_status_;
+  ::google::protobuf::uint32 cur_choujiang_num_;
+  ::google::protobuf::uint64 flush_time_;
+  ::google::protobuf::uint32 acc_recharge_num_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestRechargePrizeDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class NotifyWorldInfo : public ::google::protobuf::Message {
  public:
   NotifyWorldInfo();
@@ -34188,6 +35122,20 @@ class SoulEntry : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 steplv() const;
   inline void set_steplv(::google::protobuf::int32 value);
 
+  // optional int32 auto_skill = 4;
+  inline bool has_auto_skill() const;
+  inline void clear_auto_skill();
+  static const int kAutoSkillFieldNumber = 4;
+  inline ::google::protobuf::int32 auto_skill() const;
+  inline void set_auto_skill(::google::protobuf::int32 value);
+
+  // optional int32 quality_prot = 5;
+  inline bool has_quality_prot() const;
+  inline void clear_quality_prot();
+  static const int kQualityProtFieldNumber = 5;
+  inline ::google::protobuf::int32 quality_prot() const;
+  inline void set_quality_prot(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.SoulEntry)
  private:
   inline void set_has_id();
@@ -34196,15 +35144,21 @@ class SoulEntry : public ::google::protobuf::Message {
   inline void clear_has_lv();
   inline void set_has_steplv();
   inline void clear_has_steplv();
+  inline void set_has_auto_skill();
+  inline void clear_has_auto_skill();
+  inline void set_has_quality_prot();
+  inline void clear_has_quality_prot();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 id_;
   ::google::protobuf::int32 lv_;
   ::google::protobuf::int32 steplv_;
+  ::google::protobuf::int32 auto_skill_;
+  ::google::protobuf::int32 quality_prot_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -34212,6 +35166,362 @@ class SoulEntry : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static SoulEntry* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulSpirit : public ::google::protobuf::Message {
+ public:
+  SoulSpirit();
+  virtual ~SoulSpirit();
+
+  SoulSpirit(const SoulSpirit& from);
+
+  inline SoulSpirit& operator=(const SoulSpirit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulSpirit& default_instance();
+
+  void Swap(SoulSpirit* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulSpirit* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulSpirit& from);
+  void MergeFrom(const SoulSpirit& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // optional int32 strong_lv = 3;
+  inline bool has_strong_lv() const;
+  inline void clear_strong_lv();
+  static const int kStrongLvFieldNumber = 3;
+  inline ::google::protobuf::int32 strong_lv() const;
+  inline void set_strong_lv(::google::protobuf::int32 value);
+
+  // optional int32 break_lv = 4;
+  inline bool has_break_lv() const;
+  inline void clear_break_lv();
+  static const int kBreakLvFieldNumber = 4;
+  inline ::google::protobuf::int32 break_lv() const;
+  inline void set_break_lv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulSpirit)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+  inline void set_has_strong_lv();
+  inline void clear_has_strong_lv();
+  inline void set_has_break_lv();
+  inline void clear_has_break_lv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 bag_pos_;
+  ::google::protobuf::int32 strong_lv_;
+  ::google::protobuf::int32 break_lv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulSpirit* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulBone : public ::google::protobuf::Message {
+ public:
+  SoulBone();
+  virtual ~SoulBone();
+
+  SoulBone(const SoulBone& from);
+
+  inline SoulBone& operator=(const SoulBone& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulBone& default_instance();
+
+  void Swap(SoulBone* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulBone* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulBone& from);
+  void MergeFrom(const SoulBone& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot_pos = 1;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 1;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 2;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 2;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // optional int32 is_wake = 3;
+  inline bool has_is_wake() const;
+  inline void clear_is_wake();
+  static const int kIsWakeFieldNumber = 3;
+  inline ::google::protobuf::int32 is_wake() const;
+  inline void set_is_wake(::google::protobuf::int32 value);
+
+  // optional int32 progress = 4;
+  inline bool has_progress() const;
+  inline void clear_progress();
+  static const int kProgressFieldNumber = 4;
+  inline ::google::protobuf::int32 progress() const;
+  inline void set_progress(::google::protobuf::int32 value);
+
+  // optional int32 wake_lv = 5;
+  inline bool has_wake_lv() const;
+  inline void clear_wake_lv();
+  static const int kWakeLvFieldNumber = 5;
+  inline ::google::protobuf::int32 wake_lv() const;
+  inline void set_wake_lv(::google::protobuf::int32 value);
+
+  // optional int32 fix_id = 6;
+  inline bool has_fix_id() const;
+  inline void clear_fix_id();
+  static const int kFixIdFieldNumber = 6;
+  inline ::google::protobuf::int32 fix_id() const;
+  inline void set_fix_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulBone)
+ private:
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+  inline void set_has_is_wake();
+  inline void clear_has_is_wake();
+  inline void set_has_progress();
+  inline void clear_has_progress();
+  inline void set_has_wake_lv();
+  inline void clear_has_wake_lv();
+  inline void set_has_fix_id();
+  inline void clear_has_fix_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 bag_pos_;
+  ::google::protobuf::int32 is_wake_;
+  ::google::protobuf::int32 progress_;
+  ::google::protobuf::int32 wake_lv_;
+  ::google::protobuf::int32 fix_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulBone* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class SoulGuwen : public ::google::protobuf::Message {
+ public:
+  SoulGuwen();
+  virtual ~SoulGuwen();
+
+  SoulGuwen(const SoulGuwen& from);
+
+  inline SoulGuwen& operator=(const SoulGuwen& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const SoulGuwen& default_instance();
+
+  void Swap(SoulGuwen* other);
+
+  // implements Message ----------------------------------------------
+
+  SoulGuwen* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const SoulGuwen& from);
+  void MergeFrom(const SoulGuwen& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 suit_id = 1;
+  inline bool has_suit_id() const;
+  inline void clear_suit_id();
+  static const int kSuitIdFieldNumber = 1;
+  inline ::google::protobuf::int32 suit_id() const;
+  inline void set_suit_id(::google::protobuf::int32 value);
+
+  // optional int32 bone_pos = 2;
+  inline bool has_bone_pos() const;
+  inline void clear_bone_pos();
+  static const int kBonePosFieldNumber = 2;
+  inline ::google::protobuf::int32 bone_pos() const;
+  inline void set_bone_pos(::google::protobuf::int32 value);
+
+  // optional int32 slot_pos = 3;
+  inline bool has_slot_pos() const;
+  inline void clear_slot_pos();
+  static const int kSlotPosFieldNumber = 3;
+  inline ::google::protobuf::int32 slot_pos() const;
+  inline void set_slot_pos(::google::protobuf::int32 value);
+
+  // optional int32 bag_pos = 4;
+  inline bool has_bag_pos() const;
+  inline void clear_bag_pos();
+  static const int kBagPosFieldNumber = 4;
+  inline ::google::protobuf::int32 bag_pos() const;
+  inline void set_bag_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.SoulGuwen)
+ private:
+  inline void set_has_suit_id();
+  inline void clear_has_suit_id();
+  inline void set_has_bone_pos();
+  inline void clear_has_bone_pos();
+  inline void set_has_slot_pos();
+  inline void clear_has_slot_pos();
+  inline void set_has_bag_pos();
+  inline void clear_has_bag_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 suit_id_;
+  ::google::protobuf::int32 bone_pos_;
+  ::google::protobuf::int32 slot_pos_;
+  ::google::protobuf::int32 bag_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static SoulGuwen* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -34859,6 +36169,581 @@ class RuneEntry : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static RuneEntry* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FestBossProto : public ::google::protobuf::Message {
+ public:
+  FestBossProto();
+  virtual ~FestBossProto();
+
+  FestBossProto(const FestBossProto& from);
+
+  inline FestBossProto& operator=(const FestBossProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FestBossProto& default_instance();
+
+  void Swap(FestBossProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FestBossProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FestBossProto& from);
+  void MergeFrom(const FestBossProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 tplid = 1;
+  inline bool has_tplid() const;
+  inline void clear_tplid();
+  static const int kTplidFieldNumber = 1;
+  inline ::google::protobuf::int32 tplid() const;
+  inline void set_tplid(::google::protobuf::int32 value);
+
+  // optional uint64 time = 2;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 2;
+  inline ::google::protobuf::uint64 time() const;
+  inline void set_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FestBossProto)
+ private:
+  inline void set_has_tplid();
+  inline void clear_has_tplid();
+  inline void set_has_time();
+  inline void clear_has_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 time_;
+  ::google::protobuf::int32 tplid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FestBossProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxOpened : public ::google::protobuf::Message {
+ public:
+  NGTBoxOpened();
+  virtual ~NGTBoxOpened();
+
+  NGTBoxOpened(const NGTBoxOpened& from);
+
+  inline NGTBoxOpened& operator=(const NGTBoxOpened& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxOpened& default_instance();
+
+  void Swap(NGTBoxOpened* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxOpened* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxOpened& from);
+  void MergeFrom(const NGTBoxOpened& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 idx = 1;
+  inline bool has_idx() const;
+  inline void clear_idx();
+  static const int kIdxFieldNumber = 1;
+  inline ::google::protobuf::uint32 idx() const;
+  inline void set_idx(::google::protobuf::uint32 value);
+
+  // required uint32 itemId = 2;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 itemid() const;
+  inline void set_itemid(::google::protobuf::uint32 value);
+
+  // optional uint32 itemIdx = 3;
+  inline bool has_itemidx() const;
+  inline void clear_itemidx();
+  static const int kItemIdxFieldNumber = 3;
+  inline ::google::protobuf::uint32 itemidx() const;
+  inline void set_itemidx(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxOpened)
+ private:
+  inline void set_has_idx();
+  inline void clear_has_idx();
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_itemidx();
+  inline void clear_has_itemidx();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 idx_;
+  ::google::protobuf::uint32 itemid_;
+  ::google::protobuf::uint32 itemidx_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxOpened* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGTBoxItem : public ::google::protobuf::Message {
+ public:
+  NGTBoxItem();
+  virtual ~NGTBoxItem();
+
+  NGTBoxItem(const NGTBoxItem& from);
+
+  inline NGTBoxItem& operator=(const NGTBoxItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGTBoxItem& default_instance();
+
+  void Swap(NGTBoxItem* other);
+
+  // implements Message ----------------------------------------------
+
+  NGTBoxItem* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGTBoxItem& from);
+  void MergeFrom(const NGTBoxItem& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 itemId = 1;
+  inline bool has_itemid() const;
+  inline void clear_itemid();
+  static const int kItemIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 itemid() const;
+  inline void set_itemid(::google::protobuf::uint32 value);
+
+  // required uint32 itemCount = 2;
+  inline bool has_itemcount() const;
+  inline void clear_itemcount();
+  static const int kItemCountFieldNumber = 2;
+  inline ::google::protobuf::uint32 itemcount() const;
+  inline void set_itemcount(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGTBoxItem)
+ private:
+  inline void set_has_itemid();
+  inline void clear_has_itemid();
+  inline void set_has_itemcount();
+  inline void clear_has_itemcount();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 itemid_;
+  ::google::protobuf::uint32 itemcount_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGTBoxItem* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGStorePurchaseLog : public ::google::protobuf::Message {
+ public:
+  NGStorePurchaseLog();
+  virtual ~NGStorePurchaseLog();
+
+  NGStorePurchaseLog(const NGStorePurchaseLog& from);
+
+  inline NGStorePurchaseLog& operator=(const NGStorePurchaseLog& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGStorePurchaseLog& default_instance();
+
+  void Swap(NGStorePurchaseLog* other);
+
+  // implements Message ----------------------------------------------
+
+  NGStorePurchaseLog* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGStorePurchaseLog& from);
+  void MergeFrom(const NGStorePurchaseLog& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 cfgId = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::uint32 value);
+
+  // required uint32 times = 2;
+  inline bool has_times() const;
+  inline void clear_times();
+  static const int kTimesFieldNumber = 2;
+  inline ::google::protobuf::uint32 times() const;
+  inline void set_times(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGStorePurchaseLog)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+  inline void set_has_times();
+  inline void clear_has_times();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 cfgid_;
+  ::google::protobuf::uint32 times_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGStorePurchaseLog* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NGDbDatas : public ::google::protobuf::Message {
+ public:
+  NGDbDatas();
+  virtual ~NGDbDatas();
+
+  NGDbDatas(const NGDbDatas& from);
+
+  inline NGDbDatas& operator=(const NGDbDatas& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NGDbDatas& default_instance();
+
+  void Swap(NGDbDatas* other);
+
+  // implements Message ----------------------------------------------
+
+  NGDbDatas* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NGDbDatas& from);
+  void MergeFrom(const NGDbDatas& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 layers = 1;
+  inline bool has_layers() const;
+  inline void clear_layers();
+  static const int kLayersFieldNumber = 1;
+  inline ::google::protobuf::uint32 layers() const;
+  inline void set_layers(::google::protobuf::uint32 value);
+
+  // repeated .proto_ff.NGTBoxOpened openedList = 2;
+  inline int openedlist_size() const;
+  inline void clear_openedlist();
+  static const int kOpenedListFieldNumber = 2;
+  inline const ::proto_ff::NGTBoxOpened& openedlist(int index) const;
+  inline ::proto_ff::NGTBoxOpened* mutable_openedlist(int index);
+  inline ::proto_ff::NGTBoxOpened* add_openedlist();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >&
+      openedlist() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >*
+      mutable_openedlist();
+
+  // optional uint64 weekTime = 3;
+  inline bool has_weektime() const;
+  inline void clear_weektime();
+  static const int kWeekTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 weektime() const;
+  inline void set_weektime(::google::protobuf::uint64 value);
+
+  // optional uint32 battleWeekTimes = 4;
+  inline bool has_battleweektimes() const;
+  inline void clear_battleweektimes();
+  static const int kBattleWeekTimesFieldNumber = 4;
+  inline ::google::protobuf::uint32 battleweektimes() const;
+  inline void set_battleweektimes(::google::protobuf::uint32 value);
+
+  // optional uint64 battleId = 5;
+  inline bool has_battleid() const;
+  inline void clear_battleid();
+  static const int kBattleIdFieldNumber = 5;
+  inline ::google::protobuf::uint64 battleid() const;
+  inline void set_battleid(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.NGTBoxItem itemsLog = 6;
+  inline int itemslog_size() const;
+  inline void clear_itemslog();
+  static const int kItemsLogFieldNumber = 6;
+  inline const ::proto_ff::NGTBoxItem& itemslog(int index) const;
+  inline ::proto_ff::NGTBoxItem* mutable_itemslog(int index);
+  inline ::proto_ff::NGTBoxItem* add_itemslog();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >&
+      itemslog() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >*
+      mutable_itemslog();
+
+  // optional uint32 privilege = 7;
+  inline bool has_privilege() const;
+  inline void clear_privilege();
+  static const int kPrivilegeFieldNumber = 7;
+  inline ::google::protobuf::uint32 privilege() const;
+  inline void set_privilege(::google::protobuf::uint32 value);
+
+  // repeated uint32 privilegeRecvLog = 8;
+  inline int privilegerecvlog_size() const;
+  inline void clear_privilegerecvlog();
+  static const int kPrivilegeRecvLogFieldNumber = 8;
+  inline ::google::protobuf::uint32 privilegerecvlog(int index) const;
+  inline void set_privilegerecvlog(int index, ::google::protobuf::uint32 value);
+  inline void add_privilegerecvlog(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      privilegerecvlog() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_privilegerecvlog();
+
+  // repeated .proto_ff.NGStorePurchaseLog storePurchaseLog = 9;
+  inline int storepurchaselog_size() const;
+  inline void clear_storepurchaselog();
+  static const int kStorePurchaseLogFieldNumber = 9;
+  inline const ::proto_ff::NGStorePurchaseLog& storepurchaselog(int index) const;
+  inline ::proto_ff::NGStorePurchaseLog* mutable_storepurchaselog(int index);
+  inline ::proto_ff::NGStorePurchaseLog* add_storepurchaselog();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >&
+      storepurchaselog() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >*
+      mutable_storepurchaselog();
+
+  // optional uint32 payAcc = 10;
+  inline bool has_payacc() const;
+  inline void clear_payacc();
+  static const int kPayAccFieldNumber = 10;
+  inline ::google::protobuf::uint32 payacc() const;
+  inline void set_payacc(::google::protobuf::uint32 value);
+
+  // repeated uint32 payAccRecvLog = 11;
+  inline int payaccrecvlog_size() const;
+  inline void clear_payaccrecvlog();
+  static const int kPayAccRecvLogFieldNumber = 11;
+  inline ::google::protobuf::uint32 payaccrecvlog(int index) const;
+  inline void set_payaccrecvlog(int index, ::google::protobuf::uint32 value);
+  inline void add_payaccrecvlog(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      payaccrecvlog() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_payaccrecvlog();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NGDbDatas)
+ private:
+  inline void set_has_layers();
+  inline void clear_has_layers();
+  inline void set_has_weektime();
+  inline void clear_has_weektime();
+  inline void set_has_battleweektimes();
+  inline void clear_has_battleweektimes();
+  inline void set_has_battleid();
+  inline void clear_has_battleid();
+  inline void set_has_privilege();
+  inline void clear_has_privilege();
+  inline void set_has_payacc();
+  inline void clear_has_payacc();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened > openedlist_;
+  ::google::protobuf::uint32 layers_;
+  ::google::protobuf::uint32 battleweektimes_;
+  ::google::protobuf::uint64 weektime_;
+  ::google::protobuf::uint64 battleid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem > itemslog_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > privilegerecvlog_;
+  ::google::protobuf::uint32 privilege_;
+  ::google::protobuf::uint32 payacc_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog > storepurchaselog_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > payaccrecvlog_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static NGDbDatas* default_instance_;
 };
 // ===================================================================
 
@@ -37708,6 +39593,120 @@ inline void AoPlatProto::set_allocated_platform_tag(::std::string* platform_tag)
 
 // -------------------------------------------------------------------
 
+// FactionMagRecordProto
+
+// optional int32 mag_id = 1;
+inline bool FactionMagRecordProto::has_mag_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FactionMagRecordProto::set_has_mag_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FactionMagRecordProto::clear_has_mag_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FactionMagRecordProto::clear_mag_id() {
+  mag_id_ = 0;
+  clear_has_mag_id();
+}
+inline ::google::protobuf::int32 FactionMagRecordProto::mag_id() const {
+  return mag_id_;
+}
+inline void FactionMagRecordProto::set_mag_id(::google::protobuf::int32 value) {
+  set_has_mag_id();
+  mag_id_ = value;
+}
+
+// optional int32 lamp_id = 2;
+inline bool FactionMagRecordProto::has_lamp_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FactionMagRecordProto::set_has_lamp_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FactionMagRecordProto::clear_has_lamp_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FactionMagRecordProto::clear_lamp_id() {
+  lamp_id_ = 0;
+  clear_has_lamp_id();
+}
+inline ::google::protobuf::int32 FactionMagRecordProto::lamp_id() const {
+  return lamp_id_;
+}
+inline void FactionMagRecordProto::set_lamp_id(::google::protobuf::int32 value) {
+  set_has_lamp_id();
+  lamp_id_ = value;
+}
+
+// optional int32 guard_id = 3;
+inline bool FactionMagRecordProto::has_guard_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FactionMagRecordProto::set_has_guard_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FactionMagRecordProto::clear_has_guard_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FactionMagRecordProto::clear_guard_id() {
+  guard_id_ = 0;
+  clear_has_guard_id();
+}
+inline ::google::protobuf::int32 FactionMagRecordProto::guard_id() const {
+  return guard_id_;
+}
+inline void FactionMagRecordProto::set_guard_id(::google::protobuf::int32 value) {
+  set_has_guard_id();
+  guard_id_ = value;
+}
+
+// optional int32 reel_id = 4;
+inline bool FactionMagRecordProto::has_reel_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void FactionMagRecordProto::set_has_reel_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void FactionMagRecordProto::clear_has_reel_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void FactionMagRecordProto::clear_reel_id() {
+  reel_id_ = 0;
+  clear_has_reel_id();
+}
+inline ::google::protobuf::int32 FactionMagRecordProto::reel_id() const {
+  return reel_id_;
+}
+inline void FactionMagRecordProto::set_reel_id(::google::protobuf::int32 value) {
+  set_has_reel_id();
+  reel_id_ = value;
+}
+
+// optional int32 point = 5;
+inline bool FactionMagRecordProto::has_point() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void FactionMagRecordProto::set_has_point() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void FactionMagRecordProto::clear_has_point() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void FactionMagRecordProto::clear_point() {
+  point_ = 0;
+  clear_has_point();
+}
+inline ::google::protobuf::int32 FactionMagRecordProto::point() const {
+  return point_;
+}
+inline void FactionMagRecordProto::set_point(::google::protobuf::int32 value) {
+  set_has_point();
+  point_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // LoginSyncProto
 
 // optional uint32 faction_id = 1;
@@ -38029,6 +40028,44 @@ inline void LoginSyncProto::set_allocated_plat(::proto_ff::AoPlatProto* plat) {
     set_has_plat();
   } else {
     clear_has_plat();
+  }
+}
+
+// optional .proto_ff.FactionMagRecordProto mag = 12;
+inline bool LoginSyncProto::has_mag() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void LoginSyncProto::set_has_mag() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void LoginSyncProto::clear_has_mag() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void LoginSyncProto::clear_mag() {
+  if (mag_ != NULL) mag_->::proto_ff::FactionMagRecordProto::Clear();
+  clear_has_mag();
+}
+inline const ::proto_ff::FactionMagRecordProto& LoginSyncProto::mag() const {
+  return mag_ != NULL ? *mag_ : *default_instance_->mag_;
+}
+inline ::proto_ff::FactionMagRecordProto* LoginSyncProto::mutable_mag() {
+  set_has_mag();
+  if (mag_ == NULL) mag_ = new ::proto_ff::FactionMagRecordProto;
+  return mag_;
+}
+inline ::proto_ff::FactionMagRecordProto* LoginSyncProto::release_mag() {
+  clear_has_mag();
+  ::proto_ff::FactionMagRecordProto* temp = mag_;
+  mag_ = NULL;
+  return temp;
+}
+inline void LoginSyncProto::set_allocated_mag(::proto_ff::FactionMagRecordProto* mag) {
+  delete mag_;
+  mag_ = mag;
+  if (mag) {
+    set_has_mag();
+  } else {
+    clear_has_mag();
   }
 }
 
@@ -44519,6 +46556,28 @@ RelationDBInfo::mutable_arena_result() {
   return &arena_result_;
 }
 
+// optional uint32 charm_value = 8;
+inline bool RelationDBInfo::has_charm_value() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void RelationDBInfo::set_has_charm_value() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void RelationDBInfo::clear_has_charm_value() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void RelationDBInfo::clear_charm_value() {
+  charm_value_ = 0u;
+  clear_has_charm_value();
+}
+inline ::google::protobuf::uint32 RelationDBInfo::charm_value() const {
+  return charm_value_;
+}
+inline void RelationDBInfo::set_charm_value(::google::protobuf::uint32 value) {
+  set_has_charm_value();
+  charm_value_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // DigPerfor
@@ -50103,6 +52162,191 @@ inline void DeityEquipSuitData::set_state(::google::protobuf::uint32 value) {
 
 // -------------------------------------------------------------------
 
+// DeityGodHoodEquipData
+
+// optional int32 pos = 1;
+inline bool DeityGodHoodEquipData::has_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodEquipData::set_has_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodEquipData::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodEquipData::clear_pos() {
+  pos_ = 0;
+  clear_has_pos();
+}
+inline ::google::protobuf::int32 DeityGodHoodEquipData::pos() const {
+  return pos_;
+}
+inline void DeityGodHoodEquipData::set_pos(::google::protobuf::int32 value) {
+  set_has_pos();
+  pos_ = value;
+}
+
+// optional int64 item_id = 2;
+inline bool DeityGodHoodEquipData::has_item_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodEquipData::set_has_item_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodEquipData::clear_has_item_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodEquipData::clear_item_id() {
+  item_id_ = GOOGLE_LONGLONG(0);
+  clear_has_item_id();
+}
+inline ::google::protobuf::int64 DeityGodHoodEquipData::item_id() const {
+  return item_id_;
+}
+inline void DeityGodHoodEquipData::set_item_id(::google::protobuf::int64 value) {
+  set_has_item_id();
+  item_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodEquip
+
+// repeated .proto_ff.DeityGodHoodEquipData infos = 1;
+inline int DeityGodHoodEquip::infos_size() const {
+  return infos_.size();
+}
+inline void DeityGodHoodEquip::clear_infos() {
+  infos_.Clear();
+}
+inline const ::proto_ff::DeityGodHoodEquipData& DeityGodHoodEquip::infos(int index) const {
+  return infos_.Get(index);
+}
+inline ::proto_ff::DeityGodHoodEquipData* DeityGodHoodEquip::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::DeityGodHoodEquipData* DeityGodHoodEquip::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityGodHoodEquipData >&
+DeityGodHoodEquip::infos() const {
+  return infos_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityGodHoodEquipData >*
+DeityGodHoodEquip::mutable_infos() {
+  return &infos_;
+}
+
+// -------------------------------------------------------------------
+
+// DeityGodHoodData
+
+// optional uint32 lv = 1;
+inline bool DeityGodHoodData::has_lv() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DeityGodHoodData::set_has_lv() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DeityGodHoodData::clear_has_lv() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DeityGodHoodData::clear_lv() {
+  lv_ = 0u;
+  clear_has_lv();
+}
+inline ::google::protobuf::uint32 DeityGodHoodData::lv() const {
+  return lv_;
+}
+inline void DeityGodHoodData::set_lv(::google::protobuf::uint32 value) {
+  set_has_lv();
+  lv_ = value;
+}
+
+// optional uint32 star = 2;
+inline bool DeityGodHoodData::has_star() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DeityGodHoodData::set_has_star() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DeityGodHoodData::clear_has_star() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DeityGodHoodData::clear_star() {
+  star_ = 0u;
+  clear_has_star();
+}
+inline ::google::protobuf::uint32 DeityGodHoodData::star() const {
+  return star_;
+}
+inline void DeityGodHoodData::set_star(::google::protobuf::uint32 value) {
+  set_has_star();
+  star_ = value;
+}
+
+// optional uint32 stage = 3;
+inline bool DeityGodHoodData::has_stage() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DeityGodHoodData::set_has_stage() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DeityGodHoodData::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DeityGodHoodData::clear_stage() {
+  stage_ = 0u;
+  clear_has_stage();
+}
+inline ::google::protobuf::uint32 DeityGodHoodData::stage() const {
+  return stage_;
+}
+inline void DeityGodHoodData::set_stage(::google::protobuf::uint32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional .proto_ff.DeityGodHoodEquip equip = 4;
+inline bool DeityGodHoodData::has_equip() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DeityGodHoodData::set_has_equip() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DeityGodHoodData::clear_has_equip() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DeityGodHoodData::clear_equip() {
+  if (equip_ != NULL) equip_->::proto_ff::DeityGodHoodEquip::Clear();
+  clear_has_equip();
+}
+inline const ::proto_ff::DeityGodHoodEquip& DeityGodHoodData::equip() const {
+  return equip_ != NULL ? *equip_ : *default_instance_->equip_;
+}
+inline ::proto_ff::DeityGodHoodEquip* DeityGodHoodData::mutable_equip() {
+  set_has_equip();
+  if (equip_ == NULL) equip_ = new ::proto_ff::DeityGodHoodEquip;
+  return equip_;
+}
+inline ::proto_ff::DeityGodHoodEquip* DeityGodHoodData::release_equip() {
+  clear_has_equip();
+  ::proto_ff::DeityGodHoodEquip* temp = equip_;
+  equip_ = NULL;
+  return temp;
+}
+inline void DeityGodHoodData::set_allocated_equip(::proto_ff::DeityGodHoodEquip* equip) {
+  delete equip_;
+  equip_ = equip;
+  if (equip) {
+    set_has_equip();
+  } else {
+    clear_has_equip();
+  }
+}
+
+// -------------------------------------------------------------------
+
 // DeityFantasyData
 
 // optional uint64 fantasy_id = 1;
@@ -50301,6 +52545,44 @@ DeityFantasyData::equip_suit_data() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::DeityEquipSuitData >*
 DeityFantasyData::mutable_equip_suit_data() {
   return &equip_suit_data_;
+}
+
+// optional .proto_ff.DeityGodHoodData godhood_data = 9;
+inline bool DeityFantasyData::has_godhood_data() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void DeityFantasyData::set_has_godhood_data() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void DeityFantasyData::clear_has_godhood_data() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void DeityFantasyData::clear_godhood_data() {
+  if (godhood_data_ != NULL) godhood_data_->::proto_ff::DeityGodHoodData::Clear();
+  clear_has_godhood_data();
+}
+inline const ::proto_ff::DeityGodHoodData& DeityFantasyData::godhood_data() const {
+  return godhood_data_ != NULL ? *godhood_data_ : *default_instance_->godhood_data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityFantasyData::mutable_godhood_data() {
+  set_has_godhood_data();
+  if (godhood_data_ == NULL) godhood_data_ = new ::proto_ff::DeityGodHoodData;
+  return godhood_data_;
+}
+inline ::proto_ff::DeityGodHoodData* DeityFantasyData::release_godhood_data() {
+  clear_has_godhood_data();
+  ::proto_ff::DeityGodHoodData* temp = godhood_data_;
+  godhood_data_ = NULL;
+  return temp;
+}
+inline void DeityFantasyData::set_allocated_godhood_data(::proto_ff::DeityGodHoodData* godhood_data) {
+  delete godhood_data_;
+  godhood_data_ = godhood_data;
+  if (godhood_data) {
+    set_has_godhood_data();
+  } else {
+    clear_has_godhood_data();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -54479,6 +56761,28 @@ inline ::google::protobuf::int32 MarrySelfInfo::task_state() const {
 inline void MarrySelfInfo::set_task_state(::google::protobuf::int32 value) {
   set_has_task_state();
   task_state_ = value;
+}
+
+// optional int32 express_exp_sum = 24;
+inline bool MarrySelfInfo::has_express_exp_sum() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void MarrySelfInfo::set_has_express_exp_sum() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void MarrySelfInfo::clear_has_express_exp_sum() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void MarrySelfInfo::clear_express_exp_sum() {
+  express_exp_sum_ = 0;
+  clear_has_express_exp_sum();
+}
+inline ::google::protobuf::int32 MarrySelfInfo::express_exp_sum() const {
+  return express_exp_sum_;
+}
+inline void MarrySelfInfo::set_express_exp_sum(::google::protobuf::int32 value) {
+  set_has_express_exp_sum();
+  express_exp_sum_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -63548,6 +65852,383 @@ FestRankDBData::mutable_data() {
 
 // -------------------------------------------------------------------
 
+// FestRechargePrizeTaskData
+
+// optional int32 task_id = 1;
+inline bool FestRechargePrizeTaskData::has_task_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeTaskData::set_has_task_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeTaskData::clear_has_task_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeTaskData::clear_task_id() {
+  task_id_ = 0;
+  clear_has_task_id();
+}
+inline ::google::protobuf::int32 FestRechargePrizeTaskData::task_id() const {
+  return task_id_;
+}
+inline void FestRechargePrizeTaskData::set_task_id(::google::protobuf::int32 value) {
+  set_has_task_id();
+  task_id_ = value;
+}
+
+// optional int32 task_status = 2;
+inline bool FestRechargePrizeTaskData::has_task_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeTaskData::set_has_task_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeTaskData::clear_has_task_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeTaskData::clear_task_status() {
+  task_status_ = 0;
+  clear_has_task_status();
+}
+inline ::google::protobuf::int32 FestRechargePrizeTaskData::task_status() const {
+  return task_status_;
+}
+inline void FestRechargePrizeTaskData::set_task_status(::google::protobuf::int32 value) {
+  set_has_task_status();
+  task_status_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeRecord
+
+// optional int32 jiang_num = 1;
+inline bool FestRechargePrizeRecord::has_jiang_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeRecord::set_has_jiang_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeRecord::clear_has_jiang_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeRecord::clear_jiang_num() {
+  jiang_num_ = 0;
+  clear_has_jiang_num();
+}
+inline ::google::protobuf::int32 FestRechargePrizeRecord::jiang_num() const {
+  return jiang_num_;
+}
+inline void FestRechargePrizeRecord::set_jiang_num(::google::protobuf::int32 value) {
+  set_has_jiang_num();
+  jiang_num_ = value;
+}
+
+// optional int64 time = 2;
+inline bool FestRechargePrizeRecord::has_time() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeRecord::set_has_time() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeRecord::clear_has_time() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeRecord::clear_time() {
+  time_ = GOOGLE_LONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::int64 FestRechargePrizeRecord::time() const {
+  return time_;
+}
+inline void FestRechargePrizeRecord::set_time(::google::protobuf::int64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeData
+
+// optional uint32 left_pool_num = 1;
+inline bool FestRechargePrizeData::has_left_pool_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeData::set_has_left_pool_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeData::clear_has_left_pool_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeData::clear_left_pool_num() {
+  left_pool_num_ = 0u;
+  clear_has_left_pool_num();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeData::left_pool_num() const {
+  return left_pool_num_;
+}
+inline void FestRechargePrizeData::set_left_pool_num(::google::protobuf::uint32 value) {
+  set_has_left_pool_num();
+  left_pool_num_ = value;
+}
+
+// optional uint32 left_prize = 2;
+inline bool FestRechargePrizeData::has_left_prize() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeData::set_has_left_prize() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeData::clear_has_left_prize() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeData::clear_left_prize() {
+  left_prize_ = 0u;
+  clear_has_left_prize();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeData::left_prize() const {
+  return left_prize_;
+}
+inline void FestRechargePrizeData::set_left_prize(::google::protobuf::uint32 value) {
+  set_has_left_prize();
+  left_prize_ = value;
+}
+
+// optional uint32 free_status = 3;
+inline bool FestRechargePrizeData::has_free_status() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestRechargePrizeData::set_has_free_status() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestRechargePrizeData::clear_has_free_status() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestRechargePrizeData::clear_free_status() {
+  free_status_ = 0u;
+  clear_has_free_status();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeData::free_status() const {
+  return free_status_;
+}
+inline void FestRechargePrizeData::set_free_status(::google::protobuf::uint32 value) {
+  set_has_free_status();
+  free_status_ = value;
+}
+
+// repeated .proto_ff.FestRechargePrizeTaskData task = 4;
+inline int FestRechargePrizeData::task_size() const {
+  return task_.size();
+}
+inline void FestRechargePrizeData::clear_task() {
+  task_.Clear();
+}
+inline const ::proto_ff::FestRechargePrizeTaskData& FestRechargePrizeData::task(int index) const {
+  return task_.Get(index);
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeData::mutable_task(int index) {
+  return task_.Mutable(index);
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeData::add_task() {
+  return task_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >&
+FestRechargePrizeData::task() const {
+  return task_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >*
+FestRechargePrizeData::mutable_task() {
+  return &task_;
+}
+
+// -------------------------------------------------------------------
+
+// FestRechargePrizeDBData
+
+// optional uint32 left_pool_num = 1;
+inline bool FestRechargePrizeDBData::has_left_pool_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestRechargePrizeDBData::set_has_left_pool_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestRechargePrizeDBData::clear_has_left_pool_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestRechargePrizeDBData::clear_left_pool_num() {
+  left_pool_num_ = 0u;
+  clear_has_left_pool_num();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeDBData::left_pool_num() const {
+  return left_pool_num_;
+}
+inline void FestRechargePrizeDBData::set_left_pool_num(::google::protobuf::uint32 value) {
+  set_has_left_pool_num();
+  left_pool_num_ = value;
+}
+
+// optional uint32 left_prize = 2;
+inline bool FestRechargePrizeDBData::has_left_prize() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestRechargePrizeDBData::set_has_left_prize() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestRechargePrizeDBData::clear_has_left_prize() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestRechargePrizeDBData::clear_left_prize() {
+  left_prize_ = 0u;
+  clear_has_left_prize();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeDBData::left_prize() const {
+  return left_prize_;
+}
+inline void FestRechargePrizeDBData::set_left_prize(::google::protobuf::uint32 value) {
+  set_has_left_prize();
+  left_prize_ = value;
+}
+
+// optional uint32 free_status = 3;
+inline bool FestRechargePrizeDBData::has_free_status() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FestRechargePrizeDBData::set_has_free_status() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FestRechargePrizeDBData::clear_has_free_status() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FestRechargePrizeDBData::clear_free_status() {
+  free_status_ = 0u;
+  clear_has_free_status();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeDBData::free_status() const {
+  return free_status_;
+}
+inline void FestRechargePrizeDBData::set_free_status(::google::protobuf::uint32 value) {
+  set_has_free_status();
+  free_status_ = value;
+}
+
+// repeated .proto_ff.FestRechargePrizeTaskData task = 4;
+inline int FestRechargePrizeDBData::task_size() const {
+  return task_.size();
+}
+inline void FestRechargePrizeDBData::clear_task() {
+  task_.Clear();
+}
+inline const ::proto_ff::FestRechargePrizeTaskData& FestRechargePrizeDBData::task(int index) const {
+  return task_.Get(index);
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeDBData::mutable_task(int index) {
+  return task_.Mutable(index);
+}
+inline ::proto_ff::FestRechargePrizeTaskData* FestRechargePrizeDBData::add_task() {
+  return task_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >&
+FestRechargePrizeDBData::task() const {
+  return task_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeTaskData >*
+FestRechargePrizeDBData::mutable_task() {
+  return &task_;
+}
+
+// repeated .proto_ff.FestRechargePrizeRecord record = 5;
+inline int FestRechargePrizeDBData::record_size() const {
+  return record_.size();
+}
+inline void FestRechargePrizeDBData::clear_record() {
+  record_.Clear();
+}
+inline const ::proto_ff::FestRechargePrizeRecord& FestRechargePrizeDBData::record(int index) const {
+  return record_.Get(index);
+}
+inline ::proto_ff::FestRechargePrizeRecord* FestRechargePrizeDBData::mutable_record(int index) {
+  return record_.Mutable(index);
+}
+inline ::proto_ff::FestRechargePrizeRecord* FestRechargePrizeDBData::add_record() {
+  return record_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >&
+FestRechargePrizeDBData::record() const {
+  return record_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FestRechargePrizeRecord >*
+FestRechargePrizeDBData::mutable_record() {
+  return &record_;
+}
+
+// optional uint64 flush_time = 6;
+inline bool FestRechargePrizeDBData::has_flush_time() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void FestRechargePrizeDBData::set_has_flush_time() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void FestRechargePrizeDBData::clear_has_flush_time() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void FestRechargePrizeDBData::clear_flush_time() {
+  flush_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_flush_time();
+}
+inline ::google::protobuf::uint64 FestRechargePrizeDBData::flush_time() const {
+  return flush_time_;
+}
+inline void FestRechargePrizeDBData::set_flush_time(::google::protobuf::uint64 value) {
+  set_has_flush_time();
+  flush_time_ = value;
+}
+
+// optional uint32 cur_choujiang_num = 7;
+inline bool FestRechargePrizeDBData::has_cur_choujiang_num() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void FestRechargePrizeDBData::set_has_cur_choujiang_num() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void FestRechargePrizeDBData::clear_has_cur_choujiang_num() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void FestRechargePrizeDBData::clear_cur_choujiang_num() {
+  cur_choujiang_num_ = 0u;
+  clear_has_cur_choujiang_num();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeDBData::cur_choujiang_num() const {
+  return cur_choujiang_num_;
+}
+inline void FestRechargePrizeDBData::set_cur_choujiang_num(::google::protobuf::uint32 value) {
+  set_has_cur_choujiang_num();
+  cur_choujiang_num_ = value;
+}
+
+// optional uint32 acc_recharge_num = 8;
+inline bool FestRechargePrizeDBData::has_acc_recharge_num() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void FestRechargePrizeDBData::set_has_acc_recharge_num() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void FestRechargePrizeDBData::clear_has_acc_recharge_num() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void FestRechargePrizeDBData::clear_acc_recharge_num() {
+  acc_recharge_num_ = 0u;
+  clear_has_acc_recharge_num();
+}
+inline ::google::protobuf::uint32 FestRechargePrizeDBData::acc_recharge_num() const {
+  return acc_recharge_num_;
+}
+inline void FestRechargePrizeDBData::set_acc_recharge_num(::google::protobuf::uint32 value) {
+  set_has_acc_recharge_num();
+  acc_recharge_num_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // NotifyWorldInfo
 
 // optional int32 world_lv = 1;
@@ -65872,6 +68553,370 @@ inline void SoulEntry::set_steplv(::google::protobuf::int32 value) {
   steplv_ = value;
 }
 
+// optional int32 auto_skill = 4;
+inline bool SoulEntry::has_auto_skill() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SoulEntry::set_has_auto_skill() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SoulEntry::clear_has_auto_skill() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SoulEntry::clear_auto_skill() {
+  auto_skill_ = 0;
+  clear_has_auto_skill();
+}
+inline ::google::protobuf::int32 SoulEntry::auto_skill() const {
+  return auto_skill_;
+}
+inline void SoulEntry::set_auto_skill(::google::protobuf::int32 value) {
+  set_has_auto_skill();
+  auto_skill_ = value;
+}
+
+// optional int32 quality_prot = 5;
+inline bool SoulEntry::has_quality_prot() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SoulEntry::set_has_quality_prot() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SoulEntry::clear_has_quality_prot() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SoulEntry::clear_quality_prot() {
+  quality_prot_ = 0;
+  clear_has_quality_prot();
+}
+inline ::google::protobuf::int32 SoulEntry::quality_prot() const {
+  return quality_prot_;
+}
+inline void SoulEntry::set_quality_prot(::google::protobuf::int32 value) {
+  set_has_quality_prot();
+  quality_prot_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulSpirit
+
+// optional int32 slot_pos = 1;
+inline bool SoulSpirit::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulSpirit::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulSpirit::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulSpirit::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulSpirit::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulSpirit::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 bag_pos = 2;
+inline bool SoulSpirit::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulSpirit::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulSpirit::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulSpirit::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulSpirit::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulSpirit::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// optional int32 strong_lv = 3;
+inline bool SoulSpirit::has_strong_lv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SoulSpirit::set_has_strong_lv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SoulSpirit::clear_has_strong_lv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SoulSpirit::clear_strong_lv() {
+  strong_lv_ = 0;
+  clear_has_strong_lv();
+}
+inline ::google::protobuf::int32 SoulSpirit::strong_lv() const {
+  return strong_lv_;
+}
+inline void SoulSpirit::set_strong_lv(::google::protobuf::int32 value) {
+  set_has_strong_lv();
+  strong_lv_ = value;
+}
+
+// optional int32 break_lv = 4;
+inline bool SoulSpirit::has_break_lv() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SoulSpirit::set_has_break_lv() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SoulSpirit::clear_has_break_lv() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SoulSpirit::clear_break_lv() {
+  break_lv_ = 0;
+  clear_has_break_lv();
+}
+inline ::google::protobuf::int32 SoulSpirit::break_lv() const {
+  return break_lv_;
+}
+inline void SoulSpirit::set_break_lv(::google::protobuf::int32 value) {
+  set_has_break_lv();
+  break_lv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulBone
+
+// optional int32 slot_pos = 1;
+inline bool SoulBone::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulBone::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulBone::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulBone::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulBone::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulBone::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 bag_pos = 2;
+inline bool SoulBone::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulBone::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulBone::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulBone::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulBone::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulBone::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
+// optional int32 is_wake = 3;
+inline bool SoulBone::has_is_wake() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SoulBone::set_has_is_wake() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SoulBone::clear_has_is_wake() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SoulBone::clear_is_wake() {
+  is_wake_ = 0;
+  clear_has_is_wake();
+}
+inline ::google::protobuf::int32 SoulBone::is_wake() const {
+  return is_wake_;
+}
+inline void SoulBone::set_is_wake(::google::protobuf::int32 value) {
+  set_has_is_wake();
+  is_wake_ = value;
+}
+
+// optional int32 progress = 4;
+inline bool SoulBone::has_progress() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SoulBone::set_has_progress() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SoulBone::clear_has_progress() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SoulBone::clear_progress() {
+  progress_ = 0;
+  clear_has_progress();
+}
+inline ::google::protobuf::int32 SoulBone::progress() const {
+  return progress_;
+}
+inline void SoulBone::set_progress(::google::protobuf::int32 value) {
+  set_has_progress();
+  progress_ = value;
+}
+
+// optional int32 wake_lv = 5;
+inline bool SoulBone::has_wake_lv() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SoulBone::set_has_wake_lv() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SoulBone::clear_has_wake_lv() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SoulBone::clear_wake_lv() {
+  wake_lv_ = 0;
+  clear_has_wake_lv();
+}
+inline ::google::protobuf::int32 SoulBone::wake_lv() const {
+  return wake_lv_;
+}
+inline void SoulBone::set_wake_lv(::google::protobuf::int32 value) {
+  set_has_wake_lv();
+  wake_lv_ = value;
+}
+
+// optional int32 fix_id = 6;
+inline bool SoulBone::has_fix_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void SoulBone::set_has_fix_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void SoulBone::clear_has_fix_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void SoulBone::clear_fix_id() {
+  fix_id_ = 0;
+  clear_has_fix_id();
+}
+inline ::google::protobuf::int32 SoulBone::fix_id() const {
+  return fix_id_;
+}
+inline void SoulBone::set_fix_id(::google::protobuf::int32 value) {
+  set_has_fix_id();
+  fix_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// SoulGuwen
+
+// optional int32 suit_id = 1;
+inline bool SoulGuwen::has_suit_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SoulGuwen::set_has_suit_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SoulGuwen::clear_has_suit_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SoulGuwen::clear_suit_id() {
+  suit_id_ = 0;
+  clear_has_suit_id();
+}
+inline ::google::protobuf::int32 SoulGuwen::suit_id() const {
+  return suit_id_;
+}
+inline void SoulGuwen::set_suit_id(::google::protobuf::int32 value) {
+  set_has_suit_id();
+  suit_id_ = value;
+}
+
+// optional int32 bone_pos = 2;
+inline bool SoulGuwen::has_bone_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SoulGuwen::set_has_bone_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SoulGuwen::clear_has_bone_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SoulGuwen::clear_bone_pos() {
+  bone_pos_ = 0;
+  clear_has_bone_pos();
+}
+inline ::google::protobuf::int32 SoulGuwen::bone_pos() const {
+  return bone_pos_;
+}
+inline void SoulGuwen::set_bone_pos(::google::protobuf::int32 value) {
+  set_has_bone_pos();
+  bone_pos_ = value;
+}
+
+// optional int32 slot_pos = 3;
+inline bool SoulGuwen::has_slot_pos() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SoulGuwen::set_has_slot_pos() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SoulGuwen::clear_has_slot_pos() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SoulGuwen::clear_slot_pos() {
+  slot_pos_ = 0;
+  clear_has_slot_pos();
+}
+inline ::google::protobuf::int32 SoulGuwen::slot_pos() const {
+  return slot_pos_;
+}
+inline void SoulGuwen::set_slot_pos(::google::protobuf::int32 value) {
+  set_has_slot_pos();
+  slot_pos_ = value;
+}
+
+// optional int32 bag_pos = 4;
+inline bool SoulGuwen::has_bag_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SoulGuwen::set_has_bag_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SoulGuwen::clear_has_bag_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SoulGuwen::clear_bag_pos() {
+  bag_pos_ = 0;
+  clear_has_bag_pos();
+}
+inline ::google::protobuf::int32 SoulGuwen::bag_pos() const {
+  return bag_pos_;
+}
+inline void SoulGuwen::set_bag_pos(::google::protobuf::int32 value) {
+  set_has_bag_pos();
+  bag_pos_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // SoulPool
@@ -66391,6 +69436,481 @@ inline ::google::protobuf::int32 RuneEntry::jueji_id() const {
 inline void RuneEntry::set_jueji_id(::google::protobuf::int32 value) {
   set_has_jueji_id();
   jueji_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FestBossProto
+
+// optional int32 tplid = 1;
+inline bool FestBossProto::has_tplid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FestBossProto::set_has_tplid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FestBossProto::clear_has_tplid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FestBossProto::clear_tplid() {
+  tplid_ = 0;
+  clear_has_tplid();
+}
+inline ::google::protobuf::int32 FestBossProto::tplid() const {
+  return tplid_;
+}
+inline void FestBossProto::set_tplid(::google::protobuf::int32 value) {
+  set_has_tplid();
+  tplid_ = value;
+}
+
+// optional uint64 time = 2;
+inline bool FestBossProto::has_time() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FestBossProto::set_has_time() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FestBossProto::clear_has_time() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FestBossProto::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::uint64 FestBossProto::time() const {
+  return time_;
+}
+inline void FestBossProto::set_time(::google::protobuf::uint64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxOpened
+
+// required uint32 idx = 1;
+inline bool NGTBoxOpened::has_idx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxOpened::set_has_idx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxOpened::clear_has_idx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxOpened::clear_idx() {
+  idx_ = 0u;
+  clear_has_idx();
+}
+inline ::google::protobuf::uint32 NGTBoxOpened::idx() const {
+  return idx_;
+}
+inline void NGTBoxOpened::set_idx(::google::protobuf::uint32 value) {
+  set_has_idx();
+  idx_ = value;
+}
+
+// required uint32 itemId = 2;
+inline bool NGTBoxOpened::has_itemid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGTBoxOpened::set_has_itemid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGTBoxOpened::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGTBoxOpened::clear_itemid() {
+  itemid_ = 0u;
+  clear_has_itemid();
+}
+inline ::google::protobuf::uint32 NGTBoxOpened::itemid() const {
+  return itemid_;
+}
+inline void NGTBoxOpened::set_itemid(::google::protobuf::uint32 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// optional uint32 itemIdx = 3;
+inline bool NGTBoxOpened::has_itemidx() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGTBoxOpened::set_has_itemidx() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGTBoxOpened::clear_has_itemidx() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGTBoxOpened::clear_itemidx() {
+  itemidx_ = 0u;
+  clear_has_itemidx();
+}
+inline ::google::protobuf::uint32 NGTBoxOpened::itemidx() const {
+  return itemidx_;
+}
+inline void NGTBoxOpened::set_itemidx(::google::protobuf::uint32 value) {
+  set_has_itemidx();
+  itemidx_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGTBoxItem
+
+// required uint32 itemId = 1;
+inline bool NGTBoxItem::has_itemid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGTBoxItem::set_has_itemid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGTBoxItem::clear_has_itemid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGTBoxItem::clear_itemid() {
+  itemid_ = 0u;
+  clear_has_itemid();
+}
+inline ::google::protobuf::uint32 NGTBoxItem::itemid() const {
+  return itemid_;
+}
+inline void NGTBoxItem::set_itemid(::google::protobuf::uint32 value) {
+  set_has_itemid();
+  itemid_ = value;
+}
+
+// required uint32 itemCount = 2;
+inline bool NGTBoxItem::has_itemcount() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGTBoxItem::set_has_itemcount() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGTBoxItem::clear_has_itemcount() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGTBoxItem::clear_itemcount() {
+  itemcount_ = 0u;
+  clear_has_itemcount();
+}
+inline ::google::protobuf::uint32 NGTBoxItem::itemcount() const {
+  return itemcount_;
+}
+inline void NGTBoxItem::set_itemcount(::google::protobuf::uint32 value) {
+  set_has_itemcount();
+  itemcount_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGStorePurchaseLog
+
+// required uint32 cfgId = 1;
+inline bool NGStorePurchaseLog::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGStorePurchaseLog::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGStorePurchaseLog::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGStorePurchaseLog::clear_cfgid() {
+  cfgid_ = 0u;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::uint32 NGStorePurchaseLog::cfgid() const {
+  return cfgid_;
+}
+inline void NGStorePurchaseLog::set_cfgid(::google::protobuf::uint32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// required uint32 times = 2;
+inline bool NGStorePurchaseLog::has_times() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NGStorePurchaseLog::set_has_times() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NGStorePurchaseLog::clear_has_times() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NGStorePurchaseLog::clear_times() {
+  times_ = 0u;
+  clear_has_times();
+}
+inline ::google::protobuf::uint32 NGStorePurchaseLog::times() const {
+  return times_;
+}
+inline void NGStorePurchaseLog::set_times(::google::protobuf::uint32 value) {
+  set_has_times();
+  times_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NGDbDatas
+
+// optional uint32 layers = 1;
+inline bool NGDbDatas::has_layers() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NGDbDatas::set_has_layers() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NGDbDatas::clear_has_layers() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NGDbDatas::clear_layers() {
+  layers_ = 0u;
+  clear_has_layers();
+}
+inline ::google::protobuf::uint32 NGDbDatas::layers() const {
+  return layers_;
+}
+inline void NGDbDatas::set_layers(::google::protobuf::uint32 value) {
+  set_has_layers();
+  layers_ = value;
+}
+
+// repeated .proto_ff.NGTBoxOpened openedList = 2;
+inline int NGDbDatas::openedlist_size() const {
+  return openedlist_.size();
+}
+inline void NGDbDatas::clear_openedlist() {
+  openedlist_.Clear();
+}
+inline const ::proto_ff::NGTBoxOpened& NGDbDatas::openedlist(int index) const {
+  return openedlist_.Get(index);
+}
+inline ::proto_ff::NGTBoxOpened* NGDbDatas::mutable_openedlist(int index) {
+  return openedlist_.Mutable(index);
+}
+inline ::proto_ff::NGTBoxOpened* NGDbDatas::add_openedlist() {
+  return openedlist_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >&
+NGDbDatas::openedlist() const {
+  return openedlist_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxOpened >*
+NGDbDatas::mutable_openedlist() {
+  return &openedlist_;
+}
+
+// optional uint64 weekTime = 3;
+inline bool NGDbDatas::has_weektime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NGDbDatas::set_has_weektime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NGDbDatas::clear_has_weektime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NGDbDatas::clear_weektime() {
+  weektime_ = GOOGLE_ULONGLONG(0);
+  clear_has_weektime();
+}
+inline ::google::protobuf::uint64 NGDbDatas::weektime() const {
+  return weektime_;
+}
+inline void NGDbDatas::set_weektime(::google::protobuf::uint64 value) {
+  set_has_weektime();
+  weektime_ = value;
+}
+
+// optional uint32 battleWeekTimes = 4;
+inline bool NGDbDatas::has_battleweektimes() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NGDbDatas::set_has_battleweektimes() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NGDbDatas::clear_has_battleweektimes() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NGDbDatas::clear_battleweektimes() {
+  battleweektimes_ = 0u;
+  clear_has_battleweektimes();
+}
+inline ::google::protobuf::uint32 NGDbDatas::battleweektimes() const {
+  return battleweektimes_;
+}
+inline void NGDbDatas::set_battleweektimes(::google::protobuf::uint32 value) {
+  set_has_battleweektimes();
+  battleweektimes_ = value;
+}
+
+// optional uint64 battleId = 5;
+inline bool NGDbDatas::has_battleid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NGDbDatas::set_has_battleid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NGDbDatas::clear_has_battleid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NGDbDatas::clear_battleid() {
+  battleid_ = GOOGLE_ULONGLONG(0);
+  clear_has_battleid();
+}
+inline ::google::protobuf::uint64 NGDbDatas::battleid() const {
+  return battleid_;
+}
+inline void NGDbDatas::set_battleid(::google::protobuf::uint64 value) {
+  set_has_battleid();
+  battleid_ = value;
+}
+
+// repeated .proto_ff.NGTBoxItem itemsLog = 6;
+inline int NGDbDatas::itemslog_size() const {
+  return itemslog_.size();
+}
+inline void NGDbDatas::clear_itemslog() {
+  itemslog_.Clear();
+}
+inline const ::proto_ff::NGTBoxItem& NGDbDatas::itemslog(int index) const {
+  return itemslog_.Get(index);
+}
+inline ::proto_ff::NGTBoxItem* NGDbDatas::mutable_itemslog(int index) {
+  return itemslog_.Mutable(index);
+}
+inline ::proto_ff::NGTBoxItem* NGDbDatas::add_itemslog() {
+  return itemslog_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >&
+NGDbDatas::itemslog() const {
+  return itemslog_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGTBoxItem >*
+NGDbDatas::mutable_itemslog() {
+  return &itemslog_;
+}
+
+// optional uint32 privilege = 7;
+inline bool NGDbDatas::has_privilege() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void NGDbDatas::set_has_privilege() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void NGDbDatas::clear_has_privilege() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void NGDbDatas::clear_privilege() {
+  privilege_ = 0u;
+  clear_has_privilege();
+}
+inline ::google::protobuf::uint32 NGDbDatas::privilege() const {
+  return privilege_;
+}
+inline void NGDbDatas::set_privilege(::google::protobuf::uint32 value) {
+  set_has_privilege();
+  privilege_ = value;
+}
+
+// repeated uint32 privilegeRecvLog = 8;
+inline int NGDbDatas::privilegerecvlog_size() const {
+  return privilegerecvlog_.size();
+}
+inline void NGDbDatas::clear_privilegerecvlog() {
+  privilegerecvlog_.Clear();
+}
+inline ::google::protobuf::uint32 NGDbDatas::privilegerecvlog(int index) const {
+  return privilegerecvlog_.Get(index);
+}
+inline void NGDbDatas::set_privilegerecvlog(int index, ::google::protobuf::uint32 value) {
+  privilegerecvlog_.Set(index, value);
+}
+inline void NGDbDatas::add_privilegerecvlog(::google::protobuf::uint32 value) {
+  privilegerecvlog_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NGDbDatas::privilegerecvlog() const {
+  return privilegerecvlog_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NGDbDatas::mutable_privilegerecvlog() {
+  return &privilegerecvlog_;
+}
+
+// repeated .proto_ff.NGStorePurchaseLog storePurchaseLog = 9;
+inline int NGDbDatas::storepurchaselog_size() const {
+  return storepurchaselog_.size();
+}
+inline void NGDbDatas::clear_storepurchaselog() {
+  storepurchaselog_.Clear();
+}
+inline const ::proto_ff::NGStorePurchaseLog& NGDbDatas::storepurchaselog(int index) const {
+  return storepurchaselog_.Get(index);
+}
+inline ::proto_ff::NGStorePurchaseLog* NGDbDatas::mutable_storepurchaselog(int index) {
+  return storepurchaselog_.Mutable(index);
+}
+inline ::proto_ff::NGStorePurchaseLog* NGDbDatas::add_storepurchaselog() {
+  return storepurchaselog_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >&
+NGDbDatas::storepurchaselog() const {
+  return storepurchaselog_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::NGStorePurchaseLog >*
+NGDbDatas::mutable_storepurchaselog() {
+  return &storepurchaselog_;
+}
+
+// optional uint32 payAcc = 10;
+inline bool NGDbDatas::has_payacc() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void NGDbDatas::set_has_payacc() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void NGDbDatas::clear_has_payacc() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void NGDbDatas::clear_payacc() {
+  payacc_ = 0u;
+  clear_has_payacc();
+}
+inline ::google::protobuf::uint32 NGDbDatas::payacc() const {
+  return payacc_;
+}
+inline void NGDbDatas::set_payacc(::google::protobuf::uint32 value) {
+  set_has_payacc();
+  payacc_ = value;
+}
+
+// repeated uint32 payAccRecvLog = 11;
+inline int NGDbDatas::payaccrecvlog_size() const {
+  return payaccrecvlog_.size();
+}
+inline void NGDbDatas::clear_payaccrecvlog() {
+  payaccrecvlog_.Clear();
+}
+inline ::google::protobuf::uint32 NGDbDatas::payaccrecvlog(int index) const {
+  return payaccrecvlog_.Get(index);
+}
+inline void NGDbDatas::set_payaccrecvlog(int index, ::google::protobuf::uint32 value) {
+  payaccrecvlog_.Set(index, value);
+}
+inline void NGDbDatas::add_payaccrecvlog(::google::protobuf::uint32 value) {
+  payaccrecvlog_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NGDbDatas::payaccrecvlog() const {
+  return payaccrecvlog_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NGDbDatas::mutable_payaccrecvlog() {
+  return &payaccrecvlog_;
 }
 
 

@@ -2059,24 +2059,17 @@ class BestEQStrongRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 bagtype() const;
   inline void set_bagtype(::google::protobuf::int32 value);
 
-  // optional int32 pos = 3;
-  inline bool has_pos() const;
+  // repeated int32 pos = 3;
+  inline int pos_size() const;
   inline void clear_pos();
   static const int kPosFieldNumber = 3;
-  inline ::google::protobuf::int32 pos() const;
-  inline void set_pos(::google::protobuf::int32 value);
-
-  // repeated int32 costpos = 4;
-  inline int costpos_size() const;
-  inline void clear_costpos();
-  static const int kCostposFieldNumber = 4;
-  inline ::google::protobuf::int32 costpos(int index) const;
-  inline void set_costpos(int index, ::google::protobuf::int32 value);
-  inline void add_costpos(::google::protobuf::int32 value);
+  inline ::google::protobuf::int32 pos(int index) const;
+  inline void set_pos(int index, ::google::protobuf::int32 value);
+  inline void add_pos(::google::protobuf::int32 value);
   inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      costpos() const;
+      pos() const;
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_costpos();
+      mutable_pos();
 
   // @@protoc_insertion_point(class_scope:proto_ff.BestEQStrongRsp)
  private:
@@ -2084,18 +2077,15 @@ class BestEQStrongRsp : public ::google::protobuf::Message {
   inline void clear_has_ret();
   inline void set_has_bagtype();
   inline void clear_has_bagtype();
-  inline void set_has_pos();
-  inline void clear_has_pos();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 ret_;
   ::google::protobuf::int32 bagtype_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > costpos_;
-  ::google::protobuf::int32 pos_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pos_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_BestEQ_2eproto();
   friend void protobuf_AssignDesc_BestEQ_2eproto();
@@ -3344,51 +3334,29 @@ inline void BestEQStrongRsp::set_bagtype(::google::protobuf::int32 value) {
   bagtype_ = value;
 }
 
-// optional int32 pos = 3;
-inline bool BestEQStrongRsp::has_pos() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void BestEQStrongRsp::set_has_pos() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void BestEQStrongRsp::clear_has_pos() {
-  _has_bits_[0] &= ~0x00000004u;
+// repeated int32 pos = 3;
+inline int BestEQStrongRsp::pos_size() const {
+  return pos_.size();
 }
 inline void BestEQStrongRsp::clear_pos() {
-  pos_ = 0;
-  clear_has_pos();
+  pos_.Clear();
 }
-inline ::google::protobuf::int32 BestEQStrongRsp::pos() const {
-  return pos_;
+inline ::google::protobuf::int32 BestEQStrongRsp::pos(int index) const {
+  return pos_.Get(index);
 }
-inline void BestEQStrongRsp::set_pos(::google::protobuf::int32 value) {
-  set_has_pos();
-  pos_ = value;
+inline void BestEQStrongRsp::set_pos(int index, ::google::protobuf::int32 value) {
+  pos_.Set(index, value);
 }
-
-// repeated int32 costpos = 4;
-inline int BestEQStrongRsp::costpos_size() const {
-  return costpos_.size();
-}
-inline void BestEQStrongRsp::clear_costpos() {
-  costpos_.Clear();
-}
-inline ::google::protobuf::int32 BestEQStrongRsp::costpos(int index) const {
-  return costpos_.Get(index);
-}
-inline void BestEQStrongRsp::set_costpos(int index, ::google::protobuf::int32 value) {
-  costpos_.Set(index, value);
-}
-inline void BestEQStrongRsp::add_costpos(::google::protobuf::int32 value) {
-  costpos_.Add(value);
+inline void BestEQStrongRsp::add_pos(::google::protobuf::int32 value) {
+  pos_.Add(value);
 }
 inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-BestEQStrongRsp::costpos() const {
-  return costpos_;
+BestEQStrongRsp::pos() const {
+  return pos_;
 }
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-BestEQStrongRsp::mutable_costpos() {
-  return &costpos_;
+BestEQStrongRsp::mutable_pos() {
+  return &pos_;
 }
 
 // -------------------------------------------------------------------

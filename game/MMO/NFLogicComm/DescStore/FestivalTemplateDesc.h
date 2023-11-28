@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Festival_s.h"
 
-#define MAX_FESTIVAL_TEMPLATE_NUM 64
+#define MAX_FESTIVAL_TEMPLATE_NUM 128
 
 #define MAX_INDEX_FESTIVAL_TEMPLATE_FESTIVALID_NUM 64
 
