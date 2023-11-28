@@ -68,31 +68,25 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEv
     *       这个指针的的集合里，如果skey已经存在，
     *       说明已经存入，直接退出
     */
-    auto pObjList = m_shmObjAllSubscribe.Find(pSink->GetGlobalId());
-    if (pObjList == NULL)
+    auto objList_iter = m_shmObjAllSubscribe.find(pSink->GetGlobalId());
+    if (objList_iter == m_shmObjAllSubscribe.end())
     {
-        pObjList = m_shmObjAllSubscribe.Insert(pSink->GetGlobalId());
-        CHECK_EXPR(pObjList, -1, "m_shmobjAllSubscribe Insert Failed, Space Not Enough, desc:{}", desc);
+        objList_iter = m_shmObjAllSubscribe.emplace_hint(pSink->GetGlobalId(),  NFShmNodeObjMultiList<NFShmSubscribeInfo>());
+        CHECK_EXPR(objList_iter != m_shmObjAllSubscribe.end(), -1, "m_shmobjAllSubscribe Insert Failed, Space Not Enough, desc:{}", desc);
+        objList_iter->second.InitShmObj(this);
     }
 
-    auto pEventKeyList = m_eventKeyAllSubscribe.Find(skey);
-    if (pEventKeyList == NULL)
+    auto pObjList = &objList_iter->second;
+
+    auto eventKeyList_iter = m_eventKeyAllSubscribe.find(skey);
+    if (eventKeyList_iter == m_eventKeyAllSubscribe.end())
     {
-        pEventKeyList = m_eventKeyAllSubscribe.Insert(skey);
-        CHECK_EXPR(pEventKeyList, -1, "m_eventKeyAllSubscribe Insert Failed, Space Not Enough, desc:{}", desc);
+        eventKeyList_iter = m_eventKeyAllSubscribe.emplace_hint(skey,  NFShmNodeObjMultiList<NFShmSubscribeInfo>());
+        CHECK_EXPR(eventKeyList_iter != m_eventKeyAllSubscribe.end(), -1, "m_eventKeyAllSubscribe Insert Failed, Space Not Enough, desc:{}", desc);
+        eventKeyList_iter->second.InitShmObj(this);
     }
 
-    //一般一个对象不会定义太多事件, 效率耗得起
-/*    auto pNode = pObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
-    while(pNode)
-    {
-        if (pNode->m_eventKey == skey)
-        {
-            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "ShmObj Subscribe Same Event, desc:{}", desc);
-            return -1;
-        }
-        pNode = pObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
-    }*/
+    auto pEventKeyList = &eventKeyList_iter->second;
 
     /**
     *@brief 判断skey有没有存在，把对象存入skey的链表里
@@ -104,9 +98,9 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEv
     pInfo->m_eventKey = skey;
     pInfo->m_shmObjId = pSink->GetGlobalId();
 
-    int ret = pObjList->AddNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pInfo);
+    int ret = pObjList->AddNode(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pInfo);
     CHECK_EXPR_ASSERT(ret == 0, -1, "AddNode Failed, desc:{}", desc);
-    ret = pEventKeyList->AddNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pInfo);
+    ret = pEventKeyList->AddNode(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pInfo);
     CHECK_EXPR_ASSERT(ret == 0, -1, "AddNode Failed, desc:{}", desc);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Subscribe:{}", pSink->GetGlobalId(), pSink->GetClassName(), pInfo->ToString());
@@ -137,33 +131,35 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t n
     *		存在的话，删除对应的key, 如果pSink集合为空的话，
     *       删除pSink
     */
-    auto pShmObjList = m_shmObjAllSubscribe.Find(pSink->GetGlobalId());
-    if (pShmObjList == NULL)
+    auto shmObjList_iter = m_shmObjAllSubscribe.find(pSink->GetGlobalId());
+    if (shmObjList_iter == m_shmObjAllSubscribe.end())
     {
         return -1;
     }
 
-    auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
+    auto pShmObjList = &shmObjList_iter->second;
+
+    auto pNode = pShmObjList->GetHeadNodeObj(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
     while (pNode)
     {
         CHECK_EXPR_ASSERT(pNode->m_shmObjId == pSink->GetGlobalId(), -1, "");
         if (pNode->m_eventKey == skey)
         {
             auto pLastNode = pNode;
-            pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
-            pShmObjList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
+            pNode = pShmObjList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
+            pShmObjList->RemoveNode(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Delete Subscribe:{}", pSink->GetGlobalId(), pSink->GetClassName(), pLastNode->ToString());
             DelEventKeyListSubcribeInfo(pLastNode);
         }
         else
         {
-            pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
+            pNode = pShmObjList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
         }
     }
 
     if (pShmObjList->IsEmpty())
     {
-        m_shmObjAllSubscribe.Erase(pSink->GetGlobalId());
+        m_shmObjAllSubscribe.erase(pSink->GetGlobalId());
     }
 
     return 0;
@@ -184,24 +180,26 @@ int NFShmEventMgr::UnSubscribeAll(NFShmObj *pSink)
 
 int NFShmEventMgr::UnSubscribeAll(int globalId)
 {
-    auto pShmObjList = m_shmObjAllSubscribe.Find(globalId);
-    if (pShmObjList == NULL)
+    auto shmObjList_iter = m_shmObjAllSubscribe.find(globalId);
+    if (shmObjList_iter == m_shmObjAllSubscribe.end())
     {
         return -1;
     }
 
-    auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
+    auto pShmObjList = &shmObjList_iter->second;
+
+    auto pNode = pShmObjList->GetHeadNodeObj(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
     while (pNode)
     {
         CHECK_EXPR_ASSERT(pNode->m_shmObjId == globalId, -1, "");
         auto pLastNode = pNode;
-        pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
-        pShmObjList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
+        pNode = pShmObjList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
+        pShmObjList->RemoveNode(NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
 
         DelEventKeyListSubcribeInfo(pLastNode);
     }
 
-    m_shmObjAllSubscribe.Erase(globalId);
+    m_shmObjAllSubscribe.erase(globalId);
 
     return 0;
 }
@@ -275,10 +273,11 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nServerType, uint32_
     }
 
     std::vector<int> errVec;
-    auto pEventKeyList = m_eventKeyAllSubscribe.Find(skey);
-    if (pEventKeyList)
+    auto eventKeyList_iter = m_eventKeyAllSubscribe.find(skey);
+    if (eventKeyList_iter != m_eventKeyAllSubscribe.end())
     {
-        auto pNode = pEventKeyList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0);
+        auto pEventKeyList = &eventKeyList_iter->second;
+        auto pNode = pEventKeyList->GetHeadNodeObj(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0);
         while (pNode)
         {
             if (pNode->nRefCount >= EVENT_REF_MAX_CNT)
@@ -317,13 +316,13 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nServerType, uint32_
                 if (pNode->bRemoveFlag && 0 == pNode->nRefCount)
                 {
                     auto pLastNode = pNode;
-                    pNode = pEventKeyList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
-                    pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
+                    pNode = pEventKeyList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
+                    pEventKeyList->RemoveNode(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
                     FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
                 }
                 else
                 {
-                    pNode = pEventKeyList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
+                    pNode = pEventKeyList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
                 }
                 if (bRes != 0)
                 {
@@ -335,20 +334,20 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nServerType, uint32_
                 if (0 == pNode->nRefCount)
                 {
                     auto pLastNode = pNode;
-                    pNode = pEventKeyList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
-                    pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
+                    pNode = pEventKeyList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
+                    pEventKeyList->RemoveNode(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
                     FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
                 }
                 else
                 {
-                    pNode = pEventKeyList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
+                    pNode = pEventKeyList->GetNextNodeObj(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pNode);
                 }
             }
         }
 
         if (pEventKeyList->IsEmpty())
         {
-            m_eventKeyAllSubscribe.Erase(skey);
+            m_eventKeyAllSubscribe.erase(skey);
         }
     }
 
@@ -364,12 +363,13 @@ int NFShmEventMgr::Fire(const NFShmEventKey &skey, uint32_t nServerType, uint32_
 
 int NFShmEventMgr::DelEventKeyListSubcribeInfo(NFShmSubscribeInfo *pLastNode)
 {
-    auto pEventKeyList = m_eventKeyAllSubscribe.Find(pLastNode->m_eventKey);
-    if (pEventKeyList)
+    auto eventKeyList_iter = m_eventKeyAllSubscribe.find(pLastNode->m_eventKey);
+    if (eventKeyList_iter != m_eventKeyAllSubscribe.end())
     {
+        auto pEventKeyList = &eventKeyList_iter->second;
         if (pLastNode->nRefCount == 0)
         {
-            pEventKeyList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
+            pEventKeyList->RemoveNode(NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pLastNode);
             FindModule<NFISharedMemModule>()->DestroyObj(pLastNode);
         }
         else
@@ -379,7 +379,7 @@ int NFShmEventMgr::DelEventKeyListSubcribeInfo(NFShmSubscribeInfo *pLastNode)
 
         if (pEventKeyList->IsEmpty())
         {
-            m_eventKeyAllSubscribe.Erase(pLastNode->m_eventKey);
+            m_eventKeyAllSubscribe.erase(pLastNode->m_eventKey);
         }
     }
 

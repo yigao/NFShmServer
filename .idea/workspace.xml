@@ -71,17 +71,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO facade grow equip">
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFFestivalDefine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalFestivalDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalFestivalDesc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalMuban_zadanDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalMuban_zadanDesc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalTemplateDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalTemplateDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalTemplateDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalTemplateDesc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/FestivalDescEx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/FestivalDescEx.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/FestivalDescEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/FestivalDescEx.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Festival.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/E_Festival.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/E_Festival_s.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,11 +100,10 @@
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Attr/NFAttrMgr.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFRankDefine.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerConfig_s.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFGrid.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFScene.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.cpp" root0="FORCE_HIGHLIGHTING" />
@@ -123,10 +112,7 @@
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackagePart.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFRankPart.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Rank/NFCommonRank.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Rank/NFCommonRank.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Rank/NFCommonRank.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Rank/NFCommonRank.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Relation/NFSnsRelationPart.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFPoint2.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///usr/include/c++/4.8.2/bits/stl_iterator_base_funcs.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///usr/include/c++/4.8.2/bits/stl_map.h" root0="FORCE_HIGHLIGHTING" />
@@ -648,6 +634,8 @@
       <workItem from="1700726858307" duration="836000" />
       <workItem from="1700785547620" duration="3156000" />
       <workItem from="1700789387670" duration="22000" />
+      <workItem from="1700807814431" duration="2964000" />
+      <workItem from="1701046674683" duration="1892000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -992,7 +980,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="285" />
+    <option name="localTasksCounter" value="287" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

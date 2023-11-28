@@ -13,88 +13,88 @@
 #pragma pack(1)
 
 
-//ÔÒµ°(ÌìÌìÑøÁú)ÈÕÖ¾×î´ó³¤¶È
+//ç ¸è›‹(å¤©å¤©å…»é¾™)æ—¥å¿—æœ€å¤§é•¿åº¦
 const uint32_t FEST_DIG_EGG_MAX_LOG_NUM = 300;
 
-//×ªÅÌ¶à±¶·µÓñÈÕÖ¾×î´ó³¤¶È
+//è½¬ç›˜å¤šå€è¿”ç‰æ—¥å¿—æœ€å¤§é•¿åº¦
 const uint32_t FEST_RTURANBLE_MAX_LOG_NUM = 100;
 
 const uint32_t FEST_DRAWPIZE_MAX_LOG_NUM = 100;
 
-//Ê±¼äÀàĞÍ
+//æ—¶é—´ç±»å‹
 enum class ETimeType
 {
-    permanent = 1,		//³£×¤
-    openserver = 2,		//¿ª·şÊ±¼ä
-    date = 3,			//ÈÕÆÚ
-    //create = 4,		//´´½ÇÊ±¼ä(È¥µô)
+    permanent = 1,		//å¸¸é©»
+    openserver = 2,		//å¼€æœæ—¶é—´
+    date = 3,			//æ—¥æœŸ
+    //create = 4,		//åˆ›è§’æ—¶é—´(å»æ‰)
     limit,
 };
-//ÉúĞ§µÄ·şÎñÆ÷ÀàĞÍ
+//ç”Ÿæ•ˆçš„æœåŠ¡å™¨ç±»å‹
 enum class EServType
 {
-    newzone = 1,	//ĞÂ·ş
-    merge = 2,		//ºÏ·ş
-    all = 3,		//ËùÓĞµÄ
+    newzone = 1,	//æ–°æœ
+    merge = 2,		//åˆæœ
+    all = 3,		//æ‰€æœ‰çš„
     limit,
 };
 
-//»î¶¯Êı¾İÆÚÊıÀàĞÍ
+//æ´»åŠ¨æ•°æ®æœŸæ•°ç±»å‹
 enum class EPeriodType
 {
     none = 0,
-    fix = 1,		//¹Ì¶¨
-    dynamic = 2,	//¶¯Ì¬
+    fix = 1,		//å›ºå®š
+    dynamic = 2,	//åŠ¨æ€
     limit,
 };
 
 
-//Ä£°åÀàĞÍ
+//æ¨¡æ¿ç±»å‹
 enum class ETplType
 {
-    none = 0,				//ÎŞ
-    bosskill = 1,			//bossÊ×É±
-    openrank = 2,			//¿ª·ş³å°ñ
-    collect = 3,			//¼¯×Ö»î¶¯
-    shop = 4,				//ÏŞÊ±ÉÌµê(ÌìÌìÑøÁú¡¢¿ª·şÖ±¹º)
-    activeplat = 5,			//»îÔ¾×ªÅÌ
-    opencheer = 6,			//¿ª·ş¿ñ»¶
-    timeonline = 7,			//¶¨Ê±ÔÚÏß
-    chargeplat = 8,			//³äÖµ×ªÅÌ
-    totalcharge = 9,		//ÀÛ»ı³äÖµ
-    fish = 10,				//Ã¨Ã¨ÀÌÓã
-    dailytotalcharge = 11,	//ÀÛ»ı³äÖµ
-    sign = 12,				//Ç©µ½(ÌìÌìÑøÁú)
-    goldstore = 13,			//½ğ¿â(ÌìÌìÑøÁú)
-    digegg = 14,			//ÔÒµ°(ÌìÌìÑøÁú)
-    candle = 15,			//ÖòÁúÌôÕ½(ÌìÌìÑøÁú)
-    btdragon = 16,			//±äÌ¬ÑøÁúËÂ(ÌìÌìÑøÁú)
-    total_recharge = 17,	//ÀÛ¼Æ³äÖµ
-    marry = 18,				//ÍêÃÀÇéÈË
-    huimengxiyou = 20,      //»ØÃÎÎ÷ÓÎ
-    drop = 22,				//½ÚÈÕ¶îÍâµôÂä
-    mult_drop = 23,			//¶à±¶µôÂä
-    login = 24,				//µÇÂ¼½±Àø
-    conti_recharge = 25,	//Á¬Ğø³äÖµ
-    limit_sale = 26,		//ÏŞÊ±ÃëÉ±
-    day_totalecharge = 27,	//Ã¿ÈÕÀÛ³ä
-    recharge_prize = 28, //ÀÛ³äß÷ß÷
-    mystery = 29,			//ÉñÃØÉÌÈË
-    field_boss = 30,		//Ò°ÍâBOSS
-    shoots_sun = 33,		//ºóôàÉäÈÕ
+    none = 0,				//æ— 
+    bosskill = 1,			//bossé¦–æ€
+    openrank = 2,			//å¼€æœå†²æ¦œ
+    collect = 3,			//é›†å­—æ´»åŠ¨
+    shop = 4,				//é™æ—¶å•†åº—(å¤©å¤©å…»é¾™ã€å¼€æœç›´è´­)
+    activeplat = 5,			//æ´»è·ƒè½¬ç›˜
+    opencheer = 6,			//å¼€æœç‹‚æ¬¢
+    timeonline = 7,			//å®šæ—¶åœ¨çº¿
+    chargeplat = 8,			//å……å€¼è½¬ç›˜
+    totalcharge = 9,		//ç´¯ç§¯å……å€¼
+    fish = 10,				//çŒ«çŒ«æé±¼
+    dailytotalcharge = 11,	//ç´¯ç§¯å……å€¼
+    sign = 12,				//ç­¾åˆ°(å¤©å¤©å…»é¾™)
+    goldstore = 13,			//é‡‘åº“(å¤©å¤©å…»é¾™)
+    digegg = 14,			//ç ¸è›‹(å¤©å¤©å…»é¾™)
+    candle = 15,			//çƒ›é¾™æŒ‘æˆ˜(å¤©å¤©å…»é¾™)
+    btdragon = 16,			//å˜æ€å…»é¾™å¯º(å¤©å¤©å…»é¾™)
+    total_recharge = 17,	//ç´¯è®¡å……å€¼
+    marry = 18,				//å®Œç¾æƒ…äºº
+    huimengxiyou = 20,      //å›æ¢¦è¥¿æ¸¸
+    drop = 22,				//èŠ‚æ—¥é¢å¤–æ‰è½
+    mult_drop = 23,			//å¤šå€æ‰è½
+    login = 24,				//ç™»å½•å¥–åŠ±
+    conti_recharge = 25,	//è¿ç»­å……å€¼
+    limit_sale = 26,		//é™æ—¶ç§’æ€
+    day_totalecharge = 27,	//æ¯æ—¥ç´¯å……
+    recharge_prize = 28, //ç´¯å……å–µå–µ
+    mystery = 29,			//ç¥ç§˜å•†äºº
+    field_boss = 30,		//é‡å¤–BOSS
+    shoots_sun = 33,		//åç¾¿å°„æ—¥
     limit,
 };
 
-//»î¶¯×´Ì¬
+//æ´»åŠ¨çŠ¶æ€
 enum EFestState
 {
-    fest_not_open = 0,	//Î´¿ªÆô
-    fest_open = 1,		//»î¶¯¿ªÆô
-    fest_end = 2,		//»î¶¯½áÊø
+    fest_not_open = 0,	//æœªå¼€å¯
+    fest_open = 1,		//æ´»åŠ¨å¼€å¯
+    fest_end = 2,		//æ´»åŠ¨ç»“æŸ
 };
 
 
-//»î¶¯´¦Àí½á¹ûÀàĞÍ
+//æ´»åŠ¨å¤„ç†ç»“æœç±»å‹
 enum class EFestRes
 {
     success = 0,
@@ -105,28 +105,28 @@ enum class EFestRes
 
 
 
-//¼ì²é»î¶¯×´Ì¬ĞèÒªµÄ²ÎÊı
+//æ£€æŸ¥æ´»åŠ¨çŠ¶æ€éœ€è¦çš„å‚æ•°
 struct ChkFestParam
 {
-    uint32_t zid = 0;		//Çø·şID
-    uint64_t curtime = 0;	//µ±Ç°unixÊ±¼ä
-    bool isret = false;		//ºÏ·ş±ê¼ÇÊÇ·ñ´Óweb·µ»ØÁË
-    bool ismerge = false;   //ÊÇ·ñºÏ·ş
-    uint32_t days = 0;		//ÏÖÔÚÊÇ¿ª·şÖ®ºóµÄµÚ¼¸Ìì
-    uint64_t zerotime = 0;	//¿ª·şÄÇÒ»ÌìµÄ0µãÊ±¼ä
+    uint32_t zid = 0;		//åŒºæœID
+    uint64_t curtime = 0;	//å½“å‰unixæ—¶é—´
+    bool isret = false;		//åˆæœæ ‡è®°æ˜¯å¦ä»webè¿”å›äº†
+    bool ismerge = false;   //æ˜¯å¦åˆæœ
+    uint32_t days = 0;		//ç°åœ¨æ˜¯å¼€æœä¹‹åçš„ç¬¬å‡ å¤©
+    uint64_t zerotime = 0;	//å¼€æœé‚£ä¸€å¤©çš„0ç‚¹æ—¶é—´
 };
 
 #define XIYOU_MAX_TIME_LENGTH 20 * 60
 
 enum {
-    FestHuiMengXiYouStatus_Close = 0, //0:¹Ø±Õ 1£º×¼±¸½×¶Î 2:ÍæÓÎÏ·½×¶Î 3:Íê³É½×¶Î
+    FestHuiMengXiYouStatus_Close = 0, //0:å…³é—­ 1ï¼šå‡†å¤‡é˜¶æ®µ 2:ç©æ¸¸æˆé˜¶æ®µ 3:å®Œæˆé˜¶æ®µ
     FestHuiMengXiYouStatus_Ready = 1,
     FestHuiMengXiYouStatus_Play = 2,
     FestHuiMengXiYouStatus_Finish = 3,
 };
 
 enum {
-    FestHuiMengXiYouState_READY = 1, //×¼±¸³¡¾°ÅäÖÃ ÅäÖÃÎªmuban_play_game order 1
+    FestHuiMengXiYouState_READY = 1, //å‡†å¤‡åœºæ™¯é…ç½® é…ç½®ä¸ºmuban_play_game order 1
 };
 
 

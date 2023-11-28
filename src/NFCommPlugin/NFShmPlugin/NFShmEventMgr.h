@@ -14,6 +14,8 @@
 #include <stddef.h>
 #include <string.h>
 #include <NFComm/NFPluginModule/NFEventTemplate.h>
+#include <NFComm/NFShmStl/NFShmHashMap.h>
+
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFComm/NFShmCore/NFShmOldHashMap.h"
@@ -115,12 +117,12 @@ private:
     /**
      * @brief
      */
-    NFShmOldHashMap<NFShmEventKey, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_eventKeyAllSubscribe;
+    NFShmHashMap<NFShmEventKey, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_eventKeyAllSubscribe;
 
     /**
      * @brief
      */
-    NFShmOldHashMap<int, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_shmObjAllSubscribe;
+    NFShmHashMap<int, NFShmNodeObjMultiList<NFShmSubscribeInfo>, NF_SHM_EVENT_KEY_MAX_NUM> m_shmObjAllSubscribe;
 
     /**
      * @brief

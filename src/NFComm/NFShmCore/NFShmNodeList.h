@@ -9,9 +9,10 @@
 
 #pragma once
 
-
+#include "NFRawShmObj.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFRawShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
@@ -29,6 +30,9 @@ public:
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
+        } else
+        {
+            ResumeInit();
         }
     }
 
@@ -37,6 +41,11 @@ public:
         m_iPrevNode = INVALID_ID;
         m_iNextNode = INVALID_ID;
         m_iListCheckID = INVALID_ID;
+        return 0;
+    }
+
+    int ResumeInit()
+    {
         return 0;
     }
 
@@ -127,15 +136,29 @@ public:
 
 //双向列表
 template<class NodeObjType>
-class NFShmNodeObjList
+class NFShmNodeObjList : public NFRawShmObj
 {
 public:
     NFShmNodeObjList()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
-            InitNodeList();
+            CreateInit();
+        } else
+        {
+            ResumeInit();
         }
+    }
+
+    int CreateInit()
+    {
+        InitNodeList();
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
     }
 
     void InitNodeList()
@@ -176,11 +199,12 @@ public:
         return m_iListCheckID;
     }
 
-    NodeObjType *GetHeadNodeObj(NFIPluginManager *pPluginManager)
+    NodeObjType *GetHeadNodeObj()
     {
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (m_iHeadNode != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, m_iHeadNode);
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), m_iHeadNode);
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed, m_iHeadNode:{}", m_iHeadNode);
             return pObj;
         }
@@ -188,11 +212,12 @@ public:
         return NULL;
     }
 
-    NodeObjType *GetTailNodeObj(NFIPluginManager *pPluginManager)
+    NodeObjType *GetTailNodeObj()
     {
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (m_iTailNode != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, m_iTailNode);
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), m_iTailNode);
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed, m_iTailNode:{}", m_iTailNode);
             return pObj;
         }
@@ -200,13 +225,13 @@ public:
         return NULL;
     }
 
-    NodeObjType *GetPrevNodeObj(NFIPluginManager *pPluginManager, NodeObjType *pNode)
+    NodeObjType *GetPrevNodeObj(NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, NULL, "");
-
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (pNode && pNode->GetPrevNode() != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, pNode->GetPrevNode());
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), pNode->GetPrevNode());
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed");
             return pObj;
         }
@@ -214,13 +239,13 @@ public:
         return NULL;
     }
 
-    NodeObjType *GetNextNodeObj(NFIPluginManager *pPluginManager, NodeObjType *pNode)
+    NodeObjType *GetNextNodeObj(NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, NULL, "");
-
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (pNode && pNode->GetNextNode() != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, pNode->GetNextNode());
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), pNode->GetNextNode());
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed");
             return pObj;
         }
@@ -228,13 +253,13 @@ public:
         return NULL;
     }
 
-    int AddNode(NFIPluginManager *pPluginManager, NodeObjType *pNode)
+    int AddNode(NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetPrevNode() == INVALID_ID, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetNextNode() == INVALID_ID, -1, "");
         //assert(pNode->GetListCheckID() == INVALID_ID);
-        NodeObjType *pHead = GetHeadNodeObj(pPluginManager);
+        NodeObjType *pHead = GetHeadNodeObj();
 
         if (pHead)
         {
@@ -254,13 +279,13 @@ public:
     }
 
     //加到列表的最后
-    int AddNodeToTail(NFIPluginManager *pPluginManager, NodeObjType *pNode)
+    int AddNodeToTail(NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetPrevNode() == INVALID_ID, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetNextNode() == INVALID_ID, -1, "");
         //assert(pNode->GetListCheckID() == INVALID_ID);
-        NodeObjType *pTail = GetTailNodeObj(pPluginManager);
+        NodeObjType *pTail = GetTailNodeObj();
 
         if (pTail)
         {
@@ -279,19 +304,19 @@ public:
         return 0;
     }
 
-    int RemoveNode(NFIPluginManager *pPluginManager, NodeObjType *pNode)
+    int RemoveNode(NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, -1, "");
         CHECK_EXPR_ASSERT(m_iNodeCount > 0, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetListCheckID() == m_iListCheckID, -1, "");
-        NodeObjType *pPrevNode = GetPrevNodeObj(pPluginManager, pNode);
+        NodeObjType *pPrevNode = GetPrevNodeObj(pNode);
 
         if (pPrevNode)
         {
             pPrevNode->SetNextNode(pNode->GetNextNode());
         }
 
-        NodeObjType *pNextNode = GetNextNodeObj(pPluginManager, pNode);
+        NodeObjType *pNextNode = GetNextNodeObj(pNode);
 
         if (pNextNode)
         {
@@ -340,6 +365,9 @@ public:
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
+        } else
+        {
+            ResumeInit();
         }
     }
 
@@ -349,6 +377,11 @@ public:
         {
             m_objList[i].CreateInit();
         }
+        return 0;
+    }
+
+    int ResumeInit()
+    {
         return 0;
     }
 
@@ -411,15 +444,29 @@ public:
 
 //双向列表
 template<class NodeObjType>
-class NFShmNodeObjMultiList
+class NFShmNodeObjMultiList : public NFRawShmObj
 {
 public:
     NFShmNodeObjMultiList()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
-            InitNodeList();
+            CreateInit();
+        } else
+        {
+            ResumeInit();
         }
+    }
+
+    int CreateInit()
+    {
+        InitNodeList();
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
     }
 
     NFShmNodeObjMultiList(const NFShmNodeObjMultiList<NodeObjType>& list)
@@ -471,11 +518,12 @@ public:
         return m_iListCheckID;
     }
 
-    NodeObjType *GetHeadNodeObj(NFIPluginManager *pPluginManager, int typeIndex)
+    NodeObjType *GetHeadNodeObj(int typeIndex)
     {
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (m_iHeadNode != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, typeIndex, m_iHeadNode);
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), typeIndex, m_iHeadNode);
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed, m_iHeadNode:{}", m_iHeadNode);
             return pObj;
         }
@@ -483,11 +531,12 @@ public:
         return NULL;
     }
 
-    NodeObjType *GetTailNodeObj(NFIPluginManager *pPluginManager, int typeIndex)
+    NodeObjType *GetTailNodeObj(int typeIndex)
     {
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (m_iTailNode != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, typeIndex, m_iTailNode);
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), typeIndex, m_iTailNode);
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed, m_iTailNode:{}", m_iTailNode);
             return pObj;
         }
@@ -495,13 +544,13 @@ public:
         return NULL;
     }
 
-    NodeObjType *GetPrevNodeObj(NFIPluginManager *pPluginManager, int typeIndex, NodeObjType *pNode)
+    NodeObjType *GetPrevNodeObj(int typeIndex, NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, NULL, "");
-
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (pNode && pNode->GetPrevNode(typeIndex) != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, typeIndex, pNode->GetPrevNode(typeIndex));
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), typeIndex, pNode->GetPrevNode(typeIndex));
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed");
             return pObj;
         }
@@ -509,13 +558,13 @@ public:
         return NULL;
     }
 
-    NodeObjType *GetNextNodeObj(NFIPluginManager *pPluginManager, int typeIndex, NodeObjType *pNode)
+    NodeObjType *GetNextNodeObj(int typeIndex, NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, NULL, "");
-
+        CHECK_EXPR_ASSERT(GetPluginManager(), NULL, "");
         if (pNode && pNode->GetNextNode(typeIndex) != INVALID_ID)
         {
-            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(pPluginManager, typeIndex, pNode->GetNextNode(typeIndex));
+            NodeObjType *pObj = NodeObjType::GetObjByListNodeID(GetPluginManager(), typeIndex, pNode->GetNextNode(typeIndex));
             CHECK_EXPR_ASSERT(pObj, NULL, "GetObjByListNodeID Failed");
             return pObj;
         }
@@ -523,13 +572,13 @@ public:
         return NULL;
     }
 
-    int AddNode(NFIPluginManager *pPluginManager, int typeIndex, NodeObjType *pNode)
+    int AddNode(int typeIndex, NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetPrevNode(typeIndex) == INVALID_ID, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetNextNode(typeIndex) == INVALID_ID, -1, "");
         //assert(pNode->GetListCheckID() == INVALID_ID);
-        NodeObjType *pHead = GetHeadNodeObj(pPluginManager, typeIndex);
+        NodeObjType *pHead = GetHeadNodeObj(typeIndex);
 
         if (pHead)
         {
@@ -549,13 +598,13 @@ public:
     }
 
     //加到列表的最后
-    int AddNodeToTail(NFIPluginManager *pPluginManager, int typeIndex, NodeObjType *pNode)
+    int AddNodeToTail(int typeIndex, NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetPrevNode(typeIndex) == INVALID_ID, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetNextNode(typeIndex) == INVALID_ID, -1, "");
         //assert(pNode->GetListCheckID() == INVALID_ID);
-        NodeObjType *pTail = GetTailNodeObj(pPluginManager, typeIndex);
+        NodeObjType *pTail = GetTailNodeObj(typeIndex);
 
         if (pTail)
         {
@@ -574,19 +623,19 @@ public:
         return 0;
     }
 
-    int RemoveNode(NFIPluginManager *pPluginManager, int typeIndex, NodeObjType *pNode)
+    int RemoveNode(int typeIndex, NodeObjType *pNode)
     {
         CHECK_EXPR_ASSERT(pNode, -1, "");
         CHECK_EXPR_ASSERT(m_iNodeCount > 0, -1, "");
         CHECK_EXPR_ASSERT(pNode->GetListCheckID(typeIndex) == m_iListCheckID, -1, "");
-        NodeObjType *pPrevNode = GetPrevNodeObj(pPluginManager, typeIndex, pNode);
+        NodeObjType *pPrevNode = GetPrevNodeObj(typeIndex, pNode);
 
         if (pPrevNode)
         {
             pPrevNode->SetNextNode(typeIndex, pNode->GetNextNode(typeIndex));
         }
 
-        NodeObjType *pNextNode = GetNextNodeObj(pPluginManager, typeIndex, pNode);
+        NodeObjType *pNextNode = GetNextNodeObj(typeIndex, pNode);
 
         if (pNextNode)
         {

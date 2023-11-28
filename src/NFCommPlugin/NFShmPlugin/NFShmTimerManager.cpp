@@ -825,7 +825,7 @@ int NFShmTimerManager::ClearShmObjTimer(NFShmTimer *pTimer)
     {
         if (pTimer->GetListCheckID() == iter->second.GetLastCheckID())
         {
-            iter->second.RemoveNode(m_pObjPluginManager, pTimer);
+            iter->second.RemoveNode(pTimer);
         }
         if (iter->second.IsEmpty())
         {
@@ -842,13 +842,13 @@ int NFShmTimerManager::ClearAllTimer(NFShmObj *pObj)
     auto iter = m_shmObjTimer.find(pObj->GetGlobalId());
     if (iter != m_shmObjTimer.end())
     {
-        auto pNode = iter->second.GetHeadNodeObj(m_pObjPluginManager);
+        auto pNode = iter->second.GetHeadNodeObj();
         while (pNode)
         {
             auto pLastNode = pNode;
-            pNode = iter->second.GetNextNodeObj(m_pObjPluginManager, pNode);
+            pNode = iter->second.GetNextNodeObj(pNode);
             pLastNode->SetWaitDelete();
-            iter->second.RemoveNode(m_pObjPluginManager, pLastNode);
+            iter->second.RemoveNode(pLastNode);
         }
 
         m_shmObjTimer.erase(pObj->GetGlobalId());
@@ -864,15 +864,15 @@ int NFShmTimerManager::ClearAllTimer(NFShmObj *pObj, NFRawShmObj* pRawShmObj)
     auto iter = m_shmObjTimer.find(pObj->GetGlobalId());
     if (iter != m_shmObjTimer.end())
     {
-        auto pNode = iter->second.GetHeadNodeObj(m_pObjPluginManager);
+        auto pNode = iter->second.GetHeadNodeObj();
         while (pNode)
         {
             auto pLastNode = pNode;
-            pNode = iter->second.GetNextNodeObj(m_pObjPluginManager, pNode);
+            pNode = iter->second.GetNextNodeObj(pNode);
             if (pLastNode->GetTimerRawShmObj() == pRawShmObj)
             {
                 pLastNode->SetWaitDelete();
-                iter->second.RemoveNode(m_pObjPluginManager, pLastNode);
+                iter->second.RemoveNode(pLastNode);
             }
         }
     }
@@ -892,9 +892,10 @@ int NFShmTimerManager::AddShmObjTimer(NFShmObj *pObj, NFShmTimer *newTimer)
 
             return INVALID_ID;
         }
+        iter->second.InitShmObj(this);
     }
 
-    iter->second.AddNode(m_pObjPluginManager, newTimer);
+    iter->second.AddNode(newTimer);
     return newTimer->GetObjId();
 }
 

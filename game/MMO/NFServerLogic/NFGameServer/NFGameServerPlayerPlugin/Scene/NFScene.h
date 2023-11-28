@@ -22,7 +22,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
-#define NF_SCENE_MAX_GRID_NUM 600
+#define NF_SCENE_MAX_GRID_NUM 4000
 #define NF_SCENE_MAX_CREATURE_NUM 1000
 
 class NFMap;

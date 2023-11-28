@@ -31,6 +31,7 @@ NFGrid::~NFGrid()
 
 int NFGrid::CreateInit()
 {
+    m_cidList.InitShmObj(this);
     return 0;
 }
 
@@ -42,14 +43,14 @@ int NFGrid::ResumeInit()
 int NFGrid::AddCreature(NFCreature *pCreature)
 {
     CHECK_NULL(pCreature);
-    m_cidList.AddNode(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
+    m_cidList.AddNode(NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
     return 0;
 }
 
 int NFGrid::RemoveCreature(NFCreature *pCreature)
 {
     CHECK_NULL(pCreature);
-    m_cidList.RemoveNode(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
+    m_cidList.RemoveNode(NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
     return 0;
 }
 
@@ -62,13 +63,13 @@ int NFGrid::Init(uint32_t x, uint32_t y)
 
 int NFGrid::UnInit()
 {
-    NFCreature* pCreature = m_cidList.GetHeadNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX);
+    NFCreature* pCreature = m_cidList.GetHeadNodeObj(NF_CREATURE_NODE_LIST_GRID_INDEX);
     NFCreature* pLastCreautre = NULL;
     while(pCreature)
     {
         pLastCreautre = pCreature;
-        pCreature = m_cidList.GetNextNodeObj(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
-        m_cidList.RemoveNode(m_pObjPluginManager, NF_CREATURE_NODE_LIST_GRID_INDEX, pLastCreautre);
+        pCreature = m_cidList.GetNextNodeObj(NF_CREATURE_NODE_LIST_GRID_INDEX, pCreature);
+        m_cidList.RemoveNode(NF_CREATURE_NODE_LIST_GRID_INDEX, pLastCreautre);
     }
     return 0;
 }
