@@ -33,13 +33,11 @@ NFMapMgr::~NFMapMgr()
 
 int NFMapMgr::CreateInit()
 {
-    m_mapNavMesh.CreateInit();
     return 0;
 }
 
 int NFMapMgr::ResumeInit()
 {
-    m_mapNavMesh.CreateInit();
     return 0;
 }
 
@@ -67,7 +65,7 @@ int NFMapMgr::LoadConfig()
 {
     NFMap::ClearAllObj(m_pObjPluginManager);
     CreateInit();
-    auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
+    auto pGameConfig = NFGameConfig::Instance()->GetConfig();
     for (int i = 0; i < (int) pGameConfig->map.size(); i++)
     {
         uint32_t mapId = pGameConfig->map[i];

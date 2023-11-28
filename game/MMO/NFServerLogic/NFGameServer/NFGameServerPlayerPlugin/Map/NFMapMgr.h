@@ -22,7 +22,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
-#define GAME_SERVER_MAX_BATTLE_MAP_SIZE 10
+#define GAME_SERVER_MAX_BATTLE_MAP_SIZE 100
 
 class NFMap;
 class NFMapMgr : public NFShmObjTemplate<NFMapMgr, EOT_GAME_MAP_MGR_ID, NFShmObj>

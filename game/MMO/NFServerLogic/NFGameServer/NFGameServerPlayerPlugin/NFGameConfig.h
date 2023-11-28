@@ -17,17 +17,15 @@
 #include "ServerConfig_s.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
+#include "NFComm/NFCore/NFSingleton.hpp"
 
-class NFGameConfig : public NFShmObjTemplate<NFGameConfig, EOT_GAME_CONFIG_ID, NFShmObj>
+class NFGameConfig : public NFSingleton<NFGameConfig>
 {
 public:
     NFGameConfig();
 
     virtual ~NFGameConfig();
 
-    int CreateInit();
-
-    int ResumeInit();
 public:
     /**
      * @brief 加载Server/WorldServer.lua中的WolrdServer配置，
@@ -40,7 +38,7 @@ public:
      * @param luaMgr
      * @return
      */
-    int LoadConfig(NFILuaLoader luaMgr);
+    int LoadConfig(NFIPluginManager* pPluginManager);
 
     /**
      * @brief 获取配置
@@ -50,4 +48,5 @@ public:
 
 private:
     proto_ff_s::GameExternalConfig_s m_config;
+    NFILuaLoader m_luaModule;
 };

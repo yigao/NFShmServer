@@ -71,14 +71,18 @@ bool NFMMOGamePlayerPlugin::InitShmObjectRegister()
 {
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	NF_ASSERT(pConfig);
+    
+    NFGameConfig::Instance()->LoadConfig(m_pObjPluginManager);
+    auto pGameConfig = NFGameConfig::Instance()->GetConfig();
+    NF_ASSERT(pGameConfig);
 
 	uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
-    REGISTER_SINGLETON_SHM_OBJ(NFGameConfig);
+    uint32_t maxSceneNum = pGameConfig->map.size() + maxOnlinePlayerNum / 3;
     REGISTER_SINGLETON_SHM_OBJ(NFMapMgr);
-    REGISTER_SHM_OBJ_WITH_HASH(NFMap, GAME_SERVER_MAX_BATTLE_MAP_SIZE);
+    REGISTER_SHM_OBJ_WITH_HASH(NFMap, pGameConfig->map.size());
     REGISTER_SINGLETON_SHM_OBJ(NFSceneMgr);
-    REGISTER_SHM_OBJ_WITH_HASH(NFScene, GAME_SERVER_MAX_BATTLE_SCENE_SIZE);
-    REGISTER_SHM_OBJ_WITH_HASH(NFGrid, GAME_SERVER_MAX_BATTLE_SCENE_SIZE*NF_SCENE_MAX_GRID_NUM);
+    REGISTER_SHM_OBJ_WITH_HASH(NFScene, maxSceneNum);
+    REGISTER_SHM_OBJ(NFGrid, maxSceneNum*NF_SCENE_MAX_GRID_NUM);
 
     REGISTER_SHM_OBJ(RoleFightAttr, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleAttr, maxOnlinePlayerNum);

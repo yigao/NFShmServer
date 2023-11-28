@@ -56,5 +56,5 @@ private:
     /**
      * @brief NFILuaModule
      */
-    NFILuaLoader m_luaModule;
+    
 };

@@ -27,7 +27,7 @@ public:
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
 public:
     /**
-     * ½øÈëÓÎÏ·
+     * ???????
      * @param request
      * @param respone
      * @return
