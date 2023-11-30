@@ -1768,7 +1768,7 @@ int NFDeityPart::OnHandleDeityEquipDressReq(uint32_t msgId, NFDataPackage &packe
         return 0;
     }
     
-    auto pDressEquipInfo = pFantasyData->m_equips.GetEquip(slotPos);
+    auto pDressEquipInfo = pFantasyData->m_equips.GetEquipInfo(slotPos);
     CHECK_NULL(pDressEquipInfo);
     
     //已穿戴的装备
@@ -1847,7 +1847,7 @@ int NFDeityPart::OnHandleDeityEquipUndressReq(uint32_t msgId, NFDataPackage &pac
         return 0;
     }
     
-    auto *pDressInfo = pFantasyData->m_equips.GetEquip(slot_pos);
+    auto *pDressInfo = pFantasyData->m_equips.GetEquipInfo(slot_pos);
     if (nullptr == pDressInfo || pDressInfo->m_equip.GetItemID() == 0)
     {
         rsp.set_ret_code(proto_ff::RET_EQUIP_POS_NOT_EXIT_EQUIP);
@@ -1923,7 +1923,7 @@ int NFDeityPart::OnHandleDeityEquipStrongReq(uint32_t msgId, NFDataPackage &pack
     
     do
     {
-        auto pDressInfo = pFantasyData->m_equips.GetEquip(slot_pos);
+        auto pDressInfo = pFantasyData->m_equips.GetEquipInfo(slot_pos);
         if (!pDressInfo || !pDressInfo->m_equip.GetItemID() == 0)
         {
             rsp.set_ret_code(proto_ff::RET_EQUIP_POS_NOT_EXIT_EQUIP);
@@ -2041,7 +2041,7 @@ int NFDeityPart::OnHandleDeityEquipStrongLvReq(uint32_t msgId, NFDataPackage &pa
     
     do
     {
-        auto pDressInfo = fantasyData.m_equips.GetEquip(slot_pos);
+        auto pDressInfo = fantasyData.m_equips.GetEquipInfo(slot_pos);
         if (!pDressInfo || !pDressInfo->m_equip.GetItemID() == 0)
         {
             rsp.set_ret_code(proto_ff::RET_EQUIP_POS_NOT_EXIT_EQUIP);
@@ -2429,7 +2429,7 @@ bool NFDeityPart::ValidPos(int32_t pos)
 
 int NFDeityPart::calcEquipScore(FantasyDeityData &fantasyData, int32_t pos)
 {
-    auto pDressEquip = fantasyData.m_equips.GetEquip(pos);
+    auto pDressEquip = fantasyData.m_equips.GetEquipInfo(pos);
     CHECK_NULL(pDressEquip);
     
     if (pDressEquip->m_equip.GetItemID() == 0)

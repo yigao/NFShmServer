@@ -2,6 +2,12 @@
 #include "NFComm/NFCore/NFCommonApi.h"
 #include "DescStore/EquipBreakDesc.h"
 
+#define movel(v,n) ((uint64_t)(v) << (n))
+#define equip_key(pos,prof,star,quality,wearQuality) (movel(pos,40) + movel(prof,32) + movel(star,24) + movel(quality,16) + movel(wearQuality,8))
+#define refine_key(group,lv) (movel(group,24)+ lv)
+
+#define GOLD_EVIL_EQUIP_INDEX(pos,qua,wearqua) ((int64_t)pos * 1000000 + qua * 1000 + wearqua)
+
 EquipDescEx::EquipDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
@@ -187,3 +193,8 @@ const proto_ff_s::E_EquipBreak_s* EquipDescEx::GetBreakCfgInfo(int32_t pos, int3
     return nullptr;
 }
 
+int64_t EquipDescEx::GetEquipID(int32_t pos, int32_t prof, int32_t star, int32_t quality, int32_t wearQuality)
+{
+    uint64_t key = equip_key(pos, prof, star, quality, wearQuality);
+    return 0;
+}

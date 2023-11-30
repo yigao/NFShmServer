@@ -16,6 +16,7 @@
 #include "NFGameCommon/NFComTypeDefine.h"
 #include "Mission.pb.h"
 #include "NFPackageDefine.h"
+#include "E_Taskreward_s.h"
 
 #define INVALID_MISSION_ID          (0)    //非法任务id
 #define MISSION_COND_TYPE_TO_EVENT(type)    (type / 100) //任务完成条件类型转换到事件类型
@@ -48,8 +49,10 @@ enum MISSION_EVENT_TYPE
     M_EVENT_LEVEL = 11,                        //等级达到多少级
     //M_EVENT_GOD_LEVEL						= 101,						//神格升级
     //M_EVENT_REFINE_EQUIP					= 102,						//精炼装备
+    M_EVENT_GUIDE_DESCRIPTIONS = 100,    //引导描述 什么都不做，只是用来客户端给人看的
     M_EVENT_JOIN_GUILD = 101,                        //加入工会
     M_EVENT_ADD_FRIEND = 102,                        //加好友
+    M_EVENT_KILL_BOSS = 103,                         //kill boss
     M_EVENT_DEPUTY_COLLECT = 104,                        //副业采集
     M_EVENT_DEPUTY_MAKE = 105,                        //副业打造
     M_EVENT_SKILL_LEVEL = 106,                        //技能升级
@@ -73,7 +76,7 @@ enum MISSION_EVENT_TYPE
     M_EVENT_LADDER = 122,                        //天梯层数
     M_EVENT_INFINITE_HUNT = 123,                        //无限狩猎
     M_EVENT_CONNVOY_COMMIT = 124,                        //提交镖车
-    M_EVENT_LOOPMISSIONNUM = 125,                        //完成诺林冒险
+    M_EVENT_LOOPMISSIONNUM = 125,                        //完成循环任务事件
     M_EVENT_BOUNTYMISSIONNUM = 126,                        //完成赏金
 
     M_EVENT_ARENA = 130,                        //竞技场挑战次数
@@ -82,6 +85,8 @@ enum MISSION_EVENT_TYPE
     M_EVENT_ANY_GUILD_FIGHT_LEVEL = 151,                        //任意工会精修
     M_EVENT_ANY_RUN_BUSINESS = 152,                        //任意工会跑商
     M_EVENT_ANY_ESCORT = 153,                        //任意物资护送
+    M_EVENT_LIGHT_SOUL = 154,                   //点亮龙魂
+    M_EVENT_CROSS_3V3 = 160,                    //跨服3v3
 
 };
 
@@ -111,31 +116,34 @@ enum MISSION_TYPE_FLAG
     MISSION_TYPE_ID_TRUNK = 1,                //主线
     MISSION_TYPE_ID_BRANCH = 2,                //支线
     MISSION_TYPE_ID_OCCUPATION = 3,            //转职任务
-    MISSION_TYPE_ID_STAGE_GUIDE = 4,        //阶段引导任务
+    MISSION_TYPE_ID_GOD_EVIL = 4,        //神魔
     MISSION_TYPE_ID_BOUNTY = 5,            //赏金任务
     MISSION_TYPE_ID_BOUNTY_INSTANCE = 7,            //赏金引导
     MISSION_TYPE_ID_ESCORT = 8,            //护送任务
+    MISSION_TYPE_ID_FLY_UPWARD = 9,        //飞升任务
 
-    MISSION_TYPE_ID_LOOP = 11,                //环任务
+    MISSION_TYPE_ID_WEEK_LOOP_INSTANCE = 10,    //周环任务引导
+    MISSION_TYPE_ID_WEEK_LOOP = 11,             //周环任务
     MISSION_TYPE_ID_GUILD = 12,                //工会任务
+    MISSION_TYPE_ID_GUILD_PRESTIGE_TASK = 13,      //工会帮派声望 占用130-140,用来做奖励
+    MISSION_TYPE_ID_GUILD_PRESTIGE_TASK_INSTANCE = 15,      //工会帮派声望
+    /*100-105 给工会帮派声望特殊奖励任务用*/
+    MISSION_TYPE_ID_HUNT_TREASURE = 16, //探宝
+    MISSION_TYPE_ID_HUNT_TREASURE_INSTANCE = 17, //探宝引导
+    MISSION_TYPE_ID_HUNT_TREASURE_USE_ITEM18 = 18, //使用物品获得的探宝任务(有两种物品，这是第1种)
+    MISSION_TYPE_ID_HUNT_TREASURE_USE_ITEM19 = 19, //使用物品获得的探宝任务(有两种物品，这是第2种)
+    MISSION_TYPE_ID_STAGE_GUIDE = 40,        //阶段引导任务
+};
 
-    /*MISSION_TYPE_ID_OTHER = 3,				//其他
-    MISSION_TYPE_ID_BANISH = 4,				//流放之地任务
-    MISSION_TYPE_ID_ADVENTURE = 5,			//奇遇任务
-    MISSION_TYPE_ID_DY_EMERGENCY = 6,		//动态任务 紧急情报任务 随机抽取类型的任务
-    MISSION_TYPE_ID_DY_OVERTURN = 7,		//动态任务 颠覆行动任务 随机抽取类型的任务*/
-
-
-
-    /*MISSION_TYPE_ID_GUILD_DAILY = 106,		//工会日常任务
-    MISSION_TYPE_ID_BOUNTY = 102,			//赏金任务
-    MISSION_TYPE_ID_CAMP = 103,				//阵营任务 (废弃)
-    MISSION_TYPE_ID_TREASURE = 105,			//藏宝图任务
-    MISSION_TYPE_ID_DEPUTY_COLLECT = 107,	//副业收集任务
-    MISSION_TYPE_ID_ACT_COLLECT = 108,		//活动收集
-    MISSION_TYPE_ID_DAILY = 109,			//日常任务
-    MISSION_TYPE_ID_EMERGENCY = 110,		//紧急情报任务
-    MISSION_TYPE_ID_OVERTURN = 111,			//颠覆行动任务*/
+/**
+* 任务外部系统类型,这个类型主要是针对外部系统的，跟任务本身的业务逻辑没关系（主要用于完成任务触发其他系统，比如活跃度，成就等等）
+* 以后每次添加新类型必须注明是哪个系统的，比如藏宝图是针对活跃度的
+*/
+enum MISSION_OUTTYPE_FLAG
+{
+    MISSION_OUTTYPE_FLAG_NONE = 0,
+    MISSION_OUTTYPE_FLAG_TREASURE = 1, //藏宝图（活跃度）
+    MISSION_OUTTYPE_FLAG_LIMIT,
 };
 
 //任务接取条件类型
@@ -165,16 +173,26 @@ enum MISSION_FINISH_TYPE
     MISSION_FINISH_TYPE_COLLECT_ITEM = 301,        //收集物品							格式 301=物品id=物品数量=生物ID=宝箱id=追踪区域ID（背包中有足够数量，即完成任务）
     MISSION_FINISH_TYPE_COLLECT_KILL_MONS = 302,        //打怪收集							格式 302=物品id=物品数量=生物ID=宝箱id=追踪路径id
     //MISSION_FINISH_TYPE_COLLECT_COLLECT			= 303,		//采集收集						格式 303=物品id=物品数量=采集物id=0=0
-    MISSION_FINISH_TYPE_COLLECT_CLIENT = 304,        //前端采集    (暂时不用)				格式 304=物品id=物品数量=采集物id=刷新区域id=0
-    //MISSION_FINISH_TYPE_COLLECT_MONS			= 305,		//采集怪物							格式 305=物品id=物品数量=可采集怪物id=宝箱id=0
-    //MISSION_FINISH_TYPE_COLLECT_BUY			    = 306,		//购买收集						格式 306=物品id=物品数量=NPC商店=0=0
+    MISSION_FINISH_TYPE_COLLECT_CLIENT = 304,        //刷新采集物获得物品    				格式 304=物品id=物品数量=采集物id=刷新区域id=0
+    MISSION_FINISH_TYPE_COLLECT_MONS			= 305,		//采集怪物							格式 305=物品id=物品数量=可采集怪物类型=宝箱id=0
+    MISSION_FINISH_TYPE_COLLECT_BUY			    = 306,		//购买收集						格式 306=物品id=物品数量=NPC商店=0=0
+    MISSION_FINISH_TYPE_COLLECT_JUST			 = 307,		//收集（背包中有足够数量，即完成任务）						格式 307=物品id=物品数量=0=0=0
+    MISSION_FINISH_TYPE_SPECIAL_COLLECT			= 310,		//特殊 先刷新采集物采集收集						格式 310=采集物id=采集物数量=刷新区域id=0=0=0
+    MISSION_FINISH_TYPE_SPECIAL_COLLECT2		= 311,		//特殊 先刷新采集物采集收集						格式 310=采集物id=采集物数量=刷新区域id=0=0=0
+    MISSION_FINISH_TYPE_EQUIP_KILL_MONS         = 312,      //打世界BOSS掉落装备(312的目的是为了掉落装备，这个条件任务一接取就完成了)  312=装备品阶=装备数量=装备品质=装备星级=boss品阶
+    MISSION_FINISH_TYPE_ACTIVE_DEITY            = 313,      //收集物品，激活天神 格式 313=物品id=物品数量=天神ID=出战槽位ID=0(天神ID是avatar表change的id, 出战槽位ID是avatar表battleSlot的id)
+
     MISSION_FINISH_TYPE_PASS_DUP = 401,        //通关副本							格式 401=副本id=通关次数=0=0=0
     MISSION_FINISH_TYPE_PASS_DUP_GROUP = 402,        //通关副本组							格式 402=副本组id=通关次数=ui编号=0=0
+    MISSION_FINISH_TYPE_PASS_DUP1 = 403,        //通关副本							格式 401=副本id=通关次数=0=0=0  区别是这个点击后打开界面，不进行挑战，完成条件还是一样的
+    MISSION_FINISH_TYPE_PASS_DUP_GROUP1 = 404,        //通关副本组							格式 402=副本组id=通关次数=ui编号=0=0  区别是这个点击后打开界面，不进行挑战，完成条件还是一样的
 
     MISSION_FINISH_TYPE_USE_ITEM = 501,        //使用物品     (暂时不用)				格式 501=物品id=物品数量=使用区域=0=0
     MISSION_FINISH_TYPE_SUBMIT_ITEM = 502,        //提交物品							格式 502=物品id=物品数量=0=0=0
     MISSION_FINISH_TYPE_SUBMIT_EQUIP = 503,        //提交装备							格式 503=装备id=装备数量=0=0=0
     MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP = 504,        //提交指定品阶指定品质的装备				格式 504=装备品阶=装备数量=装备品质=0=0
+    MISSION_FINISH_TYPE_SUBMIT_SPEC2_EQUIP = 505,        //提交指定品阶指定品质的装备				格式 505=装备品阶=装备数量=装备品质=装备星级=装备部位。如穿戴7件3阶红1星装备，装备部位可填多个，如1-2-3-4-5-6-7，表示1~7部位的装备
+    MISSION_FINISH_TYPE_SUBMIT_SPEC3_EQUIP = 506,        //提交指定品阶指定品质的装备				格式 505=装备品阶=装备数量=装备品质=装备星级=linkid。如穿戴7件3阶红1星装备，
     //MISSION_FINISH_TYPE_SUBMIT_NPC				= 504,		//提交条件NPC						格式 504=物品id=物品数量=提交条件npc=0=0
     //MISSION_FINISH_TYPE_IN_BUFF					= 601,		//处于某种BUFF					格式 601=buffid=buff等级=0=0=0
     //MISSION_FINISH_TYPE_ANSEER					= 701,		//答题							格式 701=题目id=1=答题npc=0=0
@@ -182,8 +200,13 @@ enum MISSION_FINISH_TYPE
     MISSION_FINISH_TYPE_USE_THING = 901,        //使用物件       (暂时不用)				格式 901=怪物id=使用次数=刷新区域ID=0=0
     MISSION_FINISH_TYPE_USE_THING_PATH = 902,        //使用物件(路径点)	(暂时不用)			格式 902=怪物id=使用次数=路径点ID=0=0
     MISSION_FINISH_TYPE_FINISH_ACTION = 1001,        //完成行为							格式 1001=行为ID=行为次数=行为区域=0=0
+    MISSION_FINISH_TYPE_FINISH_TIANJIPU = 1002,        //完成行为						【打开界面】1002=天机谱ID=linkid=？	//点击打开界面，判断为是否修复成功
+    MISSION_FINISH_TYPE_FINISH_JIESUO = 1003,        //完成行为							【原地不动】1003=0 用以单纯的解锁功能，播放引导等，现在都是要一个完成参数
+    M_EVENT_GUIDE_DESCRIPTIONS_ACTION = 10001,      //引导描述 什么都不做，只是用来客户端给人看的
     MISSION_FINISH_TYPE_JOIN_GUILD = 10101,    //加入工会							格式 10101=0=1=linkid=0=0
     MISSION_FINISH_TYPE_ADD_FRIEND = 10201,    //添加好友							格式 10201=0=添加好友次数=ui编号=0=0
+    MISSION_FINISH_TYPE_BOSS_KILL_BY_QUALITY    = 10301,    //击杀指定品阶指定数量的BOSS  格式 10301=0=boss数量=linkid=boss品阶=0
+    MISSION_FINISH_TYPE_BOSS_KILL = 10302,    //击杀指定品阶指定数量的BOSS            格式 10302=bossid=boss数量=linkid=0=0
 
     MISSION_FINISH_TYPE_EMBLEM_INLAY = 11101,    //任意纹章镶嵌个数						格式 11101=0=指定个数=ui编号=0=0
     MISSION_FINISH_TYPE_ANY_STONE_INLAY = 11201,    //任意宝石镶嵌							格式 11201=0=行为次数=ui编号=0=0
@@ -207,39 +230,9 @@ enum MISSION_FINISH_TYPE
 
     MISSION_FINISH_TYPE_LOOPMISSIONNUM = 12501,    //完成诺林冒险指定环数					格式 12501=0=完成诺林冒险环数=linkid=0=0
 
-    /*MISSION_FINISH_TYPE_LEVEL					= 1101,		//升级到多少级							格式 1101=目标级别=0=0=0=0
-    MISSION_FINISH_TYPE_OPTION					= 1201,		//分支条件							格式 1201=choice表id字段=choice表id字段=choice表id字段=0=0
+    MISSION_FINISH_TYPE_LIGHT_SOUL = 15401,   //点亮龙魂 格式 15401=龙魂类型=1=0=0=0
 
-    MISSION_FINISH_TYPE_NEW_GUIDE				= 10001,	//完成新手引导步骤						格式 10001=头引导步骤id= value（填1）=步骤数=0=0
-    MISSION_FINISH_TYPE_GOD_LEVEL				= 10101,	//神格升级							格式 10101=神格id=升级的等级=目标值=0=0
-    MISSION_FINISH_TYPE_REFINE					= 10201,	//精炼								格式 10201=装备槽位id=精炼等级=0=0=0
-
-    MISSION_FINISH_TYPE_DEPUTY_COLLECT			= 10401,	//副业采集							格式 10401=副业采集类型=行为次数=0=0=0
-    MISSION_FINISH_TYPE_DEPUTY_MAKE				= 10501,	//副业制造							格式 10501=副业制造类型=行为次数=0=0=0
-    MISSION_FINISH_TYPE_SKILL_LEVEL				= 10601,	//技能升级							格式 10601=技能ID=指定等级=0=0=0
-    MISSION_FINISH_TYPE_ANY_GOD_LEVEL			= 10701,	//任意神格升级							格式 10701=0=指定次数=0=0=0
-    MISSION_FINISH_TYPE_ANY_EQUIP_REFINE		= 10801,	//任意装备精炼							格式 10801=0=指定次数=0=0=0
-
-    MISSION_FINISH_TYPE_RUNE_DW					= 11001,	//武器雕纹镶嵌							格式 [任意武器雕纹] 11001=0=指定数量=ui编号=0=0
-    MISSION_FINISH_TYPE_RUNE_YK					= 11101,	//服饰印刻镶嵌							格式 [任意服饰印刻] 11101=0=指定数量=ui编号=0=0
-    MISSION_FINISH_TYPE_EMBLEM_INLAY			= 11101,	//纹章镶嵌							格式：11101=纹章镶嵌行为=行为次数= ui编号=0=0
-
-    MISSION_FINISH_TYPE_SOUL_STAR_MARK			= 11201,	//心魂标记次数							格式: 11201=0=星魂标记次数=ui编号=0=0
-    MISSION_FINISH_TYPE_EMBLEM_ACTIVE			= 11301,	//任意纹章组合次数						格式： 11301=达成任务纹章组合=次数=追踪ui编号=0=0
-
-    MISSION_FINISH_TYPE_ATTR_POINT				= 12001,	//属性洗点次数							格式 12001=0=指定次数=0=0=0
-    MISSION_FINISH_TYPE_ARENA					= 13001,	//竞技场挑战次数						格式 13001=0=指定次数=0=0=0
-    MISSION_FINISH_TYPE_ACTIVE					= 13101,	//累计获得活跃度						格式 13101=0=累计活跃度值=UI编号=0=0
-    MISSION_FINISH_TYPE_JOIN_CAMP				= 14001,	//加入阵营							格式 14001=0=1=0=0=0
-
-    MISSION_FINISH_TYPE_ANY_GUILD_FIGHT_LEVEL	= 15101,	//任意工会精修							格式 15101=0=行为次数=0=0=0
-    MISSION_FINISH_TYPE_ANY_RUN_BUSINESS		= 15201,	//任意工会跑商							格式 15201=0=行为次数=0=0=0
-    MISSION_FINISH_TYPE_ANY_ESCORT				= 15301,	//任意物资护送							格式 15301=0=行为次数=0=0=0
-
-    MISSION_FINISH_TYPE_TOTEM_FETE				= 15401,	//图腾祭祀							格式 15401=进行图腾祭祀行为=行为次数=追踪ui编号=0=0
-    MISSION_FINISH_TYPE_TOTEM_CALL				= 15501,	//图腾召唤							格式 15501=进行元素召唤行为（普通高级皆可）=行为次数=追踪ui编号=0=0
-    MISSION_FINISH_TYPE_TOTEM_SWAP				= 15601,	//交换图腾							格式 15601=进行元素交换行为=行为次数=追踪ui编号=0=0
-    */
+    MISSION_FINISH_TYPE_CROSS_3V3 = 16001, //跨服3v3 格式 16001=0=1=0=0=0
 };
 
 /**
@@ -271,6 +264,38 @@ enum MISSION_AWARD_TYPE
     //CTODO后续继续扩展
 };
 
+/**
+* 刷新规则方式
+*/
+enum MISSION_UPDATE_TYPE
+{
+    MISSION_UPDATE_DAY = 1,                //每日
+    MISSION_UPDATE_WEEK = 2,            //每周
+};
+
+//放弃类型
+enum MISSION_ABANDON_TYPE
+{
+    M_ABANDON_TYPE_REMOVE_CHAPTER = 0,    //移除整个目录
+    M_ABANDON_TYPE_ACCEPT_CURRENT = 1,    //当前任务重新接取
+    M_ABANDON_TYPE_REMOVE_CURRENT = 2,    //移除当前任务
+};
+
+//保存章节类型
+enum ECHAPTER_SAVE_TYPE
+{
+    ECHAPTER_SAVE_TYPE_NONE = 0,            //不记录
+    ECHAPTER_SAVE_TYPE_RECV_RECORD = 1,        //接取记录(放弃任务时，不需要从已完成列表移除当前章节)
+    ECHAPTER_SAVE_TYPE_SUBMIT_RECORD = 2,    //完成记录(放弃任务时，需要从已完成列表移除当前章节)
+};
+
+//任务计数方式
+enum EMISSION_CNT_TYPE
+{
+    EMISSION_CNT_TYPE_ACCEPT = 1, //接取计数
+    EMISSION_CNT_TYPE_SUBMIT = 2, //提交计数
+};
+
 /*
 	动态任务配置
 */
@@ -281,6 +306,7 @@ struct DyMissionInfo
     uint32_t minLev;                //最低等级
     uint32_t maxLev;                //最高等级
     uint32_t canAccept;                //可接取数量
+    uint32_t weights;
     NFShmHashSet<int64_t, 30> setComplete;            //抽取的完成条件ID
     int32_t totalRate;                //抽取的总概率
     DyMissionInfo()
@@ -303,6 +329,7 @@ struct DyMissionInfo
         maxLev = 0;
         canAccept = 0;
         totalRate = 0;
+        weights = 0;
         return 0;
     }
 
@@ -442,15 +469,18 @@ struct SParseFinishParam
     }
 };
 
+#define MAX_PRE_MISSION_NUM 2
+
 /**
 * 接取条件类型
 */
 struct AcceptInfo
 {
-    NFShmHashSet<uint64_t, 10> setPreOrMission;                     //前置任务（或关系）
+    NFShmHashSet<uint64_t, MAX_PRE_MISSION_NUM> setPreOrMission;                     //前置任务（或关系）
     uint32_t profession;                                            //职业
+    uint32_t functionId;                        //功能开发ID
     int32_t minLevel;                                               //最小等级限制
-    NFShmHashSet<uint64_t, 10> setPreAndMission;                    //前置任务（与关系）
+    NFShmHashSet<uint64_t, MAX_PRE_MISSION_NUM> setPreAndMission;                    //前置任务（与关系）
     AcceptInfo()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
@@ -467,6 +497,7 @@ struct AcceptInfo
     {
         profession = 0;
         minLevel = 0;
+        functionId = 0;
         return 0;
     }
 
@@ -517,6 +548,7 @@ struct TaskComplex
     uint32_t time;                    //时间限制
     uint32_t bind;                    //是否绑定
     uint32_t profession;            //职业
+    uint32_t boxId;
     //后续继续扩展
 
     TaskComplex()
@@ -539,6 +571,7 @@ struct TaskComplex
         time = 0;
         bind = 0;
         profession = 0;
+        boxId = 0;
         return 0;
     }
 
@@ -549,7 +582,9 @@ struct TaskComplex
 };
 
 //参考taskreward表，可能有13个，定15
-typedef NFShmVector<TaskComplex, 15> TASK_REWARD;
+typedef NFShmVector<TaskComplex, DEFINE_E_TASKREWARDTASKREWARD_M_ITEM_MAX_NUM+DEFINE_E_TASKREWARDTASKREWARD_M_ATTR_MAX_NUM> TASK_REWARD;
+
+#define MAX_PRE_MISSION_COND 5
 
 /**
 * 单个任务信息结构体
@@ -560,7 +595,7 @@ struct MissionInfo
     uint32_t kind;                            //任务类型
     uint32_t progressLev;                    //任务进度等级（任务进度的改变等级）
     AcceptInfo accept;                        //接取条件
-    NFShmHashSet<uint64_t, 10> setPreTask;                    //前置任务
+    NFShmHashSet<uint64_t, MAX_PRE_MISSION_COND> setPreTask;                    //前置任务
     uint64_t backTaskId;                    //后置任务
     TASK_REWARD receAdd;        //接取任务时发放任务物品
     InterExecute execute;                    //完成条件
@@ -738,6 +773,11 @@ struct ItemInfo
         parma3 = Value.parma3;
         return (*this);
     }
+
+    bool IsSpecialCond()
+    {
+        return type == MISSION_FINISH_TYPE_EQUIP_KILL_MONS;
+    }
 };
 
 
@@ -870,6 +910,29 @@ struct MissionTrack
 
         return true;
     }
+
+    //从任务proto拷贝信息
+    bool CopyFromMissionProto(const proto_ff::CMissionTrack &missionProto)
+    {
+        missionId = missionProto.missionid();
+        dynamicId = missionProto.dynamicid();
+        status = missionProto.status();
+        acceptMissionTime = missionProto.accepttime();
+        for (uint32_t i = 0; i < (uint32_t) missionProto.iteminfo_size(); i++)
+        {
+            ItemInfo item;
+            const proto_ff::CItemInfo &itemInfo = missionProto.iteminfo(i);
+            item.type = itemInfo.type();
+            item.itemId = itemInfo.id();
+            item.currentValue = itemInfo.curvalue();
+            item.finalValue = itemInfo.finvalue();
+            item.parma1 = itemInfo.parma1();
+            item.parma2 = itemInfo.parma2();
+            item.parma3 = itemInfo.parma3();
+            items.push_back(item);
+        }
+        return true;
+    }
 };
 
 /*
@@ -994,4 +1057,92 @@ struct SMissionReward
         useContri = 0;
         unionExp = 0;
     }
+
+    void addDouble(int times)
+    {
+        for(auto iter = mapAttr.begin(); iter != mapAttr.end(); ++iter)
+        {
+            iter->second = iter->second * times;
+        }
+
+        for(auto iter = lstItem.begin(); iter != lstItem.end(); iter++)
+        {
+            iter->nNum += iter->nNum * times;
+        }
+
+        unionExp += unionExp * times;
+        useContri += useContri * times;
+    }
+
+    void write_to_pb(proto_ff::MissionRewardProto& proto)
+    {
+        for(auto iter = mapAttr.begin(); iter != mapAttr.end(); ++iter)
+        {
+            bool find = false;
+            for(int i = 0; i < (int)proto.attr_size(); i++)
+            {
+                if (proto.attr(i).id() == iter->first)
+                {
+                    find = true;
+                    proto.mutable_attr(i)->set_value(proto.attr(i).value() + iter->second);
+                    break;
+                }
+            }
+
+            if (!find)
+            {
+                auto pAttr = proto.add_attr();
+                pAttr->set_id(iter->first);
+                pAttr->set_value(iter->second);
+            }
+        }
+
+        for(auto iter = lstItem.begin(); iter != lstItem.end(); iter++)
+        {
+            bool find = false;
+            for(int i = 0; i < (int)proto.item_size(); i++)
+            {
+                if (proto.item(i).key() == iter->nItemID)
+                {
+                    find = true;
+                    proto.mutable_item(i)->set_value(proto.item(i).value() + iter->nNum);
+                    break;
+                }
+            }
+
+            if (!find)
+            {
+                auto pItem = proto.add_item();
+                pItem->set_key(iter->nItemID);
+                pItem->set_value(iter->nNum);
+            }
+        }
+
+        for(auto iter = setSkill.begin(); iter != setSkill.end(); ++iter)
+        {
+            proto.add_skill(*iter);
+        }
+
+        proto.set_union_exp(unionExp);
+        proto.set_use_contri(useContri);
+    }
+};
+
+struct OccupationSoulData
+{
+    uint64_t soul_id = 0;
+    uint64_t item_id = 0;
+    uint32_t item_num = 0;
+    uint32_t soul_pos = 0;
+    uint32_t soul_type = 0;
+};
+
+//转职配置数据
+struct OccupationMissionCfgData
+{
+    uint64_t id = 0;
+    uint32_t grade = 0;
+    uint32_t stage = 0;
+    uint32_t task_id = 0;
+    std::unordered_map<uint32_t, std::unordered_map<uint32_t, OccupationSoulData>> lightSoul;
 };

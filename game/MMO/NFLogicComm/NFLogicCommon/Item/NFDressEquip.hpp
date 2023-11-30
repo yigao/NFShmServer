@@ -171,10 +171,28 @@ public:
         return false;
     }
     
-    NFEquipInfo<ItemType, SlotType>* GetEquip(int32_t pos)
+    NFEquipInfo<ItemType, SlotType>* GetEquipInfo(int32_t pos)
     {
         CHECK_EXPR(ValidPos(pos), nullptr, "pos:{} error", pos);
         return &m_equips[pos-startPos];
+    }
+
+    ItemType* GetEquip(int32_t pos)
+    {
+        CHECK_EXPR(ValidPos(pos), nullptr, "pos:{} error", pos);
+        auto pEquip = &m_equips[pos-startPos].m_equip;
+        if (pEquip->GetItemID() > 0)
+        {
+            return pEquip;
+        }
+
+        return NULL;
+    }
+
+    SlotType* GetSlot(int32_t pos)
+    {
+        CHECK_EXPR(ValidPos(pos), nullptr, "pos:{} error", pos);
+        return &m_equips[pos-startPos].m_slot;
     }
 public:
     NFShmVector<NFEquipInfo<ItemType, SlotType>, slotNum> m_equips;

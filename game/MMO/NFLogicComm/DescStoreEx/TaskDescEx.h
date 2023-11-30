@@ -14,36 +14,39 @@
 #include "DescStore/TaskrewardTaskrewardDesc.h"
 #include "DescStore/TaskdynamicTasktextDesc.h"
 
-//Í¨¹ıÒÆÎ»×éºÏ¶¯Ì¬ÈÎÎñtext±íÌõ¼ş text ±íÖĞ Ä¿±ê³¡¾°(×î¶à11Î»Ê®½øÖÆÊı×Ö£¬¶ÔÓ¦µÄ¶ş½øÖÆÎ»ÊÇ 37bit)+ÈÎÎñÀàĞÍ(6bit)+Íê³ÉÌõ¼ş(20bit)
+//é€šè¿‡ç§»ä½ç»„åˆåŠ¨æ€ä»»åŠ¡textè¡¨æ¡ä»¶ text è¡¨ä¸­ ç›®æ ‡åœºæ™¯(æœ€å¤š11ä½åè¿›åˆ¶æ•°å­—ï¼Œå¯¹åº”çš„äºŒè¿›åˆ¶ä½æ˜¯ 37bit)+ä»»åŠ¡ç±»å‹(6bit)+å®Œæˆæ¡ä»¶(20bit)
 #define DY_MISSION_TEXT_KEY(type, cond) ((type << 20) | cond )
 #define DY_MISSION_TEXT_TYPE(key) (key >> 20)
 #define DY_MISSION_TEXT_COND(key) ( key & 0xFFFFF)
 
-//¶¯Ì¬ÈÎÎñ½±Àø×éºÏkey
+//åŠ¨æ€ä»»åŠ¡å¥–åŠ±ç»„åˆkey
 #define DY_MISSION_REWARD_KEY(type, lv) ((lv << 8) | type)
 
 #define NF_MISSION_TYPE_MAX_COUNT 20
-#define NF_MISSION_TYPE_MAX_MISSION_COUNT (MAX_TASK_TASK_NUM+MAX_TASKDYNAMIC_TASKDYNAMIC_NUM)//Í¨¹ıÒÆÎ»×éºÏ¶¯Ì¬ÈÎÎñtext±íÌõ¼ş text ±íÖĞ Ä¿±ê³¡¾°(×î¶à11Î»Ê®½øÖÆÊı×Ö£¬¶ÔÓ¦µÄ¶ş½øÖÆÎ»ÊÇ 37bit)+ÈÎÎñÀàĞÍ(6bit)+Íê³ÉÌõ¼ş(20bit)
+#define NF_MISSION_TYPE_MAX_MISSION_COUNT (MAX_TASK_TASK_NUM+MAX_TASKDYNAMIC_TASKDYNAMIC_NUM)//é€šè¿‡ç§»ä½ç»„åˆåŠ¨æ€ä»»åŠ¡textè¡¨æ¡ä»¶ text è¡¨ä¸­ ç›®æ ‡åœºæ™¯(æœ€å¤š11ä½åè¿›åˆ¶æ•°å­—ï¼Œå¯¹åº”çš„äºŒè¿›åˆ¶ä½æ˜¯ 37bit)+ä»»åŠ¡ç±»å‹(6bit)+å®Œæˆæ¡ä»¶(20bit)
 #define DY_MISSION_TEXT_KEY(type, cond) ((type << 20) | cond )
 #define DY_MISSION_TEXT_TYPE(key) (key >> 20)
 #define DY_MISSION_TEXT_COND(key) ( key & 0xFFFFF)
 
-//¶¯Ì¬ÈÎÎñ½±Àø×éºÏkey
+//åŠ¨æ€ä»»åŠ¡å¥–åŠ±ç»„åˆkey
 #define DY_MISSION_REWARD_KEY(type, lv) ((lv << 8) | type)
 
 #define NF_MISSION_TYPE_MAX_COUNT 20
 #define NF_MISSION_TYPE_MAX_MISSION_COUNT (MAX_TASK_TASK_NUM+MAX_TASKDYNAMIC_TASKDYNAMIC_NUM)
 
+#define MAX_LEV_MISSION_NUM 100
+#define MAX_FUNCTION_MISSION_NUM 100
+
 class TaskDescEx : public NFShmObjGlobalTemplate<TaskDescEx, EOT_CONST_TASK_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
-    typedef NFShmHashMap<uint64_t, DyMissionInfo, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM> DyMissionInfoMap;
-    typedef NFShmHashMap<uint64_t, DyConditionInfo, MAX_TASKDYNAMIC_TASKCOMCOND_NUM> DyCondtionInfoMap;
-    typedef NFShmHashMap<uint64_t, MissionInfo, MAX_TASK_TASK_NUM> MissionInfoMap;
-    //¶¯Ì¬ÈÎÎñ½±Àø keyÊÇÍæ¼ÒµÈ¼¶(32 - 9)+ÈÎÎñÀàĞÍ(8 - 1) ×éºÏ
-    typedef NFShmHashMap<uint32_t, TASK_REWARD, MAX_TASKREWARD_TASKREWARD_NUM> DyTaskRewardMap;
-    typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, NF_MISSION_TYPE_MAX_COUNT> FirstMissionMap;
-    typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>, NF_MISSION_TYPE_MAX_COUNT> DyMissionTypeMap;
+	typedef NFShmHashMap<uint64_t, DyMissionInfo, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM> DyMissionInfoMap;
+	typedef NFShmHashMap<uint64_t, DyConditionInfo, MAX_TASKDYNAMIC_TASKCOMCOND_NUM> DyCondtionInfoMap;
+	typedef NFShmHashMap<uint64_t, MissionInfo, MAX_TASK_TASK_NUM> MissionInfoMap;
+	//åŠ¨æ€ä»»åŠ¡å¥–åŠ± keyæ˜¯ç©å®¶ç­‰çº§(32 - 9)+ä»»åŠ¡ç±»å‹(8 - 1) ç»„åˆ
+	typedef NFShmHashMap<uint32_t, TASK_REWARD, MAX_TASKREWARD_TASKREWARD_NUM> DyTaskRewardMap;
+	typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, NF_MISSION_TYPE_MAX_COUNT> FirstMissionMap;
+	typedef NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>, NF_MISSION_TYPE_MAX_COUNT> DyMissionTypeMap;
 public:
 	TaskDescEx();
 	virtual ~TaskDescEx();
@@ -53,65 +56,70 @@ public:
 	virtual int Load() override;
 	virtual int CheckWhenAllDataLoaded() override;
 public:
-    bool ProcessDyMission();//´¦Àí¶¯Ì¬ÈÎÎñÅäÖÃ
-    bool ProcessDyCondition();//´¦Àí¶¯Ì¬Ìõ¼ş
-    bool ProcessDyText();    //´¦Àí¶¯Ì¬ÈÎÎñÇ°¶ËÏÔÊ¾
-    bool ProcessReward();    //´¦Àí¶¯Ì¬ÈÎÎñ½±Àø
-    bool ProcessTask();
+	bool ProcessDyMission();   //å¤„ç†åŠ¨æ€ä»»åŠ¡é…ç½®
+	bool ProcessDyCondition(); //å¤„ç†åŠ¨æ€æ¡ä»¶
+	bool ProcessDyText();      //å¤„ç†åŠ¨æ€ä»»åŠ¡å‰ç«¯æ˜¾ç¤º
+	bool ProcessReward();      //å¤„ç†åŠ¨æ€ä»»åŠ¡å¥–åŠ±
+	bool ProcessTask();
+public:
+	const DyMissionInfo* GetDyMissionCfgInfo(uint64_t missionId);
 
-public:
-    const DyMissionInfo *GetDyMissionCfgInfo(uint64_t missionId);
-    
-    const DyConditionInfo *GetDyConditionCfgInfo(uint64_t condId);
-    
-    MissionInfo *GetMissionCfgInfo(uint64_t missionId);
+	const DyConditionInfo* GetDyConditionCfgInfo(uint64_t condId);
 
+	MissionInfo* GetMissionCfgInfo(uint64_t missionId);
 public:
-    bool ParseMissionCond(MissionInfo *pMissionInfo, const std::string &strParam);              //½âÎöÈÎÎñ½ÓÈ¡Ìõ¼ş
-    bool ParseTaskExecute(MissionInfo *pMissionInfo, const std::string &sExecute);      //½âÎöÈÎÎñÍê³ÉÌõ¼ş
-    bool ParseTaskReceAdd(MissionInfo *pMissionInfo, const std::string &sReceAdd);
-    
-    bool ParseTaskSubAward(MissionInfo *pMissionInfo, int64_t sSubAward);
+	bool ParseMissionCond(MissionInfo* pMissionInfo, const std::string& strParam); //è§£æä»»åŠ¡æ¥å–æ¡ä»¶
+	bool ParseTaskExecute(MissionInfo* pMissionInfo, const std::string& sExecute); //è§£æä»»åŠ¡å®Œæˆæ¡ä»¶
+	bool ParseTaskReceAdd(MissionInfo* pMissionInfo, const std::string& sReceAdd);
 
+	bool ParseTaskSubAward(MissionInfo* pMissionInfo, int64_t sSubAward);
 public:
-    //½âÎö½ÓÈ¡Ìõ¼ş(¹«ÓÃ½Ó¿Ú)
-    bool ParseAcceptCond(AcceptInfo &accept, const std::string &strAcceptParam, SParaseAcceptParam &param);
-    //½âÎöÍê³ÉÌõ¼ş(¹«ÓÃ½Ó¿Ú)
-    bool ParseFinishCond(InterExecute &conds, const std::string &strFinish, SParseFinishParam &param);
-    //Ğ£ÑéÍê³ÉÌõ¼ş(¹«ÓÃ½Ó¿Ú)
-    bool CheckFinishCond(InterItemPair &item, SParseFinishParam &param);
-    
-    bool CheckRewardParam(uint64_t missionId, uint32_t type, uint64_t id);
+	//è§£ææ¥å–æ¡ä»¶(å…¬ç”¨æ¥å£)
+	bool ParseAcceptCond(AcceptInfo& accept, const std::string& strAcceptParam, SParaseAcceptParam& param);
+	//è§£æå®Œæˆæ¡ä»¶(å…¬ç”¨æ¥å£)
+	bool ParseFinishCond(InterExecute& conds, const std::string& strFinish, SParseFinishParam& param);
+	//æ ¡éªŒå®Œæˆæ¡ä»¶(å…¬ç”¨æ¥å£)
+	bool CheckFinishCond(InterItemPair& item, SParseFinishParam& param);
 
+	bool CheckRewardParam(uint64_t missionId, uint32_t type, uint64_t id);
 public:
-    uint64_t ComposeTextKey(int32_t missionType, int32_t condType); //×é×°text±íµÄkey
-    uint32_t ComposeDyRewardKey(int32_t taskType, int32_t level);//×é×°¶¯Ì¬ÈÎÎñ½±Àøkey
+	uint64_t ComposeTextKey(int32_t missionType, int32_t condType); //ç»„è£…textè¡¨çš„key
+	uint32_t ComposeDyRewardKey(int32_t taskType, int32_t level);   //ç»„è£…åŠ¨æ€ä»»åŠ¡å¥–åŠ±key
 public:
-    //»ñÈ¡Ã¿ÌõÏßµÄµÚÒ»¸öÈÎÎñ
-    const FirstMissionMap &GetFirstMission() { return _missionFirstMap; }
-    
-    const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM> *GetDyMissionLstByType(int32_t missionType) const;
-    
-    const NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM> *GetPreAcceptMission(uint64_t missionId);
-    
-    uint64_t GetDyTextId(uint64_t key);
-    
-    uint64_t GetDyTextId(int32_t missionType, uint32_t condType);
-    
-    //»ñÈ¡¶¯Ì¬ÈÎÎñ½±Àø
-    const TASK_REWARD *GetDyMissionReward(int32_t missionType, int32_t level);
+	//è·å–æ¯æ¡çº¿çš„ç¬¬ä¸€ä¸ªä»»åŠ¡
+	const FirstMissionMap& GetFirstMission() { return m_missionFirstMap; }
+
+	const NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>* GetFirstMissionByType(int32_t missionType); //è·å–æ¯æ¡çº¿çš„ç¬¬ä¸€ä¸ªä»»åŠ¡
+
+	const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>* GetDyMissionLstByType(int32_t missionType) const;
+
+	const NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>* GetPreAcceptMission(uint64_t missionId);
+
+	uint64_t GetDyTextId(uint64_t key);
+
+	uint64_t GetDyTextId(int32_t missionType, uint32_t condType);
+
+	//è·å–åŠ¨æ€ä»»åŠ¡å¥–åŠ±
+	const TASK_REWARD* GetDyMissionReward(int32_t missionType, int32_t level);
+
+	//è·å–ç­‰çº§æ¥å–ä»»åŠ¡åˆ—è¡¨
+	const NFShmHashSet<uint64_t, MAX_LEV_MISSION_NUM>* GetLevMission(uint32_t level);
+
+	//è·å–ç­‰çº§æ¥å–ä»»åŠ¡åˆ—è¡¨
+	const NFShmHashSet<uint64_t, MAX_FUNCTION_MISSION_NUM>* GetFunctionMission(uint64_t functionId);
 private:
-    DyMissionTypeMap m_dymissionTypeMap;                    //¶¯Ì¬ÈÎÎñÀàĞÍmap
-    DyMissionInfoMap m_dymissionInfoMap;                    //¶¯Ì¬ÈÎÎñÅäÖÃ
-    DyCondtionInfoMap m_dycondtionInfoMap;                    //¶¯Ì¬Ìõ¼şÅäÖÃ
-    MissionInfoMap m_missionInfoMap;                    //ÈÎÎñÅäÖÃÁĞ±í
-    DyTaskRewardMap m_mapDyReward;                        //¶¯Ì¬ÈÎÎñ½±Àø
-    FirstMissionMap _missionFirstMap;                    //ÈÎÎñÀàĞÍ¶ÔÓ¦µÄµÚÒ»¸öÈÎÎñÁĞ±í
-    NFShmHashMap<int32_t, NFShmHashSet<uint64_t, 100>, 1000> m_mapLevMission;                    //µÈ¼¶ÈÎÎñ
-    
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreOrAcceptMap;                //ÈÎÎñÅäÖÃÖĞµÄÇ°ÖÃÈÎÎñ»òÌõ¼ş
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAndAcceptMap;                //ÈÎÎñÅäÖÃÖĞµÄÇ°ÖÃÈÎÎñÓëÌõ¼ş
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAcceptMap;                    //½ÓÈ¡Ìõ¼şÖĞÇ°ÖÃÈÎÎñÍê³É¿É½ÓÈ¡µÄÈÎÎñ
-    
-    NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, MAX_TASKDYNAMIC_TASKTEXT_NUM> _dymissionTextMap;                    //¶¯Ì¬ÈÎÎñÇ°¶ËÏÔÊ¾ÅäÖÃ
+	DyMissionTypeMap m_dymissionTypeMap;                                                                             //åŠ¨æ€ä»»åŠ¡ç±»å‹map
+	DyMissionInfoMap m_dymissionInfoMap;                                                                             //åŠ¨æ€ä»»åŠ¡é…ç½®
+	DyCondtionInfoMap m_dycondtionInfoMap;                                                                           //åŠ¨æ€æ¡ä»¶é…ç½®
+	MissionInfoMap m_missionInfoMap;                                                                                 //ä»»åŠ¡é…ç½®åˆ—è¡¨
+	DyTaskRewardMap m_mapDyReward;                                                                                   //åŠ¨æ€ä»»åŠ¡å¥–åŠ±
+	FirstMissionMap m_missionFirstMap;                                                                               //ä»»åŠ¡ç±»å‹å¯¹åº”çš„ç¬¬ä¸€ä¸ªä»»åŠ¡åˆ—è¡¨
+	NFShmHashMap<uint32_t, NFShmHashSet<uint64_t, MAX_LEV_MISSION_NUM>, MAX_TASK_TASK_NUM> m_mapLevMission;          //ç­‰çº§ä»»åŠ¡
+	NFShmHashMap<uint32_t, NFShmHashSet<uint64_t, MAX_FUNCTION_MISSION_NUM>, MAX_TASK_TASK_NUM> m_mapFuntionMission; //å¼€å¯åŠŸèƒ½ä»»åŠ¡
+
+	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreOrAcceptMap;  //ä»»åŠ¡é…ç½®ä¸­çš„å‰ç½®ä»»åŠ¡æˆ–æ¡ä»¶
+	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAndAcceptMap; //ä»»åŠ¡é…ç½®ä¸­çš„å‰ç½®ä»»åŠ¡ä¸æ¡ä»¶
+	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAcceptMap;    //æ¥å–æ¡ä»¶ä¸­å‰ç½®ä»»åŠ¡å®Œæˆå¯æ¥å–çš„ä»»åŠ¡
+
+	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, MAX_TASKDYNAMIC_TASKTEXT_NUM> _dymissionTextMap; //åŠ¨æ€ä»»åŠ¡å‰ç«¯æ˜¾ç¤ºé…ç½®
 };

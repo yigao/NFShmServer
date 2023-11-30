@@ -293,7 +293,10 @@ private:
     NFBagPage<NFMoFaEquip, proto_ff::EPackageType_MoFa, COM_BAG_SIZE, COM_BAG_SIZE> m_moFaBag;
     NFBagPage<NFEquip, proto_ff::EPackageType_hungu, COM_BAG_SIZE, COM_BAG_SIZE> m_hunguBag;
     NFBagPage<NFEquip, proto_ff::EPackageType_rune, COM_BAG_SIZE, COM_BAG_SIZE> m_runeBag;
-    
+    NFBagPage<NFEquip, proto_ff::EPackageType_fengshen, COM_BAG_SIZE, COM_BAG_SIZE> m_fengshenBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_hunjing, COM_BAG_SIZE, COM_BAG_SIZE> m_huijingBag;
+    NFBagPage<NFEquip, proto_ff::EPackageType_guwen, COM_BAG_SIZE, COM_BAG_SIZE> m_guwenBag;
+    NFBagPage<NFItem, proto_ff::EPackageType_godhood, COM_BAG_SIZE, COM_BAG_SIZE> m_godHoodBag;
     uint32_t m_nLastErrorCode;
     SET_UINT16 m_setIdxRecord;                        //记录每次加物品 数量有增加的格子索引，在每次加物品之前先清空
 };

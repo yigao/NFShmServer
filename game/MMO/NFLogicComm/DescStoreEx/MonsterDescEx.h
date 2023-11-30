@@ -1,5 +1,7 @@
 #pragma once
 
+#include <NFGameCommon/NFComTypeDefine.h>
+
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
 #include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
@@ -18,4 +20,6 @@ public:
 public:
 	virtual int Load() override;
 	virtual int CheckWhenAllDataLoaded() override;
+public:
+	const VEC_INT64* GetTaskTypeMonster(uint32_t taskType) { return NULL; }
 };

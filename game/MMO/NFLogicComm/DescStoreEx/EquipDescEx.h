@@ -19,7 +19,7 @@
 
 #define EQUIP_STRONG_ID(P, W) ((P)*10000+W)
 
-//Ç¿»¯¼Ó³ÉÊôĞÔ
+//å¼ºåŒ–åŠ æˆå±æ€§
 struct stEquipStrongAttrCfg
 {
     stEquipStrongAttrCfg()
@@ -122,7 +122,7 @@ struct stEquipBeastStrongCfg
     std::vector<stEquipStrongAttrCfg> attr;
 };
 
-//Ç¿»¯Éı¼¶ÅäÖÃ
+//å¼ºåŒ–å‡çº§é…ç½®
 struct stEquipLvCfg
 {
     stEquipLvCfg()
@@ -159,7 +159,7 @@ struct stEquipLvCfg
     NFShmHashMap<int32_t, proto_ff_s::ComPair64_s, EEquipType_max> m_costItem;
 };
 
-//±¦Ê¯´¦Àí
+//å®çŸ³å¤„ç†
 struct stGemLvCfg
 {
     stGemLvCfg()
@@ -192,7 +192,7 @@ struct stGemLvCfg
     int64_t lv1ItemID;
 };
 
-//ÉıÆ·ĞÅÏ¢
+//å‡å“ä¿¡æ¯
 struct stUpQualityInfo
 {
     stUpQualityInfo()
@@ -222,9 +222,9 @@ struct stUpQualityInfo
     
     int32_t pos;
     int32_t maxLv;
-    NFShmHashMap<int32_t, int64_t, MAX_EQUIPIMPROVE_UPQUALITY_NUM> m_cfg; //starĞÇ¼¶->ÅäÖÃ
+    NFShmHashMap<int32_t, int64_t, MAX_EQUIPIMPROVE_UPQUALITY_NUM> m_cfg; //staræ˜Ÿçº§->é…ç½®
 };
-//ÉıÆ·ĞÅÏ¢´¦Àí
+//å‡å“ä¿¡æ¯å¤„ç†
 using EquipUpQualityMap = NFShmHashMap<int32_t, stUpQualityInfo, 10>;
 
 #define MAX_EQUIP_BREAK_POSITION 4
@@ -248,11 +248,12 @@ public:
     stEquipLvCfg* GetStrongLvCfg(int32_t lv);
     stEquipBeastStrongCfg* GetBeastStrongCfg(int64_t id);
     const proto_ff_s::E_EquipBreak_s* GetBreakCfgInfo(int32_t pos, int32_t step);
+    int64_t GetEquipID(int32_t pos, int32_t prof, int32_t star, int32_t quality, int32_t wearQuality);
 private:
     int32_t maxStrongLv;
-    NFShmHashMap<int64_t, stEquipStrongCfg, MAX_EQUIP_STRONG_NUM> m_strong;		//Ç¿»¯ĞÅÏ¢ key
-    NFShmHashMap<int64_t, stEquipBeastStrongCfg, MAX_EQUIP_BEASTSTRONG_NUM> m_strongBeast;		//Ç¿»¯ĞÅÏ¢ key
-    NFShmHashMap<int32_t, stEquipLvCfg, MAX_EQUIP_STRONGEXP_NUM> m_stronglv;			//Ç¿»¯µÈ¼¶ÏûºÄ lv->
-    NFShmHashMap<int32_t, NFShmHashMap<int32_t, int64_t, MAX_EQUIP_BREAK_NUM>, MAX_EQUIP_BREAK_POSITION> m_breakStrong; //break±íÓÃ
+    NFShmHashMap<int64_t, stEquipStrongCfg, MAX_EQUIP_STRONG_NUM> m_strong;		//å¼ºåŒ–ä¿¡æ¯ key
+    NFShmHashMap<int64_t, stEquipBeastStrongCfg, MAX_EQUIP_BEASTSTRONG_NUM> m_strongBeast;		//å¼ºåŒ–ä¿¡æ¯ key
+    NFShmHashMap<int32_t, stEquipLvCfg, MAX_EQUIP_STRONGEXP_NUM> m_stronglv;			//å¼ºåŒ–ç­‰çº§æ¶ˆè€— lv->
+    NFShmHashMap<int32_t, NFShmHashMap<int32_t, int64_t, MAX_EQUIP_BREAK_NUM>, MAX_EQUIP_BREAK_POSITION> m_breakStrong; //breakè¡¨ç”¨
     std::map<uint64_t, MAP_INT32_INT32> m_specAttr;
 };

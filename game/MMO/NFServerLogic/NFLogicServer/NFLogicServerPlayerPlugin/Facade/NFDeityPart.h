@@ -220,7 +220,7 @@ public:
             const proto_ff::EquipInfo &equipProto = data.equip_data().infos(i);
             int32_t pos = equipProto.slot().slot_pos();
             CHECK_EXPR(m_equips.ValidPos(pos), false, "pos:%d error", pos);
-            auto pDressEquip = m_equips.GetEquip(pos);
+            auto pDressEquip = m_equips.GetEquipInfo(pos);
             CHECK_EXPR(pDressEquip, false, "pos:%d not find equip", pos);
             pDressEquip->ReadFromPB(equipProto);
         }
@@ -251,7 +251,7 @@ public:
         
         for (int32_t i = proto_ff::EDeityEquipPos_start; i < proto_ff::EDeityEquipPos_start + proto_ff::EDeityEquipPos_limit; i++)
         {
-            auto pDressEquip = m_equips.GetEquip(i);
+            auto pDressEquip = m_equips.GetEquipInfo(i);
             CHECK_EXPR(pDressEquip, false, "");
             pDressEquip->WriteToPB(*pData->mutable_equip_data()->add_infos());
         }

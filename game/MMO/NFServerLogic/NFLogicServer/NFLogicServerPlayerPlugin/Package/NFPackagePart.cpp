@@ -39,26 +39,14 @@ int NFPackagePart::ResumeInit()
 
 int NFPackagePart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData)
 {
-    m_commonBag.Init(this, pMaster);
-    m_storeageBag.Init(this, pMaster);
-    m_mountEggBag.Init(this, pMaster);
-    m_petEggBag.Init(this, pMaster);
-    m_deityBag.Init(this, pMaster);
-    m_handBookBag.Init(this, pMaster);
-    m_beastEquipBag.Init(this, pMaster);
-    m_longHunEquipBag.Init(this, pMaster);
-    m_findTreasureBag.Init(this, pMaster);
-    m_bigDragonBag.Init(this, pMaster);
-    m_shengjiAqBag.Init(this, pMaster);
-    m_shengjiLjBag.Init(this, pMaster);
-    m_godEvilBag.Init(this, pMaster);
-    m_starBag.Init(this, pMaster);
-    m_turnBag.Init(this, pMaster);
-    m_mountKunBag.Init(this, pMaster);
-    m_yaoKunBag.Init(this, pMaster);
-    m_moFaBag.Init(this, pMaster);
-    m_hunguBag.Init(this, pMaster);
-    m_runeBag.Init(this, pMaster);
+    for(int i = proto_ff::EPackageType_Common; i < (int)proto_ff::EPackageType_Limit; i++)
+    {
+        auto pBag = GetPackageByType(i);
+        if (pBag)
+        {
+            pBag->Init(this, pMaster);
+        }
+    }
     return NFPart::Init(pMaster, partType, dbData);
 }
 
@@ -939,6 +927,9 @@ uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
         case proto_ff::EItemType_HandBook:
             nPackageType = proto_ff::EPackageType_HandBook;
             break;
+        case proto_ff::EItemType_GodHand:
+            nPackageType = proto_ff::EPackageType_godhood;
+            break;
         default:
             nPackageType = proto_ff::EPackageType_Common;
             break;
@@ -992,6 +983,14 @@ NFPackageBag *NFPackagePart::GetPackageByType(uint32_t nPackageType)
             return &m_hunguBag;
         case proto_ff::EPackageType_rune:
             return &m_runeBag;
+        case proto_ff::EPackageType_fengshen:
+            return &m_fengshenBag;
+        case proto_ff::EPackageType_hunjing:
+            return &m_huijingBag;
+        case proto_ff::EPackageType_guwen:
+            return &m_guwenBag;
+        case proto_ff::EPackageType_godhood:
+            return &m_godHoodBag;
         default:
             break;
     }

@@ -6,243 +6,243 @@ import "Com.proto";
 
 message FunctionUnlockEvent
 {
-  optional uint64 functionId = 1;
-  optional bool sync = 2;
+	optional uint64 functionId = 1;
+	optional bool sync = 2;
 }
 
 message PlayerLeveUpEvent
 {
-  optional uint64 cid = 1;  //玩家cid
-  optional uint32 level = 2;  //升级到的等级
+	optional uint64 cid = 1;  //玩家cid
+	optional uint32 level = 2;  //升级到的等级
 }
 
 message ItemUseEvent
 {
-  optional uint64 itemId = 1;
-  optional int32 num = 2;
+	optional uint64 itemId = 1;
+	optional int32 num = 2;
 }
 
 //接取任务
 message AcceptTaskEvent
 {
-  optional uint64 taskId = 1;
-  optional uint64 cid = 2;
-  optional uint32 taskType = 3;
+	optional uint64 taskId = 1;
+	optional uint64 cid = 2;
+	optional uint32 taskType = 3;
 }
 
 //完成任务
 message FinishTaskEvent
 {
-  optional uint64 taskId = 1;
-  optional uint64 cid = 2;
-  optional uint32 taskType = 3;
-  optional int32 mapGroup = 4;
+	optional uint64 taskId = 1;
+	optional uint64 cid = 2;
+	optional uint32 taskType = 3;
+	optional int32 mapGroup = 4;
 }
 
 //离开场景
 message LeaveSceneEvent
 {
-  optional uint64 cid = 1;      //生物cid
-  optional uint64 sceneid = 2;
-  optional uint64 mapid = 3;
+	optional uint64 cid = 1;      //生物cid
+	optional uint64 sceneid = 2;
+	optional uint64 mapid = 3;
 };
 
 //改变场景事件
 message ChgSceneEvent
 {
-  optional uint64 cid = 1;			//玩家cid
-  optional bool enterflag = 2;		//是否是进入场景
+	optional uint64 cid = 1;            //玩家cid
+	optional bool enterflag = 2;        //是否是进入场景
 };
 
 //进入场景事件
 message EnterSceneEvent
 {
-  optional uint64 cid = 1;      //生物id
-  optional uint32 uid = 2;
-  optional uint64 clientid = 3;
-  optional uint64 mapid = 4;	   //地图ID
-  optional int32 x = 5;
-  optional int32 y = 6;
-  optional int32 z = 7;
-  //optional STransParam transParam;	//切换地图参数
+	optional uint64 cid = 1;      //生物id
+	optional uint32 uid = 2;
+	optional uint64 clientid = 3;
+	optional uint64 mapid = 4;       //地图ID
+	optional int32 x = 5;
+	optional int32 y = 6;
+	optional int32 z = 7;
+	//optional STransParam transParam;	//切换地图参数
 };
 
 //同步位置
 message SyncScenePos
 {
-  optional uint64 map_id = 1;
-  optional uint64 scene_id = 2;
-  optional Vector3PB pos = 3;
+	optional uint64 map_id = 1;
+	optional uint64 scene_id = 2;
+	optional Vector3PB pos = 3;
 }
 
 //
 message SyncSceneState
 {
-  optional uint32 last_state = 1;
-  optional uint32 cur_state = 2;
+	optional uint32 last_state = 1;
+	optional uint32 cur_state = 2;
 }
 
 message GrowPartActiveEvent
 {
-  optional int32 type = 1;
-  optional int32 id = 2;
-  optional int32 curLv = 3;
+	optional int32 type = 1;
+	optional int32 id = 2;
+	optional int32 curLv = 3;
 };
 
 message GrowPartLvUpEvent
 {
-  optional int32 type = 1;
-  optional int32 id = 2;
-  optional int32 curLv = 3;
+	optional int32 type = 1;
+	optional int32 id = 2;
+	optional int32 curLv = 3;
 };
 
 message GrowPartDressEvent
 {
-  optional int32 type = 1;
-  optional int32 id = 2;
-  optional int32 curLv = 3;
+	optional int32 type = 1;
+	optional int32 id = 2;
+	optional int32 curLv = 3;
 };
 
 //外观改变
 message ChangeFacadeEvent
 {
-  optional uint64 cid = 1;
-  optional  uint64 wingId = 2;      //翅膀ID
-  optional  uint64 fashionClothesId = 3;  //时装衣服
-  optional  uint64 fashionWeaponId = 4;  //时装武器
-  optional  uint64 occupationId = 5;    //转职ID
-  optional  uint64 mountId = 6;      //坐骑ID
-  optional  uint64 treasure_id = 7;    //宝具ID
-  optional  int32 treasure_type = 8;    //宝具类型
-  optional  uint64 artifact_id = 9;    //神器ID
-  optional  uint64 head_id = 10;      //头像ID
-  optional  uint64 frame_id = 11;      //相框ID
-  optional  uint64 bubble_id = 12;      //气泡ID
+	optional uint64 cid = 1;
+	optional  uint64 wingId = 2;      //翅膀ID
+	optional  uint64 fashionClothesId = 3;  //时装衣服
+	optional  uint64 fashionWeaponId = 4;  //时装武器
+	optional  uint64 occupationId = 5;    //转职ID
+	optional  uint64 mountId = 6;      //坐骑ID
+	optional  uint64 treasure_id = 7;    //宝具ID
+	optional  int32 treasure_type = 8;    //宝具类型
+	optional  uint64 artifact_id = 9;    //神器ID
+	optional  uint64 head_id = 10;      //头像ID
+	optional  uint64 frame_id = 11;      //相框ID
+	optional  uint64 bubble_id = 12;      //气泡ID
 };
 
 //充值
 message PayEvent
 {
-  optional uint32 payIndex = 1;		    //充值配置表索引值
-  optional uint32 money = 2;			    //充值金额(这里金额是游戏中用到的，可能跟实际充值的人名币不一样,用于活动中的计数)
-  optional uint32 price = 3;			    //实际充值的人名币
-  optional uint32 type = 4;			    //充值类型
-  optional uint32 quantity = 5;		    //领取钻石档位
-  optional bool indexFirst = 6;	//此档位首充
-  optional bool allFirst = 7;		//全档位首充
-  optional uint32 chanid = 8;		//渠道ID
-  optional string productid = 9;		        //计费点ID
+	optional uint32 payIndex = 1;            //充值配置表索引值
+	optional uint32 money = 2;                //充值金额(这里金额是游戏中用到的，可能跟实际充值的人名币不一样,用于活动中的计数)
+	optional uint32 price = 3;                //实际充值的人名币
+	optional uint32 type = 4;                //充值类型
+	optional uint32 quantity = 5;            //领取钻石档位
+	optional bool indexFirst = 6;    //此档位首充
+	optional bool allFirst = 7;        //全档位首充
+	optional uint32 chanid = 8;        //渠道ID
+	optional string productid = 9;                //计费点ID
 };
 
 //通关副本
 message PassDupEvent
 {
-  optional uint64 dupId = 1;		//副本ID
-  optional uint64 groupId = 2;	//副本组ID
-  optional uint32 star = 3;		//星级
-  optional uint32 zid = 4;		//副本所属的区服ID
+	optional uint64 dupId = 1;        //副本ID
+	optional uint64 groupId = 2;    //副本组ID
+	optional uint32 star = 3;        //星级
+	optional uint32 zid = 4;        //副本所属的区服ID
 };
 
 //EVENT_DEITY_FANTASY_BATTLE
 message DeityFantasyBattleEvent
 {
-  optional uint32 num = 1;
+	optional uint32 num = 1;
 };
 
 //    //天神
 //    EVENT_DEITY_FANTASY_ACTIVE,         //激活一个天神
 message DeityActiveEvent
 {
-  optional int64 id = 1;
+	optional int64 id = 1;
 };
 
 message WingFightChgEvent
 {
-  optional uint64 cid = 1;		//玩家cid
-  optional uint64 fight = 2;		//战力值
+	optional uint64 cid = 1;        //玩家cid
+	optional uint64 fight = 2;        //战力值
 };
 
 message PartnerFightChgEvent
 {
-  optional uint64 cid = 1;		//玩家cid
-  optional uint64 fight = 2;		//战力值
+	optional uint64 cid = 1;        //玩家cid
+	optional uint64 fight = 2;        //战力值
 };
 
 message ArtifactFightChgEvent
 {
-  optional uint64 cid = 1;		//玩家cid
-  optional uint64 fight = 2;		//战力值
+	optional uint64 cid = 1;        //玩家cid
+	optional uint64 fight = 2;        //战力值
 };
 
 message TreasureFightChgEvent
 {
-  optional uint64 cid = 1;		//玩家cid
-  optional uint64 fight = 2;		//战力值
+	optional uint64 cid = 1;        //玩家cid
+	optional uint64 fight = 2;        //战力值
 };
 
 message ArtifactFantasy
 {
-  optional uint64 nFantasyId = 1;
-  optional uint32 nLevel = 2;
-  optional uint32 nTotalLv = 3;
+	optional uint64 nFantasyId = 1;
+	optional uint32 nLevel = 2;
+	optional uint32 nTotalLv = 3;
 };
 
 message TreasureFantasy
 {
-  optional uint64 nFantasyId = 1;
-  optional uint32 nLevel = 2;
-  optional uint32 nTotalLv = 3;
+	optional uint64 nFantasyId = 1;
+	optional uint32 nLevel = 2;
+	optional uint32 nTotalLv = 3;
 };
 
 message WingFantasy
 {
-  optional uint64 nFantasyId = 1;
-  optional uint32 nLevel = 2;
-  optional uint32 nTotalLv = 3;
+	optional uint64 nFantasyId = 1;
+	optional uint32 nLevel = 2;
+	optional uint32 nTotalLv = 3;
 };
 
 message PartnerFantasy
 {
-  optional uint64 nFantasyId = 1;
-  optional uint32 nLevel = 2;
-  optional uint32 nTotalLv = 3;
+	optional uint64 nFantasyId = 1;
+	optional uint32 nLevel = 2;
+	optional uint32 nTotalLv = 3;
 };
 
 message WingAdvance
 {
-  optional uint32 nLevel = 1;
+	optional uint32 nLevel = 1;
 };
 
 message TreasureAdvance
 {
-  optional uint32 nLevel = 1;
+	optional uint32 nLevel = 1;
 };
 
 message ArtifactAdvance
 {
-  optional uint32 nLevel = 1;
+	optional uint32 nLevel = 1;
 };
 
 message MountAdvance
 {
-  optional uint32 nLevel = 1;
+	optional uint32 nLevel = 1;
 };
 
 message OccupationAdvance
 {
-  optional uint32 nGrade = 1;
+	optional uint32 nGrade = 1;
 };
 
 message PartnerAdvance
 {
-  optional uint32 nLevel = 1;
+	optional uint32 nLevel = 1;
 };
 
 //天机普
 //EVENT_GOD_RELICS_FINISH,            //天机普任务完成
 message GodRelicsFinish
 {
-  optional int64 id = 1;
+	optional int64 id = 1;
 };
 
 //世界聊天次数
@@ -253,62 +253,115 @@ message ChatWorldEvent
 
 message EquipScoreChangeEvent
 {
-  optional uint64 all_score = 1;
+	optional uint64 all_score = 1;
 };
 
 message StoneInlayEvent
 {
-  optional int32 pos = 1;				//装备部位
-  optional uint64 stone_itemId = 2;		//宝石ID
-  optional uint32 stone_level = 3;		//宝石等级
-  optional uint32 total_level = 4;		//宝石总等级
-  optional uint32 ave_stone_level = 5;	//全身穿戴装备全部镶嵌满xx级以上的宝石
-  optional uint32 count = 6;				//镶嵌宝石数量
+	optional int32 pos = 1;                //装备部位
+	optional uint64 stone_itemId = 2;        //宝石ID
+	optional uint32 stone_level = 3;        //宝石等级
+	optional uint32 total_level = 4;        //宝石总等级
+	optional uint32 ave_stone_level = 5;    //全身穿戴装备全部镶嵌满xx级以上的宝石
+	optional uint32 count = 6;                //镶嵌宝石数量
 };
 
 message MountFightChgEvent
 {
-  optional uint64 cid = 1;		//玩家cid
-  optional uint64 fight = 2;		//战力值
+	optional uint64 cid = 1;        //玩家cid
+	optional uint64 fight = 2;        //战力值
 };
 
 message MagicSumChangeEvent
 {
-  optional uint64 sum = 1;
+	optional uint64 sum = 1;
 };
 
 message BattlePassXianCe
 {
-  optional int32 buy_status = 1;
-  optional int32 lv = 2;
+	optional int32 buy_status = 1;
+	optional int32 lv = 2;
 };
 
 message BattlePassBaoDing
 {
-  optional int32 buy_status = 1;
-  optional int32 lv = 2;
+	optional int32 buy_status = 1;
+	optional int32 lv = 2;
 };
 
 message DeityFightChgEvent
 {
-  optional uint64 fight = 1;		//战力值
+	optional uint64 fight = 1;        //战力值
 };
 
 message BeastFightChgEvent
 {
-  optional uint64 fight = 1;		//战力值
+	optional uint64 fight = 1;        //战力值
 };
 
 //表白等级提升事件 EVENT_MARRY_EXPRESS_EXP
 message MarryExpressExpEvent
 {
-  optional int32 exp = 1;
+	optional int32 exp = 1;
 };
 
 //EVENT_SHENJI_FIGHT_CHG
 message ShenjiFightChgEvent
 {
-  optional uint32 slot = 1; //1 暗器 ：2灵甲
-  optional uint64 fight = 2;
-  optional uint32 star = 3;
+	optional uint32 slot = 1; //1 暗器 ：2灵甲
+	optional uint64 fight = 2;
+	optional uint32 star = 3;
+};
+
+//点亮龙魂 EVENT_LIGHT_SOUL
+message LightSoulEvent
+{
+	optional int32 grade = 1;
+	optional int32 stage = 2;
+	optional int32 soul_type = 3;
+};
+
+//通用的来源结构
+message SCommonSourcePB
+{
+	// ------------------ 来源  ---------------------------
+	optional int32 src = 1;                //运营需要的物品来源
+	optional int64 param1 = 2;                    //运营来源参数1(根据不同的来源确定值)
+	optional int64 param2 = 3;                    //运营来源参数2(根据不同的来源确定值)
+	optional int64 param3 = 4;                    //运营来源参数3(根据不同的来源确定值)
+}
+
+message ItemChangeEvent
+{
+	optional uint64 itemId = 1;
+	optional int64 itemNum = 2;
+	optional int64 itemChgNum = 3;
+	optional int32 changeType = 4;
+	optional int32 opetateType = 5;
+	optional SCommonSourcePB itemSource = 6;
+}
+
+//采集
+message CollectEvent
+{
+	optional uint64 monsid = 1;        //采集怪物ID
+	optional uint32 collectid = 2;     //采集ID
+	optional uint64 monsterCid = 3;
+};
+
+message DressEquipChangeEvent
+{
+	optional uint64 itemid = 1;
+};
+
+message EquipUndress
+{
+	optional uint64 itemid = 1;
+};
+
+//加入战队 EVENT_JOIN_CLAN
+message ClanJoinEvent
+{
+	optional uint64 clan_id = 1;
+	optional uint64 clan_type = 2; //1:3v3 2:5v5
 };

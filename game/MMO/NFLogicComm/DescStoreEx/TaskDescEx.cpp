@@ -1,4 +1,7 @@
 #include "TaskDescEx.h"
+
+#include <DescStore/FunctionunlockFunctionunlockDesc.h>
+
 #include "NFGameCommon/NFComTypeDefine.h"
 #include "NFComm/NFCore/NFCommonApi.h"
 #include "DescStore/ItemItemDesc.h"
@@ -53,7 +56,7 @@ int TaskDescEx::Load()
 
 int TaskDescEx::CheckWhenAllDataLoaded()
 {
-    //Ğ£ÑéÇ°ÖÃ½ÓÈ¡»òÌõ¼şÖĞµÄÈÎÎñID
+    //æ ¡éªŒå‰ç½®æ¥å–æˆ–æ¡ä»¶ä¸­çš„ä»»åŠ¡ID
     for (auto iterOr = m_mapPreOrAcceptMap.begin(); iterOr != m_mapPreOrAcceptMap.end(); ++iterOr)
     {
         auto &setMission = iterOr->second;
@@ -69,7 +72,7 @@ int TaskDescEx::CheckWhenAllDataLoaded()
         }
     }
     
-    //Ğ£ÑéÇ°ÖÃ½ÓÈ¡ÓëÌõ¼şÖĞµÄÈÎÎñID
+    //æ ¡éªŒå‰ç½®æ¥å–ä¸æ¡ä»¶ä¸­çš„ä»»åŠ¡ID
     for (auto iterAnd = m_mapPreAndAcceptMap.begin(); iterAnd != m_mapPreAndAcceptMap.end(); ++iterAnd)
     {
         auto &setMission = iterAnd->second;
@@ -85,7 +88,7 @@ int TaskDescEx::CheckWhenAllDataLoaded()
         }
     }
     
-    //Ğ£Ñé Ê¹ÓÃÎïÆ·»ñµÃÈÎÎñ ÖĞµÄÈÎÎñID
+    //æ ¡éªŒ ä½¿ç”¨ç‰©å“è·å¾—ä»»åŠ¡ ä¸­çš„ä»»åŠ¡ID
 /*    const MAP_UINT64_INT64 *pChkMission = g_GetItemCfgMgr()->GetChkItemAddMission();
     if (nullptr != pChkMission)
     {
@@ -137,30 +140,30 @@ bool TaskDescEx::ProcessTask()
         pMissionInfo->progressLev = pTaskInfo->m_truelv;
         pMissionInfo->kind = pTaskInfo->m_type;
         
-        //½ÓÈ¡Ìõ¼ş
+        //æ¥å–æ¡ä»¶
         if (!ParseMissionCond(pMissionInfo, pTaskInfo->m_rececond.ToString()))
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "task id:{} rececond error:{}", pTaskInfo->m_id, pTaskInfo->m_rececond.ToString());
             return false;
         }
         
-        //½ÓÈ¡ÈÎÎñÊ±·¢·ÅÈÎÎñÎïÆ·
+        //æ¥å–ä»»åŠ¡æ—¶å‘æ”¾ä»»åŠ¡ç‰©å“
         if (!ParseTaskReceAdd(pMissionInfo, pTaskInfo->m_receadd.ToString()))
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "task id:{} receadd error:{}", pTaskInfo->m_id, pTaskInfo->m_receadd.ToString());
             return false;
         }
         
-        //Íê³ÉÌõ¼ş
+        //å®Œæˆæ¡ä»¶
         if (!ParseTaskExecute(pMissionInfo, pTaskInfo->m_comcond.ToString()))
         {
             return false;
         }
         
-        //ºóÖÃÈÎÎñ
+        //åç½®ä»»åŠ¡
         pMissionInfo->backTaskId = pTaskInfo->m_nexttask;
         
-        //¹Ì¶¨½±Àø
+        //å›ºå®šå¥–åŠ±
         if (!ParseTaskSubAward(pMissionInfo, pTaskInfo->m_subaward))
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "MissionManager::LoadConfig....subaward error...missionid:{}, subaward:{}", pMissionInfo->missionId,
@@ -171,7 +174,7 @@ bool TaskDescEx::ProcessTask()
     
     MAP_UINT64_SET_UINT64 mapPost;
     mapPost.clear();
-    //¹¹ÔìÖ÷Ïß/Ö§ÏßÈÎÎñ¹ØÏµ±í
+    //æ„é€ ä¸»çº¿/æ”¯çº¿ä»»åŠ¡å…³ç³»è¡¨
     for (MissionInfoMap::iterator ite = m_missionInfoMap.begin(); ite != m_missionInfoMap.end(); ++ite)
     {
         if (ite->second.kind != MISSION_TYPE_ID_TRUNK
@@ -183,7 +186,7 @@ bool TaskDescEx::ProcessTask()
             continue;
         }
         
-        //Í¨¹ıºóÖÃÈÎÎñÍÆµ¼Ç°ÖÃÈÎÎñ
+        //é€šè¿‡åç½®ä»»åŠ¡æ¨å¯¼å‰ç½®ä»»åŠ¡
         if (ite->second.backTaskId > 0)
         {
             MissionInfo *pBackMission = GetMissionCfgInfo(ite->second.backTaskId);
@@ -232,20 +235,20 @@ bool TaskDescEx::ProcessTask()
         }
     }
     
-    //ÕÒ³öÃ¿ÖÖÀàĞÍÈÎÎñµÄµÚÒ»¸öÈÎÎñ
+    //æ‰¾å‡ºæ¯ç§ç±»å‹ä»»åŠ¡çš„ç¬¬ä¸€ä¸ªä»»åŠ¡
     for (MissionInfoMap::iterator iterMission = m_missionInfoMap.begin(); iterMission != m_missionInfoMap.end(); ++iterMission)
     {
         MissionInfo *pMissionInfo = &iterMission->second;
         if (MISSION_TYPE_ID_OCCUPATION == pMissionInfo->kind)
         {
-            //×ªÖ°ÈÎÎñĞèÒª¹ıÂËµô£¬×ªÖ°ÈÎÎñÊÇÓÉÆäËûÏµÍ³½ÓÈ¡£¬ÈÎÎñÏµÍ³²»»á×Ô¶¯½ÓÈ¡
+            //è½¬èŒä»»åŠ¡éœ€è¦è¿‡æ»¤æ‰ï¼Œè½¬èŒä»»åŠ¡æ˜¯ç”±å…¶ä»–ç³»ç»Ÿæ¥å–ï¼Œä»»åŠ¡ç³»ç»Ÿä¸ä¼šè‡ªåŠ¨æ¥å–
             continue;
         }
         
         if (pMissionInfo->setPreTask.size() <= 0)
         {
-            auto iterPre = _missionFirstMap.find(pMissionInfo->kind);
-            if (iterPre != _missionFirstMap.end())
+            auto iterPre = m_missionFirstMap.find(pMissionInfo->kind);
+            if (iterPre != m_missionFirstMap.end())
             {
                 auto &setMission = iterPre->second;
                 if (setMission.size() >= setMission.max_size())
@@ -256,7 +259,7 @@ bool TaskDescEx::ProcessTask()
                 
                 setMission.insert(pMissionInfo->missionId);
                 
-                //Ö÷ÏßÖ»ÓĞÒ»ÌõÏß£¬Ç°ÖÃÈÎÎñÎª0 µÄ²»ÔÊĞíÓĞ¶à¸ö£¬
+                //ä¸»çº¿åªæœ‰ä¸€æ¡çº¿ï¼Œå‰ç½®ä»»åŠ¡ä¸º0 çš„ä¸å…è®¸æœ‰å¤šä¸ªï¼Œ
                 if (MISSION_TYPE_ID_TRUNK == pMissionInfo->kind)
                 {
                     if (setMission.size() > 1)
@@ -268,15 +271,15 @@ bool TaskDescEx::ProcessTask()
             }
             else
             {
-                if (_missionFirstMap.size() >= _missionFirstMap.max_size())
+                if (m_missionFirstMap.size() >= m_missionFirstMap.max_size())
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "_missionFirstMap Space Not Enough!");
                     return false;
                 }
-                _missionFirstMap[pMissionInfo->kind].insert(pMissionInfo->missionId);
+                m_missionFirstMap[pMissionInfo->kind].insert(pMissionInfo->missionId);
             }
             
-            //°´µÈ¼¶Í³¼Æ
+            //æŒ‰ç­‰çº§ç»Ÿè®¡
             auto iterLv = m_mapLevMission.find(pMissionInfo->accept.minLevel);
             if (iterLv != m_mapLevMission.end())
             {
@@ -298,7 +301,7 @@ bool TaskDescEx::ProcessTask()
             }
         } // end of if (pMissionInfo->setPreTask.size() <= 0)
         
-        //Í³¼Æ½ÓÈ¡Ìõ¼şÖĞÇ°ÖÃÈÎÎñÍê³É¿É½ÓÈ¡µÄÈÎÎñ
+        //ç»Ÿè®¡æ¥å–æ¡ä»¶ä¸­å‰ç½®ä»»åŠ¡å®Œæˆå¯æ¥å–çš„ä»»åŠ¡
         for (auto iterPreOr = pMissionInfo->accept.setPreOrMission.begin(); iterPreOr != pMissionInfo->accept.setPreOrMission.end(); ++iterPreOr)
         {
             uint64_t preId = (*iterPreOr);
@@ -349,7 +352,7 @@ bool TaskDescEx::ProcessTask()
         }
     }
     
-    //¼ì²éÖ÷Ö§ÏßÈÎÎñµÄºóÖÃÈÎÎñÊıÁ¿,Ä¿Ç°Ö÷Ö§ÏßÈÎÎñµÄºóÖÃ ÔÚµ±Ç°Ìõ¼şÏÂÖ»ÄÜ½ÓÈ¡Ò»¸ö£¬»òÕßÖ»ÄÜÓĞÒ»¸öºóÖÃÈÎÎñ
+    //æ£€æŸ¥ä¸»æ”¯çº¿ä»»åŠ¡çš„åç½®ä»»åŠ¡æ•°é‡,ç›®å‰ä¸»æ”¯çº¿ä»»åŠ¡çš„åç½® åœ¨å½“å‰æ¡ä»¶ä¸‹åªèƒ½æ¥å–ä¸€ä¸ªï¼Œæˆ–è€…åªèƒ½æœ‰ä¸€ä¸ªåç½®ä»»åŠ¡
     MAP_UINT64_SET_UINT64::iterator backIter = mapPost.begin();
     for (; backIter != mapPost.end(); ++backIter)
     {
@@ -392,10 +395,10 @@ bool TaskDescEx::ProcessDyMission()
         dyInfo.minLev = cfg.m_minlv;
         dyInfo.maxLev = cfg.m_maxlv;
         dyInfo.canAccept = cfg.m_receCount;
-        //Ëæ»úÌõ¼şIDÁĞ±í
+        //éšæœºæ¡ä»¶IDåˆ—è¡¨
         string strCondtion = cfg.m_idList.data();
         NFCommonApi::SplitStrToSetInt64(strCondtion, ";", &dyInfo.setComplete);
-        //Ğ£ÑéËùÓĞµÄÌõ¼ş±ØĞëÔÚÌõ¼ş±í´æÔÚ
+        //æ ¡éªŒæ‰€æœ‰çš„æ¡ä»¶å¿…é¡»åœ¨æ¡ä»¶è¡¨å­˜åœ¨
         for (auto iterCond = dyInfo.setComplete.begin(); iterCond != dyInfo.setComplete.end(); ++iterCond)
         {
             uint64_t condId = (*iterCond);
@@ -407,6 +410,29 @@ bool TaskDescEx::ProcessDyMission()
             }
             dyInfo.totalRate += pDyCondCfg->rate;
         }
+
+        //
+        auto iterType = m_dymissionTypeMap.find(dyInfo.kind);
+        if (iterType != m_dymissionTypeMap.end())
+        {
+            if (iterType->second.size() >= iterType->second.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "m_dymissionTypeMap  Space Not Enough");
+                return false;
+            }
+            iterType->second.insert(dyInfo.missionId);
+        }
+        else
+        {
+            if (m_dymissionTypeMap.size() >= m_dymissionTypeMap.max_size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "m_dymissionTypeMap NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM> Space Not Enough");
+                return false;
+            }
+            m_dymissionTypeMap[dyInfo.kind].insert(dyInfo.missionId);
+        }
+
+        m_dymissionInfoMap[dyInfo.kind] = dyInfo;
     }
     return true;
 }
@@ -592,7 +618,6 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
     //uint64_t giftid = 0;
     bool checkGift = false;
     
-    
     if (MISSION_FINISH_TYPE_KILL_MONS == item.itemType)
     {
         monsId = item.itemId;
@@ -625,12 +650,12 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
         monsId = item.parma1;
         boxId = item.parma2;
         areaId = item.parma3;
-        
+
         checkItem = true;
         checkMons = true;
         checkBox = true;
         checkArea = true;
-        
+
     }
     else if (MISSION_FINISH_TYPE_COLLECT_KILL_MONS == item.itemType)
     {
@@ -638,7 +663,7 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
         monsId = item.parma1;
         boxId = item.parma2;
         //    pathid = item.parma3;
-        
+
         checkItem = true;
         checkMons = true;
         checkBox = true;
@@ -651,13 +676,25 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
         checkItem = true;
         checkArea = true;
     }
-    
-    else if (MISSION_FINISH_TYPE_PASS_DUP == item.itemType)
+    else if (MISSION_FINISH_TYPE_COLLECT_JUST == item.itemType) //ç­–åˆ’ç¡®è®¤è¿™é‡Œçš„NPCä¸ç”¨æ ¡éªŒ
+    {
+        itemId = item.itemId;
+        checkItem = true;
+    }
+    else if (MISSION_FINISH_TYPE_COLLECT_MONS == item.itemType)
+    {
+        itemId = item.itemId;
+        boxId = item.parma2;
+
+        checkItem = true;
+        checkBox = true;
+    }
+    else if (MISSION_FINISH_TYPE_PASS_DUP == item.itemType || MISSION_FINISH_TYPE_PASS_DUP1 == item.itemType)
     {
         dupId = item.itemId;
         checkDup = true;
     }
-    else if (MISSION_FINISH_TYPE_PASS_DUP_GROUP == item.itemType)
+    else if (MISSION_FINISH_TYPE_PASS_DUP_GROUP == item.itemType || MISSION_FINISH_TYPE_PASS_DUP_GROUP1 == item.itemType)
     {
         dupGroupId = item.itemId;
         checkDupGroup = true;
@@ -669,7 +706,7 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
         checkItem = true;
         checkArea = true;
     }
-    else if (MISSION_FINISH_TYPE_SUBMIT_ITEM == item.itemType) //²ß»®È·ÈÏÕâÀïµÄNPC²»ÓÃĞ£Ñé
+    else if (MISSION_FINISH_TYPE_SUBMIT_ITEM == item.itemType) //ç­–åˆ’ç¡®è®¤è¿™é‡Œçš„NPCä¸ç”¨æ ¡éªŒ
     {
         itemId = item.itemId;
         checkItem = true;
@@ -679,9 +716,11 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
         equipId = item.itemId;
         checkEquip = true;
     }
-    else if (MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == item.itemType)
+    else if (MISSION_FINISH_TYPE_SUBMIT_SPEC_EQUIP == item.itemType ||
+        MISSION_FINISH_TYPE_SUBMIT_SPEC2_EQUIP == item.itemType ||
+        MISSION_FINISH_TYPE_SUBMIT_SPEC3_EQUIP == item.itemType)
     {
-    
+
     }
     else if (MISSION_FINISH_TYPE_AREA == item.itemType)
     {
@@ -719,6 +758,13 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
         //   giftid = item.itemId;
         checkGift = true;
     }
+    else if (MISSION_FINISH_TYPE_SPECIAL_COLLECT == item.itemType || MISSION_FINISH_TYPE_SPECIAL_COLLECT2 == item.itemType)
+    {
+        monsId = item.itemId;
+        areaId = item.parma1;
+        checkMons = true;
+        checkArea = true;
+    }
     //
     if (checkMons)
     {
@@ -743,17 +789,7 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
     }
     if (checkPath)
     {
-/*		const AreaPathCfgInfo *pPathCfg = g_GetAreaPathCfgTable()->GetAreaPathCfgInfo(pathid);
-		if (nullptr == pPathCfg)
-		{
-			MMOLOG_FMT_ERROR("[logic] MissionManager::CheckFinishCond can not find  path confg ...missionId:%lu,dupid:%lu,traceid:%lu, condtype:%d, monsid:%lu,pathid:%lu ", param.missionId, param.dupId, param.traceId, item.itemType, monsId, pathid);
-			return false;
-		}
-		if (nullptr == g_GetMapLocationCfg()->GetPathRefLoc(pathid))
-		{
-			MMOLOG_FMT_ERROR("[logic] MissionManager::CheckFinishCond map json can not find  path ...missionId:%lu,dupid:%lu,traceid:%lu, condtype:%d,pathid:%lu,belongscene:%lu ", param.missionId, param.dupId, param.traceId, item.itemType, pathid, pPathCfg->belongToSceneID);
-			return false;
-		}*/
+
     }
     if (checkItem)
     {
@@ -819,22 +855,12 @@ bool TaskDescEx::CheckFinishCond(InterItemPair &item, SParseFinishParam &param)
     
     if (checkAptitude)
     {
-/*		const OccupationAptitudeCfgInfo *pAptitudeCfg = g_GetOccupationAptitudeCfgTable()->GetOccupationAptitudeCfgInfo(aptitudeId);
-		if (nullptr == pAptitudeCfg)
-		{
-			MMOLOG_FMT_ERROR("[logic] MissionManager::CheckFinishCond can not find aptitude confg ...missionId:%lu,dupid:%lu,traceid:%lu, condtype:%d, aptitudeId:%lu ", param.missionId, param.dupId, param.traceId, item.itemType, aptitudeId);
-			return false;
-		}*/
+
     }
     
     if (checkGift)
     {
-/*		const OperateJiangliCfgInfo *pOperateRewardCfg = g_GetOperateJiangliCfgTable()->GetOperateJiangliCfgInfo(giftid);
-		if (nullptr == pOperateRewardCfg)
-		{
-			MMOLOG_FMT_ERROR("[logic] MissionManager::CheckFinishCond can not find operate-jiangli confg ...missionId:%lu,dupid:%lu,traceid:%lu, condtype:%d, giftrewardid:%lu ", param.missionId, param.dupId, param.traceId, item.itemType, giftid);
-			return false;
-		}*/
+
     }
     
     return true;
@@ -852,16 +878,24 @@ const DyConditionInfo *TaskDescEx::GetDyConditionCfgInfo(uint64_t condId)
     return (iter != m_dycondtionInfoMap.end()) ? &iter->second : nullptr;
 }
 
-bool TaskDescEx::ParseMissionCond(MissionInfo *pMissionInfo, const std::string &strParam)              //½âÎöÈÎÎñ½ÓÈ¡Ìõ¼ş
+bool TaskDescEx::ParseMissionCond(MissionInfo *pMissionInfo, const std::string &strParam)              //è§£æä»»åŠ¡æ¥å–æ¡ä»¶
 {
     NF_ASSERT(pMissionInfo != nullptr);
     SParaseAcceptParam param;
     param.kind = pMissionInfo->kind;
     param.missionId = pMissionInfo->missionId;
-    return ParseAcceptCond(pMissionInfo->accept, strParam, param);
+    bool ret = ParseAcceptCond(pMissionInfo->accept, strParam, param);
+    if (ret)
+    {
+        if (pMissionInfo->accept.functionId > 0)
+        {
+            m_mapFuntionMission[pMissionInfo->accept.functionId].insert(pMissionInfo->missionId);
+        }
+    }
+    return true;
 }
 
-bool TaskDescEx::ParseTaskExecute(MissionInfo *pMissionInfo, const std::string &sExecute)      //½âÎöÈÎÎñÍê³ÉÌõ¼ş
+bool TaskDescEx::ParseTaskExecute(MissionInfo *pMissionInfo, const std::string &sExecute)      //è§£æä»»åŠ¡å®Œæˆæ¡ä»¶
 {
     NF_ASSERT(pMissionInfo != nullptr);
     SParseFinishParam param;
@@ -873,7 +907,7 @@ bool TaskDescEx::ParseTaskReceAdd(MissionInfo *pMissionInfo, const std::string &
 {
     NF_ASSERT(pMissionInfo != nullptr);
     std::vector<std::string> vecStr;
-    //½ÓÈ¡·Ö¸ô·û
+    //æ¥å–åˆ†éš”ç¬¦
     NFCommonApi::SplitStr(sReceAdd, "&", &vecStr);
     for (uint32_t i = 0; i < vecStr.size(); i++)
     {
@@ -891,7 +925,7 @@ bool TaskDescEx::ParseTaskReceAdd(MissionInfo *pMissionInfo, const std::string &
             return false;
         }
         
-        //Ä¬ÈÏÓĞ6¸ö×Ö¶Î
+        //é»˜è®¤æœ‰6ä¸ªå­—æ®µ
         if (sonVecStr[0] == "" || sonVecStr[1] == "" || sonVecStr[2] == "" || sonVecStr[3] == "" || sonVecStr[4] == "")
         {
             continue;
@@ -924,7 +958,7 @@ bool TaskDescEx::ParseAcceptCond(AcceptInfo &accept, const std::string &strAccep
 {
     std::vector<std::string> vecStr;
     vecStr.clear();
-    //½ÓÈ¡·Ö¸ô·û
+    //æ¥å–åˆ†éš”ç¬¦
     NFCommonApi::SplitStr(strAcceptParam, "&", &vecStr);
     for (uint32_t i = 0; i < vecStr.size(); i++)
     {
@@ -937,14 +971,14 @@ bool TaskDescEx::ParseAcceptCond(AcceptInfo &accept, const std::string &strAccep
             return false;
         }
         
-        //µÚÒ»Î»±íÊ¾µÄÊÇÀàĞÍ
+        //ç¬¬ä¸€ä½è¡¨ç¤ºçš„æ˜¯ç±»å‹
         if (sonVecStr[0] == "")
         {
             continue;
         }
         uint32_t type = atoi(sonVecStr[0].c_str());
         
-        // M_ACCEPT_TYPE_PRE_OR_CHAPTER  ºÍ  M_ACCEPT_TYPE_PRE_AND_MISSION Ö»ÔÊĞí³öÏÖÔÙÖ§ÏßÖĞ
+        // M_ACCEPT_TYPE_PRE_OR_CHAPTER  å’Œ  M_ACCEPT_TYPE_PRE_AND_MISSION åªå…è®¸å‡ºç°å†æ”¯çº¿ä¸­
         if ((M_ACCEPT_TYPE_PRE_OR_CHAPTER == type || M_ACCEPT_TYPE_PRE_AND_CHAPTER == type)
             && param.kind != MISSION_TYPE_ID_BRANCH
             )
@@ -954,8 +988,8 @@ bool TaskDescEx::ParseAcceptCond(AcceptInfo &accept, const std::string &strAccep
                        param.kind, type, param.missionId);
             return false;
         }
-        //½âÎö¸ÃÀàĞÍÏÂÃæµÄÊı¾İ
-        //Ç°ÖÃÈÎÎñ£¨»ò¹ØÏµ£©
+        //è§£æè¯¥ç±»å‹ä¸‹é¢çš„æ•°æ®
+        //å‰ç½®ä»»åŠ¡ï¼ˆæˆ–å…³ç³»ï¼‰
         if (type == M_ACCEPT_TYPE_PRE_OR_CHAPTER)
         {
             for (int32_t j = 1; j < 6; ++j)
@@ -993,13 +1027,24 @@ bool TaskDescEx::ParseAcceptCond(AcceptInfo &accept, const std::string &strAccep
                 }
             }
         }
-            //Ö°Òµ
+            //èŒä¸š
         else if (type == M_ACCEPT_TYPE_PROFESSION)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "this is game no profession.......");
+            if (sonVecStr[1] == "")
+            {
+                continue;
+            }
+            accept.profession = atoi(sonVecStr[1].c_str());
+            if (!proto_ff::ERoleProf_IsValid(accept.profession))
+            {
+
+               NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "MissionManager::ParseAcceptCond....ECharacterProf_IsValid...missionid:%lu,kind:%u,accept_type:%u,prof:%u ",
+                                 param.missionId, param.kind, type, accept.profession);
+                return false;
+            }
             return false;
         }
-            //Ç°ÖÃÈÎÎñ£¨Óë¹ØÏµ£©
+            //å‰ç½®ä»»åŠ¡ï¼ˆä¸å…³ç³»ï¼‰
         else if (type == M_ACCEPT_TYPE_PRE_AND_CHAPTER)
         {
             for (int32_t j = 1; j < 6; ++j)
@@ -1038,11 +1083,25 @@ bool TaskDescEx::ParseAcceptCond(AcceptInfo &accept, const std::string &strAccep
         }
         else if (type == M_ACCEPT_TYPE_FUNCTION_ID)
         {
-        
+            if (sonVecStr[1] == "")
+            {
+                continue;
+            }
+            accept.functionId = atoi(sonVecStr[1].c_str());
+            if (accept.functionId > 0)
+            {
+                auto pFunctionId = FunctionunlockFunctionunlockDesc::Instance()->GetDesc(accept.functionId);
+                if (pFunctionId == NULL)
+                {
+                    NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "ParseAcceptCond....FunctionunlockFunctionunlockDesc()->GetDesc...missionid:%lu,kind:%u,accept_type:%u,funcId:%u ",
+                                     param.missionId, param.kind, type, accept.functionId);
+                    return false;
+                }
+            }
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "MissionManager::ParseAcceptCond....unkown type...kind:%u,missionid:%lu,type:%u ", param.kind,
+            NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "MissionManager::ParseAcceptCond....unkown type...kind:%u,missionid:%lu,type:%u ", param.kind,
                        param.missionId, type);
             return false;
         }
@@ -1087,12 +1146,12 @@ bool TaskDescEx::CheckRewardParam(uint64_t missionId, uint32_t type, uint64_t id
     return true;
 }
 
-//½âÎöÍê³ÉÌõ¼ş(¹«ÓÃ½Ó¿Ú)
+//è§£æå®Œæˆæ¡ä»¶(å…¬ç”¨æ¥å£)
 bool TaskDescEx::ParseFinishCond(InterExecute &conds, const std::string &strFinish, SParseFinishParam &param)
 {
     std::vector<std::string> vecStr;
     vecStr.clear();
-    //½ÓÈ¡·Ö¸ô·û
+    //æ¥å–åˆ†éš”ç¬¦
     NFCommonApi::SplitStr(strFinish, "&", &vecStr);
     for (uint32_t i = 0; i < vecStr.size(); i++)
     {
@@ -1282,7 +1341,7 @@ MissionInfo *TaskDescEx::GetMissionCfgInfo(uint64_t missionId)
     return (iter != m_missionInfoMap.end()) ? &iter->second : nullptr;
 }
 
-bool TaskDescEx::ProcessDyText()    //´¦Àí¶¯Ì¬ÈÎÎñÇ°¶ËÏÔÊ¾
+bool TaskDescEx::ProcessDyText()    //å¤„ç†åŠ¨æ€ä»»åŠ¡å‰ç«¯æ˜¾ç¤º
 {
     auto pTextCfg = TaskdynamicTasktextDesc::Instance()->GetResDescPtr();
     if (nullptr != pTextCfg)
@@ -1340,7 +1399,7 @@ bool TaskDescEx::ProcessDyText()    //´¦Àí¶¯Ì¬ÈÎÎñÇ°¶ËÏÔÊ¾
     return true;
 }
 
-//×é×°text±íµÄkey
+//ç»„è£…textè¡¨çš„key
 uint64_t TaskDescEx::ComposeTextKey(int32_t missionType, int32_t condType)
 {
     int64_t resmissionType = (int64_t) missionType;
@@ -1350,10 +1409,20 @@ uint64_t TaskDescEx::ComposeTextKey(int32_t missionType, int32_t condType)
     return key;
 }
 
-//×é×°¶¯Ì¬ÈÎÎñ½±Àøkey
+//ç»„è£…åŠ¨æ€ä»»åŠ¡å¥–åŠ±key
 uint32_t TaskDescEx::ComposeDyRewardKey(int32_t taskType, int32_t level)
 {
     return (uint32_t) (DY_MISSION_REWARD_KEY(taskType, level));
+}
+
+const NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM> *TaskDescEx::GetFirstMissionByType(int32_t missionType)
+{
+    auto iter = m_missionFirstMap.find(missionType);
+    if (iter != m_missionFirstMap.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
 }
 
 const NFShmHashSet<uint64_t, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM>* TaskDescEx::GetDyMissionLstByType(int32_t missionType) const
@@ -1393,10 +1462,33 @@ uint64_t TaskDescEx::GetDyTextId(uint64_t key)
     return vec[rnd];
 }
 
-//»ñÈ¡¶¯Ì¬ÈÎÎñ½±Àø
+//è·å–åŠ¨æ€ä»»åŠ¡å¥–åŠ±
 const TASK_REWARD *TaskDescEx::GetDyMissionReward(int32_t missionType, int32_t level)
 {
     uint32_t key = ComposeDyRewardKey(missionType, level);
     DyTaskRewardMap::iterator iter = m_mapDyReward.find(key);
     return (iter != m_mapDyReward.end()) ? &iter->second : nullptr;
+}
+
+	//è·å–ç­‰çº§æ¥å–ä»»åŠ¡åˆ—è¡¨
+const NFShmHashSet<uint64_t, MAX_LEV_MISSION_NUM>* TaskDescEx::GetLevMission(uint32_t level)
+{
+    auto iter = m_mapLevMission.find(level);
+    if (iter != m_mapLevMission.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
+}
+
+
+	//è·å–ç­‰çº§æ¥å–ä»»åŠ¡åˆ—è¡¨
+const NFShmHashSet<uint64_t, MAX_FUNCTION_MISSION_NUM>* TaskDescEx::GetFunctionMission(uint64_t functionId)
+{
+    auto iter = m_mapFuntionMission.find(functionId);
+    if (iter != m_mapFuntionMission.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
 }

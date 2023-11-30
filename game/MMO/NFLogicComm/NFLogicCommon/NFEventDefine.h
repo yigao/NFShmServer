@@ -311,9 +311,7 @@ struct ChgSceneEvent
 
 
 
-struct DressEquipChangeEvent
-{
-};
+
 
 
 
@@ -325,9 +323,7 @@ struct DressEquipSuitEvent
     int wearGuardNum = 0;// 永久守护
 };
 
-struct EquipUndress
-{
-};
+
 
 //好友送礼事件
 struct FriendAddEvent
@@ -520,19 +516,7 @@ struct DailyBackEvent
     }
 };
 
-//接取任务
-struct AcceptTaskEvent
-{
-    uint64_t taskId;
-    uint64_t cid;
-    uint32_t taskType;
-    AcceptTaskEvent()
-    {
-        taskId = 0;
-        cid = 0;
-        taskType = 0;
-    }
-};
+
 struct PickItemEvent
 {
     uint64_t pickerId;		//拾取方ID
@@ -692,24 +676,7 @@ struct PartnerFantasyEvent
     }
 };
 
-struct ItemChangeEvent
-{
-    uint64_t itemId;
-    int64_t itemNum;
-    int64_t itemChgNum;
-    int32_t changeType;
-    SCommonSource itemSource;
-    int32_t opetateType;
-    ItemChangeEvent()
-    {
-        itemId = 0;
-        itemNum = 0;
-        itemChgNum = 0;
-        changeType = 0;
-        opetateType = 0;
-        itemSource.clear();
-    }
-};
+
 
 struct MountFightChgEvent
 {
@@ -961,13 +928,7 @@ struct ActPreFinishEvent
 };
 
 
-//采集
-struct CollectEvent
-{
-    uint64_t monsid = 0;        //采集怪物ID
-    uint32_t collectid = 0;     //采集ID
-    uint64_t monsterCid = 0;
-};
+
 
 //结婚仙娃升级事件 EVENT_MARRY_CHILD_LV
 struct MarryChildLvEvent
@@ -1012,12 +973,7 @@ struct MarryCmptTaskEvent
 struct MarryCmptEvent
 {
 };
-//加入战队 EVENT_JOIN_CLAN
-struct ClanJoinEvent
-{
-    uint64_t clan_id = 0;
-    uint64_t clan_type = 0; //1:3v3 2:5v5
-};
+
 //创建战队 EVENT_CLAN_CREATE
 struct ClanCreateEvent
 {
