@@ -403,7 +403,7 @@ public:
 	 * @param missionId
 	 * @param kind
 	 */
-	void OnFinishCondProcess(ItemInfo& cond);
+	void OnFinishCondProcess(const ItemInfo& cond);
 
 	/**
 	 * @brief 根据任务类型获取动态任务记录信息
@@ -545,8 +545,7 @@ public:
 	 * @param pMissionTrack
 	 * @return
 	 */
-	int32_t AddReward(uint64_t missionId, int32_t kind, TASK_REWARD& reward,
-					  float ration = 1);
+	int32_t AddReward(uint64_t missionId, int32_t kind, const TASK_REWARD& reward, float ration = 1);
 
 	/**
 	 * @brief 是否能增加任务奖励
@@ -556,8 +555,7 @@ public:
 	 * @param lstOutItem
 	 * @return
 	 */
-	bool CanAddReward(uint64_t missionId, int32_t kind, TASK_REWARD& reward,
-					  LIST_ITEM& lstOutItem);
+	bool CanAddReward(uint64_t missionId, int32_t kind, const TASK_REWARD& reward, LIST_ITEM& lstOutItem);
 public:
 	/**
 	 * @brief 移除任务
@@ -696,7 +694,7 @@ public:
 	 * @param selidx
 	 * @return
 	 */
-	int32_t OnSubmit(uint64_t missionId, uint32_t selidx);
+	int32_t SubmitMission(uint64_t missionId, uint32_t selidx);
 
 	/**
 	 * @brief 提交任务
@@ -718,7 +716,7 @@ public:
 	 * @param dymissionId
 	 * @return
 	 */
-	int32_t OnSubmitDy(uint64_t dymissionId);
+	int32_t SubmitDyMission(uint64_t dymissionId);
 
 	/**
 	 * @brief 提交任务(动态任务)
@@ -735,6 +733,7 @@ public:
 public:
 	MissionTrack* AllocMissionTrack(uint64_t missionId);
 	MissionTrack* GetMissionTrack(uint64_t missionId);
+	MissionTrack* GetMissionTrackByType(uint32_t missionType);
 public:
 	//游戏通用事件处理接口
 	int OnDie();
@@ -770,7 +769,8 @@ public:
 	//
 	int OnGodRelicTaskGroup(const google::protobuf::Message* pMessage);
 public:
-
+	void OnAreaFreshMonster(uint64_t dymissionId,bool checkArea = true);
+	void OnCheckAreaFreshMonster(SET_UINT64& setDynamic); //检查区域杀怪任务
 private:
 	PlayerTrackMissionMap m_playerTrackMissionMap;                                                                 //当前任务列表
 	NFShmHashMap<int32_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, NF_MISSION_TYPE_MAX_COUNT> m_mapRecentSubmit; //最近提交的任务
