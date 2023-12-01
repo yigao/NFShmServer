@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    int GetTaskMult() { return 1; }
 };

@@ -15,6 +15,7 @@
 #include <DescStoreEx/SkillDescEx.h>
 #include <Facade/NFEquipPart.h>
 #include <Facade/NFFacadePart.h>
+#include <Fest/NFFestPart.h>
 #include <NFComm/NFCore/NFTimeUtility.h>
 #include <Player/NFFunctionUnlockPart.h>
 #include <Player/NFMiniActivityPart.h>
@@ -828,6 +829,7 @@ int NFMissionPart::HandleSubmitMission(uint32_t msgId, NFDataPackage& packet)
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	proto_ff::CGSubmitMissionReq req;
 	CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+
 	proto_ff::GCSubmitMissionRsp rsp;
 	uint64_t dymissionId = req.dynamicid();
 	uint32_t index = req.index();
@@ -835,10 +837,10 @@ int NFMissionPart::HandleSubmitMission(uint32_t msgId, NFDataPackage& packet)
 	MissionInfo* pMissionCfgInfo = nullptr;
 	const DyMissionInfo* pDyMissionCfgInfo = nullptr;
 	int32_t ret = proto_ff::RET_MISSION_NOT_EXIST;
-	PlayerTrackMissionMap::iterator iter = m_playerTrackMissionMap.find(dymissionId);
-	if (iter != m_playerTrackMissionMap.end())
+	auto pMissionTrack = GetMissionTrack(dymissionId);
+	if (pMissionTrack)
 	{
-		uint64_t missionId = iter->second.missionId;
+		uint64_t missionId = pMissionTrack->missionId;
 		pMissionCfgInfo = TaskDescEx::Instance()->GetMissionCfgInfo(missionId);
 		if (nullptr != pMissionCfgInfo)
 		{
@@ -1285,7 +1287,7 @@ int32_t NFMissionPart::AcceptDyMission(uint64_t missionId, bool notify)
 	if (isCompletedFlag)
 	{
 		//完成任务
-		OnFinishDy(dymissionId, pMissionInfo->kind);
+		OnFinishDy(missionId, dymissionId, pMissionInfo->kind);
 	}
 	return proto_ff::RET_SUCCESS;
 }
@@ -1384,7 +1386,7 @@ int32_t NFMissionPart::AcceptDyMission(uint64_t missionId, proto_ff::CMissionTra
 	if (isCompletedFlag)
 	{
 		//完成任务
-		OnFinishDy(dymissionId, pMissionInfo->kind);
+		OnFinishDy(missionId, dymissionId, pMissionInfo->kind);
 	}
 	return proto_ff::RET_SUCCESS;
 }
@@ -1713,8 +1715,14 @@ uint32_t NFMissionPart::GetDyMissionAceeptCnt(int32_t missionType)
 	return 0;
 }
 
-void NFMissionPart::OnFinishDy(uint64_t dymissionId, uint32_t dymissionType)
+void NFMissionPart::OnFinishDy(uint64_t missionId, uint64_t dymissionId, uint32_t dymissionType)
 {
+	proto_ff::FinishTaskEvent taskEvent;
+	taskEvent.set_taskid(missionId);
+	taskEvent.set_tasktype(dymissionType);
+	taskEvent.set_cid(m_pMaster->Cid());
+	FireExecute(NF_ST_LOGIC_SERVER, EVENT_FINISH_NOT_SUMIT_TASK, CREATURE_PLAYER, m_pMaster->Cid(), taskEvent);
+
 	if (dymissionType == MISSION_TYPE_ID_BOUNTY)
 	{
 		DyMissionTrack* pDyTrack = GetDyMissionTrack(MISSION_TYPE_ID_BOUNTY);
@@ -1772,8 +1780,12 @@ void NFMissionPart::OnFinishCondProcess(ItemInfo& cond)
 
 DyMissionTrack* NFMissionPart::GetDyMissionTrack(int32_t missionType)
 {
-	PlayerDyMissionTrackMap::iterator iter = m_mapDyMissionTrack.find(missionType);
-	return (iter != m_mapDyMissionTrack.end()) ? &iter->second : nullptr;
+	auto iter = m_mapDyMissionTrack.find(missionType);
+	if (iter != m_mapDyMissionTrack.end())
+	{
+		return &iter->second;
+	}
+	return nullptr;
 }
 
 int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missionId, SMissionReward& missionReward)
@@ -1792,8 +1804,18 @@ int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missio
 	SCommonSource sourceParam;
 	sourceParam.src = S_MISSION;
 	sourceParam.param1 = missionId;
+
 	uint32_t profression = m_pMaster->GetAttr(proto_ff::A_PROF);
 	const TASK_REWARD& reward = *pReward;
+	//节日活动 奖励倍率
+	int32_t nMult = 0;
+	if (MISSION_TYPE_ID_HUNT_TREASURE == missionType || MISSION_TYPE_ID_HUNT_TREASURE_USE_ITEM18 == missionType || MISSION_TYPE_ID_HUNT_TREASURE_USE_ITEM19 == missionType)
+	{
+		NFFestPart* pfest = dynamic_cast<NFFestPart *>(m_pMaster->GetPart(PART_FEST));
+		if (nullptr != pfest)
+			nMult = pfest->GetTaskMult();
+	}
+
 	LIST_ITEM lstItemA;
 	lstItemA.clear();
 	//
@@ -1805,32 +1827,56 @@ int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missio
 		{
 			continue;
 		}
+
+		int64_t nNum = reward[i].value;
+		if (nMult > 1)
+			nNum *= nMult;
+
 		if (MISSION_AWARD_GOODS == rewardType || MISSION_AWARD_EQUIP == rewardType)
 		{
-			pPackage->AddItem(reward[i].id, reward[i].value, sourceParam, reward[i].bind);
-			//
-			SItem item;
-			item.nItemID = reward[i].id;
-			item.nNum = reward[i].value;
-			item.byBind = reward[i].bind;
-			lstItemA.push_back(item);
+			if (reward[i].id > 0)
+			{
+				pPackage->AddItem(reward[i].id, nNum, sourceParam, reward[i].bind);
+				//
+				SItem item;
+				item.nItemID = reward[i].id;
+				item.nNum = nNum;
+				item.byBind = reward[i].bind;
+				lstItemA.push_back(item);
+			}
+			else if (reward[i].boxId > 0)
+			{
+				/*VEC_UINT64 vecBox;
+				for(int64_t x = 0; x < nNum; x++)
+				{
+					vecBox.push_back(reward[i].boxId);
+				}
+
+				stBoxInfo genBoxInfo;
+				g_GetDropMgr()->AddBox(pPlayer, vecBox, sourceParam, &genBoxInfo);
+
+				for(int x = 0; x < (int)genBoxInfo.vecItemProto.size(); x++)
+				{
+					auto& genBoxItem = genBoxInfo.vecItemProto[i];
+					lstItemA.push_back(SItem(genBoxItem.item_id(), genBoxItem.item_num(), genBoxItem.bind()));
+				}*/
+			}
 		}
 		else if (MISSION_AWARD_SKILL == rewardType)
 		{
-			/*            SkillPart *pSkillPart = dynamic_cast<SkillPart *>(pPlayer->GetPart(PART_SKILL));
-						if (nullptr != pSkillPart)
-						{
-							SCommonSource source;
-							if (!pSkillPart->AddSkill(reward[i].id, 1, source, true))
-							{
-								LogErrFmtPrint("[logic] MissionManager::OnAddDyMissionReward...AddSkill failed...cid:%lu,missionType:%d, level:%d,missionId:%lu ",
-											   pPlayer->Cid(), missionType, level, missionId);
-							}
-							else
-							{
-								missionReward.setSkill.insert(reward[i].id);
-							}
-						}*/
+			NFSkillPart* pSkillPart = dynamic_cast<NFSkillPart *>(m_pMaster->GetPart(PART_SKILL));
+			if (nullptr != pSkillPart)
+			{
+				if (!pSkillPart->AddSkill(reward[i].id, 1, sourceParam, true))
+				{
+					NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "AddSkill failed...cid:%lu,missionType:%d, level:%d,missionId:%lu ",
+								  m_pMaster->Cid(), missionType, level, missionId);
+				}
+				else
+				{
+					missionReward.setSkill.insert(reward[i].id);
+				}
+			}
 		}
 		else if (MISSION_AWARD_ATTR == rewardType) //属性奖励
 		{
@@ -1839,11 +1885,11 @@ int32_t NFMissionPart::OnAddDyMissionReward(int32_t missionType, uint64_t missio
 		}
 		else if (MISSION_AWARD_USE_CONTRI == rewardType)
 		{
-			missionReward.useContri += reward[i].id;
+			m_pMaster->AddAttr(proto_ff::A_CONTRI, nNum, &sourceParam, true);
 		}
 		else if (MISSION_AWARD_UNION_EXP == rewardType)
 		{
-			missionReward.unionExp += reward[i].id;
+			m_pMaster->AddAttr(proto_ff::A_FACTION_BUILD, nNum, &sourceParam, true);
 		}
 	}
 	//
@@ -1857,8 +1903,7 @@ void NFMissionPart::NotifyDyAcceptCount(SET_UINT32& setMissionType)
 	proto_ff::DyMissionCntAllProto* proto = notify.mutable_dy_count();
 	if (nullptr != proto)
 	{
-		SET_UINT32::iterator iter = setMissionType.begin();
-		for (; iter != setMissionType.end(); ++iter)
+		for (auto iter = setMissionType.begin(); iter != setMissionType.end(); ++iter)
 		{
 			uint32_t missionType = (*iter);
 			uint32_t acceptNum = 0;
@@ -2100,22 +2145,53 @@ void NFMissionPart::OnPreUpdateProgress(ItemInfo& cond)
 	}
 	else if (M_EVENT_JOIN_GUILD == event)
 	{
+		//加入工会				格式 10101=0=1=linkid=0=0
+		if (m_pMaster->GetAttr(proto_ff::A_FACTION_ID) > 0)
+		{
+			count = 1;
+		}
 	}
 	else if (M_EVENT_TREASURE_LEV == event)
 	{
+		NFFacadePart* pFacadePart = dynamic_cast<NFFacadePart *>(m_pMaster->GetPart(PART_FACADE));
+		if (nullptr != pFacadePart)
+		{
+			FacadeInfo* pFacadeInfo = pFacadePart->GetFacadeInfo(proto_ff::FACADE_WING_TYPE);
+			if (pFacadeInfo)
+			{
+				uint64_t lev = (uint64_t)pFacadeInfo->m_nFacadeLev;
+				if (lev >= cond.itemId)
+				{
+					count = cond.finalValue;
+				}
+			}
+		}
 	}
 	else if (M_EVENT_PARTNER_RANKLEV == event)
 	{
+		NFFacadePart* pFacadePart = dynamic_cast<NFFacadePart *>(m_pMaster->GetPart(PART_FACADE));
+		if (nullptr != pFacadePart)
+		{
+			FacadeInfo* pFacadeInfo = pFacadePart->GetFacadeInfo(proto_ff::FACADE_PARTNER_TYPE);
+			if (pFacadeInfo)
+			{
+				uint64_t lev = (uint64_t)pFacadeInfo->m_nFacadeLev;
+				if (lev >= cond.itemId)
+				{
+					count = cond.finalValue;
+				}
+			}
+		}
 	}
 	else if (M_EVENT_WING_LEV == event)
 	{
-		NFFacadePart* pWingPart = dynamic_cast<NFFacadePart *>(m_pMaster->GetPart(PART_FACADE));
-		if (nullptr != pWingPart)
+		NFFacadePart* pFacadePart = dynamic_cast<NFFacadePart *>(m_pMaster->GetPart(PART_FACADE));
+		if (nullptr != pFacadePart)
 		{
-			FacadeInfo* pWingInfo = pWingPart->GetFacadeInfo(proto_ff::FACADE_WING_TYPE);
-			if (pWingInfo)
+			FacadeInfo* pFacadeInfo = pFacadePart->GetFacadeInfo(proto_ff::FACADE_WING_TYPE);
+			if (pFacadeInfo)
 			{
-				uint64_t lev = (uint64_t)pWingInfo->m_nFacadeLev;
+				uint64_t lev = (uint64_t)pFacadeInfo->m_nFacadeLev;
 				if (lev >= cond.itemId)
 				{
 					count = cond.finalValue;
@@ -2895,7 +2971,7 @@ int32_t NFMissionPart::OnUpdateProgress(uint64_t missionId, const ExecuteData& d
 			if (pDyMissionInfo)
 			{
 				//完成任务(动态任务)
-				OnFinishDy(iter->second.dynamicId, pDyMissionInfo->kind);
+				OnFinishDy(iter->second.missionId, iter->second.dynamicId, pDyMissionInfo->kind);
 			}
 		}
 	}
@@ -3257,30 +3333,34 @@ void NFMissionPart::OnEvent(uint32_t eventType, const ExecuteData& data, uint64_
 
 int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
 {
-	NFPackagePart* pIpackage = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
-	CHECK_EXPR(pIpackage, proto_ff::RET_FAIL, "NFPackagePart == NULL");
+	NFPackagePart* pPackagePart = dynamic_cast<NFPackagePart *>(m_pMaster->GetPart(PART_PACKAGE));
+	CHECK_EXPR(pPackagePart, proto_ff::RET_FAIL, "NFPackagePart == NULL");
 	MissionInfo* pMissionInfo = TaskDescEx::Instance()->GetMissionCfgInfo(missionId);
 	if (nullptr == pMissionInfo)
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] OnSubmit Have Not MissionID={} Config, Please Check Mission Config", missionId);
 		return proto_ff::RET_MISSION_NOT_EXIST;
 	}
+
 	//查找提交的任务是否在已接列表中存在
 	auto iter = m_playerTrackMissionMap.find(missionId);
 	if (m_playerTrackMissionMap.end() == iter)
 	{
 		return proto_ff::RET_MISSION_NOT_EXIST;
 	}
+
 	MissionTrack* pSubmitMissionTrack = &iter->second;
 	if (nullptr == pSubmitMissionTrack)
 	{
 		return proto_ff::RET_FAIL;
 	}
+
 	//判断任务是否完成
 	if (MISSION_E_COMPLETION != pSubmitMissionTrack->status)
 	{
 		return proto_ff::RET_MISSION_STATE_NOT_MATCH;
 	}
+
 	uint64_t subdynamicId = pSubmitMissionTrack->dynamicId;
 	//固定奖励放后面，可能给予奖励之后会触发刷新可接列表
 	LIST_ITEM lstOutItem;
@@ -3290,6 +3370,7 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
 		//背包空间不足
 		return proto_ff::RET_PACKAGE_COMMON_SPACE_NOT_ENOUGH;
 	}
+
 	//移除任务
 	int32_t ret = RemoveMission(pSubmitMissionTrack, pMissionInfo);
 	if (proto_ff::RET_SUCCESS != ret)
@@ -3299,7 +3380,7 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
 				   subdynamicId, pMissionInfo->missionId, pMissionInfo->backTaskId, ret);
 		return ret;
 	}
-	//
+
 	int32_t retReward = AddReward(pMissionInfo->missionId, pMissionInfo->kind, pMissionInfo->subAward);
 	if (proto_ff::RET_SUCCESS != retReward)
 	{
@@ -3308,12 +3389,14 @@ int32_t NFMissionPart::OnSubmit(uint64_t missionId, uint32_t selidx)
 				   "MissionManager::OnSubmit...AddReward failed..cid:{},dynamic:{},missionid:{},backmission:{},retReward:{}", m_pMaster->Cid(),
 				   subdynamicId, pMissionInfo->missionId, pMissionInfo->backTaskId, retReward);
 	}
+
 	//提交任务
 	uint64_t premissionid = 0;
 	if (pMissionInfo->setPreTask.size() > 0)
 	{
 		premissionid = (*pMissionInfo->setPreTask.begin());
 	}
+
 	OnSubmit(missionId, premissionid, pMissionInfo->kind);
 	//完成任务触发事件
 	uint32_t missionType = pMissionInfo->kind;

@@ -70,30 +70,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO facade grow equip">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/EquipDescEx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/EquipDescEx.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/EquipDescEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/EquipDescEx.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/MonsterDescEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/MonsterDescEx.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_svr/proto_svr_event.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_svr/proto_svr_event.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFDressEquip.hpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFDressEquip.hpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEventDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFMissionDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFMissionDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/proto_svr_event.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/proto_svr_event.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/proto_svr_event.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/proto_svr_event.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFEquipPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFEquipPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Mission/NFMissionPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Mission/NFMissionPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Mission/NFMissionPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Mission/NFMissionPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackagePart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackagePart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackagePart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackagePart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFMiniActivityPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFMiniActivityPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Skill/NFSkillPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Skill/NFSkillPart.h" afterDir="false" />
-    </list>
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO mission" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,20 +94,16 @@
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AchievementAchievementDesc.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AchievementTotalachievementsDesc.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/AiAiDesc.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/EquipDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.h" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx/TaskDescEx.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Attr/NFAttrMgr.cpp" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/Item/NFItem.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon/NFMissionDefine.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/ServerConfig_s.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFGrid.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFScene.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFDeityPart.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFEquipPart.h" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Facade/NFFacadePart.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFMMOLogicPlayerPlugin.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Package/NFPackageBag.h" root0="FORCE_HIGHLIGHTING" />
@@ -192,7 +165,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C++",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -665,7 +638,7 @@
       <workItem from="1701309533378" duration="2463000" />
       <workItem from="1701313100459" duration="22930000" />
       <workItem from="1701343265415" duration="587000" />
-      <workItem from="1701343947819" duration="9335000" />
+      <workItem from="1701343947819" duration="16958000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -1010,7 +983,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="290" />
+    <option name="localTasksCounter" value="291" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1252,7 +1225,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="shm" />
     <MESSAGE value="excel sql" />
     <MESSAGE value="mysql nosql" />
     <MESSAGE value="redis mysql db" />
@@ -1277,7 +1249,8 @@
     <MESSAGE value="MMO shm obj global desc store" />
     <MESSAGE value="MMO item" />
     <MESSAGE value="MMO facade grow equip" />
-    <option name="LAST_COMMIT_MESSAGE" value="MMO facade grow equip" />
+    <MESSAGE value="MMO mission" />
+    <option name="LAST_COMMIT_MESSAGE" value="MMO mission" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

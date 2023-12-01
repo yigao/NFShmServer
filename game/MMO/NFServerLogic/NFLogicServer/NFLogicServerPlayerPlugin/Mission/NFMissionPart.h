@@ -389,7 +389,7 @@ public:
 	 * @param dymissionId
 	 * @param dymissionType
 	 */
-	void OnFinishDy(uint64_t dymissionId, uint32_t dymissionType);
+	void OnFinishDy(uint64_t missionId, uint64_t dymissionId, uint32_t dymissionType);
 
 	/**
 	 * @brief 完成任务
