@@ -472,7 +472,7 @@ public:
 	 * @param missionId
 	 * @return
 	 */
-	bool HaveAccept(const uint64_t& missionId);
+	bool HaveAccept(uint64_t missionId);
 
 	/**
 	 * @brief 是否已经提交过的任务

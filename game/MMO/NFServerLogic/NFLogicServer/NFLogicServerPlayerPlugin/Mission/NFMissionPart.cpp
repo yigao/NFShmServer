@@ -2767,7 +2767,7 @@ int32_t NFMissionPart::MissionNumByType(int32_t missionType)
 	return num;
 }
 
-bool NFMissionPart::HaveAccept(const uint64_t& missionId)
+bool NFMissionPart::HaveAccept(uint64_t missionId)
 {
 	return m_playerTrackMissionMap.find(missionId) != m_playerTrackMissionMap.end();
 }
@@ -4490,6 +4490,7 @@ int NFMissionPart::OnItemChange(const google::protobuf::Message* pMessage)
 	CHECK_NULL(itemChangeEvent);
 	uint64_t itemId = itemChangeEvent->itemid();
 	int64_t itemNum = itemChangeEvent->itemnum();
+	auto& itemsource = itemChangeEvent->itemsource();
 	if (itemNum > 0)
 	{
 		ExecuteData executeData(M_EVENT_COLL_COLLECT_ITEM, itemId, itemNum, 0, S_Package_Storage);
@@ -4498,10 +4499,10 @@ int NFMissionPart::OnItemChange(const google::protobuf::Message* pMessage)
 	else
 	{
 		//这里只有提交物品和提交装备两种才会调用 OnEvent，其他都不掉用,对应物品来源是
-		if (S_MissionSubmitItem == itemChangeEvent->itemsource().src())
+		if (S_MissionSubmitItem == itemsource.src())
 		{
-			uint64_t dynamicId = itemChangeEvent->itemsource().param1();
-			ExecuteData executeData(M_EVENT_USE_GOODS, itemId, abs(itemNum), 0, (int32_t)itemChangeEvent->itemsource().src());
+			uint64_t dynamicId = itemsource.param1();
+			ExecuteData executeData(M_EVENT_USE_GOODS, itemId, abs(itemNum), 0, (int32_t)itemsource.src());
 			//提交物品的任务，只是单独完成某一个任务
 			OnEvent(M_EVENT_USE_GOODS, executeData, dynamicId);
 		}
