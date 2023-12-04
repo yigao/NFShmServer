@@ -121,5 +121,5 @@ private:
 	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAndAcceptMap; //任务配置中的前置任务与条件
 	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, MAX_TASK_TASK_NUM>, MAX_TASK_TASK_NUM> m_mapPreAcceptMap;    //接取条件中前置任务完成可接取的任务
 
-	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, MAX_TASKDYNAMIC_TASKTEXT_NUM> _dymissionTextMap; //动态任务前端显示配置
+	NFShmHashMap<uint64_t, NFShmHashSet<uint64_t, 100>, MAX_TASKDYNAMIC_TASKTEXT_NUM> m_dymissionTextMap; //动态任务前端显示配置
 };

@@ -15,6 +15,7 @@
 #include "DescStore/ButtonButtonDesc.h"
 #include "DescStore/SkillSkillDesc.h"
 #include "NFComm/NFCore/NFRandom.hpp"
+#include "NFLogicCommon/Attr/NFAttrMgr.h"
 
 TaskDescEx::TaskDescEx()
 {
@@ -88,23 +89,6 @@ int TaskDescEx::CheckWhenAllDataLoaded()
         }
     }
     
-    //校验 使用物品获得任务 中的任务ID
-/*    const MAP_UINT64_INT64 *pChkMission = g_GetItemCfgMgr()->GetChkItemAddMission();
-    if (nullptr != pChkMission)
-    {
-        auto iterChk = pChkMission->begin();
-        for (; iterChk != pChkMission->end(); ++iterChk)
-        {
-            uint64_t itemid = iterChk->first;
-            int64_t missionid = iterChk->second;
-            if (nullptr == GetMissionCfgInfo(missionid))
-            {
-                LogErrFmtPrint("[logic] MissionManager::InitConfig...missionid in item function value not exists...missionid:%ld itemid:%lu ",
-                               missionid, itemid);
-                return false;
-            }
-        }
-    }*/
     return 0;
 }
 
@@ -140,6 +124,11 @@ bool TaskDescEx::ProcessTask()
         pMissionInfo->progressLev = pTaskInfo->m_truelv;
         pMissionInfo->kind = pTaskInfo->m_type;
         
+        if (pMissionInfo->missionId <= 0) {
+            NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] MissionManager::LoadConfig but pMissionInfo->missionId <= 0:missionId:%lu", pMissionInfo->missionId);
+            return false;
+        }
+        
         //接取条件
         if (!ParseMissionCond(pMissionInfo, pTaskInfo->m_rececond.ToString()))
         {
@@ -164,25 +153,29 @@ bool TaskDescEx::ProcessTask()
         pMissionInfo->backTaskId = pTaskInfo->m_nexttask;
         
         //固定奖励
-        if (!ParseTaskSubAward(pMissionInfo, pTaskInfo->m_subaward))
+        if (pTaskInfo->m_subaward > 0)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "MissionManager::LoadConfig....subaward error...missionid:{}, subaward:{}", pMissionInfo->missionId,
-                       pTaskInfo->m_subaward);
-            return false;
+            if (!ParseTaskSubAward(pMissionInfo, pTaskInfo->m_subaward))
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "MissionManager::LoadConfig....subaward error...missionid:{}, subaward:{}", pMissionInfo->missionId,
+                           pTaskInfo->m_subaward);
+                return false;
+            }
         }
     }
     
     MAP_UINT64_SET_UINT64 mapPost;
     mapPost.clear();
     //构造主线/支线任务关系表
-    for (MissionInfoMap::iterator ite = m_missionInfoMap.begin(); ite != m_missionInfoMap.end(); ++ite)
+    for (auto ite = m_missionInfoMap.begin(); ite != m_missionInfoMap.end(); ++ite)
     {
         if (ite->second.kind != MISSION_TYPE_ID_TRUNK
             && ite->second.kind != MISSION_TYPE_ID_BRANCH
             && ite->second.kind != MISSION_TYPE_ID_STAGE_GUIDE
+            && ite->second.kind != MISSION_TYPE_ID_GOD_EVIL
             && ite->second.kind != MISSION_TYPE_ID_OCCUPATION
-            )
-        {
+            && ite->second.kind != MISSION_TYPE_ID_FLY_UPWARD
+            ) {
             continue;
         }
         
@@ -239,9 +232,12 @@ bool TaskDescEx::ProcessTask()
     for (MissionInfoMap::iterator iterMission = m_missionInfoMap.begin(); iterMission != m_missionInfoMap.end(); ++iterMission)
     {
         MissionInfo *pMissionInfo = &iterMission->second;
-        if (MISSION_TYPE_ID_OCCUPATION == pMissionInfo->kind)
-        {
-            //转职任务需要过滤掉，转职任务是由其他系统接取，任务系统不会自动接取
+        if (MISSION_TYPE_ID_ESCORT == pMissionInfo->kind ||
+            MISSION_TYPE_ID_GOD_EVIL == pMissionInfo->kind ||
+            MISSION_TYPE_ID_OCCUPATION == pMissionInfo->kind ||
+            MISSION_TYPE_ID_FLY_UPWARD == pMissionInfo->kind ||
+            MISSION_TYPE_ID_WEEK_LOOP == pMissionInfo->kind) {
+            //神魔,护送仙女,转职任务需要过滤掉，转职任务是由其他系统接取，任务系统不会自动接取
             continue;
         }
         
@@ -377,6 +373,28 @@ bool TaskDescEx::ProcessTask()
     }
     mapPost.clear();
     
+    //检查死循环任务
+    for (MissionInfoMap::iterator ite = m_missionInfoMap.begin(); ite != m_missionInfoMap.end(); ++ite) {
+        if (ite->second.kind != MISSION_TYPE_ID_TRUNK
+            && ite->second.kind != MISSION_TYPE_ID_BRANCH
+            && ite->second.kind != MISSION_TYPE_ID_STAGE_GUIDE
+            && ite->second.kind != MISSION_TYPE_ID_GOD_EVIL
+            && ite->second.kind != MISSION_TYPE_ID_OCCUPATION
+            && ite->second.kind != MISSION_TYPE_ID_FLY_UPWARD
+            ) {
+            continue;
+        }
+        
+        MissionInfo *pMissionInfo = &ite->second;
+        if (pMissionInfo->setPreTask.size() >= 2) {
+            std::string errorInfo;
+            for (auto pre_iter = pMissionInfo->setPreTask.begin(); pre_iter != pMissionInfo->setPreTask.end(); pre_iter++) {
+                errorInfo += NFCommon::tostr(*pre_iter) + ",";
+            }
+            NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] the prev task of the trunk task:%ld  can't has many the prev mission:%s the dead cycle task", pMissionInfo->missionId, errorInfo.c_str());
+            return false;
+        }
+    }
     
     return true;
 }
@@ -395,6 +413,7 @@ bool TaskDescEx::ProcessDyMission()
         dyInfo.minLev = cfg.m_minlv;
         dyInfo.maxLev = cfg.m_maxlv;
         dyInfo.canAccept = cfg.m_receCount;
+        dyInfo.weights = cfg.m_weights;
         //随机条件ID列表
         string strCondtion = cfg.m_idList.data();
         NFCommonApi::SplitStrToSetInt64(strCondtion, ";", &dyInfo.setComplete);
@@ -514,6 +533,17 @@ bool TaskDescEx::ProcessReward()
             for (auto iterItem = info.m_item.begin(); iterItem != info.m_item.end(); ++iterItem)
             {
                 auto &item = (*iterItem);
+                if (item.m_box > 0) {
+                    TaskComplex complex;
+                    complex.type = MISSION_AWARD_GOODS;
+                    complex.id = 0;
+                    complex.value = 1;
+                    complex.bind = item.m_bind;
+                    complex.profession = item.m_prof;
+                    complex.boxId = item.m_box;
+                    reward.push_back(complex);
+                }
+                
                 if (item.m_id <= 0 || item.m_val <= 0)
                 {
                     continue;
@@ -1127,11 +1157,10 @@ bool TaskDescEx::CheckRewardParam(uint64_t missionId, uint32_t type, uint64_t id
     }
     else if (MISSION_AWARD_ATTR == type)
     {
-/*        if (g_GetAttrMgr()->ValidFightAttrId(id))
-        {
-            LogErrFmtPrint("[logic] MissionManager::CheckRewardParam %s...ValidFightAttrId type:%u, attrid:%lu ", strPre.c_str(), type, id);
+        if (NFAttrMgr::Instance(m_pObjPluginManager)->ValidFightAttrId(id)) {
+            NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[logic] MissionManager::CheckRewardParam missionId:%s...ValidFightAttrId type:%u, attrid:%lu ", missionId, type, id);
             return false;
-        }*/
+        }
     }
     else if (MISSION_AWARD_SKILL == type)
     {
@@ -1236,13 +1265,6 @@ bool TaskDescEx::ParseTaskSubAward(MissionInfo *pMissionInfo, int64_t sSubAward)
         complex.bind = 0;
         complex.profession = 0;
         
-        if (complex.profession != 0 && !proto_ff::ERoleProf_IsValid(complex.profession))
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "ParseTaskSubAward profession error ...missionId={},complex.profession:{}",
-                       pMissionInfo->missionId, complex.profession);
-            return false;
-        }
-        
         if (!CheckRewardParam(pMissionInfo->missionId, complex.type, complex.id))
         {
             return false;
@@ -1253,27 +1275,20 @@ bool TaskDescEx::ParseTaskSubAward(MissionInfo *pMissionInfo, int64_t sSubAward)
     
     if (pCfgInfo->m_skillId > 0)
     {
-/*        TaskComplex complex;
+        TaskComplex complex;
         complex.type = MISSION_AWARD_SKILL;
-        complex.id = pCfgInfo->skillId;
+        complex.id = pCfgInfo->m_skillId;
         complex.value = 0;
         complex.time = 0;
         complex.bind = 0;
         complex.profession = 0;
 
-        if (complex.profession != 0 && !ERoleProf_IsValid(complex.profession))
-        {
-            MMOLOG_FMT_ERROR("[logic] MissionManager::ParseTaskSubAward profession error ...missionId=%lu,complex.profession:%u",
-                             pMissionInfo->missionId, complex.profession);
-            return false;
-        }
-
-        if (!CheckRewardParam("", complex.type, complex.id))
+        if (!CheckRewardParam(pMissionInfo->missionId, complex.type, complex.id))
         {
             return false;
         }
 
-        pMissionInfo->subAward.push_back(complex);*/
+        pMissionInfo->subAward.push_back(complex);
     }
     
     for (int i = 0; i < (int) pCfgInfo->m_attr.size(); i++)
@@ -1288,13 +1303,6 @@ bool TaskDescEx::ParseTaskSubAward(MissionInfo *pMissionInfo, int64_t sSubAward)
         complex.time = 0;
         complex.bind = 0;
         complex.profession = 0;
-        
-        if (complex.profession != 0 && !proto_ff::ERoleProf_IsValid(complex.profession))
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "ParseTaskSubAward profession error ...missionId={},complex.profession:{}",
-                       pMissionInfo->missionId, complex.profession);
-            return false;
-        }
         
         if (!CheckRewardParam(pMissionInfo->missionId, complex.type, complex.id))
         {
@@ -1351,7 +1359,7 @@ bool TaskDescEx::ProcessDyText()    //处理动态任务前端显示
             auto &info = iter->second;
             VEC_INT32 vecTaskType;
             vecTaskType.clear();
-            if (info.m_taskType.ToString() != "")
+            if (!info.m_taskType.empty())
             {
                 string strType = info.m_taskType.data();
                 NFCommonApi::SplitStrToVecInt(strType, "&", &vecTaskType);
@@ -1373,8 +1381,8 @@ bool TaskDescEx::ProcessDyText()    //处理动态任务前端显示
             for (auto iterKey = setKey.begin(); iterKey != setKey.end(); ++iterKey)
             {
                 uint64_t keyA = (*iterKey);
-                auto iterKeyEx = _dymissionTextMap.find(keyA);
-                if (iterKeyEx != _dymissionTextMap.end())
+                auto iterKeyEx = m_dymissionTextMap.find(keyA);
+                if (iterKeyEx != m_dymissionTextMap.end())
                 {
                     if (iterKeyEx->second.size() >= iterKeyEx->second.max_size())
                     {
@@ -1385,12 +1393,12 @@ bool TaskDescEx::ProcessDyText()    //处理动态任务前端显示
                 }
                 else
                 {
-                    if (_dymissionTextMap.size() >= _dymissionTextMap.max_size())
+                    if (m_dymissionTextMap.size() >= m_dymissionTextMap.max_size())
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "_dymissionTextMap Space Not Enough");
                         return false;
                     }
-                    _dymissionTextMap[keyA].insert(info.m_textID);
+                    m_dymissionTextMap[keyA].insert(info.m_textID);
                 }
             }
         }
@@ -1444,8 +1452,8 @@ uint64_t TaskDescEx::GetDyTextId(int32_t missionType, uint32_t condType)
 
 uint64_t TaskDescEx::GetDyTextId(uint64_t key)
 {
-    auto iter = _dymissionTextMap.find(key);
-    if (iter == _dymissionTextMap.end())
+    auto iter = m_dymissionTextMap.find(key);
+    if (iter == m_dymissionTextMap.end())
     {
         return 0;
     }
