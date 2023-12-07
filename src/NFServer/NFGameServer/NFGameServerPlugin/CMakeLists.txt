@@ -3,7 +3,7 @@ PROJECT(NFGameServerPlugin)
 
 include_directories("${CMAKE_SOURCE_DIR}/thirdparty")
 
-AUX_SOURCE_DIRECTORY(. SRC)
+AUX_SOURCE_DIRECTORY(./ SRC)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Build/Lib/Release")
