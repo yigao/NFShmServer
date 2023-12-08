@@ -23,6 +23,8 @@ const uint32_t MAX_SPIRIT_SKILL_POS = 3;
 const uint32_t MAX_ROLE_SKILL_POS = 10;
 //角色职业技能进阶最大位置
 const uint32_t MAX_ROLE_SKILL_ADVANCE_POS = 3;
+//怒气技能位置最大编号
+const uint32_t MAX_ANGER_SKILL_POS = 2;
 
 //技能解锁类型
 enum class ESkillUnlock

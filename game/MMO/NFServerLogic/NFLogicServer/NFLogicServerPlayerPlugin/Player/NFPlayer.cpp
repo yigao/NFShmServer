@@ -576,7 +576,7 @@ int NFPlayer::OnPrevLogin()
         maxhp = 1;
     SetAttr(proto_ff::A_CUR_HP, maxhp);
 
-    //NotifyPlayerInfo();
+    NotifyPlayerInfo();
     return 0;
 }
 

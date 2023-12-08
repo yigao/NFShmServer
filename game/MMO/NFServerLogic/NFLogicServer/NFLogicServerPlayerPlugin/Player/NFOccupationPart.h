@@ -27,4 +27,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    uint32_t GetCurGrade() { return 0; }
 };

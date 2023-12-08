@@ -1,13 +1,14 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFFestPart.h
+//    @FileName         :    NFConvoyPart.h
 //    @Author           :    gaoyi
 //    @Date             :    23-10-20
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFFestPart
+//    @Module           :    NFConvoyPart
 //
 // -------------------------------------------------------------------------
 
 #pragma once
+
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
@@ -16,17 +17,17 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFFestPart : public NFShmObjTemplate<NFFestPart, EOT_LOGIC_PART_ID + PART_FEST, NFPart>
+class NFConvoyPart : public NFShmObjTemplate<NFConvoyPart, EOT_LOGIC_PART_ID+PART_CONVOY, NFPart>
 {
 public:
-    NFFestPart();
-    
-    virtual ~NFFestPart();
-    
-    int CreateInit();
-    
-    int ResumeInit();
+    NFConvoyPart();
 
+    virtual ~NFConvoyPart();
+
+    int CreateInit();
+
+    int ResumeInit();
+public:
 public:
     //******************part调用接口******************
     /**
@@ -70,7 +71,7 @@ public:
      * @brief 登陆入口
      * @return
      */
-    virtual int OnLogin() { return 0; }
+    virtual int OnLogin();
     
     virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
     
@@ -146,8 +147,13 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
+
 public:
-    int OnHandleDetailInfoReq(uint32_t msgId, NFDataPackage& packet);
+    void SendAllData();
 public:
-    int GetTaskMult() { return 1; }
+    int32_t m_dayNum=0;				//已护送次数
+    uint64_t m_endTime=0;			//当前任务结束时间
+    int32_t m_freeNum=0;			//已使用免费次数
+    int32_t m_genEscortId=0;		//生成的镖车ID
+    uint64_t m_resetTime=0;			//上次重置次数时间
 };

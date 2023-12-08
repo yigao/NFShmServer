@@ -170,8 +170,6 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         return 0;
     }
     
-    pPlayer->NotifyPlayerInfo();
-    
     respone.set_ret_code(proto_ff::RET_SUCCESS);
     respone.set_game_id(pPlayer->GetGameId());
     respone.set_logic_id(pConfig->GetBusId());

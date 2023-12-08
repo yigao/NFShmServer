@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFFestPart.h
+//    @FileName         :    NFAssistPart.h
 //    @Author           :    gaoyi
 //    @Date             :    23-10-20
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFFestPart
+//    @Module           :    NFAssistPart
 //
 // -------------------------------------------------------------------------
 
@@ -16,17 +16,18 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFFestPart : public NFShmObjTemplate<NFFestPart, EOT_LOGIC_PART_ID + PART_FEST, NFPart>
+class NFAssistPart : public NFShmObjTemplate<NFAssistPart, EOT_LOGIC_PART_ID + PART_ASSIST, NFPart>
 {
 public:
-    NFFestPart();
+    NFAssistPart();
     
-    virtual ~NFFestPart();
+    virtual ~NFAssistPart();
     
     int CreateInit();
     
     int ResumeInit();
 
+public:
 public:
     //******************part调用接口******************
     /**
@@ -70,7 +71,7 @@ public:
      * @brief 登陆入口
      * @return
      */
-    virtual int OnLogin() { return 0; }
+    virtual int OnLogin();
     
     virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
     
@@ -146,8 +147,20 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
+
 public:
-    int OnHandleDetailInfoReq(uint32_t msgId, NFDataPackage& packet);
+    void NotifyData();
+
 public:
-    int GetTaskMult() { return 1; }
+    int32_t m_dayPrestige = 0;            //当日获得的声望
+    int32_t m_sendNum = 0;                //当日求助数
+    int32_t m_helpNum = 0;                //当日援助数
+    int32_t m_allSendNum = 0;            //完成求助的总次数（统计用)
+    int32_t m_allHelpNum = 0;            //完成援助的总次数(统计用)
+    uint64_t m_resetTime = 0;            //重置时间
+    int32_t m_recvSendGiftNum = 0;        //今日领取求援礼包数量
+    int32_t m_recvHelpGiftNum = 0;        //今日领取援助礼包数量
+    SET_INT32 m_rewardIds;                //已领取过的礼包id
+    
+    MAP_INT64_INT32 m_thanks;                //感谢的CID 状态 cid->是否可以领取礼包
 };

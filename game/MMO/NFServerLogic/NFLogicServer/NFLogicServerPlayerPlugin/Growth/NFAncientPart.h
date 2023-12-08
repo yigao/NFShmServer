@@ -1,32 +1,35 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFFestPart.h
+//    @FileName         :    NFAncientPart.h
 //    @Author           :    gaoyi
 //    @Date             :    23-10-20
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFFestPart
+//    @Module           :    NFAncientPart
 //
 // -------------------------------------------------------------------------
 
 #pragma once
 
+
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFFestPart : public NFShmObjTemplate<NFFestPart, EOT_LOGIC_PART_ID + PART_FEST, NFPart>
+/**
+ * @brief 上古神灵
+ */
+class NFAncientPart : public NFShmObjTemplate<NFAncientPart, EOT_LOGIC_PART_ID+PART_ANCIENT, NFPart>
 {
 public:
-    NFFestPart();
-    
-    virtual ~NFFestPart();
-    
-    int CreateInit();
-    
-    int ResumeInit();
+    NFAncientPart();
 
+    virtual ~NFAncientPart();
+
+    int CreateInit();
+
+    int ResumeInit();
 public:
     //******************part调用接口******************
     /**
@@ -70,7 +73,7 @@ public:
      * @brief 登陆入口
      * @return
      */
-    virtual int OnLogin() { return 0; }
+    virtual int OnLogin();
     
     virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
     
@@ -147,7 +150,5 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
 public:
-    int OnHandleDetailInfoReq(uint32_t msgId, NFDataPackage& packet);
-public:
-    int GetTaskMult() { return 1; }
+    void NotifyAllData();
 };

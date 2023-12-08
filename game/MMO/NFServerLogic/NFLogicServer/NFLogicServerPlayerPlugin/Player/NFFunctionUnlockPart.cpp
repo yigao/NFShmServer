@@ -18,7 +18,7 @@
 #include "Package/NFPackagePart.h"
 #include "DescStore/FunctionunlockPreviewDesc.h"
 #include "NFGodEvilPart.h"
-#include "NFBestEQPart.h"
+#include "NFLogicServer/NFLogicServerPlayerPlugin/Growth/NFBestEQPart.h"
 #include "NFMarryPart.h"
 #include "NFTurnPart.h"
 #include "NFDupPart.h"

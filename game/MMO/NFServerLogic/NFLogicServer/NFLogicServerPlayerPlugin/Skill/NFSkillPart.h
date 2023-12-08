@@ -27,7 +27,7 @@ struct SkillInfo
 {
     SkillInfo()
     {
-        if(EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
         }
@@ -70,7 +70,7 @@ struct SkillGroup
     
     SkillGroup()
     {
-        if(EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
         }
@@ -93,20 +93,20 @@ struct SkillGroup
         return 0;
     }
     
-    SkillGroup(const SkillGroup &info)
+    SkillGroup(const SkillGroup& info)
     {
         group = info.group;
-        for(uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
+        for (uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
         {
             pos[i] = info.pos[i];
             autouse[i] = info.autouse[i];
         }
     }
     
-    SkillGroup &operator=(const SkillGroup &info)
+    SkillGroup& operator=(const SkillGroup& info)
     {
         group = info.group;
-        for(uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
+        for (uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
         {
             pos[i] = info.pos[i];
             autouse[i] = info.autouse[i];
@@ -122,7 +122,7 @@ struct PetSkillCd
 {
     PetSkillCd()
     {
-        if(EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
         }
@@ -155,7 +155,7 @@ struct SkillAdvPosInfo
 {
     SkillAdvPosInfo()
     {
-        if(EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
         }
@@ -188,12 +188,13 @@ public:
     {
         ETimerId_Anger = 1,
     };
+    
     //天赋信息
     struct TalentInfo
     {
         TalentInfo()
         {
-            if(EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+            if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
             {
                 CreateInit();
             }
@@ -215,9 +216,10 @@ public:
             return 0;
         }
         
-        int32_t id;		//天赋ID
-        int32_t lev;	//天赋等级
+        int32_t id;        //天赋ID
+        int32_t lev;    //天赋等级
     };
+    
     using MapTalent = NFShmHashMap<int32_t, TalentInfo, 10>;
 public:
     NFSkillPart();
@@ -238,7 +240,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
+    virtual int Init(NFPlayer* pMaster, uint32_t partType, const proto_ff::RoleDBData& dbData);
     
     /**
      * @brief 释放part资源
@@ -252,20 +254,20 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::RoleDBData &data);
+    virtual int LoadFromDB(const proto_ff::RoleDBData& data);
     
     /**
      * @brief 从配置中初始化数据
      * @return
      */
-    virtual int InitConfig(const proto_ff::RoleDBData &data);
+    virtual int InitConfig(const proto_ff::RoleDBData& data);
     
     /**
      * @brief 存储DB部件入口
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::RoleDBData &dbData);
+    virtual int SaveDB(proto_ff::RoleDBData& dbData);
     
     /**
      * @brief 登陆入口
@@ -273,7 +275,7 @@ public:
      */
     virtual int OnLogin();
     
-    virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo) { return 0; }
+    virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo);
     
     /**
      * @brief 登出入口
@@ -316,7 +318,7 @@ public:
      * 设置外观信息
      * @param outproto
      */
-    virtual int FillFacadeProto(proto_ff::RoleFacadeProto &outproto) { return 0; }
+    virtual int FillFacadeProto(proto_ff::RoleFacadeProto& outproto) { return 0; }
 
 public:
     /**
@@ -338,7 +340,7 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet);
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet);
     
     /**
      * @brief 处理来自服务器的信息
@@ -346,13 +348,14 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
 
 public:
 public:
     //添加技能(永久增加)
     bool AddSkill(uint64_t skillid, int32_t level, const SCommonSource& src, bool sync = false, uint64_t use_msec = 0);
-    bool AddSkill(const SkillCfg *pcfg, int32_t level, const SCommonSource& src, bool sync = false, uint64_t use_msec = 0);
+    
+    bool AddSkill(const SkillCfg* pcfg, int32_t level, const SCommonSource& src, bool sync = false, uint64_t use_msec = 0);
     //移除技能(一定存在)
     bool RemoveSkill(uint64_t skillid, const SCommonSource& src, bool sync = false);
     //减少技能CD
@@ -364,162 +367,254 @@ public:
     bool CreatureRemoveSkill(const SkillCfg* pcfg, bool sync);
     //生物移除技能，只移除单层buff
     bool CreatureRemoveSingleSkill(uint64_t skillid, bool sync);
+    
     bool CreatureRemoveSingleSkill(const SkillCfg* pcfg, bool sync);
+    
     //重置所有技能cd
     void ResetSkillCd();
+    
     //技能总战力
     int64_t SkillFight() { return m_fight; }
     //处理技能升级(必须保证玩家已经拥有这个技能)
-    bool OnSkillUpgrade(uint64_t skillid, int32_t level, SCommonSource &src);
+    bool OnSkillUpgrade(uint64_t skillid, int32_t level, SCommonSource& src);
+    
     //进阶类型和等级
     void AdvanceInfo(int32_t& advancetype, int32_t& advancelev);
+    
     //天神变身 deityId：天神ID
     int32_t OnDeityChgFacade(int64_t deityId);
+    
     //天神开始变身
     void OnDeityStartFacade(int64_t deityId, bool sync = false);
+    
     //天神结束变身
     void OnDeityEndFacade(bool sync = false);
+    
     //变身的天神ID
     uint64_t FacadeDeityId() { return m_deityid; }
+    
     //增加天赋点
     void OnAddTalent(int32_t cnt);
+    
     //进入战斗状态
     void OnEnterFightState();
+    
     //离开战斗状态
     void OnLeaveFightState();
+    
     //生命改变
     void OnHpChange(int64_t oldHp, int64_t curHp, int64_t maxHp);
+    
     //增加怒气值
     void AddAnger(int32_t anger);
     //添加技能组 chg:是否把当前使用的技能组切换成新的技能组
-    bool AddSkillGroup(int32_t skillGroupid,bool chg, bool sync);
+    bool AddSkillGroup(int32_t skillGroupid, bool chg, bool sync);
     //移除技能组
     bool RmvSkillGroup(int32_t skillGroupid, bool sync);
+
 public:
     //宠物出战 petInstid:宠物实例ID
     int32_t OnPetWar(int64_t petInstid);
+    
     //宠物休息 petInstid:宠物实例ID
     void OnPetRest(int64_t petInstid);
+    
     //宠物技能升级
     void OnPetSkillUpgrade(uint64_t skillid, int32_t level);
+
 public:
     //怪物回归
     void OnGoBack();
+
 private:
     //是否是第一次释放技能
     bool IsFirst(uint64_t skillid);
+    
     //设置第一次释放技能
     void FirstUse(uint64_t skillid);
+
 public:
     void OnLevelUp(int32_t oldlev, bool sync = false);
+    
     //技能升级，返回 RET_SUCCESS 成功，其他表示错误码
     int32_t SkillUpgrade(uint64_t skillid);
+    
     //获取技能信息
     const SkillInfo* GetSkillInfo(uint64_t skillid);
+
+public:
+    //战魂技能剩余CD
+    int64_t SoulLeftCd(uint64_t skillid, int32_t cd, int64_t cur_msec);
+    
+    //获取战魂技能信息
+    SkillInfo* GetSoulSkillInfo(uint64_t skillid);
+
 private:
     //使用技能
-    int OnUseSkill(uint32_t msgId, NFDataPackage &packet);
+    int OnUseSkill(uint32_t msgId, NFDataPackage& packet);
+    
     //同步技能目标
-    int OnSyncTarget(uint32_t msgId, NFDataPackage &packet);
+    int OnSyncTarget(uint32_t msgId, NFDataPackage& packet);
+    
     //取消使用技能
-    int OnCancelUse(uint32_t msgId, NFDataPackage &packet);
+    int OnCancelUse(uint32_t msgId, NFDataPackage& packet);
+    
     //客户端中断连续性技能
-    int OnBreakSkill(uint32_t msgId, NFDataPackage &packet);
+    int OnBreakSkill(uint32_t msgId, NFDataPackage& packet);
+    
     //技能详细信息
-    int OnDetail(uint32_t msgId, NFDataPackage &packet);
+    int OnDetail(uint32_t msgId, NFDataPackage& packet);
+    
     //技能觉醒
-    int OnWakeup(uint32_t msgId, NFDataPackage &packet);
+    int OnWakeup(uint32_t msgId, NFDataPackage& packet);
+    
     //改变技能位置
-    int OnChgPos(uint32_t msgId, NFDataPackage &packet);
+    int OnChgPos(uint32_t msgId, NFDataPackage& packet);
+    
     //技能升级
-    int OnUpgrade(uint32_t msgId, NFDataPackage &packet);
+    int OnUpgrade(uint32_t msgId, NFDataPackage& packet);
+    
     //设置自动释放
-    int OnSetAutoUse(uint32_t msgId, NFDataPackage &packet);
+    int OnSetAutoUse(uint32_t msgId, NFDataPackage& packet);
+    
     //技能进阶
-    int OnAdvance(uint32_t msgId, NFDataPackage &packet);
+    int OnAdvance(uint32_t msgId, NFDataPackage& packet);
+    
     //切换进阶位置
-    int OnAdvanceChgPos(uint32_t msgId, NFDataPackage &packet);
+    int OnAdvanceChgPos(uint32_t msgId, NFDataPackage& packet);
+    
     //技能进阶重置
-    int OnAdvanceReset(uint32_t msgId, NFDataPackage &packet);
+    int OnAdvanceReset(uint32_t msgId, NFDataPackage& packet);
+    
     //解锁进阶位置
-    int OnAdvanceUnlockpos(uint32_t msgId, NFDataPackage &packet);
+    int OnAdvanceUnlockpos(uint32_t msgId, NFDataPackage& packet);
+    
     //更新技能进阶数据
     void OnUpdateAdvance();
+    
     //更新技能组信息
-    void OnUpdateSkillGroup();
+    void OnUpdateSkillGroup(int32_t group = 0);
+    
     //天赋信息
-    int OnTalentInfo(uint32_t msgId, NFDataPackage &packet);
+    int OnTalentInfo(uint32_t msgId, NFDataPackage& packet);
+    
     //使用天赋点数
-    int OnTalentUsePoint(uint32_t msgId, NFDataPackage &packet);
+    int OnTalentUsePoint(uint32_t msgId, NFDataPackage& packet);
+    
     //重置天赋信息
-    int OnTalentReset(uint32_t msgId, NFDataPackage &packet);
+    int OnTalentReset(uint32_t msgId, NFDataPackage& packet);
+    
     //怒气值更新
     void OnAngerUpdateRsp();
+
 private:
-    void AddSkillInfo(const SkillInfo &info);
+    int AddSkillInfo(const SkillInfo& info);
+    
     void DelSkillInfo(uint64_t skillid);
+    
     SkillInfo* GetSkillData(uint64_t skillid);
-    int32_t LeftCd(uint64_t curmsc, uint32_t cd, const  SkillInfo *pinfo);
+    
+    int32_t LeftCd(uint64_t curmsc, uint32_t cd, const SkillInfo* pinfo);
+    
     void SetSkillProto(const SkillInfo* pinfo, proto_ff::SkillInfoProto& proto);
+    
     void SetAllSkillProto(proto_ff::SkillInfoListProto& proto);
+    
     void SetAdvanceListProto(proto_ff::SkillAdvanceListProto& proto);
+
 private:
     SkillGroup* GetSkillGroup(uint32_t groupid);
+    
     void AddSkillGroup(SkillGroup& info);
+    
     void DelSkillGroup(uint32_t groupid);
-    bool IsDySkill(int64_t skillid);						//是否是动态技能
-    void SetSkillGroupProto(SkillGroup *pgroup, proto_ff::SkillGroupProto &proto);
-    void SetAllSkillGroupProto(proto_ff::SkillGroupListProto &proto);
-    int32_t SkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo,bool sync);
+    
+    bool IsDySkill(int64_t skillid);                        //是否是动态技能
+    void SetSkillGroupProto(SkillGroup* pgroup, proto_ff::SkillGroupProto& proto);
+    
+    void SetAllSkillGroupProto(proto_ff::SkillGroupListProto& proto);
+    
+    int32_t SkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo, bool sync);
+    
     void CalcSkillFight();
+    
     void OnSkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo, int32_t oldlev);
+    
     void OnAddSkill(const SkillCfg* pcfg, int32_t level);
+    
     void OnRemoveSkill(const SkillCfg* pcfg, int32_t level);
-    void OnAddSkillGroup(const SkillCfg* pcfg, bool sync = false);			//技能添加到技能组对应位置上
-    void OnRemoveSkillGroup(const SkillCfg* pcfg, bool sync = false);		//技能从技能组位置上移除
-    void OnShrinkSkillGroup(uint32_t groupid,bool sync = false);			//收缩技能组位置上的技能
+    
+    void OnAddSkillGroup(const SkillCfg* pcfg, bool sync = false);            //技能添加到技能组对应位置上
+    void OnRemoveSkillGroup(const SkillCfg* pcfg, bool sync = false);        //技能从技能组位置上移除
+    void OnShrinkSkillGroup(uint32_t groupid, bool sync = false);            //收缩技能组位置上的技能
     //处理添加被动技能
-    bool OnAddPassiveSkill(string strpre, const SkillCfg* pcfg, int32_t level,const SCommonSource& src, bool sync = false);
+    bool OnAddPassiveSkill(const SkillCfg* pcfg, int32_t level, const SCommonSource& src, bool sync = false);
+
 private:
-    PetSkillCd* GetPetSkillCd(uint64_t skillid);				//获取宠物技能的cd
-    void AddPetSkillCd(uint64_t skillid, PetSkillCd &cd);		//添加宠物技能的cd
-    void DelPetSkillCd(uint64_t skillid);						//移除宠物技能的cd
+    PetSkillCd* GetPetSkillCd(uint64_t skillid);                //获取宠物技能的cd
+    void AddPetSkillCd(uint64_t skillid, PetSkillCd& cd);        //添加宠物技能的cd
+    void DelPetSkillCd(uint64_t skillid);                        //移除宠物技能的cd
 private:
     bool ValidUseSkillIndex(uint32_t index);
+    
     uint32_t NewIndex();
+
 private:
     //当前选中的进阶位置
     uint8_t CurAdvpos() { return m_curadvpos; }
+    
     void CurAdvpos(uint8_t pos) { m_curadvpos = pos; }
+    
     //进阶位置信息
     SkillAdvPosInfo* GetAdvPosInfo(uint8_t pos);
+    
     //获取一个未解锁的进阶位置信息
     uint8_t GetAdvLockPos();
+    
     //获取一个未设置进阶类型的位置信息
     uint8_t GetNoAdvPos();
     //进阶位置是否解锁
     bool IsAdvposUnlock(uint8_t pos);
+    
     //解锁进阶位置
     void UnlockAdvpos(uint8_t pos);
+    
     //设置指定位置处的进阶类型
     void SetAdvPosInfo(uint8_t pos, uint8_t advtype);
+    
     //获取进阶类型对应的等级
     uint8_t GetAdvLev(uint8_t advtype);
+    
     //设置进阶类型的等级
     void SetAdvLev(uint8_t advtype, uint8_t advlev);
     //处理进阶类型和等级的buff
-    bool OnAdvanceBuff(uint8_t advance, uint8_t advancelev,bool rmvflag);
+    bool OnAdvanceBuff(uint8_t advance, uint8_t advancelev, bool rmvflag);
+
 private:
     uint32_t TalentCnt() { return m_talentcnt; }
-    void TalentCnt(uint32_t cnt) { m_talentcnt = cnt;}
+    
+    void TalentCnt(uint32_t cnt) { m_talentcnt = cnt; }
+    
     TalentInfo* GetTalentInfo(int32_t id);
-    void AddTalentInfo(TalentInfo &info);
+    
+    void AddTalentInfo(TalentInfo& info);
+    
     void DelTalentInfo(int32_t id);
+    
     void ClearTalentInfo();
+    
     void OnTalentCntNotify();
+
 private:
     //怒气值是否满了
     bool IsAngerFull();
+
+private:
+    //是否满足技能开启条件
+    bool CanOpen(uint64_t skillid);
+    //是否满足技能开启条件
+    bool CanOpen(const SkillCfg* pcfg);
+
 private:
     /**
      * @brief 技能数据
@@ -535,6 +630,11 @@ private:
      * @brief 宠物技能的cd
      */
     MapPetSkillCd m_mapPetSkillCd;
+    
+    /**
+     * @brief 战魂技能
+     */
+    MapSkillData m_mapSoulSkill;
 private:
     /**
      * @brief 当前选中的进阶位置
@@ -549,7 +649,7 @@ private:
     /**
      * @brief 进阶等级
      */
-    uint8_t m_advlev[(int8_t) ESkillAdvance::limit];
+    uint8_t m_advlev[(int8_t)ESkillAdvance::limit];
 private:
     /**
      * @brief 当前使用的技能组ID
@@ -580,7 +680,7 @@ public:
      * @brief 可用天赋点数
      */
     uint32_t m_talentcnt;
-
+    
     /**
      * @brief 天赋信息
      */

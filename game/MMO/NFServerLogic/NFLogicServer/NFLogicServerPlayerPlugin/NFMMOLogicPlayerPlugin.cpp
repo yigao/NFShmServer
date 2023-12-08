@@ -24,14 +24,14 @@
 #include "Part/NFPartModule.h"
 #include "Achievement/NFAchievementPart.h"
 #include "Achievement/NFGodRelicsPart.h"
-#include "Player/NFAncientPart.h"
-#include "Player/NFAssistPart.h"
-#include "Player/NFBestEQPart.h"
+#include "Growth/NFAncientPart.h"
+#include "Growth/NFAssistPart.h"
+#include "Growth/NFBestEQPart.h"
 #include "Player/NFBossPart.h"
 #include "Skill/NFBuffPart.h"
 #include "Chat/NFChatPart.h"
 #include "Player/NFCollectPart.h"
-#include "Player/NFConvoyPart.h"
+#include "Battle/NFConvoyPart.h"
 #include "Facade/NFDeityPart.h"
 #include "Player/NFDailyWelfarePart.h"
 #include "Player/NFDragonPart.h"
@@ -69,7 +69,7 @@
 #include "Player/NFVipPart.h"
 #include "Player/NFWelfarePart.h"
 #include "Player/NFPersonalShopPart.h"
-#include "Player/NFArmorPart.h"
+#include "Growth/NFArmorPart.h"
 #include "Player/NFPvpPart.h"
 #include "Player/NFSoulPart.h"
 
@@ -78,7 +78,7 @@
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
     CREATE_PLUGIN(pm, NFMMOLogicPlayerPlugin)
-
+    
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
@@ -93,12 +93,12 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 int NFMMOLogicPlayerPlugin::GetPluginVersion()
 {
-	return 0;
+    return 0;
 }
 
 std::string NFMMOLogicPlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFMMOLogicPlayerPlugin);
+    return GET_CLASS_NAME(NFMMOLogicPlayerPlugin);
 }
 
 void NFMMOLogicPlayerPlugin::Install()
@@ -120,20 +120,20 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
 {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     NF_ASSERT(pConfig);
-
+    
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum() * 1.2;
-
+    
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
     REGISTER_SHM_OBJ(NFLogicObService, 0);
     REGISTER_SINGLETON_SHM_OBJ(NFChatMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFClanMgr);//
-
+    
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleFightAttr, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(RoleAttr, maxOnlinePlayerNum);
-
-
+    
+    
     ////////////////////////////part////////////////////////////
     REGISTER_SHM_OBJ(NFAchievementPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFAncientPart, maxOnlinePlayerNum);
@@ -188,7 +188,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFMofaPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFRunePart, maxOnlinePlayerNum);
     ////////////////////////////part////////////////////////////
-
+    
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);
     REGISTER_SHM_OBJ(NFTransSaveDB, maxOnlinePlayerNum);
     return true;
