@@ -52,6 +52,16 @@ struct SkillInfo
         return 0;
     }
     
+    const proto_ff_s::E_SkillSkill_s* GetDescCfg() const
+    {
+        return SkillSkillDesc::Instance()->GetDesc(skill_id);
+    }
+    
+    const SkillCfg* GetSkillCfg() const
+    {
+        return SkillDescEx::Instance()->GetCfg(skill_id);
+    }
+    
     uint64_t skill_id;        //技能ID
     int32_t level;            //技能等级
     int8_t wakeup;            //是否觉醒
@@ -508,8 +518,17 @@ private:
     void OnAngerUpdateRsp();
 
 private:
+    /**
+     * @brief
+     * @param info
+     * @return
+     */
     int AddSkillInfo(const SkillInfo& info);
     
+    /**
+     * @brief
+     * @param skillid
+     */
     void DelSkillInfo(uint64_t skillid);
     
     SkillInfo* GetSkillData(uint64_t skillid);

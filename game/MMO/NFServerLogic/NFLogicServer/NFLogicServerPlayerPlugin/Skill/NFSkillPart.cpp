@@ -11,6 +11,7 @@
 #include "NFBuffPart.h"
 #include "Player/NFOccupationPart.h"
 #include "Mission/NFMissionPart.h"
+#include "Facade/NFPetPart.h"
 
 const uint32_t SKILL_MAX_INDEX = 51;
 const float HP_COEF_ADD_ANGER = 0.1f;
@@ -158,7 +159,65 @@ int NFSkillPart::LoadFromDB(const proto_ff::RoleDBData& data)
 
 int NFSkillPart::InitConfig(const proto_ff::RoleDBData& data)
 {
-    return NFPart::InitConfig(data);
+    if (m_group <= 0)
+    {
+        m_group = SkillDescEx::Instance()->GetProfSkillGroupId(m_pMaster->GetAttr(proto_ff::A_PROF));
+        SetNeedSave(true);
+    }
+    //
+    if (m_curadvpos <= 0)
+    {
+        m_curadvpos = 1; //默认选中第一个位置
+        SetNeedSave(true);
+    }
+    if (!IsAdvposUnlock(m_curadvpos))
+    {
+        UnlockAdvpos(m_curadvpos); //第一个位置默认是解锁的
+        SetNeedSave(true);
+    }
+    CalcSkillFight();
+    
+    //检查宠物技能
+    NFPetPart* ppetpart = dynamic_cast<NFPetPart*>(m_pMaster->GetPart(PART_PET));
+    if (nullptr != ppetpart)
+    {
+        auto iter = m_mapPetSkillCd.begin();
+        while (iter != m_mapPetSkillCd.end())
+        {
+            if (nullptr == ppetpart->GetPet(iter->second.petInstid))
+            {
+                iter = m_mapPetSkillCd.erase(iter);
+                SetNeedSave(true);
+                continue;
+            }
+            ++iter;
+        }
+    }
+    //检查天神变身
+    NFBuffPart* buffpart = dynamic_cast<NFBuffPart*>(m_pMaster->GetPart(PART_BUFF));
+    if (nullptr != buffpart && buffpart->GetFacadeDeityId() <= 0)
+    {
+        OnDeityEndFacade();
+    }
+    //检查战魂复活
+    auto pinfo = GetSoulSkillInfo(SkillDescEx::Instance()->GetSacrificeSkillId());
+    if (nullptr != pinfo)
+    {
+        int64_t curmsec = NFTime::Now().UnixMSec();
+        auto pInfoCfg = pinfo->GetDescCfg();
+        if (pInfoCfg)
+        {
+            int64_t leftcd = SoulLeftCd(pinfo->skill_id, pInfoCfg->m_cd, curmsec);
+            if (leftcd > 0)
+            {
+                NFLogInfoFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::OnInit....soul pet in cd...cid:%lu,leftcd:%ld", m_pMaster->Cid(), leftcd);
+                if (leftcd < 1000) leftcd = 1000;
+                //g_GetTimerAxis()->KillTimer(ETimerId_SoulSkillRelive, this);
+                //g_GetTimerAxis()->SetTimer(ETimerId_SoulSkillRelive,leftcd,this,1);
+            }
+        }
+    }
+    return 0;
 }
 
 int NFSkillPart::SaveDB(proto_ff::RoleDBData& dbData)
@@ -692,6 +751,12 @@ int32_t NFSkillPart::SkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo, bool s
 
 void NFSkillPart::CalcSkillFight()
 {
+    for (auto &iter : m_mapskill)
+    {
+        if (iter.second.level <= 0) continue;
+        const SkillCfg* pcfg = SkillDescEx::Instance()->GetCfg(iter.first);
+        m_fight += SkillDescEx::Instance()->GetSkillFight(pcfg, iter.second.level);
+    }
 }
 
 void NFSkillPart::OnSkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo, int32_t oldlev)
@@ -937,25 +1002,44 @@ SkillAdvPosInfo* NFSkillPart::GetAdvPosInfo(uint8_t pos)
 
 uint8_t NFSkillPart::GetAdvLockPos()
 {
+    for (uint8_t i = 1; i <= MAX_ROLE_SKILL_ADVANCE_POS; ++i)
+    {
+        SkillAdvPosInfo* pinfo = GetAdvPosInfo(i);
+        if (nullptr == pinfo) continue;
+        if(pinfo->unlock) continue;
+        return i;
+    }
     return 0;
 }
 
 uint8_t NFSkillPart::GetNoAdvPos()
 {
+    for (uint8_t i = 1; i <= MAX_ROLE_SKILL_ADVANCE_POS; ++i)
+    {
+        SkillAdvPosInfo* pinfo = GetAdvPosInfo(i);
+        if (nullptr == pinfo) continue;
+        if (pinfo->advance > 0) continue;
+        return i;
+    }
     return 0;
 }
 
 bool NFSkillPart::IsAdvposUnlock(uint8_t pos)
 {
-    return false;
+    SkillAdvPosInfo* pinfo = GetAdvPosInfo(pos);
+    return (nullptr != pinfo) ? pinfo->unlock : false;
 }
 
 void NFSkillPart::UnlockAdvpos(uint8_t pos)
 {
+    SkillAdvPosInfo* pinfo = GetAdvPosInfo(pos);
+    if (nullptr != pinfo) pinfo->unlock = 1;
 }
 
 void NFSkillPart::SetAdvPosInfo(uint8_t pos, uint8_t advtype)
 {
+    SkillAdvPosInfo* pinfo = GetAdvPosInfo(pos);
+    if (nullptr != pinfo) pinfo->advance = advtype;
 }
 
 uint8_t NFSkillPart::GetAdvLev(uint8_t advtype)
@@ -966,6 +1050,10 @@ uint8_t NFSkillPart::GetAdvLev(uint8_t advtype)
 
 void NFSkillPart::SetAdvLev(uint8_t advtype, uint8_t advlev)
 {
+    if (advtype > (uint8_t)ESkillAdvance::none && advtype < (uint8_t)ESkillAdvance::limit)
+    {
+        m_advlev[advtype] = advlev;
+    }
 }
 
 bool NFSkillPart::OnAdvanceBuff(uint8_t advance, uint8_t advancelev, bool rmvflag)

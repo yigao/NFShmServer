@@ -16,6 +16,22 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
+struct stPetInfo
+{
+    int32_t instId = 0;				//实体id(内存中存储)
+    int64_t cfgid = 0;				//配置ID
+    int32_t lv = 1;					//宠物等级
+    int32_t steplv = 0;				//阶级
+    int32_t starlv = 0;				//星级
+    int32_t activeSkillLv = 1;		//主动技能等级
+    VEC_INT32 exclusiveSkillLvVec;	//专属技能等级
+    VEC_INT32 passiveSkillLvVec;	//被动技能等级
+    float initgrow;					//初始资质
+    int32_t slot = 0;				//上阵的槽位 1-5
+    int32_t lvexp = 0;				//宠物升级经验
+    MAP_INT32_INT64 attrs;			//宠物属性，上阵的宠物才会生成属性（其他不会算属性)
+};
+
 class NFPetPart : public NFShmObjTemplate<NFPetPart, EOT_LOGIC_PART_ID+PART_PET, NFPart>
 {
 public:
@@ -144,6 +160,7 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
     void SendAllData();
+    stPetInfo* GetPet(int32_t instId) { return nullptr; }
 public:
     void OnChgAttr() {}
 };
