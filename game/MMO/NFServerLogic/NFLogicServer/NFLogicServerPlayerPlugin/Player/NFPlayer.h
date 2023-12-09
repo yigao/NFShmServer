@@ -261,6 +261,12 @@ public:
     void SynAttrToSns(const proto_ff::CenterRoleProto &proto);
 public:
     /**
+     * @brief 所有部件初始化完成
+     * @return
+     */
+    int OnInit();
+    
+    /**
      * 登陆前的处理
      * @return
      */

@@ -680,7 +680,6 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
 
     MAP_UINT32_MAP_UINT32_SET_UINT64 mapZidGateRoleId;
     uint64_t uid = 0;
-    uint64_t clientId =0;
     uint32_t gateId = 0;
     uint32_t zid = 0;
 
@@ -690,9 +689,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
         zid = GetZid();
         gateId = GetProxyId();
         uid = GetUid();
-        clientId = GetClientId();
-        //
-        if (gateId > 0 && clientId > 0)
+        if (gateId > 0)
             mapZidGateRoleId[zid][gateId].insert(uid);
     }
 
@@ -715,9 +712,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                             zid = pPlayer->GetZid();
                             gateId = pPlayer->GetProxyId();
                             uid= pPlayer->GetUid();
-                            clientId = pPlayer->GetClientId();
-
-                            if (gateId > 0 && clientId > 0)
+                            if (gateId > 0)
                                 mapZidGateRoleId[zid][gateId].insert(uid);
                         }
                     }
@@ -744,9 +739,7 @@ int NFCreature::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xDat
                             zid = pPlayer->GetZid();
                             gateId = pPlayer->GetProxyId();
                             uid = pPlayer->GetUid();
-                            clientId = pPlayer->GetClientId();
-
-                            if (gateId > 0 && clientId > 0)
+                            if (gateId > 0)
                                 mapZidGateRoleId[zid][gateId].insert(uid);
                         }
                     }
@@ -784,8 +777,7 @@ int NFCreature::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message
         return -1;
     }
 
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetProxyId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid(),
-                                                               GetClientId());
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, GetProxyId(), NF_MODULE_CLIENT, nMsgId, xData, GetUid());
     return 0;
 }
 

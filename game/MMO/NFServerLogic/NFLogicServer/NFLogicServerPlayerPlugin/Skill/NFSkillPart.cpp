@@ -69,6 +69,12 @@ int NFSkillPart::UnInit()
     return NFPart::UnInit();
 }
 
+int NFSkillPart::OnInit()
+{
+    InitData();
+    return 0;
+}
+
 int NFSkillPart::LoadFromDB(const proto_ff::RoleDBData& data)
 {
     if (data.has_skill())
@@ -321,7 +327,6 @@ int NFSkillPart::SaveDB(proto_ff::RoleDBData& dbData)
 
 int NFSkillPart::OnLogin()
 {
-    InitData();
     return 0;
 }
 

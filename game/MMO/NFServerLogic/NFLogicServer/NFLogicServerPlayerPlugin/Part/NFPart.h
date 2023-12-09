@@ -49,6 +49,11 @@ public:
      */
     virtual int UnInit();
 
+    /**
+     * @brief 所有部件初始化完成
+     * @return
+     */
+    virtual int OnInit() { return 0; }
 public:
     /**
      * @brief 从数据库中加载数据

@@ -164,8 +164,6 @@ public:
     
     virtual uint32_t GetProxyId() { return 0; }
     
-    virtual uint64_t GetClientId() { return 0; }
-    
     virtual uint32_t GetLogicId() { return 0; }
     
     //获取怪物模型半径, 长度单位m

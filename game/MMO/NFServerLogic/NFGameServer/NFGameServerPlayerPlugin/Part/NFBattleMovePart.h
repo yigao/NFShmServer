@@ -55,13 +55,13 @@ public:
     int OnMoveTimer();
 
     //通过路径移动 intertick: 间隔时间，单位：毫秒
-    int MoveByPath(int64_t intertick, bool stopFlag = false);
+    int MoveByPath(int64_t interTick, bool stopFlag = false);
 
     //模拟客户端移动(玩家移动) intertick: 间隔时间，单位：毫秒,  stopFlag:是否停止移动
-    int MoveBySimulate(int64_t intertick, bool stopFlag = false);
+    int MoveBySimulate(int64_t interTick, bool stopFlag = false);
 
     //计算朝向
-    NFPoint3<float> CalDir(const NFPoint3<float> &dstpos, const NFPoint3<float> &srcpos);
+    NFPoint3<float> CalDir(const NFPoint3<float> &dstPos, const NFPoint3<float> &srcPos);
 
     //根据计算单位朝向
     NFPoint3<float> CalDotByDir(const NFPoint3<float> &dir);
@@ -140,7 +140,7 @@ private:
     /**
      * @brief 客户端最近一次发送移动消息的时间, 用于处理移动同步超时的情况， 单位：毫秒
      */
-    uint64_t m_lastclientMoveTick;
+    uint64_t m_lastClientMoveTick;
 
     /**
      * @brief 客户端移动速度(矢量坐标，计算用的)
@@ -155,7 +155,7 @@ private:
     /**
      * @brief 最近一次正确的坐标，用于出错时回退上上一次正确坐标的位置
      */
-    NFPoint3<float> m_lastrightpos;
+    NFPoint3<float> m_lastRightPos;
 
     /**
      * @brief 最近一次生物的朝向
@@ -182,7 +182,7 @@ private:
      * @brief 等待客户端加载地图完成的消息
      */
     uint64_t m_waitLoadMapId;
-public:
+private:
     int m_timerIdMove;
     int m_timerIdLoadMapTimeout;
 };

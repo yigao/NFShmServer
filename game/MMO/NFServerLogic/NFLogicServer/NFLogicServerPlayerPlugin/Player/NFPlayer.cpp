@@ -551,11 +551,24 @@ int NFPlayer::EnterGame()
     return 0;
 }
 
+int NFPlayer::OnInit()
+{
+    for (size_t i = 0; i < PART_MAX; i++)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnInit();
+        }
+    }
+    return 0;
+}
+
 int NFPlayer::OnPrevLogin()
 {
     //设置一次状态
     m_attrCache.clear();
     m_attrBroadCache.clear();
+    OnInit();
     SetState(proto_ff::state_normal);
     //计算战力
     CalcFight(false);
