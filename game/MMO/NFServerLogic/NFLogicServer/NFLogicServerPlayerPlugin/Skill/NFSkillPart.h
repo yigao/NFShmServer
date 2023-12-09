@@ -361,6 +361,7 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet);
 
 public:
+    int InitData();
 public:
     //添加技能(永久增加)
     bool AddSkill(uint64_t skillid, int32_t level, const SCommonSource& src, bool sync = false, uint64_t use_msec = 0);

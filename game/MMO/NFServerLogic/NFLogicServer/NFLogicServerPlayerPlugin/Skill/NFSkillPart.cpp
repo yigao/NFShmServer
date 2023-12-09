@@ -12,6 +12,8 @@
 #include "Player/NFOccupationPart.h"
 #include "Mission/NFMissionPart.h"
 #include "Facade/NFPetPart.h"
+#include "DescStore/AvatarChangeDesc.h"
+#include "DescStore/SkillSkillgroupDesc.h"
 
 const uint32_t SKILL_MAX_INDEX = 51;
 const float HP_COEF_ADD_ANGER = 0.1f;
@@ -159,6 +161,11 @@ int NFSkillPart::LoadFromDB(const proto_ff::RoleDBData& data)
 
 int NFSkillPart::InitConfig(const proto_ff::RoleDBData& data)
 {
+    return 0;
+}
+
+int NFSkillPart::InitData()
+{
     if (m_group <= 0)
     {
         m_group = SkillDescEx::Instance()->GetProfSkillGroupId(m_pMaster->GetAttr(proto_ff::A_PROF));
@@ -211,7 +218,7 @@ int NFSkillPart::InitConfig(const proto_ff::RoleDBData& data)
             if (leftcd > 0)
             {
                 NFLogInfoFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::OnInit....soul pet in cd...cid:%lu,leftcd:%ld", m_pMaster->Cid(), leftcd);
-                if (leftcd < 1000) leftcd = 1000;
+                if (leftcd < 1000) { leftcd = 1000; }
                 //g_GetTimerAxis()->KillTimer(ETimerId_SoulSkillRelive, this);
                 //g_GetTimerAxis()->SetTimer(ETimerId_SoulSkillRelive,leftcd,this,1);
             }
@@ -314,7 +321,8 @@ int NFSkillPart::SaveDB(proto_ff::RoleDBData& dbData)
 
 int NFSkillPart::OnLogin()
 {
-    return NFPart::OnLogin();
+    InitData();
+    return 0;
 }
 
 int NFSkillPart::RegisterMessage()
@@ -415,46 +423,167 @@ bool NFSkillPart::AddSkill(const SkillCfg* pcfg, int32_t level, const SCommonSou
 
 bool NFSkillPart::RemoveSkill(uint64_t skillid, const SCommonSource& src, bool sync)
 {
-    return false;
+    const SkillCfg* pcfg = SkillDescEx::Instance()->GetCfg(skillid);
+    if (nullptr == pcfg)
+    {
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::RemoveSkill...nullptr == pcfg...cid:%lu, skillid:%lu, src:%d,p1:%ld,p2:%ld,p3:%ld", m_pMaster->Cid(), skillid, src.src, src.param1, src.param2, src.param3);;
+        return false;
+    }
+    SkillInfo* pinfo = GetSkillData(skillid);
+    if (nullptr == pinfo)
+    {
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::RemoveSkill...nullptr == pinfo....cid:%lu, skillid:%lu, src:%d,p1:%ld,p2:%ld,p3:%ld", m_pMaster->Cid(), skillid, src.src, src.param1, src.param2, src.param3);;
+        return false;
+    }
+    int32_t oldlev = pinfo->level;
+    //
+    DelSkillInfo(skillid);
+    //
+    NFLogDebugFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::RemoveSkill...success....cid:%lu, skillid:%lu, src:%d,p1:%ld,p2:%ld,p3:%ld", m_pMaster->Cid(), skillid, src.src, src.param1, src.param2, src.param3);
+    //
+    if (sync)
+    {
+        proto_ff::SkillInfoDelRsp delrsp;
+        delrsp.add_skill_lst(skillid);
+        m_pMaster->SendMsgToClient(proto_ff::SKILL_INFO_DEL_RSP, delrsp);
+    }
+    OnRemoveSkill(pcfg, oldlev);
+    //
+    OnRemoveSkillGroup(pcfg, true);
+    if (SkillDescEx::Instance()->IsAngerSkill(skillid))
+    {
+        m_anger = 0;
+        if (sync) { OnAngerUpdateRsp(); }
+    }
+    SetNeedSave(true);
+    return true;
 }
 
 bool NFSkillPart::ReduceSkillCd(uint64_t skillid, uint32_t cd)
 {
+    if (cd <= 0) { return true; }
+    SkillInfo* pinfo = GetSkillData(skillid);
+    if (nullptr != pinfo)
+    {
+        if (pinfo->use_msc >= cd)
+        {
+            pinfo->use_msc -= cd;
+        }
+        else
+        {
+            pinfo->use_msc = 0;
+        }
+        SetNeedSave(true);
+        //
+        return true;
+    }
     return false;
 }
 
 bool NFSkillPart::CreatureRemoveSkill(uint64_t skillid, bool sync)
 {
-    return false;
+    const SkillCfg* pcfg = SkillDescEx::Instance()->GetCfg(skillid);
+    if (nullptr == pcfg)
+    {
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::CreatureRemoveSkill...nullptr == pcfg...cid:%lu,skillid:%lu", m_pMaster->Cid(), skillid);
+        return false;
+    }
+    return CreatureRemoveSkill(pcfg, sync);
 }
 
 bool NFSkillPart::CreatureRemoveSkill(const SkillCfg* pcfg, bool sync)
 {
-    return false;
+    if (nullptr == pcfg)
+    {
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::CreatureRemoveSkill...nullptr == pcfg...cid:%lu", m_pMaster->Cid());
+        return false;
+    }
+    uint64_t skillid = pcfg->m_skillId;
+    SkillInfo* pinfo = GetSkillData(skillid);
+    if (nullptr != pinfo)
+    {
+        int32_t oldlev = pinfo->level;
+        //
+        DelSkillInfo(skillid);
+        //
+        NFLogDebugFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::CreatureRemoveSkill...success....cid:%lu, skillid:%lu", m_pMaster->Cid(), skillid);
+        //
+        if (sync)
+        {
+            proto_ff::SkillInfoDelRsp delrsp;
+            delrsp.add_skill_lst(skillid);
+            m_pMaster->SendMsgToClient(proto_ff::SKILL_INFO_DEL_RSP, delrsp);
+        }
+        OnRemoveSkill(pcfg, oldlev);
+        //
+        OnRemoveSkillGroup(pcfg, true);
+    }
+    SetNeedSave(true);
+    return true;
 }
 
 bool NFSkillPart::CreatureRemoveSingleSkill(uint64_t skillid, bool sync)
 {
-    return false;
+    const SkillCfg* pcfg = SkillDescEx::Instance()->GetCfg(skillid);
+    if (nullptr == pcfg)
+    {
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::CreatureRemoveSingleSkill...nullptr == pcfg...cid:%lu,skillid:%lu", m_pMaster->Cid(), skillid);
+        return false;
+    }
+    return CreatureRemoveSingleSkill(pcfg, sync);
 }
 
 bool NFSkillPart::CreatureRemoveSingleSkill(const SkillCfg* pcfg, bool sync)
 {
-    return false;
+    if (nullptr == pcfg)
+    {
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::CreatureRemoveSingleSkill...nullptr == pcfg...cid:%lu", m_pMaster->Cid());
+        return false;
+    }
+    uint64_t skillid = pcfg->m_skillId;
+    SkillInfo* pinfo = GetSkillData(skillid);
+    if (nullptr != pinfo)
+    {
+        DelSkillInfo(skillid);
+        //
+        NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::CreatureRemoveSingleSkill...success....cid:%lu, skillid:%lu", m_pMaster->Cid(), skillid);
+        //
+        if (sync)
+        {
+            proto_ff::SkillInfoDelRsp delrsp;
+            delrsp.add_skill_lst(skillid);
+            m_pMaster->SendMsgToClient(proto_ff::SKILL_INFO_DEL_RSP, delrsp);
+        }
+    }
+    SetNeedSave(true);
+    return true;
 }
 
 void NFSkillPart::ResetSkillCd()
 {
+    for (auto& iter : m_mapskill)
+    {
+        if (iter.second.use_msc > 0)
+        {
+            iter.second.use_msc = 0;
+            SetNeedSave(true);
+        }
+    }
 }
 
 bool NFSkillPart::OnSkillUpgrade(uint64_t skillid, int32_t level, SCommonSource& src)
 {
-    return false;
+    SkillInfo* pinfo = GetSkillData(skillid);
+    if (nullptr == pinfo) { return false; }
+    if (pinfo->level == level) { return false; }
+    pinfo->level = level;
+    SetNeedSave(true);
+    return true;
 }
 
 void NFSkillPart::AdvanceInfo(int32_t& advancetype, int32_t& advancelev)
 {
-    SkillAdvPosInfo *pinfo = GetAdvPosInfo(CurAdvpos());
+    SkillAdvPosInfo* pinfo = GetAdvPosInfo(CurAdvpos());
     if (nullptr != pinfo)
     {
         advancetype = pinfo->advance;
@@ -464,6 +593,13 @@ void NFSkillPart::AdvanceInfo(int32_t& advancetype, int32_t& advancelev)
 
 int32_t NFSkillPart::OnDeityChgFacade(int64_t deityId)
 {
+    auto pcfg = AvatarChangeDesc::Instance()->GetDesc(deityId);
+    CHECK_EXPR(nullptr != pcfg, proto_ff::RET_CONFIG_ERROR, "SkillPart::OnDeityChgFacade...pcfg is nullptr...cid:{},deityid:{}", m_pMaster->Cid(), deityId);
+    
+    auto pskillcfg = SkillDescEx::Instance()->GetCfg(pcfg->m_avatarSkill);
+    CHECK_EXPR(nullptr != pskillcfg, proto_ff::RET_CONFIG_ERROR, "SkillPart::OnDeityChgFacade...pskillcfg is nullptr...cid:{},deityid:{},avatarSkill:{}", m_pMaster->Cid(), deityId, pcfg->m_avatarSkill);
+    
+    m_deityid = deityId;
     return 0;
 }
 
@@ -497,12 +633,59 @@ void NFSkillPart::AddAnger(int32_t anger)
 
 bool NFSkillPart::AddSkillGroup(int32_t skillGroupid, bool chg, bool sync)
 {
-    return false;
+    auto pcfg = SkillSkillgroupDesc::Instance()->GetDesc(skillGroupid);
+    CHECK_EXPR(nullptr != pcfg, false, "[logic] SkillPart::AddSkillGroup....pcfg is nullptr...cid:{},group:{},chg:{},sync:{}", m_pMaster->Cid(), skillGroupid, chg, sync);
+    bool updateflag = false;
+    auto pgroup = GetSkillGroup(skillGroupid);
+    if (nullptr == pgroup)
+    {
+        SkillGroup info;
+        info.group = skillGroupid;
+        for (auto& iter : pcfg->m_skill)
+        {
+            if (iter.m_Id > 0 && SkillDescEx::Instance()->ValidRoleSkillPos(iter.m_position))
+            {
+                info.pos[iter.m_position] = iter.m_Id;
+                info.autouse[iter.m_position] = 1;
+            }
+        }
+        AddSkillGroup(info);
+        SetNeedSave(true);
+        updateflag = true;
+        //
+    }
+    if (chg && m_group != (uint32_t)skillGroupid)
+    {
+        m_group = skillGroupid;
+        SetNeedSave(true);
+        updateflag = true;
+    }
+    if (sync && updateflag) OnUpdateSkillGroup();
+    //
+    return true;
 }
 
 bool NFSkillPart::RmvSkillGroup(int32_t skillGroupid, bool sync)
 {
-    return false;
+    auto pcfg = SkillSkillgroupDesc::Instance()->GetDesc(skillGroupid);
+    CHECK_EXPR(nullptr != pcfg, false, "pcfg is nullptr...cid:{},group:{},sync:{}", m_pMaster->Cid(), skillGroupid, sync);
+    bool updateflag = false;
+    auto pgroup = GetSkillGroup(skillGroupid);
+    if (nullptr != pgroup)
+    {
+        DelSkillGroup(skillGroupid);
+        SetNeedSave(true);
+        updateflag = true;
+    }
+    if (m_group == (uint32_t)skillGroupid)
+    {
+        m_group = SkillDescEx::Instance()->GetProfSkillGroupId(m_pMaster->GetAttr(proto_ff::A_PROF));
+        SetNeedSave(true);
+        updateflag = true;
+    }
+    if (sync && updateflag) OnUpdateSkillGroup();
+    //
+    return true;
 }
 
 int32_t NFSkillPart::OnPetWar(int64_t petInstid)
@@ -556,7 +739,7 @@ void NFSkillPart::OnUpdateSkillGroup(int32_t group)
     {
         //rsp.set_all(1);
         proto_ff::SkillGroupListProto* protolst = rsp.mutable_skill_group();
-        if (nullptr != protolst) SetAllSkillGroupProto(*protolst);
+        if (nullptr != protolst) { SetAllSkillGroupProto(*protolst); }
     }
     else
     {
@@ -569,11 +752,11 @@ void NFSkillPart::OnUpdateSkillGroup(int32_t group)
             if (nullptr != pgroup)
             {
                 proto_ff::SkillGroupProto* protoinfo = protolst->add_info();
-                if (nullptr != protoinfo)  SetSkillGroupProto(pgroup, *protoinfo);
+                if (nullptr != protoinfo) { SetSkillGroupProto(pgroup, *protoinfo); }
             }
         }
     }
-
+    
     m_pMaster->SendMsgToClient(proto_ff::SKILL_GROUP_UPDATE_RSP, rsp);
 }
 
@@ -612,11 +795,17 @@ void NFSkillPart::DelSkillInfo(uint64_t skillid)
 
 SkillInfo* NFSkillPart::GetSkillData(uint64_t skillid)
 {
-    return nullptr;
+    auto iter = m_mapskill.find(skillid);
+    return (iter != m_mapskill.end()) ? &iter->second : nullptr;
 }
 
 int32_t NFSkillPart::LeftCd(uint64_t curmsc, uint32_t cd, const SkillInfo* pinfo)
 {
+    if (nullptr == pinfo || 0 == cd) return 0;
+    if (pinfo->use_msc + cd > curmsc)
+    {
+        return (pinfo->use_msc + cd - curmsc);
+    }
     return 0;
 }
 
@@ -688,12 +877,12 @@ void NFSkillPart::DelSkillGroup(uint32_t groupid)
 
 bool NFSkillPart::IsDySkill(int64_t skillid)
 {
-    for (auto &iter : m_mapGroup)
+    for (auto& iter : m_mapGroup)
     {
-        if(iter.first < DY_MIN_SKILL_ID) continue;
+        if (iter.first < DY_MIN_SKILL_ID) { continue; }
         for (uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
         {
-            if (skillid == (int64_t)iter.second.pos[i]) return true;
+            if (skillid == (int64_t)iter.second.pos[i]) { return true; }
         }
     }
     return false;
@@ -701,14 +890,14 @@ bool NFSkillPart::IsDySkill(int64_t skillid)
 
 void NFSkillPart::SetSkillGroupProto(SkillGroup* pgroup, proto_ff::SkillGroupProto& proto)
 {
-    if (nullptr == pgroup)return;
+    if (nullptr == pgroup) { return; }
     uint64_t curmsec = NFTime::Now().UnixMSec();
     proto.set_group(pgroup->group);
     for (uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
     {
         if (pgroup->pos[i] > 0)
         {
-            proto_ff::SkillPosProto *protopos = proto.add_lst();
+            proto_ff::SkillPosProto* protopos = proto.add_lst();
             if (nullptr != protopos)
             {
                 protopos->set_pos(i);
@@ -716,18 +905,18 @@ void NFSkillPart::SetSkillGroupProto(SkillGroup* pgroup, proto_ff::SkillGroupPro
                 protopos->set_use(pgroup->autouse[i]);
                 protopos->set_cd(0);
                 const SkillCfg* pcfg = SkillDescEx::Instance()->GetCfg(pgroup->pos[i]);
-                if (nullptr == pcfg) continue;
+                if (nullptr == pcfg) { continue; }
                 auto pCfgCfg = pcfg->GetCfg();
-                if (nullptr == pCfgCfg) continue;
+                if (nullptr == pCfgCfg) { continue; }
                 if (SkillDescEx::Instance()->IsSpiritSkill(pcfg))
                 {
                     protopos->set_cd(SoulLeftCd(pgroup->pos[i], pCfgCfg->m_cd, curmsec));
-                    //LogDebugFmtPrint("[logic] SkillPart::SetSkillGroupProto....cid:%lu, skillid:%lu, cd:%d",m_pMaster->Cid(), pgroup->pos[i], protopos->cd());
+                    //NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), ("[logic] SkillPart::SetSkillGroupProto....cid:%lu, skillid:%lu, cd:%d",m_pMaster->Cid(), pgroup->pos[i], protopos->cd());
                 }
                 else
                 {
                     SkillInfo* pinfo = GetSkillData(pgroup->pos[i]);
-                    if (nullptr != pinfo) protopos->set_cd(LeftCd(curmsec, pCfgCfg->m_cd, pinfo));
+                    if (nullptr != pinfo) { protopos->set_cd(LeftCd(curmsec, pCfgCfg->m_cd, pinfo)); }
                 }
             }
         }
@@ -737,10 +926,10 @@ void NFSkillPart::SetSkillGroupProto(SkillGroup* pgroup, proto_ff::SkillGroupPro
 void NFSkillPart::SetAllSkillGroupProto(proto_ff::SkillGroupListProto& proto)
 {
     proto.set_cur_skill_group(m_group);
-    for (auto &iter: m_mapGroup)
+    for (auto& iter : m_mapGroup)
     {
         proto_ff::SkillGroupProto* protoinfo = proto.add_info();
-        if (nullptr != protoinfo)  SetSkillGroupProto(&iter.second, *protoinfo);
+        if (nullptr != protoinfo) { SetSkillGroupProto(&iter.second, *protoinfo); }
     }
 }
 
@@ -751,9 +940,9 @@ int32_t NFSkillPart::SkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo, bool s
 
 void NFSkillPart::CalcSkillFight()
 {
-    for (auto &iter : m_mapskill)
+    for (auto& iter : m_mapskill)
     {
-        if (iter.second.level <= 0) continue;
+        if (iter.second.level <= 0) { continue; }
         const SkillCfg* pcfg = SkillDescEx::Instance()->GetCfg(iter.first);
         m_fight += SkillDescEx::Instance()->GetSkillFight(pcfg, iter.second.level);
     }
@@ -761,6 +950,14 @@ void NFSkillPart::CalcSkillFight()
 
 void NFSkillPart::OnSkillUpgrade(const SkillCfg* pcfg, SkillInfo* pinfo, int32_t oldlev)
 {
+    if (nullptr == pcfg || nullptr == pinfo || oldlev == pinfo->level) return;
+    int64_t oldval = m_fight;
+    int64_t oldfight = SkillDescEx::Instance()->GetSkillFight(pcfg, oldlev);
+    int64_t newfight = SkillDescEx::Instance()->GetSkillFight(pcfg, pinfo->level);
+    m_fight = m_fight + newfight - oldfight;
+    if (m_fight < 0) m_fight = 0;
+    //
+    if (oldval != m_fight) m_pMaster->SetCalcFight(true);
 }
 
 void NFSkillPart::OnAddSkill(const SkillCfg* pcfg, int32_t level)
@@ -883,6 +1080,46 @@ void NFSkillPart::OnAddSkillGroup(const SkillCfg* pcfg, bool sync)
 
 void NFSkillPart::OnRemoveSkillGroup(const SkillCfg* pcfg, bool sync)
 {
+    if (nullptr == pcfg) return;
+    auto pCfgCfg = pcfg->GetCfg();
+    if (nullptr == pCfgCfg) return;
+    uint64_t skillid = pcfg->m_skillId;
+    if ((SkillDescEx::Instance()->IsRoleSkill(pcfg) && SkillDescEx::Instance()->ValidRoleSkillPos(pCfgCfg->m_position))
+        || (SkillDescEx::Instance()->IsSpiritSkill(pcfg) && SkillDescEx::Instance()->ValidSpiritSkillPos(pCfgCfg->m_position))
+        || (SkillDescEx::Instance()->IsPetSkill(pcfg) && SkillDescEx::Instance()->ValidPetSkillPos(pCfgCfg->m_position))
+        || (SkillDescEx::Instance()->IsAngerSkill(pcfg) && SkillDescEx::Instance()->ValidAngerSkillPos(pCfgCfg->m_position))
+        )
+    {
+        uint32_t groupid = pCfgCfg->m_group;
+        if (SkillDescEx::Instance()->IsRoleSkill(pcfg))
+        {
+            groupid = SkillDescEx::Instance()->GetProfSkillGroupId(m_pMaster->GetAttr(proto_ff::A_PROF));
+        }
+        bool chgflag = false;
+        SkillGroup* pgroup = GetSkillGroup(groupid);
+        if (nullptr != pgroup)
+        {
+            for (uint32_t i = 0; i < MAX_ROLE_SKILL_POS; ++i)
+            {
+                if (pgroup->pos[i] == skillid)
+                {
+                    pgroup->pos[i] = 0;
+                    chgflag = true;
+                    SetNeedSave(true);
+                    break;
+                }
+            }
+            //
+            if (chgflag)
+            {
+                OnShrinkSkillGroup(groupid);
+            }
+            if (chgflag && sync)
+            {
+                OnUpdateSkillGroup();
+            }
+        }
+    }
 }
 
 int NFSkillPart::OnUseSkill(uint32_t msgId, NFDataPackage& packet)
@@ -973,20 +1210,23 @@ bool NFSkillPart::OnAddPassiveSkill(const SkillCfg* pcfg, int32_t level, const S
 
 PetSkillCd* NFSkillPart::GetPetSkillCd(uint64_t skillid)
 {
-    return nullptr;
+    auto iter = m_mapPetSkillCd.find(skillid);
+    return (iter != m_mapPetSkillCd.end()) ? &iter->second : nullptr;
 }
 
 void NFSkillPart::AddPetSkillCd(uint64_t skillid, PetSkillCd& cd)
 {
+    m_mapPetSkillCd[skillid] = cd;
 }
 
 void NFSkillPart::DelPetSkillCd(uint64_t skillid)
 {
+    m_mapPetSkillCd.erase(skillid);
 }
 
 bool NFSkillPart::ValidUseSkillIndex(uint32_t index)
 {
-    return false;
+    return (index > 0 && index < SKILL_MAX_INDEX);
 }
 
 uint32_t NFSkillPart::NewIndex()
@@ -1005,8 +1245,8 @@ uint8_t NFSkillPart::GetAdvLockPos()
     for (uint8_t i = 1; i <= MAX_ROLE_SKILL_ADVANCE_POS; ++i)
     {
         SkillAdvPosInfo* pinfo = GetAdvPosInfo(i);
-        if (nullptr == pinfo) continue;
-        if(pinfo->unlock) continue;
+        if (nullptr == pinfo) { continue; }
+        if (pinfo->unlock) { continue; }
         return i;
     }
     return 0;
@@ -1017,8 +1257,8 @@ uint8_t NFSkillPart::GetNoAdvPos()
     for (uint8_t i = 1; i <= MAX_ROLE_SKILL_ADVANCE_POS; ++i)
     {
         SkillAdvPosInfo* pinfo = GetAdvPosInfo(i);
-        if (nullptr == pinfo) continue;
-        if (pinfo->advance > 0) continue;
+        if (nullptr == pinfo) { continue; }
+        if (pinfo->advance > 0) { continue; }
         return i;
     }
     return 0;
@@ -1033,13 +1273,13 @@ bool NFSkillPart::IsAdvposUnlock(uint8_t pos)
 void NFSkillPart::UnlockAdvpos(uint8_t pos)
 {
     SkillAdvPosInfo* pinfo = GetAdvPosInfo(pos);
-    if (nullptr != pinfo) pinfo->unlock = 1;
+    if (nullptr != pinfo) { pinfo->unlock = 1; }
 }
 
 void NFSkillPart::SetAdvPosInfo(uint8_t pos, uint8_t advtype)
 {
     SkillAdvPosInfo* pinfo = GetAdvPosInfo(pos);
-    if (nullptr != pinfo) pinfo->advance = advtype;
+    if (nullptr != pinfo) { pinfo->advance = advtype; }
 }
 
 uint8_t NFSkillPart::GetAdvLev(uint8_t advtype)
@@ -1063,28 +1303,35 @@ bool NFSkillPart::OnAdvanceBuff(uint8_t advance, uint8_t advancelev, bool rmvfla
 
 NFSkillPart::TalentInfo* NFSkillPart::GetTalentInfo(int32_t id)
 {
-    return nullptr;
+    auto iter = m_talent.find(id);
+    return (iter != m_talent.end()) ? &iter->second : nullptr;
 }
 
 void NFSkillPart::AddTalentInfo(NFSkillPart::TalentInfo& info)
 {
+    m_talent[info.id] = info;
 }
 
 void NFSkillPart::DelTalentInfo(int32_t id)
 {
+    m_talent.erase(id);
 }
 
 void NFSkillPart::ClearTalentInfo()
 {
+    m_talent.clear();
 }
 
 void NFSkillPart::OnTalentCntNotify()
 {
+    proto_ff::SkillTalentPointRsp rsp;
+    rsp.set_can_use(m_talentcnt);
+    m_pMaster->SendMsgToClient(proto_ff::SKILL_TALENT_POINT_RSP, rsp);
 }
 
 bool NFSkillPart::IsAngerFull()
 {
-    return false;
+    return m_anger >= MAX_SKILL_ANGER_VALUE;
 }
 
 int NFSkillPart::OnLogin(proto_ff::PlayerInfoRsp& playerInfo)
@@ -1114,9 +1361,9 @@ int NFSkillPart::OnLogin(proto_ff::PlayerInfoRsp& playerInfo)
             }
             SCommonSource src;
             src.src = S_SkillInit;
-            if (!AddSkill(pcfg,1,src))
+            if (!AddSkill(pcfg, 1, src))
             {
-                NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::OnLogin....AddSkill failed...cid:%lu, skillid:%lu ",m_pMaster->Cid(),iter);
+                NFLogErrorFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::OnLogin....AddSkill failed...cid:%lu, skillid:%lu ", m_pMaster->Cid(), iter);
                 continue;
             }
             NFLogDebugFmt(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "[logic] SkillPart::OnLogin....cid:%lu, skillid:%lu, pos:%d,group:%d, cur_group:%u ", m_pMaster->Cid(), iter, pCfgCfg->m_position, pCfgCfg->m_group, m_group);
@@ -1143,7 +1390,7 @@ int NFSkillPart::OnLogin(proto_ff::PlayerInfoRsp& playerInfo)
     }*/
     
     //
-    proto_ff::SkillGroupListProto *protolst = playerInfo.mutable_skill_group();
+    proto_ff::SkillGroupListProto* protolst = playerInfo.mutable_skill_group();
     if (nullptr != protolst)
     {
         SetAllSkillGroupProto(*protolst);
@@ -1163,7 +1410,7 @@ bool NFSkillPart::CanOpen(const SkillCfg* pcfg)
     int32_t type = 0;
     int64_t value = 0;
     int64_t value2 = 0;
-    SkillDescEx::Instance()->GetSkillUnlockParam(pcfg,type, value, value2);
+    SkillDescEx::Instance()->GetSkillUnlockParam(pcfg, type, value, value2);
     if ((int32_t)ESkillUnlock::level == type)
     {
         return (m_pMaster->GetAttr(proto_ff::A_LEVEL) >= value);
@@ -1188,18 +1435,18 @@ bool NFSkillPart::CanOpen(const SkillCfg* pcfg)
     {
         int32_t advance_type = 0;
         int32_t advance_value = 0;
-        AdvanceInfo(advance_type,advance_value);
+        AdvanceInfo(advance_type, advance_value);
         return ((int32_t)value == advance_type && advance_value >= (int32_t)value2);
     }
     return true;
 }
 
 //’ΩªÍººƒ‹ £”‡CD
-int64_t NFSkillPart::SoulLeftCd(uint64_t skillid,int32_t cd, int64_t cur_msec)
+int64_t NFSkillPart::SoulLeftCd(uint64_t skillid, int32_t cd, int64_t cur_msec)
 {
-    if (cd <= 0) return 0;
+    if (cd <= 0) { return 0; }
     auto pinfo = GetSoulSkillInfo(skillid);
-    if (nullptr == pinfo) return 0;
+    if (nullptr == pinfo) { return 0; }
     if ((int64_t)pinfo->use_msc + cd > cur_msec)
     {
         return (pinfo->use_msc + cd - cur_msec);
