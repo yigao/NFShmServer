@@ -1,7 +1,7 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0" is_locked="true">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="Annotator" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="Annotator" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="ArgumentSelectionDefects" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ArrayIndexOutOfBounds" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="CMakeDeprecatedCommands" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -29,9 +29,9 @@
     <inspection_tool class="DtsPropertyName" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="DtsStatementOrder" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="DtsUnitName" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="DuplicatedCode" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="EmptyDeclOrStmt" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="EmptyDirectory" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="EmptyDirectory" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="EndlessLoop" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="GrazieInspection" enabled="true" level="GRAMMAR_ERROR" enabled_by_default="true" />
     <inspection_tool class="HidingNonVirtualFunction" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -68,7 +68,7 @@
     <inspection_tool class="InconsistentLineSeparators" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="IncorrectFormatting" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
     <inspection_tool class="InfiniteRecursion" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="InjectedReferences" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="InjectedReferences" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="Json5StandardCompliance" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="JsonDuplicatePropertyKeys" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="JsonSchemaCompliance" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -77,7 +77,7 @@
     <inspection_tool class="JsonStandardCompliance" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="LanguageDetectionInspection" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LocalValueEscapesScope" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="LongLine" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="LongLine" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="LoopDoesntUseConditionVariable" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="LossyEncoding" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="MakefileUnresolvedPrerequisite" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
@@ -112,8 +112,8 @@
     <inspection_tool class="PbDuplicatedImports" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="PreprocessorComment" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ProblematicWhitespace" enabled="false" level="WARNING" enabled_by_default="false" />
-    <inspection_tool class="ReassignedToPlainText" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="RedundantSuppression" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="ReassignedToPlainText" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="RedundantSuppression" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="RegExpAnonymousGroup" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RegExpDuplicateAlternationBranch" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="RegExpDuplicateCharacterInClass" enabled="true" level="WARNING" enabled_by_default="true" />
@@ -140,16 +140,16 @@
       <option name="processLiterals" value="true" />
       <option name="processComments" value="true" />
     </inspection_tool>
-    <inspection_tool class="TodoComment" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="TodoComment" enabled="false" level="WARNING" enabled_by_default="false" />
     <inspection_tool class="TomlUnresolvedReference" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnconstrainedVariableType" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnreachableCallsOfFunction" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnreachableCode" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnresolvedReference" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="UnusedDefine" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnusedImportStatement" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnusedImportStatement" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnusedLocalVariable" enabled="true" level="WARNING" enabled_by_default="true" />
-    <inspection_tool class="UnusedLocalization" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="UnusedLocalization" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnusedParameter" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="UnusedValue" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="VirtualCallInCtorOrDtor" enabled="true" level="WARNING" enabled_by_default="true" />

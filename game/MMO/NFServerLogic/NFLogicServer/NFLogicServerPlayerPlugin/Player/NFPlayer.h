@@ -47,6 +47,8 @@ public:
     int ResumeInit();
 
     virtual int OnTimer(int timeId, int callcount);
+    
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
     /**
      * \brief 处理继承NFPlayerStatus 负责玩家数据的生命周期管理

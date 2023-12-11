@@ -910,6 +910,8 @@ uint32_t NFPackagePart::GetItemPackageType(uint64_t nItemID)
     switch (pItemCfg->m_itemType)
     {
         case proto_ff::EItemType_Material:
+        case proto_ff::EItemType_DeityArtifact:
+        case proto_ff::EItemType_DeityArtifactDebris:
             nPackageType = proto_ff::EPackageType_Common;
             break;
         case proto_ff::EItemType_Other:

@@ -233,7 +233,9 @@ enum EItemType {
   EItemType_MountEgg = 12,
   EItemType_HandBook = 13,
   EItemType_GodHand = 14,
-  EItemType_Limit = 15
+  EItemType_DeityArtifact = 15,
+  EItemType_DeityArtifactDebris = 16,
+  EItemType_Limit = 17
 };
 bool EItemType_IsValid(int value);
 const EItemType EItemType_MIN = EItemType_None;

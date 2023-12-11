@@ -142,7 +142,7 @@ bool NFScene::IsDynamic() const
     return false;
 }
 
-NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STransParam &transParam)
+NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, const proto_ff::SceneTransParam& transParam)
 {
     CHECK_EXPR(pCreature, NULL, "pCreature == NULL");
     uint32_t gridX = uint32_t(pos.x / GRID_LENGTH);

@@ -95,8 +95,10 @@ enum EItemType
 	EItemType_MountEgg = 12; //坐骑蛋
 	EItemType_HandBook = 13; //藏经阁图鉴
 	EItemType_GodHand = 14; //天神神格
+	EItemType_DeityArtifact = 15; //天神神格神器
+	EItemType_DeityArtifactDebris = 16; //天神神格神器碎片
 
-	EItemType_Limit = 15;
+	EItemType_Limit = 17;
 };
 
 //包裹类型

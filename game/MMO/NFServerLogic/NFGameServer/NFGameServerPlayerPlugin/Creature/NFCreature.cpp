@@ -30,24 +30,20 @@
 
 const uint32_t g_constSendClientCreatureNum = 50;  //每条消息最大人数数据控制,以免视野人数过多，造成消息长度大于底层控制长度
 
-bool CreatureState::EnterState(NFCreature *pCreature, proto_ff::ECState state)
+bool CreatureState::EnterState(proto_ff::ECState state)
 {
     if (!ECState_IsValid(state)) return false;
-    if (nullptr == pCreature) return false;
+    if (nullptr == m_pCreature) return false;
     if (BState(state)) return false;
     m_laststate = m_curstate;
     m_curstate = state;
-    if (CREATURE_PLAYER == pCreature->Kind())
+    if (CREATURE_PLAYER == m_pCreature->Kind())
     {
-        NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(), "[logic] CreatureState::EnterState...cid:{}, m_curstate:{}, m_laststate:{} ", pCreature->Cid(),
+        NFLogDebug(NF_LOG_SYSTEMLOG, m_pCreature->Cid(), "[logic] CreatureState::EnterState...cid:{}, m_curstate:{}, m_laststate:{} ", m_pCreature->Cid(),
                    m_curstate, m_laststate);
     }
-    else if (CREATURE_PET == pCreature->Kind())
-    {
-        NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(), "[logic] CreatureState::EnterState pet ...cid:{}, m_curstate:{}, m_laststate:{} ", pCreature->Cid(),
-                   m_curstate, m_laststate);
-    }
-    pCreature->OnChangeState(m_curstate, m_laststate);
+
+    m_pCreature->OnChangeState(m_curstate, m_laststate);
     return true;
 }
 
@@ -81,6 +77,7 @@ int NFCreature::CreateInit()
     m_lastUpdateNineTime = 0;        //上次更新9宫格时间
     m_destory = false;            //是否要回收
     m_bCanBeSeen = false;        //是否被见
+    m_state.Init(this);
 
     return 0;
 }
@@ -224,49 +221,63 @@ float NFCreature::GetSpeed()
 
 bool NFCreature::EnterNormalState()
 {
-    return m_state.EnterState(this, proto_ff::state_normal);
+    return m_state.EnterState(proto_ff::state_normal);
 }
 
 bool NFCreature::EnterDeadState()
 {
-    return m_state.EnterState(this, proto_ff::state_dead);
+    return m_state.EnterState(proto_ff::state_dead);
 }
 
 bool NFCreature::EnterReliveState()
 {
     if (!m_state.BState(proto_ff::state_dead))return false;
-    return m_state.EnterState(this, proto_ff::state_normal);
+    return m_state.EnterState(proto_ff::state_normal);
 }
 
 bool NFCreature::EnterSeatState()
 {
     if (m_state.BState(proto_ff::state_dead))return false;
-    return m_state.EnterState(this, proto_ff::state_seat);
+    return m_state.EnterState(proto_ff::state_seat);
 }
 
 bool NFCreature::LeaveSeatState()
 {
     if (m_state.BState(proto_ff::state_dead))return false;
-    return m_state.EnterState(this, proto_ff::state_normal);
+    return m_state.EnterState(proto_ff::state_normal);
 }
 
 bool NFCreature::EnterFightState()
 {
     if (m_state.BState(proto_ff::state_dead))return false;
-    return m_state.EnterState(this, proto_ff::state_fight);
+    return m_state.EnterState(proto_ff::state_fight);
 }
 
 bool NFCreature::LeaveFigthState()
 {
     if (m_state.BState(proto_ff::state_dead))return false;
     if (!m_state.BState(proto_ff::state_fight)) return false;
-    return m_state.EnterState(this, proto_ff::state_normal);
+    return m_state.EnterState(proto_ff::state_normal);
+}
+
+bool NFCreature::EnterTransState()
+{
+    if (m_state.BState(proto_ff::state_dead))return false;
+    if (m_state.BState(proto_ff::state_trans)) return false;
+    return m_state.EnterState(proto_ff::state_trans);
+}
+
+bool NFCreature::LeaveTransState()
+{
+    if (m_state.BState(proto_ff::state_dead))return false;
+    if (!m_state.BState(proto_ff::state_trans)) return false;
+    return m_state.EnterState(proto_ff::state_normal);
 }
 
 bool NFCreature::LeaveState()
 {
     if (m_state.BState(proto_ff::state_dead))return false;
-    return m_state.EnterState(this, proto_ff::state_normal);
+    return m_state.EnterState(proto_ff::state_normal);
 }
 
 bool NFCreature::BState(proto_ff::ECState state)
@@ -292,14 +303,6 @@ void NFCreature::OnChangeState(uint8_t curstate, uint8_t laststate)
     rsp.set_curstate(curstate);
     rsp.set_beforestate(laststate);
     BroadCast(proto_ff::CREATURE_STATE_BROAD, rsp, true);
-
-    if (Kind() == CREATURE_PLAYER)
-    {
-        proto_ff::SyncSceneState syncState;
-        syncState.set_cur_state(curstate);
-        syncState.set_last_state(laststate);
-        FireLogic(EVENT_SYNC_SCENE_STATE, Kind(), Cid(), syncState, false);
-    }
 }
 
 
@@ -808,14 +811,25 @@ int NFCreature::SendTransToWorldServer(uint32_t nMsgId, const google::protobuf::
 
 int NFCreature::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), nMsgId, xData, GetUid(),
-                                                               GetRoleId());
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), nMsgId, xData, GetRoleId());
     return 0;
 }
 
 int NFCreature::SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId, uint32_t rspTransId)
 {
     FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_GAME_SERVER, GetLogicId(), nMsgId, xData, reqTransId, rspTransId);
+    return 0;
+}
+
+int NFCreature::SendMsgToCenterServer(uint32_t nMsgId, const google::protobuf::Message& xData)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToCenterServer(NF_ST_GAME_SERVER, nMsgId, xData, GetRoleId());
+    return 0;
+}
+
+int NFCreature::SendTransToCenterServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t reqTransId, uint32_t rspTransId)
+{
+    FindModule<NFIServerMessageModule>()->SendTransToCenterServer(NF_ST_GAME_SERVER, nMsgId, xData, reqTransId, rspTransId);
     return 0;
 }
 
@@ -1584,7 +1598,7 @@ bool NFCreature::CanAddSeeNewCreature(NFCreature *pCreature, int64_t hateValue)
     return true;
 }
 
-int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam)
+int NFCreature::EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, const proto_ff::SceneTransParam& transParam)
 {
     NFScene *pScene = GetScene();
     if (pScene)

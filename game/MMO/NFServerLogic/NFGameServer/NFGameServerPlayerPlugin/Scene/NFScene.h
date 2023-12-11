@@ -21,6 +21,7 @@
 #include "NFLogicCommon/NFSkillDefine.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
+#include "Com.pb.h"
 
 #define NF_SCENE_MAX_GRID_NUM 4000
 #define NF_SCENE_MAX_CREATURE_NUM 1000
@@ -64,7 +65,7 @@ public:
      * @param transParam
      * @return
      */
-    virtual NFGrid *EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, STransParam &transParam);
+    virtual NFGrid *EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, const proto_ff::SceneTransParam& transParam);
 
     /**
      * @brief

@@ -59,6 +59,23 @@ public:
      * @return
      */
     NFPoint3<float> RandPosAroundPos(uint64_t mapId, const NFPoint3<float>& pos, uint32_t nRadius);
+    
+    /**
+     * @brief 在指定坐标点为中心的圆上随机一个坐标
+     * @param mapId
+     * @param pos
+     * @param fRadius
+     * @return
+     */
+    NFPoint3<float> RandPosAroundCircle(uint64_t mapId, const NFPoint3<float>& pos, float fRadius);
+    
+    /**
+     * @brief 区域内随机一个坐标
+     * @param pointid
+     * @param outpos
+     * @return
+     */
+    bool RandPosInPoint(int64_t pointid, NFPoint3<float>& outpos);
 public:
     /**
      * @brief

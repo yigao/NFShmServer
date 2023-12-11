@@ -32,7 +32,6 @@ NFBattlePart::~NFBattlePart()
 
 int NFBattlePart::CreateInit()
 {
-    m_masterCid = -1;
     return 0;
 }
 
@@ -44,7 +43,7 @@ int NFBattlePart::ResumeInit()
 int NFBattlePart::InitBase(NFCreature *pMaster, uint32_t partType)
 {
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
-    m_masterCid = pMaster->Cid();
+    m_pMaster = pMaster;
     m_partType = partType;
     return 0;
 }
@@ -81,19 +80,14 @@ int NFBattlePart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 
 int NFBattlePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_masterCid, "client part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "client part package not handle:{}", packet.ToString());
     return 0;
 }
 
 int NFBattlePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_masterCid, "server part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->Cid(), "server part package not handle:{}", packet.ToString());
     return 0;
-}
-
-NFCreature *NFBattlePart::GetMaster()
-{
-    return dynamic_cast<NFCreature *>(NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(m_masterCid));
 }
 
 int NFBattlePart::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself)

@@ -60,10 +60,7 @@ enum AccountLoginState
 enum AccountGameState
 {
     ACCOUNT_GAME_STATE_NULL = 0,
-    ACCOUNT_GAME_STATE_LOGIN,			// 登录游戏
     ACCOUNT_GAME_STATE_GAMING,			// 游戏状态
-    ACCOUNT_GAME_STATE_DISCONNECT,		// 断线状态
-    ACCOUNT_GAME_STATE_LOGOUT,			// 登出游戏
     ACCOUNT_GAME_STATE_SWITCH,			// 切换逻辑服
 };
 

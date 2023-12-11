@@ -42,10 +42,10 @@ int MapDescEx::ResumeInit()
 int MapDescEx::Load()
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
-
+    
     std::string dir = m_pObjPluginManager->GetConfigPath() + "/Json/";
-
-    auto &mapResDesc = MapMapDesc::Instance()->GetResDesc();
+    
+    auto& mapResDesc = MapMapDesc::Instance()->GetResDesc();
     for (auto iter = mapResDesc.begin(); iter != mapResDesc.end(); iter++)
     {
         auto pDesc = &iter->second;
@@ -75,12 +75,12 @@ int MapDescEx::Load()
             {
                 m_safeMapId = pDesc->m_mapId;
             }
-
+            
             LoadBornCfg(pDesc->m_mapId, dir + NFCommon::tostr(pDesc->m_mapId) + ".json");
         }
     }
-
-    auto &bornResDesc = RoleBornDesc::Instance()->GetResDesc();
+    
+    auto& bornResDesc = RoleBornDesc::Instance()->GetResDesc();
     for (auto iter = bornResDesc.begin(); iter != bornResDesc.end(); iter++)
     {
         auto pDesc = &iter->second;
@@ -92,7 +92,7 @@ int MapDescEx::Load()
             CHECK_EXPR_ASSERT(iter != m_bornProfMap.end(), -1, "m_bornProfMap Space Not Enough prof:{} born:{}", pDesc->m_professionID, pDesc->m_bornID);
         }
     }
-
+    
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
     return 0;
 }
@@ -102,7 +102,7 @@ int MapDescEx::CheckWhenAllDataLoaded()
     return 0;
 }
 
-int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string &file)
+int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string& file)
 {
     std::string context;
     bool ret = NFFileUtility::ReadFileContent(file, context);
@@ -116,17 +116,17 @@ int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string &file)
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "JsonToProtoMessage Failed, file:{} error:{}", context, strErr);
         }
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "file:{} parse:{}", file, jsonConfig.DebugString());
-
-        for (int i = 0; i < (int) jsonConfig.objs_size(); i++)
+        
+        for (int i = 0; i < (int)jsonConfig.objs_size(); i++)
         {
-            auto &obj = jsonConfig.objs(i);
+            auto& obj = jsonConfig.objs(i);
             if (obj.id() == mapId)
             {
                 CHECK_EXPR_ASSERT(m_bornPosMap.size() < m_bornPosMap.max_size(), -1, "m_bornPosMap Full, the hashmap space not enough, bornId:{}", obj.id());
                 CHECK_EXPR_ASSERT(m_bornPosMap.find(obj.id()) == m_bornPosMap.end(), -1, "file:{} exist repeated bornId:{}", file, obj.id());
                 auto pBornArray = &m_bornPosMap[obj.id()];
                 CHECK_EXPR_ASSERT(pBornArray, -1, "m_bornPosMap.Insert Failed bornId:{}", obj.id());
-                for (int j = 0; j < (int) obj.pos_size(); j++)
+                for (int j = 0; j < (int)obj.pos_size(); j++)
                 {
                     CHECK_EXPR_ASSERT(pBornArray->size() < pBornArray->max_size(), -1, "pBornArray Space Not Enough!");
                     pBornArray->push_back();
@@ -137,7 +137,7 @@ int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string &file)
                     pPos->m_dir = obj.pos(j).rot();
                 }
             }
-
+            
             {
                 CHECK_EXPR_ASSERT(m_pointMap.size() < m_pointMap.max_size(), -1, "m_pointMap Full, the hashmap space not enough, bornId:{}", obj.id());
                 CHECK_EXPR_ASSERT(m_pointMap.find(obj.id()) == m_pointMap.end(), -1, "file:{} exist repeated bornId:{}", file, obj.id());
@@ -145,10 +145,10 @@ int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string &file)
                 pPosArray->id = obj.id();
                 pPosArray->mapid = mapId;
                 CHECK_EXPR_ASSERT(pPosArray, -1, "m_posMap.Insert Failed bornId:{}", obj.id());
-                CHECK_EXPR_ASSERT((int) pPosArray->vecposcfg.max_size() >= (int) obj.pos_size(), -1, "m_posMap pos array space not enough, bornId:{}, pos size:{}",
+                CHECK_EXPR_ASSERT((int)pPosArray->vecposcfg.max_size() >= (int)obj.pos_size(), -1, "m_posMap pos array space not enough, bornId:{}, pos size:{}",
                                   obj.id(), obj.pos_size());
                 pPosArray->vecposcfg.resize(obj.pos_size());
-                for (int j = 0; j < (int) obj.pos_size(); j++)
+                for (int j = 0; j < (int)obj.pos_size(); j++)
                 {
                     auto pPos = &pPosArray->vecposcfg.at(j);
                     pPos->m_pos.x = obj.pos(j).pos().x();
@@ -158,20 +158,20 @@ int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string &file)
                 }
             }
         }
-
-        for (int i = 0; i < (int) jsonConfig.paths_size(); i++)
+        
+        for (int i = 0; i < (int)jsonConfig.paths_size(); i++)
         {
-            auto &pathConfig = jsonConfig.paths(i);
+            auto& pathConfig = jsonConfig.paths(i);
             CHECK_EXPR_ASSERT(m_pathMap.size() < m_pathMap.max_size(), -1, "m_pathMap Full, the hashmap space not enough, pathId:{}", pathConfig.id());
             CHECK_EXPR_ASSERT(m_pathMap.find(pathConfig.id()) == m_pathMap.end(), -1, "file:{} exist repeated pathId:{}", file, pathConfig.id());
             auto pPath = &m_pathMap[pathConfig.id()];
             CHECK_EXPR_ASSERT(pPath, -1, "m_pathMap.Insert Failed bornId:{}", pathConfig.id());
             pPath->m_id = pathConfig.id();
             pPath->m_mapId = mapId;
-            CHECK_EXPR_ASSERT((int) pPath->m_pathCfg.max_size() >= (int) pathConfig.pos_size(), -1,
+            CHECK_EXPR_ASSERT((int)pPath->m_pathCfg.max_size() >= (int)pathConfig.pos_size(), -1,
                               "m_pathMap pos array space not enough, pathId:{}", file, pathConfig.id());
             pPath->m_pathCfg.resize(pathConfig.pos_size());
-            for (int j = 0; j < (int) pathConfig.pos_size(); j++)
+            for (int j = 0; j < (int)pathConfig.pos_size(); j++)
             {
                 auto pPos = &pPath->m_pathCfg.at(j);
                 pPos->x = pathConfig.pos(j).x();
@@ -179,20 +179,20 @@ int MapDescEx::LoadBornCfg(uint64_t mapId, const std::string &file)
                 pPos->z = pathConfig.pos(j).z();
             }
         }
-
-        for (int i = 0; i < (int) jsonConfig.areas_size(); i++)
+        
+        for (int i = 0; i < (int)jsonConfig.areas_size(); i++)
         {
-            auto &areaConfig = jsonConfig.areas(i);
+            auto& areaConfig = jsonConfig.areas(i);
             CHECK_EXPR_ASSERT(m_areaMap.size() < m_areaMap.max_size(), -1, "m_areaMap Full, the hashmap space not enough, areaId:{}", areaConfig.id());
             CHECK_EXPR_ASSERT(m_areaMap.find(areaConfig.id()) == m_areaMap.end(), -1, "file:{} exist repeated areaId:{}", file, areaConfig.id());
             auto pArea = &m_areaMap[areaConfig.id()];
             CHECK_EXPR_ASSERT(pArea, -1, "m_areaMap.Insert Failed areaId:{}", areaConfig.id());
             pArea->m_id = areaConfig.id();
             pArea->m_mapId = mapId;
-            CHECK_EXPR_ASSERT((int) pArea->m_areaCfg.max_size() >= (int) areaConfig.detail_size(), -1,
+            CHECK_EXPR_ASSERT((int)pArea->m_areaCfg.max_size() >= (int)areaConfig.detail_size(), -1,
                               "m_areaMap pos array space not enough, areaId:{}", areaConfig.id());
             pArea->m_areaCfg.resize(areaConfig.detail_size());
-            for (int j = 0; j < (int) areaConfig.detail_size(); j++)
+            for (int j = 0; j < (int)areaConfig.detail_size(); j++)
             {
                 auto pPos = &pArea->m_areaCfg[j];
                 pPos->m_circle.x = areaConfig.detail(j).pos().x();
@@ -220,12 +220,12 @@ int32_t MapDescEx::BornPointCount(int64_t mapId)
     return 0;
 }
 
-const NFPoint3<float> *MapDescEx::RandBornPoint(int64_t mapId)
+const NFPoint3<float>* MapDescEx::RandBornPoint(int64_t mapId)
 {
     auto pVecBorn = GetBornPosCfg(mapId);
     if (pVecBorn)
     {
-        int idx = NFRandInt((int) 0, (int) pVecBorn->size());
+        int idx = NFRandInt((int)0, (int)pVecBorn->size());
         auto pPos = &pVecBorn->at(idx);
         if (pPos)
         {
@@ -235,7 +235,7 @@ const NFPoint3<float> *MapDescEx::RandBornPoint(int64_t mapId)
     return NULL;
 }
 
-const VecPosCfg *MapDescEx::GetBornPosCfg(int64_t mapId)
+const VecPosCfg* MapDescEx::GetBornPosCfg(int64_t mapId)
 {
     auto iter = m_bornPosMap.find(mapId);
     if (iter != m_bornPosMap.end())
@@ -245,7 +245,7 @@ const VecPosCfg *MapDescEx::GetBornPosCfg(int64_t mapId)
     return NULL;
 }
 
-const proto_ff_s::E_RoleBorn_s *MapDescEx::GetBornCfg(int32_t prof)
+const proto_ff_s::E_RoleBorn_s* MapDescEx::GetBornCfg(int32_t prof)
 {
     auto iter = m_bornProfMap.find(prof);
     if (iter != m_bornProfMap.end())
@@ -255,8 +255,7 @@ const proto_ff_s::E_RoleBorn_s *MapDescEx::GetBornCfg(int32_t prof)
     return NULL;
 }
 
-
-const NFPointCfg *MapDescEx::GetPointCfg(int64_t id)
+const NFPointCfg* MapDescEx::GetPointCfg(int64_t id)
 {
     auto iter = m_pointMap.find(id);
     if (iter != m_pointMap.end())
@@ -266,7 +265,7 @@ const NFPointCfg *MapDescEx::GetPointCfg(int64_t id)
     return NULL;
 }
 
-const NFPathCfg *MapDescEx::GetPathCfg(int64_t id)
+const NFPathCfg* MapDescEx::GetPathCfg(int64_t id)
 {
     auto iter = m_pathMap.find(id);
     if (iter != m_pathMap.end())
@@ -276,7 +275,7 @@ const NFPathCfg *MapDescEx::GetPathCfg(int64_t id)
     return NULL;
 }
 
-const NFAreaCfg *MapDescEx::GetAreaCfg(int64_t id)
+const NFAreaCfg* MapDescEx::GetAreaCfg(int64_t id)
 {
     auto iter = m_areaMap.find(id);
     if (iter != m_areaMap.end())
@@ -286,14 +285,14 @@ const NFAreaCfg *MapDescEx::GetAreaCfg(int64_t id)
     return NULL;
 }
 
-bool MapDescEx::InArea(int64_t areaid, const NFPoint3<float> &pos)
+bool MapDescEx::InArea(int64_t areaid, const NFPoint3<float>& pos)
 {
-    const NFAreaCfg *pCfg = GetAreaCfg(areaid);
+    const NFAreaCfg* pCfg = GetAreaCfg(areaid);
     if (nullptr != pCfg)
     {
-        for (int i = 0; i < (int) pCfg->m_areaCfg.size(); i++)
+        for (int i = 0; i < (int)pCfg->m_areaCfg.size(); i++)
         {
-            const NFAreaPosCfg *pPos = &pCfg->m_areaCfg[i];
+            const NFAreaPosCfg* pPos = &pCfg->m_areaCfg[i];
             if (NFMath::InCircle(pPos->m_circle, pos, (pPos->m_radius + 0.5)))
             {
                 return true;
@@ -301,22 +300,22 @@ bool MapDescEx::InArea(int64_t areaid, const NFPoint3<float> &pos)
         }
         return false;
     }
-
+    
     return false;
 }
 
-bool MapDescEx::RandPosInArea(int64_t areaid, NFPoint3<float> &outpos)
+bool MapDescEx::RandPosInArea(int64_t areaid, NFPoint3<float>& outpos)
 {
-    const NFAreaCfg *pcfg = GetAreaCfg(areaid);
-    if (nullptr == pcfg) return false;
-
-    uint32_t nsize = (uint32_t) pcfg->m_areaCfg.size();
-    if (nsize <= 0) return false;
-
-    uint32_t idx = NFRandInt((uint32_t) 0, nsize); //0 - (nsize-1)
-    const NFAreaPosCfg &area = pcfg->m_areaCfg[idx];
-    float radius = (float) (NFRandInt((uint32_t) 1, (uint32_t) (area.m_radius * 1000)) / 1000.0f);
-    float angle = (float) (NFRandInt(0, 360 * 1000)) / 1000.0f;
+    const NFAreaCfg* pcfg = GetAreaCfg(areaid);
+    if (nullptr == pcfg) { return false; }
+    
+    uint32_t nsize = (uint32_t)pcfg->m_areaCfg.size();
+    if (nsize <= 0) { return false; }
+    
+    uint32_t idx = NFRandInt((uint32_t)0, nsize); //0 - (nsize-1)
+    const NFAreaPosCfg& area = pcfg->m_areaCfg[idx];
+    float radius = (float)(NFRandInt((uint32_t)1, (uint32_t)(area.m_radius * 1000)) / 1000.0f);
+    float angle = (float)(NFRandInt(0, 360 * 1000)) / 1000.0f;
     outpos.x = area.m_circle.x + radius * cos(angle);
     outpos.y = area.m_circle.y;
     outpos.z = area.m_circle.z + radius * sin(angle);
@@ -330,7 +329,7 @@ bool MapDescEx::IsDynamic(int64_t mapId)
     {
         return (1 == pMapCfg->m_isDyn);
     }
-
+    
     return false;
 }
 
@@ -347,7 +346,7 @@ bool MapDescEx::IsMainCity(int64_t mapId)
 
 bool MapDescEx::IsMainCity(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     return (NORMAL_MAP == pCfg->m_mapType && (int32_t)ENormalMapType::MainCity == pCfg->m_mapSubType);
 }
 
@@ -359,7 +358,7 @@ bool MapDescEx::Is1v1Ready(int64_t mapId)
 
 bool MapDescEx::Is1v1Ready(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     return (NORMAL_MAP == pCfg->m_mapType && (int32_t)ENormalMapType::Ready1v1 == pCfg->m_mapSubType);
 }
 
@@ -371,7 +370,7 @@ bool MapDescEx::IsQyActMap(int64_t mapId)
 
 bool MapDescEx::IsQyActMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == 510)
     {
         return true;
@@ -387,7 +386,7 @@ bool MapDescEx::Is3v3WaitMap(int64_t mapId)
 
 bool MapDescEx::Is3v3WaitMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == 511)
     {
         return true;
@@ -403,7 +402,7 @@ bool MapDescEx::Is3v3Map(int64_t mapId)
 
 bool MapDescEx::Is3v3Map(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == 512)
     {
         return true;
@@ -419,7 +418,7 @@ bool MapDescEx::IsXiYouReadyMap(int64_t mapId)
 
 bool MapDescEx::IsXiYouReadyMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouReady)
     {
         return true;
@@ -435,7 +434,7 @@ bool MapDescEx::IsXiYouKillBossMap(int64_t mapId)
 
 bool MapDescEx::IsXiYouKillBossMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouKillBoss)
     {
         return true;
@@ -451,7 +450,7 @@ bool MapDescEx::IsXiYouRouBaoZiMap(int64_t mapId)
 
 bool MapDescEx::IsXiYouRouBaoZiMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouRouBaoZi)
     {
         return true;
@@ -467,7 +466,7 @@ bool MapDescEx::IsXiYouCaiJiMap(int64_t mapId)
 
 bool MapDescEx::IsXiYouCaiJiMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     if (pCfg->m_mapType == DUP_MAP && pCfg->m_mapSubType == EDupGroupID_XiYouCollect)
     {
         return true;
@@ -483,6 +482,28 @@ bool MapDescEx::IsSafeMap(int64_t mapId)
 
 bool MapDescEx::IsSafeMap(const proto_ff_s::E_MapMap_s* pCfg)
 {
-    if (nullptr == pCfg) return false;
+    if (nullptr == pCfg) { return false; }
     return (SAFE_MAP == pCfg->m_mapType);
+}
+
+bool MapDescEx::InPoint(int64_t pointid, const NFPoint3<float>& pos)
+{
+    auto pcfg = GetPointCfg(pointid);
+    if (nullptr != pcfg)
+    {
+        for (auto& iter : pcfg->vecposcfg)
+        {
+            if (NFMath::InCircle(iter.m_pos, pos, 3.5))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    return false;
+}
+
+bool MapDescEx::IsCrossBossDupMap(int64_t mapId)
+{
+    return false;
 }

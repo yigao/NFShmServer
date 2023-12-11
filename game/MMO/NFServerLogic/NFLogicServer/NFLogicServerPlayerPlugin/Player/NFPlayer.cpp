@@ -30,6 +30,8 @@
 #include "Achievement/NFAchievementPart.h"
 #include "NFRankPart.h"
 #include "DescStoreEx/AchievementDescEx.h"
+#include "NFLogicCommon/NFEventDefine2.h"
+#include "proto_svr_event.pb.h"
 
 NFPlayer::NFPlayer()
 {
@@ -104,6 +106,26 @@ int NFPlayer::OnTimer(int timeId, int callcount)
     if (timeId == m_saveDBTimer)
     {
         SaveToDB();
+    }
+    return 0;
+}
+
+int NFPlayer::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+{
+    switch (nEventID)
+    {
+        case EVENT_SYNC_SCENE_STATE:
+        {
+            const proto_ff::SyncSceneState* pEvent = dynamic_cast<const proto_ff::SyncSceneState*>(pMessage);
+            if (pEvent)
+            {
+                CHECK_EXPR(GetState() == (proto_ff::ECState)pEvent->last_state(), -1, "the logic state:{} != the game state:{} , change to state:{}",
+                           proto_ff::ECState_Name(GetState()), proto_ff::ECState_Name((proto_ff::ECState)pEvent->last_state()), proto_ff::ECState_Name((proto_ff::ECState)pEvent->cur_state()));
+                SetState((proto_ff::ECState)pEvent->cur_state());
+            }
+        }
+        default:
+            break;
     }
     return 0;
 }
@@ -197,7 +219,8 @@ int NFPlayer::Init(const proto_ff::RoleDBData& dbData)
      */
     uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000);
     m_saveDBTimer = SetTimer(LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000, 0, 0, 0, 0, startMS);
-
+    
+    Subscribe(NF_ST_LOGIC_SERVER, EVENT_SYNC_SCENE_STATE, CREATURE_PLAYER, Cid(), __FUNCTION__);
     return 0;
 }
 

@@ -26,6 +26,8 @@
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFLogicCommon/NFLogDefine.h"
 #include "NFLogicCommon/Attr/NFAttr.h"
+#include "Scene.pb.h"
+#include "Move.pb.h"
 
 class NFScene;
 
@@ -51,7 +53,8 @@ public:
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
             CreateInit();
-        } else
+        }
+        else
         {
             ResumeInit();
         }
@@ -66,11 +69,18 @@ public:
     {
         m_curstate = 0;
         m_laststate = 0;
+        m_pCreature = NULL;
         return 0;
     }
     
     int ResumeInit()
     {
+        return 0;
+    }
+    
+    int Init(NFCreature* pCreature)
+    {
+        m_pCreature = pCreature;
         return 0;
     }
     
@@ -89,11 +99,12 @@ public:
         m_curstate = state;
     }
     
-    bool EnterState(NFCreature *pCreature, proto_ff::ECState state);
+    bool EnterState(proto_ff::ECState state);
 
 protected:
     uint8_t m_curstate;
     uint8_t m_laststate;
+    NFShmPtr<NFCreature> m_pCreature;
 };
 
 class NFCreature : public NFShmObjTemplate<NFCreature, EOT_GAME_CREATURE_ID, NFShmObj>, public NFMultiListNodeObjWithGlobalID<NFCreature, EOT_GAME_CREATURE_ID, NF_CREATURE_NODE_LIST_MAX_TYPE_INDEX>
@@ -124,19 +135,19 @@ public:
     virtual bool IsDead() { return BState(proto_ff::state_dead); }
     
     virtual uint64_t GetCfgId() { return 0; } //获取生物对应实例配置表Id
-    void SetPos(const NFPoint3<float> &pos);
+    void SetPos(const NFPoint3<float>& pos);
     
-    NFPoint3<float> &GetPos() { return m_pos; }
+    NFPoint3<float>& GetPos() { return m_pos; }
     
-    void SetDir(const NFPoint3<float> &point);
+    void SetDir(const NFPoint3<float>& point);
     
-    NFPoint3<float> &GetDir() { return m_dir; }
+    NFPoint3<float>& GetDir() { return m_dir; }
     
-    NFGrid *GetGrid();
+    NFGrid* GetGrid();
     
-    void SetGrid(NFGrid *pGrid);
+    void SetGrid(NFGrid* pGrid);
     
-    NFScene *GetScene();
+    NFScene* GetScene();
     
     uint64_t GetSceneId() const { return m_sceneId; };
     
@@ -169,6 +180,15 @@ public:
     //获取怪物模型半径, 长度单位m
     virtual float GetModelRadius() { return m_fRadius; };
 public:
+    //移动到目标坐标
+    virtual int MoveTo(const NFPoint3<float>& dstPos) { return 0; }
+    
+    //停止当前移动
+    virtual int StopMove() { return 0; }
+    
+    //瞬间移动
+    virtual int Teleporting(const NFPoint3<float>& dstPos, int32_t type = proto_ff::MoveTeleportRsp_Type_common) { return 0; }
+    
     /**
      * @brief 强制传送(场景内传送、切场景传送)
      * @param scenceId 目标场景ID（唯一ID，静态地图场景ID和地图ID相同）
@@ -177,15 +197,25 @@ public:
      * @param transParam 传送参数
      * @return
      */
-    virtual int TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam) { return 0; }
+    virtual int TransScene(uint64_t scenceId, const NFPoint3<float>& dstPos, uint64_t mapId, const proto_ff::SceneTransParam& transParam) { return 0; }
     
     //进入场景(这个接口只给移动部件和生物内部自身调用，其他请调用transScene)
-    virtual int EnterScene(uint64_t sceneId, const NFPoint3<float> &enterPos, STransParam &transParam);
+    virtual int EnterScene(uint64_t sceneId, const NFPoint3<float>& enterPos, const proto_ff::SceneTransParam& transParam);
     
     //离开场景
     virtual int LeaveScene();
     
-    virtual int CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam, bool checkPosFlag = true) { return 0; }
+    virtual int CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float>& dstPos, NFPoint3<float>& outPos, const proto_ff::SceneTransParam& transParam, bool checkPosFlag = true) { return 0; }
+    
+    //切换逻辑节点
+    virtual int ChangeLogic(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float>& dstPos, proto_ff::CreatureTransParam& creatureParam) { return proto_ff::RET_FAIL; }
+    
+    //切换逻辑节点失败
+    virtual int ChangeLogicFail() { return proto_ff::RET_FAIL; }
+    
+    //切换场景成功(同一逻辑服内切换，不同逻辑服之间切换)
+    virtual void OnTransSceneSuccess(const proto_ff::SceneTransParam& param) { }
+
 public:
     //状态
     virtual bool EnterNormalState();
@@ -201,6 +231,10 @@ public:
     virtual bool EnterFightState();
     
     virtual bool LeaveFigthState();
+    
+    virtual bool EnterTransState();
+    
+    virtual bool LeaveTransState();
     
     virtual bool LeaveState();
     
@@ -222,60 +256,60 @@ public:
     
     virtual void OnDead(uint64_t killerCid, bool isSync = false, int64_t lastDamage = 0);
     
-    virtual void OnCorpse() {}; //尸体停留阶段
+    virtual void OnCorpse() { }; //尸体停留阶段
     
     virtual void OnRevive(int64_t curhp = 0);
     
-    virtual NFCreature *GetOwner() { return nullptr; }
+    virtual NFCreature* GetOwner() { return nullptr; }
     
-    virtual void SetOwner(NFCreature *powner) {}
+    virtual void SetOwner(NFCreature* powner) { }
 
 public:
-    virtual void FindCreatureInScene(LIST_UINT64 &clist);
+    virtual void FindCreatureInScene(LIST_UINT64& clist);
     
-    virtual void FindCreatureInScene(SET_Creature &setcreature);
+    virtual void FindCreatureInScene(SET_Creature& setcreature);
     
-    virtual void FindSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature *> *clist, NFPoint3<float> &sorPos);
+    virtual void FindSeeListInNineGride(NFCreature* pSrc, std::vector<NFCreature*>* clist, NFPoint3<float>& sorPos);
     
-    virtual void FindDoubleSeeListInNineGride(NFCreature *pSrc, std::vector<NFCreature *> &clist, NFPoint3<float> &sorPos);
+    virtual void FindDoubleSeeListInNineGride(NFCreature* pSrc, std::vector<NFCreature*>& clist, NFPoint3<float>& sorPos);
     
     //将对方加入到自己的视野中
-    virtual void SimpleAddPVPSeeLst(int releation, NFCreature *pOther);
+    virtual void SimpleAddPVPSeeLst(int releation, NFCreature* pOther);
     
-    virtual void SimplePVMAddSeeLst(NFCreature *pOther);
+    virtual void SimplePVMAddSeeLst(NFCreature* pOther);
     
-    virtual void ReplacePVPSeeList(int releation, NFCreature *pOther, std::vector<NFCreature *> &vecBeen);
+    virtual void ReplacePVPSeeList(int releation, NFCreature* pOther, std::vector<NFCreature*>& vecBeen);
     
-    virtual void AddPVPSeeLst(int releation, NFCreature *pOther, std::vector<NFCreature *> &vecBeen);
+    virtual void AddPVPSeeLst(int releation, NFCreature* pOther, std::vector<NFCreature*>& vecBeen);
     
-    virtual void AddPVMSeeLst(NFCreature *pOther, std::vector<NFCreature *> &vecBeen);
+    virtual void AddPVMSeeLst(NFCreature* pOther, std::vector<NFCreature*>& vecBeen);
     
-    virtual int DelPVMSeeLst(int delpos, NFCreature *pOther);
+    virtual int DelPVMSeeLst(int delpos, NFCreature* pOther);
     
-    virtual int DelPVPSeeLst(int delpos, NFCreature *pOther);
+    virtual int DelPVPSeeLst(int delpos, NFCreature* pOther);
     
     //视野裁剪接口 后面需要做更复杂的视野裁剪那么子类继承去实现
-    virtual bool ViewFliter(NFCreature *pCreature, float dict);
+    virtual bool ViewFliter(NFCreature* pCreature, float dict);
     
-    virtual void OnDelPVPSeeLst(NFCreature *pOther) {}
+    virtual void OnDelPVPSeeLst(NFCreature* pOther) { }
     
-    virtual void GetSeeLst(std::vector<uint64_t> &);
+    virtual void GetSeeLst(std::vector<uint64_t>&);
     
-    virtual void GetCreatureList(std::vector<NFCreature *> &vec);
+    virtual void GetCreatureList(std::vector<NFCreature*>& vec);
     
-    virtual NFCreatureVisionData &GetVisionData() { return m_visionData; }
+    virtual NFCreatureVisionData& GetVisionData() { return m_visionData; }
     
-    virtual const NFCreatureVisionData &GetVisionData() const { return m_visionData; }
+    virtual const NFCreatureVisionData& GetVisionData() const { return m_visionData; }
     
     //视野类接口
     virtual void UpdateSeeLst();
     
     virtual void UpdateNineGridLst();
     
-    virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData &cvData) {};  //获取客户端可见数据
+    virtual void GetVisibleDataToClient(proto_ff::CreatureCreateData& cvData) { };  //获取客户端可见数据
     
     //更新生物视野数据(生物视野数据变更，需要通知周围已经看到了他们的玩家)
-    virtual void UpdateViewData() {};
+    virtual void UpdateViewData() { };
     
     //用于重连上后，再重新发送一次全体视野信息。
     void SendAllSeeCreatureListToClient();
@@ -295,103 +329,110 @@ public:
 public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性
-    virtual void AddVirAttr(MAP_UINT32_INT64 &mapAttr, bool costFlag = false, SCommonSource *pSource = nullptr, bool syn = false) {};
+    virtual void AddVirAttr(MAP_UINT32_INT64& mapAttr, bool costFlag = false, SCommonSource* pSource = nullptr, bool syn = false) { };
     
     //属性是否足够，主要是为了属性虚拟物品的判断
-    virtual bool EnoughVirAttr(MAP_UINT32_INT64 &mapAttr) { return false; };
+    virtual bool EnoughVirAttr(MAP_UINT32_INT64& mapAttr) { return false; };
     
     //增加属性
-    virtual bool AddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr, bool syn = false);
+    virtual bool AddAttr(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr, bool syn = false);
     
     //增加属性 不同步到客户端
-    virtual bool AddAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
+    virtual bool AddAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr);
     
     //能否增加属性
-    virtual bool CanAddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr) { return true; };
+    virtual bool CanAddAttr(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr) { return true; };
     
     //增加属性处理
-    virtual void OnAddAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource *pSource = nullptr) {};
+    virtual void OnAddAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource* pSource = nullptr) { };
     
     //设置属性
-    virtual bool SetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr, bool syn = false);
+    virtual bool SetAttr(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr, bool syn = false);
     
     //设置属性 不同步客户端
-    virtual bool SetAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
+    virtual bool SetAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr);
     
     //能否设置属性
-    virtual bool CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr) { return true; };
+    virtual bool CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource* pSource = nullptr) { return true; };
     
     //设置属性处理
-    virtual void OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource *pSource = nullptr) {};
+    virtual void OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource* pSource = nullptr) { };
     
     //获取该组属性值
     virtual int64_t GetAttrGroup(uint32_t attrGroup, uint32_t ANum);
     
     //获取该组所有属性值
-    virtual void GetAttrGroup(uint32_t attrGroup, MAP_UINT32_INT64 &mapattr);
+    virtual void GetAttrGroup(uint32_t attrGroup, MAP_UINT32_INT64& mapattr);
     
     //清除某一组属性
-    virtual bool ClearAttrGroup(uint32_t attrGroup, SCommonSource *pSource = nullptr, bool syn = false);
+    virtual bool ClearAttrGroup(uint32_t attrGroup, SCommonSource* pSource = nullptr, bool syn = false);
     
-    virtual bool ClearAttrGroupCache(uint32_t attrGroup, SCommonSource *pSource = nullptr);
+    virtual bool ClearAttrGroupCache(uint32_t attrGroup, SCommonSource* pSource = nullptr);
     
     //增加属性组属性
-    virtual bool AddAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr, bool syn = false);
+    virtual bool AddAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr, bool syn = false);
     
-    virtual bool AddAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr);
+    virtual bool AddAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr);
     
     //设置属性组属性
-    virtual bool SetAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr, bool syn = false);
+    virtual bool SetAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr, bool syn = false);
     
-    virtual bool SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr);
+    virtual bool SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource* pSource = nullptr);
     
     //设置属性组所有属性
-    virtual bool SetAttrGroup(uint32_t attrGroup, const MAP_UINT32_INT64 &mapattr, SCommonSource *pSource = nullptr, bool syn = false);
+    virtual bool SetAttrGroup(uint32_t attrGroup, const MAP_UINT32_INT64& mapattr, SCommonSource* pSource = nullptr, bool syn = false);
     
-    virtual bool SetAttrGroupCache(uint32_t attrGroup, const MAP_UINT32_INT64 &mapattr, SCommonSource *pSource = nullptr);
+    virtual bool SetAttrGroupCache(uint32_t attrGroup, const MAP_UINT32_INT64& mapattr, SCommonSource* pSource = nullptr);
     
     //计算属性
     virtual void CalcAttr(uint32_t ANum);
     
     //计算属性组属性 主要是把属性组中的属性汇总到总属性中 ANum:属性组中的属性ID
-    virtual void CalcAttrGroup(uint32_t attrgroup, uint32_t ANum, MAP_UINT32_INT64 &mapchg);
+    virtual void CalcAttrGroup(uint32_t attrgroup, uint32_t ANum, MAP_UINT32_INT64& mapchg);
     
     //获取属性值
     virtual int64_t GetAttr(uint32_t ANum);
     
     //属性改变
-    virtual void OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource *pSource = nullptr);
+    virtual void OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource* pSource = nullptr);
     
     //同步属性
     virtual void SynAttrToClient();
 
 public:
     //是否可以添加新看到的生物
-    virtual bool CanAddSeeNewCreature(NFCreature *pCreature, int64_t hateValue);
+    virtual bool CanAddSeeNewCreature(NFCreature* pCreature, int64_t hateValue);
 
 public:
     //获取对应部件指针
-    virtual NFBattlePart *GetPart(uint32_t partType) { return nullptr; }
+    virtual NFBattlePart* GetPart(uint32_t partType) { return nullptr; }
 
 public:
     //****************消息发送接口*****************
-    virtual int BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself = false);
+    virtual int BroadCast(uint32_t nMsgId, const google::protobuf::Message& xData, bool IncludeMyself = false);
     
-    virtual int SendRedirectMsgToClient(uint32_t zid, uint32_t gateId, const std::unordered_set<uint64_t> &set, uint32_t nMsgId,
-                                        const google::protobuf::Message &xData);
+    virtual int SendRedirectMsgToClient(uint32_t zid, uint32_t gateId, const std::unordered_set<uint64_t>& set, uint32_t nMsgId,
+                                        const google::protobuf::Message& xData);
     
-    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
+    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData);
     
-    virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    virtual int SendTransToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
+    virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message& xData);
     
-    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    virtual int SendTransToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
+    virtual int SendTransToSnsServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
     
-    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    virtual int SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
+    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message& xData);
     
-    virtual int FireLogic(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message &message, bool self = false);
+    virtual int SendTransToWorldServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
+    
+    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message& xData);
+    
+    virtual int SendTransToLogicServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
+    
+    virtual int SendMsgToCenterServer(uint32_t nMsgId, const google::protobuf::Message& xData);
+    
+    virtual int SendTransToCenterServer(uint32_t nMsgId, const google::protobuf::Message& xData, uint32_t reqTransId = 0, uint32_t rspTransId = 0);
+    
+    virtual int FireLogic(uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message& message, bool self = false);
 
 protected:
     uint64_t m_cid;     //生物实例id
