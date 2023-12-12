@@ -79,14 +79,56 @@ public:
      */
     bool IsClosed(uint64_t sceneId);
 
-    //获取层数对应格子计算数组
+    /**
+     * @brief 获取层数对应格子计算数组
+     * @param nlayer
+     * @return
+     */
     const OneLayer* GetLayerPoint(uint32_t nlayer);
 public:
+    /**
+     * @brief 进入场景
+     * @param roleId
+     * @param mapId
+     * @param sceneId
+     * @param pos
+     * @param transParam
+     * @return
+     */
     int EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos, const proto_ff::SceneTransParam& transParam);
+    
+    /**
+     * @brief 离开场景
+     * @param roleId
+     * @param mapId
+     * @param sceneId
+     * @return
+     */
     int LeaveScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId);
+    
+    /**
+     * @brief 获取主城场景
+     * @param mapid
+     * @param zid
+     * @return
+     */
+    NFScene* GetMainCity(uint64_t mapid, uint32_t zid) { return NULL; }
+    
+    /**
+     * @brief 获取主城场景ID
+     * @param mapid
+     * @param zid
+     * @return
+     */
+    uint64_t MainCitySceneId(uint64_t mapid, uint32_t zid) { return 0; }
 private:
-    //场景销毁缓存表 sceneid - tick
+    /**
+     * @brief 场景销毁缓存表 sceneid - tick
+     */
     NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;
-    //每层映射搜索位置信息(最大5层)
+    
+    /**
+     * @brief 每层映射搜索位置信息(最大5层)
+     */
     NineGridLayer m_nineGridLayer;
 };

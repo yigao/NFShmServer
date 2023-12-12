@@ -49,12 +49,6 @@ public:
     virtual int UnInit();
     
     virtual int OnTimer(int timeId, int callcount);
-    
-    /**
-     * @brief 重连入口
-     * @return
-     */
-    virtual int OnReconnect();
 public:
     /**
      * @brief 处理客户端消息

@@ -144,7 +144,7 @@ int NFSceneMgr::InitScene(const std::unordered_set<uint64_t> &mapIds)
         CHECK_EXPR_CONTINUE(pMap, "GetMap Failed, mapId:{}", mapId);
 
         //启动服务器时创建 非动态场景
-        if (pMap->IsDynamic() == false)
+        if (!pMap->IsDynamic() && !pMap->IsMainCity())
         {
             NFScene* pScene = GetScene(pMap->GetMapId());
             if (pScene == NULL)
