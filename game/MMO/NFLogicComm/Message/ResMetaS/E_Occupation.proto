@@ -19,7 +19,7 @@ message E_OccupationOccupation
 
 message Sheet_OccupationOccupation
 {
-	repeated E_OccupationOccupation E_OccupationOccupation_List = 1[(yd_fieldoptions.field_arysize)=16];
+	repeated E_OccupationOccupation E_OccupationOccupation_List = 1[(yd_fieldoptions.field_arysize)=8];
 }
 
 message E_OccupationStage
@@ -59,7 +59,7 @@ message E_OccupationAttribute
 
 message Sheet_OccupationAttribute
 {
-	repeated E_OccupationAttribute E_OccupationAttribute_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_OccupationAttribute E_OccupationAttribute_List = 1[(yd_fieldoptions.field_arysize)=32];
 }
 
 message E_OccupationSoulAttributeDesc

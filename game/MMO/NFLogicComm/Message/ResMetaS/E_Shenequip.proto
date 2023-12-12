@@ -171,3 +171,112 @@ message Sheet_ShenequipPrepose
 {
 	repeated E_ShenequipPrepose E_ShenequipPrepose_List = 1[(yd_fieldoptions.field_arysize)=8];
 }
+
+message E_ShenequipDominance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_slotId = 2[(yd_fieldoptions.field_cname) = "槽位id"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "装备大类"];
+	optional string m_sign = 4[(yd_fieldoptions.field_cname) = "标志", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_quality = 5[(yd_fieldoptions.field_cname) = "解锁品质"];
+	optional int32 m_star = 6[(yd_fieldoptions.field_cname) = "解锁星级"];
+	optional int32 m_control = 7[(yd_fieldoptions.field_cname) = "统御属性比例"];
+	optional int32 m_secret = 8[(yd_fieldoptions.field_cname) = "统御秘技比例"];
+	optional int32 m_passive = 9[(yd_fieldoptions.field_cname) = "统御被动比例"];
+	optional int32 m_dark = 10[(yd_fieldoptions.field_cname) = "统御暗术比例"];
+}
+
+
+message Sheet_ShenequipDominance
+{
+	repeated E_ShenequipDominance E_ShenequipDominance_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_ShenequipAdvancedAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShenequipAdvanced
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "装备大类"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "进阶等级"];
+	optional int32 m_starLimit = 4[(yd_fieldoptions.field_cname) = "统御总星级要求"];
+	optional int32 m_materials = 5[(yd_fieldoptions.field_cname) = "消耗材料"];
+	optional int32 m_num = 6[(yd_fieldoptions.field_cname) = "材料数量"];
+	optional int32 m_luckyMax = 7[(yd_fieldoptions.field_cname) = "满幸运值"];
+	optional int32 m_luckyAdd = 8[(yd_fieldoptions.field_cname) = "失败增加幸运值"];
+	repeated E_ShenequipAdvancedAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "进阶属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ShenequipAdvanced
+{
+	repeated E_ShenequipAdvanced E_ShenequipAdvanced_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_ShenequipTalentConditionDesc
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_ShenequipTalent
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "装备大类"];
+	optional int32 m_talentType = 3[(yd_fieldoptions.field_cname) = "天赋大类"];
+	optional int32 m_location = 4[(yd_fieldoptions.field_cname) = "天赋位置"];
+	optional int32 m_skillId = 5[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_lvLImit = 6[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_talenLvLimit = 7[(yd_fieldoptions.field_cname) = "天赋总投入要求"];
+	optional int32 m_attribute_value = 8[(yd_fieldoptions.field_cname) = "天赋升级消耗"];
+	optional int32 m_attribute_type = 9[(yd_fieldoptions.field_cname) = "天赋升级消耗数量"];
+	optional int32 m_posX = 10[(yd_fieldoptions.field_cname) = "坐标x"];
+	optional int32 m_posY = 11[(yd_fieldoptions.field_cname) = "坐标y"];
+	repeated E_ShenequipTalentConditionDesc m_condition = 12[(yd_fieldoptions.field_cname) = "前置技能", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_ShenequipTalent
+{
+	repeated E_ShenequipTalent E_ShenequipTalent_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_ShenequipTalenttype
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "装备大类"];
+	optional int32 m_talentType = 3[(yd_fieldoptions.field_cname) = "天赋大类"];
+	optional int32 m_qualityLimit = 4[(yd_fieldoptions.field_cname) = "神级神机装备品质要求"];
+	optional int32 m_starLimit = 5[(yd_fieldoptions.field_cname) = "神级神机装备星级要求"];
+	optional int32 m_talenLvLimit = 6[(yd_fieldoptions.field_cname) = "天赋总投入要求"];
+}
+
+
+message Sheet_ShenequipTalenttype
+{
+	repeated E_ShenequipTalenttype E_ShenequipTalenttype_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_ShenequipPreviewRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "道具"];
+}
+
+message E_ShenequipPreview
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_condition = 2[(yd_fieldoptions.field_cname) = "条件"];
+	optional int32 m_value = 3[(yd_fieldoptions.field_cname) = "条件值"];
+	repeated E_ShenequipPreviewRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ShenequipPreview
+{
+	repeated E_ShenequipPreview E_ShenequipPreview_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

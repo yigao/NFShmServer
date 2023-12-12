@@ -50,7 +50,22 @@ message E_FestivalTemplate
 
 message Sheet_FestivalTemplate
 {
-	repeated E_FestivalTemplate E_FestivalTemplate_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated E_FestivalTemplate E_FestivalTemplate_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_FestivalMuban_consumerank
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_period = 2[(yd_fieldoptions.field_cname) = "期数"];
+	optional int32 m_dataGroupID = 3[(yd_fieldoptions.field_cname) = "排行数据组id"];
+	optional int32 m_rankType = 4[(yd_fieldoptions.field_cname) = "排行类型"];
+	optional int32 m_redPointBox = 5[(yd_fieldoptions.field_cname) = "红点礼包奖励box"];
+}
+
+
+message Sheet_FestivalMuban_consumerank
+{
+	repeated E_FestivalMuban_consumerank E_FestivalMuban_consumerank_List = 1[(yd_fieldoptions.field_arysize)=128];
 }
 
 message E_FestivalMuban_eggsdraw

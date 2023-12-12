@@ -11545,7 +11545,7 @@
         },
         {
           "_areaAndType": 0,
-          "FirstLink": 13,
+          "FirstLink": 12,
           "Verts": [
             9,
             5,
@@ -11666,20 +11666,20 @@
           "BMax": 170
         },
         {
-          "Ref": 5636096,
+          "Ref": 5636098,
           "Next": 7,
           "Edge": 1,
           "Side": 2,
-          "BMin": 26,
+          "BMin": 0,
           "BMax": 255
         },
         {
-          "Ref": 5636101,
-          "Next": 12,
-          "Edge": 1,
-          "Side": 2,
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
           "BMin": 0,
-          "BMax": 26
+          "BMax": 0
         },
         {
           "Ref": 0,
@@ -16782,7 +16782,7 @@
           "BMax": 255
         },
         {
-          "Ref": 5636099,
+          "Ref": 5636096,
           "Next": 0,
           "Edge": 1,
           "Side": 0,
@@ -16790,7 +16790,7 @@
           "BMax": 255
         },
         {
-          "Ref": 5636100,
+          "Ref": 5636098,
           "Next": 9,
           "Edge": 0,
           "Side": 0,
@@ -17235,15 +17235,15 @@
         "Y": 3,
         "Layer": 0,
         "UserId": 0,
-        "PolyCount": 6,
-        "VertCount": 15,
-        "MaxLinkCount": 39,
-        "DetailMeshCount": 6,
+        "PolyCount": 3,
+        "VertCount": 9,
+        "MaxLinkCount": 23,
+        "DetailMeshCount": 3,
         "DetailVertCount": 0,
-        "DetailTriCount": 15,
-        "BVNodeCount": 12,
+        "DetailTriCount": 7,
+        "BVNodeCount": 6,
         "OffMeshConCount": 0,
-        "OffMeshBase": 6,
+        "OffMeshBase": 3,
         "WalkableHeight": 10.0,
         "WalkableRadius": 1.0,
         "WalkableClimb": 4.0,
@@ -17282,24 +17282,6 @@
         97.5,
         16.6061954,
         73.0,
-        90.7,
-        16.6061954,
-        73.0,
-        90.7,
-        16.6061954,
-        73.2,
-        91.9,
-        16.6061954,
-        74.0,
-        90.9,
-        16.6061954,
-        75.4,
-        89.7,
-        16.6061954,
-        74.6,
-        90.1,
-        16.6061954,
-        73.6,
         89.9,
         16.6061954,
         73.0,
@@ -17310,67 +17292,19 @@
       "NavPolys": [
         {
           "_areaAndType": 0,
-          "FirstLink": 14,
+          "FirstLink": 4,
           "Verts": [
-            7,
             8,
-            9,
-            6,
             0,
-            0
-          ],
-          "Neis": [
-            6,
-            0,
-            3,
-            32774,
-            0,
-            0
-          ],
-          "Flags": 1,
-          "VertCount": 4,
-          "Area": 0,
-          "Type": 0
-        },
-        {
-          "_areaAndType": 0,
-          "FirstLink": 3,
-          "Verts": [
-            11,
-            12,
-            13,
-            14,
-            0,
-            0
-          ],
-          "Neis": [
-            0,
-            6,
-            0,
-            4,
-            0,
-            0
-          ],
-          "Flags": 1,
-          "VertCount": 4,
-          "Area": 0,
-          "Type": 0
-        },
-        {
-          "_areaAndType": 0,
-          "FirstLink": 5,
-          "Verts": [
-            6,
-            9,
-            10,
-            0,
-            0,
-            0
-          ],
-          "Neis": [
             1,
             0,
-            5,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            32772,
+            2,
             0,
             0,
             0
@@ -17382,67 +17316,19 @@
         },
         {
           "_areaAndType": 0,
-          "FirstLink": 12,
-          "Verts": [
-            14,
-            0,
-            1,
-            2,
-            10,
-            11
-          ],
-          "Neis": [
-            0,
-            32772,
-            0,
-            5,
-            0,
-            2
-          ],
-          "Flags": 1,
-          "VertCount": 6,
-          "Area": 0,
-          "Type": 0
-        },
-        {
-          "_areaAndType": 0,
-          "FirstLink": 17,
-          "Verts": [
-            10,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "Neis": [
-            4,
-            0,
-            32772,
-            32770,
-            32768,
-            3
-          ],
-          "Flags": 1,
-          "VertCount": 6,
-          "Area": 0,
-          "Type": 0
-        },
-        {
-          "_areaAndType": 0,
-          "FirstLink": 15,
+          "FirstLink": 2,
           "Verts": [
             8,
+            1,
+            2,
             7,
-            13,
-            12,
             0,
             0
           ],
           "Neis": [
             1,
-            32774,
-            2,
+            0,
+            3,
             0,
             0,
             0
@@ -17451,90 +17337,34 @@
           "VertCount": 4,
           "Area": 0,
           "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 8,
+          "Verts": [
+            7,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "Neis": [
+            2,
+            0,
+            32772,
+            32770,
+            32768,
+            32774
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
         }
       ],
       "NavLinks": [
         {
-          "Ref": 5636098,
-          "Next": 4294967295,
-          "Edge": 2,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636101,
-          "Next": 0,
-          "Edge": 0,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636099,
-          "Next": 4294967295,
-          "Edge": 3,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636101,
-          "Next": 2,
-          "Edge": 1,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636100,
-          "Next": 4294967295,
-          "Edge": 2,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636096,
-          "Next": 4,
-          "Edge": 0,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636097,
-          "Next": 4294967295,
-          "Edge": 5,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636100,
-          "Next": 6,
-          "Edge": 3,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636098,
-          "Next": 4294967295,
-          "Edge": 5,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 5636099,
-          "Next": 8,
-          "Edge": 0,
-          "Side": 255,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
           "Ref": 5636097,
           "Next": 4294967295,
           "Edge": 2,
@@ -17543,8 +17373,24 @@
           "BMax": 0
         },
         {
+          "Ref": 5636098,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
           "Ref": 5636096,
-          "Next": 10,
+          "Next": 1,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 5636097,
+          "Next": 4294967295,
           "Edge": 0,
           "Side": 255,
           "BMin": 0,
@@ -17552,7 +17398,7 @@
         },
         {
           "Ref": 5570560,
-          "Next": 7,
+          "Next": 0,
           "Edge": 1,
           "Side": 4,
           "BMin": 0,
@@ -17560,7 +17406,7 @@
         },
         {
           "Ref": 5570565,
-          "Next": 9,
+          "Next": 3,
           "Edge": 2,
           "Side": 4,
           "BMin": 0,
@@ -17568,23 +17414,15 @@
         },
         {
           "Ref": 5177348,
-          "Next": 1,
-          "Edge": 3,
-          "Side": 6,
-          "BMin": 0,
-          "BMax": 255
-        },
-        {
-          "Ref": 5177348,
-          "Next": 11,
-          "Edge": 1,
+          "Next": 5,
+          "Edge": 5,
           "Side": 6,
           "BMin": 0,
           "BMax": 255
         },
         {
           "Ref": 5701635,
-          "Next": 13,
+          "Next": 6,
           "Edge": 4,
           "Side": 0,
           "BMin": 0,
@@ -17592,11 +17430,83 @@
         },
         {
           "Ref": 6094848,
-          "Next": 16,
+          "Next": 7,
           "Edge": 3,
           "Side": 2,
           "BMin": 0,
           "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
         },
         {
           "Ref": 0,
@@ -17632,134 +17542,6 @@
         },
         {
           "Ref": 0,
-          "Next": 23,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 24,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 25,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 26,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 27,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 28,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 29,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 30,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 31,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 32,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 33,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 34,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 35,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 36,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 37,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
-          "Next": 38,
-          "Edge": 0,
-          "Side": 0,
-          "BMin": 0,
-          "BMax": 0
-        },
-        {
-          "Ref": 0,
           "Next": 4294967295,
           "Edge": 0,
           "Side": 0,
@@ -17772,181 +17554,53 @@
           "VertBase": 0,
           "TriBase": 0,
           "VertCount": 0,
-          "TriCount": 2
-        },
-        {
-          "VertBase": 0,
-          "TriBase": 2,
-          "VertCount": 0,
-          "TriCount": 2
-        },
-        {
-          "VertBase": 0,
-          "TriBase": 4,
-          "VertCount": 0,
           "TriCount": 1
         },
         {
           "VertBase": 0,
-          "TriBase": 5,
-          "VertCount": 0,
-          "TriCount": 4
-        },
-        {
-          "VertBase": 0,
-          "TriBase": 9,
-          "VertCount": 0,
-          "TriCount": 4
-        },
-        {
-          "VertBase": 0,
-          "TriBase": 13,
+          "TriBase": 1,
           "VertCount": 0,
           "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 3,
+          "VertCount": 0,
+          "TriCount": 4
         }
       ],
       "NavDVerts": [],
       "NavDTris": [
-        2,
-        3,
-        0,
-        5,
-        0,
-        1,
-        2,
-        5,
-        2,
-        3,
-        1,
-        17,
-        3,
-        0,
-        1,
-        5,
         1,
         2,
         0,
         21,
+        2,
+        3,
+        0,
+        5,
+        0,
+        1,
+        2,
+        5,
         4,
         5,
-        3,
-        17,
+        1,
+        1,
         5,
         0,
-        3,
         1,
-        0,
-        1,
-        2,
         5,
-        2,
-        3,
-        0,
         1,
+        2,
         4,
-        5,
-        0,
-        5,
-        0,
         1,
         2,
-        5,
-        2,
-        3,
-        0,
-        1,
         3,
         4,
-        0,
-        1,
-        2,
-        3,
-        0,
-        5,
-        0,
-        1,
-        2,
         5
       ],
       "NavBvTree": [
-        {
-          "BMin": [
-            0,
-            1,
-            0
-          ],
-          "BMax": [
-            50,
-            1,
-            50
-          ],
-          "I": -11
-        },
-        {
-          "BMin": [
-            5,
-            1,
-            0
-          ],
-          "BMax": [
-            50,
-            1,
-            12
-          ],
-          "I": -5
-        },
-        {
-          "BMin": [
-            16,
-            1,
-            0
-          ],
-          "BMax": [
-            50,
-            1,
-            5
-          ],
-          "I": 0
-        },
-        {
-          "BMin": [
-            5,
-            1,
-            0
-          ],
-          "BMax": [
-            50,
-            1,
-            12
-          ],
-          "I": -3
-        },
-        {
-          "BMin": [
-            5,
-            1,
-            0
-          ],
-          "BMax": [
-            13,
-            1,
-            8
-          ],
-          "I": 1
-        },
-        {
-          "BMin": [
-            17,
-            1,
-            0
-          ],
-          "BMax": [
-            50,
-            1,
-            12
-          ],
-          "I": 2
-        },
         {
           "BMin": [
             0,
@@ -17967,11 +17621,11 @@
             7
           ],
           "BMax": [
-            17,
+            5,
             1,
-            18
+            16
           ],
-          "I": 3
+          "I": 0
         },
         {
           "BMin": [
@@ -17993,24 +17647,24 @@
             0
           ],
           "BMax": [
-            50,
+            12,
             1,
-            50
+            18
           ],
-          "I": 4
+          "I": 1
         },
         {
           "BMin": [
-            12,
+            0,
             1,
             0
           ],
           "BMax": [
-            16,
+            50,
             1,
-            3
+            50
           ],
-          "I": 5
+          "I": 2
         },
         {
           "BMin": [
@@ -18460,7 +18114,7 @@
           "BMax": 0
         },
         {
-          "Ref": 5636100,
+          "Ref": 5636098,
           "Next": 8,
           "Edge": 3,
           "Side": 4,
@@ -21352,7 +21006,7 @@
           "BMax": 255
         },
         {
-          "Ref": 5636100,
+          "Ref": 5636098,
           "Next": 2,
           "Edge": 3,
           "Side": 6,

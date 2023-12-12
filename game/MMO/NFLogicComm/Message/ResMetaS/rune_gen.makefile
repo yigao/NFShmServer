@@ -17,6 +17,8 @@ ${PROTOCGEN_FILE_PATH}/module_rune_bin:${PROTOCGEN_FILE_PATH}/rune.proto.ds ${RE
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneRunewordsDesc.h ${PROTOCGEN_FILE_PATH}/RuneRunewordsDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RuneQuenching.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneQuenchingDesc.h ${PROTOCGEN_FILE_PATH}/RuneQuenchingDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RuneCompare.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneCompareDesc.h ${PROTOCGEN_FILE_PATH}/RuneCompareDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RuneStuntskill.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneStuntskillDesc.h ${PROTOCGEN_FILE_PATH}/RuneStuntskillDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RunePassiveskill.bin" --dst=${GAME_DATA_PATH}/
@@ -29,4 +31,6 @@ ${PROTOCGEN_FILE_PATH}/module_rune_bin:${PROTOCGEN_FILE_PATH}/rune.proto.ds ${RE
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneAdvancedDesc.h ${PROTOCGEN_FILE_PATH}/RuneAdvancedDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RuneSoaring.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneSoaringDesc.h ${PROTOCGEN_FILE_PATH}/RuneSoaringDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RuneHandbook.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RuneHandbookDesc.h ${PROTOCGEN_FILE_PATH}/RuneHandbookDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_rune_bin

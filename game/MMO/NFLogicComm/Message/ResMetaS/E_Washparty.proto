@@ -34,11 +34,11 @@ message Sheet_WashpartyWashparty
 message E_WashpartyExp
 {
 	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
-	optional int32 m_washExp = 2[(yd_fieldoptions.field_cname) = "泡澡经验"];
+	optional int64 m_washExp = 2[(yd_fieldoptions.field_cname) = "泡澡经验"];
 }
 
 
 message Sheet_WashpartyExp
 {
-	repeated E_WashpartyExp E_WashpartyExp_List = 1[(yd_fieldoptions.field_arysize)=512];
+	repeated E_WashpartyExp E_WashpartyExp_List = 1[(yd_fieldoptions.field_arysize)=2048];
 }

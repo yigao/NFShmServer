@@ -287,3 +287,42 @@ message Sheet_RoleWorldexp
 {
 	repeated E_RoleWorldexp E_RoleWorldexp_List = 1[(yd_fieldoptions.field_arysize)=512];
 }
+
+message E_RoleChangecareerAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_RoleChangecareer
+{
+	optional int32 m_professionID = 1[(yd_fieldoptions.field_cname) = "职业ID"];
+	optional int32 m_rechargeID = 2[(yd_fieldoptions.field_cname) = "计费点"];
+	repeated E_RoleChangecareerAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_RoleChangecareer
+{
+	repeated E_RoleChangecareer E_RoleChangecareer_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_RoleCareerpreposeRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "道具"];
+}
+
+message E_RoleCareerprepose
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_condition = 2[(yd_fieldoptions.field_cname) = "条件"];
+	optional int32 m_value = 3[(yd_fieldoptions.field_cname) = "条件值"];
+	repeated E_RoleCareerpreposeRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_RoleCareerprepose
+{
+	repeated E_RoleCareerprepose E_RoleCareerprepose_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

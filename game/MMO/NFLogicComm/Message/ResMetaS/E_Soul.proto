@@ -36,7 +36,6 @@ message Sheet_SoulSoul
 message E_Soul3dmodel
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
-	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备位置"];
 }
 
 

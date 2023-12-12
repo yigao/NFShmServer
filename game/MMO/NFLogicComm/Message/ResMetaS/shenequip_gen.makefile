@@ -23,4 +23,14 @@ ${PROTOCGEN_FILE_PATH}/module_shenequip_bin:${PROTOCGEN_FILE_PATH}/shenequip.pro
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipStarupDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipStarupDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_ShenequipPrepose.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipPreposeDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipPreposeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_ShenequipDominance.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipDominanceDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipDominanceDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_ShenequipAdvanced.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipAdvancedDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipAdvancedDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_ShenequipTalent.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipTalentDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipTalentDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_ShenequipTalenttype.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipTalenttypeDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipTalenttypeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_ShenequipPreview.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/ShenequipPreviewDesc.h ${PROTOCGEN_FILE_PATH}/ShenequipPreviewDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_shenequip_bin

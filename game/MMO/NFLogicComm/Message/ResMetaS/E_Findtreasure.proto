@@ -39,7 +39,8 @@ message E_FindtreasureFindpool
 	optional int32 m_prof = 6[(yd_fieldoptions.field_cname) = "职业"];
 	optional int32 m_weights = 7[(yd_fieldoptions.field_cname) = "掉落权重"];
 	optional int32 m_proWeights = 8[(yd_fieldoptions.field_cname) = "保底掉落权重"];
-	optional int32 m_Record = 9[(yd_fieldoptions.field_cname) = "奖励记录稀有度"];
+	optional int32 m_poolLV = 9[(yd_fieldoptions.field_cname) = "奖池等级"];
+	optional int32 m_Record = 10[(yd_fieldoptions.field_cname) = "奖励记录稀有度"];
 }
 
 
@@ -53,6 +54,7 @@ message E_FindtreasureConstant
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
 	optional int32 m_dragonSeverTime = 2[(yd_fieldoptions.field_cname) = "真龙秘宝开服开启常规刷新时间"];
 	optional int32 m_godSeverTime = 3[(yd_fieldoptions.field_cname) = "神机更换奖池时间"];
+	optional string m_alchemySucces = 4[(yd_fieldoptions.field_cname) = "炼金工坊各等级的晋升成功率", (yd_fieldoptions.field_bufsize) = 64];
 }
 
 

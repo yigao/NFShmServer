@@ -35,4 +35,8 @@ ${PROTOCGEN_FILE_PATH}/module_role_bin:${PROTOCGEN_FILE_PATH}/role.proto.ds ${RE
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RoleAddskillDesc.h ${PROTOCGEN_FILE_PATH}/RoleAddskillDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RoleWorldexp.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RoleWorldexpDesc.h ${PROTOCGEN_FILE_PATH}/RoleWorldexpDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RoleChangecareer.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RoleChangecareerDesc.h ${PROTOCGEN_FILE_PATH}/RoleChangecareerDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_RoleCareerprepose.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/RoleCareerpreposeDesc.h ${PROTOCGEN_FILE_PATH}/RoleCareerpreposeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_role_bin

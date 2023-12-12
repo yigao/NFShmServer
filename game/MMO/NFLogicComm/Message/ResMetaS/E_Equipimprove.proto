@@ -36,7 +36,7 @@ message E_EquipimproveUpquality
 
 message Sheet_EquipimproveUpquality
 {
-	repeated E_EquipimproveUpquality E_EquipimproveUpquality_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated E_EquipimproveUpquality E_EquipimproveUpquality_List = 1[(yd_fieldoptions.field_arysize)=1024];
 }
 
 message E_EquipimproveAwakenAttributeDesc

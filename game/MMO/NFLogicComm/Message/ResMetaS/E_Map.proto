@@ -49,7 +49,7 @@ message E_MapMap
 
 message Sheet_MapMap
 {
-	repeated E_MapMap E_MapMap_List = 1[(yd_fieldoptions.field_arysize)=128];
+	repeated E_MapMap E_MapMap_List = 1[(yd_fieldoptions.field_arysize)=256];
 }
 
 message E_MapItemdrop

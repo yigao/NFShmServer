@@ -9,6 +9,8 @@ ${PROTOCGEN_FILE_PATH}/module_xiuzhenWorld_bin:${PROTOCGEN_FILE_PATH}/xiuzhenWor
 	rm -rf ${PROTOCGEN_FILE_PATH}/module_xiuzhenWorld_bin
 	${NFEXCELPROCESS} --work="exceltobin" --src=${RESDB_EXCELMMO_PATH}/xiuzhenWorld.xlsx  --proto_ds=${PROTOCGEN_FILE_PATH}/xiuzhenWorld.proto.ds --dst=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --work="filecopy_notexist" --src="${PROTOCGEN_FILE_PATH}/XiuzhenworldDescEx.h ${PROTOCGEN_FILE_PATH}/XiuzhenworldDescEx.cpp" --dst=${DESC_STORE_EX_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_XiuzhenworldWorld.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/XiuzhenworldWorldDesc.h ${PROTOCGEN_FILE_PATH}/XiuzhenworldWorldDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_XiuzhenworldConstant.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/XiuzhenworldConstantDesc.h ${PROTOCGEN_FILE_PATH}/XiuzhenworldConstantDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_XiuzhenworldExpmap.bin" --dst=${GAME_DATA_PATH}/

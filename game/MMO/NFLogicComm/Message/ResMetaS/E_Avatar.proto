@@ -285,3 +285,119 @@ message Sheet_AvatarMythequip
 {
 	repeated E_AvatarMythequip E_AvatarMythequip_List = 1[(yd_fieldoptions.field_arysize)=64];
 }
+
+message E_AvatarArtifactAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "初始值"];
+	optional int32 m_times = 2[(yd_fieldoptions.field_cname) = "解锁次数"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_AvatarArtifact
+{
+	optional int32 m_changeID = 1[(yd_fieldoptions.field_cname) = "天神id"];
+	optional int32 m_starGroupID = 2[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 m_strGroupID = 3[(yd_fieldoptions.field_cname) = "强化属性组ID"];
+	optional int32 m_EncGroupID = 4[(yd_fieldoptions.field_cname) = "附魔属性组ID"];
+	optional int32 m_activeADDtime = 5[(yd_fieldoptions.field_cname) = "激活后增加变身时间"];
+	optional int32 m_costItem = 6[(yd_fieldoptions.field_cname) = "激活道具id"];
+	optional int32 m_costNum = 7[(yd_fieldoptions.field_cname) = "激活消耗"];
+	repeated E_AvatarArtifactAttributeDesc m_Attribute = 8[(yd_fieldoptions.field_cname) = "附灵属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_AvatarArtifact
+{
+	repeated E_AvatarArtifact E_AvatarArtifact_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_AvatarArtifact_facade
+{
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_changeID = 2[(yd_fieldoptions.field_cname) = "对应的天神id"];
+	optional int32 m_starGroupID = 3[(yd_fieldoptions.field_cname) = "升星属性组ID"];
+	optional int32 m_costItem = 4[(yd_fieldoptions.field_cname) = "激活道具id"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "激活消耗"];
+	optional int32 m_activeReduceCD = 6[(yd_fieldoptions.field_cname) = "激活后减少变身冷却"];
+}
+
+
+message Sheet_AvatarArtifact_facade
+{
+	repeated E_AvatarArtifact_facade E_AvatarArtifact_facade_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_AvatarArtifact_starAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarArtifact_star
+{
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_star = 3[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_costItem = 4[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "升星消耗"];
+	optional int32 m_EnchantMaxADD = 6[(yd_fieldoptions.field_cname) = "提升附灵的百分比上限"];
+	repeated E_AvatarArtifact_starAttributeDesc m_Attribute = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_AvatarArtifact_star
+{
+	repeated E_AvatarArtifact_star E_AvatarArtifact_star_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_AvatarArtifact_strengthenAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarArtifact_strengthen
+{
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_costItem = 4[(yd_fieldoptions.field_cname) = "升级道具id"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "升级消耗"];
+	optional int32 m_star = 6[(yd_fieldoptions.field_cname) = "需要星级"];
+	repeated E_AvatarArtifact_strengthenAttributeDesc m_Attribute = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_AvatarArtifact_strengthen
+{
+	repeated E_AvatarArtifact_strengthen E_AvatarArtifact_strengthen_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_AvatarArtifact_enchant
+{
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupID = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "附灵次数"];
+	optional int32 m_costItem = 4[(yd_fieldoptions.field_cname) = "附灵道具id"];
+	optional int32 m_costNum = 5[(yd_fieldoptions.field_cname) = "附灵消耗"];
+	optional int32 m_upValue = 6[(yd_fieldoptions.field_cname) = "附灵提升的百分比"];
+}
+
+
+message Sheet_AvatarArtifact_enchant
+{
+	repeated E_AvatarArtifact_enchant E_AvatarArtifact_enchant_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_AvatarArtifact_decompose
+{
+	optional int32 m_itemID = 1[(yd_fieldoptions.field_cname) = "物品id"];
+	optional int32 m_decomposeItem = 2[(yd_fieldoptions.field_cname) = "分解道具"];
+	optional int32 m_decomposeNum = 3[(yd_fieldoptions.field_cname) = "分解数量"];
+}
+
+
+message Sheet_AvatarArtifact_decompose
+{
+	repeated E_AvatarArtifact_decompose E_AvatarArtifact_decompose_List = 1[(yd_fieldoptions.field_arysize)=32];
+}

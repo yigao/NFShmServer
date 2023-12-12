@@ -28,17 +28,18 @@ message E_BossBosstype
 	optional int32 m_functionId = 3[(yd_fieldoptions.field_cname) = "功能解锁ID"];
 	optional int32 m_duplicateGroupID = 4[(yd_fieldoptions.field_cname) = "副本组ID"];
 	optional int32 m_privilegeType = 5[(yd_fieldoptions.field_cname) = "特权类型"];
-	optional int64 m_callingCardId = 6[(yd_fieldoptions.field_cname) = "召唤卡id"];
-	optional int32 m_enterTimes = 7[(yd_fieldoptions.field_cname) = "进入次数"];
-	optional int32 m_costitem = 8[(yd_fieldoptions.field_cname) = "进入消耗物品"];
-	optional string m_costnum = 9[(yd_fieldoptions.field_cname) = "进入消耗物品数量", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_bossTimes = 10[(yd_fieldoptions.field_cname) = "boss次数"];
-	optional int32 m_addItemID = 11[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
-	optional int32 m_canhelp = 12[(yd_fieldoptions.field_cname) = "是否可以援助"];
-	optional int32 m_qkill = 13[(yd_fieldoptions.field_cname) = "是否支持快速击杀"];
-	optional int32 m_retrievedDays = 14[(yd_fieldoptions.field_cname) = "找回天数"];
-	optional int32 m_skill = 15[(yd_fieldoptions.field_cname) = "纳入全服首杀"];
-	repeated E_BossBosstypeGroupDesc m_group = 16[(yd_fieldoptions.field_cname) = "Boss组", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_PEnterType = 6[(yd_fieldoptions.field_cname) = "特权进入类型"];
+	optional int64 m_callingCardId = 7[(yd_fieldoptions.field_cname) = "召唤卡id"];
+	optional int32 m_enterTimes = 8[(yd_fieldoptions.field_cname) = "进入次数"];
+	optional int32 m_costitem = 9[(yd_fieldoptions.field_cname) = "进入消耗物品"];
+	optional string m_costnum = 10[(yd_fieldoptions.field_cname) = "进入消耗物品数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_bossTimes = 11[(yd_fieldoptions.field_cname) = "boss次数"];
+	optional int32 m_addItemID = 12[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
+	optional int32 m_canhelp = 13[(yd_fieldoptions.field_cname) = "是否可以援助"];
+	optional int32 m_qkill = 14[(yd_fieldoptions.field_cname) = "是否支持快速击杀"];
+	optional int32 m_retrievedDays = 15[(yd_fieldoptions.field_cname) = "找回天数"];
+	optional int32 m_skill = 16[(yd_fieldoptions.field_cname) = "纳入全服首杀"];
+	repeated E_BossBosstypeGroupDesc m_group = 17[(yd_fieldoptions.field_cname) = "Boss组", (yd_fieldoptions.field_arysize) = 3];
 }
 
 
@@ -70,7 +71,7 @@ message E_BossBoss
 
 message Sheet_BossBoss
 {
-	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=1024];
+	repeated E_BossBoss E_BossBoss_List = 1[(yd_fieldoptions.field_arysize)=2048];
 }
 
 message E_BossLayer
@@ -89,5 +90,5 @@ message E_BossLayer
 
 message Sheet_BossLayer
 {
-	repeated E_BossLayer E_BossLayer_List = 1[(yd_fieldoptions.field_arysize)=64];
+	repeated E_BossLayer E_BossLayer_List = 1[(yd_fieldoptions.field_arysize)=256];
 }

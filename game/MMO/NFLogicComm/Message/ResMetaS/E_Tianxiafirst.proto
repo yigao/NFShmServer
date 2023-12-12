@@ -3,31 +3,75 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
-message E_TianxiafirstActivateAttDesc
+message E_TianxiafirstConstant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_teamMember = 2[(yd_fieldoptions.field_cname) = "战队人数上限"];
+	optional int32 m_cedeTime = 3[(yd_fieldoptions.field_cname) = "转让队长次数"];
+	optional int32 m_punishTime = 4[(yd_fieldoptions.field_cname) = "离队惩罚时间"];
+	optional int32 m_breakTime = 5[(yd_fieldoptions.field_cname) = "战队解散时间"];
+	optional int32 m_unitName = 6[(yd_fieldoptions.field_cname) = "修改战队名称"];
+	optional int32 m_unitCost = 7[(yd_fieldoptions.field_cname) = "修改花费数量"];
+	optional int32 m_entrTimes = 8[(yd_fieldoptions.field_cname) = "积分赛参赛获奖次数"];
+	optional int32 m_mvpReward = 9[(yd_fieldoptions.field_cname) = "积分赛mvp奖励"];
+	optional int32 m_matchTime = 10[(yd_fieldoptions.field_cname) = "积分赛单场时间"];
+	optional int32 m_autoMatchTime = 11[(yd_fieldoptions.field_cname) = "积分赛自动匹配时间"];
+	optional int32 m_endTipsTime = 12[(yd_fieldoptions.field_cname) = "积分赛结束提示时间"];
+	optional int32 m_readyTime = 13[(yd_fieldoptions.field_cname) = "争夺赛准备时间"];
+	optional int32 m_summonItem = 14[(yd_fieldoptions.field_cname) = "召唤分身货币"];
+	optional int32 m_summonNum = 15[(yd_fieldoptions.field_cname) = "召唤分身货币数量"];
+	optional int32 m_showReward = 16[(yd_fieldoptions.field_cname) = "展示奖励"];
+	optional string m_robotName = 17[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_mateTime = 18[(yd_fieldoptions.field_cname) = "匹配预计时间"];
+	optional int32 m_addTime = 19[(yd_fieldoptions.field_cname) = "匹配增量时间"];
+	optional string m_initialNotice = 20[(yd_fieldoptions.field_cname) = "初始公告", (yd_fieldoptions.field_bufsize) = 256];
+	optional int32 m_freeTime = 21[(yd_fieldoptions.field_cname) = "免费供奉次数"];
+	optional int32 m_expendItem = 22[(yd_fieldoptions.field_cname) = "供奉消耗道具"];
+	optional int32 m_addServe = 23[(yd_fieldoptions.field_cname) = "供奉增加供奉值"];
+	optional int32 m_serveTitle = 24[(yd_fieldoptions.field_cname) = "供奉称号所需值"];
+	optional int32 m_guessLimit = 25[(yd_fieldoptions.field_cname) = "单个战团最大竞猜积分"];
+	optional string m_exchangeRatio = 26[(yd_fieldoptions.field_cname) = "积分兑换比例", (yd_fieldoptions.field_bufsize) = 64];
+	repeated string m_group = 27[(yd_fieldoptions.field_cname) = "小组队伍", (yd_fieldoptions.field_arysize) = 4, (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_TianxiafirstConstant
+{
+	repeated E_TianxiafirstConstant E_TianxiafirstConstant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_TianxiafirstBattle
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_gamemod = 2[(yd_fieldoptions.field_cname) = "比赛模式"];
+	optional int32 m_matchTime = 3[(yd_fieldoptions.field_cname) = "单场时间"];
+	optional int32 m_revive = 4[(yd_fieldoptions.field_cname) = "复活次数"];
+}
+
+
+message Sheet_TianxiafirstBattle
+{
+	repeated E_TianxiafirstBattle E_TianxiafirstBattle_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstArtifactAttDesc
 {
 	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
 	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
 }
 
-message E_TianxiafirstActivateModelDesc
-{
-	optional int32 m_condition = 1[(yd_fieldoptions.field_cname) = "激活条件"];
-	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
-}
-
-message E_TianxiafirstActivate
+message E_TianxiafirstArtifact
 {
 	optional int32 m_artifactId = 1[(yd_fieldoptions.field_cname) = "神器id"];
 	optional int32 m_preId = 2[(yd_fieldoptions.field_cname) = "激活条件-前置id"];
 	optional int32 m_condition = 3[(yd_fieldoptions.field_cname) = "激活条件"];
-	repeated E_TianxiafirstActivateAttDesc m_att = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 5];
-	repeated E_TianxiafirstActivateModelDesc m_model = 5[(yd_fieldoptions.field_cname) = "神器外观", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_TianxiafirstArtifactAttDesc m_att = 4[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 5];
 }
 
 
-message Sheet_TianxiafirstActivate
+message Sheet_TianxiafirstArtifact
 {
-	repeated E_TianxiafirstActivate E_TianxiafirstActivate_List = 1[(yd_fieldoptions.field_arysize)=16];
+	repeated E_TianxiafirstArtifact E_TianxiafirstArtifact_List = 1[(yd_fieldoptions.field_arysize)=4];
 }
 
 message E_TianxiafirstStrongTypeDesc
@@ -101,4 +145,211 @@ message E_TianxiafirstSqskill
 message Sheet_TianxiafirstSqskill
 {
 	repeated E_TianxiafirstSqskill E_TianxiafirstSqskill_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_TianxiafirstGrade
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 m_grade = 2[(yd_fieldoptions.field_cname) = "段位类型"];
+	optional string m_name = 3[(yd_fieldoptions.field_cname) = "段位名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "星星数量"];
+	optional int32 m_score = 5[(yd_fieldoptions.field_cname) = "积分值"];
+	optional int32 m_scoreAdd = 6[(yd_fieldoptions.field_cname) = "胜场积分奖励"];
+	optional int32 m_scoringSub = 7[(yd_fieldoptions.field_cname) = "负场积分扣除"];
+	optional int32 m_Time = 8[(yd_fieldoptions.field_cname) = "跨池时间"];
+	optional int32 m_downLimit = 9[(yd_fieldoptions.field_cname) = "最小匹配段位"];
+	optional int32 m_upLimit = 10[(yd_fieldoptions.field_cname) = "最大匹配段位"];
+	optional int32 m_substituteTime = 11[(yd_fieldoptions.field_cname) = "机器人补位时间"];
+}
+
+
+message Sheet_TianxiafirstGrade
+{
+	repeated E_TianxiafirstGrade E_TianxiafirstGrade_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_TianxiafirstGraderewardRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstGradereward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_scoreMin = 2[(yd_fieldoptions.field_cname) = "需要的积分"];
+	optional int32 m_matchTimes = 3[(yd_fieldoptions.field_cname) = "参赛场次"];
+	repeated E_TianxiafirstGraderewardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_TianxiafirstGradereward
+{
+	repeated E_TianxiafirstGradereward E_TianxiafirstGradereward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstRankrewardRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstRankreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_rank = 2[(yd_fieldoptions.field_cname) = "排名"];
+	repeated E_TianxiafirstRankrewardRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_TianxiafirstRankreward
+{
+	repeated E_TianxiafirstRankreward E_TianxiafirstRankreward_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_TianxiafirstWatchrewardRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstWatchreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_matchState = 2[(yd_fieldoptions.field_cname) = "比赛阶段"];
+	repeated E_TianxiafirstWatchrewardRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_TianxiafirstWatchreward
+{
+	repeated E_TianxiafirstWatchreward E_TianxiafirstWatchreward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstLuckyrewardRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstLuckyreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_numMin = 2[(yd_fieldoptions.field_cname) = "最小抽奖人数"];
+	optional int32 m_numMax = 3[(yd_fieldoptions.field_cname) = "最大抽奖人数"];
+	repeated E_TianxiafirstLuckyrewardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_TianxiafirstLuckyreward
+{
+	repeated E_TianxiafirstLuckyreward E_TianxiafirstLuckyreward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstMatchtimesrewardRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstMatchtimesreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_matchTimes = 2[(yd_fieldoptions.field_cname) = "参与比赛次数"];
+	repeated E_TianxiafirstMatchtimesrewardRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_TianxiafirstMatchtimesreward
+{
+	repeated E_TianxiafirstMatchtimesreward E_TianxiafirstMatchtimesreward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstMatchresultrewardRewardDesc
+{
+	optional int32 m_Num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_ID = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstMatchresultreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_matchState = 2[(yd_fieldoptions.field_cname) = "比赛阶段"];
+	optional int32 m_result = 3[(yd_fieldoptions.field_cname) = "比赛结果"];
+	repeated E_TianxiafirstMatchresultrewardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_TianxiafirstMatchresultreward
+{
+	repeated E_TianxiafirstMatchresultreward E_TianxiafirstMatchresultreward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_TianxiafirstExtraaddattrAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstExtraaddattr
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "供奉值"];
+	repeated E_TianxiafirstExtraaddattrAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_TianxiafirstExtraaddattr
+{
+	repeated E_TianxiafirstExtraaddattr E_TianxiafirstExtraaddattr_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_TianxiafirstFirstaddattrAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_TianxiafirstFirstaddattr
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "供奉值"];
+	repeated E_TianxiafirstFirstaddattrAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_TianxiafirstFirstaddattr
+{
+	repeated E_TianxiafirstFirstaddattr E_TianxiafirstFirstaddattr_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_TianxiafirstShop
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_itemId = 2[(yd_fieldoptions.field_cname) = "物品id"];
+	optional int32 m_costItem = 3[(yd_fieldoptions.field_cname) = "购买消耗物品id"];
+	optional int32 m_costNum = 4[(yd_fieldoptions.field_cname) = "购买消耗数量"];
+	optional int32 m_count = 5[(yd_fieldoptions.field_cname) = "限购数量"];
+	optional int32 m_limitType = 6[(yd_fieldoptions.field_cname) = "限购类型"];
+	optional int32 m_condition = 7[(yd_fieldoptions.field_cname) = "购买条件"];
+	optional int32 m_conditionParam = 8[(yd_fieldoptions.field_cname) = "购买条件参数"];
+}
+
+
+message Sheet_TianxiafirstShop
+{
+	repeated E_TianxiafirstShop E_TianxiafirstShop_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_TianxiafirstDanmaku
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional string m_danmaku = 3[(yd_fieldoptions.field_cname) = "弹幕内容", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_TianxiafirstDanmaku
+{
+	repeated E_TianxiafirstDanmaku E_TianxiafirstDanmaku_List = 1[(yd_fieldoptions.field_arysize)=16];
 }

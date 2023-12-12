@@ -35,4 +35,16 @@ ${PROTOCGEN_FILE_PATH}/module_avatar_bin:${PROTOCGEN_FILE_PATH}/avatar.proto.ds 
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarMythcoreDesc.h ${PROTOCGEN_FILE_PATH}/AvatarMythcoreDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarMythequip.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarMythequipDesc.h ${PROTOCGEN_FILE_PATH}/AvatarMythequipDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarArtifact.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarArtifactDesc.h ${PROTOCGEN_FILE_PATH}/AvatarArtifactDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarArtifact_facade.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarArtifact_facadeDesc.h ${PROTOCGEN_FILE_PATH}/AvatarArtifact_facadeDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarArtifact_star.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarArtifact_starDesc.h ${PROTOCGEN_FILE_PATH}/AvatarArtifact_starDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarArtifact_strengthen.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarArtifact_strengthenDesc.h ${PROTOCGEN_FILE_PATH}/AvatarArtifact_strengthenDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarArtifact_enchant.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarArtifact_enchantDesc.h ${PROTOCGEN_FILE_PATH}/AvatarArtifact_enchantDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_AvatarArtifact_decompose.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/AvatarArtifact_decomposeDesc.h ${PROTOCGEN_FILE_PATH}/AvatarArtifact_decomposeDesc.cpp" --dst=${DESC_STORE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/module_avatar_bin

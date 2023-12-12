@@ -59,20 +59,21 @@ message E_Pk3v3Constant
 	optional int32 m_cedeTime = 4[(yd_fieldoptions.field_cname) = "转让队长时间"];
 	optional int32 m_punishTime = 5[(yd_fieldoptions.field_cname) = "离队惩罚时间"];
 	optional int32 m_breakTime = 6[(yd_fieldoptions.field_cname) = "战队解散时间"];
-	optional int32 m_entryReward = 7[(yd_fieldoptions.field_cname) = "参赛奖励"];
-	optional int32 m_entrTimes = 8[(yd_fieldoptions.field_cname) = "参赛获奖次数"];
-	optional int32 m_mvpReward = 9[(yd_fieldoptions.field_cname) = "mvp奖励"];
-	optional int32 m_mvpTimes = 10[(yd_fieldoptions.field_cname) = "mvp奖励次数"];
-	optional int32 m_matchTime = 11[(yd_fieldoptions.field_cname) = "单场时间"];
-	optional int32 m_unitName = 12[(yd_fieldoptions.field_cname) = "修改战队名称"];
-	optional int32 m_unitCost = 13[(yd_fieldoptions.field_cname) = "修改花费数量"];
-	optional int32 m_initialZLid = 14[(yd_fieldoptions.field_cname) = "初始战令id"];
-	optional string m_initialZLName = 15[(yd_fieldoptions.field_cname) = "初始战令名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional string m_robotName = 16[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_mateTime = 17[(yd_fieldoptions.field_cname) = "匹配预计时间"];
-	optional int32 m_addTime = 18[(yd_fieldoptions.field_cname) = "匹配增量时间"];
-	optional string m_initialNotice = 19[(yd_fieldoptions.field_cname) = "初始公告", (yd_fieldoptions.field_bufsize) = 256];
-	repeated int32 m_showReward = 20[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 3];
+	optional int32 m_entryReward = 7[(yd_fieldoptions.field_cname) = "参赛胜利奖励"];
+	optional int32 m_entryLoseReward = 8[(yd_fieldoptions.field_cname) = "参赛失败奖励"];
+	optional int32 m_entrTimes = 9[(yd_fieldoptions.field_cname) = "参赛获奖次数"];
+	optional int32 m_mvpReward = 10[(yd_fieldoptions.field_cname) = "mvp奖励"];
+	optional int32 m_mvpTimes = 11[(yd_fieldoptions.field_cname) = "mvp奖励次数"];
+	optional int32 m_matchTime = 12[(yd_fieldoptions.field_cname) = "单场时间"];
+	optional int32 m_unitName = 13[(yd_fieldoptions.field_cname) = "修改战队名称"];
+	optional int32 m_unitCost = 14[(yd_fieldoptions.field_cname) = "修改花费数量"];
+	optional int32 m_initialZLid = 15[(yd_fieldoptions.field_cname) = "初始战令id"];
+	optional string m_initialZLName = 16[(yd_fieldoptions.field_cname) = "初始战令名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_robotName = 17[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_mateTime = 18[(yd_fieldoptions.field_cname) = "匹配预计时间"];
+	optional int32 m_addTime = 19[(yd_fieldoptions.field_cname) = "匹配增量时间"];
+	optional string m_initialNotice = 20[(yd_fieldoptions.field_cname) = "初始公告", (yd_fieldoptions.field_bufsize) = 256];
+	repeated int32 m_showReward = 21[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 3];
 }
 
 

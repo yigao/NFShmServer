@@ -3,6 +3,20 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 
 
+message E_XiuzhenworldWorld
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_order = 3[(yd_fieldoptions.field_cname) = "服务器分配序号"];
+	optional int32 m_landDup = 4[(yd_fieldoptions.field_cname) = "领地副本"];
+}
+
+
+message Sheet_XiuzhenworldWorld
+{
+	repeated E_XiuzhenworldWorld E_XiuzhenworldWorld_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
 message E_XiuzhenworldConstantTimeitemDesc
 {
 	optional int32 m_time = 1[(yd_fieldoptions.field_cname) = "时间"];

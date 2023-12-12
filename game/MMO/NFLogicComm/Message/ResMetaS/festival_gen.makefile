@@ -15,6 +15,8 @@ ${PROTOCGEN_FILE_PATH}/module_festival_bin:${PROTOCGEN_FILE_PATH}/festival.proto
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalFestivalDesc.h ${PROTOCGEN_FILE_PATH}/FestivalFestivalDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalTemplate.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalTemplateDesc.h ${PROTOCGEN_FILE_PATH}/FestivalTemplateDesc.cpp" --dst=${DESC_STORE_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_consumerank.bin" --dst=${GAME_DATA_PATH}/
+	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_consumerankDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_consumerankDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_eggsdraw.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdrawDesc.h ${PROTOCGEN_FILE_PATH}/FestivalMuban_eggsdrawDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FestivalMuban_eggsdraw_pool.bin" --dst=${GAME_DATA_PATH}/

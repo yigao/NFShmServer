@@ -77,6 +77,20 @@ message Sheet_RuneQuenching
 	repeated E_RuneQuenching E_RuneQuenching_List = 1[(yd_fieldoptions.field_arysize)=16];
 }
 
+message E_RuneCompare
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_positionType = 2[(yd_fieldoptions.field_cname) = "符文部位类型"];
+	optional int32 m_attributeType = 3[(yd_fieldoptions.field_cname) = "符文属性类型"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "符文品质"];
+}
+
+
+message Sheet_RuneCompare
+{
+	repeated E_RuneCompare E_RuneCompare_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
 message E_RuneStuntskillActivateDesc
 {
 	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
@@ -195,4 +209,21 @@ message E_RuneSoaring
 message Sheet_RuneSoaring
 {
 	repeated E_RuneSoaring E_RuneSoaring_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_RuneHandbook
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lvId = 2[(yd_fieldoptions.field_cname) = "物品id"];
+	optional int32 m_rank = 3[(yd_fieldoptions.field_cname) = "排序"];
+	optional int32 m_type = 4[(yd_fieldoptions.field_cname) = "图鉴类型"];
+	optional string m_typeName = 5[(yd_fieldoptions.field_cname) = "图鉴类型名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_subType = 6[(yd_fieldoptions.field_cname) = "图鉴子类型"];
+	optional string m_subTypeName = 7[(yd_fieldoptions.field_cname) = "图鉴子类型名称", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RuneHandbook
+{
+	repeated E_RuneHandbook E_RuneHandbook_List = 1[(yd_fieldoptions.field_arysize)=128];
 }
