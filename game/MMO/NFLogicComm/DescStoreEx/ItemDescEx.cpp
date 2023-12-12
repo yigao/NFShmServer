@@ -436,13 +436,6 @@ bool ItemDescEx::Process()
                     NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process....addvipexp item, param count error....itemid:%lu, strParam:%s ", itemCfg.m_id, strParam.c_str());
                     return false;
                 }
-                int64_t skillId = vecParam.at(0);
-                auto pskillcfg =  SkillSkillDesc::Instance()->GetDesc(skillId);
-                if (nullptr == pskillcfg)
-                {
-                    NFLogErrorFmt(NF_LOG_SYSTEMLOG, 0, "[common] ItemCfg::Process....addvipexp item, can not find skill config....itemid:%lu, strParam:%s, skillId:%ld ", itemCfg.m_id, strParam.c_str(), skillId);
-                    return false;
-                }
             }
             else if ((int32_t)EItemFuncType::EItemFuncType_Virtual == itemCfg.m_functionType)
             {
