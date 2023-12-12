@@ -1,0 +1,50 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_PeakbattleConstant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+}
+
+
+message Sheet_PeakbattleConstant
+{
+	repeated E_PeakbattleConstant E_PeakbattleConstant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_PeakbattleAwardAwardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_time = 2[(yd_fieldoptions.field_cname) = "道具"];
+}
+
+message E_PeakbattleAward
+{
+	optional int32 m_awardId = 1[(yd_fieldoptions.field_cname) = "奖励id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "奖励类型"];
+	optional int32 m_condition = 3[(yd_fieldoptions.field_cname) = "奖励条件"];
+	repeated E_PeakbattleAwardAwardDesc m_award = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_PeakbattleAward
+{
+	repeated E_PeakbattleAward E_PeakbattleAward_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_PeakbattleGuess
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "赛程"];
+	optional int32 m_clock = 2[(yd_fieldoptions.field_cname) = "竞猜倒计时"];
+	optional int32 m_item = 3[(yd_fieldoptions.field_cname) = "发放道具"];
+	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_max = 5[(yd_fieldoptions.field_cname) = "竞猜最大上限"];
+}
+
+
+message Sheet_PeakbattleGuess
+{
+	repeated E_PeakbattleGuess E_PeakbattleGuess_List = 1[(yd_fieldoptions.field_arysize)=4];
+}

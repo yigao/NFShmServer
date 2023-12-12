@@ -1,0 +1,240 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_CloakActivate
+{
+	optional int32 m_cloakId = 1[(yd_fieldoptions.field_cname) = "披风id"];
+	optional int32 m_show = 2[(yd_fieldoptions.field_cname) = "是否初始显示"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_facade = 4[(yd_fieldoptions.field_cname) = "形象id"];
+	optional int32 m_activateItem = 5[(yd_fieldoptions.field_cname) = "激活道具id"];
+	optional int32 m_activateNum = 6[(yd_fieldoptions.field_cname) = "激活道具数量"];
+}
+
+
+message Sheet_CloakActivate
+{
+	repeated E_CloakActivate E_CloakActivate_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_CloakValueCloakattributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_CloakValue
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_cloakExp = 2[(yd_fieldoptions.field_cname) = "披风升级经验"];
+	repeated E_CloakValueCloakattributeDesc m_cloakAttribute = 3[(yd_fieldoptions.field_cname) = "披风基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_CloakValue
+{
+	repeated E_CloakValue E_CloakValue_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_CloakIntensifyitem
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_addExp = 2[(yd_fieldoptions.field_cname) = "增加经验值"];
+}
+
+
+message Sheet_CloakIntensifyitem
+{
+	repeated E_CloakIntensifyitem E_CloakIntensifyitem_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_CloakRefineItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_CloakRefineAttDesc
+{
+	optional int32 m_vlue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_CloakRefine
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_cloakId = 2[(yd_fieldoptions.field_cname) = "披风id"];
+	optional int32 m_refineLv = 3[(yd_fieldoptions.field_cname) = "精炼等级"];
+	optional int32 m_success = 4[(yd_fieldoptions.field_cname) = "精炼成功率"];
+	optional int32 m_guarant = 5[(yd_fieldoptions.field_cname) = "精炼保底次数"];
+	repeated E_CloakRefineItemDesc m_item = 6[(yd_fieldoptions.field_cname) = "消耗道具", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_CloakRefineAttDesc m_att = 7[(yd_fieldoptions.field_cname) = "精炼属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_CloakRefine
+{
+	repeated E_CloakRefine E_CloakRefine_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_CloakRefineunlock
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_cloakId = 2[(yd_fieldoptions.field_cname) = "披风id"];
+	optional int32 m_refineLv = 3[(yd_fieldoptions.field_cname) = "精炼等级"];
+	optional int32 m_unlockAtt = 4[(yd_fieldoptions.field_cname) = "精炼解锁属性id"];
+	optional int32 m_unlockVlue = 5[(yd_fieldoptions.field_cname) = "精炼解锁属性值"];
+	optional int32 m_skill = 6[(yd_fieldoptions.field_cname) = "激活技能"];
+}
+
+
+message Sheet_CloakRefineunlock
+{
+	repeated E_CloakRefineunlock E_CloakRefineunlock_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_CloakGradeItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_CloakGradeAttributeDesc
+{
+	optional int32 m_vlue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_CloakGrade
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_cloakId = 2[(yd_fieldoptions.field_cname) = "披风id"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "升品品质"];
+	repeated E_CloakGradeItemDesc m_item = 4[(yd_fieldoptions.field_cname) = "升品道具", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_CloakGradeAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "升品属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_CloakGrade
+{
+	repeated E_CloakGrade E_CloakGrade_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_CloakGodItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_CloakGodAttributeDesc
+{
+	optional int32 m_vlue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_CloakGod
+{
+	optional int32 m_cloakId = 1[(yd_fieldoptions.field_cname) = "披风id"];
+	optional int32 m_skill = 2[(yd_fieldoptions.field_cname) = "激活技能"];
+	repeated E_CloakGodItemDesc m_item = 3[(yd_fieldoptions.field_cname) = "化神道具", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_CloakGodAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "化神属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_CloakGod
+{
+	repeated E_CloakGod E_CloakGod_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_CloakSoulAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_CloakSoul
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "器魂ID"];
+	optional int32 m_rechargeID = 2[(yd_fieldoptions.field_cname) = "价格计费点"];
+	optional int32 m_mainSkill = 3[(yd_fieldoptions.field_cname) = "主技能ID"];
+	optional string m_attributeType = 4[(yd_fieldoptions.field_cname) = "升级属性类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_itemId = 5[(yd_fieldoptions.field_cname) = "重置货币id"];
+	optional int32 m_itemNum = 6[(yd_fieldoptions.field_cname) = "重置货币数量"];
+	repeated int32 m_minorSkill = 7[(yd_fieldoptions.field_cname) = "副技能ID", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_CloakSoulAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "激活基础属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_CloakSoul
+{
+	repeated E_CloakSoul E_CloakSoul_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_CloakSoulactiveUnlockDesc
+{
+	optional string m_parama = 1[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_condition = 2[(yd_fieldoptions.field_cname) = "条件"];
+}
+
+message E_CloakSoulactive
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "技能ID"];
+	repeated E_CloakSoulactiveUnlockDesc m_unlock = 2[(yd_fieldoptions.field_cname) = "解锁", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_CloakSoulactive
+{
+	repeated E_CloakSoulactive E_CloakSoulactive_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_CloakSoullvAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_CloakSoullv
+{
+	optional int32 m_soullLv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_itemID = 2[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional int32 m_successRate = 4[(yd_fieldoptions.field_cname) = "升级成功率"];
+	optional int32 m_downLv = 5[(yd_fieldoptions.field_cname) = "是否掉级"];
+	repeated E_CloakSoullvAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_CloakSoullv
+{
+	repeated E_CloakSoullv E_CloakSoullv_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_CloakSoulclear
+{
+	optional int32 m_soullLv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	repeated int32 m_clearAtt = 2[(yd_fieldoptions.field_cname) = "解锁属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_CloakSoulclear
+{
+	repeated E_CloakSoulclear E_CloakSoulclear_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_CloakSoulachievement
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "成就id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_parama = 3[(yd_fieldoptions.field_cname) = "影响值"];
+	optional int32 m_itemID = 4[(yd_fieldoptions.field_cname) = "奖励道具"];
+	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "奖励数量"];
+}
+
+
+message Sheet_CloakSoulachievement
+{
+	repeated E_CloakSoulachievement E_CloakSoulachievement_List = 1[(yd_fieldoptions.field_arysize)=32];
+}

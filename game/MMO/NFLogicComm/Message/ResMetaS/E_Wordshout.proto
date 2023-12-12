@@ -1,0 +1,16 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_WordshoutShout
+{
+	optional int32 m_ID = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_Channel = 2[(yd_fieldoptions.field_cname) = "频道字段"];
+}
+
+
+message Sheet_WordshoutShout
+{
+	repeated E_WordshoutShout E_WordshoutShout_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

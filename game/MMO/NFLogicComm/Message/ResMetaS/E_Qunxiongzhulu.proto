@@ -1,0 +1,120 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_QunxiongzhuluConstant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_thisMap = 2[(yd_fieldoptions.field_cname) = "本服地图"];
+	optional int32 m_thisBossId = 3[(yd_fieldoptions.field_cname) = "本服bossid"];
+	optional int32 m_thisBossPonit = 4[(yd_fieldoptions.field_cname) = "本服boss点"];
+	optional int32 m_gateMonster = 5[(yd_fieldoptions.field_cname) = "跨服boss传送点怪物id"];
+	optional int32 m_gatePoint = 6[(yd_fieldoptions.field_cname) = "跨服boss传送点"];
+	optional int32 m_thisPickupLimit = 7[(yd_fieldoptions.field_cname) = "本服个人拾取上限"];
+	optional int32 m_crossMap = 8[(yd_fieldoptions.field_cname) = "跨服地图"];
+	optional int32 m_crossBossId = 9[(yd_fieldoptions.field_cname) = "跨服bossid"];
+	optional int32 m_crossBossPoint = 10[(yd_fieldoptions.field_cname) = "跨服boss点"];
+	optional int32 m_crossPickupLimit = 11[(yd_fieldoptions.field_cname) = "跨服个人拾取上限"];
+	optional int32 m_carId = 12[(yd_fieldoptions.field_cname) = "战车id"];
+	optional int32 m_preview = 13[(yd_fieldoptions.field_cname) = "奖励预览"];
+	optional int32 m_actId = 14[(yd_fieldoptions.field_cname) = "活动id"];
+	repeated int32 m_crossPoint = 15[(yd_fieldoptions.field_cname) = "跨服出生点", (yd_fieldoptions.field_arysize) = 8];
+	repeated int32 m_carPoint = 16[(yd_fieldoptions.field_cname) = "战车坐标", (yd_fieldoptions.field_arysize) = 16];
+}
+
+
+message Sheet_QunxiongzhuluConstant
+{
+	repeated E_QunxiongzhuluConstant E_QunxiongzhuluConstant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_QunxiongzhuluSkill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+
+message Sheet_QunxiongzhuluSkill
+{
+	repeated E_QunxiongzhuluSkill E_QunxiongzhuluSkill_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_QunxiongzhuluServerrankItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_QunxiongzhuluServerrank
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_rankMax = 2[(yd_fieldoptions.field_cname) = "名次上限"];
+	optional int32 m_rankMin = 3[(yd_fieldoptions.field_cname) = "名次下限"];
+	repeated E_QunxiongzhuluServerrankItemDesc m_item = 4[(yd_fieldoptions.field_cname) = "奖励道具", (yd_fieldoptions.field_arysize) = 11];
+}
+
+
+message Sheet_QunxiongzhuluServerrank
+{
+	repeated E_QunxiongzhuluServerrank E_QunxiongzhuluServerrank_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_QunxiongzhuluWorldrankItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_QunxiongzhuluWorldrank
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_rankMax = 2[(yd_fieldoptions.field_cname) = "名次上限"];
+	optional int32 m_rankMin = 3[(yd_fieldoptions.field_cname) = "名次下限"];
+	repeated E_QunxiongzhuluWorldrankItemDesc m_item = 4[(yd_fieldoptions.field_cname) = "奖励道具", (yd_fieldoptions.field_arysize) = 11];
+}
+
+
+message Sheet_QunxiongzhuluWorldrank
+{
+	repeated E_QunxiongzhuluWorldrank E_QunxiongzhuluWorldrank_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_QunxiongzhuluLocalrankItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_QunxiongzhuluLocalrank
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_rankMax = 2[(yd_fieldoptions.field_cname) = "名次上限"];
+	optional int32 m_rankMin = 3[(yd_fieldoptions.field_cname) = "名次下限"];
+	repeated E_QunxiongzhuluLocalrankItemDesc m_item = 4[(yd_fieldoptions.field_cname) = "奖励道具", (yd_fieldoptions.field_arysize) = 11];
+}
+
+
+message Sheet_QunxiongzhuluLocalrank
+{
+	repeated E_QunxiongzhuluLocalrank E_QunxiongzhuluLocalrank_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_QunxiongzhuluBossrewardItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_QunxiongzhuluBossreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "服务器类型"];
+	repeated E_QunxiongzhuluBossrewardItemDesc m_item = 3[(yd_fieldoptions.field_cname) = "奖励道具", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_QunxiongzhuluBossreward
+{
+	repeated E_QunxiongzhuluBossreward E_QunxiongzhuluBossreward_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
