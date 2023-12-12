@@ -60,7 +60,7 @@ int NFCSceneModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t b
     {
         if (m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE) && m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT))
         {
-            std::unordered_set<uint64_t> mapIds(NFGameConfig::Instance()->GetConfig()->map.begin(), NFGameConfig::Instance()->GetConfig()->map.end());
+            std::unordered_set<uint64_t> mapIds(m_gameConfig.GetConfig()->map.begin(), m_gameConfig.GetConfig()->map.end());
             NFSceneMgr::Instance(m_pObjPluginManager)->InitScene(mapIds);
         }
     }

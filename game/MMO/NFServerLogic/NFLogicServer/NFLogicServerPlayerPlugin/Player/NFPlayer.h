@@ -32,6 +32,7 @@
 #include "NFLogicCommon/NFLogDefine.h"
 #include "NFLogicCommon/Attr/NFAttr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFLogicCommon/NFPackageDefine.h"
 
 class NFPart;
 
@@ -253,6 +254,16 @@ public:
     //同步属性
     virtual void SynAttrToClient();
 public:
+    //计算等级属性
+    void CalcLevelAttr(bool sync = true);
+    //是否完成飞升
+    bool IsFinishFlyUpward() { return false; }
+    
+    int GetGlyUpwardLevel() { return 400; }
+    
+    //同步显示数据给客户端(主要用于客户端飘字显示用) showType:显示类型， addval：增加的值
+    void SyncShowToClient(EClientShowType showType, uint64_t addval, LIST_ITEM& lstItem);
+public:
     //检查经验值
     void CheckExp(int64_t oldexp, SCommonSource *pSource);
 
@@ -301,7 +312,7 @@ public:
      * @param dstPos
      * @return
      */
-    int EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float> &dstPos);
+    int TransScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float> &dstPos, const proto_ff::SceneTransParam& transParam);
 public:
     uint64_t GetCid() const { return m_cid; }
 

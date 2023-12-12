@@ -66,6 +66,7 @@ enum PartType
     PART_GODRELIS,          //天神遗物
     PART_MOFA,              //奇门八卦
     PART_RUNE,				//符文
+	PART_GM,				//GM
     PART_MAX,
 };
 
@@ -81,6 +82,7 @@ enum SnsPartType
     SNS_PART_NONE = 0,
     SNS_PART_RELATION,
 	SNS_PART_CHAT,
+	SNS_PART_GM,
     SNS_PART_MAX,
 };
 

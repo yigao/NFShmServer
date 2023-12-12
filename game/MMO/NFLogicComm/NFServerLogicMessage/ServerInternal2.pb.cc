@@ -275,7 +275,7 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ClientEnterGameInternalRsp));
   EnterSceneReq_descriptor_ = file->message_type(12);
-  static const int EnterSceneReq_offsets_[13] = {
+  static const int EnterSceneReq_offsets_[14] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, dst_map_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, dst_scene_id_),
@@ -289,6 +289,7 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, logic_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, sns_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, world_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterSceneReq, trans_param_),
   };
   EnterSceneReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -453,7 +454,7 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
     "Rsp\022\020\n\010ret_code\030\001 \001(\005\"a\n\032ClientEnterGame"
     "InternalRsp\022\020\n\010ret_code\030\001 \001(\005\022\020\n\010logic_i"
     "d\030\002 \001(\r\022\017\n\007game_id\030\003 \001(\r\022\016\n\006sns_id\030\004 \001(\r"
-    "\"\302\002\n\rEnterSceneReq\022\013\n\003cid\030\001 \001(\004\022\022\n\ndst_m"
+    "\"\362\002\n\rEnterSceneReq\022\013\n\003cid\030\001 \001(\004\022\022\n\ndst_m"
     "ap_id\030\002 \001(\004\022\024\n\014dst_scene_id\030\003 \001(\004\022$\n\007dst"
     "_pos\030\004 \001(\0132\023.proto_ff.Vector3PB\022\022\n\nsrc_m"
     "ap_id\030\005 \001(\004\022\024\n\014src_scene_id\030\006 \001(\004\022$\n\007src"
@@ -461,12 +462,13 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
     "_type\030\010 \001(\r\022*\n\004data\030\t \001(\0132\034.proto_ff.Rol"
     "eEnterSceneData\022\020\n\010proxy_id\030\n \001(\r\022\020\n\010log"
     "ic_id\030\013 \001(\r\022\016\n\006sns_id\030\014 \001(\r\022\020\n\010world_id\030"
-    "\r \001(\r\"v\n\rEnterSceneRsp\022\020\n\010ret_code\030\001 \001(\004"
-    "\022\017\n\007game_id\030\002 \001(\r\022\016\n\006map_id\030\003 \001(\004\022\020\n\010sce"
-    "ne_id\030\004 \001(\004\022 \n\003pos\030\005 \001(\0132\023.proto_ff.Vect"
-    "or3PB\"U\n\027NotifyPlayerEnterServer\022\013\n\003uid\030"
-    "\001 \001(\r\022\013\n\003cid\030\002 \001(\004\022\020\n\010logic_id\030\003 \001(\r\022\016\n\006"
-    "sns_id\030\004 \001(\r", 1532);
+    "\r \001(\r\022.\n\013trans_param\030\016 \001(\0132\031.proto_ff.Sc"
+    "eneTransParam\"v\n\rEnterSceneRsp\022\020\n\010ret_co"
+    "de\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\016\n\006map_id\030\003 \001("
+    "\004\022\020\n\010scene_id\030\004 \001(\004\022 \n\003pos\030\005 \001(\0132\023.proto"
+    "_ff.Vector3PB\"U\n\027NotifyPlayerEnterServer"
+    "\022\013\n\003uid\030\001 \001(\r\022\013\n\003cid\030\002 \001(\004\022\020\n\010logic_id\030\003"
+    " \001(\r\022\016\n\006sns_id\030\004 \001(\r", 1580);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal2.proto", &protobuf_RegisterTypes);
   NotifyGateLeaveGame2::default_instance_ = new NotifyGateLeaveGame2();
@@ -3806,6 +3808,7 @@ const int EnterSceneReq::kProxyIdFieldNumber;
 const int EnterSceneReq::kLogicIdFieldNumber;
 const int EnterSceneReq::kSnsIdFieldNumber;
 const int EnterSceneReq::kWorldIdFieldNumber;
+const int EnterSceneReq::kTransParamFieldNumber;
 #endif  // !_MSC_VER
 
 EnterSceneReq::EnterSceneReq()
@@ -3817,6 +3820,7 @@ void EnterSceneReq::InitAsDefaultInstance() {
   dst_pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
   src_pos_ = const_cast< ::proto_ff::Vector3PB*>(&::proto_ff::Vector3PB::default_instance());
   data_ = const_cast< ::proto_ff::RoleEnterSceneData*>(&::proto_ff::RoleEnterSceneData::default_instance());
+  trans_param_ = const_cast< ::proto_ff::SceneTransParam*>(&::proto_ff::SceneTransParam::default_instance());
 }
 
 EnterSceneReq::EnterSceneReq(const EnterSceneReq& from)
@@ -3840,6 +3844,7 @@ void EnterSceneReq::SharedCtor() {
   logic_id_ = 0u;
   sns_id_ = 0u;
   world_id_ = 0u;
+  trans_param_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3852,6 +3857,7 @@ void EnterSceneReq::SharedDtor() {
     delete dst_pos_;
     delete src_pos_;
     delete data_;
+    delete trans_param_;
   }
 }
 
@@ -3899,6 +3905,9 @@ void EnterSceneReq::Clear() {
     logic_id_ = 0u;
     sns_id_ = 0u;
     world_id_ = 0u;
+    if (has_trans_param()) {
+      if (trans_param_ != NULL) trans_param_->::proto_ff::SceneTransParam::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -4107,6 +4116,20 @@ bool EnterSceneReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(114)) goto parse_trans_param;
+        break;
+      }
+
+      // optional .proto_ff.SceneTransParam trans_param = 14;
+      case 14: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_trans_param:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_trans_param()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4197,6 +4220,12 @@ void EnterSceneReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(13, this->world_id(), output);
   }
 
+  // optional .proto_ff.SceneTransParam trans_param = 14;
+  if (has_trans_param()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      14, this->trans_param(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -4274,6 +4303,13 @@ void EnterSceneReq::SerializeWithCachedSizes(
   // optional uint32 world_id = 13;
   if (has_world_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(13, this->world_id(), target);
+  }
+
+  // optional .proto_ff.SceneTransParam trans_param = 14;
+  if (has_trans_param()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        14, this->trans_param(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4380,6 +4416,13 @@ int EnterSceneReq::ByteSize() const {
           this->world_id());
     }
 
+    // optional .proto_ff.SceneTransParam trans_param = 14;
+    if (has_trans_param()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->trans_param());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -4448,6 +4491,9 @@ void EnterSceneReq::MergeFrom(const EnterSceneReq& from) {
     if (from.has_world_id()) {
       set_world_id(from.world_id());
     }
+    if (from.has_trans_param()) {
+      mutable_trans_param()->::proto_ff::SceneTransParam::MergeFrom(from.trans_param());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -4493,6 +4539,7 @@ void EnterSceneReq::Swap(EnterSceneReq* other) {
     std::swap(logic_id_, other->logic_id_);
     std::swap(sns_id_, other->sns_id_);
     std::swap(world_id_, other->world_id_);
+    std::swap(trans_param_, other->trans_param_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

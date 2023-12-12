@@ -1388,6 +1388,15 @@ class EnterSceneReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 world_id() const;
   inline void set_world_id(::google::protobuf::uint32 value);
 
+  // optional .proto_ff.SceneTransParam trans_param = 14;
+  inline bool has_trans_param() const;
+  inline void clear_trans_param();
+  static const int kTransParamFieldNumber = 14;
+  inline const ::proto_ff::SceneTransParam& trans_param() const;
+  inline ::proto_ff::SceneTransParam* mutable_trans_param();
+  inline ::proto_ff::SceneTransParam* release_trans_param();
+  inline void set_allocated_trans_param(::proto_ff::SceneTransParam* trans_param);
+
   // @@protoc_insertion_point(class_scope:proto_ff.EnterSceneReq)
  private:
   inline void set_has_cid();
@@ -1416,6 +1425,8 @@ class EnterSceneReq : public ::google::protobuf::Message {
   inline void clear_has_sns_id();
   inline void set_has_world_id();
   inline void clear_has_world_id();
+  inline void set_has_trans_param();
+  inline void clear_has_trans_param();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1431,10 +1442,11 @@ class EnterSceneReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 proxy_id_;
   ::google::protobuf::uint32 logic_id_;
   ::google::protobuf::uint32 sns_id_;
+  ::proto_ff::SceneTransParam* trans_param_;
   ::google::protobuf::uint32 world_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal2_2eproto();
   friend void protobuf_AssignDesc_ServerInternal2_2eproto();
@@ -2772,6 +2784,44 @@ inline ::google::protobuf::uint32 EnterSceneReq::world_id() const {
 inline void EnterSceneReq::set_world_id(::google::protobuf::uint32 value) {
   set_has_world_id();
   world_id_ = value;
+}
+
+// optional .proto_ff.SceneTransParam trans_param = 14;
+inline bool EnterSceneReq::has_trans_param() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void EnterSceneReq::set_has_trans_param() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void EnterSceneReq::clear_has_trans_param() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void EnterSceneReq::clear_trans_param() {
+  if (trans_param_ != NULL) trans_param_->::proto_ff::SceneTransParam::Clear();
+  clear_has_trans_param();
+}
+inline const ::proto_ff::SceneTransParam& EnterSceneReq::trans_param() const {
+  return trans_param_ != NULL ? *trans_param_ : *default_instance_->trans_param_;
+}
+inline ::proto_ff::SceneTransParam* EnterSceneReq::mutable_trans_param() {
+  set_has_trans_param();
+  if (trans_param_ == NULL) trans_param_ = new ::proto_ff::SceneTransParam;
+  return trans_param_;
+}
+inline ::proto_ff::SceneTransParam* EnterSceneReq::release_trans_param() {
+  clear_has_trans_param();
+  ::proto_ff::SceneTransParam* temp = trans_param_;
+  trans_param_ = NULL;
+  return temp;
+}
+inline void EnterSceneReq::set_allocated_trans_param(::proto_ff::SceneTransParam* trans_param) {
+  delete trans_param_;
+  trans_param_ = trans_param;
+  if (trans_param) {
+    set_has_trans_param();
+  } else {
+    clear_has_trans_param();
+  }
 }
 
 // -------------------------------------------------------------------

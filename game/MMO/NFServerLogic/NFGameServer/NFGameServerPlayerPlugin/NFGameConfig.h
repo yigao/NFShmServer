@@ -19,7 +19,7 @@
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
 #include "NFComm/NFCore/NFSingleton.hpp"
 
-class NFGameConfig : public NFSingleton<NFGameConfig>
+class NFGameConfig
 {
 public:
     NFGameConfig();

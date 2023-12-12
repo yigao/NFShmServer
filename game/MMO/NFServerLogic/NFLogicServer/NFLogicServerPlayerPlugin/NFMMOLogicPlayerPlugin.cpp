@@ -72,6 +72,7 @@
 #include "Growth/NFArmorPart.h"
 #include "Player/NFPvpPart.h"
 #include "Player/NFSoulPart.h"
+#include "GM/NFGmPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -187,6 +188,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFGodRelicsPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMofaPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFRunePart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFGmPart, maxOnlinePlayerNum);
     ////////////////////////////part////////////////////////////
     
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);

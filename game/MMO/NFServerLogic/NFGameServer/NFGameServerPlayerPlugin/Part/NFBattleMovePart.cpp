@@ -100,7 +100,7 @@ int NFBattleMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage& packe
             ClientTeleportReq(msgId, packet);
             break;
         }
-        ////////////////////////////////////冥想数据///////////////////////////////////////
+            ////////////////////////////////////冥想数据///////////////////////////////////////
         case proto_ff::CLIENT_TO_LOGIC_PLAYER_SEAT_REQ:
         {
             ClientSeatReq(msgId, packet);
@@ -631,17 +631,31 @@ int32_t NFBattleMovePart::CanTrans(const proto_ff_s::E_MapMap_s* pmapcfg, uint64
     NFPoint3<float> outpos;
     
     ret = m_pMaster->CanTrans(outsceneId, pmapcfg->m_mapId, pos, outpos, transParam, checkpos);
-    if (ret != proto_ff::RET_SUCCESS) { return (int32_t)ret; }
+    if (ret != proto_ff::RET_SUCCESS)
+    {
+        return (int32_t)ret;
+    }
+    
     //动态地图不允许用这个接口
-    if (MapDescEx::Instance()->IsDynamic(pmapcfg->m_mapId)) { return proto_ff::RET_SCENE_CAN_NOT_TRAN; }
+    if (MapDescEx::Instance()->IsDynamic(pmapcfg->m_mapId))
+    {
+        return proto_ff::RET_SCENE_CAN_NOT_TRAN;
+    }
+    
     //特殊的活动的静态地图只能通过活动那边进入
-    if (MapDescEx::Instance()->IsActSpecMap(pmapcfg->m_mapId)) { return proto_ff::RET_SCENE_CAN_NOT_TRAN; }
+    if (MapDescEx::Instance()->IsActSpecMap(pmapcfg->m_mapId))
+    {
+        return proto_ff::RET_SCENE_CAN_NOT_TRAN;
+    }
     //
     outsceneId = pmapcfg->m_mapId;
     if (MapDescEx::Instance()->IsMainCity(pmapcfg))
     {
         outsceneId = NFSceneMgr::Instance(m_pObjPluginManager)->MainCitySceneId(pmapcfg->m_mapId, m_pMaster->GetZid());
-        if (outsceneId <= 0) { return proto_ff::RET_SCENE_DST_NOT_EXIST; }
+        if (outsceneId <= 0)
+        {
+            return proto_ff::RET_SCENE_DST_NOT_EXIST;
+        }
     }
     return proto_ff::RET_SUCCESS;
 }
@@ -1061,8 +1075,14 @@ int NFBattleMovePart::ClientTransSceneReq(uint32_t msgId, NFDataPackage& packet)
     if (proto_ff::RET_SUCCESS == ret)
     {
         auto pmapcfg = MapMapDesc::Instance()->GetDesc(dstMapId);
-        if (nullptr == pmapcfg) { ret = proto_ff::RET_CONFIG_ERROR; }
-        else { ret = CanTrans(pmapcfg, dstSceneId, dstPos, transParam); }
+        if (nullptr == pmapcfg)
+        {
+            ret = proto_ff::RET_CONFIG_ERROR;
+        }
+        else
+        {
+            ret = CanTrans(pmapcfg, dstSceneId, dstPos, transParam);
+        }
     }
     if (proto_ff::RET_SUCCESS == ret)
     {

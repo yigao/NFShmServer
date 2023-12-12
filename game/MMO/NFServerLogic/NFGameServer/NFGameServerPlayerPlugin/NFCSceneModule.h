@@ -11,6 +11,7 @@
 
 #include <ServerInternal.pb.h>
 #include "NFLogicCommon/NFMMODynamicModule.h"
+#include "NFGameConfig.h"
 
 class NFCSceneModule : public NFMMODynamicModule
 {
@@ -52,9 +53,8 @@ public:
      * @return
      */
     int OnRpcServiceEnterScene(proto_ff::EnterSceneReq& request, proto_ff::EnterSceneRsp& respone);
+public:
+    NFGameConfig* GetGameConfig() { return &m_gameConfig; }
 private:
-    /**
-     * @brief NFILuaModule
-     */
-    
+    NFGameConfig m_gameConfig;
 };

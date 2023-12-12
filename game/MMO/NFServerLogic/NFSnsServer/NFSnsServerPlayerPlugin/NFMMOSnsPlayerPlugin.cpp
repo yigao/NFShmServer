@@ -30,6 +30,8 @@
 #include "Trans/NFTransCacheBase.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
 #include "Relation/NFSnsRelationPart.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
+#include "GM/NFSnsGmPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -97,6 +99,7 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFSnsPart,1);
     REGISTER_SHM_OBJ(NFSnsRelationPart,maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFSnsChatPart,maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFSnsGmPart,maxOnlinePlayerNum);
 
 
     REGISTER_SHM_OBJ(NFTransCacheBase,1);

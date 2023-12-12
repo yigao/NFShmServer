@@ -105,6 +105,7 @@ message EnterSceneReq
   optional uint32 logic_id = 11;
   optional uint32 sns_id = 12;
   optional uint32 world_id = 13;
+  optional SceneTransParam trans_param = 14;
 }
 
 message EnterSceneRsp

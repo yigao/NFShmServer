@@ -16,6 +16,7 @@
 #include "NFGameConfig.h"
 #include "NFGameCommon/NFMath.h"
 #include "DescStoreEx/MapDescEx.h"
+#include "NFCSceneModule.h"
 
 NFMapMgr::NFMapMgr()
 {
@@ -67,7 +68,7 @@ int NFMapMgr::LoadConfig()
 {
     NFMap::ClearAllObj(m_pObjPluginManager);
     CreateInit();
-    auto pGameConfig = NFGameConfig::Instance()->GetConfig();
+    auto pGameConfig = FindModule<NFCSceneModule>()->GetGameConfig()->GetConfig();
     for (int i = 0; i < (int)pGameConfig->map.size(); i++)
     {
         uint32_t mapId = pGameConfig->map[i];

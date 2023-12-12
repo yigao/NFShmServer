@@ -72,8 +72,8 @@ bool NFMMOGamePlayerPlugin::InitShmObjectRegister()
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	NF_ASSERT(pConfig);
     
-    NFGameConfig::Instance()->LoadConfig(m_pObjPluginManager);
-    auto pGameConfig = NFGameConfig::Instance()->GetConfig();
+    FindModule<NFCSceneModule>()->GetGameConfig()->LoadConfig(m_pObjPluginManager);
+    auto pGameConfig = FindModule<NFCSceneModule>()->GetGameConfig()->GetConfig();;
     NF_ASSERT(pGameConfig);
 
 	uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
