@@ -82,7 +82,7 @@ public:
     //获取层数对应格子计算数组
     const OneLayer* GetLayerPoint(uint32_t nlayer);
 public:
-    int EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos);
+    int EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos, const proto_ff::SceneTransParam& transParam);
     int LeaveScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId);
 private:
     //场景销毁缓存表 sceneid - tick

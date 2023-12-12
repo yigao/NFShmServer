@@ -543,10 +543,19 @@ void NFBattlePlayer::OnChangeState(uint8_t curstate, uint8_t laststate)
     FireLogic(EVENT_SYNC_SCENE_STATE, Kind(), Cid(), syncState, false);
 }
 
+bool NFBattlePlayer::IsCanSendMessage()
+{
+    if (GetPlayerStatus() == proto_ff::PLAYER_STATUS_ONLINE)
+    {
+        return true;
+    }
+    return false;
+}
+
 int NFBattlePlayer::OnDisconnect()
 {
     m_proxyId = 0;
-    SetStatus(proto_ff::PLAYER_STATUS_OFFLINE);
+    SetPlayerStatus(proto_ff::PLAYER_STATUS_OFFLINE);
     SetLastDiconnectTime(NFTime::Now().UnixSec());
     
     StopMove();

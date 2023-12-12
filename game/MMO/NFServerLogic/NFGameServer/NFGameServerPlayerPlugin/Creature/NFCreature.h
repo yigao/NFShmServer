@@ -318,13 +318,13 @@ public:
 
 public:
     //判断是否能发送消息
-    bool IsCanSendMessage();
+    virtual bool IsCanSendMessage();
     
     //设置能否被看见
-    void SetCanBeSeenFlag(bool isCanBeSeen);
+    virtual void SetCanBeSeenFlag(bool isCanBeSeen);
     
     //获取能否被看见
-    bool GetCanBeSeenFlag();
+    virtual bool GetCanBeSeenFlag();
 
 public:
     //////////////////////////////////////////////////////////////////////////

@@ -542,27 +542,27 @@ int NFProcMonitor::GetAllProcessInfo()
         {
             case SIGAR_PROC_STATE_RUN:
                 pProcInfo->m_strStatus = "RUN";
-                pProcInfo->m_status = PROC_STATUS_RUN;
+                pProcInfo->m_playerStatus = PROC_STATUS_RUN;
                 break;
             case SIGAR_PROC_STATE_SLEEP:
                 pProcInfo->m_strStatus = "RUN";//可中断的睡眠状态TASK_INTERRUPTIBLE。含义：可中断的睡眠状态的进程会睡眠直到某个条件变为真
-                pProcInfo->m_status = PROC_STATUS_SLEEP;
+                pProcInfo->m_playerStatus = PROC_STATUS_SLEEP;
                 break;
             case SIGAR_PROC_STATE_IDLE:
                 pProcInfo->m_strStatus = "RUN"; //不可中断的睡眠状态
-                pProcInfo->m_status = PROC_STATUS_TASK_UNINTERRUPTIBLE;
+                pProcInfo->m_playerStatus = PROC_STATUS_TASK_UNINTERRUPTIBLE;
                 break;
             case SIGAR_PROC_STATE_STOP:
                 pProcInfo->m_strStatus = "RUN"; //暂停状态或跟踪状态TASK_STOPPED
-                pProcInfo->m_status = PROC_STATUS_STOP;
+                pProcInfo->m_playerStatus = PROC_STATUS_STOP;
                 break;
             case SIGAR_PROC_STATE_ZOMBIE:
                 pProcInfo->m_strStatus = "RUN"; //退出状态，进程成为僵尸进程TASK_DEAD – EXIT_ZOMBIE
-                pProcInfo->m_status = PROC_STATUS_ZOMBIE;
+                pProcInfo->m_playerStatus = PROC_STATUS_ZOMBIE;
                 break;
             default:
                 pProcInfo->m_strStatus = "DEAD";
-                pProcInfo->m_status = PROC_STATUS_NONE;
+                pProcInfo->m_playerStatus = PROC_STATUS_NONE;
                 break;
         }
 
@@ -592,10 +592,10 @@ int NFProcMonitor::HandleDeadProc()
             int ret = sigar_proc_state_get(m_sigar, pProcInfo->m_pid, &proc_state);
             if (ret != 0)
             {
-                if (pProcInfo->m_status != PROC_STATUS_NONE)
+                if (pProcInfo->m_playerStatus != PROC_STATUS_NONE)
                 {
                     pProcInfo->m_strStatus = "DEAD";
-                    pProcInfo->m_status = PROC_STATUS_NONE;
+                    pProcInfo->m_playerStatus = PROC_STATUS_NONE;
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "pid:{} cmd:{} dead", pProcInfo->m_pid, pServerInfo->m_cmd);
 
                     pProcInfo->m_endTime = NFGetSecondTime();
@@ -614,27 +614,27 @@ int NFProcMonitor::HandleDeadProc()
                 {
                     case SIGAR_PROC_STATE_RUN:
                         pProcInfo->m_strStatus = "RUN";
-                        pProcInfo->m_status = PROC_STATUS_RUN;
+                        pProcInfo->m_playerStatus = PROC_STATUS_RUN;
                         break;
                     case SIGAR_PROC_STATE_SLEEP:
                         pProcInfo->m_strStatus = "RUN";//可中断的睡眠状态TASK_INTERRUPTIBLE。含义：可中断的睡眠状态的进程会睡眠直到某个条件变为真
-                        pProcInfo->m_status = PROC_STATUS_SLEEP;
+                        pProcInfo->m_playerStatus = PROC_STATUS_SLEEP;
                         break;
                     case SIGAR_PROC_STATE_IDLE:
                         pProcInfo->m_strStatus = "RUN"; //不可中断的睡眠状态
-                        pProcInfo->m_status = PROC_STATUS_TASK_UNINTERRUPTIBLE;
+                        pProcInfo->m_playerStatus = PROC_STATUS_TASK_UNINTERRUPTIBLE;
                         break;
                     case SIGAR_PROC_STATE_STOP:
                         pProcInfo->m_strStatus = "RUN"; //暂停状态或跟踪状态TASK_STOPPED
-                        pProcInfo->m_status = PROC_STATUS_STOP;
+                        pProcInfo->m_playerStatus = PROC_STATUS_STOP;
                         break;
                     case SIGAR_PROC_STATE_ZOMBIE:
                         pProcInfo->m_strStatus = "RUN"; //退出状态，进程成为僵尸进程TASK_DEAD – EXIT_ZOMBIE
-                        pProcInfo->m_status = PROC_STATUS_ZOMBIE;
+                        pProcInfo->m_playerStatus = PROC_STATUS_ZOMBIE;
                         break;
                     default:
                         pProcInfo->m_strStatus = "DEAD";
-                        pProcInfo->m_status = PROC_STATUS_NONE;
+                        pProcInfo->m_playerStatus = PROC_STATUS_NONE;
                         break;
                 }
             }

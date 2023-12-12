@@ -29,7 +29,7 @@ NFPlayerStatus::~NFPlayerStatus()
 
 int NFPlayerStatus::CreateInit()
 {
-    m_status = proto_ff::PLAYER_STATUS_NONE;
+    m_playerStatus = proto_ff::PLAYER_STATUS_NONE;
     m_lastCreateTime = NFTime::Now().UnixSec();
     m_lastDiconnectTime = 0;
     m_lastLogoutTime = 0;
@@ -45,7 +45,7 @@ int NFPlayerStatus::ResumeInit()
 
 int NFPlayerStatus::Tick()
 {
-    switch (m_status)
+    switch (m_playerStatus)
     {
         case proto_ff::PLAYER_STATUS_NONE:
         {
@@ -56,8 +56,8 @@ int NFPlayerStatus::Tick()
             {
                 break;
             }
-
-            SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
+            
+            SetPlayerStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
             NFLogInfo(NF_LOG_SYSTEMLOG, StatusId(), "StatusId:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_LOGOUT", StatusId());
         }
@@ -76,8 +76,8 @@ int NFPlayerStatus::Tick()
             {
                 break;
             }
-
-            SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
+            
+            SetPlayerStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
             NFLogInfo(NF_LOG_SYSTEMLOG, StatusId(), "StatusId:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", StatusId());
         }
@@ -91,8 +91,8 @@ int NFPlayerStatus::Tick()
             }
 
             DoLogout();
-
-            SetStatus(proto_ff::PLAYER_STATUS_DEAD);
+            
+            SetPlayerStatus(proto_ff::PLAYER_STATUS_DEAD);
             NFLogInfo(NF_LOG_SYSTEMLOG, StatusId(), "StatusId:{} status change to PLAYER_STATUS_DEAD, will be erase from memory", StatusId());
         }
         break;
@@ -100,14 +100,14 @@ int NFPlayerStatus::Tick()
     return 0;
 }
 
-proto_ff::enPlayerStatus NFPlayerStatus::GetStatus() const
+proto_ff::enPlayerStatus NFPlayerStatus::GetPlayerStatus() const
 {
-    return m_status;
+    return m_playerStatus;
 }
 
-void NFPlayerStatus::SetStatus(proto_ff::enPlayerStatus status)
+void NFPlayerStatus::SetPlayerStatus(proto_ff::enPlayerStatus status)
 {
-    m_status = status;
+    m_playerStatus = status;
 }
 
 uint64_t NFPlayerStatus::GetCreateTime() const
@@ -152,10 +152,10 @@ void NFPlayerStatus::SetIsDisconnect(bool isDisconnect)
 
 bool NFPlayerStatus::IsOnline() const
 {
-    return m_status == proto_ff::PLAYER_STATUS_ONLINE;
+    return m_playerStatus == proto_ff::PLAYER_STATUS_ONLINE;
 }
 
 void NFPlayerStatus::SetIsOnline(bool isOnline)
 {
-    m_status = proto_ff::PLAYER_STATUS_ONLINE;
+    m_playerStatus = proto_ff::PLAYER_STATUS_ONLINE;
 }

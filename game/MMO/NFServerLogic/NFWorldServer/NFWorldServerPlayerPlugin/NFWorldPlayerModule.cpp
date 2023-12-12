@@ -202,7 +202,7 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq &requ
     pAccountInfo->SetClientId(clientId);
     pAccountInfo->SetCid(0);
     pAccountInfo->SetIsDisconnect(false);
-    pAccountInfo->SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
+    pAccountInfo->SetPlayerStatus(proto_ff::PLAYER_STATUS_ONLINE);
     pAccountInfo->SetChanId(chanid);
     pAccountInfo->SetBornZid(loginzid);
 

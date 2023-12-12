@@ -160,7 +160,7 @@ bool NFMapMgr::RandPosInPoint(int64_t pointid, NFPoint3<float>& outpos)
     if (nullptr == pcfg) { return false; }
     uint32_t nsize = (uint32_t)pcfg->vecposcfg.size();
     if (nsize <= 0) { return false; }
-    uint32_t idx = NFRandInt(0, nsize); //0 - (nsize-1)
+    uint32_t idx = NFRandInt((uint32_t)0, nsize); //0 - (nsize-1)
     auto& area = pcfg->vecposcfg[idx];
     outpos = RandPosAroundPos(pcfg->mapid, area.m_pos, 3.5);
     return true;

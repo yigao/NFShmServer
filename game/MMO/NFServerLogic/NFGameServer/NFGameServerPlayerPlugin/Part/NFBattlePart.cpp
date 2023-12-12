@@ -92,40 +92,25 @@ int NFBattlePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 
 int NFBattlePart::BroadCast(uint32_t nMsgId, const google::protobuf::Message &xData, bool IncludeMyself)
 {
-    NFCreature* pMaster = GetMaster();
-    CHECK_NULL(pMaster);
-
-    return pMaster->BroadCast(nMsgId, xData, IncludeMyself);
+    return m_pMaster->BroadCast(nMsgId, xData, IncludeMyself);
 }
 
 int NFBattlePart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    NFCreature* pMaster = GetMaster();
-    CHECK_NULL(pMaster);
-
-    return pMaster->SendMsgToClient(nMsgId, xData);
+    return m_pMaster->SendMsgToClient(nMsgId, xData);
 }
 
 int NFBattlePart::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    NFCreature* pMaster = GetMaster();
-    CHECK_NULL(pMaster);
-
-    return pMaster->SendMsgToSnsServer(nMsgId, xData);
+    return m_pMaster->SendMsgToSnsServer(nMsgId, xData);
 }
 
 int NFBattlePart::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    NFCreature* pMaster = GetMaster();
-    CHECK_NULL(pMaster);
-
-    return pMaster->SendMsgToWorldServer(nMsgId, xData);
+    return m_pMaster->SendMsgToWorldServer(nMsgId, xData);
 }
 
 int NFBattlePart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    NFCreature* pMaster = GetMaster();
-    CHECK_NULL(pMaster);
-
-    return pMaster->SendMsgToLogicServer(nMsgId, xData);
+    return m_pMaster->SendMsgToLogicServer(nMsgId, xData);
 }

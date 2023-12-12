@@ -32,18 +32,18 @@ public:
 	};
 
 	bool IsRunning() const {
-		return m_status.load() == kRunning;
+		return m_playerStatus.load() == kRunning;
 	}
 
 	bool IsStopped() const {
-		return m_status.load() == kStopped;
+		return m_playerStatus.load() == kStopped;
 	}
 
 	bool IsStopping() const {
-		return m_status.load() == kStopping;
+		return m_playerStatus.load() == kStopping;
 	}
 
 protected:
-	std::atomic<Status> m_status = { kNull };
+	std::atomic<Status> m_playerStatus = { kNull };
 	std::atomic<SubStatus> m_substatus = { kSubStatusNull };
 };

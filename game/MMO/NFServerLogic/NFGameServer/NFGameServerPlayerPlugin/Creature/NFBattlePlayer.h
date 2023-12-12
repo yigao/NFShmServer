@@ -147,6 +147,9 @@ public:
     //状态改变
     virtual void OnChangeState(uint8_t curstate, uint8_t laststate);
 public:
+    //判断是否能发送消息
+    virtual bool IsCanSendMessage();
+public:
     NFBattlePart* CreatePart(uint32_t partType, const ::proto_ff::RoleEnterSceneData& data);
     
     int RecylePart(NFBattlePart* pPart);

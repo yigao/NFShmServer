@@ -42,11 +42,11 @@ public:
 
     virtual int DoLogout() { return 0; }
 public:
-    proto_ff::enPlayerStatus GetStatus() const;
+    proto_ff::enPlayerStatus GetPlayerStatus() const;
 
-    void SetStatus(proto_ff::enPlayerStatus status);
+    void SetPlayerStatus(proto_ff::enPlayerStatus status);
 
-    bool IsDeadStatus() const { return m_status == proto_ff::PLAYER_STATUS_DEAD; }
+    bool IsDeadStatus() const { return m_playerStatus == proto_ff::PLAYER_STATUS_DEAD; }
 
     uint64_t GetCreateTime() const;
 
@@ -71,7 +71,7 @@ protected:
     /**
      * @brief
      */
-    proto_ff::enPlayerStatus m_status;
+    proto_ff::enPlayerStatus m_playerStatus;
     uint64_t m_lastCreateTime;
     uint64_t m_lastDiconnectTime;
     uint64_t m_lastLogoutTime;

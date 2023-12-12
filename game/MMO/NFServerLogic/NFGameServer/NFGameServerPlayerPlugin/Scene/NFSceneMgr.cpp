@@ -209,7 +209,7 @@ const NFSceneMgr::OneLayer* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
     return &m_nineGridLayer[nlayer];
 }
 
-int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
+int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos, const proto_ff::SceneTransParam& transParam)
 {
     NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     if (pMap == NULL)
@@ -231,9 +231,10 @@ int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, co
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find player data, mapId:{}, sceneId:{}", mapId, sceneId);
         return proto_ff::RET_FAIL;
     }
-
-    STransParam param;
-    return pPlayer->TransScene(sceneId, pos, mapId, param);
+    
+    //设置游戏状态,需要再切换场景前面，切换场景中可能会涉及到跨逻辑节点需要修改状态的
+    pPlayer->SetAccountState(ACCOUNT_GAME_STATE_GAMING);
+    return pPlayer->TransScene(sceneId, pos, mapId, transParam);
 }
 
 int NFSceneMgr::LeaveScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId)

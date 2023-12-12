@@ -1034,7 +1034,7 @@ int NFBattleMovePart::ClientTransSceneReq(uint32_t msgId, NFDataPackage& packet)
         else
         {
             uint32_t isize = (uint32_t)pPointLoc->vecposcfg.size();
-            uint32_t idx = NFRandInt(0, isize);
+            uint32_t idx = NFRandInt((uint32_t)0, isize);
             dstPos = pPointLoc->vecposcfg[idx].m_pos;
             dstMapId = pPointLoc->mapid;
             ret = proto_ff::RET_SUCCESS;

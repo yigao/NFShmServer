@@ -52,13 +52,13 @@ public:
         mCpuUsed = 0.0;
         mMemUsed = 0;
         mThreads = 0;
-        m_status = 0;
+        m_playerStatus = 0;
     }
 
     int m_id;            // 进程个数
     int m_pid;        // 进程号
     std::string m_strStatus;
-    int m_status;
+    int m_playerStatus;
     std::string m_strStartTime;
     std::string m_strEndTime;
     uint64_t m_startTime;

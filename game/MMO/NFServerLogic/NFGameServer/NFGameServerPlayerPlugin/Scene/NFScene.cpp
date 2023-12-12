@@ -155,7 +155,7 @@ NFGrid *NFScene::EnterScene(NFCreature *pCreature, const NFPoint3<float> &pos, c
     {
         NFLogDebug(NF_LOG_SYSTEMLOG, pCreature->Cid(),
                    "Scene::EnterScene, scene is destorying cannt enter, RoleId:{}, dstpos({},{},{},), sceneId:{}, mapId:{},transType:{}",
-                   pCreature->Cid(), pos.x, pos.y, pos.z, m_sceneId, m_mapId, transParam.transType);
+                   pCreature->Cid(), pos.x, pos.y, pos.z, m_sceneId, m_mapId, transParam.trans_type());
         return NULL;
     }
     

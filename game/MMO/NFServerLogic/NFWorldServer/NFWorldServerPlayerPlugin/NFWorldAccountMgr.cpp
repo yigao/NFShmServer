@@ -86,7 +86,7 @@ int NFWorldAccountMgr::Tick()
         if (pAccount)
         {
             pAccount->Tick();
-            if (pAccount->GetStatus() == proto_ff::PLAYER_STATUS_DEAD)
+            if (pAccount->GetPlayerStatus() == proto_ff::PLAYER_STATUS_DEAD)
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "uid:{} cid:{} be erase from memory", pAccount->GetUid(), pAccount->GetCid());
                 iter = NFWorldAccount::Erase(m_pObjPluginManager, iter);

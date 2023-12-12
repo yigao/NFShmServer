@@ -73,7 +73,7 @@ int NFPlayerMgr::Tick()
     {
         NFPlayer* pPlayer = &(*iter);
         pPlayer->Tick();
-        if (pPlayer->GetStatus() == proto_ff::PLAYER_STATUS_DEAD)
+        if (pPlayer->GetPlayerStatus() == proto_ff::PLAYER_STATUS_DEAD)
         {
             willRemovePlayer.push_back(pPlayer->GetCid());
         }

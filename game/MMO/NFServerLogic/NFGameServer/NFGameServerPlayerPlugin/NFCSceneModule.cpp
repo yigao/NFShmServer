@@ -127,7 +127,10 @@ int NFCSceneModule::OnRpcServiceEnterScene(proto_ff::EnterSceneReq &request, pro
     pPlayer->Init(request.proxy_id(), request.logic_id(), request.world_id(), request.sns_id(), request.data());
     pPlayer->SetPlayerStatus(proto_ff::PLAYER_STATUS_ONLINE);
     
-    int ret = NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(cid, mapId, sceneId, pos);
+    proto_ff::SceneTransParam transParam;
+    transParam.set_trans_type(request.trans_type());
+    if (!transParam.forcetp())transParam.set_forcetp(true);//保证一定能进入场景
+    int ret = NFSceneMgr::Instance(m_pObjPluginManager)->EnterScene(cid, mapId, sceneId, pos, transParam);
     if (ret != proto_ff::RET_SUCCESS)
     {
         respone.set_ret_code(ret);

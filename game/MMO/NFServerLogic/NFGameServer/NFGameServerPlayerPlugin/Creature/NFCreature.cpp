@@ -1223,10 +1223,7 @@ bool NFCreature::GetCanBeSeenFlag()
 //判断是否能发送消息
 bool NFCreature::IsCanSendMessage()
 {
-    AccountGameState accountState = GetAccountState();
-    if (m_kind != CREATURE_PLAYER || accountState == ACCOUNT_GAME_STATE_DISCONNECT || accountState == ACCOUNT_GAME_STATE_LOGOUT)
-        return false;
-    return true;
+    return false;
 }
 
 void NFCreature::GetSeeLst(vector<uint64_t> &vec)

@@ -189,7 +189,7 @@ int NFPlayer::DoLogout()
 
 int NFPlayer::Init(const proto_ff::RoleDBData& dbData)
 {
-    SetStatus(proto_ff::PLAYER_STATUS_NONE);
+    SetPlayerStatus(proto_ff::PLAYER_STATUS_NONE);
     m_pFightAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeFightAttrObj(EAttrType::role);
     CHECK_NULL(m_pFightAttr);
     m_pAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeAttrObj(EAttrType::role);
@@ -265,7 +265,7 @@ int NFPlayer::OnLogin(proto_ff::PlayerInfoRsp& playerInfo)
 
 int NFPlayer::OnLogin()
 {
-    SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
+    SetPlayerStatus(proto_ff::PLAYER_STATUS_ONLINE);
     m_loginTime = NFTime::Now().UnixSec();
     MarkDirty();
 
@@ -289,8 +289,8 @@ int NFPlayer::OnLogout()
             m_pPart[i]->OnLogout();
         }
     }
-
-    SetStatus(proto_ff::PLAYER_STATUS_DEAD);
+    
+    SetPlayerStatus(proto_ff::PLAYER_STATUS_DEAD);
     return 0;
 }
 

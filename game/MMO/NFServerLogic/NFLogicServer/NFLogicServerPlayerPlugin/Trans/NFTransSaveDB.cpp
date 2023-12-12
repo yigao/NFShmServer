@@ -67,7 +67,7 @@ int NFTransSaveDB::SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason)
             if (pPlayer)
             {
                 pPlayer->OnSaveDB(true, m_curSeq);
-                if (m_reason == TRANS_SAVEROLEDETAIL_LOGOUT && pPlayer->GetStatus() == proto_ff::PLAYER_STATUS_LOGOUT)
+                if (m_reason == TRANS_SAVEROLEDETAIL_LOGOUT && pPlayer->GetPlayerStatus() == proto_ff::PLAYER_STATUS_LOGOUT)
                 {
                     pPlayer->OnLogout();
                 }
