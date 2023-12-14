@@ -193,8 +193,8 @@ NFCRouteAgentServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage
                GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId), packet.ToString());
 
     if (destBusId == 0) {
-        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(
-                NF_ST_ROUTE_AGENT_SERVER, (NF_SERVER_TYPES) serverType);
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(
+                NF_ST_ROUTE_AGENT_SERVER, (NF_SERVER_TYPES) serverType, packet.isCrossServer);
         if (pServerData) {
             packet.nSrcId = fromBusId;
             packet.nDstId = destBusId;
@@ -448,8 +448,8 @@ int NFCRouteAgentServerModule::OnHandleRouteOtherMessage(uint64_t unLinkId, NFDa
                GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId), packet.ToString());
 
     if (destBusId == 0) {
-        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(
-                NF_ST_ROUTE_AGENT_SERVER, (NF_SERVER_TYPES) serverType);
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(
+            NF_ST_ROUTE_AGENT_SERVER, (NF_SERVER_TYPES) serverType, packet.isCrossServer);
         if (pServerData) {
             packet.nSrcId = fromBusId;
             packet.nDstId = destBusId;

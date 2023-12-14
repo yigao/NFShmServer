@@ -18,7 +18,7 @@
 struct InternalMsg
 {
 public:
-	InternalMsg() : mCmdAndFlag(0), mLength(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), ulSendBusLinkId(0)
+	InternalMsg() : mCmdAndFlag(0), mLength(0), nParam1(0), nParam2(0), nSrcId(0), nDstId(0), ulSendBusLinkId(0), isCrossServer(false)
 	{
 	}
 
@@ -82,6 +82,7 @@ public:
 	uint64_t nSrcId;
 	uint64_t nDstId;
 	uint64_t ulSendBusLinkId; //bus message need
+    bool isCrossServer;
 };
 
 #pragma pack(pop)
@@ -126,6 +127,7 @@ int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
     recvPackage.nSrcId = packHead->nSrcId;
     recvPackage.nDstId = packHead->nDstId;
     recvPackage.nSendBusLinkId = packHead->ulSendBusLinkId;
+    recvPackage.isCrossServer = packHead->isCrossServer;
     allLen = sizeof(InternalMsg) + msgSize;
 	return 0;
 }
@@ -141,6 +143,7 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, const char
 	packHead.nSrcId = recvPackage.nSrcId;
 	packHead.nDstId = recvPackage.nDstId;
 	packHead.ulSendBusLinkId = nSendBusLinkId;
+    packHead.isCrossServer = recvPackage.isCrossServer;
 
 	buffer.PushData(&packHead, sizeof(InternalMsg));
 	buffer.PushData(strData, unLen);

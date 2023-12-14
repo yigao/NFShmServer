@@ -218,8 +218,8 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
                GetServerName((NF_SERVER_TYPES) fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES) serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId), packet.ToString());
 
     if (destBusId == 0) {
-        NF_SHARE_PTR<NFServerData> pRegServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(
-                NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES) serverType);
+        NF_SHARE_PTR<NFServerData> pRegServerData = FindModule<NFIMessageModule>()->GetFirstServerByServerType(
+                NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES) serverType, packet.isCrossServer);
         if (pRegServerData) {
             NF_SHARE_PTR<NFServerData> pRouteAgent = FindModule<NFIMessageModule>()->GetServerByServerId(
                     NF_ST_ROUTE_SERVER, pRegServerData->mRouteAgentBusId);
