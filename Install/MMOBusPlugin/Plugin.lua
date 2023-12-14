@@ -42,26 +42,26 @@ LoadPlugin =
 			--"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 			"NFStoreServerPlugin",
-			"NFProxyServerPlugin",
-			"NFProxyClientPlugin",
-			"NFProxyAgentServerPlugin",
-			"NFLoginServerPlugin",
-			"NFGameServerPlugin",
-			"NFWorldServerPlugin",
-			"NFSnsServerPlugin",
-			"NFLogicServerPlugin",
-			"NFWebServerPlugin",
+			--"NFProxyServerPlugin",
+			--"NFProxyClientPlugin",
+			--"NFProxyAgentServerPlugin",
+			--"NFLoginServerPlugin",
+			--"NFGameServerPlugin",
+			--"NFWorldServerPlugin",
+			--"NFSnsServerPlugin",
+			--"NFLogicServerPlugin",
+			--"NFWebServerPlugin",
 			"NFCenterServerPlugin",
 		};
 
 		WorkPlugins = {
 			"NFMMOCommonPlugin",
-			"NFMMOProxyPlayerPlugin",
-			"NFMMOWorldPlayerPlugin",
-			"NFMMOLogicPlayerPlugin",
-			"NFMMOSnsPlayerPlugin",
+			--"NFMMOProxyPlayerPlugin",
+			--"NFMMOWorldPlayerPlugin",
+			--"NFMMOLogicPlayerPlugin",
+			--"NFMMOSnsPlayerPlugin",
 			"NFMMOCenterPlayerPlugin",
-			"NFMMOGamePlayerPlugin",
+			--"NFMMOGamePlayerPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
@@ -99,15 +99,15 @@ LoadPlugin =
             "NFRouteServerPlugin",
             "NFRouteAgentServerPlugin",
             "NFStoreServerPlugin",
-            "NFProxyAgentServerPlugin",
-            "NFGameServerPlugin",
+            --"NFProxyAgentServerPlugin",
+            --"NFGameServerPlugin",
             "NFCenterServerPlugin",
         };
 
         WorkPlugins = {
             "NFMMOCommonPlugin",
             "NFMMOCenterPlayerPlugin",
-            "NFMMOGamePlayerPlugin",
+            --"NFMMOGamePlayerPlugin",
         };
 
         ServerType = NF_ST_NONE;

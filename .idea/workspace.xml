@@ -65,11 +65,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="bug">
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/InternalPacketParse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/InternalPacketParse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" afterDir="false" />
+    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="route cross server">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +77,9 @@
     <option name="groupingKeys">
       <option value="directory" />
     </option>
+  </component>
+  <component name="ClangdSettings">
+    <option name="parameterInfoViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
@@ -411,7 +411,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702525487780</updated>
-      <workItem from="1702525495405" duration="7217000" />
+      <workItem from="1702525495405" duration="8797000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -421,7 +421,23 @@
       <option name="project" value="LOCAL" />
       <updated>1702534780919</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="route cross server">
+      <option name="closed" value="true" />
+      <created>1702538214470</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1702538214470</updated>
+    </task>
+    <task id="LOCAL-00003" summary="route cross server">
+      <option name="closed" value="true" />
+      <created>1702538526747</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1702538526747</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VCPKGProject">
@@ -431,6 +447,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug" />
+    <MESSAGE value="route cross server" />
+    <option name="LAST_COMMIT_MESSAGE" value="route cross server" />
   </component>
 </project>

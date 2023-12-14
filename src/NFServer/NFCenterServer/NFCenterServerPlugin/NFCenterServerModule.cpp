@@ -28,6 +28,7 @@ NFCCenterServerModule::~NFCCenterServerModule()
 
 bool NFCCenterServerModule::Awake()
 {
+    SetCheckCenterServer(true);
     BindServer();
 	return true;
 }
