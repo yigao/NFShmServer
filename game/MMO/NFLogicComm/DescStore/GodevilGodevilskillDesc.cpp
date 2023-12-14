@@ -60,13 +60,13 @@ int GodevilGodevilskillDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_godevilskill();
+			m_minId = desc.m_godevilskill();
 		}
 		else
 		{
-			if (desc.has_m_godevilskill() < m_minId)
+			if (desc.m_godevilskill() < m_minId)
 			{
-				m_minId = desc.has_m_godevilskill();
+				m_minId = desc.m_godevilskill();
 			}
 		}
 

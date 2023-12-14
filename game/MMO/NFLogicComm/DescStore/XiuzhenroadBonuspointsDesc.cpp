@@ -61,13 +61,13 @@ int XiuzhenroadBonuspointsDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_totalrewardsid();
+			m_minId = desc.m_totalrewardsid();
 		}
 		else
 		{
-			if (desc.has_m_totalrewardsid() < m_minId)
+			if (desc.m_totalrewardsid() < m_minId)
 			{
-				m_minId = desc.has_m_totalrewardsid();
+				m_minId = desc.m_totalrewardsid();
 			}
 		}
 

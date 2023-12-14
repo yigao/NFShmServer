@@ -60,13 +60,13 @@ int EncyclopediaHandbookDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_handbookid();
+			m_minId = desc.m_handbookid();
 		}
 		else
 		{
-			if (desc.has_m_handbookid() < m_minId)
+			if (desc.m_handbookid() < m_minId)
 			{
-				m_minId = desc.has_m_handbookid();
+				m_minId = desc.m_handbookid();
 			}
 		}
 

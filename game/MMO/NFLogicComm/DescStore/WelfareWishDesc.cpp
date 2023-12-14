@@ -60,13 +60,13 @@ int WelfareWishDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_level();
+			m_minId = desc.m_level();
 		}
 		else
 		{
-			if (desc.has_m_level() < m_minId)
+			if (desc.m_level() < m_minId)
 			{
-				m_minId = desc.has_m_level();
+				m_minId = desc.m_level();
 			}
 		}
 

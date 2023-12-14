@@ -60,13 +60,13 @@ int MapDestroyitemDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_destroyitemid();
+			m_minId = desc.m_destroyitemid();
 		}
 		else
 		{
-			if (desc.has_m_destroyitemid() < m_minId)
+			if (desc.m_destroyitemid() < m_minId)
 			{
-				m_minId = desc.has_m_destroyitemid();
+				m_minId = desc.m_destroyitemid();
 			}
 		}
 

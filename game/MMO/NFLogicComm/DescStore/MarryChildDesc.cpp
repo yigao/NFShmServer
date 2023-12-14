@@ -60,13 +60,13 @@ int MarryChildDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_childid();
+			m_minId = desc.m_childid();
 		}
 		else
 		{
-			if (desc.has_m_childid() < m_minId)
+			if (desc.m_childid() < m_minId)
 			{
-				m_minId = desc.has_m_childid();
+				m_minId = desc.m_childid();
 			}
 		}
 

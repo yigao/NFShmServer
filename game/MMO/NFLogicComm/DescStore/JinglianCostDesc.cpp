@@ -60,13 +60,13 @@ int JinglianCostDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_lockid();
+			m_minId = desc.m_lockid();
 		}
 		else
 		{
-			if (desc.has_m_lockid() < m_minId)
+			if (desc.m_lockid() < m_minId)
 			{
-				m_minId = desc.has_m_lockid();
+				m_minId = desc.m_lockid();
 			}
 		}
 

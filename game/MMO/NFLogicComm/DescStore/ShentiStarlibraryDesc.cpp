@@ -60,13 +60,13 @@ int ShentiStarlibraryDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_stargroup();
+			m_minId = desc.m_stargroup();
 		}
 		else
 		{
-			if (desc.has_m_stargroup() < m_minId)
+			if (desc.m_stargroup() < m_minId)
 			{
-				m_minId = desc.has_m_stargroup();
+				m_minId = desc.m_stargroup();
 			}
 		}
 

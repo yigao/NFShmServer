@@ -60,13 +60,13 @@ int JinglianRaceDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_quality();
+			m_minId = desc.m_quality();
 		}
 		else
 		{
-			if (desc.has_m_quality() < m_minId)
+			if (desc.m_quality() < m_minId)
 			{
-				m_minId = desc.has_m_quality();
+				m_minId = desc.m_quality();
 			}
 		}
 

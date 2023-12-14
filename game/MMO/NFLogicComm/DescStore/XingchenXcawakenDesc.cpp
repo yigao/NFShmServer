@@ -61,13 +61,13 @@ int XingchenXcawakenDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_positionnum();
+			m_minId = desc.m_positionnum();
 		}
 		else
 		{
-			if (desc.has_m_positionnum() < m_minId)
+			if (desc.m_positionnum() < m_minId)
 			{
-				m_minId = desc.has_m_positionnum();
+				m_minId = desc.m_positionnum();
 			}
 		}
 

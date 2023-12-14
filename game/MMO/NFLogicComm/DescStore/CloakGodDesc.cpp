@@ -60,13 +60,13 @@ int CloakGodDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_cloakid();
+			m_minId = desc.m_cloakid();
 		}
 		else
 		{
-			if (desc.has_m_cloakid() < m_minId)
+			if (desc.m_cloakid() < m_minId)
 			{
-				m_minId = desc.has_m_cloakid();
+				m_minId = desc.m_cloakid();
 			}
 		}
 

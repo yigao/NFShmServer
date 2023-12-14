@@ -60,13 +60,13 @@ int ConflatePropDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_target();
+			m_minId = desc.m_target();
 		}
 		else
 		{
-			if (desc.has_m_target() < m_minId)
+			if (desc.m_target() < m_minId)
 			{
-				m_minId = desc.has_m_target();
+				m_minId = desc.m_target();
 			}
 		}
 

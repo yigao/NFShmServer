@@ -60,13 +60,13 @@ int RoleBornDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_bornid();
+			m_minId = desc.m_bornid();
 		}
 		else
 		{
-			if (desc.has_m_bornid() < m_minId)
+			if (desc.m_bornid() < m_minId)
 			{
-				m_minId = desc.has_m_bornid();
+				m_minId = desc.m_bornid();
 			}
 		}
 

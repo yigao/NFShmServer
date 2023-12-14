@@ -60,13 +60,13 @@ int MountEmpowermenttour_debrisDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_fairylandid();
+			m_minId = desc.m_fairylandid();
 		}
 		else
 		{
-			if (desc.has_m_fairylandid() < m_minId)
+			if (desc.m_fairylandid() < m_minId)
 			{
-				m_minId = desc.has_m_fairylandid();
+				m_minId = desc.m_fairylandid();
 			}
 		}
 

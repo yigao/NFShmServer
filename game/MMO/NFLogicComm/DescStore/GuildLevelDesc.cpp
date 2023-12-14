@@ -60,13 +60,13 @@ int GuildLevelDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_guildlevel();
+			m_minId = desc.m_guildlevel();
 		}
 		else
 		{
-			if (desc.has_m_guildlevel() < m_minId)
+			if (desc.m_guildlevel() < m_minId)
 			{
-				m_minId = desc.has_m_guildlevel();
+				m_minId = desc.m_guildlevel();
 			}
 		}
 

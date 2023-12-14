@@ -60,13 +60,13 @@ int EncyclopediaBeastprivilegeDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_privilegetype();
+			m_minId = desc.m_privilegetype();
 		}
 		else
 		{
-			if (desc.has_m_privilegetype() < m_minId)
+			if (desc.m_privilegetype() < m_minId)
 			{
-				m_minId = desc.has_m_privilegetype();
+				m_minId = desc.m_privilegetype();
 			}
 		}
 

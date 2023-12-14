@@ -60,13 +60,13 @@ int MapItemdropDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_itemdropid();
+			m_minId = desc.m_itemdropid();
 		}
 		else
 		{
-			if (desc.has_m_itemdropid() < m_minId)
+			if (desc.m_itemdropid() < m_minId)
 			{
-				m_minId = desc.has_m_itemdropid();
+				m_minId = desc.m_itemdropid();
 			}
 		}
 

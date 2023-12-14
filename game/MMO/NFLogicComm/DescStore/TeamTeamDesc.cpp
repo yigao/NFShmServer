@@ -60,13 +60,13 @@ int TeamTeamDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_teamobjectid();
+			m_minId = desc.m_teamobjectid();
 		}
 		else
 		{
-			if (desc.has_m_teamobjectid() < m_minId)
+			if (desc.m_teamobjectid() < m_minId)
 			{
-				m_minId = desc.has_m_teamobjectid();
+				m_minId = desc.m_teamobjectid();
 			}
 		}
 

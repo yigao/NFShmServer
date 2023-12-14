@@ -60,13 +60,13 @@ int ChatChatDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_chatid();
+			m_minId = desc.m_chatid();
 		}
 		else
 		{
-			if (desc.has_m_chatid() < m_minId)
+			if (desc.m_chatid() < m_minId)
 			{
-				m_minId = desc.has_m_chatid();
+				m_minId = desc.m_chatid();
 			}
 		}
 

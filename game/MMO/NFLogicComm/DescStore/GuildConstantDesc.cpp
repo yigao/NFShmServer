@@ -60,13 +60,13 @@ int GuildConstantDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_constantid();
+			m_minId = desc.m_constantid();
 		}
 		else
 		{
-			if (desc.has_m_constantid() < m_minId)
+			if (desc.m_constantid() < m_minId)
 			{
-				m_minId = desc.has_m_constantid();
+				m_minId = desc.m_constantid();
 			}
 		}
 

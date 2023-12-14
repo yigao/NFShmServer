@@ -62,13 +62,13 @@ int XingchenXinchenDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_xcequip();
+			m_minId = desc.m_xcequip();
 		}
 		else
 		{
-			if (desc.has_m_xcequip() < m_minId)
+			if (desc.m_xcequip() < m_minId)
 			{
-				m_minId = desc.has_m_xcequip();
+				m_minId = desc.m_xcequip();
 			}
 		}
 

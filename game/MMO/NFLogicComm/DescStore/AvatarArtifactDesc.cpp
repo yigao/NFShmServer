@@ -60,13 +60,13 @@ int AvatarArtifactDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_changeid();
+			m_minId = desc.m_changeid();
 		}
 		else
 		{
-			if (desc.has_m_changeid() < m_minId)
+			if (desc.m_changeid() < m_minId)
 			{
-				m_minId = desc.has_m_changeid();
+				m_minId = desc.m_changeid();
 			}
 		}
 

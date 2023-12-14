@@ -60,13 +60,13 @@ int MarketMarketDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_itemid();
+			m_minId = desc.m_itemid();
 		}
 		else
 		{
-			if (desc.has_m_itemid() < m_minId)
+			if (desc.m_itemid() < m_minId)
 			{
-				m_minId = desc.has_m_itemid();
+				m_minId = desc.m_itemid();
 			}
 		}
 

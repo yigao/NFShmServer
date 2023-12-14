@@ -60,13 +60,13 @@ int CloakSoulclearDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_soulllv();
+			m_minId = desc.m_soulllv();
 		}
 		else
 		{
-			if (desc.has_m_soulllv() < m_minId)
+			if (desc.m_soulllv() < m_minId)
 			{
-				m_minId = desc.has_m_soulllv();
+				m_minId = desc.m_soulllv();
 			}
 		}
 

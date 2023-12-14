@@ -60,13 +60,13 @@ int TaskdynamicTasktextDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_textid();
+			m_minId = desc.m_textid();
 		}
 		else
 		{
-			if (desc.has_m_textid() < m_minId)
+			if (desc.m_textid() < m_minId)
 			{
-				m_minId = desc.has_m_textid();
+				m_minId = desc.m_textid();
 			}
 		}
 

@@ -60,13 +60,13 @@ int TalentTalenttypeDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_type();
+			m_minId = desc.m_type();
 		}
 		else
 		{
-			if (desc.has_m_type() < m_minId)
+			if (desc.m_type() < m_minId)
 			{
-				m_minId = desc.has_m_type();
+				m_minId = desc.m_type();
 			}
 		}
 

@@ -60,13 +60,13 @@ int SkillSkillgroupDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_skillgroup();
+			m_minId = desc.m_skillgroup();
 		}
 		else
 		{
-			if (desc.has_m_skillgroup() < m_minId)
+			if (desc.m_skillgroup() < m_minId)
 			{
-				m_minId = desc.has_m_skillgroup();
+				m_minId = desc.m_skillgroup();
 			}
 		}
 

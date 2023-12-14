@@ -27,7 +27,7 @@ template<class Value, int MAX_SIZE, class HashFcn, class EqualKey>
 class NFShmHashSet
 {
 private:
-    typedef NFShmHashTable<Value, Value, MAX_SIZE, HashFcn, std::_Identity<Value>, EqualKey> _Ht;
+    typedef NFShmHashTable<Value, Value, MAX_SIZE, HashFcn, std::stl__Identity<Value>, EqualKey> _Ht;
     _Ht m_hashTable;
 
 public:

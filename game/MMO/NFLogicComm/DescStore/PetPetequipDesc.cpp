@@ -60,13 +60,13 @@ int PetPetequipDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_pet();
+			m_minId = desc.m_pet();
 		}
 		else
 		{
-			if (desc.has_m_pet() < m_minId)
+			if (desc.m_pet() < m_minId)
 			{
-				m_minId = desc.has_m_pet();
+				m_minId = desc.m_pet();
 			}
 		}
 

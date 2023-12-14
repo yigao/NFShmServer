@@ -60,13 +60,13 @@ int ShentiComposeDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_need_equip();
+			m_minId = desc.m_need_equip();
 		}
 		else
 		{
-			if (desc.has_m_need_equip() < m_minId)
+			if (desc.m_need_equip() < m_minId)
 			{
-				m_minId = desc.has_m_need_equip();
+				m_minId = desc.m_need_equip();
 			}
 		}
 

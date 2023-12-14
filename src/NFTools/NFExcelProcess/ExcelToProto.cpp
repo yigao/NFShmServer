@@ -93,12 +93,12 @@ void ExcelToProto::WriteSheetDescStore()
         if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             WriteSheetDescStoreH(&m_sheets[sheet.title()]);
-            WriteSheetDescStoreCPP(&m_sheets[sheet.title()]);
+            WriteSheetDescStoreCpp(&m_sheets[sheet.title()]);
         }
     }
 
     WriteSheetDescStoreExH();
-    WriteSheetDescStoreExCPP();
+    WriteSheetDescStoreExCpp();
 
     WriteDestStoreDefine();
 }
@@ -706,7 +706,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     NFFileUtility::WriteFile(desc_file_path, desc_file);
 }
 
-void ExcelToProto::WriteSheetDescStoreExCPP()
+void ExcelToProto::WriteSheetDescStoreExCpp()
 {
     std::string desc_file_name = NFStringUtility::Capitalize(m_excelName) + "DescEx.cpp";
     std::string desc_file_path = m_outPath + desc_file_name;
@@ -750,7 +750,7 @@ void ExcelToProto::WriteSheetDescStoreExCPP()
     NFFileUtility::WriteFile(desc_file_path, desc_file);
 }
 
-void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
+void ExcelToProto::WriteSheetDescStoreCpp(ExcelSheet *pSheet)
 {
     ExcelSheetColInfo *one_col_info = pSheet->m_colInfoVec.begin()->second;
     std::string key_en_name = "m_" + NFStringUtility::Lower(one_col_info->m_structEnName);
@@ -845,13 +845,13 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "\t\t}\n\n";
     desc_file += "\t\tif (m_minId == INVALID_ID)\n";
     desc_file += "\t\t{\n";
-    desc_file += "\t\t\tm_minId = desc.has_" + key_en_name + "();\n";
+    desc_file += "\t\t\tm_minId = desc." + key_en_name + "();\n";
     desc_file += "\t\t}\n";
     desc_file += "\t\telse\n";
     desc_file += "\t\t{\n";
-    desc_file += "\t\t\tif (desc.has_" + key_en_name + "() < m_minId)\n";
+    desc_file += "\t\t\tif (desc." + key_en_name + "() < m_minId)\n";
     desc_file += "\t\t\t{\n";
-    desc_file += "\t\t\t\tm_minId = desc.has_" + key_en_name + "();\n";
+    desc_file += "\t\t\t\tm_minId = desc." + key_en_name + "();\n";
     desc_file += "\t\t\t}\n";
     desc_file += "\t\t}\n\n";
 

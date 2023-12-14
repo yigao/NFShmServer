@@ -60,13 +60,13 @@ int PeakbattleAwardDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_awardid();
+			m_minId = desc.m_awardid();
 		}
 		else
 		{
-			if (desc.has_m_awardid() < m_minId)
+			if (desc.m_awardid() < m_minId)
 			{
-				m_minId = desc.has_m_awardid();
+				m_minId = desc.m_awardid();
 			}
 		}
 

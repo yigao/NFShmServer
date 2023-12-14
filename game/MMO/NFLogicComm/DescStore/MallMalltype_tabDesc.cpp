@@ -60,13 +60,13 @@ int MallMalltype_tabDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_priority();
+			m_minId = desc.m_priority();
 		}
 		else
 		{
-			if (desc.has_m_priority() < m_minId)
+			if (desc.m_priority() < m_minId)
 			{
-				m_minId = desc.has_m_priority();
+				m_minId = desc.m_priority();
 			}
 		}
 

@@ -62,13 +62,13 @@ int EncyclopediaEmployDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_employid();
+			m_minId = desc.m_employid();
 		}
 		else
 		{
-			if (desc.has_m_employid() < m_minId)
+			if (desc.m_employid() < m_minId)
 			{
-				m_minId = desc.has_m_employid();
+				m_minId = desc.m_employid();
 			}
 		}
 

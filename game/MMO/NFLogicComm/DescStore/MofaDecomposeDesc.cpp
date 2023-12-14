@@ -60,13 +60,13 @@ int MofaDecomposeDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_dpqua();
+			m_minId = desc.m_dpqua();
 		}
 		else
 		{
-			if (desc.has_m_dpqua() < m_minId)
+			if (desc.m_dpqua() < m_minId)
 			{
-				m_minId = desc.has_m_dpqua();
+				m_minId = desc.m_dpqua();
 			}
 		}
 

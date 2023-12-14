@@ -413,6 +413,16 @@ int NFCMasterServerModule::SynOtherServerToServer(NF_SHARE_PTR<NFServerData> pSe
                             proto_ff::ServerInfoReport* pData = xData.add_server_list();
                             *pData = pCurServer->mServerInfo;
                         }
+                        else if (pCurServer->mServerInfo.server_type() == NF_ST_CENTER_SERVER && pCurServer->mServerInfo.is_cross_server())
+                        {
+                            proto_ff::ServerInfoReport* pData = xData.add_server_list();
+                            *pData = pCurServer->mServerInfo;
+                        }
+                        else if (pCurServer->mServerInfo.server_type() == NF_ST_CENTER_SERVER && !pCurServer->mServerInfo.is_cross_server() && pServerData->mServerInfo.server_type() == NF_ST_CENTER_SERVER && pServerData->mServerInfo.is_cross_server())
+                        {
+                            proto_ff::ServerInfoReport* pData = xData.add_server_list();
+                            *pData = pCurServer->mServerInfo;
+                        }
                     }
                 }
             }
@@ -455,6 +465,14 @@ int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerD
                         FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
                     }
                     else if (pCurServer->mServerInfo.server_type() == NF_ST_PROXY_AGENT_SERVER && pCurServer->mServerInfo.is_cross_server() && pServerData->mServerInfo.server_type() == NF_ST_PROXY_SERVER && !pServerData->mServerInfo.is_cross_server())
+                    {
+                        FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
+                    }
+                    else if (pCurServer->mServerInfo.server_type() == NF_ST_CENTER_SERVER && pCurServer->mServerInfo.is_cross_server() && pServerData->mServerInfo.server_type() == NF_ST_CENTER_SERVER && !pServerData->mServerInfo.is_cross_server())
+                    {
+                        FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
+                    }
+                    else if (pServerData->mServerInfo.server_type() == NF_ST_CENTER_SERVER && pServerData->mServerInfo.is_cross_server())
                     {
                         FindModule<NFIMessageModule>()->Send(pCurServer->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xSelfData, 0);
                     }

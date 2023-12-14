@@ -11,7 +11,7 @@
 
 #include <NFServerComm/NFServerCommon/NFICenterServerModule.h>
 
-#include "NFServerAddrMgr.h"
+#include "Server/NFServerAddrMgr.h"
 
 NFCenterRegisterModule::NFCenterRegisterModule(NFIPluginManager *p) : NFMMODynamicModule(p)
 {

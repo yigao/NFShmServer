@@ -60,13 +60,13 @@ int MofaSetupDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_positionid();
+			m_minId = desc.m_positionid();
 		}
 		else
 		{
-			if (desc.has_m_positionid() < m_minId)
+			if (desc.m_positionid() < m_minId)
 			{
-				m_minId = desc.has_m_positionid();
+				m_minId = desc.m_positionid();
 			}
 		}
 

@@ -60,13 +60,13 @@ int TianxiafirstArtifactDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_artifactid();
+			m_minId = desc.m_artifactid();
 		}
 		else
 		{
-			if (desc.has_m_artifactid() < m_minId)
+			if (desc.m_artifactid() < m_minId)
 			{
-				m_minId = desc.has_m_artifactid();
+				m_minId = desc.m_artifactid();
 			}
 		}
 

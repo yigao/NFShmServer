@@ -60,13 +60,13 @@ int DailyHelperDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_helperid();
+			m_minId = desc.m_helperid();
 		}
 		else
 		{
-			if (desc.has_m_helperid() < m_minId)
+			if (desc.m_helperid() < m_minId)
 			{
-				m_minId = desc.has_m_helperid();
+				m_minId = desc.m_helperid();
 			}
 		}
 

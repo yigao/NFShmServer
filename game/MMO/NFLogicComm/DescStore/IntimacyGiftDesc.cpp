@@ -60,13 +60,13 @@ int IntimacyGiftDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_mallid();
+			m_minId = desc.m_mallid();
 		}
 		else
 		{
-			if (desc.has_m_mallid() < m_minId)
+			if (desc.m_mallid() < m_minId)
 			{
-				m_minId = desc.has_m_mallid();
+				m_minId = desc.m_mallid();
 			}
 		}
 

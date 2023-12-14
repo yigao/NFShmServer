@@ -60,13 +60,13 @@ int MapMapDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_mapid();
+			m_minId = desc.m_mapid();
 		}
 		else
 		{
-			if (desc.has_m_mapid() < m_minId)
+			if (desc.m_mapid() < m_minId)
 			{
-				m_minId = desc.has_m_mapid();
+				m_minId = desc.m_mapid();
 			}
 		}
 

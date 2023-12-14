@@ -60,13 +60,13 @@ int EscortEscortDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_convoyid();
+			m_minId = desc.m_convoyid();
 		}
 		else
 		{
-			if (desc.has_m_convoyid() < m_minId)
+			if (desc.m_convoyid() < m_minId)
 			{
-				m_minId = desc.has_m_convoyid();
+				m_minId = desc.m_convoyid();
 			}
 		}
 

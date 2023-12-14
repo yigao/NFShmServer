@@ -11,8 +11,8 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFCenterRegisterModule.h"
 
-#include "NFServerAddrMgr.h"
-#include "NFMapMatchModule.h"
+#include "Server/NFServerAddrMgr.h"
+#include "Server/NFMapMatchModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 

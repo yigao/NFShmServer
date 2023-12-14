@@ -24,8 +24,8 @@ public:
     void WriteSheetProto(ExcelSheet* pSheet, std::string& write_str);
     void WriteSheetDescStoreH(ExcelSheet* pSheet);
     void WriteSheetDescStoreExH();
-    void WriteSheetDescStoreCPP(ExcelSheet* pSheet);
-    void WriteSheetDescStoreExCPP();
+    void WriteSheetDescStoreCpp(ExcelSheet* pSheet);
+    void WriteSheetDescStoreExCpp();
     void WriteSheetDescStore();
     void WriteMakeFile();
     void WriteDestStoreDefine();

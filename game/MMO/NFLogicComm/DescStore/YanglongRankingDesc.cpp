@@ -60,13 +60,13 @@ int YanglongRankingDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_rankingid();
+			m_minId = desc.m_rankingid();
 		}
 		else
 		{
-			if (desc.has_m_rankingid() < m_minId)
+			if (desc.m_rankingid() < m_minId)
 			{
-				m_minId = desc.has_m_rankingid();
+				m_minId = desc.m_rankingid();
 			}
 		}
 

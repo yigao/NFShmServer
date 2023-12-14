@@ -60,13 +60,13 @@ int AvatarChangetabDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_tabid();
+			m_minId = desc.m_tabid();
 		}
 		else
 		{
-			if (desc.has_m_tabid() < m_minId)
+			if (desc.m_tabid() < m_minId)
 			{
-				m_minId = desc.has_m_tabid();
+				m_minId = desc.m_tabid();
 			}
 		}
 

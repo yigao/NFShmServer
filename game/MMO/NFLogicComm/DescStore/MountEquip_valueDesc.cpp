@@ -60,13 +60,13 @@ int MountEquip_valueDesc::Load(NFResDB *pDB)
 
 		if (m_minId == INVALID_ID)
 		{
-			m_minId = desc.has_m_equipintensify();
+			m_minId = desc.m_equipintensify();
 		}
 		else
 		{
-			if (desc.has_m_equipintensify() < m_minId)
+			if (desc.m_equipintensify() < m_minId)
 			{
-				m_minId = desc.has_m_equipintensify();
+				m_minId = desc.m_equipintensify();
 			}
 		}
 
