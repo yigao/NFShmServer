@@ -21,9 +21,9 @@ class NFWorkServerModule : public NFIDynamicModule
 public:
     NFWorkServerModule(NFIPluginManager *p, NF_SERVER_TYPES serverType) : NFIDynamicModule(p), m_serverType(serverType)
     {
-        m_connectMasterServer = true;
-        m_connectRouteAgentServer = true;
-        m_connectProxyAgentServer = true;
+        SetConnectMasterServer(true);
+        SetConnectRouteAgentServer(true);
+        SetConnectProxyAgentServer(true);
         m_checkStoreServer = false;
         m_checkWorldServer = false;
         m_checkCenterServer = false;

@@ -28,7 +28,13 @@ NFCCenterServerModule::~NFCCenterServerModule()
 
 bool NFCCenterServerModule::Awake()
 {
-    SetCheckCenterServer(true);
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_CENTER_SERVER);
+    CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_CENTER_SERVER);
+    
+    if (pConfig->IsCrossServer())
+    {
+        SetCheckCenterServer(true);
+    }
     BindServer();
 	return true;
 }

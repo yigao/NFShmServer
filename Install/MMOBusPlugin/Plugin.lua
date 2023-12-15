@@ -44,7 +44,7 @@ LoadPlugin =
 			"NFStoreServerPlugin",
 			--"NFProxyServerPlugin",
 			--"NFProxyClientPlugin",
-			--"NFProxyAgentServerPlugin",
+			"NFProxyAgentServerPlugin",
 			--"NFLoginServerPlugin",
 			--"NFGameServerPlugin",
 			--"NFWorldServerPlugin",
@@ -99,7 +99,7 @@ LoadPlugin =
             "NFRouteServerPlugin",
             "NFRouteAgentServerPlugin",
             "NFStoreServerPlugin",
-            --"NFProxyAgentServerPlugin",
+            "NFProxyAgentServerPlugin",
             --"NFGameServerPlugin",
             "NFCenterServerPlugin",
         };

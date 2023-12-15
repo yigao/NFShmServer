@@ -67,10 +67,12 @@
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="route cross server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/Common.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/ProxyServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/ProxyServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFCenterServer/NFCenterServerPlugin/NFCenterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFCenterServer/NFCenterServerPlugin/NFCenterServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -416,7 +418,7 @@
       <option name="presentableId" value="Default" />
       <updated>1702525487780</updated>
       <workItem from="1702525495405" duration="11384000" />
-      <workItem from="1702601249832" duration="936000" />
+      <workItem from="1702601249832" duration="4977000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -450,7 +452,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702547307372</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="route cross server">
+      <option name="closed" value="true" />
+      <created>1702602195941</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702602195941</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VCPKGProject">
@@ -462,5 +472,16 @@
     <MESSAGE value="bug" />
     <MESSAGE value="route cross server" />
     <option name="LAST_COMMIT_MESSAGE" value="route cross server" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
+          <line>639</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

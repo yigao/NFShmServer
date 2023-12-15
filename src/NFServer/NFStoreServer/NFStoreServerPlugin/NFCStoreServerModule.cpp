@@ -26,6 +26,7 @@
 NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager *p) : NFIStoreServerModule(p)
 {
     m_useCache = false;
+    SetConnectProxyAgentServer(false);
 }
 
 NFCStoreServerModule::~NFCStoreServerModule()
@@ -34,9 +35,6 @@ NFCStoreServerModule::~NFCStoreServerModule()
 
 bool NFCStoreServerModule::Awake()
 {
-    SetConnectProxyAgentServer(false);
-    SetCheckStoreServer(false);
-
     //////rpc service//////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(NF_ST_STORE_SERVER, this,
                                                                                        &NFCStoreServerModule::OnHandleSelectObjRpc, true);
