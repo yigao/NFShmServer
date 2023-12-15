@@ -122,7 +122,7 @@ bool NFWorkServerModule::IsCheckCenterServer() const
 void NFWorkServerModule::SetCheckCenterServer(bool checkCenterServer)
 {
     m_checkCenterServer = checkCenterServer;
-    if (checkCenterServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_CENTER_SERVER))
+    if (checkCenterServer && m_serverType != NF_ST_CENTER_SERVER && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_CENTER_SERVER))
     {
         NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
         CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
@@ -674,7 +674,10 @@ int NFWorkServerModule::OnHandleCenterServerReport(const proto_ff::ServerInfoRep
 
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_CENTER_SERVER, xData);
 
-    FinishAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    if (m_serverType != NF_ST_CENTER_SERVER)
+    {
+        FinishAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
 
     return 0;
 }
