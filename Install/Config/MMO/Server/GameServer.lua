@@ -1,6 +1,6 @@
 require "Common"
 
-GameServer_1 = {
+GameServer_13_1 = {
     map = {
 		1000,
 		1003,
@@ -20,7 +20,7 @@ GameServer_1 = {
     },
 };
 
-GameServer_2 = {
+GameServer_13_2 = {
     map = {
 		1101,
 		1004,
@@ -48,7 +48,7 @@ GameServer_2 = {
     },
 };
 
-GameServer_3 = {
+GameServer_13_3 = {
     map = {
 		1200,
 		1005,
@@ -80,7 +80,7 @@ GameServer_3 = {
     },
 };
 
-GameServer_4 = {
+GameServer_20_1 = {
     map = {
 		1002,
 		1301,
@@ -110,7 +110,7 @@ GameServer_4 = {
     },
 };
 
-GameServer_5 = {
+GameServer_20_2 = {
     map = {
 		1108,
 		1109,

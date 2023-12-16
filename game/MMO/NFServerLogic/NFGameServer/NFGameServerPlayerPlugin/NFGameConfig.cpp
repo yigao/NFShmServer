@@ -31,7 +31,7 @@ int NFGameConfig::LoadConfig(NFIPluginManager* pPluginManager)
     CHECK_NULL(pConfig);
 
     std::string path = pPluginManager->GetConfigPath() + "/Server";
-    std::string server = "GameServer_" + NFCommon::tostr(NFServerIDUtil::GetInstID(pConfig->BusId));
+    std::string server = "GameServer_" + NFCommon::tostr(NFServerIDUtil::GetZoneID(pConfig->BusId)) + "_" + NFCommon::tostr(NFServerIDUtil::GetInstID(pConfig->BusId));
 
     m_luaModule.TryAddPackagePath(path); //Add Search Path to Lua
 

@@ -733,12 +733,21 @@ public:
 
     virtual NF_SHARE_PTR<NFServerData>
     GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) = 0;
+    
+    virtual NF_SHARE_PTR<NFServerData>
+    GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer) = 0;
 
     virtual NF_SHARE_PTR<NFServerData>
     GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value) = 0;
+    
+    virtual NF_SHARE_PTR<NFServerData>
+    GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value, bool crossServer) = 0;
 
     virtual NF_SHARE_PTR<NFServerData>
     GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string &value) = 0;
+    
+    virtual NF_SHARE_PTR<NFServerData>
+    GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string &value, bool crossServer) = 0;
 
     virtual std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES eSendType) = 0;
 

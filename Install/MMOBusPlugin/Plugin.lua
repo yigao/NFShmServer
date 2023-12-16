@@ -44,9 +44,9 @@ LoadPlugin =
 			"NFStoreServerPlugin",
 			--"NFProxyServerPlugin",
 			--"NFProxyClientPlugin",
-			"NFProxyAgentServerPlugin",
+			--"NFProxyAgentServerPlugin",
 			--"NFLoginServerPlugin",
-			--"NFGameServerPlugin",
+			"NFGameServerPlugin",
 			--"NFWorldServerPlugin",
 			--"NFSnsServerPlugin",
 			--"NFLogicServerPlugin",
@@ -61,7 +61,7 @@ LoadPlugin =
 			--"NFMMOLogicPlayerPlugin",
 			--"NFMMOSnsPlayerPlugin",
 			"NFMMOCenterPlayerPlugin",
-			--"NFMMOGamePlayerPlugin",
+			"NFMMOGamePlayerPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
@@ -99,15 +99,15 @@ LoadPlugin =
             "NFRouteServerPlugin",
             "NFRouteAgentServerPlugin",
             "NFStoreServerPlugin",
-            "NFProxyAgentServerPlugin",
-            --"NFGameServerPlugin",
+            --"NFProxyAgentServerPlugin",
+            "NFGameServerPlugin",
             "NFCenterServerPlugin",
         };
 
         WorkPlugins = {
             "NFMMOCommonPlugin",
             "NFMMOCenterPlayerPlugin",
-            --"NFMMOGamePlayerPlugin",
+            "NFMMOGamePlayerPlugin",
         };
 
         ServerType = NF_ST_NONE;
@@ -115,7 +115,7 @@ LoadPlugin =
             {Server="ProxyAgentServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_PROXY_AGENT_SERVER..".1", ServerType=NF_ST_PROXY_AGENT_SERVER},
             {Server="RouteAgentServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_ROUTE_AGENT_SERVER..".1", ServerType=NF_ST_ROUTE_AGENT_SERVER},
             {Server="RouteServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_ROUTE_SERVER..".1", ServerType=NF_ST_ROUTE_SERVER},
-            {Server="GameServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".4", ServerType=NF_ST_GAME_SERVER},
+            {Server="GameServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".1", ServerType=NF_ST_GAME_SERVER},
             {Server="StoreServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_STORE_SERVER..".1", ServerType=NF_ST_STORE_SERVER},
             {Server="CenterServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_CENTER_SERVER..".1", ServerType=NF_ST_CENTER_SERVER},
         };

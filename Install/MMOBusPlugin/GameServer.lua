@@ -72,10 +72,10 @@ GameServer = {
 		},
 	};
 
-	CrossGameServer_4 = {
-		ServerName = "CrossGameServer_4",
+	CrossGameServer_1 = {
+		ServerName = "CrossGameServer_1",
 		ServerType = NF_ST_GAME_SERVER,
-		ServerId = NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".4",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
+		ServerId = NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
 		LinkMode = NF_LINK_MODE,
 		BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
 		IdleSleepUS = 1000,
@@ -95,10 +95,10 @@ GameServer = {
 		},
 	};
 
-	CrossGameServer_5 = {
-        ServerName = "CrossGameServer_5",
+	CrossGameServer_2 = {
+        ServerName = "CrossGameServer_2",
         ServerType = NF_ST_GAME_SERVER,
-        ServerId = NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".5",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
+        ServerId = NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".2",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
         LinkMode = NF_LINK_MODE,
         BusLength = NF_COMMON_BUS_LENGTH,     --20M共享内存
         IdleSleepUS = 1000,

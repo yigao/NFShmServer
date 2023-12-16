@@ -208,11 +208,15 @@ struct ServerLinkData {
         m_clientLinkId = 0;
         mServerList.resize(NF_ST_MAX);
         mServerListMap.resize(NF_ST_MAX);
+        mCrossServerListMap.resize(NF_ST_MAX);
+        mNoCrossServerListMap.resize(NF_ST_MAX);
     }
 
     NFCommMapEx<uint32_t, NFServerData> mServerMap;
     std::vector<std::vector<NF_SHARE_PTR<NFServerData>>> mServerList;
     std::vector<NFConsistentCommMapEx<uint32_t, NFServerData>> mServerListMap;
+    std::vector<NFConsistentCommMapEx<uint32_t, NFServerData>> mCrossServerListMap;
+    std::vector<NFConsistentCommMapEx<uint32_t, NFServerData>> mNoCrossServerListMap;
     NFCommMapEx<std::string, NFConsistentCommMapEx<uint32_t, NFServerData>> mDBStoreServerMap;
     std::map<uint64_t, uint32_t> mLinkIdToBusIdMap; //linkid -- busid
     NFServerData m_routeData;
@@ -261,10 +265,16 @@ struct ServerLinkData {
     NF_SHARE_PTR<NFServerData> GetFirstServerByServerType(NF_SERVER_TYPES serverTypes, bool crossServer);
 
     NF_SHARE_PTR<NFServerData> GetRandomServerByServerType(NF_SERVER_TYPES serverTypes);
+    
+    NF_SHARE_PTR<NFServerData> GetRandomServerByServerType(NF_SERVER_TYPES serverTypes, bool crossServer);
 
     NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, uint64_t value);
+    
+    NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, uint64_t value, bool crossServer);
 
     NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, const std::string& value);
+    
+    NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, const std::string& value, bool crossServer);
 
     std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer();
 

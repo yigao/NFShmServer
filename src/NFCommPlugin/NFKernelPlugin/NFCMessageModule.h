@@ -133,10 +133,16 @@ public:
     virtual NF_SHARE_PTR<NFServerData> GetFirstServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer) override;
 
     virtual NF_SHARE_PTR<NFServerData> GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) override;
+    
+    virtual NF_SHARE_PTR<NFServerData> GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer) override;
 
     virtual NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value) override;
+    
+    virtual NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t valu, bool crossServere) override;
 
     virtual NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string& value) override;
+    
+    virtual NF_SHARE_PTR<NFServerData> GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string& value, bool crossServer) override;
 
     virtual std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES eSendType) override;
 

@@ -1233,6 +1233,27 @@ NFCMessageModule::GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER
     return mServerLinkData[eSendType].GetSuitServerByServerType(serverTypes, value);
 }
 
+NF_SHARE_PTR<NFServerData>
+NFCMessageModule::GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetRandomServerByServerType(serverTypes, crossServer);
+}
+
+NF_SHARE_PTR<NFServerData>
+NFCMessageModule::GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value, bool crossServer)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetSuitServerByServerType(serverTypes, value, crossServer);
+}
+
+NF_SHARE_PTR<NFServerData>
+NFCMessageModule::GetSuitServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string &value, bool crossServer)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetSuitServerByServerType(serverTypes, value, crossServer);
+}
+
 std::vector<NF_SHARE_PTR<NFServerData>> NFCMessageModule::GetAllServer(NF_SERVER_TYPES eSendType)
 {
     CHECK_EXPR(eSendType < mServerLinkData.size(), std::vector<NF_SHARE_PTR < NFServerData>>(), "eType error:{}", (int) eSendType);
