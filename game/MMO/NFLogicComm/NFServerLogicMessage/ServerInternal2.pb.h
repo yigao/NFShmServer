@@ -48,6 +48,9 @@ class LTSLoginReq;
 class STLLoginRsp;
 class RegisterMapInfoReq;
 class ReigsterMapInfoRsp;
+class CrossMapInfo;
+class RegisterCrossMapInfoReq;
+class ReigsterCrossMapInfoRsp;
 class ClientEnterGameInternalRsp;
 class EnterSceneReq;
 class EnterSceneRsp;
@@ -1122,6 +1125,288 @@ class ReigsterMapInfoRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static ReigsterMapInfoRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CrossMapInfo : public ::google::protobuf::Message {
+ public:
+  CrossMapInfo();
+  virtual ~CrossMapInfo();
+
+  CrossMapInfo(const CrossMapInfo& from);
+
+  inline CrossMapInfo& operator=(const CrossMapInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CrossMapInfo& default_instance();
+
+  void Swap(CrossMapInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  CrossMapInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CrossMapInfo& from);
+  void MergeFrom(const CrossMapInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 map_id = 1;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 map_id() const;
+  inline void set_map_id(::google::protobuf::uint32 value);
+
+  // optional uint32 bus_id = 2;
+  inline bool has_bus_id() const;
+  inline void clear_bus_id();
+  static const int kBusIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 bus_id() const;
+  inline void set_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint32 cross_server = 3;
+  inline bool has_cross_server() const;
+  inline void clear_cross_server();
+  static const int kCrossServerFieldNumber = 3;
+  inline ::google::protobuf::uint32 cross_server() const;
+  inline void set_cross_server(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CrossMapInfo)
+ private:
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_bus_id();
+  inline void clear_has_bus_id();
+  inline void set_has_cross_server();
+  inline void clear_has_cross_server();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 map_id_;
+  ::google::protobuf::uint32 bus_id_;
+  ::google::protobuf::uint32 cross_server_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static CrossMapInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RegisterCrossMapInfoReq : public ::google::protobuf::Message {
+ public:
+  RegisterCrossMapInfoReq();
+  virtual ~RegisterCrossMapInfoReq();
+
+  RegisterCrossMapInfoReq(const RegisterCrossMapInfoReq& from);
+
+  inline RegisterCrossMapInfoReq& operator=(const RegisterCrossMapInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RegisterCrossMapInfoReq& default_instance();
+
+  void Swap(RegisterCrossMapInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  RegisterCrossMapInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RegisterCrossMapInfoReq& from);
+  void MergeFrom(const RegisterCrossMapInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.CrossMapInfo map = 1;
+  inline int map_size() const;
+  inline void clear_map();
+  static const int kMapFieldNumber = 1;
+  inline const ::proto_ff::CrossMapInfo& map(int index) const;
+  inline ::proto_ff::CrossMapInfo* mutable_map(int index);
+  inline ::proto_ff::CrossMapInfo* add_map();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >&
+      map() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >*
+      mutable_map();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RegisterCrossMapInfoReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo > map_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static RegisterCrossMapInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ReigsterCrossMapInfoRsp : public ::google::protobuf::Message {
+ public:
+  ReigsterCrossMapInfoRsp();
+  virtual ~ReigsterCrossMapInfoRsp();
+
+  ReigsterCrossMapInfoRsp(const ReigsterCrossMapInfoRsp& from);
+
+  inline ReigsterCrossMapInfoRsp& operator=(const ReigsterCrossMapInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReigsterCrossMapInfoRsp& default_instance();
+
+  void Swap(ReigsterCrossMapInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  ReigsterCrossMapInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReigsterCrossMapInfoRsp& from);
+  void MergeFrom(const ReigsterCrossMapInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.CrossMapInfo map = 2;
+  inline int map_size() const;
+  inline void clear_map();
+  static const int kMapFieldNumber = 2;
+  inline const ::proto_ff::CrossMapInfo& map(int index) const;
+  inline ::proto_ff::CrossMapInfo* mutable_map(int index);
+  inline ::proto_ff::CrossMapInfo* add_map();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >&
+      map() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >*
+      mutable_map();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ReigsterCrossMapInfoRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo > map_;
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReigsterCrossMapInfoRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -2354,6 +2639,156 @@ inline ::google::protobuf::int32 ReigsterMapInfoRsp::ret_code() const {
 inline void ReigsterMapInfoRsp::set_ret_code(::google::protobuf::int32 value) {
   set_has_ret_code();
   ret_code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CrossMapInfo
+
+// optional uint32 map_id = 1;
+inline bool CrossMapInfo::has_map_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CrossMapInfo::set_has_map_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CrossMapInfo::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CrossMapInfo::clear_map_id() {
+  map_id_ = 0u;
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint32 CrossMapInfo::map_id() const {
+  return map_id_;
+}
+inline void CrossMapInfo::set_map_id(::google::protobuf::uint32 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint32 bus_id = 2;
+inline bool CrossMapInfo::has_bus_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CrossMapInfo::set_has_bus_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CrossMapInfo::clear_has_bus_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CrossMapInfo::clear_bus_id() {
+  bus_id_ = 0u;
+  clear_has_bus_id();
+}
+inline ::google::protobuf::uint32 CrossMapInfo::bus_id() const {
+  return bus_id_;
+}
+inline void CrossMapInfo::set_bus_id(::google::protobuf::uint32 value) {
+  set_has_bus_id();
+  bus_id_ = value;
+}
+
+// optional uint32 cross_server = 3;
+inline bool CrossMapInfo::has_cross_server() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CrossMapInfo::set_has_cross_server() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CrossMapInfo::clear_has_cross_server() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CrossMapInfo::clear_cross_server() {
+  cross_server_ = 0u;
+  clear_has_cross_server();
+}
+inline ::google::protobuf::uint32 CrossMapInfo::cross_server() const {
+  return cross_server_;
+}
+inline void CrossMapInfo::set_cross_server(::google::protobuf::uint32 value) {
+  set_has_cross_server();
+  cross_server_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RegisterCrossMapInfoReq
+
+// repeated .proto_ff.CrossMapInfo map = 1;
+inline int RegisterCrossMapInfoReq::map_size() const {
+  return map_.size();
+}
+inline void RegisterCrossMapInfoReq::clear_map() {
+  map_.Clear();
+}
+inline const ::proto_ff::CrossMapInfo& RegisterCrossMapInfoReq::map(int index) const {
+  return map_.Get(index);
+}
+inline ::proto_ff::CrossMapInfo* RegisterCrossMapInfoReq::mutable_map(int index) {
+  return map_.Mutable(index);
+}
+inline ::proto_ff::CrossMapInfo* RegisterCrossMapInfoReq::add_map() {
+  return map_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >&
+RegisterCrossMapInfoReq::map() const {
+  return map_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >*
+RegisterCrossMapInfoReq::mutable_map() {
+  return &map_;
+}
+
+// -------------------------------------------------------------------
+
+// ReigsterCrossMapInfoRsp
+
+// optional int32 ret_code = 1;
+inline bool ReigsterCrossMapInfoRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReigsterCrossMapInfoRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReigsterCrossMapInfoRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReigsterCrossMapInfoRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 ReigsterCrossMapInfoRsp::ret_code() const {
+  return ret_code_;
+}
+inline void ReigsterCrossMapInfoRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// repeated .proto_ff.CrossMapInfo map = 2;
+inline int ReigsterCrossMapInfoRsp::map_size() const {
+  return map_.size();
+}
+inline void ReigsterCrossMapInfoRsp::clear_map() {
+  map_.Clear();
+}
+inline const ::proto_ff::CrossMapInfo& ReigsterCrossMapInfoRsp::map(int index) const {
+  return map_.Get(index);
+}
+inline ::proto_ff::CrossMapInfo* ReigsterCrossMapInfoRsp::mutable_map(int index) {
+  return map_.Mutable(index);
+}
+inline ::proto_ff::CrossMapInfo* ReigsterCrossMapInfoRsp::add_map() {
+  return map_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >&
+ReigsterCrossMapInfoRsp::map() const {
+  return map_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CrossMapInfo >*
+ReigsterCrossMapInfoRsp::mutable_map() {
+  return &map_;
 }
 
 // -------------------------------------------------------------------

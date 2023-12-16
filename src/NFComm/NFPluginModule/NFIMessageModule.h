@@ -500,9 +500,9 @@ public:
     template<size_t msgId, typename RequestType, typename ResponFunc>
     int64_t
     GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc &rpcCb,
-                  uint64_t param1 = 0, uint64_t param2 = 0)
+                  uint64_t param1 = 0, uint64_t param2 = 0, bool is_immediately = true)
     {
-        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator(), param1, param2);
+        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator(), param1, param2, is_immediately);
     }
 
     int GetScriptRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
@@ -573,7 +573,7 @@ private:
     template<size_t msgId, typename RequestType, typename ResponFunc, typename ResponeType>
     int64_t GetRpcServiceInner(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request,
                                const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType &respone) const, uint64_t param1 = 0,
-                               uint64_t param2 = 0)
+                               uint64_t param2 = 0, bool is_immediately = true)
     {
         return FindModule<NFICoroutineModule>()->MakeCoroutine(
                 [=]()
@@ -584,7 +584,7 @@ private:
                                                                                     dstBusId, request,
                                                                                     respone, param1, param2);
                     (responFunc.*pf)(iRet, respone);
-                });
+                }, is_immediately);
     }
 
 public:

@@ -82,6 +82,24 @@ message ReigsterMapInfoRsp
   optional int32 ret_code = 1;
 }
 
+message CrossMapInfo
+{
+  optional uint32 map_id = 1;
+  optional uint32 bus_id = 2;
+  optional uint32 cross_server = 3;
+}
+
+message RegisterCrossMapInfoReq
+{
+  repeated CrossMapInfo map = 1;
+}
+
+message ReigsterCrossMapInfoRsp
+{
+  optional int32 ret_code = 1;
+  repeated CrossMapInfo map = 2;
+}
+
 message ClientEnterGameInternalRsp
 {
   optional int32 ret_code = 1;

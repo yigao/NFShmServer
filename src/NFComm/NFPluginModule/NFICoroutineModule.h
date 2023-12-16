@@ -31,7 +31,7 @@ public:
 
     }
 
-    virtual int64_t MakeCoroutine(const std::function<void()> &func) = 0;
+    virtual int64_t MakeCoroutine(const std::function<void()> &func, bool is_immediately = true) = 0;
 
     /// @brief 启动该协程任务, 执行Run方法
     /// @param is_immediately 是否立即执行

@@ -36,16 +36,17 @@ void protobuf_ShutdownFile_ServerInternalCmd2_2eproto();
 
 
 enum ServerInternalCmd2 {
-  SERVER_INTERNAL2_BEGIN = 5000,
-  LTS_LOGIN_RPC = 5001,
-  STS_MAP_REG_RPC = 5002,
-  STS_ENTER_SCENE_REQ = 5003,
-  STS_ENTER_SCENE_RSP = 5004,
-  STS_NOTIFY_ROLE_ENTER_SERVER = 5005
+  SERVER_INTERNAL2_BEGIN = 8000,
+  LTS_LOGIN_RPC = 8001,
+  STS_MAP_REG_RPC = 8002,
+  STS_ENTER_SCENE_REQ = 8003,
+  STS_ENTER_SCENE_RSP = 8004,
+  STS_NOTIFY_ROLE_ENTER_SERVER = 8005,
+  STS_CROSS_MAP_REG_RPC = 8006
 };
 bool ServerInternalCmd2_IsValid(int value);
 const ServerInternalCmd2 ServerInternalCmd2_MIN = SERVER_INTERNAL2_BEGIN;
-const ServerInternalCmd2 ServerInternalCmd2_MAX = STS_NOTIFY_ROLE_ENTER_SERVER;
+const ServerInternalCmd2 ServerInternalCmd2_MAX = STS_CROSS_MAP_REG_RPC;
 const int ServerInternalCmd2_ARRAYSIZE = ServerInternalCmd2_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ServerInternalCmd2_descriptor();

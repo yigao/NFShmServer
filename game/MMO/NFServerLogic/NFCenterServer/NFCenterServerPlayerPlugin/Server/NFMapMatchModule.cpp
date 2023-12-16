@@ -44,11 +44,18 @@ int NFMapMatchModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t
 
 int NFMapMatchModule::OnRpcServiceEnterScene(proto_ff::EnterSceneReq& request, proto_ff::EnterSceneRsp& respone)
 {
-    uint32_t gameId = NFServerAddrMgr::Instance(m_pObjPluginManager)->GetSuitGameId(request.dst_map_id(), request.dst_scene_id());
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_CENTER_SERVER);
+    CHECK_NULL(pConfig);
+    
+    uint32_t gameId = NFServerAddrMgr::Instance(m_pObjPluginManager)->GetSuitGameIdByZid(request.dst_map_id(), pConfig->GetZoneId());
     if (gameId == 0)
     {
-        respone.set_ret_code(proto_ff::RET_SCENE_DST_NOT_EXIST);
-        return 0;
+        gameId = NFServerAddrMgr::Instance(m_pObjPluginManager)->GetSuitGameIdByCross(request.dst_map_id(), !pConfig->IsCrossServer());
+        if (gameId == 0)
+        {
+            respone.set_ret_code(proto_ff::RET_SCENE_DST_NOT_EXIST);
+            return 0;
+        }
     }
     
     int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::STS_ENTER_SCENE_REQ>(NF_ST_CENTER_SERVER, NF_ST_GAME_SERVER, gameId, request, respone);

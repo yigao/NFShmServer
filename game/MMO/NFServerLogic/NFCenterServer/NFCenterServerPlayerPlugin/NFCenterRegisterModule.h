@@ -48,5 +48,11 @@ public:
      * @return
      */
     int OnRpcServiceMapReg(proto_ff::RegisterMapInfoReq& request, proto_ff::ReigsterMapInfoRsp& respone);
+public:
+    /**
+     * @brief 跨服地图注册
+     * @return
+     */
+    int RegisterCrossMap();
 };
 

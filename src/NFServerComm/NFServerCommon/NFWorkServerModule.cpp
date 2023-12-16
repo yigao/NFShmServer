@@ -608,6 +608,9 @@ int NFWorkServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
         return 0;
     }
     
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+    CHECK_NULL(pConfig);
+    
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_STORE_SERVER, xData);
     
     if (m_serverType != NF_ST_STORE_SERVER)
@@ -615,6 +618,7 @@ int NFWorkServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
         FinishAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
     
+    FireExecute(m_serverType, proto_ff::NF_EVENT_SERVER_REPORT_EVENT, NF_ST_STORE_SERVER, pConfig->GetBusId(), xData);
     return 0;
 }
 
@@ -625,6 +629,9 @@ int NFWorkServerModule::OnHandleWorldServerReport(const proto_ff::ServerInfoRepo
         return 0;
     }
     
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+    CHECK_NULL(pConfig);
+    
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_WORLD_SERVER, xData);
     
     if (m_serverType != NF_ST_WORLD_SERVER)
@@ -632,6 +639,7 @@ int NFWorkServerModule::OnHandleWorldServerReport(const proto_ff::ServerInfoRepo
         FinishAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
     
+    FireExecute(m_serverType, proto_ff::NF_EVENT_SERVER_REPORT_EVENT, NF_ST_WORLD_SERVER, pConfig->GetBusId(), xData);
     return 0;
 }
 
@@ -642,12 +650,17 @@ int NFWorkServerModule::OnHandleCenterServerReport(const proto_ff::ServerInfoRep
         return 0;
     }
     
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+    CHECK_NULL(pConfig);
+    
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_CENTER_SERVER, xData);
     
     if (m_serverType != NF_ST_CENTER_SERVER)
     {
         FinishAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
+    
+    FireExecute(m_serverType, proto_ff::NF_EVENT_SERVER_REPORT_EVENT, NF_ST_CENTER_SERVER, pConfig->GetBusId(), xData);
     
     return 0;
 }

@@ -146,7 +146,7 @@ public:
         return task;
     }
 
-    virtual int64_t MakeCoroutine(const std::function<void()> &func) override;
+    virtual int64_t MakeCoroutine(const std::function<void()> &func, bool is_immediately = true) override;
 private:
     NFCoroutineSchedule *m_pCorSched;
     std::unordered_map<uint64_t, std::unordered_set<int64_t>> m_userCoIdMap;

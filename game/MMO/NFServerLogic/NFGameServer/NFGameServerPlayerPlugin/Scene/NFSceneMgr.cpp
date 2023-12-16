@@ -152,8 +152,8 @@ int NFSceneMgr::InitScene(const std::unordered_set<uint64_t> &mapIds)
                 pScene = CreateScene(pMap->GetMapId(), pMap->GetMapId());
             }
             CHECK_EXPR_CONTINUE(pScene, "CreateScene Failed, MapId:{}", mapId);
-            vec.push_back(mapId);
         }
+        vec.push_back(mapId);
     }
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);

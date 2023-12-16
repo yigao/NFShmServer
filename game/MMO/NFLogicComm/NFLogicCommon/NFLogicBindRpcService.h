@@ -51,6 +51,12 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::LTS_LOGIN_RPC, proto_ff::LTSLoginReq, proto_ff
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::STS_MAP_REG_RPC, proto_ff::RegisterMapInfoReq, proto_ff::ReigsterMapInfoRsp)
 
+
+/**
+ * @brief 跨服地图注册RPC
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::STS_CROSS_MAP_REG_RPC, proto_ff::RegisterCrossMapInfoReq, proto_ff::ReigsterCrossMapInfoRsp)
+
 /**
  * @brief 进入场景RPC
  */

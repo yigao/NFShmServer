@@ -292,7 +292,7 @@ bool NFCCoroutineModule::IsYielding(int64_t id)
     return Status(id) == NF_COROUTINE_SUSPEND;
 }
 
-int64_t NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
+int64_t NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func, bool is_immediately)
 {
     NFCommonCoroutineTask *pTask = NewTask<NFCommonCoroutineTask>();
     if (pTask == NULL)
@@ -302,7 +302,7 @@ int64_t NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
     }
 
     pTask->Init(func);
-    int64_t coid = pTask->Start(true);
+    int64_t coid = pTask->Start(is_immediately);
     return coid < 0 ? -1 : coid;
 }
 
