@@ -130,7 +130,7 @@ int NFCenterRegisterModule::OnRpcServiceMapReg(proto_ff::RegisterMapInfoReq& req
     
     respone.set_ret_code(proto_ff::RET_SUCCESS);
     
-    RegisterCrossMap();
+    //RegisterCrossMap();
     return 0;
 }
 
@@ -154,7 +154,7 @@ int NFCenterRegisterModule::RegisterCrossMap()
             NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService<proto_ff::STS_CROSS_MAP_REG_RPC> failed:{}, register failed", GetErrorStr(respone.ret_code()));
             return;
         }
-    }, 0, 0, false);
+    }, 0, 0);
     
     if (rpcRet == INVALID_ID)
     {
