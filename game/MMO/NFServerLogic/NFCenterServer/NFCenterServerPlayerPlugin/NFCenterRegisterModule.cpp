@@ -142,7 +142,7 @@ int NFCenterRegisterModule::RegisterCrossMap()
     proto_ff::RegisterCrossMapInfoReq  req;
     NFServerAddrMgr::Instance(m_pObjPluginManager)->GetAllMapInfo(req, pConfig->GetZoneId());
     
-    int rpcRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::STS_CROSS_MAP_REG_RPC>(NF_ST_CENTER_SERVER, NF_ST_CENTER_SERVER, 0, req, [this](int rpcRetCode, proto_ff::ReigsterCrossMapInfoRsp &respone){
+    int rpcRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::STS_CROSS_MAP_REG_RPC>(NF_ST_CENTER_SERVER, NF_ST_CENTER_SERVER, CROSS_ROUTE, req, [this](int rpcRetCode, proto_ff::ReigsterCrossMapInfoRsp &respone){
         if (rpcRetCode != proto_ff::RET_SUCCESS)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService<proto_ff::STS_CROSS_MAP_REG_RPC> failed, rpcError:{}", GetErrorStr(rpcRetCode));

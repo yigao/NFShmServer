@@ -21,6 +21,7 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFIConfigModule.h"
 #include "NFError.h"
+#include "NFRoute.h"
 
 #include <map>
 #include <unordered_map>

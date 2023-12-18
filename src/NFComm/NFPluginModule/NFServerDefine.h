@@ -250,7 +250,6 @@ struct NFDataPackage
         isSecurity = data.isSecurity;
         nBuffer = data.nBuffer;
         nMsgLen = data.nMsgLen;
-        isCrossServer = data.isCrossServer;
     }
 
     std::string ToString() const
@@ -274,7 +273,6 @@ struct NFDataPackage
         isSecurity = false;
         nBuffer = NULL;
         nMsgLen = 0;
-        isCrossServer = false;
     }
 
     const char* GetBuffer() const
@@ -339,7 +337,6 @@ struct NFDataPackage
     uint64_t nObjectLinkId;
     uint32_t nPacketParseType;
     bool isSecurity;
-    bool isCrossServer;
     char* nBuffer;
     uint64_t nMsgLen;
 };

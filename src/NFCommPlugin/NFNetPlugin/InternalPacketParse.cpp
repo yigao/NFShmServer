@@ -127,7 +127,6 @@ int InternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
     recvPackage.nSrcId = packHead->nSrcId;
     recvPackage.nDstId = packHead->nDstId;
     recvPackage.nSendBusLinkId = packHead->ulSendBusLinkId;
-    recvPackage.isCrossServer = packHead->isCrossServer;
     allLen = sizeof(InternalMsg) + msgSize;
 	return 0;
 }
@@ -143,7 +142,6 @@ int InternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, const char
 	packHead.nSrcId = recvPackage.nSrcId;
 	packHead.nDstId = recvPackage.nDstId;
 	packHead.ulSendBusLinkId = nSendBusLinkId;
-    packHead.isCrossServer = recvPackage.isCrossServer;
 
 	buffer.PushData(&packHead, sizeof(InternalMsg));
 	buffer.PushData(strData, unLen);

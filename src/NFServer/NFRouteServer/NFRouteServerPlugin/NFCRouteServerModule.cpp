@@ -227,58 +227,90 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
                GetServerName((NF_SERVER_TYPES)fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId), packet.ToString());
     
     /**
-    * @brief 当目标busId==0, 跨服路由机制，除非明确表示要发往跨服服务器，否则就是本服路由(包过跨服服务器的本服路由)
+    * @brief 当目标busId==LOCAL_ROUTE, 本服路由机制，除非明确表示要发往跨服服务器，否则就是本服路由(包过跨服服务器的本服路由) (需要保证本跨服服务器只能连接跨服route agent， 不跨服服务器只能连接不跨服的route agent.)
     */
-    if (destBusId == 0)
+    if (destBusId == LOCAL_ROUTE)
     {
-        if (!packet.isCrossServer)
+        NF_SHARE_PTR<NFServerData> pRegServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES)serverType, pConfig->IsCrossServer());
+        if (pRegServerData)
         {
-            /**
-             * @brief 本服路由(包过跨服服务器的本服路由)
-             */
-            NF_SHARE_PTR<NFServerData> pRegServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES)serverType, pConfig->IsCrossServer());
-            if (pRegServerData)
+            NF_SHARE_PTR<NFServerData> pRouteAgent = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER, pRegServerData->mRouteAgentBusId);
+            if (pRouteAgent)
             {
-                NF_SHARE_PTR<NFServerData> pRouteAgent = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER, pRegServerData->mRouteAgentBusId);
-                if (pRouteAgent)
-                {
-                    FindModule<NFIMessageModule>()->TransPackage(pRouteAgent->mUnlinkId, packet);
-                }
-                else
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
-                               packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
-                }
+                FindModule<NFIMessageModule>()->TransPackage(pRouteAgent->mUnlinkId, packet);
             }
             else
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
-                           packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType),
-                           NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                           packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
             }
         }
         else
         {
-            NF_SHARE_PTR<NFServerData> pRegServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES)serverType, packet.isCrossServer);
-            if (pRegServerData)
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
+                       packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType),
+                       NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
+        }
+    }
+    /**
+     * @brief 跨服路由(明确指定要找跨服服务器， 才走跨服路由)
+     */
+    else if (destBusId == CROSS_ROUTE)
+    {
+        NF_SHARE_PTR<NFServerData> pRegServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES)serverType, true);
+        if (pRegServerData)
+        {
+            NF_SHARE_PTR<NFServerData> pRouteAgent = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER, pRegServerData->mRouteAgentBusId);
+            if (pRouteAgent)
+            {
+                FindModule<NFIMessageModule>()->TransPackage(pRouteAgent->mUnlinkId, packet);
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:CROSS_ROUTE",
+                           packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType));
+            }
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:CROSS_ROUTE",
+                       packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType),
+                       NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType));
+        }
+    }
+    /**
+     * @brief 区服路由  区服的zid(1-4096) 只有跨服route server服务器，才有区服路由的能力
+     */
+    else if (destBusId > LOCAL_ROUTE && destBusId < CROSS_ROUTE)
+    {
+        CHECK_EXPR(pConfig->IsCrossServer(), -1, "destBusId:{} zid ROUTE error, the pConfig is not cross server");
+        bool find = false;
+        std::vector<NF_SHARE_PTR<NFServerData>> allServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_ROUTE_SERVER, (NF_SERVER_TYPES)serverType);
+        for(int i = 0; i < (int)allServer.size(); i++)
+        {
+            auto pRegServerData = allServer[i];
+            if (pRegServerData && NFServerIDUtil::GetZoneID(pRegServerData->mServerInfo.bus_id()) == destBusId)
             {
                 NF_SHARE_PTR<NFServerData> pRouteAgent = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER, pRegServerData->mRouteAgentBusId);
                 if (pRouteAgent)
                 {
                     FindModule<NFIMessageModule>()->TransPackage(pRouteAgent->mUnlinkId, packet);
+                    find = true;
                 }
                 else
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
                                packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType), NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
                 }
+                break;
             }
-            else
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}:{}",
-                           packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType),
-                           NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), NFServerIDUtil::GetBusNameFromBusID(destBusId));
-            }
+        }
+        
+        if (!find)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find destBusId, packet:{} trans failed, fromServer:{}:{} to destServer:{}, Zid:{}",
+                       packet.ToString(), GetServerName((NF_SERVER_TYPES)fromServerType),
+                       NFServerIDUtil::GetBusNameFromBusID(fromBusId), GetServerName((NF_SERVER_TYPES)serverType), destBusId)
         }
     }
     else
