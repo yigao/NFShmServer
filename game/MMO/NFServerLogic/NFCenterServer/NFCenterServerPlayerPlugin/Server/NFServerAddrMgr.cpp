@@ -38,6 +38,8 @@ int NFServerAddrMgr::AddMapAddr(uint64_t mapId, uint32_t busId, uint32_t zid, bo
         CHECK_NULL(pMapAddr);
     }
 
+    pMapAddr->m_mapId = mapId;
+
     return pMapAddr->AddBusId(busId, zid, isCrossServer);
 }
 

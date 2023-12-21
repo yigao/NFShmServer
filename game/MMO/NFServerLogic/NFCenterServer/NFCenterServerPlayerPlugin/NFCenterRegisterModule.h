@@ -14,45 +14,52 @@
 class NFCenterRegisterModule : public NFMMODynamicModule
 {
 public:
-    explicit NFCenterRegisterModule(NFIPluginManager* p);
-    virtual ~NFCenterRegisterModule();
+	explicit NFCenterRegisterModule(NFIPluginManager* p);
+	virtual ~NFCenterRegisterModule();
 
-    virtual bool Awake() override;
+	virtual bool Awake() override;
 
-    virtual bool Execute() override;
+	virtual bool Execute() override;
 
-    virtual bool OnDynamicPlugin() override;
+	virtual bool OnDynamicPlugin() override;
 
-    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
+	virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
 public:
-    /**
-     * @brief 处理客户端消息
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    virtual int OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet) override;
+	/**
+	 * @brief 处理客户端消息
+	 * @param unLinkId
+	 * @param packet
+	 * @return
+	 */
+	virtual int OnHandleClientMessage(uint64_t unLinkId, NFDataPackage& packet) override;
 
-    /**
-     * @brief 处理来自服务器的信息
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
+	/**
+	 * @brief 处理来自服务器的信息
+	 * @param unLinkId
+	 * @param packet
+	 * @return
+	 */
+	virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
 public:
-    /**
-     *
-     * @param request
-     * @param respone
-     * @return
-     */
-    int OnRpcServiceMapReg(proto_ff::RegisterMapInfoReq& request, proto_ff::ReigsterMapInfoRsp& respone);
+	/**
+	 * \brief gameserver 地图注册
+	 * \param request
+	 * \param respone
+	 * \return
+	 */
+	int OnRpcServiceMapReg(proto_ff::RegisterMapInfoReq& request, proto_ff::ReigsterMapInfoRsp& respone);
+
+	/**
+	 * \brief center 跨服地图注册
+	 * \param request
+	 * \param respone
+	 * \return
+	 */
+	int OnRpcServiceCrossMapReg(proto_ff::RegisterCrossMapInfoReq& request, proto_ff::ReigsterCrossMapInfoRsp& respone);
 public:
-    /**
-     * @brief 跨服地图注册
-     * @return
-     */
-    int RegisterCrossMap();
+	/**
+	 * @brief 跨服地图注册
+	 * @return
+	 */
+	int RegisterCrossMap();
 };
-

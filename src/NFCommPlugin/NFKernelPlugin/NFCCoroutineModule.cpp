@@ -105,6 +105,16 @@ bool NFCCoroutineModule::Finalize()
 
 bool NFCCoroutineModule::Execute()
 {
+    if (m_pCorSched)
+    {
+        for(auto iter = m_pCorSched->task_map_.begin(); iter != m_pCorSched->task_map_.end(); ++iter)
+        {
+            if (m_pCorSched->Status(iter->first) == NF_COROUTINE_READY)
+            {
+                m_pCorSched->schedule_->CoroutineResume(iter->first);
+            }
+        }
+    }
     return true;
 }
 

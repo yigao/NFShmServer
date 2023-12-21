@@ -164,7 +164,7 @@ int NFSceneMgr::InitScene(const std::unordered_set<uint64_t> &mapIds)
     for(auto iter = vec.begin(); iter != vec.end(); iter++)
     {
         req.add_map_id(*iter);
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Register Map:{} to Center Server", *iter);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer:{}({}) Register Map:{} to Center Server", pConfig->ServerName, pConfig->ServerId, *iter);
     }
     
     int rpcRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::STS_MAP_REG_RPC>(NF_ST_GAME_SERVER, NF_ST_CENTER_SERVER, 0, req, [this](int rpcRetCode, proto_ff::ReigsterMapInfoRsp &respone){
