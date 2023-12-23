@@ -23,7 +23,6 @@ NFCSnsPlayerModule::~NFCSnsPlayerModule()
 bool NFCSnsPlayerModule::Awake()
 {
     FindModule<NFISnsServerModule>()->SetCheckStoreServer(true);
-    FindModule<NFISnsServerModule>()->SetCheckCenterServer(true);
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     ///////////world msg//////////////////////////////////////////////////////////
@@ -59,11 +58,6 @@ bool NFCSnsPlayerModule::OnDynamicPlugin()
 
 int NFCSnsPlayerModule::OnTimer(uint32_t nTimerID)
 {
-    NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimple(10000);
-    FindModule<NFICoroutineModule>()->MakeCoroutine([this]{
-        NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(10000);
-    });
-
     return 0;
 }
 

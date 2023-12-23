@@ -20,7 +20,7 @@ public:
     virtual int DeCodeImpl(const char* strData, uint32_t unLen, char*& outData, uint32_t& outLen, uint32_t& allLen, NFDataPackage& recvPackage) override;
     virtual int EnCodeImpl(const NFDataPackage& recvPackage, const char* strData, uint32_t unLen, NFBuffer& buffer, uint64_t nSendBusLinkId = 0) override;
 
-    // Ê¹ÓÃ lzf Ëã·¨ Ñ¹Ëõ¡¢½âÑ¹
+    // ä½¿ç”¨ lzf ç®—æ³• å‹ç¼©ã€è§£å‹
     virtual int CompressImpl(const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize);
     virtual int DecompressImpl(const char* inBuffer, int inLen, void *outBuffer, int outSize);
 };

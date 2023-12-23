@@ -67,9 +67,10 @@
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="route cross server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/NFCenterRegisterModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/NFCenterRegisterModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/NFCenterRegisterModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/NFCenterRegisterModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFSnsPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFSnsPlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFRoute.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFRoute.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/FishExternalPacketParse.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/FishExternalPacketParse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerCommonDefine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerCommonDefine.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +116,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "settings.editor.selected.configurable": "advanced.settings"
+    "settings.editor.selected.configurable": "CMakeSettings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -417,7 +418,8 @@
       <workItem from="1702860560061" duration="6983000" />
       <workItem from="1703033033695" duration="406000" />
       <workItem from="1703061079917" duration="7458000" />
-      <workItem from="1703135371289" duration="2006000" />
+      <workItem from="1703135371289" duration="5932000" />
+      <workItem from="1703293343611" duration="6722000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -499,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702866980865</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="route cross server">
+      <option name="closed" value="true" />
+      <created>1703138634538</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1703138634539</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VCPKGProject">
