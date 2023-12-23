@@ -189,6 +189,15 @@ public:
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
+
         storesvr_sqldata::storesvr_selobj selobj;
         std::string clsname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
@@ -282,6 +291,15 @@ public:
             }
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
 
         storesvr_sqldata::storesvr_sel sel;
         std::string tbname = NFProtobufCommon::GetDescStoreClsName(*pDescStoreMessage);
@@ -392,6 +410,15 @@ public:
             }
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
 
         storesvr_sqldata::storesvr_sel sel;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
@@ -512,6 +539,15 @@ public:
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
+
         storesvr_sqldata::storesvr_insertobj selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
@@ -577,6 +613,15 @@ public:
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
+
         storesvr_sqldata::storesvr_modobj selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
@@ -637,6 +682,15 @@ public:
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
+
         storesvr_sqldata::storesvr_updateobj selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
@@ -696,6 +750,15 @@ public:
             }
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
 
         storesvr_sqldata::storesvr_delobj selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
@@ -760,6 +823,15 @@ public:
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
+
         storesvr_sqldata::storesvr_del selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
@@ -823,6 +895,15 @@ public:
             }
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
 
         storesvr_sqldata::storesvr_mod selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
@@ -890,6 +971,15 @@ public:
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
+
         storesvr_sqldata::storesvr_update selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
@@ -955,6 +1045,15 @@ public:
             }
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
 
         storesvr_sqldata::storesvr_execute selobj;
         std::string clsname = NFProtobufCommon::GetProtoBaseName(data);
@@ -1026,6 +1125,15 @@ public:
             }
         }
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        if (dstBusId == 0)
+        {
+            auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+            if (pDbServer)
+            {
+                dstBusId = pDbServer->mServerInfo.bus_id();
+            }
+        }
 
         DataType data;
         storesvr_sqldata::storesvr_execute_more sel;

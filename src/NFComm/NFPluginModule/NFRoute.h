@@ -10,11 +10,11 @@
 #pragma once
 
 /**
- * @brief Â·ÓÉ·ÖÀà
- * 1.±¾·þÂ·ÓÉ  LOCAL_ROUTE              ±¾·þÂ·ÓÉ»úÖÆ£¬³ý·ÇÃ÷È·±íÊ¾Òª·¢Íù¿ç·þ·þÎñÆ÷£¬·ñÔò¾ÍÊÇ±¾·þÂ·ÓÉ(°ü¹ý¿ç·þ·þÎñÆ÷µÄ±¾·þÂ·ÓÉ) (ÐèÒª±£Ö¤±¾¿ç·þ·þÎñÆ÷Ö»ÄÜÁ¬½Ó¿ç·þroute agent£¬ ²»¿ç·þ·þÎñÆ÷Ö»ÄÜÁ¬½Ó²»¿ç·þµÄroute agent.)
- * 2.Çø·þÂ·ÓÉ  Çø·þµÄzid(1-4096)         Ö»ÓÐ¿ç·þroute server·þÎñÆ÷£¬²ÅÓÐÇø·þÂ·ÓÉµÄÄÜÁ¦
- * 3.¿ç·þÂ·ÓÉ CROSS_ROUTE               Ã÷È·Ö¸¶¨ÒªÕÒ¿ç·þ·þÎñÆ÷£¬ ²Å×ß¿ç·þÂ·ÓÉ
- * 4.busidÂ·ÓÉ ·þÎñÆ÷Î¨Ò»ID
+ * @brief è·¯ç”±åˆ†ç±»
+ * 1.æœ¬æœè·¯ç”±  LOCAL_ROUTE              æœ¬æœè·¯ç”±æœºåˆ¶ï¼Œé™¤éžæ˜Žç¡®è¡¨ç¤ºè¦å‘å¾€è·¨æœæœåŠ¡å™¨ï¼Œå¦åˆ™å°±æ˜¯æœ¬æœè·¯ç”±(åŒ…è¿‡è·¨æœæœåŠ¡å™¨çš„æœ¬æœè·¯ç”±) (éœ€è¦ä¿è¯æœ¬è·¨æœæœåŠ¡å™¨åªèƒ½è¿žæŽ¥è·¨æœroute agentï¼Œ ä¸è·¨æœæœåŠ¡å™¨åªèƒ½è¿žæŽ¥ä¸è·¨æœçš„route agent.)
+ * 2.åŒºæœè·¯ç”±  åŒºæœçš„zid(1-4096)         åªæœ‰è·¨æœroute serveræœåŠ¡å™¨ï¼Œæ‰æœ‰åŒºæœè·¯ç”±çš„èƒ½åŠ›
+ * 3.è·¨æœè·¯ç”± CROSS_ROUTE               æ˜Žç¡®æŒ‡å®šè¦æ‰¾è·¨æœæœåŠ¡å™¨ï¼Œ æ‰èµ°è·¨æœè·¯ç”±
+ * 4.busidè·¯ç”± æœåŠ¡å™¨å”¯ä¸€ID
  */
 
 /**
@@ -23,6 +23,6 @@
 #define LOCAL_ROUTE 0
 
 /**
- * @brief ¿ç·þÂ·ÓÉ (×î´ó·ÖÇø4096£¬ ËùÒÔ10000²»»áÊÇÇø·þÂ·ÓÉ)
+ * @brief è·¨æœè·¯ç”± (æœ€å¤§åˆ†åŒº4096ï¼Œ æ‰€ä»¥10000ä¸ä¼šæ˜¯åŒºæœè·¯ç”±)
  */
 #define CROSS_ROUTE 10000

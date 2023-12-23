@@ -760,6 +760,10 @@ public:
 
     virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) = 0;
 
+    virtual NF_SHARE_PTR<NFServerData> GetFirstDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName) = 0;
+    virtual NF_SHARE_PTR<NFServerData> GeRandomDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName) = 0;
+    virtual NF_SHARE_PTR<NFServerData> GetSuitDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName, uint64_t value) = 0;
+    virtual NF_SHARE_PTR<NFServerData> GetSuitDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName, const std::string& value) = 0;
 public:
     virtual int
     BroadcastEventToServer(NF_SERVER_TYPES eType, NF_SERVER_TYPES recvType, uint32_t dstBusId, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,

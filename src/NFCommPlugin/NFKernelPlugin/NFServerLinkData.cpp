@@ -315,6 +315,36 @@ NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitServerByServerType(NF_SERVER_T
     }
 }
 
+NF_SHARE_PTR<NFServerData> ServerLinkData::GetFirstDbServer(const std::string& dbName)
+{
+    auto pServerMap = mDBStoreServerMap.GetElement(dbName);
+    if (pServerMap)
+    {
+        return pServerMap->First();
+    }
+    return nullptr;
+}
+
+NF_SHARE_PTR<NFServerData> ServerLinkData::GeRandomDbServer(const std::string& dbName)
+{
+    auto pServerMap = mDBStoreServerMap.GetElement(dbName);
+    if (pServerMap)
+    {
+        return pServerMap->GetElementBySuitRandom();
+    }
+    return nullptr;
+}
+
+NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitDbServer(const std::string&dbName, uint64_t value)
+{
+    auto pServerMap = mDBStoreServerMap.GetElement(dbName);
+    if (pServerMap)
+    {
+        return pServerMap->GetElementBySuit(value);
+    }
+    return nullptr;
+}
+
 NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitServerByServerType(NF_SERVER_TYPES serverTypes, const std::string& value)
 {
     if (mServerListMap[serverTypes].Count() == 1)
@@ -393,6 +423,16 @@ std::vector<NF_SHARE_PTR<NFServerData>> ServerLinkData::GetAllServer()
 std::vector<NF_SHARE_PTR<NFServerData>> ServerLinkData::GetAllServer(NF_SERVER_TYPES serverTypes)
 {
     return mServerList[serverTypes];
+}
+
+NF_SHARE_PTR<NFServerData> ServerLinkData::GetSuitDbServer(const std::string&dbName, const std::string& value)
+{
+    auto pServerMap = mDBStoreServerMap.GetElement(dbName);
+    if (pServerMap)
+    {
+        return pServerMap->GetElementBySuit(value);
+    }
+    return nullptr;
 }
 
 std::vector<std::string> ServerLinkData::GetDBNames()

@@ -322,6 +322,30 @@ std::set<uint32_t> NFCMessageModule::GetAllMsg(NF_SERVER_TYPES eType, uint32_t n
     return vec;
 }
 
+std::shared_ptr<NFServerData> NFCMessageModule::GetFirstDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetFirstDbServer(dbName);
+}
+
+std::shared_ptr<NFServerData> NFCMessageModule::GeRandomDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GeRandomDbServer(dbName);
+}
+
+std::shared_ptr<NFServerData> NFCMessageModule::GetSuitDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName, uint64_t value)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetSuitDbServer(dbName, value);
+}
+
+std::shared_ptr<NFServerData> NFCMessageModule::GetSuitDbServer(NF_SERVER_TYPES eSendType, const std::string& dbName, const std::string& value)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), NULL, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetSuitDbServer(dbName, value);
+}
+
 bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget,
                                         const NET_RECEIVE_FUNCTOR &cb, bool createCo)
 {

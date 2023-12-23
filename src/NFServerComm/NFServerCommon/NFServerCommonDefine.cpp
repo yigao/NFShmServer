@@ -19,7 +19,10 @@ void NFServerCommon::WriteServerInfo(proto_ff::ServerInfoReport* pData, NFServer
     pData->set_route_svr(pConfig->RouteConfig.RouteAgent);
     pData->set_external_server_ip(pConfig->ExternalServerIp);
     pData->set_external_server_port(pConfig->ExternalServerPort);
-    return;
+    if (pConfig->ServerType == NF_ST_STORE_SERVER)
+    {
+        pData->add_db_name_list(pConfig->MysqlConfig.MysqlDbName);
+    }
 }
 
 void NFServerCommon::WriteServerInfo(proto_ff::ServerInfoReport* pData, const NFSystemInfo& systemInfo)
@@ -36,6 +39,5 @@ void NFServerCommon::WriteServerInfo(proto_ff::ServerInfoReport* pData, const NF
     pData->set_proc_cwd(systemInfo.GetProcessInfo().mCwd);
     pData->set_proc_pid(systemInfo.GetProcessInfo().mPid);
     pData->set_server_cur_online(systemInfo.GetUserCount());
-    return;
 }
 

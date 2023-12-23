@@ -612,13 +612,27 @@ int NFWorkServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
     CHECK_NULL(pConfig);
     
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_STORE_SERVER, xData);
-    
-    if (m_serverType != NF_ST_STORE_SERVER)
+
+    bool has = false;
+    for(int i = 0; i < (int)xData.db_name_list_size(); i++)
     {
-        FinishAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
+        if (pConfig->DefaultDBName == xData.db_name_list(i))
+        {
+            has = true;
+            break;
+        }
     }
-    
-    FireExecute(m_serverType, proto_ff::NF_EVENT_SERVER_REPORT_EVENT, NF_ST_STORE_SERVER, pConfig->GetBusId(), xData);
+
+    if (has)
+    {
+        if (m_serverType != NF_ST_STORE_SERVER)
+        {
+            FinishAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
+        }
+
+        FireExecute(m_serverType, proto_ff::NF_EVENT_SERVER_REPORT_EVENT, NF_ST_STORE_SERVER, pConfig->GetBusId(), xData);
+    }
+
     return 0;
 }
 
