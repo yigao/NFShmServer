@@ -22,7 +22,7 @@ GitHub: https://github.com/yigao/NFShmServer
 
 码云: https://gitee.com/xiaoyi445_admin/NFShmServer
 
-QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)  
+QQ 群: [点击加群697165128](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)  
 
 
 | CI             | master分支                                                                                                                | develop分支                                                                                                                         |
@@ -73,7 +73,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - 配套的 U3D 客户端，一个捕鱼项目 https://github.com/yigao/NFShmFrame_FishClient.git
 - 跨平台(Windows, Linux)
  
-## unity3d捕鱼demo游戏 [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载
+## unity3d捕鱼demo游戏 [点击加群697165128](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载
 ![}OXI`%2KDC3509YEVE Z00K](https://github.com/yigao/NFShmServer/assets/5827943/1624b292-871d-46da-a446-1755efb4bae8)
 ![0 ZK~FM1IBM0{E%LI8 %)AJ](https://github.com/yigao/NFShmServer/assets/5827943/fc137349-de2b-4519-9b8b-325ea220251a)
 **unity3d捕鱼demo游戏**:
