@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include <string>
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
+
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmStl/NFShmString.h"
@@ -40,7 +42,7 @@ public:
 };
 
 
-class NFFishSettingConfig : public NFShmObj
+class NFFishSettingConfig : public NFShmObjTemplate<NFFishSettingConfig, EOT_GAME_FISH_SETTING_DESC_ID, NFShmObj>
 {
 public:
 	NFFishSettingConfig();
@@ -77,6 +79,4 @@ public:
 	int64_t m_illMinValue;
 	int m_iCtrlTime;
 	NFShmVector<CtrlParam, 100> m_AryCtrlParam;
-
-	DECLARE_IDCREATE(NFFishSettingConfig);
 };

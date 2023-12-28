@@ -18,6 +18,7 @@
 #include "NFLogicCommon/NFLogicCommon.h"
 #include <map>
 #include <algorithm>
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #define MAX_FISH_CONFIG_FISH_KIND_NUM 50
 #define MAX_FISH_CONFIG_FISH_KIND_CHILD_FISH_NUM 50
@@ -29,50 +30,51 @@ class FishConfig
 public:
 	FishConfig()
 	{
-        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-            CreateInit();
-        }
-        else {
-            ResumeInit();
-        }
+		if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+		{
+			CreateInit();
+		}
+		else
+		{
+			ResumeInit();
+		}
 	}
 
 	~FishConfig()
 	{
-
 	}
 
-    int CreateInit()
-    {
-        btFishKindId = 0;
-        btFishType = 0;
-        nRatioMin = 0;
-        nRatioMax = 0;
-        nRatioDeath = 0;
-        nDoubleAwardMinRatio = 0;
-        nChildFishCount = 0;
-        nDamageRadius = 0;
-        nFishOutTipsID = 0;
-        return 0;
-    }
+	int CreateInit()
+	{
+		btFishKindId = 0;
+		btFishType = 0;
+		nRatioMin = 0;
+		nRatioMax = 0;
+		nRatioDeath = 0;
+		nDoubleAwardMinRatio = 0;
+		nChildFishCount = 0;
+		nDamageRadius = 0;
+		nFishOutTipsID = 0;
+		return 0;
+	}
 
-    int ResumeInit()
-    {
-        return 0;
-    }
+	int ResumeInit()
+	{
+		return 0;
+	}
 public:
-	uint8_t             btFishKindId;               //鱼的种类 id
+	uint8_t btFishKindId; //鱼的种类 id
 	//std::string         strFishName;              //鱼的名称 fishName
-	uint8_t             btFishType;                 //鱼的类型 fishRuleType
-	int                 nRatioMin;                  //浮动倍率最小值 ratioMin
-	int                 nRatioMax;                  //浮动倍率最大值 ratioMax
-	int                 nRatioDeath;                //打死倍率，当这个为非0时，用这个计算打死概率
-	int                 nDoubleAwardMinRatio;       //可能触发双倍奖励所需最低倍率 doubleAwardMinRatio
-	int                 nChildFishCount;            //组合鱼携带子鱼个数 childFishCount
-    NFShmVector<NFShmVector<uint8_t, MAX_FISH_CONFIG_FISH_KIND_CHILD_FISH_NUM>, MAX_FISH_CONFIG_FISH_KIND_NUM> vecVecChildFishes; //组合鱼位置可选子鱼id列表-1-6 childFishIds_1-6
-	int                 nDamageRadius;                 //鱼死亡伤害半径  damageRadius
-    NFShmVector<uint8_t, MAX_FISH_CONFIG_DAMAGE_FISH_NUM>  vectDamageFishIds;           //子鱼ID鱼死亡可伤害的鱼id列表 damageFishIds
-	int                 nFishOutTipsID;             //是否有出鱼提示 0-无  1-有
+	uint8_t btFishType;                                                                                                           //鱼的类型 fishRuleType
+	int nRatioMin;                                                                                                                //浮动倍率最小值 ratioMin
+	int nRatioMax;                                                                                                                //浮动倍率最大值 ratioMax
+	int nRatioDeath;                                                                                                              //打死倍率，当这个为非0时，用这个计算打死概率
+	int nDoubleAwardMinRatio;                                                                                                     //可能触发双倍奖励所需最低倍率 doubleAwardMinRatio
+	int nChildFishCount;                                                                                                          //组合鱼携带子鱼个数 childFishCount
+	NFShmVector<NFShmVector<uint8_t, MAX_FISH_CONFIG_FISH_KIND_CHILD_FISH_NUM>, MAX_FISH_CONFIG_FISH_KIND_NUM> vecVecChildFishes; //组合鱼位置可选子鱼id列表-1-6 childFishIds_1-6
+	int nDamageRadius;                                                                                                            //鱼死亡伤害半径  damageRadius
+	NFShmVector<uint8_t, MAX_FISH_CONFIG_DAMAGE_FISH_NUM> vectDamageFishIds;                                                      //子鱼ID鱼死亡可伤害的鱼id列表 damageFishIds
+	int nFishOutTipsID;                                                                                                           //是否有出鱼提示 0-无  1-有
 
 	//int                 nMiniGameId;                //触发小游戏ID
 
@@ -94,9 +96,9 @@ public:
 				//nBaseMul = NFRandomInt(nRatioMin, nRatioMax);
 				//===================
 				int diffMul = nRatioMax - nRatioMin;
-				int midMul  = nRatioMin + diffMul / 3;
+				int midMul = nRatioMin + diffMul / 3;
 
-				int iRand   = NFRandomInt(0, 100);
+				int iRand = NFRandomInt(0, 100);
 				if (iRand < 60)
 				{
 					nBaseMul = NFRandomInt(nRatioMin, midMul);
@@ -143,33 +145,31 @@ public:
 	}
 };
 
-class NFFishConfigConfig: public NFShmObj
+class NFFishConfigConfig : public NFShmObjTemplate<NFFishConfigConfig, EOT_FISH_CONFIG_MGR_ID, NFShmObj>
 {
 public:
 	NFFishConfigConfig();
 	virtual ~NFFishConfigConfig();
-    int CreateInit();
-    int ResumeInit();
-
+	int CreateInit();
+	int ResumeInit();
 public:
-    int LoadConfig(uint32_t gameId, uint32_t roomId);
+	int LoadConfig(uint32_t gameId, uint32_t roomId);
 
 	virtual int LoadConfig(const std::string& strFishKindCfgFile);
 
 	virtual int LoadFishConfigCSV(const std::string& strFishKindCfgFile);
 
-    int GetFileContainMD5(const std::string& strFileName, std::string& fileMd5);
+	int GetFileContainMD5(const std::string& strFileName, std::string& fileMd5);
 
 	virtual FishConfig* GetFishBaseInfo(char btFishKind);
 	virtual int GetFishKindMaxId();
 public:
-	std::vector<std::string> GetColVecByColName(std::map<std::string, std::vector<std::string> >& mapCols, std::string strColName);
-	std::string GetValue(std::map<std::string, std::vector<std::string> >& mapCols, std::string strColName, int iIndex);
-	std::map<std::string, std::vector<std::string> > ClassifyValues(std::vector<std::vector<std::string> >& values);
-	int ReadCfg(const std::string & strFile, std::vector<std::vector<std::string> > & values);
+	std::vector<std::string> GetColVecByColName(std::map<std::string, std::vector<std::string>>& mapCols, std::string strColName);
+	std::string GetValue(std::map<std::string, std::vector<std::string>>& mapCols, std::string strColName, int iIndex);
+	std::map<std::string, std::vector<std::string>> ClassifyValues(std::vector<std::vector<std::string>>& values);
+	int ReadCfg(const std::string& strFile, std::vector<std::vector<std::string>>& values);
 private:
-    uint32_t m_roomId;
-    NFCommonStr m_szMD5;
+	uint32_t m_roomId;
+	NFCommonStr m_szMD5;
 	NFShmVector<FishConfig, MAX_FISH_CONFIG_FISHI_CONFIG_NUM> m_vectFishConfig;
-DECLARE_IDCREATE(NFFishConfigConfig);
 };

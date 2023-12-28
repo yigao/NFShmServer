@@ -15,53 +15,54 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include <fstream>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceConfig, EOT_FISH_TRACE_MGR_ID, NFShmObj)
-
-
-NFFishTraceConfig::NFFishTraceConfig() {
-    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-        CreateInit();
-    } else {
-        ResumeInit();
-    }
+NFFishTraceConfig::NFFishTraceConfig()
+{
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+	{
+		CreateInit();
+	}
+	else
+	{
+		ResumeInit();
+	}
 }
 
-NFFishTraceConfig::~NFFishTraceConfig() {
-
+NFFishTraceConfig::~NFFishTraceConfig()
+{
 }
 
 int NFFishTraceConfig::CreateInit()
 {
-    return 0;
+	return 0;
 }
 
 int NFFishTraceConfig::ResumeInit()
 {
-    return 0;
+	return 0;
 }
 
 int NFFishTraceConfig::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
 {
-    bool exist = NFFileUtility::IsFileExist(strFileName);
-    CHECK_EXPR(exist, -1, "strFileName:{} not exist", strFileName);
+	bool exist = NFFileUtility::IsFileExist(strFileName);
+	CHECK_EXPR(exist, -1, "strFileName:{} not exist", strFileName);
 
-    fileMd5 = NFMD5::md5file(strFileName);
-    return 0;
+	fileMd5 = NFMD5::md5file(strFileName);
+	return 0;
 }
 
 int NFFishTraceConfig::LoadConfig(uint32_t gameId, uint32_t roomId)
 {
-    m_roomId = roomId;
-    std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId);
+	m_roomId = roomId;
+	std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId);
 	std::string strTracePack = NFFileUtility::NormalizePath(path) + "FishTrace/traces.pack";
-    std::string fileMd5;
-    int iRet = GetFileContainMD5(strTracePack, fileMd5);
-    NF_ASSERT(iRet == 0);
-    if (fileMd5 != m_szMD5.ToString())
-    {
-        m_szMD5 = fileMd5;
-        ReadTracePack(strTracePack);
-    }
+	std::string fileMd5;
+	int iRet = GetFileContainMD5(strTracePack, fileMd5);
+	NF_ASSERT(iRet == 0);
+	if (fileMd5 != m_szMD5.ToString())
+	{
+		m_szMD5 = fileMd5;
+		ReadTracePack(strTracePack);
+	}
 
 	return 0;
 }
@@ -85,31 +86,31 @@ bool NFFishTraceConfig::ReadTracePack(const std::string& strPackFile)
 			ret = ReadTraceBin(tracdPack, traceBin);
 			if (ret)
 			{
-                if (m_FishTraceMap.full())
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "m_FishTraceMap.Insert Failed, m_FishTraceMap Space Not Enough!");
-                    NFSLEEP(1000);
-                    exit(0);
-                }
+				if (m_FishTraceMap.full())
+				{
+					NFLogError(NF_LOG_SYSTEMLOG, 0, "m_FishTraceMap.Insert Failed, m_FishTraceMap Space Not Enough!");
+					NFSLEEP(1000);
+					exit(0);
+				}
 
 				m_FishTraceMap.emplace(traceBin.m_uTraceId, traceBin);
 			}
-
-		} while (ret);
+		}
+		while (ret);
 
 		uint32_t maxPoints = 0;
-		for(auto iter = m_FishTraceMap.begin(); iter != m_FishTraceMap.end(); iter++)
-        {
-		    auto pData = &iter->second;
-		    if (pData)
-            {
-		        if ((uint32_t)pData->m_vecPoints.size() >= maxPoints)
-                {
-		            maxPoints = pData->m_vecPoints.size();
-                }
-            }
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ReadTracePack() traceCount = {}, maxPoints:{}", m_FishTraceMap.size(), maxPoints);
+		for (auto iter = m_FishTraceMap.begin(); iter != m_FishTraceMap.end(); iter++)
+		{
+			auto pData = &iter->second;
+			if (pData)
+			{
+				if ((uint32_t)pData->m_vecPoints.size() >= maxPoints)
+				{
+					maxPoints = pData->m_vecPoints.size();
+				}
+			}
+		}
+		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ReadTracePack() traceCount = {}, maxPoints:{}", m_FishTraceMap.size(), maxPoints);
 
 		return true;
 	}
@@ -122,7 +123,7 @@ bool NFFishTraceConfig::ReadTracePack(const std::string& strPackFile)
 bool NFFishTraceConfig::ReadTraceBin(std::ifstream& tracdPackFile, CHMTraceBin& traceBin)
 {
 	TRACEHEADER TraceHeader;
-	tracdPackFile.read((char*)&TraceHeader, sizeof(TraceHeader));
+	tracdPackFile.read((char *)&TraceHeader, sizeof(TraceHeader));
 	int len = tracdPackFile.gcount();
 	if (len != sizeof(TraceHeader))
 	{
@@ -137,13 +138,12 @@ bool NFFishTraceConfig::ReadTraceBin(std::ifstream& tracdPackFile, CHMTraceBin& 
 
 	//NFLogTrace(NF_LOG_SUB_GAME_PLUGIN, 0, "NFCFishTraceModule::ReadTraceBin() m_uTraceId = {} , sPointCount = {}", traceBin.m_uTraceId, TraceHeader.sPointCount);
 
-
 	int iPointCount = TraceHeader.sPointCount;
 	int iPointLen = GetBinLen(TraceHeader.byType);
 	for (int i = 0; i < iPointCount; i++)
 	{
 		HMPOINT point;
-		tracdPackFile.read((char*)&point, iPointLen);
+		tracdPackFile.read((char *)&point, iPointLen);
 		len = tracdPackFile.gcount();
 
 		if (len != iPointLen)
@@ -194,22 +194,22 @@ int NFFishTraceConfig::GetTracePointCount(unsigned int uTraceId)
 	}
 }
 
-CHMTraceBin *NFFishTraceConfig::GetTraceBin(uint32_t id)
+CHMTraceBin* NFFishTraceConfig::GetTraceBin(uint32_t id)
 {
-    auto iter = m_FishTraceMap.find(id);
-    if (iter != m_FishTraceMap.end())
-    {
-        return &iter->second;
-    }
+	auto iter = m_FishTraceMap.find(id);
+	if (iter != m_FishTraceMap.end())
+	{
+		return &iter->second;
+	}
 
-    return nullptr;
+	return nullptr;
 }
 
-CHMTraceBin *NFFishTraceConfig::InsertTraceBin(uint32_t id)
+CHMTraceBin* NFFishTraceConfig::InsertTraceBin(uint32_t id)
 {
-    if (!m_FishTraceMap.full())
-    {
-        return &m_FishTraceMap[id];
-    }
-    return nullptr;
+	if (!m_FishTraceMap.full())
+	{
+		return &m_FishTraceMap[id];
+	}
+	return nullptr;
 }

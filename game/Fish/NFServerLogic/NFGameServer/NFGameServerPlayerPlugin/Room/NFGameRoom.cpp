@@ -8,15 +8,12 @@
 // -------------------------------------------------------------------------
 
 #include "NFGameRoom.h"
-#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "Desk/NFGameDesk.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "Player/NFGamePlayerMgr.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFLogicCommon/NFIGameConfig.h"
 #include "DescStore/FishRoomDesc.h"
-
-IMPLEMENT_IDCREATE_WITHTYPE(NFGameRoom, EOT_NFGameRoom_ID, NFShmObj)
 
 //桌子与座位对应节点
 typedef struct stDeskStationNode

@@ -12,8 +12,6 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGamePlayer, EOT_NFGamePlayer_ID, NFIGamePlayer)
-
 NFGamePlayer::NFGamePlayer()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

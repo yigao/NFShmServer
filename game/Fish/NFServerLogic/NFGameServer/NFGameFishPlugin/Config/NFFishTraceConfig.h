@@ -9,6 +9,8 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
+
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFFishTrace.h"
@@ -18,33 +20,30 @@
 
 #define DEFAULT_TRACENUM 1500
 
-class NFFishTraceConfig : public NFShmObj
+class NFFishTraceConfig : public NFShmObjTemplate<NFFishTraceConfig, EOT_FISH_TRACE_MGR_ID, NFShmObj>
 {
 public:
 	NFFishTraceConfig();
 
 	virtual ~NFFishTraceConfig();
 
-    int CreateInit();
-    int ResumeInit();
+	int CreateInit();
+	int ResumeInit();
 public:
-    virtual int LoadConfig(uint32_t gameId, uint32_t roomId);
-    int GetFileContainMD5(const std::string& strFileName, std::string& fileMd5);
+	virtual int LoadConfig(uint32_t gameId, uint32_t roomId);
+	int GetFileContainMD5(const std::string& strFileName, std::string& fileMd5);
 public:
-
 	CHMPoint GetPointByIndex(unsigned int uTraceId, unsigned int uIndex);
 	int GetTracePointCount(unsigned int uTraceId);
-
 private:
 	bool ReadTracePack(const std::string& strPackFile);
 	bool ReadTraceBin(std::ifstream& tracdPackFile, CHMTraceBin& traceBin);
-	int  GetBinLen(int iType);
+	int GetBinLen(int iType);
 private:
-    CHMTraceBin* GetTraceBin(uint32_t id);
-    CHMTraceBin* InsertTraceBin(uint32_t id);
+	CHMTraceBin* GetTraceBin(uint32_t id);
+	CHMTraceBin* InsertTraceBin(uint32_t id);
 private:
-    uint32_t m_roomId;
+	uint32_t m_roomId;
 	NFShmHashMap<uint32_t, CHMTraceBin, DEFAULT_TRACENUM> m_FishTraceMap;
-    NFCommonStr m_szMD5;
-	DECLARE_IDCREATE(NFFishTraceConfig);
+	NFCommonStr m_szMD5;
 };

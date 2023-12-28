@@ -28,8 +28,6 @@ enum eWayBillSts
 
 };
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGameFishDesk, EOT_NFGameFishDesk_ID, NFShmObj)
-
 NFGameFishDesk::NFGameFishDesk()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

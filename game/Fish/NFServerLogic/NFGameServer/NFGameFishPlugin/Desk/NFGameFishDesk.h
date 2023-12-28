@@ -28,7 +28,7 @@
 #define GAME_FISH_DESK_PLAYER_COUNT 4
 #define GAME_FISH_DESK_FISH_COUNT 1000
 
-class NFGameFishDesk : public NFIGameDeskImpl
+class NFGameFishDesk : public NFShmObjTemplate<NFGameFishDesk, EOT_NFGameFishDesk_ID, NFIGameDeskImpl>
 {
 public:
     NFGameFishDesk();
@@ -419,6 +419,4 @@ public:
 
     NFCommonStr m_strLastWayBillName;
     bool m_bIsLastWayBillPrior;
-private:
-DECLARE_IDCREATE(NFGameFishDesk)
 };

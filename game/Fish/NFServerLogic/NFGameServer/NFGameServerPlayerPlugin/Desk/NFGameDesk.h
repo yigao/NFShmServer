@@ -12,8 +12,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
@@ -23,7 +22,7 @@
 
 class NFGameRoom;
 class NFIGameDeskImpl;
-class NFGameDesk : public NFIGameDesk
+class NFGameDesk : public  NFShmObjTemplate<NFGameDesk, EOT_NFGameDesc_ID, NFIGameDesk>
 {
 public:
     NFGameDesk();
@@ -377,5 +376,4 @@ public:
     bool m_bGameStarted;                        //开始标志
     uint32_t m_bGameStatus;                        //游戏状态
     uint32_t m_dwTimeStart;                        //开始时间
-DECLARE_IDCREATE(NFGameDesk)
 };

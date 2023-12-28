@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
@@ -24,7 +25,7 @@
 #define GAME_PLAYER_MAX_IDLE_TIME 15
 #endif
 
-class NFGamePlayer : public NFIGamePlayer
+class NFGamePlayer : public NFShmObjTemplate<NFGamePlayer, EOT_NFGamePlayer_ID, NFIGamePlayer>
 {
 public:
     NFGamePlayer();
@@ -112,6 +113,4 @@ public:
     uint64_t m_reservedTime;
     int32_t  m_reservedDeskId;
     int32_t  m_reservedChairId;
-private:
-DECLARE_IDCREATE(NFGamePlayer)
 };

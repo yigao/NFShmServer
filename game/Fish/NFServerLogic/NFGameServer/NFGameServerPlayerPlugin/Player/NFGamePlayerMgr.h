@@ -9,37 +9,34 @@
 
 #pragma once
 
-
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFGamePlayer.h"
 
-class NFGamePlayerMgr : public NFShmObj
+class NFGamePlayerMgr : public NFShmObjTemplate<NFGamePlayerMgr, EOT_NFGamePlayerMgr_ID, NFShmObj>
 {
 public:
-    NFGamePlayerMgr();
+	NFGamePlayerMgr();
 
-    virtual ~NFGamePlayerMgr();
+	virtual ~NFGamePlayerMgr();
 
-    int CreateInit();
+	int CreateInit();
 
-    int ResumeInit();
+	int ResumeInit();
 public:
-    virtual int OnTimer(int timeId, int callcount) override;
+	virtual int OnTimer(int timeId, int callcount) override;
 
-    int CheckOfflineUser();
+	int CheckOfflineUser();
 
-    int ClearAllGamePlayer();
+	int ClearAllGamePlayer();
 public:
+	NFGamePlayer* GetPlayer(uint64_t playerId);
 
-    NFGamePlayer *GetPlayer(uint64_t playerId);
+	NFGamePlayer* CreatePlayer(uint64_t playerId);
 
-    NFGamePlayer *CreatePlayer(uint64_t playerId);
-
-    int DeletePlayer(NFGamePlayer *pPlayer);
+	int DeletePlayer(NFGamePlayer* pPlayer);
 private:
-    int m_clearOfflineTimer;
-DECLARE_IDCREATE(NFGamePlayerMgr)
+	int m_clearOfflineTimer;
 };

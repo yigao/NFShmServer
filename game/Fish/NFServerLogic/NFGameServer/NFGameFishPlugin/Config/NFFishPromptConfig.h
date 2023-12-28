@@ -1,12 +1,14 @@
 ﻿#pragma once
 #include <map>
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
+
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 
 #define NF_FISH_PROMT_CFG_MAX_CHANGE_SCENE_TYPE 10
 
-class NFFishPromptConfig : public NFShmObj
+class NFFishPromptConfig : public NFShmObjTemplate<NFFishPromptConfig, EOT_GAME_FISH_PROMPT_CFG_DESC_ID, NFShmObj>
 {
 public:
 	NFFishPromptConfig();
@@ -21,5 +23,4 @@ public:
 	int  m_iSceneCount;
 	int  m_iYuChaoTipOn;
 	NFShmHashMap<int, float, NF_FISH_PROMT_CFG_MAX_CHANGE_SCENE_TYPE> m_mapChangeSceneType_Time;
-	DECLARE_IDCREATE(NFFishPromptConfig);
 };

@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFGameDesk.h"
-#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+
 #include "NFComm/NFCore/NFTime.h"
 #include "NFLogicCommon/NFIGameDeskImpl.h"
 #include "NFComm/NFCore/NFRandom.hpp"
@@ -18,8 +18,6 @@
 #include "Room/NFGameRoomMgr.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFLogicCommon/NFIGameRoomModule.h"
-
-IMPLEMENT_IDCREATE_WITHTYPE(NFGameDesk, EOT_NFGameDesc_ID, NFIGameDesk)
 
 NFGameDesk::NFGameDesk()
 {

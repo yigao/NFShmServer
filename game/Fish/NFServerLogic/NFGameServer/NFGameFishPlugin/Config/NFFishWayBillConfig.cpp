@@ -15,8 +15,6 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include <stdlib.h>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishWayBillConfig, EOT_GAME_FISH_WAY_BILL_DESC_ID, NFShmObj)
-
 NFFishWayBillConfig::NFFishWayBillConfig()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {

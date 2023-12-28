@@ -17,7 +17,7 @@
 #include "NFGameRoom.h"
 #include "DescStore/FishRoomDesc.h"
 
-class NFGameRoomMgr : public NFShmObj
+class NFGameRoomMgr : public NFShmObjTemplate<NFGameRoomMgr, EOT_NFGameRoomMgr_ID, NFShmObj>
 {
 public:
     NFGameRoomMgr();
@@ -65,5 +65,4 @@ public:
 private:
     bool m_inited;
     int m_registerRoomTimer;
-DECLARE_IDCREATE(NFGameRoomMgr)
 };

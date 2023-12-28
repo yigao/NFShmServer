@@ -10,12 +10,8 @@
 #include "NFGameRoomMgr.h"
 #include "Player/NFGamePlayer.h"
 #include "Player/NFGamePlayerMgr.h"
-#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "Config/NFGameConfig.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-
-IMPLEMENT_IDCREATE_WITHTYPE(NFGameRoomMgr, EOT_NFGameRoomMgr_ID, NFShmObj)
 
 NFGameRoomMgr::NFGameRoomMgr()
 {

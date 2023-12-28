@@ -11,8 +11,6 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFLogicCommon/NFFishDefine.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishSettingConfig, EOT_GAME_FISH_SETTING_DESC_ID, NFShmObj)
-
 NFFishSettingConfig::NFFishSettingConfig()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
