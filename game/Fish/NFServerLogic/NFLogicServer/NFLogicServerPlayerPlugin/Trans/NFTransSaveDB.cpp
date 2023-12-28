@@ -12,14 +12,10 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFCore/NFTime.h"
 
 #include "Player/NFPlayer.h"
-#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransSaveDB, EOT_TRANS_SAVE_PLAYER, NFTransPlayerBase)
 
 NFTransSaveDB::NFTransSaveDB() {
 	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {

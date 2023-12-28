@@ -22,7 +22,7 @@
 #include "Player/NFPlayer.h"
 #include "NFPartModule.h"
 
-class NFPart : public NFShmObj, public NFSeqOP
+class NFPart : public NFShmObjTemplate<NFPart, EOT_LOGIC_PART_ID, NFShmObj>, public NFSeqOP
 {
 public:
     NFPart();
@@ -201,6 +201,4 @@ protected:
     NFShmPtr<NFPlayer> m_pMaster;
     uint64_t m_playerId;
     uint32_t m_partType;
-private:
-DECLARE_IDCREATE(NFPart)
 };

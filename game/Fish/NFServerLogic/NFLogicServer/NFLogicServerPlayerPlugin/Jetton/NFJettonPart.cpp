@@ -13,8 +13,6 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "Player/NFPlayer.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFJettonPart, EOT_NFJettonPart_ID, NFPart)
-
 NFJettonPart::NFJettonPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

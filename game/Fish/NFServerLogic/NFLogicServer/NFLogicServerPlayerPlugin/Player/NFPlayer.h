@@ -25,7 +25,7 @@
 #include "AllProtocol.h"
 
 class NFPart;
-class NFPlayer : public NFShmObj, public NFSeqOP
+class NFPlayer : public NFShmObjTemplate<NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj>, public NFSeqOP
 {
 public:
     NFPlayer();
@@ -283,5 +283,4 @@ private:
     uint64_t m_lastSavingDBTime;
 private:
     int m_saveDBTimer;
-DECLARE_IDCREATE(NFPlayer)
 };

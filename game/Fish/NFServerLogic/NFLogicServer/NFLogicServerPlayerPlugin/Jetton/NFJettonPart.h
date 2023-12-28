@@ -16,7 +16,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Part/NFPart.h"
 
-class NFJettonPart : public NFPart
+class NFJettonPart : public NFShmObjTemplate<NFJettonPart, EOT_NFJettonPart_ID, NFPart>
 {
 public:
     NFJettonPart();
@@ -182,6 +182,4 @@ public:
     uint64_t GetJetton() const { return m_jetton; }
 private:
     uint64_t m_jetton;
-private:
-DECLARE_IDCREATE(NFJettonPart)
 };

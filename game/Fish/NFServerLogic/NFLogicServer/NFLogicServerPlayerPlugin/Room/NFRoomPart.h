@@ -22,7 +22,7 @@ enum {
     PLAYER_ROOM_STATUS_DeskListed,
 };
 
-class NFRoomPart : public NFPart
+class NFRoomPart : public NFShmObjTemplate<NFRoomPart, EOT_NFRoomPart_ID, NFPart>
 {
 public:
     NFRoomPart();
@@ -203,5 +203,4 @@ private:
     uint32_t m_gameId;
     uint32_t m_roomId;
     uint32_t m_gameBusId;
-DECLARE_IDCREATE(NFRoomPart)
 };

@@ -11,8 +11,6 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerOnline, EOT_PLAYER_ONLINE_ID, NFShmObj)
-
 NFPlayerOnline::NFPlayerOnline()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

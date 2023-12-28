@@ -7,28 +7,30 @@
 //
 // -------------------------------------------------------------------------
 
-
 #pragma once
+
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFLogicCommon/NFPlayerDefine.h"
 
 class NFPlayerSimple;
-class NFSnsTransSaveSimpleDB : public NFTransBase {
+
+class NFSnsTransSaveSimpleDB : public NFShmObjTemplate<NFSnsTransSaveSimpleDB, EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE, NFTransBase>
+{
 public:
-    NFSnsTransSaveSimpleDB();
+	NFSnsTransSaveSimpleDB();
 
-    virtual ~NFSnsTransSaveSimpleDB();
+	virtual ~NFSnsTransSaveSimpleDB();
 
-    int CreateInit();
+	int CreateInit();
 
-    int ResumeInit();
+	int ResumeInit();
 
-    virtual int HandleTransFinished(int iRunLogicRetCode);
+	virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
-    int SaveDB(NFPlayerSimple* pPlayer);
+	int SaveDB(NFPlayerSimple* pPlayer);
 private:
-    uint32_t m_curSeq;
-    uint32_t m_playerId;
-DECLARE_IDCREATE(NFSnsTransSaveSimpleDB)
+	uint32_t m_curSeq;
+	uint32_t m_playerId;
 };

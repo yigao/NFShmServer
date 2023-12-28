@@ -10,41 +10,40 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
 #include "DBProto.pb.h"
-#include <vector>
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 class NFPlayer;
-class NFPlayerMgr : public NFShmObj {
+
+class NFPlayerMgr : public NFShmObjTemplate<NFPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj>
+{
 public:
-    NFPlayerMgr();
+	NFPlayerMgr();
 
-    virtual ~NFPlayerMgr();
+	virtual ~NFPlayerMgr();
 
-    int CreateInit();
+	int CreateInit();
 
-    int ResumeInit();
-
+	int ResumeInit();
 public:
-    virtual int OnTimer(int timeId, int callcount) override;
+	virtual int OnTimer(int timeId, int callcount) override;
 public:
-    NFPlayer *GetPlayer(uint64_t playerId);
+	NFPlayer* GetPlayer(uint64_t playerId);
 
-    NFPlayer *CreatePlayer(uint64_t playerId, const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer);
+	NFPlayer* CreatePlayer(uint64_t playerId, const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer);
 
-    int DeletePlayer(NFPlayer *pPlayer);
+	int DeletePlayer(NFPlayer* pPlayer);
 public:
-    int Tick();
+	int Tick();
 
-    int DailyZeroUpdate();
+	int DailyZeroUpdate();
 
-    int WeekZeroUpdate();
+	int WeekZeroUpdate();
 
-    int MonthZeroUpdate();
+	int MonthZeroUpdate();
 private:
-    int m_playerTickTimer;
-    int m_dayTickTimer;
-    int m_weekTickTimer;
-    int m_monthTickTimer;
-DECLARE_IDCREATE(NFPlayerMgr)
+	int m_playerTickTimer;
+	int m_dayTickTimer;
+	int m_weekTickTimer;
+	int m_monthTickTimer;
 };

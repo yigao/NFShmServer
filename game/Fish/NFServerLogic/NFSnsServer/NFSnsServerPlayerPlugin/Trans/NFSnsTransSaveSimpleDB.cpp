@@ -19,8 +19,6 @@
 #include "Cache/NFPlayerSimple.h"
 #include "Cache/NFCacheMgr.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSnsTransSaveSimpleDB, EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE, NFShmObj)
-
 NFSnsTransSaveSimpleDB::NFSnsTransSaveSimpleDB() {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();

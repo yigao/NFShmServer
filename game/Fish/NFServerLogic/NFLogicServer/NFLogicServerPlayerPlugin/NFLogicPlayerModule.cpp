@@ -135,13 +135,13 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
 
                 insertObj.set_faceid(1);
                 insertObj.set_jetton(1000000);
-                auto pJettonDesc = ConstantConstantDesc::Instance(m_pObjPluginManager)->GetDesc(proto_ff::EN_CONST_USER_INIT_JETTON);
+                auto pJettonDesc = ConstantConstantDesc::Instance()->GetDesc(proto_ff::EN_CONST_USER_INIT_JETTON);
                 if (pJettonDesc)
                 {
                     insertObj.set_jetton(pJettonDesc->m_constantdata);
                 }
 
-                auto pFaceDesc = ConstantConstantDesc::Instance(m_pObjPluginManager)->GetDesc(proto_ff::EN_CONST_USER_INIT_FACE);
+                auto pFaceDesc = ConstantConstantDesc::Instance()->GetDesc(proto_ff::EN_CONST_USER_INIT_FACE);
                 if (pFaceDesc)
                 {
                     insertObj.set_faceid(pFaceDesc->m_constantdata);

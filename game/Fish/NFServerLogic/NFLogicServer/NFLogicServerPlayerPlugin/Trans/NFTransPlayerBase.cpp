@@ -17,8 +17,6 @@
 #include "Player/NFPlayerMgr.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransPlayerBase, EOT_TRANS_LOGIC_USER_BASE, NFTransBase)
-
 NFTransPlayerBase::NFTransPlayerBase()
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)

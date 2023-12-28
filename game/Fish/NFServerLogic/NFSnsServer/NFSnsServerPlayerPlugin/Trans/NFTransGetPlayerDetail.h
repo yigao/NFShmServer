@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
@@ -17,7 +18,7 @@
 #include "storesvr_sqldata.pb.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 
-class NFTransGetPlayerDetail : public NFTransBase
+class NFTransGetPlayerDetail : public NFShmObjTemplate<NFTransGetPlayerDetail, EOT_SNS_TRANS_GET_ROLE_DETAIL_ID, NFTransBase>
 {
 public:
     NFTransGetPlayerDetail();
@@ -33,5 +34,4 @@ public:
     int OnTransFinished(int iRunLogicRetCode);
 private:
     uint64_t m_playerId;
-DECLARE_IDCREATE(NFTransGetPlayerDetail)
 };

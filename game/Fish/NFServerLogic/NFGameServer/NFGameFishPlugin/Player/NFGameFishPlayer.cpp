@@ -80,7 +80,7 @@ int NFGameFishPlayer::ShootBullet(NFFishBullet& bullet)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShootBullet() ==========> bullet.m_iBulletLevel = {} , m_nCurBulletLevel = {}", bullet.m_iBulletLevel, m_nCurBulletLevel);
     CHECK_NULL(m_pShmObj);
 
-    auto pGunValue = FishGunvalueDesc::Instance(m_pShmObj->m_pObjPluginManager)->GetDescByGameidRoomidGunid(m_iGameId, m_iRoomId, m_nCurBulletLevel);
+    auto pGunValue = FishGunvalueDesc::Instance()->GetDescByGameidRoomidGunid(m_iGameId, m_iRoomId, m_nCurBulletLevel);
     CHECK_EXPR(pGunValue, -1, "GetDescByGameidRoomidGunid Failed, gameId:{} roomId:{} gunId:{}", m_iGameId, m_iRoomId, m_nCurBulletLevel);
 
     int nShootMoneyCount = pGunValue->m_value;

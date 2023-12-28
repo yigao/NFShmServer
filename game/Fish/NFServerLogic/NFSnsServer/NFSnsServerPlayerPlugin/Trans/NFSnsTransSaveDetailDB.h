@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
@@ -17,25 +18,23 @@
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFLogicCommon/NFPlayerDefine.h"
 
-
-
-
 class NFPlayerDetail;
-class NFSnsTransSaveDetailDB : public NFTransBase {
+
+class NFSnsTransSaveDetailDB : public NFShmObjTemplate<NFSnsTransSaveDetailDB, EOT_SNS_TRANS_SAVE_PLAYER_DETAIL, NFTransBase>
+{
 public:
-    NFSnsTransSaveDetailDB();
+	NFSnsTransSaveDetailDB();
 
-    virtual ~NFSnsTransSaveDetailDB();
+	virtual ~NFSnsTransSaveDetailDB();
 
-    int CreateInit();
+	int CreateInit();
 
-    int ResumeInit();
+	int ResumeInit();
 
-    virtual int HandleTransFinished(int iRunLogicRetCode);
+	virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
-    int SaveDB(NFPlayerDetail* pPlayer);
+	int SaveDB(NFPlayerDetail* pPlayer);
 private:
-    uint32_t m_curSeq;
-    uint32_t m_playerId;
-DECLARE_IDCREATE(NFSnsTransSaveDetailDB)
+	uint32_t m_curSeq;
+	uint32_t m_playerId;
 };

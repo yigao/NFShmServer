@@ -14,18 +14,16 @@
 #include "NFSnsPartModule.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSnsPart, EOT_SNS_PART_ID, NFShmObj)
-
 NFSnsPart::NFSnsPart()
 {
-    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
-    {
-        CreateInit();
-    }
-    else
-    {
-        ResumeInit();
-    }
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+	{
+		CreateInit();
+	}
+	else
+	{
+		ResumeInit();
+	}
 }
 
 NFSnsPart::~NFSnsPart()
@@ -34,105 +32,103 @@ NFSnsPart::~NFSnsPart()
 
 int NFSnsPart::CreateInit()
 {
-    m_playerId = 0;
-    return 0;
+	m_playerId = 0;
+	return 0;
 }
 
 int NFSnsPart::ResumeInit()
 {
-    return 0;
+	return 0;
 }
 
-int NFSnsPart::Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
+int NFSnsPart::Init(NFPlayerDetail* pMaster, uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData& data, bool bCreatePlayer)
 {
-    CHECK_EXPR(pMaster, -1, "pMaster == NULL");
-    m_pMaster = pMaster;
-    m_playerId = pMaster->GetPlayerId();
-    m_partType = partType;
+	CHECK_EXPR(pMaster, -1, "pMaster == NULL");
+	m_pMaster = pMaster;
+	m_playerId = pMaster->GetPlayerId();
+	m_partType = partType;
 
-    if (bCreatePlayer)
-    {
-        InitConfig(data);
-    }
-    else
-    {
-        LoadFromDB(data);
-    }
-    return 0;
+	if (bCreatePlayer)
+	{
+		InitConfig(data);
+	}
+	else
+	{
+		LoadFromDB(data);
+	}
+	return 0;
 }
 
 int NFSnsPart::UnInit()
 {
-    return 0;
+	return 0;
 }
 
-int NFSnsPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
+int NFSnsPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "client part package not handle:{}", packet.ToString());
-    return 0;
+	NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "client part package not handle:{}", packet.ToString());
+	return 0;
 }
 
-int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
+int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "server part package not handle:{}", packet.ToString());
-    return 0;
+	NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "server part package not handle:{}", packet.ToString());
+	return 0;
 }
 
 int NFSnsPart::RegisterClientMessage(uint32_t nMsgID, bool createCo)
 {
-    return FindModule<NFSnsPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
+	return FindModule<NFSnsPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
 }
 
 int NFSnsPart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 {
-    return FindModule<NFSnsPartModule>()->RegisterServerPartMsg(nMsgID, m_partType, createCo);
+	return FindModule<NFSnsPartModule>()->RegisterServerPartMsg(nMsgID, m_partType, createCo);
 }
 
-int NFSnsPart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
+int NFSnsPart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message& xData)
 {
-    auto *pMaster = GetPlayerOnline();
-    CHECK_NULL(pMaster);
+	auto* pMaster = GetPlayerOnline();
+	CHECK_NULL(pMaster);
 
-    return pMaster->SendMsgToClient(nMsgId, xData);
+	return pMaster->SendMsgToClient(nMsgId, xData);
 }
 
-int NFSnsPart::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+int NFSnsPart::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message& xData)
 {
-    auto *pMaster = GetPlayerOnline();
-    CHECK_NULL(pMaster);
+	auto* pMaster = GetPlayerOnline();
+	CHECK_NULL(pMaster);
 
-    return pMaster->SendMsgToGameServer(nMsgId, xData);
+	return pMaster->SendMsgToGameServer(nMsgId, xData);
 }
 
-int NFSnsPart::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+int NFSnsPart::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message& xData)
 {
-    auto *pMaster = GetPlayerOnline();
-    CHECK_NULL(pMaster);
+	auto* pMaster = GetPlayerOnline();
+	CHECK_NULL(pMaster);
 
-    return pMaster->SendMsgToWorldServer(nMsgId, xData);
+	return pMaster->SendMsgToWorldServer(nMsgId, xData);
 }
 
-int NFSnsPart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+int NFSnsPart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message& xData)
 {
-    auto *pMaster = GetPlayerOnline();
-    CHECK_NULL(pMaster);
+	auto* pMaster = GetPlayerOnline();
+	CHECK_NULL(pMaster);
 
-    return pMaster->SendMsgToLogicServer(nMsgId, xData);
+	return pMaster->SendMsgToLogicServer(nMsgId, xData);
 }
 
-NFPlayerSimple *NFSnsPart::GetPlayerSimple()
+NFPlayerSimple* NFSnsPart::GetPlayerSimple()
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
+	return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
 }
 
 NFPlayerOnline* NFSnsPart::GetPlayerOnline()
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(m_playerId);
+	return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(m_playerId);
 }
 
 int NFSnsPart::RegisterMessage()
 {
-    return 0;
+	return 0;
 }
-
-

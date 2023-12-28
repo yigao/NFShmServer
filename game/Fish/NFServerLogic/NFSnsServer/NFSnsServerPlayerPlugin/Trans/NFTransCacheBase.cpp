@@ -13,9 +13,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransCacheBase, EOT_SNS_TRANS_CACHE_BASE_ID, NFTransBase)
-
-NFTransCacheBase::NFTransCacheBase() : NFTransBase()
+NFTransCacheBase::NFTransCacheBase()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

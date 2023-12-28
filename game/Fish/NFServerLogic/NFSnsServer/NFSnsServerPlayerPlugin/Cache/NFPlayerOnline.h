@@ -9,13 +9,14 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFPlayerOnline : public NFShmObj
+class NFPlayerOnline : public NFShmObjTemplate<NFPlayerOnline, EOT_PLAYER_ONLINE_ID, NFShmObj>
 {
 public:
     NFPlayerOnline();
@@ -145,5 +146,4 @@ public:
      * @brief
      */
     bool m_isOnline;
-DECLARE_IDCREATE(NFPlayerOnline)
 };

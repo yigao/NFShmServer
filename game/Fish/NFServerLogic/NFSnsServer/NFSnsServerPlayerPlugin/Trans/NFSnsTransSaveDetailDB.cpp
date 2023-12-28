@@ -14,8 +14,6 @@
 #include "Cache/NFCacheMgr.h"
 
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSnsTransSaveDetailDB, EOT_SNS_TRANS_SAVE_PLAYER_DETAIL, NFTransBase)
-
 NFSnsTransSaveDetailDB::NFSnsTransSaveDetailDB() {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
         CreateInit();

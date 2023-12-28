@@ -17,7 +17,7 @@
 #include "Cache/NFPlayerSimple.h"
 #include "Cache/NFPlayerDetail.h"
 
-class NFLoadCacheMgr : public NFShmObj
+class NFLoadCacheMgr : public NFShmObjTemplate<NFLoadCacheMgr, EOT_SNS_LOAD_CACHE_MGR_ID, NFShmObj>
 {
 public:
     NFLoadCacheMgr();
@@ -143,5 +143,4 @@ private:
     NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_playerDetailLoadingMap;
 private:
     NFShmHashMap<int64_t, int32_t, SNS_GETTING_PLAYER_SIZE> m_waitResumeRpcMap;
-DECLARE_IDCREATE(NFLoadCacheMgr)
 };

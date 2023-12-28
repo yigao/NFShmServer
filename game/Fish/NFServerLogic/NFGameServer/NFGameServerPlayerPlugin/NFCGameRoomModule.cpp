@@ -56,7 +56,7 @@ int NFCGameRoomModule::OnHandleDeskListReq(proto_ff::DeskListReq &request, proto
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
+    auto roomConfig = FishRoomDesc::Instance()->GetDescByGameidRoomid(request.game_id(), request.room_id());
     if (!roomConfig)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", request.game_id(), request.room_id());
@@ -64,7 +64,7 @@ int NFCGameRoomModule::OnHandleDeskListReq(proto_ff::DeskListReq &request, proto
         return 0;
     }
 
-    uint32_t autoChairId = roomConfig->m_autochair;// 1;// 1-显示桌子列表  0-不显示桌子列表
+    uint32_t autoChairId = roomConfig->m_autoChair;// 1;// 1-显示桌子列表  0-不显示桌子列表
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "======> playerId = {} , autoChairId = {}", playerId, autoChairId);
 
@@ -117,7 +117,7 @@ int NFCGameRoomModule::OnHandleChairCheckReq(proto_ff::ChairCheckReq& request, p
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
+    auto roomConfig = FishRoomDesc::Instance()->GetDescByGameidRoomid(request.game_id(), request.room_id());
     if (!roomConfig)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", request.game_id(), request.room_id());

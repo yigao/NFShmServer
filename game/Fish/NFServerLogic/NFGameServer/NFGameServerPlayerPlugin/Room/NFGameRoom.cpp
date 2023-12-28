@@ -239,10 +239,10 @@ int NFGameRoom::UpdateUserMoney(int32_t deskId, uint64_t playerId, uint32_t chan
 
 int NFGameRoom::UpdateUserInfo(int32_t deskId, uint64_t playerId, const proto_ff_s::GamePlayerDetailData_s *pPlayerDetail)
 {
-    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    auto roomConfig = FishRoomDesc::Instance()->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
-    if (roomConfig->m_isexpscene > 0)
+    if (roomConfig->m_isExpScene > 0)
     {
         return 0;
     }
@@ -492,7 +492,7 @@ int NFGameRoom::CheckDeskStation(uint64_t playerId, int deskId, int chairId)
 
 int NFGameRoom::RecomeGame(uint64_t playerId, uint32_t deskId)
 {
-    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    auto roomConfig = FishRoomDesc::Instance()->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
     NFGameDesk *pDesk = GetGameDesk(deskId);
@@ -509,28 +509,28 @@ int NFGameRoom::RecomeGame(uint64_t playerId, uint32_t deskId)
 
 int NFGameRoom::EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s::GamePlayerDetailData_s& playerDetail)
 {
-    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    auto roomConfig = FishRoomDesc::Instance()->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
-    if (roomConfig->m_entermin > 0)
+    if (roomConfig->m_enterMin > 0)
     {
-        if (playerDetail.cur_money < roomConfig->m_entermin)
+        if (playerDetail.cur_money < roomConfig->m_enterMin)
         {
             return proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH;
         }
     }
 
-    if (roomConfig->m_entermax > 0)
+    if (roomConfig->m_enterMax > 0)
     {
-        if (playerDetail.cur_money > roomConfig->m_entermax)
+        if (playerDetail.cur_money > roomConfig->m_enterMax)
         {
             return proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH;
         }
     }
 
-    if (roomConfig->m_isexpscene > 0)
+    if (roomConfig->m_isExpScene > 0)
     {
-        playerDetail.cur_money = roomConfig->m_expscenegold;
+        playerDetail.cur_money = roomConfig->m_expSceneGold;
     }
 
     NFGameDesk *pDesk = GetGameDesk(deskId);

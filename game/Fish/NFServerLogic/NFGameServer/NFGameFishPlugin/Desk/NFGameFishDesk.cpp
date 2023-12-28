@@ -668,7 +668,7 @@ int NFGameFishDesk::GetUserLoginDeskInfoMsg(gamefish::GameStatusRsp &rspMsg)
 
     rspMsg.set_background_index(m_uSceneIndex);
 
-    std::vector<const proto_ff_s::E_FishGunvalue_s *> vecGunValue = FishGunvalueDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    std::vector<const proto_ff_s::E_FishGunvalue_s *> vecGunValue = FishGunvalueDesc::Instance()->GetDescByGameidRoomid(m_gameId, m_roomId);
     for (auto iter = vecGunValue.begin(); iter != vecGunValue.end(); iter++)
     {
         const proto_ff_s::E_FishGunvalue_s *pGunValue = *iter;
@@ -676,9 +676,9 @@ int NFGameFishDesk::GetUserLoginDeskInfoMsg(gamefish::GameStatusRsp &rspMsg)
         auto pCannonInfo = rspMsg.add_cannonlist();
         pCannonInfo->set_cannon_id(pGunValue->m_id);
         pCannonInfo->set_cannon_value(pGunValue->m_value);
-        pCannonInfo->set_cannon_gun_id(pGunValue->m_gunid);
+        pCannonInfo->set_cannon_gun_id(pGunValue->m_gunId);
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "iCannonId: {} , iValue : {} , iGunId : {}", pGunValue->m_id, pGunValue->m_value, pGunValue->m_gunid);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "iCannonId: {} , iValue : {} , iGunId : {}", pGunValue->m_id, pGunValue->m_value, pGunValue->m_gunId);
     }
 
     std::list<NFGameFishPlayer *> listPlayers = GetOnlinePlayers();
@@ -708,7 +708,7 @@ int NFGameFishDesk::GetUserLoginDeskInfoMsg(gamefish::GameStatusRsp &rspMsg)
 
 int NFGameFishDesk::GetCannonValue(int iBulletLevel)
 {
-    const proto_ff_s::E_FishGunvalue_s *pConfig = FishGunvalueDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomidGunid(m_gameId, m_roomId, iBulletLevel);
+    const proto_ff_s::E_FishGunvalue_s *pConfig = FishGunvalueDesc::Instance()->GetDescByGameidRoomidGunid(m_gameId, m_roomId, iBulletLevel);
     CHECK_EXPR(pConfig, 0, "iBulletLevel", iBulletLevel);
     return pConfig->m_value;
 }
@@ -966,7 +966,7 @@ int NFGameFishDesk::OnHandleChangeCannon(uint64_t playerId, NFDataPackage &packe
     CHECK_EXPR(pPlayer, -1, "pPlayer == NULL !");
 
     int nBulletLevel = cgChangeCannon.cannon_id();//客户端传来的值从1开始
-    const proto_ff_s::E_FishGunvalue_s *pConfig = FishGunvalueDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomidGunid(m_gameId, m_roomId, nBulletLevel);
+    const proto_ff_s::E_FishGunvalue_s *pConfig = FishGunvalueDesc::Instance()->GetDescByGameidRoomidGunid(m_gameId, m_roomId, nBulletLevel);
     CHECK_EXPR(pConfig, 0, "nBulletLevel is not right:{}", nBulletLevel);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cgChangeCannon.cannon_id() = {} , nBulletLevel = {}", cgChangeCannon.cannon_id(), nBulletLevel);
