@@ -17,17 +17,15 @@
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFFishLoginPlayerPlugin)
-
+	CREATE_PLUGIN(pm, NFFishLoginPlayerPlugin)
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFFishLoginPlayerPlugin)
+	DESTROY_PLUGIN(pm, NFFishLoginPlayerPlugin)
 };
 
 #endif
-
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -53,9 +51,9 @@ void NFFishLoginPlayerPlugin::Uninstall()
 
 bool NFFishLoginPlayerPlugin::InitShmObjectRegister()
 {
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
-    NF_ASSERT(pConfig);
+	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIN_SERVER);
+	NF_ASSERT(pConfig);
 
-    REGISTER_SINGLETON_SHM_OBJ(NFAccountLoginMgr);
+	REGISTER_SINGLETON_SHM_OBJ(NFAccountLoginMgr);
 	return true;
 }

@@ -211,30 +211,30 @@ void protobuf_AddDesc_E_5fFish_2eproto() {
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014E_Fish.proto\022\010proto_ff\032\025yd_fieldoption"
     "s.proto\"\323\004\n\nE_FishRoom\022\032\n\004m_id\030\001 \001(\005B\014\302\377"
-    "\024\010\345\224\257\344\270\200ID\022\036\n\010m_RoomId\030\002 \001(\005B\014\302\377\024\010\346\210\277\351\227\264"
-    "ID\022\036\n\010m_gameid\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217ID\022%\n\nm_"
-    "gamename\030\004 \001(\tB\021\302\377\024\t\346\270\270\346\210\217\345\220\215\220\301\024@\022$\n\nm_r"
-    "oomtype\030\005 \001(\005B\020\302\377\024\014\346\210\277\351\227\264\347\261\273\345\236\213\022%\n\013m_roo"
-    "mlevel\030\006 \001(\005B\020\302\377\024\014\346\210\277\351\227\264\347\255\211\347\272\247\022%\n\nm_room"
-    "name\030\007 \001(\tB\021\302\377\024\t\346\210\277\351\227\264\345\220\215\220\301\024@\022 \n\tm_siten"
-    "um\030\010 \001(\005B\r\302\377\024\t\345\272\247\344\275\215\346\225\260\022\"\n\013m_deskcount\030\t"
-    " \001(\005B\r\302\377\024\t\346\241\214\345\255\220\346\225\260\022(\n\013m_maxpeople\030\n \001(\005"
-    "B\023\302\377\024\017\346\234\200\345\244\247\347\216\251\345\256\266\346\225\260\022$\n\nm_entermin\030\013 \001("
-    "\005B\020\302\377\024\014\346\234\200\345\260\217\347\255\271\347\240\201\022$\n\nm_entermax\030\014 \001(\005B"
-    "\020\302\377\024\014\346\234\200\345\244\247\347\255\271\347\240\201\022\"\n\013m_autochair\030\r \001(\005B\r"
-    "\302\377\024\t\351\200\211\344\275\215\347\275\256\022#\n\014m_isexpscene\030\016 \001(\005B\r\302\377\024"
-    "\t\344\275\223\351\252\214\345\234\272\022+\n\016m_expscenegold\030\017 \001(\005B\023\302\377\024\017"
+    "\024\010\345\224\257\344\270\200ID\022\036\n\010m_roomId\030\002 \001(\005B\014\302\377\024\010\346\210\277\351\227\264"
+    "ID\022\036\n\010m_gameId\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217ID\022%\n\nm_"
+    "gameName\030\004 \001(\tB\021\302\377\024\t\346\270\270\346\210\217\345\220\215\220\301\024@\022$\n\nm_r"
+    "oomType\030\005 \001(\005B\020\302\377\024\014\346\210\277\351\227\264\347\261\273\345\236\213\022%\n\013m_roo"
+    "mLevel\030\006 \001(\005B\020\302\377\024\014\346\210\277\351\227\264\347\255\211\347\272\247\022%\n\nm_room"
+    "Name\030\007 \001(\tB\021\302\377\024\t\346\210\277\351\227\264\345\220\215\220\301\024@\022 \n\tm_siteN"
+    "um\030\010 \001(\005B\r\302\377\024\t\345\272\247\344\275\215\346\225\260\022\"\n\013m_deskCount\030\t"
+    " \001(\005B\r\302\377\024\t\346\241\214\345\255\220\346\225\260\022(\n\013m_maxPeople\030\n \001(\005"
+    "B\023\302\377\024\017\346\234\200\345\244\247\347\216\251\345\256\266\346\225\260\022$\n\nm_enterMin\030\013 \001("
+    "\005B\020\302\377\024\014\346\234\200\345\260\217\347\255\271\347\240\201\022$\n\nm_enterMax\030\014 \001(\005B"
+    "\020\302\377\024\014\346\234\200\345\244\247\347\255\271\347\240\201\022\"\n\013m_autoChair\030\r \001(\005B\r"
+    "\302\377\024\t\351\200\211\344\275\215\347\275\256\022#\n\014m_isExpScene\030\016 \001(\005B\r\302\377\024"
+    "\t\344\275\223\351\252\214\345\234\272\022+\n\016m_expSceneGold\030\017 \001(\005B\023\302\377\024\017"
     "\344\275\223\351\252\214\345\234\272\351\207\221\345\270\201\022\034\n\005m_tax\030\020 \001(\005B\r\302\377\024\t\346\212\275\346"
     "\260\264\347\216\207\"E\n\016Sheet_FishRoom\0223\n\017E_FishRoom_Li"
     "st\030\001 \003(\0132\024.proto_ff.E_FishRoomB\004\210\301\024 \"\242\001\n"
     "\016E_FishGunvalue\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270"
-    "\200ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\022\036\n\010m_gamei"
-    "d\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217Id\022\036\n\010m_roomid\030\004 \001(\005B"
-    "\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007m_gunid\030\005 \001(\005B\t\302\377\024\005\347\202\256I"
+    "\200ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\022\036\n\010m_gameI"
+    "d\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217Id\022\036\n\010m_roomId\030\004 \001(\005B"
+    "\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007m_gunId\030\005 \001(\005B\t\302\377\024\005\347\202\256I"
     "d\"R\n\022Sheet_FishGunvalue\022<\n\023E_FishGunvalu"
     "e_List\030\001 \003(\0132\030.proto_ff.E_FishGunvalueB\005"
-    "\210\301\024\200\002\"`\n\017E_FishCtrllevel\022$\n\016m_controllev"
-    "el\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022\'\n\rm_controlrate\030"
+    "\210\301\024\200\002\"`\n\017E_FishCtrllevel\022$\n\016m_ControlLev"
+    "el\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022\'\n\rm_ControlRate\030"
     "\002 \001(\005B\020\302\377\024\014\346\216\247\345\210\266\346\246\202\347\216\207\"T\n\023Sheet_FishCtr"
     "llevel\022=\n\024E_FishCtrllevel_List\030\001 \003(\0132\031.p"
     "roto_ff.E_FishCtrllevelB\004\210\301\024\020", 1149);
@@ -267,19 +267,19 @@ struct StaticDescriptorInitializer_E_5fFish_2eproto {
 #ifndef _MSC_VER
 const int E_FishRoom::kMIdFieldNumber;
 const int E_FishRoom::kMRoomIdFieldNumber;
-const int E_FishRoom::kMGameidFieldNumber;
-const int E_FishRoom::kMGamenameFieldNumber;
-const int E_FishRoom::kMRoomtypeFieldNumber;
-const int E_FishRoom::kMRoomlevelFieldNumber;
-const int E_FishRoom::kMRoomnameFieldNumber;
-const int E_FishRoom::kMSitenumFieldNumber;
-const int E_FishRoom::kMDeskcountFieldNumber;
-const int E_FishRoom::kMMaxpeopleFieldNumber;
-const int E_FishRoom::kMEnterminFieldNumber;
-const int E_FishRoom::kMEntermaxFieldNumber;
-const int E_FishRoom::kMAutochairFieldNumber;
-const int E_FishRoom::kMIsexpsceneFieldNumber;
-const int E_FishRoom::kMExpscenegoldFieldNumber;
+const int E_FishRoom::kMGameIdFieldNumber;
+const int E_FishRoom::kMGameNameFieldNumber;
+const int E_FishRoom::kMRoomTypeFieldNumber;
+const int E_FishRoom::kMRoomLevelFieldNumber;
+const int E_FishRoom::kMRoomNameFieldNumber;
+const int E_FishRoom::kMSiteNumFieldNumber;
+const int E_FishRoom::kMDeskCountFieldNumber;
+const int E_FishRoom::kMMaxPeopleFieldNumber;
+const int E_FishRoom::kMEnterMinFieldNumber;
+const int E_FishRoom::kMEnterMaxFieldNumber;
+const int E_FishRoom::kMAutoChairFieldNumber;
+const int E_FishRoom::kMIsExpSceneFieldNumber;
+const int E_FishRoom::kMExpSceneGoldFieldNumber;
 const int E_FishRoom::kMTaxFieldNumber;
 #endif  // !_MSC_VER
 
@@ -404,15 +404,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_RoomId;
+        if (input->ExpectTag(16)) goto parse_m_roomId;
         break;
       }
 
-      // optional int32 m_RoomId = 2;
+      // optional int32 m_roomId = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_RoomId:
+         parse_m_roomId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roomid_)));
@@ -420,15 +420,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_gameid;
+        if (input->ExpectTag(24)) goto parse_m_gameId;
         break;
       }
 
-      // optional int32 m_gameid = 3;
+      // optional int32 m_gameId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_gameid:
+         parse_m_gameId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_gameid_)));
@@ -436,15 +436,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(34)) goto parse_m_gamename;
+        if (input->ExpectTag(34)) goto parse_m_gameName;
         break;
       }
 
-      // optional string m_gamename = 4;
+      // optional string m_gameName = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_gamename:
+         parse_m_gameName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_gamename()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -453,15 +453,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_roomtype;
+        if (input->ExpectTag(40)) goto parse_m_roomType;
         break;
       }
 
-      // optional int32 m_roomtype = 5;
+      // optional int32 m_roomType = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_roomtype:
+         parse_m_roomType:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roomtype_)));
@@ -469,15 +469,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(48)) goto parse_m_roomlevel;
+        if (input->ExpectTag(48)) goto parse_m_roomLevel;
         break;
       }
 
-      // optional int32 m_roomlevel = 6;
+      // optional int32 m_roomLevel = 6;
       case 6: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_roomlevel:
+         parse_m_roomLevel:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roomlevel_)));
@@ -485,15 +485,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_m_roomname;
+        if (input->ExpectTag(58)) goto parse_m_roomName;
         break;
       }
 
-      // optional string m_roomname = 7;
+      // optional string m_roomName = 7;
       case 7: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_m_roomname:
+         parse_m_roomName:
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_m_roomname()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -502,15 +502,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(64)) goto parse_m_sitenum;
+        if (input->ExpectTag(64)) goto parse_m_siteNum;
         break;
       }
 
-      // optional int32 m_sitenum = 8;
+      // optional int32 m_siteNum = 8;
       case 8: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_sitenum:
+         parse_m_siteNum:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_sitenum_)));
@@ -518,15 +518,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(72)) goto parse_m_deskcount;
+        if (input->ExpectTag(72)) goto parse_m_deskCount;
         break;
       }
 
-      // optional int32 m_deskcount = 9;
+      // optional int32 m_deskCount = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_deskcount:
+         parse_m_deskCount:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_deskcount_)));
@@ -534,15 +534,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_m_maxpeople;
+        if (input->ExpectTag(80)) goto parse_m_maxPeople;
         break;
       }
 
-      // optional int32 m_maxpeople = 10;
+      // optional int32 m_maxPeople = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_maxpeople:
+         parse_m_maxPeople:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_maxpeople_)));
@@ -550,15 +550,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_entermin;
+        if (input->ExpectTag(88)) goto parse_m_enterMin;
         break;
       }
 
-      // optional int32 m_entermin = 11;
+      // optional int32 m_enterMin = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_entermin:
+         parse_m_enterMin:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_entermin_)));
@@ -566,15 +566,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_entermax;
+        if (input->ExpectTag(96)) goto parse_m_enterMax;
         break;
       }
 
-      // optional int32 m_entermax = 12;
+      // optional int32 m_enterMax = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_entermax:
+         parse_m_enterMax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_entermax_)));
@@ -582,15 +582,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_autochair;
+        if (input->ExpectTag(104)) goto parse_m_autoChair;
         break;
       }
 
-      // optional int32 m_autochair = 13;
+      // optional int32 m_autoChair = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_autochair:
+         parse_m_autoChair:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_autochair_)));
@@ -598,15 +598,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_isexpscene;
+        if (input->ExpectTag(112)) goto parse_m_isExpScene;
         break;
       }
 
-      // optional int32 m_isexpscene = 14;
+      // optional int32 m_isExpScene = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_isexpscene:
+         parse_m_isExpScene:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_isexpscene_)));
@@ -614,15 +614,15 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_expscenegold;
+        if (input->ExpectTag(120)) goto parse_m_expSceneGold;
         break;
       }
 
-      // optional int32 m_expscenegold = 15;
+      // optional int32 m_expSceneGold = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_expscenegold:
+         parse_m_expSceneGold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_expscenegold_)));
@@ -673,17 +673,17 @@ void E_FishRoom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_id(), output);
   }
 
-  // optional int32 m_RoomId = 2;
+  // optional int32 m_roomId = 2;
   if (has_m_roomid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_roomid(), output);
   }
 
-  // optional int32 m_gameid = 3;
+  // optional int32 m_gameId = 3;
   if (has_m_gameid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_gameid(), output);
   }
 
-  // optional string m_gamename = 4;
+  // optional string m_gameName = 4;
   if (has_m_gamename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_gamename().data(), this->m_gamename().length(),
@@ -692,17 +692,17 @@ void E_FishRoom::SerializeWithCachedSizes(
       4, this->m_gamename(), output);
   }
 
-  // optional int32 m_roomtype = 5;
+  // optional int32 m_roomType = 5;
   if (has_m_roomtype()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_roomtype(), output);
   }
 
-  // optional int32 m_roomlevel = 6;
+  // optional int32 m_roomLevel = 6;
   if (has_m_roomlevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_roomlevel(), output);
   }
 
-  // optional string m_roomname = 7;
+  // optional string m_roomName = 7;
   if (has_m_roomname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_roomname().data(), this->m_roomname().length(),
@@ -711,42 +711,42 @@ void E_FishRoom::SerializeWithCachedSizes(
       7, this->m_roomname(), output);
   }
 
-  // optional int32 m_sitenum = 8;
+  // optional int32 m_siteNum = 8;
   if (has_m_sitenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(8, this->m_sitenum(), output);
   }
 
-  // optional int32 m_deskcount = 9;
+  // optional int32 m_deskCount = 9;
   if (has_m_deskcount()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(9, this->m_deskcount(), output);
   }
 
-  // optional int32 m_maxpeople = 10;
+  // optional int32 m_maxPeople = 10;
   if (has_m_maxpeople()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_maxpeople(), output);
   }
 
-  // optional int32 m_entermin = 11;
+  // optional int32 m_enterMin = 11;
   if (has_m_entermin()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_entermin(), output);
   }
 
-  // optional int32 m_entermax = 12;
+  // optional int32 m_enterMax = 12;
   if (has_m_entermax()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_entermax(), output);
   }
 
-  // optional int32 m_autochair = 13;
+  // optional int32 m_autoChair = 13;
   if (has_m_autochair()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_autochair(), output);
   }
 
-  // optional int32 m_isexpscene = 14;
+  // optional int32 m_isExpScene = 14;
   if (has_m_isexpscene()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_isexpscene(), output);
   }
 
-  // optional int32 m_expscenegold = 15;
+  // optional int32 m_expSceneGold = 15;
   if (has_m_expscenegold()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_expscenegold(), output);
   }
@@ -769,17 +769,17 @@ void E_FishRoom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_id(), target);
   }
 
-  // optional int32 m_RoomId = 2;
+  // optional int32 m_roomId = 2;
   if (has_m_roomid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_roomid(), target);
   }
 
-  // optional int32 m_gameid = 3;
+  // optional int32 m_gameId = 3;
   if (has_m_gameid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_gameid(), target);
   }
 
-  // optional string m_gamename = 4;
+  // optional string m_gameName = 4;
   if (has_m_gamename()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_gamename().data(), this->m_gamename().length(),
@@ -789,17 +789,17 @@ void E_FishRoom::SerializeWithCachedSizes(
         4, this->m_gamename(), target);
   }
 
-  // optional int32 m_roomtype = 5;
+  // optional int32 m_roomType = 5;
   if (has_m_roomtype()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_roomtype(), target);
   }
 
-  // optional int32 m_roomlevel = 6;
+  // optional int32 m_roomLevel = 6;
   if (has_m_roomlevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_roomlevel(), target);
   }
 
-  // optional string m_roomname = 7;
+  // optional string m_roomName = 7;
   if (has_m_roomname()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->m_roomname().data(), this->m_roomname().length(),
@@ -809,42 +809,42 @@ void E_FishRoom::SerializeWithCachedSizes(
         7, this->m_roomname(), target);
   }
 
-  // optional int32 m_sitenum = 8;
+  // optional int32 m_siteNum = 8;
   if (has_m_sitenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(8, this->m_sitenum(), target);
   }
 
-  // optional int32 m_deskcount = 9;
+  // optional int32 m_deskCount = 9;
   if (has_m_deskcount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(9, this->m_deskcount(), target);
   }
 
-  // optional int32 m_maxpeople = 10;
+  // optional int32 m_maxPeople = 10;
   if (has_m_maxpeople()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_maxpeople(), target);
   }
 
-  // optional int32 m_entermin = 11;
+  // optional int32 m_enterMin = 11;
   if (has_m_entermin()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_entermin(), target);
   }
 
-  // optional int32 m_entermax = 12;
+  // optional int32 m_enterMax = 12;
   if (has_m_entermax()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_entermax(), target);
   }
 
-  // optional int32 m_autochair = 13;
+  // optional int32 m_autoChair = 13;
   if (has_m_autochair()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_autochair(), target);
   }
 
-  // optional int32 m_isexpscene = 14;
+  // optional int32 m_isExpScene = 14;
   if (has_m_isexpscene()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_isexpscene(), target);
   }
 
-  // optional int32 m_expscenegold = 15;
+  // optional int32 m_expSceneGold = 15;
   if (has_m_expscenegold()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_expscenegold(), target);
   }
@@ -872,49 +872,49 @@ int E_FishRoom::ByteSize() const {
           this->m_id());
     }
 
-    // optional int32 m_RoomId = 2;
+    // optional int32 m_roomId = 2;
     if (has_m_roomid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_roomid());
     }
 
-    // optional int32 m_gameid = 3;
+    // optional int32 m_gameId = 3;
     if (has_m_gameid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_gameid());
     }
 
-    // optional string m_gamename = 4;
+    // optional string m_gameName = 4;
     if (has_m_gamename()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_gamename());
     }
 
-    // optional int32 m_roomtype = 5;
+    // optional int32 m_roomType = 5;
     if (has_m_roomtype()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_roomtype());
     }
 
-    // optional int32 m_roomlevel = 6;
+    // optional int32 m_roomLevel = 6;
     if (has_m_roomlevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_roomlevel());
     }
 
-    // optional string m_roomname = 7;
+    // optional string m_roomName = 7;
     if (has_m_roomname()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->m_roomname());
     }
 
-    // optional int32 m_sitenum = 8;
+    // optional int32 m_siteNum = 8;
     if (has_m_sitenum()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -923,49 +923,49 @@ int E_FishRoom::ByteSize() const {
 
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional int32 m_deskcount = 9;
+    // optional int32 m_deskCount = 9;
     if (has_m_deskcount()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_deskcount());
     }
 
-    // optional int32 m_maxpeople = 10;
+    // optional int32 m_maxPeople = 10;
     if (has_m_maxpeople()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_maxpeople());
     }
 
-    // optional int32 m_entermin = 11;
+    // optional int32 m_enterMin = 11;
     if (has_m_entermin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_entermin());
     }
 
-    // optional int32 m_entermax = 12;
+    // optional int32 m_enterMax = 12;
     if (has_m_entermax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_entermax());
     }
 
-    // optional int32 m_autochair = 13;
+    // optional int32 m_autoChair = 13;
     if (has_m_autochair()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_autochair());
     }
 
-    // optional int32 m_isexpscene = 14;
+    // optional int32 m_isExpScene = 14;
     if (has_m_isexpscene()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_isexpscene());
     }
 
-    // optional int32 m_expscenegold = 15;
+    // optional int32 m_expSceneGold = 15;
     if (has_m_expscenegold()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1318,9 +1318,9 @@ void Sheet_FishRoom::Swap(Sheet_FishRoom* other) {
 #ifndef _MSC_VER
 const int E_FishGunvalue::kMIdFieldNumber;
 const int E_FishGunvalue::kMValueFieldNumber;
-const int E_FishGunvalue::kMGameidFieldNumber;
-const int E_FishGunvalue::kMRoomidFieldNumber;
-const int E_FishGunvalue::kMGunidFieldNumber;
+const int E_FishGunvalue::kMGameIdFieldNumber;
+const int E_FishGunvalue::kMRoomIdFieldNumber;
+const int E_FishGunvalue::kMGunIdFieldNumber;
 #endif  // !_MSC_VER
 
 E_FishGunvalue::E_FishGunvalue()
@@ -1422,15 +1422,15 @@ bool E_FishGunvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_gameid;
+        if (input->ExpectTag(24)) goto parse_m_gameId;
         break;
       }
 
-      // optional int32 m_gameid = 3;
+      // optional int32 m_gameId = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_gameid:
+         parse_m_gameId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_gameid_)));
@@ -1438,15 +1438,15 @@ bool E_FishGunvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_roomid;
+        if (input->ExpectTag(32)) goto parse_m_roomId;
         break;
       }
 
-      // optional int32 m_roomid = 4;
+      // optional int32 m_roomId = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_roomid:
+         parse_m_roomId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_roomid_)));
@@ -1454,15 +1454,15 @@ bool E_FishGunvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_m_gunid;
+        if (input->ExpectTag(40)) goto parse_m_gunId;
         break;
       }
 
-      // optional int32 m_gunid = 5;
+      // optional int32 m_gunId = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_gunid:
+         parse_m_gunId:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_gunid_)));
@@ -1502,17 +1502,17 @@ void E_FishGunvalue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
-  // optional int32 m_gameid = 3;
+  // optional int32 m_gameId = 3;
   if (has_m_gameid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_gameid(), output);
   }
 
-  // optional int32 m_roomid = 4;
+  // optional int32 m_roomId = 4;
   if (has_m_roomid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_roomid(), output);
   }
 
-  // optional int32 m_gunid = 5;
+  // optional int32 m_gunId = 5;
   if (has_m_gunid()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_gunid(), output);
   }
@@ -1535,17 +1535,17 @@ void E_FishGunvalue::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
-  // optional int32 m_gameid = 3;
+  // optional int32 m_gameId = 3;
   if (has_m_gameid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_gameid(), target);
   }
 
-  // optional int32 m_roomid = 4;
+  // optional int32 m_roomId = 4;
   if (has_m_roomid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_roomid(), target);
   }
 
-  // optional int32 m_gunid = 5;
+  // optional int32 m_gunId = 5;
   if (has_m_gunid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_gunid(), target);
   }
@@ -1575,21 +1575,21 @@ int E_FishGunvalue::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_gameid = 3;
+    // optional int32 m_gameId = 3;
     if (has_m_gameid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_gameid());
     }
 
-    // optional int32 m_roomid = 4;
+    // optional int32 m_roomId = 4;
     if (has_m_roomid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_roomid());
     }
 
-    // optional int32 m_gunid = 5;
+    // optional int32 m_gunId = 5;
     if (has_m_gunid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -1887,8 +1887,8 @@ void Sheet_FishGunvalue::Swap(Sheet_FishGunvalue* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int E_FishCtrllevel::kMControllevelFieldNumber;
-const int E_FishCtrllevel::kMControlrateFieldNumber;
+const int E_FishCtrllevel::kMControlLevelFieldNumber;
+const int E_FishCtrllevel::kMControlRateFieldNumber;
 #endif  // !_MSC_VER
 
 E_FishCtrllevel::E_FishCtrllevel()
@@ -1957,7 +1957,7 @@ bool E_FishCtrllevel::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 m_controllevel = 1;
+      // optional int32 m_ControlLevel = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
@@ -1968,15 +1968,15 @@ bool E_FishCtrllevel::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_m_controlrate;
+        if (input->ExpectTag(16)) goto parse_m_ControlRate;
         break;
       }
 
-      // optional int32 m_controlrate = 2;
+      // optional int32 m_ControlRate = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_controlrate:
+         parse_m_ControlRate:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &m_controlrate_)));
@@ -2006,12 +2006,12 @@ bool E_FishCtrllevel::MergePartialFromCodedStream(
 
 void E_FishCtrllevel::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional int32 m_controllevel = 1;
+  // optional int32 m_ControlLevel = 1;
   if (has_m_controllevel()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_controllevel(), output);
   }
 
-  // optional int32 m_controlrate = 2;
+  // optional int32 m_ControlRate = 2;
   if (has_m_controlrate()) {
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_controlrate(), output);
   }
@@ -2024,12 +2024,12 @@ void E_FishCtrllevel::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* E_FishCtrllevel::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // optional int32 m_controllevel = 1;
+  // optional int32 m_ControlLevel = 1;
   if (has_m_controllevel()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_controllevel(), target);
   }
 
-  // optional int32 m_controlrate = 2;
+  // optional int32 m_ControlRate = 2;
   if (has_m_controlrate()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_controlrate(), target);
   }
@@ -2045,14 +2045,14 @@ int E_FishCtrllevel::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional int32 m_controllevel = 1;
+    // optional int32 m_ControlLevel = 1;
     if (has_m_controllevel()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_controllevel());
     }
 
-    // optional int32 m_controlrate = 2;
+    // optional int32 m_ControlRate = 2;
     if (has_m_controlrate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(

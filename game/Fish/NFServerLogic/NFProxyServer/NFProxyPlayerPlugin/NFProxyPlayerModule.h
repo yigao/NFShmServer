@@ -132,7 +132,7 @@ public:
      */
     int OnRpcServicePlayerChangeGameServer(proto_ff::Proto_STS_PlayerChangeGameServerReq &request, proto_ff::Proto_STS_PlayerChangeGameServerRsp &respone);
 private:
-    NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
-    NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
+    NFCommMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
+    NFCommMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;
 };

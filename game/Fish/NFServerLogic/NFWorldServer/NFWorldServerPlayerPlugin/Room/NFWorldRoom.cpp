@@ -10,8 +10,6 @@
 #include "NFWorldRoom.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldRoom, EOT_NFWorldRoom_ID, NFShmObj)
-
 NFWorldRoom::NFWorldRoom()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

@@ -12,8 +12,6 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include <map>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
-
 NFWorldPlayerMgr::NFWorldPlayerMgr() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();

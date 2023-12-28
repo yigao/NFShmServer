@@ -152,7 +152,6 @@ public:
         return (className *) pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(classType);
     }
     
-    /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int RegisterClassToObjSeg(NFIPluginManager *pPluginManager, int bType, size_t siObjSize, int iObjCount, const std::string &strClassName, bool useHash, bool singleton = false)
     {
         pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize, iObjCount, className::ResumeObjectRegisterFunction,
@@ -338,7 +337,6 @@ public:
         return (className *) pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(classType);
     }
     
-    /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int RegisterClassToObjSeg(NFIPluginManager *pPluginManager, int bType, size_t siObjSize, int iObjCount, const std::string &strClassName, bool useHash, bool singleton = false)
     {
         pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize, iObjCount, className::ResumeObjectRegisterFunction,
@@ -523,7 +521,6 @@ public:
         return (className *) NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj(classType);
     }
     
-    /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int RegisterClassToObjSeg(NFIPluginManager *pPluginManager, int bType, size_t siObjSize, int iObjCount, const std::string &strClassName, bool useHash, bool singleton = false)
     {
         pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize, iObjCount, className::ResumeObjectRegisterFunction,

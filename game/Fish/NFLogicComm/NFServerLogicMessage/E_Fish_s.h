@@ -21,20 +21,20 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		int32_t m_id;//唯一ID
-		int32_t m_RoomId;//房间ID
-		int32_t m_gameid;//游戏ID
-		NFShmString<64> m_gamename;//游戏名
-		int32_t m_roomtype;//房间类型
-		int32_t m_roomlevel;//房间等级
-		NFShmString<64> m_roomname;//房间名
-		int32_t m_sitenum;//座位数
-		int32_t m_deskcount;//桌子数
-		int32_t m_maxpeople;//最大玩家数
-		int32_t m_entermin;//最小筹码
-		int32_t m_entermax;//最大筹码
-		int32_t m_autochair;//选位置
-		int32_t m_isexpscene;//体验场
-		int32_t m_expscenegold;//体验场金币
+		int32_t m_roomId;//房间ID
+		int32_t m_gameId;//游戏ID
+		NFShmString<64> m_gameName;//游戏名
+		int32_t m_roomType;//房间类型
+		int32_t m_roomLevel;//房间等级
+		NFShmString<64> m_roomName;//房间名
+		int32_t m_siteNum;//座位数
+		int32_t m_deskCount;//桌子数
+		int32_t m_maxPeople;//最大玩家数
+		int32_t m_enterMin;//最小筹码
+		int32_t m_enterMax;//最大筹码
+		int32_t m_autoChair;//选位置
+		int32_t m_isExpScene;//体验场
+		int32_t m_expSceneGold;//体验场金币
 		int32_t m_tax;//抽水率
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishRoom & msg) const;
@@ -65,9 +65,9 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;//唯一ID
 		int32_t m_value;//值
-		int32_t m_gameid;//游戏Id
-		int32_t m_roomid;//房间ID
-		int32_t m_gunid;//炮Id
+		int32_t m_gameId;//游戏Id
+		int32_t m_roomId;//房间ID
+		int32_t m_gunId;//炮Id
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg);
@@ -95,8 +95,8 @@ namespace proto_ff_s {
 		virtual ~E_FishCtrllevel_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_controllevel;//唯一ID
-		int32_t m_controlrate;//控制概率
+		int32_t m_ControlLevel;//唯一ID
+		int32_t m_ControlRate;//控制概率
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishCtrllevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishCtrllevel & msg);

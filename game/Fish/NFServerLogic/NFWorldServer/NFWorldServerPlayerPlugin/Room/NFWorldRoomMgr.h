@@ -16,7 +16,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFWorldRoom.h"
 
-class NFWorldRoomMgr : public NFShmObj
+class NFWorldRoomMgr : public NFShmObjTemplate<NFWorldRoomMgr, EOT_NFWorldRoomMgr_ID, NFShmObj>
 {
 public:
     NFWorldRoomMgr();
@@ -37,5 +37,4 @@ public:
     int CreateRoom();
 private:
     bool m_inited;
-DECLARE_IDCREATE(NFWorldRoomMgr)
 };

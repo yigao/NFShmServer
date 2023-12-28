@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
@@ -20,7 +21,7 @@
 #include "NFWorldRoomDesk.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-class NFWorldRoom : public NFShmObj
+class NFWorldRoom : public NFShmObjTemplate<NFWorldRoom, EOT_NFWorldRoom_ID, NFShmObj>
 {
 public:
     NFWorldRoom();
@@ -39,6 +40,4 @@ public:
 public:
     NFShmHashMap<uint64_t, NFWorldRoomPlayer, MAX_ONE_ROOM_PLAYER_NUM> m_roomPlayers;
     NFShmHashMap<uint64_t, NFWorldRoomDesk, MAX_ONE_ROOM_DESK_NUM> m_roomDesks;
-private:
-DECLARE_IDCREATE(NFWorldRoom)
 };

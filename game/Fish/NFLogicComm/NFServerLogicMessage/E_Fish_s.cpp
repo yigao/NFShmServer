@@ -12,18 +12,18 @@ E_FishRoom_s::E_FishRoom_s() {
 
 int E_FishRoom_s::CreateInit() {
 	m_id = (int32_t)0;
-	m_RoomId = (int32_t)0;
-	m_gameid = (int32_t)0;
-	m_roomtype = (int32_t)0;
-	m_roomlevel = (int32_t)0;
-	m_sitenum = (int32_t)0;
-	m_deskcount = (int32_t)0;
-	m_maxpeople = (int32_t)0;
-	m_entermin = (int32_t)0;
-	m_entermax = (int32_t)0;
-	m_autochair = (int32_t)0;
-	m_isexpscene = (int32_t)0;
-	m_expscenegold = (int32_t)0;
+	m_roomId = (int32_t)0;
+	m_gameId = (int32_t)0;
+	m_roomType = (int32_t)0;
+	m_roomLevel = (int32_t)0;
+	m_siteNum = (int32_t)0;
+	m_deskCount = (int32_t)0;
+	m_maxPeople = (int32_t)0;
+	m_enterMin = (int32_t)0;
+	m_enterMax = (int32_t)0;
+	m_autoChair = (int32_t)0;
+	m_isExpScene = (int32_t)0;
+	m_expSceneGold = (int32_t)0;
 	m_tax = (int32_t)0;
 	return 0;
 }
@@ -34,39 +34,39 @@ int E_FishRoom_s::ResumeInit() {
 
 void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 	msg.set_m_id((int32_t)m_id);
-	msg.set_m_roomid((int32_t)m_RoomId);
-	msg.set_m_gameid((int32_t)m_gameid);
-	msg.set_m_gamename(m_gamename.data());
-	msg.set_m_roomtype((int32_t)m_roomtype);
-	msg.set_m_roomlevel((int32_t)m_roomlevel);
-	msg.set_m_roomname(m_roomname.data());
-	msg.set_m_sitenum((int32_t)m_sitenum);
-	msg.set_m_deskcount((int32_t)m_deskcount);
-	msg.set_m_maxpeople((int32_t)m_maxpeople);
-	msg.set_m_entermin((int32_t)m_entermin);
-	msg.set_m_entermax((int32_t)m_entermax);
-	msg.set_m_autochair((int32_t)m_autochair);
-	msg.set_m_isexpscene((int32_t)m_isexpscene);
-	msg.set_m_expscenegold((int32_t)m_expscenegold);
+	msg.set_m_roomid((int32_t)m_roomId);
+	msg.set_m_gameid((int32_t)m_gameId);
+	msg.set_m_gamename(m_gameName.data());
+	msg.set_m_roomtype((int32_t)m_roomType);
+	msg.set_m_roomlevel((int32_t)m_roomLevel);
+	msg.set_m_roomname(m_roomName.data());
+	msg.set_m_sitenum((int32_t)m_siteNum);
+	msg.set_m_deskcount((int32_t)m_deskCount);
+	msg.set_m_maxpeople((int32_t)m_maxPeople);
+	msg.set_m_entermin((int32_t)m_enterMin);
+	msg.set_m_entermax((int32_t)m_enterMax);
+	msg.set_m_autochair((int32_t)m_autoChair);
+	msg.set_m_isexpscene((int32_t)m_isExpScene);
+	msg.set_m_expscenegold((int32_t)m_expSceneGold);
 	msg.set_m_tax((int32_t)m_tax);
 }
 
 void E_FishRoom_s::read_from_pbmsg(const ::proto_ff::E_FishRoom & msg) {
 	m_id = msg.m_id();
-	m_RoomId = msg.m_roomid();
-	m_gameid = msg.m_gameid();
-	m_gamename = msg.m_gamename();
-	m_roomtype = msg.m_roomtype();
-	m_roomlevel = msg.m_roomlevel();
-	m_roomname = msg.m_roomname();
-	m_sitenum = msg.m_sitenum();
-	m_deskcount = msg.m_deskcount();
-	m_maxpeople = msg.m_maxpeople();
-	m_entermin = msg.m_entermin();
-	m_entermax = msg.m_entermax();
-	m_autochair = msg.m_autochair();
-	m_isexpscene = msg.m_isexpscene();
-	m_expscenegold = msg.m_expscenegold();
+	m_roomId = msg.m_roomid();
+	m_gameId = msg.m_gameid();
+	m_gameName = msg.m_gamename();
+	m_roomType = msg.m_roomtype();
+	m_roomLevel = msg.m_roomlevel();
+	m_roomName = msg.m_roomname();
+	m_siteNum = msg.m_sitenum();
+	m_deskCount = msg.m_deskcount();
+	m_maxPeople = msg.m_maxpeople();
+	m_enterMin = msg.m_entermin();
+	m_enterMax = msg.m_entermax();
+	m_autoChair = msg.m_autochair();
+	m_isExpScene = msg.m_isexpscene();
+	m_expSceneGold = msg.m_expscenegold();
 	m_tax = msg.m_tax();
 }
 
@@ -112,9 +112,9 @@ E_FishGunvalue_s::E_FishGunvalue_s() {
 int E_FishGunvalue_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_value = (int32_t)0;
-	m_gameid = (int32_t)0;
-	m_roomid = (int32_t)0;
-	m_gunid = (int32_t)0;
+	m_gameId = (int32_t)0;
+	m_roomId = (int32_t)0;
+	m_gunId = (int32_t)0;
 	return 0;
 }
 
@@ -125,17 +125,17 @@ int E_FishGunvalue_s::ResumeInit() {
 void E_FishGunvalue_s::write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_value((int32_t)m_value);
-	msg.set_m_gameid((int32_t)m_gameid);
-	msg.set_m_roomid((int32_t)m_roomid);
-	msg.set_m_gunid((int32_t)m_gunid);
+	msg.set_m_gameid((int32_t)m_gameId);
+	msg.set_m_roomid((int32_t)m_roomId);
+	msg.set_m_gunid((int32_t)m_gunId);
 }
 
 void E_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg) {
 	m_id = msg.m_id();
 	m_value = msg.m_value();
-	m_gameid = msg.m_gameid();
-	m_roomid = msg.m_roomid();
-	m_gunid = msg.m_gunid();
+	m_gameId = msg.m_gameid();
+	m_roomId = msg.m_roomid();
+	m_gunId = msg.m_gunid();
 }
 
 Sheet_FishGunvalue_s::Sheet_FishGunvalue_s() {
@@ -178,8 +178,8 @@ E_FishCtrllevel_s::E_FishCtrllevel_s() {
 }
 
 int E_FishCtrllevel_s::CreateInit() {
-	m_controllevel = (int32_t)0;
-	m_controlrate = (int32_t)0;
+	m_ControlLevel = (int32_t)0;
+	m_ControlRate = (int32_t)0;
 	return 0;
 }
 
@@ -188,13 +188,13 @@ int E_FishCtrllevel_s::ResumeInit() {
 }
 
 void E_FishCtrllevel_s::write_to_pbmsg(::proto_ff::E_FishCtrllevel & msg) const {
-	msg.set_m_controllevel((int32_t)m_controllevel);
-	msg.set_m_controlrate((int32_t)m_controlrate);
+	msg.set_m_controllevel((int32_t)m_ControlLevel);
+	msg.set_m_controlrate((int32_t)m_ControlRate);
 }
 
 void E_FishCtrllevel_s::read_from_pbmsg(const ::proto_ff::E_FishCtrllevel & msg) {
-	m_controllevel = msg.m_controllevel();
-	m_controlrate = msg.m_controlrate();
+	m_ControlLevel = msg.m_controllevel();
+	m_ControlRate = msg.m_controlrate();
 }
 
 Sheet_FishCtrllevel_s::Sheet_FishCtrllevel_s() {

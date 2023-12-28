@@ -17,7 +17,7 @@
 class NFFishWorldPlayerPlugin : public NFIPlugin
 {
 public:
-	explicit NFFishWorldPlayerPlugin(NFIPluginManager* p):NFIPlugin(p)
+	explicit NFFishWorldPlayerPlugin(NFIPluginManager* p): NFIPlugin(p)
 	{
 	}
 
@@ -31,4 +31,3 @@ public:
 
 	virtual bool InitShmObjectRegister() override;
 };
-

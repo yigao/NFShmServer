@@ -31,4 +31,3 @@ public:
 
 	virtual bool InitShmObjectRegister() override;
 };
-

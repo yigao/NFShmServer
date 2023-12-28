@@ -42,12 +42,13 @@ int ConstantConstantDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_constantconstant_list_size() < 0) || (table.e_constantconstant_list_size() > (int)(m_astDesc.max_size())))
+	if ((table.e_constantconstant_list_size() < 0) || (table.e_constantconstant_list_size() > (int)(m_astDescMap.max_size())))
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_constantconstant_list_size());
 		return -2;
 	}
 
+	m_minId = INVALID_ID;
 	for (int i = 0; i < (int)table.e_constantconstant_list_size(); i++)
 	{
 		const proto_ff::E_ConstantConstant& desc = table.e_constantconstant_list(i);
@@ -56,6 +57,19 @@ int ConstantConstantDesc::Load(NFResDB *pDB)
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
+
+		if (m_minId == INVALID_ID)
+		{
+			m_minId = desc.m_constantid();
+		}
+		else
+		{
+			if (desc.m_constantid() < m_minId)
+			{
+				m_minId = desc.m_constantid();
+			}
+		}
+
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		if (m_astDescMap.find(desc.m_constantid()) != m_astDescMap.end())
 		{
@@ -71,14 +85,27 @@ int ConstantConstantDesc::Load(NFResDB *pDB)
 			}
 			continue;
 		}
-		m_astDesc.push_back();
-		auto pDesc = &m_astDesc.back();
-		int curIndex = m_astDesc.size() - 1;
-		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_constantid());
+		CHECK_EXPR_ASSERT(m_astDescMap.size() < m_astDescMap.max_size(), -1, "m_astDescMap Space Not Enough");
+		auto pDesc = &m_astDescMap[desc.m_constantid()];
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDescMap Insert Failed desc.id:{}", desc.m_constantid());
 		pDesc->read_from_pbmsg(desc);
-		auto iter = m_astDescMap.emplace_hint(desc.m_constantid(), curIndex);
-		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_constantid());
 		CHECK_EXPR_ASSERT(GetDesc(desc.m_constantid()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_constantid());
+	}
+
+	for(int i = 0; i < (int)m_astDescIndex.size(); i++)
+	{
+		m_astDescIndex[i] = INVALID_ID;
+	}
+
+	for(auto iter = m_astDescMap.begin(); iter != m_astDescMap.end(); iter++)
+	{
+		int64_t index = (int64_t)iter->first - (int64_t)m_minId;
+		if (index >= 0 && index < (int64_t)m_astDescIndex.size())
+		{
+			m_astDescIndex[index] = iter.m_curNode->m_self;
+			CHECK_EXPR_ASSERT(iter == m_astDescMap.get_iterator(m_astDescIndex[index]), -1, "index error");
+			CHECK_EXPR_ASSERT(GetDesc(iter->first) == &iter->second, -1, "GetDesc != iter->second, id:{}", iter->first);
+		}
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_constantconstant_list_size());

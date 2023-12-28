@@ -104,24 +104,24 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_id() const;
   inline void set_m_id(::google::protobuf::int32 value);
 
-  // optional int32 m_RoomId = 2;
+  // optional int32 m_roomId = 2;
   inline bool has_m_roomid() const;
   inline void clear_m_roomid();
   static const int kMRoomIdFieldNumber = 2;
   inline ::google::protobuf::int32 m_roomid() const;
   inline void set_m_roomid(::google::protobuf::int32 value);
 
-  // optional int32 m_gameid = 3;
+  // optional int32 m_gameId = 3;
   inline bool has_m_gameid() const;
   inline void clear_m_gameid();
-  static const int kMGameidFieldNumber = 3;
+  static const int kMGameIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_gameid() const;
   inline void set_m_gameid(::google::protobuf::int32 value);
 
-  // optional string m_gamename = 4;
+  // optional string m_gameName = 4;
   inline bool has_m_gamename() const;
   inline void clear_m_gamename();
-  static const int kMGamenameFieldNumber = 4;
+  static const int kMGameNameFieldNumber = 4;
   inline const ::std::string& m_gamename() const;
   inline void set_m_gamename(const ::std::string& value);
   inline void set_m_gamename(const char* value);
@@ -130,24 +130,24 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline ::std::string* release_m_gamename();
   inline void set_allocated_m_gamename(::std::string* m_gamename);
 
-  // optional int32 m_roomtype = 5;
+  // optional int32 m_roomType = 5;
   inline bool has_m_roomtype() const;
   inline void clear_m_roomtype();
-  static const int kMRoomtypeFieldNumber = 5;
+  static const int kMRoomTypeFieldNumber = 5;
   inline ::google::protobuf::int32 m_roomtype() const;
   inline void set_m_roomtype(::google::protobuf::int32 value);
 
-  // optional int32 m_roomlevel = 6;
+  // optional int32 m_roomLevel = 6;
   inline bool has_m_roomlevel() const;
   inline void clear_m_roomlevel();
-  static const int kMRoomlevelFieldNumber = 6;
+  static const int kMRoomLevelFieldNumber = 6;
   inline ::google::protobuf::int32 m_roomlevel() const;
   inline void set_m_roomlevel(::google::protobuf::int32 value);
 
-  // optional string m_roomname = 7;
+  // optional string m_roomName = 7;
   inline bool has_m_roomname() const;
   inline void clear_m_roomname();
-  static const int kMRoomnameFieldNumber = 7;
+  static const int kMRoomNameFieldNumber = 7;
   inline const ::std::string& m_roomname() const;
   inline void set_m_roomname(const ::std::string& value);
   inline void set_m_roomname(const char* value);
@@ -156,59 +156,59 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline ::std::string* release_m_roomname();
   inline void set_allocated_m_roomname(::std::string* m_roomname);
 
-  // optional int32 m_sitenum = 8;
+  // optional int32 m_siteNum = 8;
   inline bool has_m_sitenum() const;
   inline void clear_m_sitenum();
-  static const int kMSitenumFieldNumber = 8;
+  static const int kMSiteNumFieldNumber = 8;
   inline ::google::protobuf::int32 m_sitenum() const;
   inline void set_m_sitenum(::google::protobuf::int32 value);
 
-  // optional int32 m_deskcount = 9;
+  // optional int32 m_deskCount = 9;
   inline bool has_m_deskcount() const;
   inline void clear_m_deskcount();
-  static const int kMDeskcountFieldNumber = 9;
+  static const int kMDeskCountFieldNumber = 9;
   inline ::google::protobuf::int32 m_deskcount() const;
   inline void set_m_deskcount(::google::protobuf::int32 value);
 
-  // optional int32 m_maxpeople = 10;
+  // optional int32 m_maxPeople = 10;
   inline bool has_m_maxpeople() const;
   inline void clear_m_maxpeople();
-  static const int kMMaxpeopleFieldNumber = 10;
+  static const int kMMaxPeopleFieldNumber = 10;
   inline ::google::protobuf::int32 m_maxpeople() const;
   inline void set_m_maxpeople(::google::protobuf::int32 value);
 
-  // optional int32 m_entermin = 11;
+  // optional int32 m_enterMin = 11;
   inline bool has_m_entermin() const;
   inline void clear_m_entermin();
-  static const int kMEnterminFieldNumber = 11;
+  static const int kMEnterMinFieldNumber = 11;
   inline ::google::protobuf::int32 m_entermin() const;
   inline void set_m_entermin(::google::protobuf::int32 value);
 
-  // optional int32 m_entermax = 12;
+  // optional int32 m_enterMax = 12;
   inline bool has_m_entermax() const;
   inline void clear_m_entermax();
-  static const int kMEntermaxFieldNumber = 12;
+  static const int kMEnterMaxFieldNumber = 12;
   inline ::google::protobuf::int32 m_entermax() const;
   inline void set_m_entermax(::google::protobuf::int32 value);
 
-  // optional int32 m_autochair = 13;
+  // optional int32 m_autoChair = 13;
   inline bool has_m_autochair() const;
   inline void clear_m_autochair();
-  static const int kMAutochairFieldNumber = 13;
+  static const int kMAutoChairFieldNumber = 13;
   inline ::google::protobuf::int32 m_autochair() const;
   inline void set_m_autochair(::google::protobuf::int32 value);
 
-  // optional int32 m_isexpscene = 14;
+  // optional int32 m_isExpScene = 14;
   inline bool has_m_isexpscene() const;
   inline void clear_m_isexpscene();
-  static const int kMIsexpsceneFieldNumber = 14;
+  static const int kMIsExpSceneFieldNumber = 14;
   inline ::google::protobuf::int32 m_isexpscene() const;
   inline void set_m_isexpscene(::google::protobuf::int32 value);
 
-  // optional int32 m_expscenegold = 15;
+  // optional int32 m_expSceneGold = 15;
   inline bool has_m_expscenegold() const;
   inline void clear_m_expscenegold();
-  static const int kMExpscenegoldFieldNumber = 15;
+  static const int kMExpSceneGoldFieldNumber = 15;
   inline ::google::protobuf::int32 m_expscenegold() const;
   inline void set_m_expscenegold(::google::protobuf::int32 value);
 
@@ -438,24 +438,24 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_gameid = 3;
+  // optional int32 m_gameId = 3;
   inline bool has_m_gameid() const;
   inline void clear_m_gameid();
-  static const int kMGameidFieldNumber = 3;
+  static const int kMGameIdFieldNumber = 3;
   inline ::google::protobuf::int32 m_gameid() const;
   inline void set_m_gameid(::google::protobuf::int32 value);
 
-  // optional int32 m_roomid = 4;
+  // optional int32 m_roomId = 4;
   inline bool has_m_roomid() const;
   inline void clear_m_roomid();
-  static const int kMRoomidFieldNumber = 4;
+  static const int kMRoomIdFieldNumber = 4;
   inline ::google::protobuf::int32 m_roomid() const;
   inline void set_m_roomid(::google::protobuf::int32 value);
 
-  // optional int32 m_gunid = 5;
+  // optional int32 m_gunId = 5;
   inline bool has_m_gunid() const;
   inline void clear_m_gunid();
-  static const int kMGunidFieldNumber = 5;
+  static const int kMGunIdFieldNumber = 5;
   inline ::google::protobuf::int32 m_gunid() const;
   inline void set_m_gunid(::google::protobuf::int32 value);
 
@@ -631,17 +631,17 @@ class E_FishCtrllevel : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 m_controllevel = 1;
+  // optional int32 m_ControlLevel = 1;
   inline bool has_m_controllevel() const;
   inline void clear_m_controllevel();
-  static const int kMControllevelFieldNumber = 1;
+  static const int kMControlLevelFieldNumber = 1;
   inline ::google::protobuf::int32 m_controllevel() const;
   inline void set_m_controllevel(::google::protobuf::int32 value);
 
-  // optional int32 m_controlrate = 2;
+  // optional int32 m_ControlRate = 2;
   inline bool has_m_controlrate() const;
   inline void clear_m_controlrate();
-  static const int kMControlrateFieldNumber = 2;
+  static const int kMControlRateFieldNumber = 2;
   inline ::google::protobuf::int32 m_controlrate() const;
   inline void set_m_controlrate(::google::protobuf::int32 value);
 
@@ -781,7 +781,7 @@ inline void E_FishRoom::set_m_id(::google::protobuf::int32 value) {
   m_id_ = value;
 }
 
-// optional int32 m_RoomId = 2;
+// optional int32 m_roomId = 2;
 inline bool E_FishRoom::has_m_roomid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -803,7 +803,7 @@ inline void E_FishRoom::set_m_roomid(::google::protobuf::int32 value) {
   m_roomid_ = value;
 }
 
-// optional int32 m_gameid = 3;
+// optional int32 m_gameId = 3;
 inline bool E_FishRoom::has_m_gameid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -825,7 +825,7 @@ inline void E_FishRoom::set_m_gameid(::google::protobuf::int32 value) {
   m_gameid_ = value;
 }
 
-// optional string m_gamename = 4;
+// optional string m_gameName = 4;
 inline bool E_FishRoom::has_m_gamename() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -895,7 +895,7 @@ inline void E_FishRoom::set_allocated_m_gamename(::std::string* m_gamename) {
   }
 }
 
-// optional int32 m_roomtype = 5;
+// optional int32 m_roomType = 5;
 inline bool E_FishRoom::has_m_roomtype() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -917,7 +917,7 @@ inline void E_FishRoom::set_m_roomtype(::google::protobuf::int32 value) {
   m_roomtype_ = value;
 }
 
-// optional int32 m_roomlevel = 6;
+// optional int32 m_roomLevel = 6;
 inline bool E_FishRoom::has_m_roomlevel() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
@@ -939,7 +939,7 @@ inline void E_FishRoom::set_m_roomlevel(::google::protobuf::int32 value) {
   m_roomlevel_ = value;
 }
 
-// optional string m_roomname = 7;
+// optional string m_roomName = 7;
 inline bool E_FishRoom::has_m_roomname() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -1009,7 +1009,7 @@ inline void E_FishRoom::set_allocated_m_roomname(::std::string* m_roomname) {
   }
 }
 
-// optional int32 m_sitenum = 8;
+// optional int32 m_siteNum = 8;
 inline bool E_FishRoom::has_m_sitenum() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
@@ -1031,7 +1031,7 @@ inline void E_FishRoom::set_m_sitenum(::google::protobuf::int32 value) {
   m_sitenum_ = value;
 }
 
-// optional int32 m_deskcount = 9;
+// optional int32 m_deskCount = 9;
 inline bool E_FishRoom::has_m_deskcount() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
@@ -1053,7 +1053,7 @@ inline void E_FishRoom::set_m_deskcount(::google::protobuf::int32 value) {
   m_deskcount_ = value;
 }
 
-// optional int32 m_maxpeople = 10;
+// optional int32 m_maxPeople = 10;
 inline bool E_FishRoom::has_m_maxpeople() const {
   return (_has_bits_[0] & 0x00000200u) != 0;
 }
@@ -1075,7 +1075,7 @@ inline void E_FishRoom::set_m_maxpeople(::google::protobuf::int32 value) {
   m_maxpeople_ = value;
 }
 
-// optional int32 m_entermin = 11;
+// optional int32 m_enterMin = 11;
 inline bool E_FishRoom::has_m_entermin() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
@@ -1097,7 +1097,7 @@ inline void E_FishRoom::set_m_entermin(::google::protobuf::int32 value) {
   m_entermin_ = value;
 }
 
-// optional int32 m_entermax = 12;
+// optional int32 m_enterMax = 12;
 inline bool E_FishRoom::has_m_entermax() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
@@ -1119,7 +1119,7 @@ inline void E_FishRoom::set_m_entermax(::google::protobuf::int32 value) {
   m_entermax_ = value;
 }
 
-// optional int32 m_autochair = 13;
+// optional int32 m_autoChair = 13;
 inline bool E_FishRoom::has_m_autochair() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
@@ -1141,7 +1141,7 @@ inline void E_FishRoom::set_m_autochair(::google::protobuf::int32 value) {
   m_autochair_ = value;
 }
 
-// optional int32 m_isexpscene = 14;
+// optional int32 m_isExpScene = 14;
 inline bool E_FishRoom::has_m_isexpscene() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
@@ -1163,7 +1163,7 @@ inline void E_FishRoom::set_m_isexpscene(::google::protobuf::int32 value) {
   m_isexpscene_ = value;
 }
 
-// optional int32 m_expscenegold = 15;
+// optional int32 m_expSceneGold = 15;
 inline bool E_FishRoom::has_m_expscenegold() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
@@ -1284,7 +1284,7 @@ inline void E_FishGunvalue::set_m_value(::google::protobuf::int32 value) {
   m_value_ = value;
 }
 
-// optional int32 m_gameid = 3;
+// optional int32 m_gameId = 3;
 inline bool E_FishGunvalue::has_m_gameid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1306,7 +1306,7 @@ inline void E_FishGunvalue::set_m_gameid(::google::protobuf::int32 value) {
   m_gameid_ = value;
 }
 
-// optional int32 m_roomid = 4;
+// optional int32 m_roomId = 4;
 inline bool E_FishGunvalue::has_m_roomid() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1328,7 +1328,7 @@ inline void E_FishGunvalue::set_m_roomid(::google::protobuf::int32 value) {
   m_roomid_ = value;
 }
 
-// optional int32 m_gunid = 5;
+// optional int32 m_gunId = 5;
 inline bool E_FishGunvalue::has_m_gunid() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
@@ -1383,7 +1383,7 @@ Sheet_FishGunvalue::mutable_e_fishgunvalue_list() {
 
 // E_FishCtrllevel
 
-// optional int32 m_controllevel = 1;
+// optional int32 m_ControlLevel = 1;
 inline bool E_FishCtrllevel::has_m_controllevel() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1405,7 +1405,7 @@ inline void E_FishCtrllevel::set_m_controllevel(::google::protobuf::int32 value)
   m_controllevel_ = value;
 }
 
-// optional int32 m_controlrate = 2;
+// optional int32 m_ControlRate = 2;
 inline bool E_FishCtrllevel::has_m_controlrate() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }

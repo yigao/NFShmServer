@@ -11,8 +11,6 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "DescStore/FishRoomDesc.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldRoomMgr, EOT_NFWorldRoomMgr_ID, NFShmObj)
-
 NFWorldRoomMgr::NFWorldRoomMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
@@ -59,7 +57,7 @@ NFWorldRoom *NFWorldRoomMgr::CreateRoom(uint32_t id)
 
 NFWorldRoom *NFWorldRoomMgr::GetRoom(uint32_t gameId, uint32_t roomId)
 {
-    auto pConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
+    auto pConfig = FishRoomDesc::Instance()->GetDescByGameidRoomid(gameId, roomId);
     if (pConfig)
     {
         return NFWorldRoom::GetObjByHashKey(m_pObjPluginManager, pConfig->m_id);
@@ -71,15 +69,15 @@ int NFWorldRoomMgr::CreateRoom()
 {
     if (m_inited) return 0;
 
-    auto& allDesc = FishRoomDesc::Instance(m_pObjPluginManager)->GetResDesc();
-    for(int i = 0; i < (int)allDesc.size(); i++)
+    auto& allDesc = FishRoomDesc::Instance()->GetResDesc();
+    for(auto iter = allDesc.begin(); iter != allDesc.end(); ++iter)
     {
-        auto pDesc = &allDesc[i];
-        CHECK_EXPR(pDesc == FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(pDesc->m_gameid, pDesc->m_roomid), -1, "");
+        auto pDesc = &iter->second;
+        CHECK_EXPR(pDesc == FishRoomDesc::Instance()->GetDescByGameidRoomid(pDesc->m_gameId, pDesc->m_roomId), -1, "");
         NFWorldRoom* pRoom = CreateRoom(pDesc->m_id);
         CHECK_EXPR(pRoom, -1, "Create Room:{} Failed!", pDesc->m_id);
-        pRoom->m_gameId = pDesc->m_gameid;
-        pRoom->m_roomId = pDesc->m_roomid;
+        pRoom->m_gameId = pDesc->m_gameId;
+        pRoom->m_roomId = pDesc->m_roomId;
     }
     m_inited = true;
     return 0;

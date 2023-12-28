@@ -74,6 +74,6 @@ public:
 	std::vector<const proto_ff_s::E_FishRoom_s*> GetDescByGameid(int64_t Gameid) const;
 	const proto_ff_s::E_FishRoom_s* GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid);
 private:
-	NFShmHashMap<int64_t, NFShmVector<uint32_t, MAX_INDEX_FISH_ROOM_GAMEID_NUM>,UNIQUE_KEY_MAX_INDEX_FISH_ROOM_GAMEID_NUM> m_GameidIndexMap;
-	NFShmHashMap<FishRoomGameidRoomid ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_GAMEID_NUM*UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_ROOMID_NUM> m_GameidRoomidComIndexMap;
+	NFShmHashMap<int64_t, NFShmVector<uint64_t, MAX_INDEX_FISH_ROOM_GAMEID_NUM>,UNIQUE_KEY_MAX_INDEX_FISH_ROOM_GAMEID_NUM> m_GameidIndexMap;
+	NFShmHashMap<FishRoomGameidRoomid ,uint64_t, UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_GAMEID_NUM*UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_ROOMID_NUM> m_GameidRoomidComIndexMap;
 };

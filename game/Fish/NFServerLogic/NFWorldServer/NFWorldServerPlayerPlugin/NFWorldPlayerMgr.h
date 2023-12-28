@@ -12,29 +12,29 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include <vector>
+#include <NFLogicCommon/NFLogicShmTypeDefines.h>
 
 class NFWorldPlayer;
-class NFWorldPlayerMgr : public NFShmObj {
+
+class NFWorldPlayerMgr : public NFShmObjTemplate<NFWorldPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj>
+{
 public:
-    NFWorldPlayerMgr();
+	NFWorldPlayerMgr();
 
-    virtual ~NFWorldPlayerMgr();
+	virtual ~NFWorldPlayerMgr();
 
-    int CreateInit();
+	int CreateInit();
 
-    int ResumeInit();
-
+	int ResumeInit();
 public:
-    int UserTick();
-    virtual int OnTimer(int timeId, int callcount) override;
+	int UserTick();
+	virtual int OnTimer(int timeId, int callcount) override;
 
-    NFWorldPlayer *GetPlayer(uint64_t playerId);
+	NFWorldPlayer* GetPlayer(uint64_t playerId);
 
-    NFWorldPlayer *CreatePlayer(uint64_t playerId);
+	NFWorldPlayer* CreatePlayer(uint64_t playerId);
 
-    int DeletePlayer(NFWorldPlayer *pPlayer);
-
+	int DeletePlayer(NFWorldPlayer* pPlayer);
 private:
-    int m_playerTickTimer;
-DECLARE_IDCREATE(NFWorldPlayerMgr)
+	int m_playerTickTimer;
 };
