@@ -3346,6 +3346,11 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
         auto findIter = colData.find(iter->first);
         if (findIter != colData.end())
         {
+            if (findIter->second.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE && iter->second.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+            {
+                findIter->second.m_colType = google::protobuf::FieldDescriptor::CPPTYPE_STRING;
+            }
+
             if (findIter->second.m_colType != iter->second.m_colType)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0,

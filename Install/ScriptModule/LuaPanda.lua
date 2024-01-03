@@ -53,7 +53,7 @@ local customGetSocketInstance = nil;    --支持用户实现一个自定义调�
 local consoleLogLevel = 2;           --打印在控制台(print)的日志等级 0 : all/ 1: info/ 2: error.
 --用户设置项END
 
-local debuggerVer = "3.2.0";                 --debugger版本号
+local debuggerVer = "3.3.1";                 --debugger版本号
 LuaPanda = {};
 local this = LuaPanda;
 local tools = {};     --引用的开源工具，包括json解析和table展开工具等
@@ -215,7 +215,7 @@ function this.startServer(host, port)
     else
         this.printToConsole("First connect failed!");
         this.changeHookState(hookState.DISCONNECT_HOOK);
-    end
+    end   
 end
 
 -- 启动调试器
@@ -266,7 +266,7 @@ end
 -- 连接成功，开始初始化
 function this.connectSuccess()
     if server then
-        server:close(); -- 停止listen
+        server:close(); -- 停止listen 
     end
 
     this.changeRunState(runState.WAIT_CMD);
@@ -336,7 +336,7 @@ function this.stopAttach()
     if sock ~= nil then
         sock:close();
         if luaProcessAsServer and server then server = nil; end;
-    end
+    end   
 end
 
 --断开连接
@@ -390,7 +390,7 @@ end
 function this.testBreakpoint()
     if recordBreakPointPath and recordBreakPointPath ~= "" then
         -- testBreakpointFlag = false;
-        return this.breakpointTestInfo();
+        return this.breakpointTestInfo();    
     else
         local strTable = {};
         strTable[#strTable + 1] = "正在准备进行断点测试，请按照如下步骤操作\n"
@@ -398,7 +398,7 @@ function this.testBreakpoint()
         strTable[#strTable + 1] = "2. 在当前停止行打一个断点;\n"
         strTable[#strTable + 1] = "3. 再次运行 'LuaPanda.testBreakpoint()'"
         testBreakpointFlag = true;
-
+        
         return table.concat(strTable);
     end
 end
@@ -424,13 +424,13 @@ function this.breakpointTestInfo()
     strTable[#strTable + 1] = "\nUser set lua extension:   ." .. tostring(luaFileExtension);
     strTable[#strTable + 1] = "\nAuto get lua extension:   " .. tostring(autoExt);
     if truncatedOPath and truncatedOPath ~= '' then
-        strTable[#strTable + 1] = "\nUser set truncatedOPath:  " .. truncatedOPath;
+    strTable[#strTable + 1] = "\nUser set truncatedOPath:  " .. truncatedOPath;
     end
     strTable[#strTable + 1] = "\nGetInfo:    ".. info["source"];
     strTable[#strTable + 1] = "\nNormalized: " .. NormalizedPath;
     strTable[#strTable + 1] = "\nFormated:   " .. FormatedPath;
     if recordBreakPointPath and recordBreakPointPath ~= "" then
-        strTable[#strTable + 1] = "\nBreakpoint: " .. recordBreakPointPath;
+    strTable[#strTable + 1] = "\nBreakpoint: " .. recordBreakPointPath;
     end
 
     if not autoPathMode then
@@ -531,11 +531,23 @@ function this.doctor()
                 local lua_ver;
                 if _VERSION == "Lua 5.1" then
                     lua_ver = "501";
+                elseif _VERSION == "Lua 5.4" then
+                    lua_ver = "504";
                 else
                     lua_ver = "503";
                 end
                 local x86Path = clibPath .. platform .."/x86/".. lua_ver .. clibExt;
                 local x64Path = clibPath .. platform .."/x86_64/".. lua_ver .. clibExt;
+                local armPath = clibPath .. platform .."/arm_64/".. lua_ver .. clibExt;
+
+                if platform == "mac" then
+                    -- mac下先检测arm库
+                    strTable[#strTable + 1] = "尝试引用arm库: ".. armPath;
+                    if this.tryRequireClib("libpdebug", armPath) then
+                        strTable[#strTable + 1] = "\n引用成功";
+                        return;
+                    end
+                end
 
                 strTable[#strTable + 1] = "尝试引用x64库: ".. x64Path;
                 if this.tryRequireClib("libpdebug", x64Path) then
@@ -590,8 +602,8 @@ function this.doctor()
             end
 
             if fileMatch == false then
-                --未能和断点匹配
-                strTable[#strTable + 1] = "\n找不到文件:"  .. runSource .. ", 请检查路径是否正确。\n或者在VSCode文件" .. pathArray[#pathArray] .. "中打一个断点后，再执行一次doctor命令，查看路径分析结果。";
+                 --未能和断点匹配
+                 strTable[#strTable + 1] = "\n找不到文件:"  .. runSource .. ", 请检查路径是否正确。\n或者在VSCode文件" .. pathArray[#pathArray] .. "中打一个断点后，再执行一次doctor命令，查看路径分析结果。";
             end
         end
     end
@@ -606,7 +618,7 @@ function this.doctor()
             strTable[#strTable + 1] = "当前console日志等级是" ..  consoleLogLevel .. ", 过低的日志等级会降低调试速度，建议调整LuaPanda.lua文件头部consoleLogLevel=2";
         end
     end
-
+    
     if #strTable == 0 then
         strTable[#strTable + 1] = "未检测出问题";
     end
@@ -616,7 +628,7 @@ end
 function this.fileExists(path)
     local f=io.open(path,"r");
     if f~= nil then io.close(f) return true else return false end
-end
+ end
 
 --返回一些信息，帮助用户定位问题
 function this.getInfo()
@@ -891,10 +903,10 @@ function this.formatOpath(opath)
         -- 在虚拟机返回路径没有后缀的情况下，用户必须自设后缀
         -- 确定filePath中最后一个.xxx 不等于用户配置的后缀, 则把所有的. 转为 /
         if not opath:find(luaFileExtension , (-1) * luaFileExtension:len(), true) then
-            -- getinfo 路径没有后缀，把 . 全部替换成 / ，我们不允许用户在文件（或文件夹）名称中出现"." , 因为无法区分
+            -- getinfo 路径没有后缀，把 . 全部替换成 / ，我们不允许用户在文件（或文件夹）名称中出现"." , 因为无法区分 
             opath = string.gsub(opath, "%.", "/");
         else
-            -- 有后缀，那么把除后缀外的部分中的. 转为 /
+            -- 有后缀，那么把除后缀外的部分中的. 转为 / 
             opath = this.changePotToSep(opath, luaFileExtension);
         end
     else
@@ -926,7 +938,7 @@ end
 -----------------------------------------------------------------------------
 -- 刷新socket
 -- @return true/false 刷新成功/失败
-function this.reGetSock()
+function this.reGetSock()  
     if server then return true end
 
     if sock ~= nil then
@@ -937,9 +949,9 @@ function this.reGetSock()
     sock = lua_extension and lua_extension.luasocket and lua_extension.luasocket().tcp();
     if sock == nil then
         --call normal luasocket
-        if pcall(function() sock =  require("socket.core").tcp(); end) then
+       if pcall(function() sock =  require("socket.core").tcp(); end) then
             this.printToConsole("reGetSock success");
-        else
+       else
             --call custom function to get socket
             if customGetSocketInstance and pcall( function() sock =  customGetSocketInstance(); end ) then
                 this.printToConsole("reGetSock custom success");
@@ -947,7 +959,7 @@ function this.reGetSock()
                 this.printToConsole("[Error] reGetSock fail", 2);
                 return false;
             end
-        end
+       end
     else
         --set ue4 luasocket
         this.printToConsole("reGetSock ue4 success");
@@ -1042,7 +1054,7 @@ function this.dataProcess( dataStr )
 
     if dataTable.cmd == "continue" then
         local info = dataTable.info;
-        if info.isFakeHit == "true" and info.fakeBKPath and info.fakeBKLine then
+        if info.isFakeHit == "true" and info.fakeBKPath and info.fakeBKLine then 
             -- 设置校验结果标志位，以便hook流程知道结果
             hitBpTwiceCheck = false;
             if hookLib ~= nil and hookLib.set_bp_twice_check_res then
@@ -1087,13 +1099,13 @@ function this.dataProcess( dataStr )
         if testBreakpointFlag then
             recordBreakPointPath = bkPath;
         end
-        if autoPathMode then
+        if autoPathMode then 
             -- 自动路径模式下，仅保留文件名
             -- table[文件名.后缀] -- [fullpath] -- [line , type]
             --                  | - [fullpath] -- [line , type]
 
             local bkShortPath = this.getFilenameFromPath(bkPath);
-            if breaks[bkShortPath] == nil then
+            if breaks[bkShortPath] == nil then 
                 breaks[bkShortPath] = {};
             end
             breaks[bkShortPath][bkPath] = dataTable.info.bks;
@@ -1104,7 +1116,7 @@ function this.dataProcess( dataStr )
                 end
             end
         else
-            if breaks[bkPath] == nil then
+            if breaks[bkPath] == nil then 
                 breaks[bkPath] = {};
             end
             -- 两级 bk path 是为了和自动路径模式结构保持一致
@@ -1155,10 +1167,10 @@ function this.dataProcess( dataStr )
         this.debugger_wait_msg();
     elseif dataTable.cmd == "setVariable" then
         if currentRunState == runState.STOP_ON_ENTRY or
-                currentRunState == runState.HIT_BREAKPOINT or
-                currentRunState == runState.STEPOVER_STOP or
-                currentRunState == runState.STEPIN_STOP or
-                currentRunState == runState.STEPOUT_STOP then
+            currentRunState == runState.HIT_BREAKPOINT or
+            currentRunState == runState.STEPOVER_STOP or
+            currentRunState == runState.STEPIN_STOP or
+            currentRunState == runState.STEPOUT_STOP then
             local msgTab = this.getMsgTable("setVariable", this.getCallbackId());
             local varRefNum = tonumber(dataTable.info.varRef);
             local newValue = tostring(dataTable.info.newValue);
@@ -1207,10 +1219,10 @@ function this.dataProcess( dataStr )
     elseif dataTable.cmd == "getVariable" then
         --仅在停止时处理消息，其他时刻收到此消息，丢弃
         if currentRunState == runState.STOP_ON_ENTRY or
-                currentRunState == runState.HIT_BREAKPOINT or
-                currentRunState == runState.STEPOVER_STOP or
-                currentRunState == runState.STEPIN_STOP or
-                currentRunState == runState.STEPOUT_STOP then
+        currentRunState == runState.HIT_BREAKPOINT or
+        currentRunState == runState.STEPOVER_STOP or
+        currentRunState == runState.STEPIN_STOP or
+        currentRunState == runState.STEPOUT_STOP then
             --发送变量给游戏，并保持之前的状态,等待再次接收数据
             --dataTable.info.varRef  10000~20000局部变量
             --                       20000~30000全局变量
@@ -1300,7 +1312,7 @@ function this.dataProcess( dataStr )
         --OS type
         if nil == OSType then
             --用户未主动设置OSType, 接收VSCode传来的数据
-            if type(dataTable.info.OSType) == "string" then
+            if type(dataTable.info.OSType) == "string" then 
                 OSType = dataTable.info.OSType;
             else
                 OSType = "Windows_NT";
@@ -1314,10 +1326,10 @@ function this.dataProcess( dataStr )
         isUserSetClibPath = false;
         if nil == clibPath then
             --用户未设置clibPath, 接收VSCode传来的数据
-            if type(dataTable.info.clibPath) == "string" then
+            if type(dataTable.info.clibPath) == "string" then  
                 clibPath = dataTable.info.clibPath;
-            else
-                clibPath = "";
+            else 
+                clibPath = ""; 
                 pathErrTip = "未能正确获取libpdebug库所在位置, 可能无法加载libpdebug库。";
             end
         else
@@ -1326,7 +1338,7 @@ function this.dataProcess( dataStr )
         end
 
         --查找c++的hook库是否存在.  当lua5.4时默认不使用c库
-        if tostring(dataTable.info.useCHook) == "true" and "Lua 5.4" ~= _VERSION then
+        if tostring(dataTable.info.useCHook) == "true" then
             userSetUseClib = true;      --用户确定使用clib
             if isUserSetClibPath == true then   --如果用户自设了clib路径
                 if luapanda_chook ~= nil then
@@ -1345,17 +1357,25 @@ function this.dataProcess( dataStr )
                 local lua_ver;
                 if _VERSION == "Lua 5.1" then
                     lua_ver = "501";
+                elseif _VERSION == "Lua 5.4" then
+                    lua_ver = "504";
                 else
                     lua_ver = "503";
                 end
 
                 local x86Path = clibPath.. platform .."/x86/".. lua_ver .. clibExt;
                 local x64Path = clibPath.. platform .."/x86_64/".. lua_ver .. clibExt;
+                local armPath = clibPath .. platform .."/arm_64/".. lua_ver .. clibExt;
 
                 if luapanda_chook ~= nil then
                     hookLib = luapanda_chook;
                 else
-                    if not(this.tryRequireClib("libpdebug", x64Path) or this.tryRequireClib("libpdebug", x86Path)) then
+                    local requireCLibSuccess = false;
+                    if platform == "mac" then
+                        requireCLibSuccess = this.tryRequireClib("libpdebug", armPath)
+                    end
+
+                    if not requireCLibSuccess and not(this.tryRequireClib("libpdebug", x64Path) or this.tryRequireClib("libpdebug", x86Path)) then
                         this.printToVSCode("Require clib failed, use Lua to continue debug, use LuaPanda.doctor() for more information.", 1);
                     end
                 end
@@ -1375,7 +1395,7 @@ function this.dataProcess( dataStr )
             local luaVerTable = this.stringSplit(debuggerVer , '%.');
             local luaVerNum = luaVerTable[1] * 10000 + luaVerTable[2] * 100 + luaVerTable[3];
             if hookLib.sync_lua_debugger_ver then
-                hookLib.sync_lua_debugger_ver(luaVerNum);
+            hookLib.sync_lua_debugger_ver(luaVerNum);
             end
             -- hookLib.sync_config(logLevel, pathCaseSensitivity and 1 or 0, autoPathMode and 1 or 0);
             hookLib.sync_config(logLevel, pathCaseSensitivity and 1 or 0);
@@ -1589,18 +1609,18 @@ function this.debugger_wait_msg(timeoutSec)
     end
 
     if currentRunState == runState.STEPOVER or
-            currentRunState == runState.STEPIN or
-            currentRunState == runState.STEPOUT or
-            currentRunState == runState.RUN then
+    currentRunState == runState.STEPIN or
+    currentRunState == runState.STEPOUT or
+    currentRunState == runState.RUN then
         this.receiveMessage(0);
         return
     end
 
     if currentRunState == runState.STEPOVER_STOP or
-            currentRunState == runState.STEPIN_STOP or
-            currentRunState == runState.STEPOUT_STOP or
-            currentRunState == runState.HIT_BREAKPOINT or
-            currentRunState == runState.STOP_ON_ENTRY
+    currentRunState == runState.STEPIN_STOP or
+    currentRunState == runState.STEPOUT_STOP or
+    currentRunState == runState.HIT_BREAKPOINT or
+    currentRunState == runState.STOP_ON_ENTRY
     then
         this.sendLuaMemory();
         this.receiveMessage(MAX_TIMEOUT_SEC);
@@ -1672,12 +1692,12 @@ function this.getStackTable( level )
     return stackTab, userFuncSteakLevel;
 end
 
--- 把路径中去除后缀部分的.变为/,
+-- 把路径中去除后缀部分的.变为/, 
 -- @filePath 被替换的路径
 -- @ext      后缀(后缀前的 . 不会被替换)
 function this.changePotToSep(filePath, ext)
     local idx = filePath:find(ext, (-1) * ext:len() , true)
-    if idx then
+    if idx then 
         local tmp = filePath:sub(1, idx - 1):gsub("%.", "/");
         filePath = tmp .. ext;
     end
@@ -1710,7 +1730,7 @@ function this.getPath( info )
 
     -- originalPath是getInfo的原始路径，后面用来填充路径缓存的key
     local originalPath = filePath;
-
+    
     --如果路径头部有@,去除
     if filePath:sub(1,1) == '@' then
         filePath = filePath:sub(2);
@@ -1721,15 +1741,15 @@ function this.getPath( info )
         filePath = filePath:sub(3);
     end
     -- getPath的参数路径可能来自于hook, 也可能是一个已标准的路径
-    if userDotInRequire then
+    if userDotInRequire then 
         if autoExt == nil or autoExt == '' then
             -- 在虚拟机返回路径没有后缀的情况下，用户必须自设后缀
             -- 确定filePath中最后一个.xxx 不等于用户配置的后缀, 则把所有的. 转为 /
             if not filePath:find(luaFileExtension , (-1) * luaFileExtension:len(), true) then
-                -- getinfo 路径没有后缀，把 . 全部替换成 / ，我们不允许用户在文件（或文件夹）名称中出现"." , 因为无法区分
+                -- getinfo 路径没有后缀，把 . 全部替换成 / ，我们不允许用户在文件（或文件夹）名称中出现"." , 因为无法区分 
                 filePath = string.gsub(filePath, "%.", "/");
             else
-                -- 有后缀，那么把除后缀外的部分中的. 转为 /
+                -- 有后缀，那么把除后缀外的部分中的. 转为 / 
                 filePath = this.changePotToSep(filePath, luaFileExtension);
             end
 
@@ -1779,8 +1799,8 @@ end
 
 --从路径中获取[文件名.后缀]
 function this.getFilenameFromPath(path)
-    if path == nil then
-        return '';
+    if path == nil then 
+        return ''; 
     end
 
     return string.match(path, "([^/]*)$");
@@ -1850,12 +1870,12 @@ function this.checkRealHitBreakpoint( oPath, line )
     if oPath and fakeBreakPointCache[oPath] then
         for _, value in ipairs(fakeBreakPointCache[oPath]) do
             if tonumber(value) == tonumber(line) then
-                this.printToVSCode("cache hit bp in same name file.  source:" .. tostring(oPath) .. " line:" .. tostring(line));
+                this.printToVSCode("cache hit bp in same name file.  source:" .. tostring(oPath) .. " line:" .. tostring(line)); 
                 return false;
             end
         end
     end
-    return true;
+    return true;  
 end
 
 ------------------------断点处理-------------------------
@@ -1870,7 +1890,7 @@ function this.isHitBreakpoint(breakpointPath, opath, curLine)
             recordBreakPointPath = fullpath; --这里是为了兼容用户断点行号没有打对的情况
             local line_hit,cur_node = false,{};
             for _, node in ipairs(fullpathNode) do
-                if tonumber(node["line"]) == tonumber(curLine) then
+                if tonumber(node["line"]) == tonumber(curLine) then 
                     line_hit = true;    -- fullpath 文件中 有行号命中
                     cur_node = node;
                     recordBreakPointPath = fullpath;  --行号命中后，再设置一次，保证路径准确
@@ -1888,15 +1908,15 @@ function this.isHitBreakpoint(breakpointPath, opath, curLine)
                     -- 截取
                     oPathFormated = this.truncatedPath(oPathFormated, truncatedOPath);
                 end
-
+                
                 if (not distinguishSameNameFile) or (string.match(fullpath, oPathFormated ) and this.checkRealHitBreakpoint(opath, curLine)) then
                     -- type是TS中的枚举类型，其定义在BreakPoint.tx文件中
-                    -- enum BreakpointType {
-                    --     conditionBreakpoint = 0,
-                    --     logPoint,
-                    --     lineBreakpoint
-                    -- }
-
+                        -- enum BreakpointType {
+                        --     conditionBreakpoint = 0,
+                        --     logPoint,
+                        --     lineBreakpoint
+                        -- }
+                        
                     -- 处理断点
                     if cur_node["type"] == "0" then
                         -- condition breakpoint
@@ -2034,7 +2054,7 @@ function this.checkfuncHasBreakpoint(sLine, eLine, fileName)
             for _, node in ipairs(v) do
                 if tonumber(node.line) > sLine and tonumber(node.line) <= eLine then
                     return true;
-                end
+                end   
             end
         end
     end
@@ -2096,9 +2116,9 @@ function this.real_hook_process(info)
 
     --即使MID hook在C中, 或者是Run或者单步时也接收消息
     if currentRunState == runState.RUN or
-            currentRunState == runState.STEPOVER or
-            currentRunState == runState.STEPIN or
-            currentRunState == runState.STEPOUT then
+    currentRunState == runState.STEPOVER or
+    currentRunState == runState.STEPIN or
+    currentRunState == runState.STEPOUT then
         local ti = os.time();
         if ti - receiveMsgTimer > 1 then
             this.debugger_wait_msg(0);
@@ -2126,12 +2146,12 @@ function this.real_hook_process(info)
 
     --lua 代码段的处理，目前暂不调试代码段。
     if info.short_src:match("%[string \"")  then
-        --当shortSrc中出现[string时]。要检查一下source, 区别是路径还是代码段. 方法是看路径中有没有\t \n ;
-        if info.source:match("[\n;=]") then
-            --是代码段，调过
-            this.printToVSCode("hook jump Code String!");
-            jumpFlag = true;
-        end
+            --当shortSrc中出现[string时]。要检查一下source, 区别是路径还是代码段. 方法是看路径中有没有\t \n ;
+            if info.source:match("[\n;=]") then
+                --是代码段，调过
+                this.printToVSCode("hook jump Code String!");
+                jumpFlag = true;
+            end
     end
 
     --标准路径处理
@@ -2179,15 +2199,15 @@ function this.real_hook_process(info)
                 stepOutCounter = 0;
                 this.changeRunState(runState.HIT_BREAKPOINT);
                 hitBpTwiceCheck = true; -- 命中标志默认设置为true, 如果校验通过，会保留这个标记，校验失败会修改
-                if hitBP then
+                if hitBP then 
                     hitBP = false; --hitBP是断点硬性命中标记
                     --发消息并等待
                     this.SendMsgWithStack("stopOnCodeBreakpoint");
                 else
                     --发消息并等待
-                    this.SendMsgWithStack("stopOnBreakpoint");
+                    this.SendMsgWithStack("stopOnBreakpoint");   
                     --若二次校验未命中，恢复状态
-                    if hitBpTwiceCheck == false then
+                    if hitBpTwiceCheck == false then 
                         isHit = false;
                         -- 确认未命中，把状态恢复，继续运行
                         this.changeRunState(recordCurrentRunState);
@@ -2200,7 +2220,7 @@ function this.real_hook_process(info)
     end
 
     if isHit == true then
-        return;
+        return;        
     end
 
     if currentRunState == runState.STEPOVER then
@@ -2480,14 +2500,14 @@ function this.setUpvalue(varName, newValue, stackId, tableVarName)
                 local findRes = this.findTableVar(tableVarName,  variableRefTab[realVar.variablesReference]);
                 if findRes ~= nil then
                     --命中
-                    local setVarRet = debug.setupvalue (currentCallStack[stackId - 1 ].func, i, newValue);
-                    if setVarRet == varName then
-                        this.printToConsole("[setVariable success1] 已设置 upvalue ".. varName .. " = " .. tostring(newValue) );
-                        ret = true;
-                    else
-                        this.printToConsole("[setVariable error1] 未能设置 upvalue ".. varName .. " = " .. tostring(newValue).." , 返回结果: ".. tostring(setVarRet));
-                    end
-                    return ret;
+                        local setVarRet = debug.setupvalue (currentCallStack[stackId - 1 ].func, i, newValue);
+                        if setVarRet == varName then
+                            this.printToConsole("[setVariable success1] 已设置 upvalue ".. varName .. " = " .. tostring(newValue) );
+                            ret = true;
+                        else
+                            this.printToConsole("[setVariable error1] 未能设置 upvalue ".. varName .. " = " .. tostring(newValue).." , 返回结果: ".. tostring(setVarRet));
+                        end
+                        return ret;
                 end
             else
                 --命中
@@ -2520,15 +2540,15 @@ function this.setLocal( varName, newValue, tableVarName, stackId)
                 --处理a.b.c的table类型
                 local findRes = this.findTableVar(tableVarName,  variableRefTab[realVar.variablesReference]);
                 if findRes ~= nil then
-                    --命中
-                    local setVarRet = debug.setlocal(ly , layerVarTab[i].index, newValue);
-                    if setVarRet == varName then
-                        this.printToConsole("[setVariable success1] 已设置 local ".. varName .. " = " .. tostring(newValue) );
-                        ret = true;
-                    else
-                        this.printToConsole("[setVariable error1] 未能设置 local ".. varName .. " = " .. tostring(newValue).." , 返回结果: ".. tostring(setVarRet));
-                    end
-                    return ret;
+                        --命中
+                        local setVarRet = debug.setlocal(ly , layerVarTab[i].index, newValue);
+                        if setVarRet == varName then
+                            this.printToConsole("[setVariable success1] 已设置 local ".. varName .. " = " .. tostring(newValue) );
+                            ret = true;
+                        else
+                            this.printToConsole("[setVariable error1] 未能设置 local ".. varName .. " = " .. tostring(newValue).." , 返回结果: ".. tostring(setVarRet));
+                        end
+                        return ret;
                 end
             else
 
@@ -2814,30 +2834,30 @@ function this.getUpValueVariable( checkFunc , isFormatVariable)
         local n, v = debug.getupvalue(checkFunc, i)
         if n then
 
-            local var = {};
-            var.name = n;
-            var.type = tostring(type(v));
-            var.variablesReference = "0";
+        local var = {};
+        var.name = n;
+        var.type = tostring(type(v));
+        var.variablesReference = "0";
 
-            if isGetValue == false then
-                xpcall(function() var.value = tostring(v) end , function() var.value = tostring(type(v)) .. " [value can't trans to string]" end );
-                if var.type == "table" or var.type == "function" or var.type == "userdata" then
-                    var.variablesReference = variableRefIdx;
-                    variableRefTab[variableRefIdx] = v;
-                    variableRefIdx = variableRefIdx + 1;
-                    if var.type == "table" then
-                        local memberNum = this.getTableMemberNum(v);
-                        var.value = memberNum .." Members ".. ( var.value or '' );
-                    end
-                elseif var.type == "string" then
-                    var.value = '"' ..v.. '"';
+        if isGetValue == false then
+            xpcall(function() var.value = tostring(v) end , function() var.value = tostring(type(v)) .. " [value can't trans to string]" end );
+            if var.type == "table" or var.type == "function" or var.type == "userdata" then
+                var.variablesReference = variableRefIdx;
+                variableRefTab[variableRefIdx] = v;
+                variableRefIdx = variableRefIdx + 1;
+                if var.type == "table" then
+                    local memberNum = this.getTableMemberNum(v);
+                    var.value = memberNum .." Members ".. ( var.value or '' );
                 end
-            else
-                var.value = v;
+            elseif var.type == "string" then
+                var.value = '"' ..v.. '"';
             end
+        else
+            var.value = v;
+        end
 
-            table.insert(varTab, var);
-            i = i + 1
+        table.insert(varTab, var);
+        i = i + 1
         end
     until not n
     return varTab;
@@ -2874,7 +2894,7 @@ function this.getVariable( checkLayer, isFormatVariable , offset)
         end
 
         --(*temporary)是系统变量，过滤掉。这里假设(*temporary)仅出现在最后
-        if "(*temporary)" ~= tostring(n) then
+        if "(*temporary)" ~= tostring(n) and "(temporary)" ~= tostring(n) then
             local var = {};
             var.name = n;
             var.type = tostring(type(v));
@@ -2892,7 +2912,7 @@ function this.getVariable( checkLayer, isFormatVariable , offset)
                         var.value = memberNum .." Members ".. ( var.value or '' );
                     end
                 elseif var.type == "string" then
-                    var.value = '"' ..v.. '"';
+                        var.value = '"' ..v.. '"';
                 end
             else
                 var.value = v;
@@ -3036,8 +3056,8 @@ end
 
 --序列化并返回table
 function tools.serializeTable(t, name, indent)
-    local str = (tools.show(t, name, indent))
-    return str
+  local str = (tools.show(t, name, indent))
+  return str
 end
 
 --[[
@@ -3068,62 +3088,62 @@ function tools.show(t, name, indent)
     local function isemptytable(t) return next(t) == nil end
 
     local function basicSerialize (o)
-        local so = tostring(o)
-        if type(o) == "function" then
-            local info = debug.getinfo(o, "S")
-            -- info.name is nil because o is not a calling level
-            if info.what == "C" then
-                return string.format("%q", so .. ", C function")
-            else
-                -- the information is defined through lines
-                return string.format("%q", so .. ", defined in (" ..
-                        info.linedefined .. "-" .. info.lastlinedefined ..
-                        ")" .. info.source)
-            end
-        elseif type(o) == "number" or type(o) == "boolean" then
-            return so
-        else
-            return string.format("%q", so)
-        end
+      local so = tostring(o)
+      if type(o) == "function" then
+         local info = debug.getinfo(o, "S")
+         -- info.name is nil because o is not a calling level
+         if info.what == "C" then
+            return string.format("%q", so .. ", C function")
+         else
+            -- the information is defined through lines
+            return string.format("%q", so .. ", defined in (" ..
+                info.linedefined .. "-" .. info.lastlinedefined ..
+                ")" .. info.source)
+         end
+      elseif type(o) == "number" or type(o) == "boolean" then
+         return so
+      else
+         return string.format("%q", so)
+      end
     end
 
     local function addtocart (value, name, indent, saved, field)
-        indent = indent or ""
-        saved = saved or {}
-        field = field or name
+      indent = indent or ""
+      saved = saved or {}
+      field = field or name
 
-        cart = cart .. indent .. field
+      cart = cart .. indent .. field
 
-        if type(value) ~= "table" then
-            cart = cart .. " = " .. basicSerialize(value) .. ";\n"
-        else
-            if saved[value] then
-                cart = cart .. " = {}; -- " .. saved[value]
+      if type(value) ~= "table" then
+         cart = cart .. " = " .. basicSerialize(value) .. ";\n"
+      else
+         if saved[value] then
+            cart = cart .. " = {}; -- " .. saved[value]
                         .. " (self reference)\n"
-                autoref = autoref ..  name .. " = " .. saved[value] .. ";\n"
+            autoref = autoref ..  name .. " = " .. saved[value] .. ";\n"
+         else
+            saved[value] = name
+            --if tablecount(value) == 0 then
+            if isemptytable(value) then
+               cart = cart .. " = {};\n"
             else
-                saved[value] = name
-                --if tablecount(value) == 0 then
-                if isemptytable(value) then
-                    cart = cart .. " = {};\n"
-                else
-                    cart = cart .. " = {\n"
-                    for k, v in pairs(value) do
-                        k = basicSerialize(k)
-                        local fname = string.format("%s[%s]", name, k)
-                        field = string.format("[%s]", k)
-                        -- three spaces between levels
-                        addtocart(v, fname, indent .. "   ", saved, field)
-                    end
-                    cart = cart .. indent .. "};\n"
-                end
+               cart = cart .. " = {\n"
+               for k, v in pairs(value) do
+                  k = basicSerialize(k)
+                  local fname = string.format("%s[%s]", name, k)
+                  field = string.format("[%s]", k)
+                  -- three spaces between levels
+                  addtocart(v, fname, indent .. "   ", saved, field)
+               end
+               cart = cart .. indent .. "};\n"
             end
-        end
+         end
+      end
     end
 
     name = name or "PRINT_Table"
     if type(t) ~= "table" then
-        return name .. " = " .. basicSerialize(t)
+      return name .. " = " .. basicSerialize(t)
     end
     cart, autoref = "", ""
     addtocart(t, name, indent)
@@ -3364,7 +3384,7 @@ function tools.createJson()
         local stringLen = string.len(s)
         local acceptableChars = "+-0123456789.e"
         while (string.find(acceptableChars, string.sub(s,endPos,endPos), 1, true)
-                and endPos<=stringLen
+        and endPos<=stringLen
         ) do
             endPos = endPos + 1
         end
@@ -3503,19 +3523,19 @@ function tools.createJson()
     -- @return The string appropriately escaped.
 
     local escapeList = {
-        ['"']  = '\\"',
-        ['\\'] = '\\\\',
-        ['/']  = '\\/',
-        ['\b'] = '\\b',
-        ['\f'] = '\\f',
-        ['\n'] = '\\n',
-        ['\r'] = '\\r',
-        ['\t'] = '\\t'
+            ['"']  = '\\"',
+            ['\\'] = '\\\\',
+            ['/']  = '\\/',
+            ['\b'] = '\\b',
+            ['\f'] = '\\f',
+            ['\n'] = '\\n',
+            ['\r'] = '\\r',
+            ['\t'] = '\\t'
     }
 
     function json_private.encodeString(s)
-        local s = tostring(s)
-        return s:gsub(".", function(c) return escapeList[c] end) -- SoniEx2: 5.0 compat
+    local s = tostring(s)
+    return s:gsub(".", function(c) return escapeList[c] end) -- SoniEx2: 5.0 compat
     end
 
     -- Determines whether the given Lua type is an array or a table / dictionary.
@@ -3556,7 +3576,7 @@ function tools.createJson()
     function isEncodable(o)
         local t = type(o)
         return (t=='string' or t=='boolean' or t=='number' or t=='nil' or t=='table') or
-                (t=='function' and o==json.null)
+            (t=='function' and o==json.null)
     end
     return json
 end

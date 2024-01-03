@@ -95,6 +95,11 @@ function LuaNFrame.InitScript(luaModule)
 		LuaNFrame.LoadPbFile("../../ScriptModule/CommonProto/proto_server.proto.ds")
 		LuaNFrame.AddTimerMSec("LuaNFrame.Execute",  100)
 
+		LuaNFrame.TransPbEnum("proto_ff.ClientServerCmd", 20000)
+		LuaNFrame.TransPbEnum("proto_ff.Proto_SvrMsgID", 20000)
+		LuaNFrame.TransPbEnum("proto_ff.Proto_SvrLogicMsgID", 20000)
+		LuaNFrame.TransPbEnum("proto_ff.ServerInternalCmd", 20000)
+		
 		--启动垃圾回收
 		collectgarbage("setpause",100)
 		--200 到 500 均可

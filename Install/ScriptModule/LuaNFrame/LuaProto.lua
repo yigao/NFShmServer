@@ -24,6 +24,25 @@ function LuaNFrame.Enum(type, value)
     return LuaNFrame.pb.enum(type, value)
 end
 
+function LuaNFrame.TransPbEnum(typeStr, maxValue)
+	if type(typeStr) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "typeStr Para Error, not string")
+		return
+    end
+
+	if type(maxValue) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "maxValue Para Error, not number")
+		return
+    end
+
+	for i=1,  maxValue do
+		local msgIdStr = LuaNFrame.Enum(typeStr, i)
+		if msgIdStr ~= nil then
+			_G[msgIdStr] = i
+		end
+	end
+end
+
  -- 载入刚才编译的pb文件
 function LuaNFrame.LoadPbFile(pbfile)
     if type(pbfile) ~= "string" then
