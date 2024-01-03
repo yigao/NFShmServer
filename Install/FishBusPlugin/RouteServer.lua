@@ -23,4 +23,23 @@ RouteServer = {
       MasterPort = NF_MASTER_PORT,
     },
   };
+
+  CrossRouteServer_1 = {
+      ServerName = "CrossRouteServer_1",
+      ServerType = NF_ST_ROUTE_SERVER,
+      ServerId = NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_ROUTE_SERVER..".1",			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
+      IdleSleepUS = 1000,
+      ServerIp = NF_EXTER_CROSS_SERVER_IP,
+      ServerPort = NF_INTER_CROSS_SERVER_PORT+NF_ST_ROUTE_SERVER*10+1,
+      MaxConnectNum = NF_INTER_MAX_CONNECT,
+      NetThreadNum = 5,
+      WorkThreadNum = 1,
+      MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+      HandleMsgNumPerFrame = NF_TRANS_SERVER_HANDLE_MSG_COUNT,
+      CrossServer = true,
+      RouteConfig = {
+        MasterIp = NF_MASTER_IP,
+        MasterPort = NF_MASTER_PORT,
+      },
+  };
 };

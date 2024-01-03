@@ -44,4 +44,24 @@ RouteAgentServer = {
       MasterPort = NF_MASTER_PORT,
     },
   };
+
+    CrossRouteAgentServer_1 = {
+      ServerName = "CrossRouteAgentServer_1",
+      ServerType = NF_ST_ROUTE_AGENT_SERVER,
+      ServerId = NF_CROSS_ROUTE_AGENT_ID1,			--对每一个服务器来说都是唯一的， 应用程序需要通过这个ServerId才能知道需要加载的配置是他
+      LinkMode = NF_LINK_MODE,
+      BusLength = 20971520,     --20M共享内存
+      IdleSleepUS = 1000,
+      ServerIp = NF_INTER_CROSS_SERVER_IP,
+      ServerPort = NF_INTER_CROSS_SERVER_PORT+NF_ST_ROUTE_AGENT_SERVER*10+1,
+      MaxConnectNum = NF_INTER_MAX_CONNECT,
+      NetThreadNum = 5,
+      WorkThreadNum = 1,
+      CrossServer = true,
+      MaxOnlinePlayerNum = NF_MAX_ONLINE_PLAYER_COUNT,
+      RouteConfig = {
+        MasterIp = NF_MASTER_IP,
+        MasterPort = NF_MASTER_PORT,
+      },
+    };
 };

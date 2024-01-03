@@ -2,7 +2,7 @@ require "Common"
 
 LoadPlugin =
 {
-	TestServer = {
+	TestAllServer = {
 		ServerPlugins = {
 			-------------------------
 			-----基础框架引擎-------------
@@ -12,7 +12,7 @@ LoadPlugin =
 		ServerType = NF_ST_NONE;
 	},
 
-	RobotServer = {
+	RobotAllServer = {
 		ServerPlugins = {
 			-------------------------
 			-----基础框架引擎-------------
@@ -51,8 +51,7 @@ LoadPlugin =
 			"NFSnsServerPlugin",
 			"NFLogicServerPlugin",
 			"NFWebServerPlugin",
-
-			--"NFMonitorServerPlugin",
+			"NFCenterServerPlugin",
 		};
 
 		WorkPlugins = {
@@ -87,6 +86,46 @@ LoadPlugin =
 			--{Server="MonitorServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MONITOR_SERVER..".1", ServerType=NF_ST_MONITOR_SERVER},
 		};
 	},
+
+	CrossAllServer = {
+        FramePlugins = {
+            -------------------------
+            -----基础框架引擎-------------
+            "NFKernelPlugin",
+            "NFNetPlugin",
+            "NFShmPlugin",
+
+            "NFServerCommonPlugin",
+            "NFDescStorePlugin",
+            "NFDBPlugin",
+        };
+
+        ServerPlugins = {
+            "NFRouteServerPlugin",
+            "NFRouteAgentServerPlugin",
+            "NFStoreServerPlugin",
+            --"NFProxyAgentServerPlugin",
+            "NFGameServerPlugin",
+            "NFCenterServerPlugin",
+        };
+
+        WorkPlugins = {
+            "NFFishCommonPlugin",
+            "NFMMOCenterPlayerPlugin",
+            "NFMMOGamePlayerPlugin",
+        };
+
+        ServerType = NF_ST_NONE;
+        ServerList = {
+            {Server="ProxyAgentServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_PROXY_AGENT_SERVER..".1", ServerType=NF_ST_PROXY_AGENT_SERVER},
+            {Server="RouteAgentServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_ROUTE_AGENT_SERVER..".1", ServerType=NF_ST_ROUTE_AGENT_SERVER},
+            {Server="RouteServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_ROUTE_SERVER..".1", ServerType=NF_ST_ROUTE_SERVER},
+            {Server="GameServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_GAME_SERVER..".1", ServerType=NF_ST_GAME_SERVER},
+            {Server="StoreServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_STORE_SERVER..".1", ServerType=NF_ST_STORE_SERVER},
+            {Server="CenterServer", ID=NF_ST_WORLD_ID.."."..NF_ST_CROSS_ZONE_ID.."."..NF_ST_CENTER_SERVER..".1", ServerType=NF_ST_CENTER_SERVER},
+        };
+    },
+
 	MasterServer = {
 		FramePlugins = {
 			-------------------------
@@ -347,22 +386,25 @@ LoadPlugin =
 		ServerType = NF_ST_ROUTE_SERVER;
 	},
 
-	MonitorServer = {
+	CenterServer = {
 		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFShmPlugin",
+
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
 		};
 
 
 		ServerPlugins = {
-			"NFMonitorServerPlugin",
+			"NFCenterServerPlugin",
 		};
 
 		WorkPlugins = {
 		};
-		ServerType = NF_ST_MONITOR_SERVER;
+		ServerType = NF_ST_CENTER_SERVER;
 	},
 }
