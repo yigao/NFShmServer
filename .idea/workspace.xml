@@ -77,17 +77,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="route cross server">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/.vscode/tasks.json" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/.vscode/tasks.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaProto.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaProto.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaPanda.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaPanda.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/LogicServer/LogicServerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/MMO/LogicServer/LogicServerModule.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/init.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="route cross server" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -544,7 +534,7 @@
       <workItem from="1703380303247" duration="6000" />
       <workItem from="1703646081430" duration="18640000" />
       <workItem from="1704244131115" duration="227000" />
-      <workItem from="1704244561335" duration="9566000" />
+      <workItem from="1704244561335" duration="9923000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -682,7 +672,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704245679737</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="route cross server">
+      <option name="closed" value="true" />
+      <created>1704259958742</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1704259958742</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VCPKGProject">

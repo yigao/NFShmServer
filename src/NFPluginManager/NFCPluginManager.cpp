@@ -495,9 +495,20 @@ void NFCPluginManager::SetLuaScriptPath(const std::string& luaScriptPath)
 	m_strLuaScriptPath = luaScriptPath;
 }
 
+void NFCPluginManager::SetGame(const std::string& game)
+{
+	if (game.empty()) return;
+	m_strGame = game;
+}
+
 const std::string& NFCPluginManager::GetLuaScriptPath() const
 {
 	return m_strLuaScriptPath;
+}
+
+const std::string& NFCPluginManager::GetGame() const
+{
+	return m_strGame;
 }
 
 void NFCPluginManager::SetBusName(const std::string& busName)

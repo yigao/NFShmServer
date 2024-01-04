@@ -34,10 +34,25 @@ function CPPNFrame:init(luaModule)
     self.app_name = luaModule:GetAppName()
     self.app_id = luaModule:GetAppID()
     self.app_dir = self.app_name
+    self.lua_script_path = luaModule:GetLuaScriptPath()
+    self.game_path = luaModule:GetGame()
+    self.is_all_server = luaModule:IsAllServer()
 end
 
 function CPPNFrame:GetAppName()
     return self.app_name
+end
+
+function CPPNFrame:IsAllServer()
+    return self.is_all_server
+end
+
+function CPPNFrame:GetLuaScriptPath()
+    return self.lua_script_path
+end
+
+function CPPNFrame:GetGamePath()
+    return self.game_path
 end
 
 function CPPNFrame:GetAppID()

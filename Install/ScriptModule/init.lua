@@ -57,6 +57,7 @@ function LuaNFrame.InitLoad()
 end
 
 function LuaNFrame.InitScript(luaModule)
+	local luaScriptPath = luaModule:GetLuaScriptPath()
 	package.path = package.path .. ";../../ScriptModule/?.lua;"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/?.lua;"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/libprotobuf/?.lua"
@@ -81,18 +82,20 @@ function LuaNFrame.InitScript(luaModule)
 		--LuaNFrame.SetLogLevel(NF_LOG_LEVEL_TRACE)
 		--LuaNFrame.SetFlushOn(NF_LOG_LEVEL_TRACE)
 
-		if LuaNFrame.GetAppName() == "AllServer" then
-			LoadLuaFile("../../ScriptModule/MMO", true)
+		local scriptPath = LuaNFrame.GetLuaScriptPath()
+		if LuaNFrame.IsAllServer() then
+			scriptPath = scriptPath.."/"..LuaNFrame.GetGame()
 		else
-			LoadLuaFile("../../ScriptModule/MMO/"..LuaNFrame.GetAppName(), true)
+			scriptPath = scriptPath.."/"..LuaNFrame.GetGame().."/"..LuaNFrame.GetAppName()
 		end
+		LoadLuaFile(scriptPath, true)
+		LuaNFrame.LoadPbFile(LuaNFrame.GetLuaScriptPath().."/CommonProto/"..LuaNFrame.GetGame()..".proto.ds")
 
 		--记录所有文件的当前修改时间，为以后热更新做准备, 时间大概300ms
 		NFLuaReload.RecordAllFilesTimes()
 
 		--加载应用程序的Lua  Module
 		LuaNFrame.load_script_file()
-		LuaNFrame.LoadPbFile("../../ScriptModule/CommonProto/proto_server.proto.ds")
 		LuaNFrame.AddTimerMSec("LuaNFrame.Execute",  100)
 
 		LuaNFrame.TransPbEnum("proto_ff.ClientServerCmd", 20000)

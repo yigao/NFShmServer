@@ -7,6 +7,18 @@ function LuaNFrame.GetAppName()
     return CPPNFrame:GetAppName()
 end
 
+function LuaNFrame.IsAllServer()
+   return CPPNFrame:IsAllServer()
+end
+
+function LuaNFrame.GetLuaScriptPath()
+    return CPPNFrame:GetLuaScriptPath()
+end
+
+function LuaNFrame.GetGamePath()
+    return CPPNFrame:GetGamePath()
+end
+
 function LuaNFrame.GetAppID()
     return CPPNFrame:GetAppID()
 end
