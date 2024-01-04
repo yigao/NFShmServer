@@ -76,7 +76,7 @@ void ProcessParameter(int argc, char* argv[])
 		cmdParser.Add<std::string>("Plugin", 0, "Config Path", false, "../../Plugin");
 		cmdParser.Add<std::string>("LogPath", 0, "Log Path", false, "logs");
 		cmdParser.Add<std::string>("LuaScript", 0, "Lua Script Path", false, "../ScriptModule");
-		cmdParser.Add<std::string>("Game", 0, "Game", false, "Fish");
+		cmdParser.Add<std::string>("Game", 0, "Game", false, "MMO");
 		cmdParser.Add("XButton", 'x', "Close the 'X' button, only on windows");
 		cmdParser.Add("Daemon", 'd', "Run it as daemon mode, only on linux");
 		cmdParser.Add("Stop", 0, "Stop the run server, only on linux");
@@ -151,7 +151,7 @@ void ProcessParameter(NFIPluginManager* pPluginManager, const std::vector<std::s
 		cmdParser.Add<std::string>("Plugin", 0, "Config Path", false, "../../Plugin");
 		cmdParser.Add<std::string>("LogPath", 0, "Log Path", false, "logs");
 		cmdParser.Add<std::string>("LuaScript", 0, "Lua Script Path", false, "../../ScriptModule");
-		cmdParser.Add<std::string>("Game", 0, "Game", false, "Fish");
+		cmdParser.Add<std::string>("Game", 0, "Game", false, "MMO");
 		cmdParser.Add("XButton", 'x', "Close the 'X' button, only on windows");
 		cmdParser.Add("Daemon", 'd', "Run it as daemon mode, only on linux");
 		cmdParser.Add("Stop", 0, "Stop the run server, only on linux");
@@ -218,7 +218,7 @@ void ProcessParameter(NFIPluginManager* pPluginManager, const std::vector<std::s
 		pPluginManager->SetLogPath(logPath);
 
 		std::string gameStr = cmdParser.Get<std::string>("Game");
-		pPluginManager->SetLuaScriptPath(luaScript);
+		pPluginManager->SetGame(gameStr);
 
 		pPluginManager->SetPidFileName();
 #if NF_PLATFORM == NF_PLATFORM_WIN

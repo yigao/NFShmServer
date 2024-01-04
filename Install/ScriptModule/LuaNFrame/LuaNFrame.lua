@@ -15,8 +15,8 @@ function LuaNFrame.GetLuaScriptPath()
     return CPPNFrame:GetLuaScriptPath()
 end
 
-function LuaNFrame.GetGamePath()
-    return CPPNFrame:GetGamePath()
+function LuaNFrame.GetGame()
+    return CPPNFrame:GetGame()
 end
 
 function LuaNFrame.GetAppID()

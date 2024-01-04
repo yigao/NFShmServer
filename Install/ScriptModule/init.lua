@@ -58,11 +58,11 @@ end
 
 function LuaNFrame.InitScript(luaModule)
 	local luaScriptPath = luaModule:GetLuaScriptPath()
-	package.path = package.path .. ";../../ScriptModule/?.lua;"
-	package.path = package.path .. ";../../ScriptModule/LuaNFrame/?.lua;"
-	package.path = package.path .. ";../../ScriptModule/LuaNFrame/libprotobuf/?.lua"
-	package.path = package.path .. ";../../ScriptModule/LuaNFrame/lua/?.lua"
-	package.path = package.path .. ";../../ScriptModule/LuaNFrame/luaprotobuf/?.lua"
+	package.path = package.path .. ";"..luaScriptPath.."/?.lua;"
+	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/?.lua;"
+	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/libprotobuf/?.lua"
+	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/lua/?.lua"
+	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/luaprotobuf/?.lua"
 
 	require("LuaPanda").start("127.0.0.1",8818)
 
