@@ -89,7 +89,9 @@ function LuaNFrame.InitScript(luaModule)
 			scriptPath = scriptPath.."/"..LuaNFrame.GetGame().."/"..LuaNFrame.GetAppName()
 		end
 		LoadLuaFile(scriptPath, true)
-		LuaNFrame.LoadPbFile(LuaNFrame.GetLuaScriptPath().."/CommonProto/"..LuaNFrame.GetGame()..".proto.ds")
+
+		local pbFile = LuaNFrame.GetLuaScriptPath().."/CommonProto/"..LuaNFrame.GetGame()..".proto.ds"
+		LuaNFrame.LoadPbFile(pbFile)
 
 		--记录所有文件的当前修改时间，为以后热更新做准备, 时间大概300ms
 		NFLuaReload.RecordAllFilesTimes()

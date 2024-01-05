@@ -428,6 +428,8 @@ public:
 	virtual uint64_t GetMsecTime() const;
 
 	virtual uint64_t GetSecTime() const;
+
+	virtual bool RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId);
 public:
 	void SetLogLevel(uint32_t level);
 

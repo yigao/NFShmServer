@@ -310,3 +310,7 @@ end
 function  CPPNFrame:GetLuaData(strLuaFunc)
     return self.luaModule:GetLuaData(strLuaFunc)
 end
+
+function CPPNFrame:RegisterSpecialMsg(moduleId,  msgId)
+    return self.luaModule:RegisterSpecialMsg(moduleId, msgId)
+end

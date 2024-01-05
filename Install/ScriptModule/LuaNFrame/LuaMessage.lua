@@ -4,6 +4,10 @@ eMsgType_DISCONNECTED = 2
 eMsgType_RECIVEDATA = 3
 eMsgType_SENDBUFFER = 4
 
+NF_MODULE_SERVER= 0  --服务器内网通讯
+NF_MODULE_CLIENT = 1   --客户端外部协议
+NF_MODULE_MAX = 2
+
 function LuaNFrame.RegisterClientMessage(eServerType, nMsgID,  strLuaFunc, createCo)
 	if type(eServerType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")

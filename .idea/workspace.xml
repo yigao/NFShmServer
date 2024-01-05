@@ -77,7 +77,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="route cross server" />
+    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="lua script">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/init.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +145,7 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer/Install/FishBusPlugin",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/Install/ScriptModule/Fish/ProxyServer",
     "settings.editor.selected.configurable": "CMakeSettings"
   }
 }]]></component>
@@ -335,7 +339,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.13.1.1 --Config=../../Config/MMO --Plugin=../../MMOBusPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishPlugin --Game=Fish --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2" />
     </configuration>
     <configuration name="NFPluginManager" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginManager" CONFIG_NAME="Debug">
@@ -534,7 +538,9 @@
       <workItem from="1703380303247" duration="6000" />
       <workItem from="1703646081430" duration="18640000" />
       <workItem from="1704244131115" duration="227000" />
-      <workItem from="1704244561335" duration="9923000" />
+      <workItem from="1704244561335" duration="18818000" />
+      <workItem from="1704354581384" duration="6149000" />
+      <workItem from="1704417058404" duration="2969000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -680,7 +686,23 @@
       <option name="project" value="LOCAL" />
       <updated>1704259958742</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="lua script">
+      <option name="closed" value="true" />
+      <created>1704335719454</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1704335719454</updated>
+    </task>
+    <task id="LOCAL-00020" summary="lua script">
+      <option name="closed" value="true" />
+      <created>1704336629842</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1704336629842</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VCPKGProject">
@@ -702,7 +724,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="bug" />
     <MESSAGE value="route cross server" />
-    <option name="LAST_COMMIT_MESSAGE" value="route cross server" />
+    <MESSAGE value="lua script" />
+    <option name="LAST_COMMIT_MESSAGE" value="lua script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

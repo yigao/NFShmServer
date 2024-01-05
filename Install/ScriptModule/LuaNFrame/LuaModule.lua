@@ -21,27 +21,51 @@ function LuaNFrame.InsertLoadFunc(func)
 end
 
 function LuaNFrame.Init()
-	for i=1, #(LuaNFrame.ScriptList) do
-		if ((LuaNFrame.ScriptList[i].tbl.Init) ~= nil) then
-			LuaNFrame.ScriptList[i].tbl.Init();
+	local function runfunc()
+		for i=1, #(LuaNFrame.ScriptList) do
+			if ((LuaNFrame.ScriptList[i].tbl.Init) ~= nil) then
+				LuaNFrame.ScriptList[i].tbl.Init();
+			end
 		end
 	end
+	
+	local status, msg = xpcall (runfunc, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(0,  "LuaNFrame.Init error:", msg)
+    end
 end
 
 function LuaNFrame.Execute()
-	for i=1, #(LuaNFrame.ScriptList) do
-		if ((LuaNFrame.ScriptList[i].tbl.Execute) ~= nil) then
-			LuaNFrame.ScriptList[i].tbl.Execute();
+	local function runfunc()
+		for i=1, #(LuaNFrame.ScriptList) do
+			if ((LuaNFrame.ScriptList[i].tbl.Execute) ~= nil) then
+				LuaNFrame.ScriptList[i].tbl.Execute();
+			end
 		end
 	end
+	
+	local status, msg = xpcall (runfunc, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(0,  "LuaNFrame.Execute error:", msg)
+    end
 end
 
 function LuaNFrame.Shut()
-	for i=1, #(LuaNFrame.ScriptList) do
-		if ((LuaNFrame.ScriptList[i].tbl.Shut) ~= nil) then
-			LuaNFrame.ScriptList[i].tbl.Shut();
+	local function runfunc()
+		for i=1, #(LuaNFrame.ScriptList) do
+			if ((LuaNFrame.ScriptList[i].tbl.Shut) ~= nil) then
+				LuaNFrame.ScriptList[i].tbl.Shut();
+			end
 		end
 	end
+	
+	local status, msg = xpcall (runfunc, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(0,  "LuaNFrame.Shut error:", msg)
+    end
 end
 
 --在主循环线程里执行，每一秒执行这个函数

@@ -208,3 +208,7 @@ end
 function LuaNFrame.GetAppConfig(serverType)
     return CPPNFrame:GetAppConfig(serverType)
 end
+
+function LuaNFrame.RegisterSpecialMsg(moduleId,  msgId)
+    return CPPNFrame:RegisterSpecialMsg(moduleId,  msgId)
+end

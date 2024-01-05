@@ -29,10 +29,10 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
-			"NFShmPlugin",
+			--"NFShmPlugin",
 
 			"NFServerCommonPlugin",
-			"NFDescStorePlugin",
+			--"NFDescStorePlugin",
 			"NFDBPlugin",
 		};
 
@@ -51,22 +51,22 @@ LoadPlugin =
 			"NFSnsServerPlugin",
 			"NFLogicServerPlugin",
 			"NFWebServerPlugin",
-			"NFCenterServerPlugin",
+			--"NFCenterServerPlugin",
 		};
 
 		WorkPlugins = {
 			"NFFishCommonPlugin",
-			--"NFLuaScriptPlugin",
+			"NFLuaScriptPlugin",
 
-			--"NFFishRobotPlugin",
+			"NFFishRobotPlugin",
 
-			"NFFishProxyPlayerPlugin",
-			"NFFishLoginPlayerPlugin",
-			"NFFishWorldPlayerPlugin",
-			"NFFishSnsPlayerPlugin",
-			"NFFishLogicPlayerPlugin",
-			"NFFishGamePlayerPlugin",
-			"NFGameFishPlugin",
+			--"NFFishProxyPlayerPlugin",
+			--"NFFishLoginPlayerPlugin",
+			--"NFFishWorldPlayerPlugin",
+			--"NFFishSnsPlayerPlugin",
+			--"NFFishLogicPlayerPlugin",
+			--"NFFishGamePlayerPlugin",
+			--"NFGameFishPlugin",
 		};
 
 		ServerType = NF_ST_NONE;

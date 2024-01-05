@@ -310,6 +310,11 @@ std::string NFCLuaScriptModule::Sha256(const std::string& s)
 	return ret;
 }
 
+bool NFCLuaScriptModule::RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId)
+{
+	return NFGlobalSystem::Instance()->RegisterSpecialMsg(moduleId, msgId);
+}
+
 bool NFCLuaScriptModule::Register()
 {
 	LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFServerConfig>("NFServerConfig")
@@ -399,6 +404,7 @@ bool NFCLuaScriptModule::Register()
 									   .addFunction("Subscribe", &NFCLuaScriptModule::Subscribe)
 									   .addFunction("IsLuaFunction", &NFCLuaScriptModule::IsLuaFunction)
 									   .addFunction("GetLuaData", &NFCLuaScriptModule::GetLuaData)
+									   .addFunction("RegisterSpecialMsg", &NFCLuaScriptModule::RegisterSpecialMsg)
 									   .endClass();
 
 	return true;
