@@ -315,8 +315,71 @@ bool NFCLuaScriptModule::RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId)
 	return NFGlobalSystem::Instance()->RegisterSpecialMsg(moduleId, msgId);
 }
 
+std::string NFCLuaScriptModule::GetLinkIp(uint64_t unLinkId)
+{
+	return FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
+}
+
+uint32_t NFCLuaScriptModule::GetPort(uint64_t unLinkId)
+{
+	return FindModule<NFIMessageModule>()->GetPort(unLinkId);
+}
+
+std::vector<std::shared_ptr<NFServerData>> NFCLuaScriptModule::GetServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes)
+{
+	return FindModule<NFIMessageModule>()->GetServerByServerType(eSendType, serverTypes);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetFirstServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes)
+{
+	return FindModule<NFIMessageModule>()->GetFirstServerByServerType(eSendType, serverTypes);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetFirstServerByCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer)
+{
+	return FindModule<NFIMessageModule>()->GetFirstServerByServerType(eSendType, serverTypes, crossServer);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes)
+{
+	return FindModule<NFIMessageModule>()->GetRandomServerByServerType(eSendType, serverTypes);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetRandomServerByCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer)
+{
+	return FindModule<NFIMessageModule>()->GetRandomServerByServerType(eSendType, serverTypes, crossServer);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetSuitServerByInt(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value)
+{
+	return FindModule<NFIMessageModule>()->GetSuitServerByServerType(eSendType, serverTypes, value);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetSuitServerByIntCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value, bool crossServer)
+{
+	return FindModule<NFIMessageModule>()->GetSuitServerByServerType(eSendType, serverTypes, value, crossServer);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetSuitServerByStr(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string& value)
+{
+	return FindModule<NFIMessageModule>()->GetSuitServerByServerType(eSendType, serverTypes, value);
+}
+
+std::shared_ptr<NFServerData> NFCLuaScriptModule::GetSuitServerByStrCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string& value, bool crossServer)
+{
+	return FindModule<NFIMessageModule>()->GetSuitServerByServerType(eSendType, serverTypes, value, crossServer);
+}
+
 bool NFCLuaScriptModule::Register()
 {
+	LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFServerData>("NFServerData")
+									   .addFunction("GetBusId", &NFServerData::GetBusId)
+									   .addFunction("GetServerId", &NFServerData::GetServerId)
+									   .addFunction("GetServerType", &NFServerData::GetServerType)
+									   .addFunction("GetServerName", &NFServerData::GetServerName)
+									   .addFunction("GetMapIdList", &NFServerData::GetMapIdList)
+									   .endClass();
+
 	LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFServerConfig>("NFServerConfig")
 									   .addFunction("GetServerId", &NFServerConfig::GetServerId)
 									   .addFunction("GetServerName", &NFServerConfig::GetServerName)
@@ -405,8 +468,18 @@ bool NFCLuaScriptModule::Register()
 									   .addFunction("IsLuaFunction", &NFCLuaScriptModule::IsLuaFunction)
 									   .addFunction("GetLuaData", &NFCLuaScriptModule::GetLuaData)
 									   .addFunction("RegisterSpecialMsg", &NFCLuaScriptModule::RegisterSpecialMsg)
+									   .addFunction("GetLinkIp", &NFCLuaScriptModule::GetLinkIp)
+									   .addFunction("GetPort", &NFCLuaScriptModule::GetPort)
+									   .addFunction("GetServerByServerType", &NFCLuaScriptModule::GetServerByServerType)
+									   .addFunction("GetFirstServerByServerType", &NFCLuaScriptModule::GetFirstServerByServerType)
+									   .addFunction("GetFirstServerByCross", &NFCLuaScriptModule::GetFirstServerByCross)
+									   .addFunction("GetRandomServerByServerType", &NFCLuaScriptModule::GetRandomServerByServerType)
+									   .addFunction("GetRandomServerByCross", &NFCLuaScriptModule::GetRandomServerByCross)
+									   .addFunction("GetSuitServerByInt", &NFCLuaScriptModule::GetSuitServerByInt)
+									   .addFunction("GetSuitServerByIntCross", &NFCLuaScriptModule::GetSuitServerByIntCross)
+									   .addFunction("GetSuitServerByStr", &NFCLuaScriptModule::GetSuitServerByStr)
+									   .addFunction("GetSuitServerByStrCross", &NFCLuaScriptModule::GetSuitServerByStrCross)
 									   .endClass();
-
 	return true;
 }
 
@@ -747,6 +820,12 @@ int NFCLuaScriptModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDst
 	CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", nDstId);
 
 	FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, nParam1, nParam2, pConfig->BusId, nDstId);
+	return 0;
+}
+
+int NFCLuaScriptModule::SendMsgByLinkId(uint64_t usLinkId, uint32_t nMsgID, const std::string& strData, uint64_t param1, uint64_t param2)
+{
+	FindModule<NFIMessageModule>()->Send(usLinkId, nMsgID, strData, param1, param2);
 	return 0;
 }
 

@@ -314,3 +314,51 @@ end
 function CPPNFrame:RegisterSpecialMsg(moduleId,  msgId)
     return self.luaModule:RegisterSpecialMsg(moduleId, msgId)
 end
+
+function CPPNFrame:GetLinkIp(unLinkId)
+    return self.luaModule:GetLinkIp(unLinkId)
+end
+
+function CPPNFrame:GetPort(unLinkId)
+    return self.luaModule:GetPort(unLinkId)
+end
+
+function CPPNFrame:SendMsgByLinkId(usLinkId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgByLinkId(usLinkId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:GetServerByServerType(eSendType, serverTypes)
+    return self.luaModule:GetServerByServerType(eSendType, serverTypes)
+end
+
+function CPPNFrame:GetFirstServerByServerType(eSendType, serverTypes)
+    return self.luaModule:GetFirstServerByServerType(eSendType, serverTypes)
+end
+
+ function CPPNFrame:GetFirstServerByCross(eSendType, serverTypes, crossServer)
+    return self.luaModule:GetFirstServerByCross(eSendType, serverTypes, crossServer)
+ end
+
+ function CPPNFrame:GetRandomServerByServerType(eSendType, serverTypes)
+    return self.luaModule:GetRandomServerByServerType(eSendType, serverTypes)
+ end
+
+ function CPPNFrame:GetRandomServerByCross(eSendType, serverTypes, crossServer)
+    return self.luaModule:GetRandomServerByCross(eSendType, serverTypes, crossServer)
+ end
+
+ function CPPNFrame:GetSuitServerByInt(eSendType, serverTypes, value)
+    return self.luaModule:GetSuitServerByInt(eSendType, serverTypes, value)
+ end
+
+ function CPPNFrame:GetSuitServerByIntCross(eSendType, serverTypes, value, crossServer)
+    return self.luaModule:GetSuitServerByIntCross(eSendType, serverTypes, value, crossServer)
+ end
+
+ function CPPNFrame:GetSuitServerByStr(eSendType, serverTypes, value)
+    return self.luaModule:GetSuitServerByStr(eSendType, serverTypes, value)
+ end
+
+ function CPPNFrame:GetSuitServerByStrCross(eSendType, serverTypes, value, crossServer)
+    return self.luaModule:GetSuitServerByStrCross(eSendType, serverTypes, value, crossServer)
+ end

@@ -9,6 +9,7 @@
 #pragma once
 
 #include <functional>
+#include <list>
 #include <string>
 #include <vector>
 
@@ -405,6 +406,20 @@ public:
     {
         mUnlinkId = 0;
         mRouteAgentBusId = 0;
+    }
+
+    uint32_t GetBusId() const { return mServerInfo.bus_id(); }
+    std::string GetServerId() const { return mServerInfo.server_id(); }
+    uint32_t GetServerType() const { return mServerInfo.server_type(); }
+    std::string GetServerName() const { return mServerInfo.server_name(); }
+    std::list<uint64_t> GetMapIdList() const
+    {
+        std::list<uint64_t> list;
+        for(int i = 0; i < mServerInfo.map_id_list_size(); ++i)
+        {
+            list.push_back(mServerInfo.map_id_list(i));
+        }
+        return list;
     }
 
     uint64_t mUnlinkId;

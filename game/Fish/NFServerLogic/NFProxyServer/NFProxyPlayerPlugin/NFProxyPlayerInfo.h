@@ -23,8 +23,8 @@ public:
         m_gameBusId = 0;
         m_logicBusId = 0;
         m_disconnectTime = 0;
-        mGameId = 0;
-        mRoomId = 0;
+        m_gameId = 0;
+        m_roomId = 0;
         m_online = true;
     }
 
@@ -72,15 +72,15 @@ public:
 
     void SetAccount(const std::string& account);
 
-    uint32_t GetGameId() const { return mGameId; }
-    uint32_t GetRoomId() const { return mRoomId; }
-    void SetGameId(uint32_t gameId) { mGameId = gameId; }
-    void SetRoomId(uint32_t roomId) { mRoomId = roomId; }
+    uint32_t GetGameId() const { return m_gameId; }
+    uint32_t GetRoomId() const { return m_roomId; }
+    void SetGameId(uint32_t gameId) { m_gameId = gameId; }
+    void SetRoomId(uint32_t roomId) { m_roomId = roomId; }
 private:
     uint64_t m_linkId;
     uint32_t m_worldBusId;
-    uint32_t mGameId;
-    uint32_t mRoomId;
+    uint32_t m_gameId;
+    uint32_t m_roomId;
     uint32_t m_gameBusId;
     uint32_t m_logicBusId;
     uint64_t m_disconnectTime;

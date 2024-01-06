@@ -341,6 +341,9 @@ public:
 	////////////////////////////send proxy msg to other serer//////////////////////////////////
 	virtual int SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string& xData,
 									uint64_t nParam1 = 0, uint64_t nParam2 = 0);
+
+	////////////////////////////send msg by linkId//////////////////////////////////
+	virtual int SendMsgByLinkId(uint64_t usLinkId, uint32_t nMsgID, const std::string& strData, uint64_t param1 = 0, uint64_t param2 = 0);
 public:
 	///////////////////////////other server send msg to proxy msg/////////////////////////////
 	virtual int SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t>& ids, uint32_t nMsgId,
@@ -430,6 +433,28 @@ public:
 	virtual uint64_t GetSecTime() const;
 
 	virtual bool RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId);
+
+	virtual std::string GetLinkIp(uint64_t usLinkId);
+
+	virtual uint32_t GetPort(uint64_t usLinkId);
+public:
+	virtual std::vector<NF_SHARE_PTR<NFServerData>> GetServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes);
+
+	virtual NF_SHARE_PTR<NFServerData> GetFirstServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes);
+
+	virtual NF_SHARE_PTR<NFServerData> GetFirstServerByCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer);
+
+	virtual NF_SHARE_PTR<NFServerData> GetRandomServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes);
+
+	virtual NF_SHARE_PTR<NFServerData> GetRandomServerByCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool crossServer);
+
+	virtual NF_SHARE_PTR<NFServerData> GetSuitServerByInt(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value);
+
+	virtual NF_SHARE_PTR<NFServerData> GetSuitServerByIntCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, uint64_t value, bool crossServer);
+
+	virtual NF_SHARE_PTR<NFServerData> GetSuitServerByStr(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string &value);
+
+	virtual NF_SHARE_PTR<NFServerData> GetSuitServerByStrCross(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, const std::string &value, bool crossServer);
 public:
 	void SetLogLevel(uint32_t level);
 

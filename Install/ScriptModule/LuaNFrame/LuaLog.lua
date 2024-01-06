@@ -213,7 +213,16 @@ function LuaNFrame.Trace(logId, guid, ...)
 	LuaNFrame.TraceWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
+function NFLogTrace(logId, guid, ...)
+	LuaNFrame.TraceWithThread(logId, guid, 3, LuaNFrame.fmt(...))
+end
+
 function LuaNFrame.Debug(logId, guid, ...)
+	LuaNFrame.DebugWithThread(logId, guid, 3, LuaNFrame.fmt(...))
+end
+
+
+function NFLogDebug(logId, guid, ...)
 	LuaNFrame.DebugWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
@@ -221,10 +230,22 @@ function LuaNFrame.Info(logId, guid, ...)
 	LuaNFrame.InfoWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
+function NFLogInfo(logId, guid, ...)
+	LuaNFrame.InfoWithThread(logId, guid, 3, LuaNFrame.fmt(...))
+end
+
 function LuaNFrame:Warn(logId, guid, ...)
 	LuaNFrame.WarnWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
+function NFLogWarn(logId, guid, ...)
+	LuaNFrame.WarnWithThread(logId, guid, 3, LuaNFrame.fmt(...))
+end
+
 function LuaNFrame.Error(logId, guid, ...)
+	LuaNFrame.ErrorWithThread(logId, guid, 3, LuaNFrame.fmt(...))
+end
+
+function NFLogError(logId, guid, ...)
 	LuaNFrame.ErrorWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end

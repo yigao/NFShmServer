@@ -212,3 +212,11 @@ end
 function LuaNFrame.RegisterSpecialMsg(moduleId,  msgId)
     return CPPNFrame:RegisterSpecialMsg(moduleId,  msgId)
 end
+
+function LuaNFrame.GetLinkIp(unLinkId)
+    return CPPNFrame:GetLinkIp(unLinkId)
+end
+
+function LuaNFrame.GetPort(unLinkId)
+    return CPPNFrame:GetPort(unLinkId)
+end

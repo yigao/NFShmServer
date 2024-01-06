@@ -54,6 +54,10 @@ function LuaNFrame.InitLoad()
 	require("LuaNFrame/NFReload")
 	require("LuaNFrame/libprotobuf/protobuf")
 	require("LuaNFrame/NFTimeUtils")
+	require("LuaNFrame/LuaClass")
+	require("Common/NFMap")
+	require("Common/NFList")
+	require("Common/NFQueue")
 end
 
 function LuaNFrame.InitScript(luaModule)
@@ -63,6 +67,7 @@ function LuaNFrame.InitScript(luaModule)
 	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/libprotobuf/?.lua"
 	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/lua/?.lua"
 	package.path = package.path .. ";"..luaScriptPath.."/LuaNFrame/luaprotobuf/?.lua"
+	package.path = package.path .. ";"..luaScriptPath.."/Common/?.lua"
 
 	require("LuaPanda").start("127.0.0.1",8818)
 
@@ -71,8 +76,6 @@ function LuaNFrame.InitScript(luaModule)
 	LuaNFrame.LoadCPP(luaModule)
 	--初始化热更
 	NFLuaReload.Init()
-
-
 
 	if type(LuaNFrame.Platform) == 'function' then
 		g_platfrom = LuaNFrame.Platform()    --from C++ always is 'win32' or 'linux'
@@ -104,7 +107,8 @@ function LuaNFrame.InitScript(luaModule)
 		LuaNFrame.TransPbEnum("proto_ff.Proto_SvrMsgID", 20000)
 		LuaNFrame.TransPbEnum("proto_ff.Proto_SvrLogicMsgID", 20000)
 		LuaNFrame.TransPbEnum("proto_ff.ServerInternalCmd", 20000)
-		
+		LuaNFrame.TransPbEnum("proto_ff.Proto_Kernel_CMD", 20000)
+			
 		--启动垃圾回收
 		collectgarbage("setpause",100)
 		--200 到 500 均可

@@ -78,9 +78,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="lua script">
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/Class.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaLog.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaLog.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaNFrame.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaProto.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaProto.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/init.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,6 +162,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer" />
       <recent name="$PROJECT_DIR$/Install/FishBusPlugin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -540,7 +552,7 @@
       <workItem from="1704244131115" duration="227000" />
       <workItem from="1704244561335" duration="18818000" />
       <workItem from="1704354581384" duration="6149000" />
-      <workItem from="1704417058404" duration="2969000" />
+      <workItem from="1704417058404" duration="32687000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -702,7 +714,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704336629842</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="lua script">
+      <option name="closed" value="true" />
+      <created>1704443347403</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1704443347404</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VCPKGProject">

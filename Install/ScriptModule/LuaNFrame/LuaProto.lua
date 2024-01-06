@@ -79,6 +79,7 @@ function LuaNFrame.DecodePackage(msgtype,  dataPackage)
     else
         LuaNFrame.TraceWithThread(NF_LOG_SYSTEMLOG, 0, 3,  LuaNFrame.serpent.block(data))
     end
+    data.__cname = msgtype
     return data
 end
 
@@ -128,6 +129,8 @@ function LuaNFrame.Defaults(msgtype)
             end
         end
       end
+
+      data.__cname = msgtype
     return data
 end
 
