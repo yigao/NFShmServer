@@ -1,6 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="BackendCodeEditorSettings">
+<code_scheme name="Default" version="173">
+  <option name="OTHER_INDENT_OPTIONS">
+    <value>
+      <option name="USE_TAB_CHARACTER" value="true" />
+      <option name="SMART_TABS" value="true" />
+    </value>
+  </option>
+  <option name="RIGHT_MARGIN" value="500" />
+  <Objective-C>
+    <option name="INDENT_NAMESPACE_MEMBERS" value="0" />
+    <option name="INDENT_DIRECTIVE_AS_CODE" value="true" />
+    <option name="KEEP_STRUCTURES_IN_ONE_LINE" value="true" />
+    <option name="KEEP_CASE_EXPRESSIONS_IN_ONE_LINE" value="true" />
+    <option name="NAMESPACE_BRACE_PLACEMENT" value="5" />
+    <option name="METHOD_BRACE_PLACEMENT" value="5" />
+    <option name="FUNCTION_BRACE_PLACEMENT" value="5" />
+    <option name="BLOCK_BRACE_PLACEMENT" value="5" />
+    <option name="FUNCTION_NON_TOP_AFTER_RETURN_TYPE_WRAP" value="2" />
+    <option name="FUNCTION_TOP_AFTER_RETURN_TYPE_WRAP" value="2" />
+    <option name="FUNCTION_PARAMETERS_WRAP" value="5" />
+    <option name="FUNCTION_CALL_ARGUMENTS_WRAP" value="5" />
+    <option name="TEMPLATE_DECLARATION_STRUCT_WRAP" value="1" />
+    <option name="TEMPLATE_DECLARATION_FUNCTION_WRAP" value="1" />
+    <option name="TEMPLATE_CALL_ARGUMENTS_WRAP" value="5" />
+    <option name="TEMPLATE_CALL_ARGUMENTS_ALIGN_MULTILINE" value="true" />
+    <option name="CLASS_CONSTRUCTOR_INIT_LIST_WRAP" value="5" />
+    <option name="ALIGN_INIT_LIST_IN_COLUMNS" value="false" />
+    <option name="SPACE_BEFORE_COLON_IN_FOREACH" value="true" />
+    <option name="KEEP_BLANK_LINES_BEFORE_END" value="1" />
+    <option name="INSERT_VIRTUAL_WITH_OVERRIDE" value="true" />
+    <option name="ADD_BRIEF_TAG" value="true" />
+    <option name="TAG_PREFIX_OF_LINE_COMMENT" value="AT" />
+    <option name="HEADER_GUARD_STYLE_PATTERN" value="${PROJECT_NAME}_${PROJECT_REL_PATH}_${FILE_NAME}_${EXT}" />
+  </Objective-C>
+  <Objective-C-extensions>
+    <option name="TAG_PREFIX_OF_LINE_COMMENT" value="AT" />
+  </Objective-C-extensions>
+  <Objective-C-extensions>
+    <option name="TAG_PREFIX_OF_LINE_COMMENT" value="AT" />
+  </Objective-C-extensions>
+  <RiderCodeStyleSettings>
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/ALIGN_MULTILINE_BINARY_EXPRESSIONS_CHAIN/@EntryValue" value="true" type="bool" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/ALIGN_MULTILINE_EXPRESSION/@EntryValue" value="false" type="bool" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/ALIGN_MULTILINE_FOR_STMT/@EntryValue" value="true" type="bool" />
@@ -110,5 +148,20 @@
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/BLANK_LINES_AROUND_SINGLE_LINE_FUNCTION_DEFINITION/@EntryValue" value="1" type="long" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/LINKAGE_SPECIFICATION_INDENTATION/@EntryValue" value="All" type="string" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_METHOD_DECL_PARS/@EntryValue" value="OUTSIDE" type="string" />
-  </component>
-</project>
+  </RiderCodeStyleSettings>
+  <codeStyleSettings language="ObjectiveC">
+    <indentOptions>
+      <option name="CONTINUATION_INDENT_SIZE" value="4" />
+      <option name="LABEL_INDENT_SIZE" value="4" />
+      <option name="LABEL_INDENT_ABSOLUTE" value="true" />
+    </indentOptions>
+  </codeStyleSettings>
+  <codeStyleSettings language="protobuf">
+    <indentOptions>
+      <option name="INDENT_SIZE" value="4" />
+      <option name="TAB_SIZE" value="4" />
+      <option name="USE_TAB_CHARACTER" value="true" />
+      <option name="SMART_TABS" value="true" />
+    </indentOptions>
+  </codeStyleSettings>
+</code_scheme>
