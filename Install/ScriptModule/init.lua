@@ -94,7 +94,7 @@ function LuaNFrame.InitScript(luaModule)
 		LoadLuaFile(scriptPath, true)
 
 		local pbFile = LuaNFrame.GetLuaScriptPath().."/CommonProto/"..LuaNFrame.GetGame()..".proto.ds"
-		LuaNFrame.LoadPbFile(pbFile)
+		LuaNFrame.LoadPbFile("proto_ff", pbFile)
 
 		--记录所有文件的当前修改时间，为以后热更新做准备, 时间大概300ms
 		NFLuaReload.RecordAllFilesTimes()
@@ -102,12 +102,6 @@ function LuaNFrame.InitScript(luaModule)
 		--加载应用程序的Lua  Module
 		LuaNFrame.load_script_file()
 		LuaNFrame.AddTimerMSec("LuaNFrame.Execute",  100)
-
-		LuaNFrame.TransPbEnum("proto_ff.ClientServerCmd", 20000)
-		LuaNFrame.TransPbEnum("proto_ff.Proto_SvrMsgID", 20000)
-		LuaNFrame.TransPbEnum("proto_ff.Proto_SvrLogicMsgID", 20000)
-		LuaNFrame.TransPbEnum("proto_ff.ServerInternalCmd", 20000)
-		LuaNFrame.TransPbEnum("proto_ff.Proto_Kernel_CMD", 20000)
 			
 		--启动垃圾回收
 		collectgarbage("setpause",100)
@@ -119,12 +113,5 @@ function LuaNFrame.InitScript(luaModule)
 
     if not status then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, msg)
-	end
-end
-
-update_debugsocket = update_debugsocket or {}
-function update_debugsocket.execute()
-	if breakSocketHandle ~= nil then
-		breakSocketHandle()
 	end
 end

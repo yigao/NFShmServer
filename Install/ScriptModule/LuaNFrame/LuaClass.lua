@@ -18,8 +18,8 @@ function LuaNFrame.Clone(object)
     return _copy(object)
 end
 
-function LuaNFrame.Class(classname, super)
-    if _G[classname] ~= nil then
+function LuaNFrame.CreateClass(table, classname, super)
+    if table[classname] ~= nil then
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateClass被意外全局初始化,这里强制重置成类:"..classname)
 		return nil
 	end
@@ -45,7 +45,7 @@ function LuaNFrame.Class(classname, super)
             cls.__create = super
         end
 
-        cls.ctor    = function() end
+        cls.Ctor    = function() end
         cls.__cname = classname
         cls.__ctype = 1
 
@@ -79,6 +79,11 @@ function LuaNFrame.Class(classname, super)
         end
     end
 
-    _G[classname] = cls
+    table[classname] = cls
     return cls
 end
+
+function LuaNFrame.Class(classname, super)
+    return LuaNFrame.CreateClass(_G, classname, super)
+end
+

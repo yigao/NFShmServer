@@ -78,8 +78,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="lua script">
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaClass.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaClass.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaProto.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaProto.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/init.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -544,7 +551,8 @@
       <workItem from="1704696832712" duration="977000" />
       <workItem from="1704698083630" duration="828000" />
       <workItem from="1704701856210" duration="642000" />
-      <workItem from="1704702772827" duration="5000" />
+      <workItem from="1704702772827" duration="2272000" />
+      <workItem from="1704705594431" duration="13049000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -714,7 +722,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704443347404</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="lua script">
+      <option name="closed" value="true" />
+      <created>1704703037980</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704703037980</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VCPKGProject">

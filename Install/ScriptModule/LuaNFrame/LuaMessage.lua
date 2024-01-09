@@ -9,95 +9,108 @@ NF_MODULE_CLIENT = 1   --客户端外部协议
 NF_MODULE_MAX = 2
 
 function LuaNFrame.GetServerByServerType(eSendType, serverTypes)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+		end
+	end
 
 	return CPPNFrame:GetServerByServerType(eSendType, serverTypes)
 end
 
 function LuaNFrame.GetFirstServerByServerType(eSendType, serverTypes)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
+	end
 
 	return CPPNFrame:GetFirstServerByServerType(eSendType, serverTypes)
 end
 
 function LuaNFrame.GetFirstServerByCross(eSendType, serverTypes, crossServer)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
 
-	if type(crossServer) ~= "boolean" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(crossServer) ~= "boolean" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
+	end
 
 	return CPPNFrame:GetFirstServerByCross(eSendType, serverTypes, crossServer)
 end
 
 function LuaNFrame.GetRandomServerByServerType(eSendType, serverTypes)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
+	end
 
 	return CPPNFrame:GetRandomServerByCross(eSendType, serverTypes)
 end
 
 function LuaNFrame.GetRandomServerByCross(eSendType, serverTypes, crossServer)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
 
-	if type(crossServer) ~= "boolean" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(crossServer) ~= "boolean" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
+	end
 
 	return CPPNFrame:GetRandomServerByCross(eSendType, serverTypes, crossServer)
 end
 
 function LuaNFrame.GetSuitServerByServerType(eSendType, serverTypes, value)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
+	end
+
 	
 	if type(value) == "number" then
 		return CPPNFrame:GetSuitServerByInt(eSendType, serverTypes, value)
@@ -110,20 +123,22 @@ function LuaNFrame.GetSuitServerByServerType(eSendType, serverTypes, value)
 end
 
 function LuaNFrame.GetSuitServerByStrCross(eSendType, serverTypes, value, crossServer)
-	if type(eSendType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eSendType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(serverTypes) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(serverTypes) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
 
-	if type(crossServer) ~= "boolean" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
-		return
-    end
+		if type(crossServer) ~= "boolean" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverTypes Para Error")
+			return
+	    end
+	end
 
 	if type(value) == "number" then
 		return CPPNFrame:GetSuitServerByIntCross(eSendType, serverTypes, value, crossServer)
@@ -136,21 +151,23 @@ function LuaNFrame.GetSuitServerByStrCross(eSendType, serverTypes, value, crossS
 end
 
 function LuaNFrame.RegisterClientMessage(eServerType, nMsgID,  strLuaFunc, createCo)
-	if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(strLuaFunc) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
-		return
-    end
+		if type(strLuaFunc) ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+			return
+	    end
 
-	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
-	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
-		return
-    end
+		local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+		if type(luaFunc) ~= "function" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+			return
+	    end
+	end
 
 	if type(createCo) ~= "boolean" then
 		createCo = false
@@ -160,21 +177,24 @@ function LuaNFrame.RegisterClientMessage(eServerType, nMsgID,  strLuaFunc, creat
 end
 
 function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, strLuaFunc, createCo)
-	if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(strLuaFunc) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
-		return
-    end
+		if type(strLuaFunc) ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+			return
+	    end
 
-	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
-	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
-		return
-    end
+		local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+		if type(luaFunc) ~= "function" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+			return
+	    end
+	end
+
 
 	if type(createCo) ~= "boolean" then
 		createCo = false
@@ -209,36 +229,41 @@ function LuaNFrame.DispatchServerMessage(luaFunc, strLuaFunc, msgId, packet, par
 end
 
 function LuaNFrame.SendMsgByLinkId(usLinkId, nMsgID, nMsgData, nParam1, nParam2)
-	if type(usLinkId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "usLinkId Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(usLinkId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "usLinkId Para Error")
+			return
+	    end
 
-	if type(nMsgID) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
-		return
-    end
+		if type(nMsgID) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
+			return
+	    end
 
-	if type(nMsgData)  ~= "table" and type(nMsgData)  ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" and type(nMsgData)  ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+	    end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+	    end
+
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+	    end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
 	if  type(nMsgData)  == "table" then 
-		local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-		CPPNFrame:SendMsgByLinkId(usLinkId, nMsgID, xData, nParam1, nParam2)
+		CPPNFrame:SendMsgByLinkId(usLinkId, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 	elseif type(nMsgData)  == "string" then
 		CPPNFrame:SendMsgByLinkId(usLinkId, nMsgID, nMsgData, nParam1, nParam2)
 	end
@@ -247,443 +272,490 @@ end
 
 
 function LuaNFrame.SendMsgToMasterServer(eServerType, nMsgID, nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+  		end
 
-	if type(nMsgID) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
-		return
-    end
+		if type(nMsgID) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
+			return
+  		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+  		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+  		end
+
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+  		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-
-	CPPNFrame:SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nParam2)
+	CPPNFrame:SendMsgToMasterServer(eServerType, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-    if type(nModuleId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
-		return
-    end
+		if type(nModuleId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+		end
+
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
-    end
+	end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
-    end
+	end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+	CPPNFrame:SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, nMsgData)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-    if type(ids) ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "ids Para Error")
-		return
-    end
+		if type(ids) ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "ids Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
+	end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-
-   CPPNFrame:SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, xData)
+   CPPNFrame:SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, nMsgData:SerializeToString())
 end
 
 function LuaNFrame.SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID,  nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-    if type(nModuleId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
-		return
-    end
+		if type(nModuleId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+		end
+
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    CPPNFrame:SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendMsgToWorldServer(eServerType, nModuleId, nMsgID, nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nModuleId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
-		return
-    end
+		if type(nModuleId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+		end
+
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
-	
-    CPPNFrame:SendMsgToWorldServer(eServerType, nModuleId, nMsgID, nMsgData.__cname, nParam1, nParam2)
+    CPPNFrame:SendMsgToWorldServer(eServerType, nModuleId, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendTransToWorldServer(eServerType, nMsgID, nMsgData, req_trans_id, rsp_trans_id)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(req_trans_id) == "string" then
-		req_trans_id = tonumber(req_trans_id)
-	else
+		if type(req_trans_id) == "string" then
+			req_trans_id = tonumber(req_trans_id)
+		end
+
+		if type(rsp_trans_id) == "string" then
+			rsp_trans_id = tonumber(rsp_trans_id)
+		end
+	end
+
+	if req_trans_id == nil then
 		req_trans_id = 0
     end
 
-	if type(rsp_trans_id) == "string" then
-		rsp_trans_id = tonumber(rsp_trans_id)
-	else
+	if rsp_trans_id == nil then
 		rsp_trans_id = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+    CPPNFrame:SendTransToWorldServer(eServerType, nMsgID, nMsgData:SerializeToString(), req_trans_id, rsp_trans_id)
 end
 
-function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nMsgID, nMsgData, nParam1, nParam2)
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-    if type(nModuleId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
 	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
 	
-    CPPNFrame:SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    CPPNFrame:SendMsgToGameServer(eServerType, nDstId, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendTransToGameServer(eServerType, nDstId, nMsgID, nMsgData, req_trans_id, rsp_trans_id)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(req_trans_id) == "string" then
-		req_trans_id = tonumber(req_trans_id)
-	else
+		if type(req_trans_id) == "string" then
+			req_trans_id = tonumber(req_trans_id)
+		end
+
+		if type(rsp_trans_id) == "string" then
+			rsp_trans_id = tonumber(rsp_trans_id)
+		end
+	end
+
+	if req_trans_id == nil then
 		req_trans_id = 0
     end
 
-	if type(rsp_trans_id) == "string" then
-		rsp_trans_id = tonumber(rsp_trans_id)
-	else
+	if rsp_trans_id == nil then
 		rsp_trans_id = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+    CPPNFrame:SendTransToGameServer(eServerType, nDstId, nMsgID, nMsgData:SerializeToString(), req_trans_id, rsp_trans_id)
 end
 
-function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nMsgID, nMsgData, nParam1, nParam2)
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-    if type(nModuleId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    CPPNFrame:SendMsgToLogicServer(eServerType, nDstId, nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, nMsgData, req_trans_id, rsp_trans_id)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nDstId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
-		return
-    end
+		if type(nDstId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nDstId Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(req_trans_id) == "string" then
-		req_trans_id = tonumber(req_trans_id)
-	else
+		if type(req_trans_id) == "string" then
+			req_trans_id = tonumber(req_trans_id)
+		end
+
+		if type(rsp_trans_id) == "string" then
+			rsp_trans_id = tonumber(rsp_trans_id)
+		end
+	end
+
+	if req_trans_id == nil then
 		req_trans_id = 0
     end
 
-	if type(rsp_trans_id) == "string" then
-		rsp_trans_id = tonumber(rsp_trans_id)
-	else
+	if rsp_trans_id == nil then
 		rsp_trans_id = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+    CPPNFrame:SendTransToLogicServer(eServerType, nDstId, nMsgID, nMsgData:SerializeToString(), req_trans_id, rsp_trans_id)
 end
 
-function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgData, nParam1, nParam2)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+function LuaNFrame.SendMsgToSnsServer(eServerType, nMsgID, nMsgData, nParam1, nParam2)
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+		end
 
-    if type(nModuleId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nModuleId Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nParam1) == "string" then
+			nParam1 = tonumber(nParam1)
+		end
 
-	if type(nParam1) == "string" then
-		nParam1 = tonumber(nParam1)
-	else
+		if type(nParam2) == "string" then
+			nParam2 = tonumber(nParam2)
+		end
+	end
+
+	if nParam1 == nil then
 		nParam1 = 0
     end
 
-	if type(nParam2) == "string" then
-		nParam2 = tonumber(nParam2)
-	else
+	if nParam2 == nil then
 		nParam2 = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+    CPPNFrame:SendMsgToSnsServer(eServerType,  nMsgID, nMsgData:SerializeToString(), nParam1, nParam2)
 end
 
 function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, nMsgData, req_trans_id, rsp_trans_id)
-    if type(eServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(eServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+  		end
 
-	if type(nMsgData)  ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
-		return
-    end
+		if type(nMsgData)  ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+			return
+  		end
 
-	if type(req_trans_id) == "string" then
-		req_trans_id = tonumber(req_trans_id)
-	else
+		if type(req_trans_id) == "string" then
+			req_trans_id = tonumber(req_trans_id)
+	    end
+
+		if type(rsp_trans_id) == "string" then
+			rsp_trans_id = tonumber(rsp_trans_id)
+	    end
+	end
+
+	if req_trans_id == nil then
 		req_trans_id = 0
     end
 
-	if type(rsp_trans_id) == "string" then
-		rsp_trans_id = tonumber(rsp_trans_id)
-	else
+	if rsp_trans_id == nil then
 		rsp_trans_id = 0
     end
 
-	local xData = LuaNFrame.Encode(nMsgData.__cname, nMsgData)
-	
-    CPPNFrame:SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+    CPPNFrame:SendTransToSnsServer(eServerType, nMsgID, nMsgData:SerializeToString(), req_trans_id, rsp_trans_id)
 end
 
 ----------------------------------------rpc service---------------------------------------------------------------------------------------------------------------
 function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, strLuaFunc, createCo)
-	if type(serverType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
+
+		if type(reqType) ~= "string" then
+			local name = LuaNFrame.pb.type(reqType:GetTypeName())
+			if name == nil then
+				LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType.."..reqType.." is not a protobuf message")
+				return
+			end
+		else
+			local name = LuaNFrame.pb.type(reqType)
+			if name == nil then
+				LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType.."..reqType.." is not a protobuf message")
+				return
+			end
+	    end
+
+		if type(rspType)  ~= "string" then
+			local name = LuaNFrame.pb.type(rspType:GetTypeName())
+			if name == nil then
+				LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, rspType.."..rspType.." is not a protobuf message")
+				return
+			end
+		else
+			local name = LuaNFrame.pb.type(rspType)
+			if name == nil then
+				LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, rspType.."..rspType.." is not a protobuf message")
+				return
+			end
+	    end
+
+		if type(strLuaFunc) ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+			return
+	    end
+
+		local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+		if type(luaFunc) ~= "function" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+			return
+	    end
+	end
 
 	if type(reqType) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error")
-		return
-	else
-		local name = LuaNFrame.pb.type(reqType)
-		if name == nil then
-			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType.."..reqType.." is not a protobuf message")
-			return
-		end
-    end
+		reqType = reqType:GetTypeName()
+	end
 
-	if type(rspType)  ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "rspType Para Error")
-		return
-	else
-		local name = LuaNFrame.pb.type(rspType)
-		if name == nil then
-			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, rspType.."..rspType.." is not a protobuf message")
-			return
-		end
-    end
-
-	if type(strLuaFunc) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
-		return
-    end
-
-	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
-	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
-		return
-    end
+	if type(rspType) ~= "string" then
+		rspType = rspType:GetTypeName()
+	end
 
 	if type(createCo) ~= "boolean" then
 		createCo = false
@@ -692,67 +764,53 @@ function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, strLuaFun
     return CPPNFrame:AddRpcService(serverType, nMsgId, reqType, rspType, strLuaFunc, createCo)
 end
 
-function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, reqType, request, rspType)
-	if type(serverType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
-		return
-    end
+function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, request, respone)
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
+			return
+	    end
 
-	if type(dstServerType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "dstServerType Para Error")
-		return
-    end
+		if type(dstServerType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "dstServerType Para Error")
+			return
+	    end
 
-	if type(dstBusId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "dstBusId Para Error")
-		return
-    end
+		if type(dstBusId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "dstBusId Para Error")
+			return
+	    end
 
-	if type(request) ~= "table" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "request Para Error")
-		return
+		if type(request) ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "request Para Error")
+			return
+		end
+
+		if type(respone) ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "respone Para Error")
+			return
+		end
 	end
 
-	if type(reqType) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error")
-		return
-	else
-		local name = LuaNFrame.pb.type(reqType)
-		if name == nil then
-			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType.."..reqType.." is not a protobuf message")
-			return
-		end
-    end
-
-	if type(rspType)  ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "rspType Para Error")
-		return
-	else
-		local name = LuaNFrame.pb.type(rspType)
-		if name == nil then
-			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "rspType Para Error, rspType:"..rspType.." is not a protobuf message")
-			return
-		end
-    end
-
-	local reqeustData = LuaNFrame.Encode(reqType, request)
+	local reqeustData = request:SerializeToString()
 	if type(reqeustData) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType:"..reqType.." Encode Failed")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType:"..request:GetTypeName().." Encode Failed")
 		return
 	end
 
-	local respone, iRetCode = CPPNFrame:GetRpcService(serverType, dstServerType, dstBusId, msgId, reqType, reqeustData, rspType)
+	local responeData, iRetCode = CPPNFrame:GetRpcService(serverType, dstServerType, dstBusId, msgId, request:GetTypeName(), reqeustData,  respone:GetTypeName())
 	if iRetCode == 0 then
-		return LuaNFrame.Decode(rspType, respone)
+		respone:ParseFromString(responeData)
 	else
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "GetRpcService Failed, reqType:"..reqType.." rspType:"..rspType.." iRetCode:"..iRetCode)
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "GetRpcService Failed, request:GetTypeName():"..reqType.." rspType:"..respone:GetTypeName().." iRetCode:"..iRetCode)
 	end
+	return iRetCode
 end
 
 function LuaNFrame.DispatchRpcMessage(luaFunc,  strLuaFunc, reqType,  request,  rspType, respone)
 	local function TcpExecute()
-		local reqMsg = LuaNFrame.Decode(reqType, request)
-		local rspMsg = LuaNFrame.Defaults(rspType)
+		local reqMsg = LuaNFrame.protobuf_class[reqType].New(request)
+		local rspMsg = LuaNFrame.Defaults(rspType).New()
 		luaFunc(reqMsg, rspMsg)
 		if type(rspMsg) == "table" then
 			local data = LuaNFrame.Encode(rspType, rspMsg)
@@ -791,26 +849,28 @@ end
 
 --添加连接事件，掉线事件的处理函数
 function  LuaNFrame.AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
-	if type(serverType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+			return
+	    end
 
-	if type(linkId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
-		return
-    end
+		if type(linkId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
+			return
+	    end
 
-	if type(strLuaFunc) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
-		return
-    end
+		if type(strLuaFunc) ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+			return
+	    end
 
-	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
-	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
-		return
-    end
+		local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+		if type(luaFunc) ~= "function" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+			return
+	    end
+	end
 
 	if type(createCo) ~= "boolean" then
 		createCo = false
@@ -821,26 +881,28 @@ end
 
 --未没有注册过的消息，添加一个统一处理的回调函数
 function  LuaNFrame.AddOtherCallBack(serverType, linkId, strLuaFunc, createCo)
-	if type(serverType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+			return
+	    end
 
-	if type(linkId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
-		return
-    end
+		if type(linkId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
+			return
+	    end
 
-	if type(strLuaFunc) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
-		return
-    end
+		if type(strLuaFunc) ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+			return
+	    end
 
-	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
-	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
-		return
-    end
+		local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+		if type(luaFunc) ~= "function" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+			return
+	    end
+	end
 
 	if type(createCo) ~= "boolean" then
 		createCo = false
@@ -851,26 +913,28 @@ end
  
 --对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
 function  LuaNFrame.AddAllMsgCallBack(serverType, strLuaFunc, createCo)
-	if type(serverType) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
-		return
-    end
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+			return
+	    end
 
-	if type(linkId) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
-		return
-    end
+		if type(linkId) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
+			return
+	    end
 
-	if type(strLuaFunc) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
-		return
-    end
+		if type(strLuaFunc) ~= "string" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+			return
+	    end
 
-	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
-	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
-		return
-    end
+		local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+		if type(luaFunc) ~= "function" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+			return
+	    end
+	end
 
 	if type(createCo) ~= "boolean" then
 		createCo = false

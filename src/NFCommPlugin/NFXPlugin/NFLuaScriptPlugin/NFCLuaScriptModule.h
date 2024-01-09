@@ -353,28 +353,28 @@ public:
 									 uint64_t nParam1 = 0, uint64_t nParam2 = 0);
 
 	///////////////////////////other server send msg to world msg/////////////////////////////
-	virtual int SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const std::string& xData, uint64_t nParam1 = 0,
+	virtual int SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string& xData, uint64_t nParam1 = 0,
 									 uint64_t nParam2 = 0);
 
 	virtual int SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string& xData, uint32_t req_trans_id = 0,
 									   uint32_t rsp_trans_id = 0);
 
 	///////////////////////////other server send msg to game msg/////////////////////////////
-	virtual int SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string& xData,
+	virtual int SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const std::string& xData,
 									uint64_t nParam1 = 0, uint64_t nParam2 = 0);
 
 	virtual int SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const std::string& xData, uint32_t req_trans_id = 0,
 									  uint32_t rsp_trans_id = 0);
 
 	///////////////////////////other server send msg to logic server/////////////////////////////
-	virtual int SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string& xData,
+	virtual int SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const std::string& xData,
 									 uint64_t nParam1 = 0, uint64_t nParam2 = 0);
 
 	virtual int SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const std::string& xData, uint32_t req_trans_id = 0,
 									   uint32_t rsp_trans_id = 0);
 
 	///////////////////////////other server send msg to sns server/////////////////////////////
-	virtual int SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const std::string& xData, uint64_t nParam1 = 0,
+	virtual int SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string& xData, uint64_t nParam1 = 0,
 								   uint64_t nParam2 = 0);
 
 	virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string& xData, uint32_t req_trans_id = 0,

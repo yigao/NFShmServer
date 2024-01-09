@@ -865,10 +865,10 @@ int NFCLuaScriptModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDs
 	return 0;
 }
 
-int NFCLuaScriptModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const string& xData, uint64_t nParam1,
+int NFCLuaScriptModule::SendMsgToWorldServer(NF_SERVER_TYPES eType,uint32_t nMsgId, const string& xData, uint64_t nParam1,
 											 uint64_t nParam2)
 {
-	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFCLuaScriptModule::SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string& xData, uint32_t req_trans_id,
@@ -877,10 +877,10 @@ int NFCLuaScriptModule::SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t n
 	return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_WORLD_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
-int NFCLuaScriptModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const string& xData,
+int NFCLuaScriptModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string& xData,
 											uint64_t nParam1, uint64_t nParam2)
 {
-	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_GAME_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
+	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_GAME_SERVER, 0, nDstId, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFCLuaScriptModule::SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string& xData,
@@ -889,10 +889,10 @@ int NFCLuaScriptModule::SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nD
 	return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_GAME_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
-int NFCLuaScriptModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const string& xData,
+int NFCLuaScriptModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string& xData,
 											 uint64_t nParam1, uint64_t nParam2)
 {
-	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
+	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_LOGIC_SERVER, 0, nDstId, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFCLuaScriptModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string& xData,
@@ -901,10 +901,10 @@ int NFCLuaScriptModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t n
 	return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
-int NFCLuaScriptModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const string& xData, uint64_t nParam1,
+int NFCLuaScriptModule::SendMsgToSnsServer(NF_SERVER_TYPES eType,uint32_t nMsgId, const string& xData, uint64_t nParam1,
 										   uint64_t nParam2)
 {
-	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
 }
 
 int NFCLuaScriptModule::SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string& xData, uint32_t req_trans_id,
