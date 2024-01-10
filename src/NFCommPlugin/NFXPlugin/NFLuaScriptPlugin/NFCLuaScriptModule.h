@@ -389,6 +389,11 @@ public:
 	virtual int OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId, const std::string& reqType, const std::string& request,
 									  const std::string& rspType, std::string& respone);
 public:
+	///////////////////////////////////db rpc///////////////////////////////////////////////////
+	virtual std::tuple<std::string, int> GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string& reqType,
+																		const std::string& request, const std::vector<std::string>& vecFields = std::vector<std::string>(),
+																		uint32_t dstBusId = 0, const std::string& tbname = "", const std::string& dbname = "");
+public:
 	virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:
 	virtual void FireCppExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& msgTypeName,

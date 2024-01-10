@@ -61,6 +61,14 @@ void NFStoreProtoCommon::storesvr_selectobj(storesvr_sqldata::storesvr_selobj &s
                                             const std::string &package_name/* = ""*/,
                                             const std::vector<std::string> &vecFields/* = std::vector<std::string>()*/)
 {
+    storesvr_selectobj(select, dbname, tbname, mod_key, msg_obj.SerializeAsString(), cls_name, package_name, vecFields);
+}
+
+void NFStoreProtoCommon::storesvr_selectobj(storesvr_sqldata::storesvr_selobj &select, const std::string &dbname, const std::string &tbname,
+                                            uint64_t mod_key, const std::string &msgObjStr, const std::string &cls_name/* = ""*/,
+                                            const std::string &package_name/* = ""*/,
+                                            const std::vector<std::string> &vecFields/* = std::vector<std::string>()*/)
+{
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_package_name(package_name);
     if (cls_name.empty())
@@ -79,7 +87,7 @@ void NFStoreProtoCommon::storesvr_selectobj(storesvr_sqldata::storesvr_selobj &s
         select.mutable_baseinfo()->set_tbname(tbname);
     }
     select.set_mod_key(mod_key);
-    select.set_record(msg_obj.SerializeAsString());
+    select.set_record(msgObjStr);
     if (vecFields.size() > 0)
     {
         for (int i = 0; i < (int) vecFields.size(); i++)

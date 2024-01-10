@@ -170,7 +170,7 @@ function LuaNFrame.RegisterClientMessage(eServerType, nMsgID,  strLuaFunc, creat
 	end
 
 	if type(createCo) ~= "boolean" then
-		createCo = false
+		createCo = true
 	end
     
 	CPPNFrame:RegisterClientMessage(eServerType, nMsgID, strLuaFunc, createCo)
@@ -197,7 +197,7 @@ function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, strLuaFunc, create
 
 
 	if type(createCo) ~= "boolean" then
-		createCo = false
+		createCo = true
 	end
 	
 	CPPNFrame:RegisterServerMessage(eServerType, nMsgID, strLuaFunc, createCo)
@@ -758,7 +758,7 @@ function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, strLuaFun
 	end
 
 	if type(createCo) ~= "boolean" then
-		createCo = false
+		createCo = true
     end
 
     return CPPNFrame:AddRpcService(serverType, nMsgId, reqType, rspType, strLuaFunc, createCo)
@@ -873,7 +873,7 @@ function  LuaNFrame.AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
 	end
 
 	if type(createCo) ~= "boolean" then
-		createCo = false
+		createCo = true
     end
 
     return CPPNFrame:AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
@@ -977,4 +977,46 @@ function LuaNFrame.DispatchAllOtherMessage(luaFunc,  strLuaFunc, unLinkId, packe
 	if not status then
 		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchAllOtherMessage error, luaFunc:"..strLuaFunc.." packet:"..packet:ToString(), msg)
     end
+end
+
+-- vecFields, dstBusId, tbname, dbname可以默认为nil
+function LuaNFrame.GetRpcSelectObjService(serverType, mod_key, request, vecFields, dstBusId, tbname, dbname)
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+			return
+	    end
+
+		if type(mod_key) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "mod_key Para Error")
+			return
+	    end
+
+		if type(request) ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "request Para Error")
+			return
+	    end
+	end
+
+	if type(vecFields) ~= "table" then
+		vecFields = {}
+    end
+
+	if type(dstBusId) ~= "number" then
+		dstBusId = 0
+	end
+
+	if type(tbname) ~= "string" then
+		tbname = ""
+	end
+
+	if type(dbname) ~= "string" then
+		dbname = ""
+	end
+
+    local data, iRet = CPPNFrame:GetRpcSelectObjService(serverType, mod_key, request:GetTypeName(), request:SerializeToString(), vecFields, dstBusId, tbname, dbname)
+	if type(data) == "string" then
+		request:ParseFromString(data)
+	end
+	return iRet
 end

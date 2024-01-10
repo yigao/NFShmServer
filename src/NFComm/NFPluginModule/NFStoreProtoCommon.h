@@ -32,6 +32,10 @@ public:
                                    uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
                                    const std::string &package_name = "", const std::vector<std::string> &vecFields = std::vector<std::string>());
 
+	static void storesvr_selectobj(storesvr_sqldata::storesvr_selobj &select, const std::string &dbname, const std::string &tbname,
+							   uint64_t mod_key, const std::string& msgObjStr, const std::string &cls_name = "",
+							   const std::string &package_name = "", const std::vector<std::string> &vecFields = std::vector<std::string>());
+
     // select对象查询，返回打包数据，该数据可直接网络发送
     static std::string storesvr_selectobj(const std::string &dbname, const std::string &tbname,
                                           uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",

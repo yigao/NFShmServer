@@ -1869,6 +1869,27 @@ std::string NFProtobufCommon::GetDescStoreClsName(const google::protobuf::Messag
 std::string NFProtobufCommon::GetProtoBaseName(const google::protobuf::Message& message)
 {
     std::string fullName = message.GetTypeName();
+    return GetProtoBaseName(fullName);
+}
+
+std::string NFProtobufCommon::GetProtoPackageName(const google::protobuf::Message& message)
+{
+    std::string fullName = message.GetTypeName();
+    return GetProtoPackageName(fullName);
+}
+
+std::string NFProtobufCommon::GetProtoBaseName(const std::string& fullName)
+{
+    std::vector<std::string> result;
+    NFStringUtility::Split(fullName, ".", &result);
+    for(int i = result.size() - 1; i >= 0; i--)
+    {
+        if (result[i].size() > 0)
+        {
+            return result[i];
+        }
+    }
+
     std::string::size_type pos;
     if ((pos = fullName.rfind('.')) == std::string::npos)
     {
@@ -1883,9 +1904,18 @@ std::string NFProtobufCommon::GetProtoBaseName(const google::protobuf::Message& 
     return fullName;
 }
 
-std::string NFProtobufCommon::GetProtoPackageName(const google::protobuf::Message& message)
+std::string NFProtobufCommon::GetProtoPackageName(const std::string& fullName)
 {
-    std::string fullName = message.GetTypeName();
+    std::vector<std::string> result;
+    NFStringUtility::Split(fullName, ".", &result);
+    for(int i = 0; i < (int)result.size(); i++)
+    {
+        if (result[i].size() > 0)
+        {
+            return result[i];
+        }
+    }
+
     std::string::size_type pos;
     if ((pos = fullName.rfind('.')) == std::string::npos)
     {

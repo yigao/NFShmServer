@@ -12,6 +12,8 @@
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFCLuaScriptModule.h"
 
+#include <NFComm/NFPluginModule/NFStoreProtoCommon.h>
+
 #include "NFComm/NFCore/NFCRC32.h"
 #include "NFComm/NFCore/NFCRC16.h"
 #include "NFComm/NFCore/NFBase64.h"
@@ -19,6 +21,7 @@
 #include "NFComm/NFPluginModule/NFEventDefine.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
+#include "NFServerComm/NFServerCommon/NFServerBindRpcService.h"
 
 enum EnumLuaScriptTimer
 {
@@ -480,6 +483,7 @@ bool NFCLuaScriptModule::Register()
 									   .addFunction("GetSuitServerByIntCross", &NFCLuaScriptModule::GetSuitServerByIntCross)
 									   .addFunction("GetSuitServerByStr", &NFCLuaScriptModule::GetSuitServerByStr)
 									   .addFunction("GetSuitServerByStrCross", &NFCLuaScriptModule::GetSuitServerByStrCross)
+									   .addFunction("GetRpcSelectObjService", &NFCLuaScriptModule::GetRpcSelectObjService)
 									   .endClass();
 	return true;
 }
@@ -865,7 +869,7 @@ int NFCLuaScriptModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDs
 	return 0;
 }
 
-int NFCLuaScriptModule::SendMsgToWorldServer(NF_SERVER_TYPES eType,uint32_t nMsgId, const string& xData, uint64_t nParam1,
+int NFCLuaScriptModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string& xData, uint64_t nParam1,
 											 uint64_t nParam2)
 {
 	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
@@ -901,7 +905,7 @@ int NFCLuaScriptModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t n
 	return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
-int NFCLuaScriptModule::SendMsgToSnsServer(NF_SERVER_TYPES eType,uint32_t nMsgId, const string& xData, uint64_t nParam1,
+int NFCLuaScriptModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string& xData, uint64_t nParam1,
 										   uint64_t nParam2)
 {
 	return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, NF_MODULE_SERVER, nMsgId, xData, nParam1, nParam2);
@@ -1002,6 +1006,73 @@ bool NFCLuaScriptModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsg
 		}
 	}
 	return ret;
+}
+
+std::tuple<std::string, int> NFCLuaScriptModule::GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string& reqType,
+																		const std::string& request, const std::vector<std::string>& vecFields,
+																		uint32_t dstBusId, const std::string& tbname, const std::string& dbname)
+{
+	std::tuple<std::string, int> retTuple("", -1);
+	std::string tempDBName = dbname;
+	if (dbname.empty())
+	{
+		NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+		if (pConfig)
+		{
+			tempDBName = pConfig->DefaultDBName;
+		}
+	}
+	CHECK_EXPR(!tempDBName.empty(), retTuple, "no dbname ........");
+
+	if (dstBusId == 0)
+	{
+		auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+		if (pDbServer)
+		{
+			dstBusId = pDbServer->mServerInfo.bus_id();
+		}
+	}
+
+	storesvr_sqldata::storesvr_selobj selobj;
+	std::string clsname = NFProtobufCommon::GetProtoBaseName(reqType);
+	std::string packageName = NFProtobufCommon::GetProtoPackageName(reqType);
+	std::string tempTbName;
+	if (tbname.empty())
+	{
+		tempTbName = clsname;
+	}
+	else
+	{
+		tempTbName = tbname;
+	}
+
+	CHECK_EXPR(!tempTbName.empty(), retTuple, "no tbname ........");
+	NFStoreProtoCommon::storesvr_selectobj(selobj, tempDBName, tempTbName, mod_key, request, clsname, packageName, vecFields);
+
+	storesvr_sqldata::storesvr_selobj_res selobjRes;
+	int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+																								  selobjRes);
+	if (iRet == 0 && selobjRes.opres().err_code() == 0)
+	{
+		return std::tuple<std::string, int>(selobjRes.record(), iRet);
+	}
+	else
+	{
+		if (iRet == 0)
+		{
+			iRet = selobjRes.opres().err_code();
+			if (iRet != proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
+			{
+				NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+						   selobjRes.opres().errmsg());
+			}
+		}
+		else
+		{
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+		}
+	}
+	return std::tuple<std::string, int>("", iRet);
 }
 
 std::tuple<std::string, int> NFCLuaScriptModule::GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId,

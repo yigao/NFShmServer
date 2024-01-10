@@ -145,6 +145,8 @@ public:
 
     static std::string GetProtoBaseName(const google::protobuf::Message& message);
     static std::string GetProtoPackageName(const google::protobuf::Message& message);
+    static std::string GetProtoBaseName(const std::string& message);
+    static std::string GetProtoPackageName(const std::string& message);
 
     static std::string GetDescStoreClsName(const google::protobuf::Message& message);
 public:

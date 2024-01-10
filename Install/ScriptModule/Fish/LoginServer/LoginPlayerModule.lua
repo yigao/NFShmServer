@@ -13,11 +13,11 @@ function LoginPlayerModule.Shut()
 end
 
 function LoginPlayerModule.OnRpcServiceAccountLogin(request, respone)
-    if request ~= nil then
-        LuaNFrame.PrintProto(request)
+    local selectObj = proto_ff.tbFishAccountTable.New();
+    selectObj.account = request.account
+    local iRet = LuaNFrame.GetRpcSelectObjService(NF_ST_LOGIN_SERVER, 0, selectObj)
+    if iRet ~= 0 then
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed")
     end
-
-    if respone ~= nil then
-        LuaNFrame.PrintProto(respone)
-    end
+    return iRet
 end

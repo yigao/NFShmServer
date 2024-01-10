@@ -362,3 +362,7 @@ end
  function CPPNFrame:GetSuitServerByStrCross(eSendType, serverTypes, value, crossServer)
     return self.luaModule:GetSuitServerByStrCross(eSendType, serverTypes, value, crossServer)
  end
+
+function CPPNFrame:GetRpcSelectObjService(eType, mod_key, reqType, request, vecFields, dstBusId, tbname, dbname)
+    return self.luaModule:GetRpcSelectObjService(eType, mod_key, reqType, request, vecFields, dstBusId, tbname, dbname)
+end
