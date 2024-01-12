@@ -381,6 +381,11 @@ bool NFCLuaScriptModule::Register()
 									   .addFunction("GetServerType", &NFServerData::GetServerType)
 									   .addFunction("GetServerName", &NFServerData::GetServerName)
 									   .addFunction("GetMapIdList", &NFServerData::GetMapIdList)
+									   .addFunction("GetServerIp", &NFServerData::GetServerIp)
+									   .addFunction("GetServerPort", &NFServerData::GetServerPort)
+									   .addFunction("GetServerHttpPort", &NFServerData::GetServerHttpPort)
+									   .addFunction("GetExternalServerIp", &NFServerData::GetExternalServerIp)
+									   .addFunction("GetExternalServerPort", &NFServerData::GetExternalServerPort)
 									   .endClass();
 
 	LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFServerConfig>("NFServerConfig")
