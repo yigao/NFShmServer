@@ -806,7 +806,7 @@ function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, req
 	if iRetCode == 0 then
 		respone:ParseFromString(responeData)
 	else
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "GetRpcService Failed, request:GetTypeName():"..reqType.." rspType:"..respone:GetTypeName().." iRetCode:"..iRetCode)
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "GetRpcService Failed, request:GetTypeName():"..request:GetTypeName().." rspType:"..respone:GetTypeName().." iRetCode:"..iRetCode)
 	end
 	return iRetCode
 end

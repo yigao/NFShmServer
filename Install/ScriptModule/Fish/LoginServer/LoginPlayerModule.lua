@@ -21,7 +21,7 @@ function LoginPlayerModule.OnRpcServiceAccountLogin(request, respone)
         local iRet = LuaNFrame.GetRpcSelectObjService(NF_ST_LOGIN_SERVER, 0, selectobj)
         if iRet ~= 0 or iRet == nil then
             if iRet == proto_ff.ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY then
-                if (request.login_type == proto_ff.E_VISITOR or request.login_type == proto_ff.E_ACCOUNT or request.login_type == proto_ff.E_WECHAT) then
+                if (request.login_type == proto_ff.E_VISITOR  or request.login_type == proto_ff.E_WECHAT) then
                     local insertObj = proto_ff.tbFishAccountTable.New()
                     insertObj.account = request.account
                     insertObj.password = request.password
