@@ -131,7 +131,7 @@ function ProxyPlayerModule.OnHandleRegisterLoginFromClient(msgId, packet, param1
         local loginId = pServerData:GetBusId()
         local respone = proto_ff.Proto_SCRegisterAccountRsp.New()
         local iRet = LuaNFrame.GetRpcService(NF_ST_PROXY_SERVER, NF_ST_LOGIN_SERVER, loginId, proto_ff.NF_CS_MSG_RegisterAccountReq, cgMsg, respone)
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");
+        
         if (iRet ~= 0) then
             NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");
             return 0;

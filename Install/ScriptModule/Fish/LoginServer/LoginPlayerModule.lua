@@ -2,6 +2,7 @@ LoginPlayerModule = LoginPlayerModule or {}
 
 function LoginPlayerModule.Init()
     LuaNFrame.AddRpcService(NF_ST_LOGIN_SERVER,  proto_ff.NF_CS_MSG_AccountLoginReq, proto_ff.Proto_CSAccountLoginReq, proto_ff.Proto_SCAccountLoginRsp, "LoginPlayerModule.OnRpcServiceAccountLogin")
+    LuaNFrame.AddRpcService(NF_ST_LOGIN_SERVER,  proto_ff.NF_CS_MSG_RegisterAccountReq, proto_ff.Proto_CSRegisterAccountReq, proto_ff.Proto_SCRegisterAccountRsp, "LoginPlayerModule.OnRpcServiceAccountRgister")
     LuaNFrame.AddTimer("NFAccountLogin.Tick", 1)
 end
 
@@ -100,4 +101,64 @@ function LoginPlayerModule.OnRpcServiceAccountLogin(request, respone)
     end
 
     return 0
+end
+
+function LoginPlayerModule.OnRpcServiceAccountRgister(request, respone)
+    local pLogin = NFAccountLogin.FindAccount(request.account)
+	if pLogin == nil then
+		local insertObj = proto_ff.tbFishAccountTable.New()
+		insertObj.account = request.account
+		insertObj.password = request.password
+		insertObj.account_type = proto_ff.E_ACCOUNT
+		insertObj.device_id = request.device_id
+		insertObj.phonenum = 0
+
+		NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Ready Create Account InTo Mysql:{}", insertObj:DebugString());
+
+		local iRet = LuaNFrame.GetRpcInsertObjService(NF_ST_LOGIN_SERVER, 0, insertObj);
+		if iRet ~= 0 then
+			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Failed, iRet:{}", request.account, GetErrorStr(iRet));
+			respone.result = iRet
+			return 0
+        end
+
+		local selectobj = proto_ff.tbFishAccountTable.New()
+		selectobj.account = request.account
+		iRet = LuaNFrame.GetRpcSelectObjService(NF_ST_LOGIN_SERVER, 0, selectobj)
+		if (iRet ~= 0) then
+			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Success, But Select Account Failed, iRet:{}", request.account, GetErrorStr(iRet));
+			respone.result = iRet
+			return 0;
+        end
+
+		pLogin = NFAccountLogin.CreateAccount(selectobj.account, selectobj.password, selectobj.player_id,
+																				 selectobj.account_type, selectobj.device_id,
+																				 selectobj.phonenum);
+		if pLogin == nil then
+			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFAccountLoginMgr CreateAccount:{} Failed", request.account)
+			respone.result = proto_ff.ERR_CODE_SYSTEM_ERROR
+			return 0
+        end
+	else
+		respone.result = proto_ff.ERR_CODE_ACCOUNT_ALREADY_EXIST_NO_RESITER
+		return 0
+    end
+
+	pLogin.mLastLoginTime = LuaNFrame.GetSecTime()
+
+	respone.result = proto_ff.ERR_CODE_OK
+	respone.user_id = pLogin.mPlayerId
+	respone.login_time = pLogin.mLastLoginTime
+	respone.token = LoginCommon.GetLoginToken(pLogin.mAccount, pLogin.mPlayerId, pLogin.mLastLoginTime)
+
+	local serverList = LuaNFrame.GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
+    respone.server_ip_list = respone.server_ip_list or {}
+	for i, server in ipairs(serverList) do
+        local ipPort = proto_ff.Proto_CSServerIP.New()
+        ipPort.ip = server:GetExternalServerIp();
+        ipPort.port = server:GetExternalServerPort();
+        table.insert(respone.server_ip_list, ipPort)
+    end
+
+	return 0;
 end

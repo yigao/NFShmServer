@@ -77,14 +77,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="lua script">
-      <change afterPath="$PROJECT_DIR$/Install/ScriptModule/Fish/Comm/LoginCommon.lua" afterDir="false" />
+    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="lua account login">
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/Fish/LoginServer/LoginPlayerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/Fish/LoginServer/LoginPlayerModule.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -554,7 +551,7 @@
       <workItem from="1704702772827" duration="2272000" />
       <workItem from="1704705594431" duration="14607000" />
       <workItem from="1704789171735" duration="7789000" />
-      <workItem from="1704952160690" duration="19720000" />
+      <workItem from="1704952160690" duration="24701000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -780,7 +777,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705036810969</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="lua account login">
+      <option name="closed" value="true" />
+      <created>1705044119461</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1705044119461</updated>
+    </task>
+    <task id="LOCAL-00030" summary="lua account login">
+      <option name="closed" value="true" />
+      <created>1705044146518</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1705044146518</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VCPKGProject">
@@ -803,7 +816,8 @@
     <MESSAGE value="bug" />
     <MESSAGE value="route cross server" />
     <MESSAGE value="lua script" />
-    <option name="LAST_COMMIT_MESSAGE" value="lua script" />
+    <MESSAGE value="lua account login" />
+    <option name="LAST_COMMIT_MESSAGE" value="lua account login" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -812,6 +826,16 @@
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp</url>
           <line>3355</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp</url>
+          <line>109</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="lua-line">
+          <url>file://$PROJECT_DIR$/Install/ScriptModule/Fish/ProxyServer/ProxyPlayerModule.lua</url>
+          <line>118</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
