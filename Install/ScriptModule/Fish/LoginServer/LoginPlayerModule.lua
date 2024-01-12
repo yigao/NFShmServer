@@ -88,14 +88,15 @@ function LoginPlayerModule.OnRpcServiceAccountLogin(request, respone)
 	respone.result = proto_ff.ERR_CODE_OK;
 	respone.user_id = pLogin.mPlayerId;
 	respone.login_time = pLogin.mLastLoginTime;
-	respone.token = "token"
+	respone.token = LoginCommon.GetLoginToken(pLogin.mAccount, pLogin.mPlayerId, pLogin.mLastLoginTime)
 
 	local serverList = LuaNFrame.GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
     respone.server_ip_list = respone.server_ip_list or {}
 	for i, server in ipairs(serverList) do
         local ipPort = proto_ff.Proto_CSServerIP.New()
-        pIp.ip = server:external_server_ip();
-        pIp.port = server:external_server_port();
+        ipPort.ip = server:GetExternalServerIp();
+        ipPort.port = server:GetExternalServerPort();
+        table.insert(respone.server_ip_list, ipPort)
     end
 
     return 0

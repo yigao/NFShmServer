@@ -370,3 +370,7 @@ end
 function CPPNFrame:GetRpcInsertObjService(eType, mod_key, reqType, request, dstBusId, dbname)
     return self.luaModule:GetRpcInsertObjService(eType, mod_key, reqType, request, dstBusId, dbname)
 end
+
+function CPPNFrame:CloseLinkId(usLinkId)
+    self.luaModule:CloseLinkId(usLinkId)
+end

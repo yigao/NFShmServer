@@ -228,6 +228,10 @@ function LuaNFrame.DispatchServerMessage(luaFunc, strLuaFunc, msgId, packet, par
     end
 end
 
+function LuaNFrame.CloseLinkId(usLinkId)
+	CPPNFrame:CloseLinkId(usLinkId)
+end
+
 function LuaNFrame.SendMsgByLinkId(usLinkId, nMsgID, nMsgData, nParam1, nParam2)
 	if LuaNFrame.IsDebug() then
 		if type(usLinkId) ~= "number" then

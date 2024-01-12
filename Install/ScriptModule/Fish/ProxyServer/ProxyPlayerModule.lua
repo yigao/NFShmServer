@@ -90,9 +90,12 @@ function ProxyPlayerModule.OnHandleAccountLoginFromClient(msgId, packet, param1,
         NFLogError(NF_LOG_SYSTEMLOG, 0, "loginId:{}", loginId)
 
         local respone = proto_ff.Proto_SCAccountLoginRsp.New()
+        respone.result = proto_ff.ERR_CODE_SYSTEM_ERROR
         local iRet = LuaNFrame.GetRpcService(NF_ST_PROXY_SERVER, NF_ST_LOGIN_SERVER,  loginId, proto_ff.NF_CS_MSG_AccountLoginReq, cgMsg, respone);
         if (iRet ~= 0) then
             NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");
+            respone.result = proto_ff.ERR_CODE_SYSTEM_ERROR
+            LuaNFrame.SendMsgByLinkId(unLinkId, proto_ff.NF_SC_MSG_RegisterAccountRsp, respone);
             return 0;
         end
 
@@ -103,6 +106,12 @@ function ProxyPlayerModule.OnHandleAccountLoginFromClient(msgId, packet, param1,
         end
 
         LuaNFrame.SendMsgByLinkId(unLinkId, proto_ff.NF_SC_MSG_RegisterAccountRsp, respone);
+    else
+        respone.result = proto_ff.ERR_CODE_SYSTEM_ERROR
+        LuaNFrame.SendMsgByLinkId(unLinkId, proto_ff.NF_SC_MSG_RegisterAccountRsp, respone);
+
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Get Login Server Bus Id Failed");
+        ProxyPlayerModule.KickPlayer(unLinkId, 0);
     end
 end
 
@@ -113,4 +122,13 @@ function ProxyPlayerModule.OnHandlePlayerLoginFromClient(msgId, packet, param1, 
 end
 
 function ProxyPlayerModule.OnHandlePlayerReconnectFromClient(msgId, packet, param1, param2)
+end
+
+function ProxyPlayerModule.KickPlayer(unLinkId, reason)
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "kick linkId:{}", unLinkId);
+    local kitMsg = proto_ff.Proto_SCKetPlayerNotify.New()
+    kitMsg.result = reason
+    LuaNFrame.SendMsgByLinkId(unLinkId, proto_ff.NF_SC_Msg_KitPlayer_Notify, kitMsg);
+    LuaNFrame.CloseLinkId(unLinkId);
+    return 0;
 end

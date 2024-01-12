@@ -444,6 +444,8 @@ public:
 	virtual std::string GetLinkIp(uint64_t usLinkId);
 
 	virtual uint32_t GetPort(uint64_t usLinkId);
+
+	virtual void CloseLinkId(uint64_t usLinkId);
 public:
 	virtual std::vector<NF_SHARE_PTR<NFServerData>> GetServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes);
 

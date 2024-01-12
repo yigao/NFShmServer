@@ -328,6 +328,11 @@ uint32_t NFCLuaScriptModule::GetPort(uint64_t unLinkId)
 	return FindModule<NFIMessageModule>()->GetPort(unLinkId);
 }
 
+void NFCLuaScriptModule::CloseLinkId(uint64_t usLinkId)
+{
+	return FindModule<NFIMessageModule>()->CloseLinkId(usLinkId);
+}
+
 std::vector<std::shared_ptr<NFServerData>> NFCLuaScriptModule::GetServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes)
 {
 	return FindModule<NFIMessageModule>()->GetServerByServerType(eSendType, serverTypes);
@@ -490,6 +495,7 @@ bool NFCLuaScriptModule::Register()
 									   .addFunction("GetSuitServerByStrCross", &NFCLuaScriptModule::GetSuitServerByStrCross)
 									   .addFunction("GetRpcSelectObjService", &NFCLuaScriptModule::GetRpcSelectObjService)
 									   .addFunction("GetRpcInsertObjService", &NFCLuaScriptModule::GetRpcInsertObjService)
+									   .addFunction("CloseLinkId", &NFCLuaScriptModule::CloseLinkId)
 									   .endClass();
 	return true;
 }
