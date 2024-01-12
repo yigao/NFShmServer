@@ -1,0 +1,57 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_FishRoom
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int32 m_roomId = 2[(yd_fieldoptions.field_cname) = "房间ID"];
+	optional int32 m_gameId = 3[(yd_fieldoptions.field_cname) = "游戏ID"];
+	optional string m_gameName = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_roomType = 5[(yd_fieldoptions.field_cname) = "房间类型"];
+	optional int32 m_roomLevel = 6[(yd_fieldoptions.field_cname) = "房间等级"];
+	optional string m_roomName = 7[(yd_fieldoptions.field_cname) = "房间名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_siteNum = 8[(yd_fieldoptions.field_cname) = "座位数"];
+	optional int32 m_deskCount = 9[(yd_fieldoptions.field_cname) = "桌子数"];
+	optional int32 m_maxPeople = 10[(yd_fieldoptions.field_cname) = "最大玩家数"];
+	optional int32 m_enterMin = 11[(yd_fieldoptions.field_cname) = "最小筹码"];
+	optional int32 m_enterMax = 12[(yd_fieldoptions.field_cname) = "最大筹码"];
+	optional int32 m_autoChair = 13[(yd_fieldoptions.field_cname) = "选位置"];
+	optional int32 m_isExpScene = 14[(yd_fieldoptions.field_cname) = "体验场"];
+	optional int32 m_expSceneGold = 15[(yd_fieldoptions.field_cname) = "体验场金币"];
+	optional int32 m_tax = 16[(yd_fieldoptions.field_cname) = "抽水率"];
+}
+
+
+message Sheet_FishRoom
+{
+	repeated E_FishRoom E_FishRoom_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_FishGunvalue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_gameId = 3[(yd_fieldoptions.field_cname) = "游戏Id"];
+	optional int32 m_roomId = 4[(yd_fieldoptions.field_cname) = "房间ID"];
+	optional int32 m_gunId = 5[(yd_fieldoptions.field_cname) = "炮Id"];
+}
+
+
+message Sheet_FishGunvalue
+{
+	repeated E_FishGunvalue E_FishGunvalue_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_FishCtrllevel
+{
+	optional int32 m_ControlLevel = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int32 m_ControlRate = 2[(yd_fieldoptions.field_cname) = "控制概率"];
+}
+
+
+message Sheet_FishCtrllevel
+{
+	repeated E_FishCtrllevel E_FishCtrllevel_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

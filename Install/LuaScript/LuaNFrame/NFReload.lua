@@ -119,7 +119,7 @@ function NFLuaReload.RecordAllFilesTimes()
             if type(file_path) == "string" and type(value) == "boolean" and  value == true then
                 local path, err = package.searchpath(file_path, package.path)
                 -- Skip non-exist module.
-                if path and string.find(path, "ScriptModule") then
+                if path and string.find(path, "LuaScript") then
                     local file_time = lfs.attributes (path, "modification")
                     NFLuaReload.path_to_time[path] = file_time
                 end
@@ -138,7 +138,7 @@ function NFLuaReload.ReloadNewFile(file_path)
     if type(file_path) == "string" then
         local path, err = package.searchpath(file_path, package.path)
         -- Skip non-exist module.
-        if path and string.find(path, "ScriptModule") then
+        if path and string.find(path, "LuaScript") then
             local file_time = lfs.attributes (path, "modification")
             --local file_time = Misc.GetFileModificationDate(path)
             if file_time ~= NFLuaReload.path_to_time[path] then

@@ -1,0 +1,13 @@
+include ./define.makefile
+.PHONY:all
+
+all:${PROTOCGEN_FILE_PATH}/store_ds
+
+${PROTOCGEN_FILE_PATH}/store_ds:${COMMON_LOGIC_DESC_XML} ${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/E_Fish.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	mkdir -p ${GAME_SQL_PATH}
+	rm -rf ${PROTOCGEN_FILE_PATH}/store_ds
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} -I${COMMON_LOGIC_META_PATH}\
+			--include_imports --descriptor_set_out=${STORE_SERVER_META_DESCRIPTOR} --cpp_out=${PROTOCGEN_FILE_PATH}
+	${FILE_COPY_EXE} --work="filecopy" --src="${STORE_SERVER_META_DESCRIPTOR} " --dst=${GAME_SQL_PATH}/
+	touch ${PROTOCGEN_FILE_PATH}/store_ds

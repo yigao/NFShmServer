@@ -1,0 +1,28 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+enum TableID {
+  E_TABLE_NONE = 0;
+  E_TABLE_ROLE_DB_DATA = 1;
+};
+
+message WorldExternalConfig {
+  optional bool TokenTimeCheck = 1;
+  optional bool WhiteListState = 2;
+  optional uint32 MaxRegisterNum = 3;
+  repeated uint64 WhiteList = 4[(yd_fieldoptions.field_arysize)=100];
+  optional uint32 StartQueueNum = 6;
+  optional uint32 MaxQueueNum = 7;
+}
+
+message GameExternalGame
+{
+  optional uint32 GameId = 1;
+  repeated uint32 RoomId = 2[(yd_fieldoptions.field_arysize)=10];
+}
+
+message GameExternalConfig {
+  repeated GameExternalGame Game = 1[(yd_fieldoptions.field_arysize)=10];
+  optional uint32 MaxDeskNunOneRoom = 2; //max 300
+}

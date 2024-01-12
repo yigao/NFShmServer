@@ -1,0 +1,252 @@
+// 定义公用的结构、变量等（服务器、客户端公用）
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+enum PingConfig
+{
+  option allow_alias  = true;
+  CLIENT_PING_INTERVAL = 9;					// 客户端发ping包的间隔(s)
+  SERVER_PING_INTERVAL = 9;					// 服务端之间发ping包的(s) （由于网络底层采用LRU机制超时，客户端和服务的超时时间需要一致，待后期分开后再改小点）
+};
+
+// 错误码
+enum Proto_CS_ErrorCode {
+  ERR_CODE_SYSTEM_ERROR			                      = -1; //系统错误 服务器错误
+  ERR_CODE_OK                		                  = 0;
+  /////////////10000-10100系统方面的错误/////////////////////
+  ERR_CODE_SYSTEM_TIMEOUT                             = 10000; //内部超时 system timeout
+  ERR_CODE_SYSTEM_DATABASE_ERROR                      = 10001; //数据库错误 error
+  ERR_CODE_MSG_PARAM_ERROR                            = 10002; //客户的协议参数错误
+
+  /////////////10100-10200的登录错误/////////////////////
+  ERR_CODE_ACCOUNT_PASSWORD_ERROR                     = 10101; //您的账号不存在或者密码输入有误，请查证后再次尝试登录！
+  ERR_CODE_NEED_RELOGIN		                          = 10102; //需要重新登录
+  ERR_CODE_ACCOUNT_NOT_EXIST		                  = 10103; //账号不存在
+  ERR_CODE_PLAYER_NOT_EXIST                           = 10104; //玩家不存在
+  ERR_CODE_TOKEN_ERROR		                          = 10106; //Token错误
+  ERR_CODE_TOKEN_TIMEOUT                              = 10107; //Token超时
+  ERR_CODE_ACCOUNT_ALREADY_EXIST_NO_RESITER           = 10108; //账号已存在,不能注册!
+  ERR_CODE_BIND_PHONE_ALREADY                         = 10109; //手机号码已经存在，请换一个手机号！
+  ERR_CODE_PHONE_AUTO_CODE_ERROR                      = 10110; //验证码错误！
+  ERR_CODE_PHONE_AUTO_CODE_TIMEOUT                    = 10111; //验证码获取超时，请重新获取！
+  ERR_CODE_PHONE_SEND_TOO_MUCH                        = 10112; //发送太过频繁
+  ERR_CODE_PHONE_NOT_RIGHT                            = 10113; //手机号码不正确！
+  ERR_CODE_PHONE_ALREADY_BIND                         = 10114; //该手机号已经绑定了其他账号，无法重复绑定！
+  ERR_CODE_VISITOR_LOGIN_DEVICE_ERROR                 = 10115; //游客登陆不能更换设备，设备号不对
+  ERR_CODE_PASSWORD_NOT_CHANGE                        = 10120; //修改的新密码不能和旧密码相同！
+  ERR_CODE_OTHER_PLACE_LOGIN_ACCOUNT                  = 10121; //你的账号在别处登录,你被踢下线
+  ERR_CODE_USER_IS_BAN                                = 10122; //你的账号被封，禁止登录
+  ERR_CODE_USER_IS_NO_TRANSFER                        = 10123; //你的账号被禁止转账
+  ERR_CODE_USER_AGENT_DEAD_CYCLE                      = 10124; //玩家代理的上级中有你，代理死循环
+
+  /////////////10200-10300的世界服务器错误/////////////////////
+  ERR_CODE_PLAYER_OFFLINE                             = 10200; //玩家不在线
+  ERR_CODE_WORLD_MAX_PLAYER_COUNT                     = 10201; //今天游戏的玩家超越了最大玩家数目
+  ERR_CODE_GAME_ROOM_NOT_ONLINE                       = 10202; //维护中
+  ERR_CODE_GAME_ROOM_NOT_EXIST                        = 10203; //游戏房间错误!
+  /////////////10300-11000的逻辑服务器错误  邮箱 银行 排行榜/////////////////////
+  ERR_CODE_MAIL_CANT_DEL_NO_READ                      = 10300; //不能删除未读邮件
+  ERR_CODE_ROLE_MAIL_NOT_FIND                         = 10301; //邮件不存在
+  ERR_CODE_GET_MAIL_FAIL                              = 10304; //获取邮件失败
+  ERR_CODE_READ_MAIL_FAIL                             = 10305; //读取邮件失败
+  ERR_CODE_DEL_MAIL_FAIL                              = 10306; //删除邮件失败
+
+  ERR_CODE_BANK_PASSWORD_NOT_RIGHT                    = 10400; //银行密码错误！
+  ERR_CODE_BANK_PASSWORD_FORMAT_NOT_RIGHT             = 10401; //银行密码格式错误！
+  ERR_CODE_FACE_NOT_EXIST                             = 10402; //修改头像失败！
+  ERR_CODE_BANK_GIVE_MONEY_NOT_TO_MYSELF              = 10403; //不能给自己赠送金币
+  ERR_CODE_IN_GAMEING_NOT_BANK                        = 10404; //游戏中，不能进行此操作
+  ERR_CODE_FIRST_BIND_PHONE                           = 10405; //请先绑定手机号码
+  ERR_CODE_BANK_NOT_VIP_ZHUAN_NOT_VIP                 = 10406; //普通玩家之间不能相互联系
+  ERR_CODE_BANK_DRAW_MIN_JETTON                       = 10407; //转账金额小于最小额度
+
+  ERR_CODE_MODIFY_MONEY_LESS_ZERO                     = 10501; //扣除的金币小于等于0
+  ERR_CODE_MODIFY_MONEY_TIMEOUT                       = 10502; //修改金币超时
+  ERR_CODE_PLAYER_ALREADY_BIND_PHONE                  = 10503; //玩家已经绑定了手机号码，请勿重复绑定
+  ERR_CODE_PLAYER_DONOT_CHANGE_PHONE                  = 10504; //绑定手机号码的过程中不能更换其他手机号码，1分钟后再试
+  ERR_CODE_PLAYER_PHONE_AUTO_CODE_TOO_MUCH            = 10505; //申请太过于频繁, 一分钟只能一次
+
+  ERR_CODE_EXIT_NOT_PERMITED_WHILE_PLAYING            = 10600; //游戏中不充许退出
+
+  EOT_CODE_REDEEM_CODE_USED                           = 10700; // 点卡已经被使用
+  EOT_CODE_REDEEM_CODE_NOT_EXIST                      = 10701; // 点卡不存在
+  EOT_CODE_REDEEM_CODE_UNREG_USER                     = 10702; // 未注册用户不能使用体验卡
+  EOT_CODE_REDEEM_CODE_HAS_USED                       = 10703; // 此用户已使用过体验卡
+
+
+  /////////////11000-12000的游戏服务器错误/////////////////////
+  ERR_CODE_USER_MONEY_NOT_ENOUGH					  = 11000; //金币不够，玩法进入房间，是否立即跳转充值！
+  ERR_CODE_USER_IN_GAMEING                            = 11001; //当前游戏状态无法退出
+  ERR_CODE_CHAIR_HAS_OTHER_PLAYTER                    = 11002; //此座位已被玩家占用，请选择其他座位
+  ERR_CODE_CHAIR_NOT_RIGHT                            = 11003; //座位错误
+  ERR_CODE_USER_MONEY_TOO_MUCH              		  = 11004; //玩家等级过高,不能进入此房间
+  ERR_CODE_DESK_NOT_EXIST                   		  = 11005; //桌子错误
+}
+
+
+// 账号类型
+enum Proto_AccountType {
+  E_VISITOR       = 0;
+  E_ACCOUNT   = 1;
+  E_WECHAT		= 2;
+  E_PHONE			= 3;
+  E_ROBOT     = 10;
+};
+
+// 性别
+enum Proto_SexType {
+  E_MALE          = 0;
+  E_FEMALE        = 1;
+}
+
+// 平台类型
+enum Proto_PlatType {
+  E_PLAT_NONE		= 0;
+  E_PLAT_ANDROID  = 1;
+  E_PLAT_IOS      = 2;
+  E_PLAT_WP       = 3;
+  E_PLAT_MAX 		= 4;
+}
+
+// 网络类型
+enum Proto_NetworkType {
+  E_NETWORK_2G    = 0;
+  E_NETWORK_3G    = 1;
+  E_NETWORK_4G    = 2;
+  E_NETWORK_WIFI  = 3;
+}
+
+//登录状态
+enum Proto_PlayerCreateState
+{
+  E_CREATE_SUCESS = 0;
+  E_CREATE_REGIST_NAME = 1;
+  E_CREATE_WAIT_NAME = 2;
+}
+
+enum PlayerStatus
+{
+  PLAYER_STATUS_NONE = 0;
+  PLAYER_STATUS_ONLINE = 1;
+  PLAYER_STATUS_OFFLINE = 2;
+  PLAYER_STATUS_LOGOUT = 3;
+  PLAYER_STATUS_DEAD = 4;
+}
+
+enum enConstType
+{
+  EN_CONST_NONE													= 0;
+  EN_CONST_USER_INIT_JETTON 						= 1	 [(yd_fieldoptions.field_enum_cname) = "玩家初始赠送金币"];
+  EN_CONST_USER_INIT_FACE 							= 2	 [(yd_fieldoptions.field_enum_cname) = "玩家初始头像"];
+  EN_CONST_USER_INIT_BANK_JETTON 				= 3	 [(yd_fieldoptions.field_enum_cname) = "玩家初始银行密码"];
+  EN_CONST_USER_ACH_WITH_FEE		 				= 4	 [(yd_fieldoptions.field_enum_cname) = "=0 抽水算个流水， =1 抽水不算流水"];
+  EN_CONST_USER_FEE_WITH_POUR 				  = 5	 [(yd_fieldoptions.field_enum_cname) = "=0时为不加本金的抽水， =1时为加上本金的抽水"];
+  EN_CONST_USER_MIN_BANK_DRAW 				  = 6	 [(yd_fieldoptions.field_enum_cname) = "非VIP转VIP最小转账额度"];
+}
+
+//账号币种类型枚举定义
+enum eAccountMoneyType
+{
+  E_ACCOUNT_TYPE_JETTON  = 0;		//游戏币类型
+  E_ACCOUNT_TYPE_BANK_JETTON      = 1;		//银行类型
+  E_ACCOUNT_TYPE_MAX = 2;
+};
+
+enum eChangeMoneyType
+{
+  E_CHAGEMONEY_GAME_ADD                    = 0;          //游戏中增加金币
+  E_CHAGEMONEY_GAME_REMOVE                 = 1;          //游戏中减少金币
+  E_CHAGEMONEY_GAME_ADD_GM                 = 2;         //有点控情况下的增加金币
+  E_CHAGEMONEY_GAME_REMOVE_GM              = 3;         //有点控情况下的减少金币
+  E_CHAGEMONEY_BANK_SAVE_MONEY_REMOVE			 = 4;				 //存款到银行
+  E_CHAGEMONEY_BANK_GET_MONEY_ADD          = 5;				 //从银行取款
+  E_CHAGEMONEY_MAIL_ADD          					 = 6;				 //邮件中获取
+  E_CHAGEMONEY_GIVE_JETTON_TO_OTHER_REMOVE = 7;				 //赠送筹码给别人
+  E_CHAGEMONEY_OTHER_GEVE_JETTON_TO_ME_ADD = 8;				 //别人赠送筹码给我
+  E_CHAGEMONEY_TYPE_MAX = 9;
+};
+
+enum eOperationType
+{
+  E_USER_JETTON_OPER_TYPE_GAME_BALANCED_WIN   = 0; //游戏结算
+  E_USER_JETTON_OPER_TYPE_GAME_BALANCED_LOST   = 1; //游戏结算
+  E_USER_JETTON_OPER_TYPE_EXCHANGE            = 2; //币种兑换
+  E_USER_JETTON_OPER_TYPE_TRANSFER            = 3;  //转账
+  E_USER_JETTON_OPER_TYPE_RECHARGE            = 4;  //充值
+  E_USER_JETTON_OPER_TYPE_WEB_DEDUCT_NONEY        = 5; //WEB减币
+  E_USER_JETTON_OPER_TYPE_WEB_GIVE_MONEY          = 6; //WEB加币
+  E_USER_JETTON_OPER_TYPE_GIVE_JETTON					= 7; //赠送
+  E_USER_JETTON_OPER_TYPE_DRAW = 8; //提现
+  E_USER_JETTON_OPER_TYPE_MAX = 9;
+}
+
+enum eDrawReasonType
+{
+  E_RECHARGE_PAY_TYPE_VIP_DRAW	= 1; //VIP
+}
+
+//充值时的支付类型
+enum eRechargeResonType
+{
+  E_RECHARGE_PAY_TYPE_VIP_RECHARGE	= 1; //VIP
+  E_RECHARGE_PAY_TYPE_WEB_ZHUANGZHANG_PLATFORM       = 2;		//平台web手动充值
+  E_RECHARGE_PAY_TYPE_POINTCARD      = 3;		//点卡
+  E_RECHARGE_PAY_TYPE_ALIPAY         = 4;		//支付宝
+  E_RECHARGE_PAY_TYPE_TENPAY         = 5;		//财付通微支付
+  E_RECHARGE_PAY_TYPE_APPLE          = 6;     //苹果支付
+  E_RECHARGE_PAY_TYPE_YINGYONGBAO    = 7;     //应用宝支付(米大师)
+};
+
+enum eGameBalanceOperationWinReason
+{
+  E_GAME_BALANCE_REASON_PLAY_GAME_WIN       = 0; //游戏博弈win
+  E_GAME_BALANCE_REASON_TYPE_DO_LOTTERY_WIN     = 1;   //赢局或赢分后抽奖消耗
+  E_GAME_BALANCE_REASON_WIN_MAX = 2;
+}
+
+enum eGameBalanceOperationLostReason
+{
+  E_GAME_BALANCE_REASON_PLAY_GAME_LOST      = 0;	//参与游戏消耗
+  E_GAME_BALANCE_REASON_TYPE_DO_LOTTERY_LOST     = 1;   //赢局或赢分后抽奖消耗
+  E_GAME_BALANCE_REASON_LOST_MAX = 2;
+}
+
+enum eGiveMoneyReason
+{
+  E_GIVE_MONEY_REASON_WEB_SYSTEM         = 0;  //Web直接赠送
+  E_GIVE_MONEY_REASON_PROMOTE        = 1;  //推广活动赠送
+  E_GIVE_MONEY_REASON_FIRST_RECHARGE = 2;  //首次充值赠送
+  E_GIVE_MONEY_REASON_BUY_PROP       = 3;  //购买道具或者道具包赠送
+
+  E_GIVE_MONEY_SHARE_GAME            = 4;  //用户分享游戏, 赠送
+  E_GIVE_MONEY_REASON_RECLAIM_PROP   = 5;  //回收道具赠送
+  E_GIVE_MONEY_REASON_FIRST_REGISTER = 6;  //首次注册赠送
+  E_GIVE_MONEY_REASON_PLAT_USER_CHANGE_TO_AGENT_USER = 7; //平台用户通过推荐码成为代理的下线用户
+  E_GIVE_MONEY_REASON_FINISH_TASK    = 8;  //完成任务, 赠送任务奖励
+  E_GIVE_MONEY_REASON_RELIF_FUND     = 9; //救济金赠送
+  E_GIVE_MONEY_REASON_EVERYDAY_LOGIN_COMMERCE = 10; //商务产品，每日登陆赠送金币
+  E_GIVE_MONEY_REASON_COMPLETE_USER_INFO      = 11; //品牌电玩, 完善用户信息赠送
+  E_GIVE_MONEY_REASON_TOOL_CMD                    = 12; //手动修改
+  E_GIVE_MONEY_REASON_PROMOTE_PROFIT              = 13; //推广收益, (推广员在后台领取收益, 直接走后台加币接口)
+  E_GIVE_MONEY_REASON_MAX = 14;
+}
+
+//币种兑换原因
+enum eMoneyExchangeReason
+{
+  E_EXCHANGE_REASON_SAVE_MONEY = 0;
+  E_EXCHANGE_REASON_DRAW_MONEY = 1;
+  E_EXCHANGE_REASON_MAX = 2;
+};
+
+//转账原因
+enum eMoneyTransferReason
+{
+  E_TRANSFER_REASON_USER = 0; //用户主动转账
+  E_TRANSFER_REASON_FROM_USER = 1; //接受用户主动转账
+  E_TRANSFER_REASON_VIP_ZHUANRU = 2; //vip 转入
+  E_TRANSFER_REASON_VIP_ZHUANCHU = 3; //VIP 转出
+  E_TRANSFER_REASON_VIP_TO_VIP = 4; //VIP 转 VIP
+  E_TRANSFER_REASON_MAX = 5;
+};

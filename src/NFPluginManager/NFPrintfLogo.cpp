@@ -39,7 +39,7 @@ std::string PrintfLogo()
 	ios << "--Server=AllServer Load the AllServer plugin when programs be launched" << std::endl;
 	ios << "--ID=number(0) Load the number Server when programs be launched" << std::endl;
 	ios << "--PATH=../Config Load the Config Path when programs be launched" << std::endl;
-	ios << "--LuaScript=../ScriptModule Load the Config Path when programs be launched" << std::endl;
+	ios << "--LuaScript=../LuaScript Load the Config Path when programs be launched" << std::endl;
 	ios << "--LogPath=./spdlog Load the Config Path when programs be launched" << std::endl;
 	ios << "Input '--Exit' Programs will exit when it runs" << std::endl;
 	ios << "Input '--Reload' Programs will reload plugin config when it runs" << std::endl;
