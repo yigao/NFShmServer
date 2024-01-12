@@ -1,0 +1,55 @@
+package progame;
+
+
+message soltinfo
+{
+	optional int32 fruittype = 1;  //老虎机下注的类型
+	optional int32 pooljetton = 2; //
+}
+
+message soltplayer
+{
+	optional int32 userid = 1;
+	optional int32 fruittype = 2;
+	optional string fruitdate = 3;
+	optional int32 betjetton = 4;     //玩家投注的总额
+	optional int32 recvjetton = 5;    //玩家中奖数总额
+	optional int32 breakret = 6;      //破产保护次数
+	optional int32 continuous = 7;    //连中次数
+	optional int32 retamount = 8;     //触发补偿的下注次数
+	optional int32 retjetton = 9;     //补偿筹码统计
+	optional int32 freeamount = 10;   //免费水果机次数
+}
+
+message soltwin   //该结构是用于保存
+{
+	optional int32 awardtype = 1;   //奖励的类型
+	optional int32 marknum = 2;     //随机次数的上线
+	optional int32 amount = 3;      //记录摇牌的次数
+	optional int32 iswin = 4;       //记录是否已经出奖
+}
+
+message soltuser
+{
+	optional int32 id = 1;
+	optional int32 fruittype = 2;   //类型
+	repeated soltwin fwlist = 3;     //记录玩牌的次数
+	optional int32 maxaction = 4;   //该类型最大的玩牌次数
+	optional int32 pourjetton = 5;  //该类型玩家下注的筹码
+	optional int32 winjetton = 6;   //该类型玩家赢的筹码
+	optional int32 wintype1 = 7;    //摇出的次数
+	optional int32 wintype2 = 8;    //要出的次数
+	optional int32 wintype3 = 9;    //要出的次数
+	optional int32 wintype4 = 10;    //
+	optional int32 wintype5 = 11;    //
+	optional int32 wintype6 = 12;    //
+	optional int32 wintype7 = 13;    //
+	optional int32 wintype8 = 14;    //
+	optional int32 wintype9 = 15;    //
+}
+
+message soltuserlist
+{
+	optional int32 userid = 1;
+	repeated soltuser fulist = 2;
+}

@@ -1,0 +1,164 @@
+package progame;
+import "st_human.proto";
+
+// 配置-鱼类项
+message yqsconffish {
+    optional int32 type = 1;            // 类型
+    optional int32 enable = 2;          // 是否开启;1开启;0不开启;
+    optional int32 width = 3;           // 宽度
+    optional int32 height = 4;          // 高度
+    optional int32 pathtype = 5;        // 路径类型
+    optional int32 scoretype = 6;       // 分数类型(1筹码)
+    optional string score = 7;          // 得分
+}
+
+// 配置-炮台
+message yqsconfcannon {
+    optional int32 type = 1;            // 炮台类型
+    optional int32 width = 2;           // 命中范围-宽度
+    optional int32 height = 3;          // 命中范围-高度
+    optional float speed = 4;           // 子弹速度
+    optional int32 tubenum = 5;         // 炮管数量
+    optional string jetton = 6;         // 子弹筹码价格
+    optional int32 money = 7;           // 子弹钻石价格
+    optional int32 givejetton = 8;      // 购买子弹,赠送筹码
+}
+
+message yqsconfitem {
+    optional int32 type = 1;            // 类型
+    optional string name = 2;            // 名称
+    optional int32 consumetype = 3;     // 消耗类型
+    optional int32 consume = 4;         // 消耗数量
+}
+
+// 配置
+message yqsgameconf {
+    repeated yqsconffish fishlist = 1;         // 鱼类配置
+    repeated yqsconfcannon cannonlist = 2;     // 炮台配置
+    optional float fireinterval = 3;            // 每次开火的时间间隔
+    optional int32 ionneedpower = 4;            // ion need power   能量炮需要多少能量
+    optional int32 rangebombradius = 5;         // range bomb radius 爆炸范围半径(导弹技能)
+    optional float freezetime = 6;              // freeze time 冰冻时间
+    repeated yqsconfitem itemlist = 7;         // 物品配置
+    optional float freezecooldown = 8;          // 冰冻技能冷却时间
+    optional float locktime = 9;                // lock time 锁定技能持续时间(秒)
+    optional float lockcooldown = 10;           // 锁定技能冷却时间(秒)
+}
+
+// 游戏中-鱼类项
+message yqscreatefish {
+    optional int32 type = 1;                // 类型
+    optional int32 id = 2;                  // 唯一编号
+    optional int32 pathid = 3;              // 游走路径ID
+    optional int32 pathtype = 4;            // 路径类型
+    optional int32 width = 5;               // 宽度
+    optional int32 height = 6;              // 高度
+    optional float offsetx = 7;             // 偏移X
+    optional float offsety = 8;             // 偏移Y
+    optional float delay = 9;
+    optional float elaspe = 10;             // 鱼出生到现在的时间(秒)
+    optional float speed = 11;              // 速度
+    optional double borntime = 12;           // 鱼出生时的时间戳
+    optional int32 data = 13;               // 分组ID;0为没有分组;例如三人鱼, 四人鱼
+    optional int32 score = 14;              // 得分
+    optional int32 attrid = 15;             // 一网打尽
+    optional int32 chairid = 16;            // 0表示普通鱼;0-3表示红包鱼
+    optional float lifecycle = 17;          // 生命周期(秒)
+}
+
+// 游戏中-子弹项
+message yqscreatebullet
+{
+    optional int32 cannontype = 1;          // 炮台类型
+    optional int32 id = 2;                  // 唯一编号
+    optional float speed = 3;               // 子弹速度
+    optional float posx = 4;                // X轴位置
+    optional float posy = 5;                // Y轴位置
+    optional float direction = 6;           // 方向
+    optional int32 elaspe = 7;              // 消失时间
+
+    optional int32 itemid = 8;              // 
+    optional int32 fishid = 9;
+    optional int32 mul = 10;                // 子弹倍数
+    optional int32 new = 11;                // 是否为新子弹;0旧的;1新的
+    optional int32 tubenum = 12;            // 炮管数量
+}
+
+// 物品
+message yqsitem
+{
+    optional int32 itemid = 1;
+	optional int32 slotid = 2;
+    optional int32 itemnum = 3;
+    optional int32 type = 4;
+}
+
+// 玩家信息
+message yqsuser {
+	optional int32 userid = 1;
+	optional int32 chairid = 2;			                // 座位编号
+    optional string nickname = 3;                       // 昵称
+    optional string faceid = 4;                         // 头像ID
+    optional int32 sex = 5;                             // 性别
+    optional string jetton = 6;                         // 筹码
+    optional string money = 7;                          // 钻石
+    optional int32 isrobot = 8;                        // 是否是机器人
+    optional int32 cannontype = 9;                      // 炮台类型
+    optional int32 cannonlv = 10;                       // 炮台等级
+    optional string bank_jetton = 11;                   // 银行存款
+    optional int32 state = 12;                          // 状态
+    repeated int32 cannonlist = 13;                     // 可以使用的炮台类型列表    
+    repeated yqscreatebullet createbulletlist = 14;    // 子弹列表,玩家已发射出的子弹
+    repeated yqsitem backpack = 15;                    // 背包
+    optional int32 tubenum = 16;                        // 炮管数量
+    optional int32 cannonmul = 17;			            // 炮台倍数
+    optional double lastfiretime = 18;                  // 最后一次开火的时间
+}
+
+message yqsuseitem
+{
+    optional int32 userid = 1;          // 使用物品的玩家
+    optional int32 type = 2;            // 物品类型
+    optional double time = 3;            // 使用时间
+}
+
+// 桌子信息
+message yqsinfo
+{
+	optional int32 tableid = 1;			// 桌子编号
+	optional int32 tabletype = 2;		// 桌子类型
+	optional int32 state = 3;       	// 状态
+	optional int32 timemark = 4;     	// 时间标签
+    optional string minenter = 5;   	// 最小进入
+    optional string maxenter = 6;       // 最大进入
+	//optional int32 bankerid = 7;       	// 庄家ID
+	//optional string bankerjetton = 8;   // 庄家的筹码
+	//optional string bankername = 9;		// 庄家名称
+	//optional string bankerfaceid = 10;	// 庄家头像
+	//optional string bankerlimit = 11;	// 上庄限制
+	//optional int32 dropbanker = 12;   	// 庄家是否申请下庄
+    optional int32 maxuser = 13;        // 房间人数上限
+
+	repeated yqsuser situser = 14;                 // 有座玩家
+	repeated int32 standuser = 15;			        // 无座玩家
+    repeated yqscreatefish createfishlist = 16;    // 鱼的列表
+    optional int32 cursceneid = 17;                 // 当前场景ID
+    optional int32 presceneid = 18;                 // 上一个场景ID
+
+    optional int32 nextfishid = 19;                 // 下一条鱼的ID
+    repeated yqsuseitem useitemlist = 20;          // 使用物品的列表
+    optional int32 shoalpathtype = 21;              // 当前鱼潮的路径, 如果这个值为0,则说明当前不在鱼潮的状态
+    optional double systime = 22;                   // 获取这个信息时的系统时间
+
+    optional int32 fishcfgid = 23;                  // 鱼配置编号 仅用于服务端
+    optional int32 fishcfgnextidx = 24;             // 仅用于服务端
+}
+
+message yqscatchfish
+{
+	optional int32 id = 1;
+	optional int32 scoretype = 2;		// 分数类型
+	optional int32 score = 3;			// 得分
+	optional int32 scoremul = 4;        //得分倍数，用于显示特效
+}
+

@@ -1,0 +1,150 @@
+package progame;
+
+
+message agentinfo   //绑定后属于我的代理的信息
+{
+	optional int32 userid = 1;    //我自己的ID
+	optional string invitestr = 2;   //邀请码
+	optional int32 level = 3;      //我自己的级别，0：玩家，1:1级代理，2,：2级代理，99：总代
+	optional int32 soleagent = 4;  //绑定我的总代
+	optional int32 agent1 = 5;     //我的上级代理
+	optional int32 agent2 = 6;     //我的上上级代理
+	optional int32 agent3 = 7;     //我的上上上级代理
+	optional int32 agent4 = 8;     //我的上上上上级代理
+	optional string qrcodeurl = 10;       //二维码链接，前端从这里取得二维码分享的图片
+	optional string datemark = 11;        //记录时间统计的标签
+	optional int32 moneymark = 12;        //记录钱的总额的标签
+	optional int32 weekmoney = 13;         //周统计的记录
+	optional string exclusiveurl = 14;    //专属链接
+	optional string alipay = 15;	
+	optional string bankaccount = 16;	
+	optional int32 wiringid = 17;     //排线码ID
+	optional int32 grade = 18;        //排线等级
+}
+
+message wiringinfo    //排线的数据信息
+{
+	optional int32 id = 1;   //排线的ID
+	optional string name = 2;      //排线的名称
+	optional int32 ownerid = 3;    //排线的所有者ID
+	optional int32 maxnum = 4;     //最大人数
+	optional int32 currnum = 5;    //当前排线数量
+	optional int32 usernum = 6;    //当前玩家数量
+	optional string createdate = 7;   //创建日期
+	optional int32 newaddnum = 8;     //最新加入人数
+	optional string qrcodeurl = 9;    //二维码分享地址
+}
+
+message wiringdayachieve   //保存用户的每日业绩
+{
+	optional string datestr = 1;
+	optional int32 allach = 2;  //日总业绩
+	optional int32 teamach = 3;   //日团队业绩
+	optional int32 selfach = 4;    //日个人业绩
+	optional string allach_1 = 5;  //日总业绩
+	optional string teamach_1 = 6;   //日团队业绩
+	optional string selfach_1 = 7;   //日团队业绩
+	optional int32 getrate = 8;   //返佣比例
+	optional int32 getmoney = 9; //收益
+	optional string fivelevel_ach = 10; //五级业绩
+}
+
+message wiringawardinfo     //排线中，得到的奖励的数据
+{
+	optional int32 awardid = 1;
+	optional int32 userid = 2;
+	optional string datestr = 3;
+	optional string weekallach = 4;
+	optional string weekteamach = 5; 
+	optional string weekselfach = 6;
+	optional string awardnum = 7;
+	optional int32 state = 8;    // 1: 发起申请，2：申请发放
+	optional string realhair = 9; //实发奖励
+	optional string preissue = 10; //已预支
+}
+
+message wiringwithdrawinfo   //排线中，提现的信息
+{
+	optional string drawid = 1;		//单号
+	optional int32 userid = 2;		
+	optional string datestr = 3;	//时间
+	optional string amount = 4;		//金额
+	optional int32 drawtypw = 5;    //提现类型
+	optional string account = 6;    //提现账号
+	optional int32 state = 7;      //提现状态
+}
+
+message wiringuserinfo      //代理的信息
+{
+	optional int32 id = 1;
+	optional int32 userid = 2;
+	optional int32 wiringid = 3;
+	optional string createdate = 4;
+	optional int32 prelevel = 5;
+	optional int32 level = 6;
+	optional string allperformance = 7;    //总业绩=直属业绩+团队业绩
+	optional string selfperformance = 8;   //个人业绩，自己刷的流水
+	optional string directperformance = 9;   //直属玩家业绩
+	optional string teamperformance = 10;     //团队业绩
+	
+	optional int32 allincome = 12;      //总收入
+	optional int32 getincome = 13;      //可提取收入
+	optional int32 allpreincome = 14;   //总预提收入
+	optional int32 getpreincome = 15;	//可预提收入
+}
+
+message fenchengdayinfo   //每日分成信息
+{
+	optional string datestr = 1;
+	optional int32 allincome = 2;  //总收入   ，理论上不会超过2千万一天
+	optional int32 teamincome = 3;   //团队收入
+	optional int32 dirincome = 4;    //直属收入
+}
+
+message fenchengweekinfo     //每一周玩家杀数的分成
+{
+	optional int32 awardid = 1;
+	optional int32 userid = 2;
+	optional string datestr = 3;
+	optional string weekallnum = 4;   //周分成总额
+	optional string weekteamnum = 5;   //
+	optional string weekdirnum = 6;    //直属分成总额
+	optional string awardincome = 7;
+	optional int32 state = 8;    // 1: 发放中，2：发放成功
+	optional string realincome = 9; //奖励金额
+	optional string preincome = 10; //已预支
+	optional int32 weekpayall = 11; // 周付费总额
+	optional int32 cfrate = 12;    //分成比例
+}
+
+
+message wiringdaybonus   //保存用户的每日业绩分红
+{
+	optional string datestr = 1;
+	optional string ach = 2;  //日总业绩
+	optional int32 level = 3;   //等级
+	optional int32 rate = 4; //比例
+	optional string bonus = 5; //分红等级
+}
+
+message wiringcostweekbonus   //保存用户的每周分红
+{
+	optional string datestr = 1;
+	optional int32 allwin = 2;  //输赢
+	optional int32 bonus_rate = 3;   //分红比例
+	optional int32 self_bonus = 4;    //权益分红
+	optional int32 agent_bonus = 5;  //推荐分红
+	optional int32 all_bonus = 6;   //总分红
+	optional int32 status = 7;   //日团队业绩
+}
+
+message wiringagentcostweekbonus   //保存用户的每周分红
+{
+	optional string datestr = 1;
+	optional int32 agent_id = 2;
+	optional string agent_name = 3;  //输赢
+	optional int32 bonus_rate = 4;   //分红比例
+	optional int32 self_bonus = 5;    //权益分红
+	optional int32 agent_bonus = 6;  //推荐分红
+	optional int32 status = 7;   //日团队业绩
+}

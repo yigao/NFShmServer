@@ -1,0 +1,36 @@
+package progame;
+import "st_human.proto";
+
+//水果机
+
+message fruitinfo
+{
+	optional int32 tableid = 1;
+	optional int32 tabletype = 2;
+	optional int32 minjetton = 3;   //最小进入
+	optional int32 maxjetton = 4;   //最大进入
+	optional int32 state = 5;       //状态
+	optional int32 timemark = 6;     //时间标签
+	repeated int32 useridlist = 7;   //玩家列表
+	
+	repeated int32 bankerlist = 9;  //申请上庄的列表
+	optional int32 winid = 10;      //最后选中的ID类别
+	//optional int32 wincolourindex = 11;  //colourlist 中的ID索引,这个也不用
+	repeated int32 history = 12;         //历史记录的列表，只记录12个
+	
+	optional int32 bankerid = 13;       //庄家ID
+	optional string bankerjetton = 14;   //上庄的筹码， 这个是int64的数据，由于PBC的问题，所以用string来表示
+	optional string bankername = 15;
+	optional string bankerfaceid = 16;
+	optional int32 bankerlimit = 17;
+	optional int32 dropbanker = 18;   //庄家是否申请下庄
+	optional int32 maxrobotnum = 19;    //机器人的限制
+	optional int32 robotnum = 20;
+}
+
+message fruitpour   //玩家下注的信息
+{
+	optional int32 userid = 1;       //用户的ID
+	optional int32 pourid = 2;       //下注的ID
+	optional int32 pourjetton = 3;   //下注的金额
+}

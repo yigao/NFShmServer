@@ -1,0 +1,61 @@
+package progame;
+
+//该文件是专门用于存放奖池的结构
+//针对奖池的方案，现在分为两种。
+//比牌玩法中，玩家和玩家比，不用管理奖池，玩家和机器人比，安装奖池概率来，机器人和机器人比。不用处理奖池
+//百人玩法中：分两套奖池。1：系统当庄，系统和玩家比，看奖池的情况。系统和机器人比。看机器人奖池的情况
+//百人玩家中，玩家当庄，玩家和玩家比，不用处理奖池。机器人和玩家比，看系统奖池的情况
+
+
+//先暂时设计
+message pondinfo
+{
+	optional int32 pondid = 1;   //针对数据库中奖池的ID
+	optional int32 gametype = 2;    //游戏的类型
+	optional string jiangjetton = 3;      //奖池的数量,用string表示int64的数据类型
+	optional string caijetton = 4;        //彩池的数量,用string表示int64的数据类型
+	optional int32 tabletype = 5;        //牌桌类型，初级，中级，高级
+	optional int32 level_1 = 10;      //第一档奖池的额度
+	optional int32 rate_1 = 11;        //第一档奖池玩家赢钱的概率
+	
+	optional int32 level_2 = 12;     //第二档奖池的额度
+	optional int32 rate_2 = 13;      //第二档奖池的概率
+	
+	optional int32 level_3 = 14;     //第三档奖池的额度
+	optional int32 rate_3 = 15;      //第三档的概率
+	
+	optional int32 level_4 = 16;     //第四档奖池的额度
+	optional int32 rate_4 = 17;      //第四当奖池的额度
+	optional int32 taxrate = 18;     //税率
+	optional string taxnum = 19;      //税收总和,用string表示int64的数据类型
+	optional int32 gradetype = 20;    //主要用用于捕鱼中的鱼的种类
+	optional string historywinpour = 21; //历史赢的总下注
+	optional string todaywinpour = 22;   //当日赢的总下注
+	optional string historytotalpour = 23; //历史总下注
+	optional string todaytotalpour = 24;   //当日总下注
+	optional int32 historywinrate = 25;    //历史胜率
+	optional int32 todaywinrate = 26;      //当日胜率
+	optional int32 huan_0 = 27;
+	optional int32 huan_1 = 28;
+	optional int32 huan_2 = 29;
+	optional int32 huan_3 = 30;
+	optional int32 huan_4 = 31;
+	optional int32 cur_level = 32;		//当前奖池的档次, 小于1当为0， 1 2 3 4
+	optional int32 cur_lun_count = 33;	//五轮为一个循环，当前循环次数
+	optional int32 cur_bi_huan = 34;	//必换次数
+}
+
+message legalinfo     //暂时把这个结果放在这里，后面会修改该文件的名字
+{
+	optional int32 id = 1;
+	optional string legalkey = 2;
+	optional string param1 = 3;
+	optional string param2 = 4;
+	optional string param3 = 5;
+	optional string param4 = 6;
+	optional string legalsign = 7;
+	optional string state = 8;
+	optional string cardlist = 9;
+}
+
+

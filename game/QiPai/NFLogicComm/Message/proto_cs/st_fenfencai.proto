@@ -1,0 +1,92 @@
+package progame;
+import "st_human.proto";
+
+message fenfencaijetton
+{
+	optional int32 userid = 1;
+	optional int32 pourtype = 2; //下注的类型
+	optional int32 jetton = 3;   //筹码的多少
+}
+
+message fenfencaihangupinfo
+{
+	optional int32 losenum = 1;				//输的下限
+	optional int32 winnum = 2;				//赢的上限
+	optional int32 playNum = 3;				//局数
+	optional int32 playtype = 4;			//玩法选择: 1 押龙虎 2 押大小 3 押单双
+	optional int32 moduletype = 5;			//模式选择: 1 轮押模式 2 固定模式 3 跟押模式 4 反押模式
+	repeated string msgInfo = 6;			
+}
+
+message fenfencaiplayer
+{
+	optional int32 userid = 1;
+	optional int32 Choice = 2;				//选择号码
+	optional int32 nopournum = 3;			//连续不下注次数
+	repeated int32 pour_20 = 4;				//近20把的下注情况
+	repeated int32 win_20 = 5;				//近20把的赢输情况
+	optional int32 hangupstate = 6;			//1 正在挂机， 0 没挂机
+	optional fenfencaihangupinfo gj = 7;	//挂机的详情
+	optional int32 currentWin = 8;			//当前输赢
+	optional int32 currentplaynum = 9;		//当前局数
+	optional int32 currentinumber = 10; 	//当前期号
+}
+
+message fenfencaihistory
+{
+	optional string issuenumber = 3;  	//期号
+	optional string awardnumber = 4;  	//开奖号码
+	optional string awardresult = 5;  	//开奖结果
+}
+
+message fenfencaiinfo
+{
+	optional int32 tableid = 1;   			//牌桌id，固定
+	optional int32 state = 2;     			//状态
+	optional int32 timemark = 3;        	//时间标签
+	repeated int32 situser = 4;         	//对应位置的userID，总共6个长度，在第几个非0就表示该座位有玩家
+	repeated int32 bankerlist = 5;   		//庄家排队列表
+	repeated fenfencaiplayer standuser = 6; //站立的玩家的列表
+	optional int32 bankerid = 7;       		//庄家ID
+	optional string bankerjetton = 8;  		//庄家携带的筹码,用string表示int64的数据类型
+	optional string bankername = 9;			//庄家的昵称
+
+	optional int32 maxuser = 10;    		//最大人数
+	optional int32 applydrop = 11;      	//申请下庄
+	optional int32 tabletype = 13;      	//
+	
+	optional string bankerlimit = 14;		//上庄限制
+	optional int32 maxrobotnum = 15;    	//机器人的限制
+	optional int32 bankercount = 16;    	//当庄后的游戏局数
+	optional int32 robotbanuserid = 17;		//机器人上庄的id
+	
+	optional string issuenumber = 18;		//期号
+	optional string latelynumber = 19;		//上期开奖
+	optional int32 starttime = 20;			//开始投注时间
+	optional int32 endtime = 21;			//封盘时间
+	optional string faceid = 22;			//庄家头像
+	repeated string bankercountlist = 23;	//上庄列表携带金币数量
+	repeated fenfencaihistory thistory = 24;	//上庄列表携带金币数量
+	optional int32 suspend = 25;			//获取不到开奖结果等于1
+}
+
+message fenfencaijettonrecorinfo   
+{
+	optional int32 userid = 1;    //玩家
+	optional int32 jetton = 2;    //近20把的下注总数
+	optional int32 winnum = 3;    //近20把赢的次数
+	optional string jifen = 4;	  //积分
+	optional string nickname = 5;	  //昵称
+	optional string facename = 6;	  //头像
+	
+}
+
+message fenfencaiuseridhistory
+{
+	optional string issuenumber = 3;	//期号
+	optional string pour = 4;  			//下注区域
+	optional int32 jetton = 5;			//下注金额
+	optional string awardnumber = 6;	//开奖号码
+	optional string awardresult = 7;	//开奖结果
+	optional int32 winnum = 8;			//盈利情况
+}

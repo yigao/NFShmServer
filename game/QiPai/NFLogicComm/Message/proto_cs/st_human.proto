@@ -1,0 +1,245 @@
+package progame;
+
+message playerinfo
+{
+	optional int32 userid = 1;   //用户标识ID
+	optional string cid = 2;                 //用作判断手机标识的唯一字符串
+	optional string account = 3;
+	optional string password = 4;
+	optional string nickname = 5;
+	optional string regdate = 7;   //注册日期
+	optional int32 sex = 8;
+	optional int32 age = 9;
+	optional string email = 10;
+	optional string phonenum = 11;
+	optional int32 exp = 12;      //经验
+	optional int32 level = 13;    //等级
+	optional int32 viplevel = 14;   //vip等级
+	optional string jetton = 15;     //这是一个int64长度的数字，由于pbc不支持int64, 所以用string来代替
+	optional int32 gold = 16;       //金币，暂时先不用这个
+	optional int32 money = 17;      //钻石
+	optional string channel = 18;   //平台标识
+	optional string province = 19;       //省份
+	optional string city = 20;           //城市
+	optional int32 popularity = 21;      //魅力值
+	optional int32 idenstatus = 22;      //头像认证状态
+	optional int32 bindtype = 23;            //绑定类型
+	optional string bindnick = 24;            //实名认证消息
+	optional string platformid = 25;          //平台返回的标识ID
+	optional string imei = 26;
+	optional string devname = 27;             //设备号
+	optional string ip = 28;             //这个是IP
+	optional int32 mobiletype = 29;           //运营商
+	optional int32 lasttime = 30;             //上次登录时间
+	optional int32 penulttime = 31;           //倒数第二次登录
+	optional int32 silent = 32;               //是否禁言
+	optional int32 isban = 33;                //是否禁号，列入黑名单
+	optional string face_1 = 34;
+	optional string face_2 = 35;
+	optional string face_3 = 36;
+	optional string face_4 = 37;
+	optional int32 isrobot = 38;
+	optional int32 playtype = 39;           //玩家玩牌的类型：1:一般型，没有特点；2：小白型：全凭喜好。3：保守型，一定要拿到好牌才跟或者加注；4：激进型：一般有好牌就加注或者跟了。5：冒险型：非常喜欢诈唬，有好牌一定allin或者跟
+	optional string description = 40;       //个性签名
+	optional string location = 41;          //位置信息
+	optional string bankjetton = 42;        //这是一个int64长度的数字，由于pbc不支持int64, 所以用string来代替
+	optional string title = 43;             //称号
+	optional int32 blacklist = 44;
+	optional int32 propertyid = 45;         //玩家佩戴的物品ID
+	optional int32 ticket = 46;             //兑换券
+	optional string location_x = 47;        //经度
+	optional string location_y = 48;        //维度
+	optional string bank_password = 49;        // 银行密码 MD5
+	optional string bank_jetton = 50;     	 // 银行存款
+	optional int32 agent1 = 51;     //我的上级代理
+}
+
+message playerstats
+{
+	optional int32 userid = 1;
+	optional int32 mdynickamount = 2;     //修改昵称的次数
+	optional int32 loginday = 3;          //登录天数
+	optional int32 loginconday = 4;       //当前登录连续登录次数
+	optional int32 maxloginconday = 5;    //最大连续登录天数
+	optional int32 loginamount = 6;       //登录次数
+	optional int32 onlinetime = 7;        //在线时长，按照分钟算
+	optional string maxjetton = 8;        //最高拥有金币数量, 用string来代替int64的数据
+	
+
+	optional int32 payrmb = 9;   //付费总额
+	optional int32 callpayrmb = 10;  //调起付费总额
+	
+	optional int32 paytime = 11;  //付费次数
+	optional int32 callpaytime = 12;   //调起付费总额
+	
+	
+	optional int32 maxmoney = 13;   //最大的钻石数量
+	
+	optional int32 dayrmb = 14;   //今日日付费总额
+	optional int32 daypaytime = 15;   //今日付费次数
+	
+}
+
+
+
+message goodsinfo
+{
+	optional int32 itemid = 1;        //对应每一个具体物品的ID
+	optional int32 userid = 2;
+	optional int32 goodsid = 3;    //物品表中的id
+	optional int32 amount = 4;        //数量
+	optional int32 validity = 5;     //有效期
+	optional string createdate = 6;     //添加的日期
+	optional int32 iswear = 7;       //是否佩戴
+}
+
+message goodslist
+{
+	repeated goodsinfo glist = 1;
+}
+
+
+message noticeinfo
+{
+	optional int32 noticetype = 1;
+	optional int32 amount = 2;
+}
+
+message playersimpleinfo
+{
+	optional int32 userid = 1;   //用户标识ID
+	optional string nickname = 5;
+	optional int32 sex = 8;
+	optional int32 level = 13;      //等级
+	optional int32 viplevel = 14;   //vip等级
+	optional string jetton = 15;    //这是一个int64长度的数字，所以用string来代替int64数据类型
+	optional int32 gold = 16;       //金币，暂时先不用这个
+	optional int32 popularity = 21;     //魅力值
+	optional string ip = 31;
+	optional string face_1 = 34;
+	optional string location = 41;          //位置信息
+	optional int32 propertyid = 45;         //玩家佩戴的物品ID
+	optional string jifen = 99;              //这个是专门用来做竞赛用的。所以用string来代替int64数据类型
+	optional string location_x = 47;         //经度
+	optional string location_y = 48;         //维度
+}
+
+message broadcastinfo
+{
+	optional int32 id = 1;
+	optional int32 broadtype = 2;     //广播的类型，系统广播，小喇叭，水果机系统，幸运大转盘系统
+	optional int32 senderid = 3;
+	optional string sender = 4;
+	optional string msg = 5;
+	optional int32 broadtimes = 6;  //广播的次数，服务器用，例如有些得奖信息，广播几次就不会广播的了。
+	optional int32 validday = 7;    //广播有效期，一天:1，一个星期:7，一个月:30
+	optional string createtime = 8;  //广播创建的时间
+	optional int32 cycletype = 9;    //广播循环的类型：只播一次，没10分钟播一次
+}
+
+message mailinfo
+{
+	optional int32 mailid = 1;   //邮件ID
+	optional int32 senderid = 2; //发送者：1：是系统管理员;2:是GM管理员
+	optional string sender = 3;
+	optional int32 receiverid = 4;
+	optional string receiver = 5;
+	optional int32 mailtype = 6;   //1：GM管理员发给系统；2：GM管理员发给玩家；3：系统主动发给玩家
+	optional string title = 7;
+	optional string content = 8;
+	optional string senddate = 9;
+	optional string markdate = 10;
+	optional int32 mailstate = 11;
+	optional string externdata = 12;
+	optional string remark = 13;    //记录系统发送邮件的邮件ID
+	optional int32 validity = 14;   //邮件有效期
+}
+
+message maillist
+{
+	repeated mailinfo mlist = 1;
+}
+
+message inviteinfo    //这个是邀请码的信息
+{
+	optional int32 userid = 1;   //我自己的ID
+	optional int32 binduserid = 2;     //我邀请进来的玩家的ID
+	optional string bindnickname = 3;  //我邀请进来的玩家的昵称
+	optional string bindfaceid = 4;    //我邀请进来的玩家的头像
+	optional string binddate = 5;      //邀请绑定的时间
+}
+
+message agencyinfo   //绑定后属于我的代理的信息
+{
+	optional int32 userid = 1;    //我自己的ID
+	optional string invitestr = 2;   //邀请码
+	optional int32 level = 3;      //我自己的级别，0：玩家，1:1级代理，2,：2级代理，99：总代
+	optional int32 soleagent = 4;  //绑定我的总代
+	optional int32 agent1 = 5;     //我的上级代理
+	optional int32 agent2 = 6;     //我的上上级代理
+	optional int32 agent3 = 7;     //我的上上上级代理
+	optional int32 agent4 = 8;     //我的上上上上级代理
+	repeated inviteinfo invitelist = 9;   //我邀请的玩家的列表
+	optional string qrcodeurl = 10;       //二维码链接，前端从这里取得二维码分享的图片
+	optional string datemark = 11;        //记录时间统计的标签
+	optional int32 moneymark = 12;        //记录钱的总额的标签
+	optional int32 weekmoney = 13;         //周统计的记录
+	optional string exclusiveurl = 14;    //专属链接
+	optional string alipay = 15;	
+	optional string bankaccount = 16;
+	optional int32 wiringid = 17;     //排线码ID
+	optional int32 grade = 18;        //排线等级
+}
+
+message intlist
+{
+	repeated int32 ilist = 1;
+}
+
+message stringlist
+{
+	repeated string slist = 1;
+}
+
+message useraward
+{
+	optional int32 id = 1;
+	optional int32 awardtype = 2;    //登录奖励的类型：1：在线时长奖励；2：连续登录奖励；3：签到奖励
+	optional int32 count = 3;   //记录统计的情况
+	optional int32 timemark = 4;  //时间记录的标记
+	optional int32 state = 5;   //完成的状态，0是未完成，1是已完成，2是已过期
+}
+
+
+message banktransferrecord              // 转账记录
+{
+    optional int32 userid = 1;
+	optional string nickname = 2;
+	optional string amount = 3;
+	optional string timemark = 4;		// 时间
+}
+
+message specialcardreward
+{
+	optional int32 index = 1;		//唯一ID
+	optional int32 cardtype = 2;	//卡牌类型
+	optional int32 reward = 3;		//奖励数目
+	optional int32 status = 4; //0表示未领取
+	optional string createdate = 5;
+}
+
+message specialinfo
+{
+	optional int32 userid = 1;
+	optional int32 starttime = 2;
+	optional int32 endtime = 3;
+	optional int32 state = 4;
+	optional int32 rate = 5;
+	optional int32 winall = 6;
+	optional int32 peinum = 7;
+	optional int32 marknum = 8;
+	repeated int32 gametype = 9;   //对应的游戏类型,9000:牛牛，
+	optional int32 cardtype = 10;
+	optional int32 iszhuang = 11;
+	optional int32 norecord = 12;	
+}

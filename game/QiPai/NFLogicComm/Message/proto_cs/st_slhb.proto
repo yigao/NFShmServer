@@ -1,0 +1,67 @@
+package progame;
+import "st_human.proto";
+
+message hongbao
+{
+	optional int32 userid = 1; 		//排队玩家
+	optional int32 hbjetton = 2; 	//红包金额
+	optional int32 hbbomb = 3; 		//雷号
+	optional string unickname = 4;	//玩家昵称
+	optional string nfaceid = 5;	//玩家昵称
+}
+
+message robhb 
+{
+	optional int32 userid = 1; 		//玩家id
+	optional string unickname = 2;	//玩家昵称
+	optional string nfaceid = 3;	//玩家昵称
+	optional int32 hbjetton = 4;	//红包金额
+	optional int32 isbomb = 5;		//是否中雷 0 是没中雷， 1是中雷了
+	optional int32 winjetton =6;	//真实赢输
+	optional int32 number = 7;		//第几个抢到
+}
+
+
+message slhbinfo
+{
+	optional int32 tableid = 1;   		//牌桌id，固定
+	optional int32 state = 2;     		//状态
+	optional int32 timemark = 3;  		//时间标签
+	optional int32 tabletype = 4;      //初级：1，中级：2，高级：3
+	
+	optional int32 hbuserid = 5;		//发红包的玩家ID
+	optional string hbnickname = 6;		//发红包的玩家昵称
+	optional string hbfaceid = 7;		//发红包的玩家头像
+	optional int32 hbjetton = 8;		//红包金额
+	optional int32 hbnum = 9;			//包数
+	optional int32 hbbomb = 10;			//炸弹
+	repeated hongbao hblist = 11;   	//红包列队
+	repeated robhb robhblist = 12;		//抢了红包的列队
+	repeated int32 standuser = 13;      //站立的玩家的列表
+	optional int32 maxrobotnum = 14;	//机器人限制
+	optional int32 issyswin = 15;		//系统输赢 1 就是输 2 就是赢 3 就是强制系统赢
+	repeated int32 hbjettonlist = 16;	//红包金额列表
+	optional int32 usernum = 17;		//机器人数量
+	optional int32 robotnum = 18;		//玩家数量
+	optional int32 maxhbnum = 19;		//最大包数
+	
+}
+
+
+message slhbjettonrecordlist    
+{
+	repeated int32 jetton = 1;    //每把的抢红包金额
+	repeated int32 boomcondition = 2;    //中雷次数
+}
+
+
+message slhbjettonrecorinfo   
+{
+	optional int32 userid = 1;    //玩家
+	optional int32 jetton = 2;    //近20把的抢红包金额
+	optional int32 boomnum = 3;    //近20中雷次数
+	optional string jifen = 4;	  //积分
+	optional string nickname = 5;	  //昵称
+	optional string facename = 6;	  //头像
+	
+}

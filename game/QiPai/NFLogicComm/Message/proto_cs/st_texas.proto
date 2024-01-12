@@ -1,0 +1,88 @@
+package progame;
+import "st_human.proto";
+
+message texascardlist	//手牌列表
+{
+	repeated int32 card = 1;
+}
+
+message texasstanuser
+{
+	repeated int32 userid = 1;				//观战玩家id
+	repeated int32 watchnum = 2;			//观看回合数
+
+}
+
+message texasuserpour
+{
+	optional int32 userid = 1;				//玩家id
+	optional int32 pourjetton = 2;			//下注数量
+	optional int32 isallon = 3;				//1 是 allon
+}
+
+message texasalluserpour
+{
+	optional int32 userid = 1;				//玩家id
+	optional int32 pourjetton = 2;			//下注数量
+	repeated int32 cards = 3;				//玩家的手牌
+}
+
+message texasuser   //玩家信息 
+{
+	optional int32 userid = 1;
+	repeated int32 handpoker = 2;          	//手上的牌列表
+	optional int32 texastype = 3;			//手牌的类型 如高牌
+	optional int32 chairid = 4;           	//座位ID，取值为1,2,3,4
+	optional string jifen = 5;        		//每局玩家的积分 初始化是都为，用string表示int64的数据类型
+	optional int32 jettoncount = 6;   		//全部下注金额
+	optional int32 state = 7;				//玩家状态标志位
+	optional int32 pokerstate_discard = 8;	//上一次的操作 如g_TexasDefine.rang。 0代表上次没操作
+	optional int32 callNum = 9;				//跟注的值
+	optional int32 addjettonmin	= 10;		//最低加注
+	optional int32 addjettonmax	= 11;		//最大加注
+	optional int32 timeoutSum = 12;			//超时弃牌的次数
+	optional string nickname = 13;			//昵称
+	optional int32 sex = 14;				//性别
+	optional string face_1 = 15;			//头像
+	optional int32 fenchinum = 16;			//分池号码
+	optional string selfcarry = 17; 		//携带金币
+	optional int32 ismaxcardtype = 18;		//是否是当局最大的牌 0 不是， 1是
+}
+
+message texasinfo	//牌桌信息
+{
+	optional int32 tableid = 1;				//牌桌ID
+	optional int32 tabletype = 2;   		//场次类型：例g_TexasDefine.table_jbc['free']
+	optional int32 playtype = 3;   			//玩法类型：例g_TexasType.type_common
+	optional int32 littleblind = 4;  	 	//小盲注
+	optional int32 bigblind = 5;  	 		//大盲注
+	optional int32 ante = 6;  	 			//前注
+	optional int32 maxrefuel = 7;  	 		//最大加注
+	optional int32 boutcapp = 8; 			//最大加注回合
+	optional int32 maxuser = 9;				//最大人数
+	
+	optional int32 state = 10;       		//桌子的状态
+	optional int32 timemark = 11;      		//时间的标签
+	optional int32 bankerID = 12;			//庄家ID
+	repeated texasuser situser = 13;      	//坐下的玩家列表
+	repeated texasstanuser standuser = 14;  //坐下的玩家列表
+	optional int32 dicicount = 15;			//总池池
+	repeated int32 dicilist = 16;			//分池
+	optional int32 presentbout = 17; 		//当前加注回合
+	optional int32 cradcircle = 18; 		//当前牌圈
+	optional int32 followjetton = 19;		//当前跟注
+	optional int32 actionuser = 20; 		//当前行动玩家
+	optional int32 lastuser = 21; 			//最后行动玩家
+	repeated int32 commonpokerlist = 22; 	//公共牌堆
+	optional int32 callflat = 23; 			//跟平的值
+	repeated texasuserpour pourlist = 24;	//玩家一牌圈下注的列表
+	optional int32 bankerChairid = 25;		//庄家的座位号
+	repeated texasalluserpour allpourlist = 26;//该局游戏各个玩家的总下注
+	
+}
+
+
+
+
+
+

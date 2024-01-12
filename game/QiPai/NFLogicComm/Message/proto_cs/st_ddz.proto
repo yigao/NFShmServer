@@ -1,0 +1,163 @@
+package progame;
+
+
+message lasplayinfo
+{
+	optional int32 userid = 1;
+	optional int32 pokerType = 2;
+	repeated int32 pokerList = 3;
+}
+
+message ddzuser   //斗地主打牌玩家信息 
+{
+	optional int32 userid = 1;
+	optional string nickname = 2; 			//昵称
+	optional string face_1 = 3; 			//头像
+	optional string jifen = 4;        		//每局玩家的积分 初始化是都为0
+	optional int32 chairid = 5;           	//座位ID，取值为1,2,3
+	repeated int32 handpoker = 6;          	//手上的牌列表
+	optional int32 playsum = 7;				//出牌次数
+	optional int32 state = 8;				//玩家状态标志位
+	optional int32 mPoker = 9;				//明牌：明牌：g_DdzDefine.mPoker_Yes，不明牌：g_DdzDefine.mPoker_No
+	optional int32 qLandlord = 10;			//抢地主： 不抢 等于99，不等于99就是抢 值为抢地主的倍数 
+	optional int32 jLandlord = 11;			//叫地主： g_DdzDefine.jLandlord_No：不叫 , g_DdzDefine.jLandlord_Yes：叫地主
+	optional int32 bombNum = 12;			//打出的炸弹数量
+	optional int32 autoplayer = 13;			//托管： 托管：g_DdzDefine.autoplayer_Yes 不托管：g_DdzDefine.autoplayer_No
+	optional int32 timeouts = 14;			//超时次数
+	optional int32 winnum = 15;				//胜利次数
+	optional int32 maxscore	 = 16;			//单局最高的分
+	optional int32 islandlord = 17;			//是否是地主， 0 不是， 1 是
+	optional int32 sex = 18;				//性别
+	optional int32 pokerSum = 19;			//手牌的数量
+	optional int32 lasttype = 20;			//上次出的牌型
+	repeated int32 lastpokerlist = 21;		//上次出的牌列表
+	optional int32 multiple = 22;			//各个玩家的倍数
+	optional int32 doublestate = 23;		//0是还没选择 1是加倍 2是不加倍
+	repeated int32 allhandpoker = 24;		//所有手牌
+	
+	
+}
+
+message ddzinfo	//斗地主牌局信息
+{
+	optional int32 tableid = 1;				//牌桌ID
+	optional int32 tabletype = 2;   		//场次类型：私人场：g_DdzDefine.table_srf
+	optional int32 ddztype = 3;   			//类型：经典玩法: g_DdzjType.general 、欢乐玩法: g_DdzjType.joy 与癞子玩法：g_DdzjType.wildCard ，可能还会有四人玩法等等其他 
+	optional int32 pourjetton = 4;  	 	//底注
+	optional int32 maxvipnum = 5;     		//最大的场次 	6局或10局
+	optional int32 cap = 6;					//封顶最大炸弹数量
+	optional int32 paytype = 7;				//支付类型，钻石：g_DdzDefine.pay_money，玉：g_DdzDefine.pay_gold， 也可能是其他
+	optional int32 payway = 8;   			//支付方式，房主支付: g_DdzDefine.payment_owner 均摊：g_DdzDefine.payment_A
+	optional int32 paynum = 9;   			//支付的数额
+	optional int32 ownerid = 10;      		//房主ID
+	optional int32 julebuid = 11;        	//俱乐部ID，如果是属于俱乐部的，就有值
+	
+	optional int32 tablemark = 12;   		//牌桌的一个标签,申请解散是保存牌桌的状态
+	optional int32 tabletime = 13;			//申请解散是保存牌桌的状态还剩的时间
+	optional int32 state = 14;       		//桌子的状态
+	optional int32 timemark = 15;      		//时间的标签
+	optional int32 landlordid = 16;			//地主ID的下标(注意这里存的是situser表的下表)
+	repeated ddzuser situser = 17;      	//坐下的玩家列表
+	repeated int32 standuser = 18;    		//无座玩家列表 	
+	optional lasplayinfo lasInfo = 19;		//上位玩家出牌的信息
+	optional int32 usevipnum = 20;     		//已经玩了几局
+	optional int32 multiple = 21;			//倍数
+	repeated int32 landlordPoker = 22;		//地主牌
+	optional int32 wildCard = 23;			//癞子牌
+	optional int32 dissolveinfo = 24;      	//这个是退出时候的位数运行：总共五位，2~5位分别表示1~4号玩家的状态：0：等待操作；1：申请退出，2：已经同意
+	optional string straction = 25;        	//通常的情况下，这个变量是空串，只有在有玩家申请解散房间时，会被用来保存【玩家["..pInfo.nickname.."]申请解散房间，请问是否同意？(超过5分钟未做选择，则默认同意)"】
+	optional int32 maxplaynum = 26;     	//最大人数
+	optional int32 actionuser = 27; 		//当前行动玩家下标， 为了方便找到当前行动玩家而已
+	optional int32 frameid = 28; 			//该牌桌在历史历史记录中唯一的标签，这个是日+时+分+秒+牌桌数量
+	optional int32 actionuserid = 29; 		//当前行动玩家的Userid
+	optional int32 isnotplay = 30;			//当前玩家是否要不起， 要不起: 1  否则为: 0
+	optional int32 qlandlordsum = 31; 		//经典斗地主的抢地主分数 其他玩法：0恢复成叫地主 ，1 恢复成抢地主
+	optional int32 afreshnum = 32;			//重新发牌的次数
+}
+
+
+
+message multipleinfo	//详细倍数信息
+{
+	optional int32 mPoker = 1;					//明牌倍数
+	optional int32 qdz = 2; 						//抢地主倍数
+	optional int32 dzp = 3;						//地主牌的加倍
+	optional int32 bomb = 4;						//炸弹倍数
+	optional int32 spring = 5;					//春天倍数
+	optional int32 multiplePublic = 6;			//公共牌倍数
+	optional int32 landlordmultiple = 7;			//地主加倍
+	optional int32 peasantmultiple = 8;			//农民加倍
+	optional int32 summultiple = 9;				//总倍数
+}
+
+message noad	//记牌器
+{
+	optional int32 poker_A = 1;
+	optional int32 poker_2 = 2;
+	optional int32 poker_3 = 3;
+	optional int32 poker_4 = 4;
+	optional int32 poker_5 = 5;
+	optional int32 poker_6 = 6;
+	optional int32 poker_7 = 7;
+	optional int32 poker_8 = 8;
+	optional int32 poker_9 = 9;
+	optional int32 poker_10 = 10;
+	optional int32 poker_J = 11;
+	optional int32 poker_Q = 12;
+	optional int32 poker_K = 13;
+	optional int32 poker_Kong = 14;
+}
+
+
+message ddzhistoryitem
+{
+	optional int32 tableplayid = 1;   //每次牌桌唯一的标识，由：日时分秒组成+牌局次数组成
+	optional int32 tableid = 2;       //牌桌的ID号
+	optional int32 playtime = 3;      //玩牌的时间
+	optional int32 playstate = 4;     //是否中途退出的,1是中途退出
+	repeated int32 useridlist = 5;    //对应的userid
+	repeated string nicklist = 6;     //对应的昵称
+	repeated int32 winlist = 7;       //对应的赢的数量
+	optional string quitdes = 8;      //牌桌的状态
+	repeated string userdes = 9;      //如果是离开状态，这里表示对玩家离开的描述：同意离开，超时解散
+}
+
+message ddzhistory
+{
+	optional int32 tableid = 1;   			//房间号
+	optional int32 tablemark = 2; 	 		//每个牌局唯一的标识
+	optional int32 gametime = 3;   			//时间
+	optional int32 playnum = 4;     		//局数
+	repeated int32 useridlist = 5;  		//对应的userid
+	repeated string nicklist = 6;   		//对应的昵称
+	repeated int32 winlist = 7;     		//对应的赢的数量
+	repeated ddzhistoryitem hitemlist = 8;  //详细的列表
+	optional int32 ddztype = 9;				//类型：经典玩法: g_DdzjType.general 、欢乐玩法: g_DdzjType.joy 与癞子玩法：g_DdzjType.wildCard ，可能还会有四人玩法等等其他 
+}
+
+message ddzhistorypair
+{
+	optional int32 packetcode = 1;
+	optional string pkginfo = 2;       	//这个是用来存储用的
+}
+
+message ddztaganalyseresult
+{
+	optional int32 onecount = 1;		//单张数目
+	optional int32 twocount = 2;		//两张数目 
+	optional int32 threecount = 3;		//三张数目
+	optional int32 fourcount = 4;		//四张数目
+	repeated int32 onelist = 5;			//单张逻辑列表
+	repeated int32 twolist = 6;			//两张逻辑列表
+	repeated int32 threelist = 7;		//三张逻辑列表
+	repeated int32 fourlist = 8;		//四张逻辑列表
+	repeated int32 onecarddata = 9;		//单张的牌列表
+	repeated int32 twocarddata = 10;	//两张的牌列表
+	repeated int32 threecarddata = 11;	//三张的牌列表
+	repeated int32 fourcarddata = 12; 	//四张的牌列表	
+}
+
+message ddzpokerlist
+{
+	repeated int32 card = 1;
+}

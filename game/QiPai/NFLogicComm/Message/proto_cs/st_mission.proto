@@ -1,0 +1,16 @@
+package progame;
+
+message missioninfo
+{	
+	optional int32 id = 1;
+	optional int32 userid=2;
+	optional int32 missionid=3;
+	optional int32 finish = 4;  
+	optional int32 state = 5; //0:没完成；1：已完成；2：已领取
+}
+
+message missionlist
+{
+	optional int32 timesec = 1;           //用时间戳来标记的时间
+	repeated missioninfo mslist = 2;
+}

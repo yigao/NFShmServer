@@ -1,0 +1,58 @@
+package progame;
+import "st_human.proto";
+
+// 连环夺宝
+
+message lhdbinfo
+{
+	optional int32 tableid = 1;
+	optional int32 tabletype = 2;
+	optional int32 state = 3;       	// 状态
+	optional int32 timemark = 4;     	// 时间标签
+	repeated int32 useridlist = 5;   	// 玩家列表
+	optional string minjetton = 6;   	// 最小进入
+	optional int32 bankerid = 8;       	// 庄家ID
+	optional string bankerjetton = 9;   // 庄家的筹码
+	optional string bankername = 10;
+	optional string bankerfaceid = 11;
+	optional string bankerlimit = 12;	// 上庄限制
+	optional int32 dropbanker = 13;   	// 庄家是否申请下庄
+}
+
+// 点/坐标
+message lhdbpoint
+{
+	optional int32 x = 1;
+	optional int32 y = 2;
+}
+
+// 
+message lhdbgemcolumn
+{
+	repeated int32 list = 1;
+}
+
+// 得分项
+message lhdbscoreitem
+{
+	optional int32 gem = 1;					// 宝石类型
+	repeated string scorelist = 2;			// 得分
+	repeated lhdbpoint pointlist = 3;		// 坐标列表
+}
+
+// 得分列表
+message lhdbscorelist
+{
+	repeated lhdbscoreitem list = 1;
+}
+
+message lhdbpriavedata
+{
+	optional string totalscore = 1;					// 总得分
+	optional int32 round = 2;						// 第几关
+	optional int32 boardlength = 3;					// 木板长度
+	repeated lhdbgemcolumn gemmap = 4;				// 地图
+	repeated lhdbgemcolumn reservegemmap = 5;		// 预分配地图
+	repeated string pourjettonlist = 6;				// 下注列表
+	optional int64 timemark = 7;					// 时间戳
+}

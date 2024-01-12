@@ -1,0 +1,42 @@
+package progame;
+
+import "st_human.proto";
+
+//森林舞会
+
+message forestinfo
+{
+	optional int32 tableid = 1;
+	optional int32 tabletype = 2;
+	optional int32 minjetton = 3;   //最小进入
+	optional int32 maxjetton = 4;   //最大进入
+	optional int32 state = 5;       //状态
+	optional int32 timemark = 6;     //时间标签
+	repeated int32 useridlist = 7;   //玩家列表
+	repeated int32 bankerlist = 8;   //庄家排队列表
+	repeated int32 colourlist = 9;  //颜色列表
+	optional int32 winid = 10;      //最后选中的ID类别
+	optional int32 wincolourindex = 11;  //colourlist 中的ID索引
+	repeated int32 history = 12;      //历史记录的列表，只记录12个
+	
+	optional int32 bankerid = 13;   //庄家ID
+	optional string bankerjetton = 14;   //用string表示int64的数据类型
+	optional string bankername = 15;
+	optional string bankerfaceid = 16;
+	optional int32 bankerlimit = 18;    //上庄条件
+	repeated int32 beilist = 19;        //倍数列表,按照颜色来给，分别是红，绿，黄，从大到小
+	optional int32 dropbanker = 20;     //庄家是否申请下庄
+	optional int32 usernum = 21;    //所以玩家的数量，包括机器人--我也还搞不懂为什么一定要放这两个玩意，可能是当时一时兴起。发现用处不大
+	optional int32 robotnum = 22;    //机器人的数量     
+
+}
+
+message forestpour   //玩家下注的信息
+{
+	optional int32 userid = 1;    //用户的ID
+	optional int32 pourid = 2;    //下注的ID
+	optional int32 pourjetton = 3;   //下注的金额
+}
+
+
+

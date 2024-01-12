@@ -1,0 +1,69 @@
+package progame;
+
+message payinfo
+{
+	optional int32 payid = 1;     //支付的id
+	optional string description = 2;   //支付的物品描述
+	optional int32 paymoney = 3;       //需要支付的金额
+	optional int32 getmoney = 4;       //得到的钻石的数量
+	optional int32 addtype = 5;        //加成的类型：0：没有加成；1：按照固定数量加成；2：按照固定比例加成
+	optional int32 addamount = 6;      //加成的数量
+	optional string adddes = 7;        //加成的描述
+	optional int32 addtime = 8;        //加成的倒计时：单位：天
+}
+
+message buymoneyinfo
+{
+	optional int32 orderid = 1;
+	optional int32 userid = 2;
+	optional int32 buyid = 3;
+	optional int32 timeid = 4;
+	optional int32 status = 5;
+	optional string channel = 6;
+	optional string sign = 7;
+	optional int32 shoptype = 8;    //购买的类型
+	optional int32 paymoney = 9;    //如果是
+}
+
+message convertinfo
+{
+	optional int32 userid = 1;
+	optional string name = 2;   //收货人
+	optional string phone = 3;
+	optional string address1 = 4;
+	optional string address2 = 5;
+	optional string address3 = 6;
+	optional int32 addselect = 7;   //选中了那个作为地址
+
+}
+message convertlog   //兑换记录
+{
+	optional int32 id = 1;
+	optional int32 userid = 2;
+	optional int32 convertid = 3;   //兑换的ID
+	optional string convertname = 4;  //兑换物品的名字
+	optional int32 convertnum = 5;  //的数量
+	optional int32 paytype = 6;    //付费类型
+	optional int32 paynum = 7;     //付费的数额
+	optional string addname = 8;   //收货方名称
+	optional string addphone = 9;   //收货方名称
+	optional string address = 10;   //收货方名称
+	optional string timemark = 11;  //兑换时间
+	optional int32 state = 12;       //状态，准备发货，发货中，兑换成功
+}
+
+
+message shopconfinfo
+{
+	optional int32 id = 1;
+	optional int32 shopid = 2;
+	optional int32 shoptype = 3;
+	optional string name = 4;
+	optional string des = 5;
+	optional int32 minmoney = 6;  //最小购买额
+	optional int32 maxmoney = 7;  //最大购买额。
+	optional int32 iscustom = 8;  //是否支持自定义额度, 1：支持
+	optional int32 rebate = 9;    //赠送的折扣
+	repeated int32 normlist = 10;   //固定额度
+	
+}

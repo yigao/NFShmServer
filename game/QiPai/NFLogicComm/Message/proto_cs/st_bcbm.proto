@@ -1,0 +1,80 @@
+package progame;
+import "st_human.proto";
+
+//水果机
+
+message bcbminfo
+{
+	optional int32 tableid = 1;
+	optional int32 tabletype = 2;
+	optional int32 minjetton = 3;   //最小进入
+	optional int32 maxjetton = 4;   //最大进入
+	optional int32 state = 5;       //状态
+	optional int32 timemark = 6;     //时间标签
+	repeated int32 useridlist = 7;   //玩家列表
+	
+	repeated int32 bankerlist = 9;  //颜色列表,水果机中，没有会变的颜色
+	optional int32 winid = 10;      //最后选中的ID类别
+	//optional int32 wincolourindex = 11;  //colourlist 中的ID索引,这个也不用
+	repeated int32 history = 12;         //历史记录的列表 
+	
+	optional int32 bankerid = 13;       //庄家ID
+	optional string bankerjetton = 14;   //上庄的筹码,用string表示int64的数据类型
+	optional string bankername = 15;
+	optional string bankerfaceid = 16;
+	optional int32 bankerlimit = 17;
+	optional int32 dropbanker = 18;   //庄家是否申请下庄
+	optional string bankerwin = 19;	// 庄家输赢得分,用string表示int64的数据类型
+	optional int32 bebankernum = 20;	// 当庄局数 
+	optional int32 maxrobotnum = 21;    //机器人的限制
+	optional int32 robotnum = 22;
+	optional int32 robotbanuserid = 23;
+	optional int32 bankercount = 24;
+	optional string legalkey = 25;       //合法性验证的key,在牌局开始的时候生成。
+	repeated string bankercountlist = 26;	//上庄列表携带金币数量
+	
+	
+}
+
+message bcbmpour   //玩家下注的信息
+{
+	optional int32 userid = 1;       //用户的ID
+	optional int32 pourid = 2;       //下注的ID
+	optional int32 pourjetton = 3;   //下注的金额
+}
+
+message bcbmjettonrecorinfo   
+{
+	optional int32 userid = 1;    //玩家
+	optional int32 jetton = 2;    //近20把的下注总数
+	optional int32 winnum = 3;    //近20把赢的次数
+	optional string jifen = 4;	  //积分
+	optional string nickname = 5;	  //昵称
+	optional string facename = 6;	  //头像
+	
+}
+
+message bcbmgamehistoryinfo
+{
+	optional int32 tableid = 1;
+	optional string tablename = 2;
+	optional int32 magnification = 3;
+	optional int32 state = 4;
+	optional int32 timemark = 5;
+	repeated string recordidentification = 6;	//记录的标识
+	repeated int32 winarea = 7;	
+	optional int32 limitred = 8;
+}
+
+
+message bcbmhistory 
+{
+	optional int32 winarea = 1;
+	optional string recordidentification = 2; //记录的标识
+}
+
+message bcbmjettonrecordlist    
+{
+	repeated int32 jetton = 1;    //每把下的分数
+	repeated int32 wincondition = 2;    //每把的赢输情况
+}

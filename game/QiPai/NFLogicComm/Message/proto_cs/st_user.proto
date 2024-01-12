@@ -1,0 +1,28 @@
+package progame;
+
+message rosterinfo
+{	
+	optional int32 userid =1;
+	repeated int32 gametype = 2;	//游戏类型
+	repeated int32 tabletype = 3;	//牌桌类型
+	repeated int32 rostertype = 4; 	//1:黑名单，2：白名单
+	repeated int32 starttime = 5;	//开始时间
+	repeated int32 endtime = 6;		//结算时间
+	repeated int32 optmark = 7;		//总赢输
+	repeated float probability = 8;	//生效概率
+}
+
+
+
+//下面是旧版本
+//message rosterinfo
+//{	
+//	optional int32 userid=1;
+//	optional int32 rostertype = 2; //1:黑名单，2：白名单
+//	optional int32 starttime=3;
+//	optional int32 endtime = 4;
+//	repeated int32 probabilitylist = 5;
+//	repeated int32 gamelist = 6;
+	
+//}
+

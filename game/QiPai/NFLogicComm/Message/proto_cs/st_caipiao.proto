@@ -1,0 +1,62 @@
+package progame;
+import "st_human.proto";
+
+//下注信息
+message caipiaojetton
+{
+	optional int32 userid = 1;
+	optional int32 tableid = 2;		//牌桌id，固定
+	optional int32 tabletype = 3;	//1，2，3，4，5，6
+	repeated int32 pourtype = 4;	//下注的类型
+	optional int32 jetton = 5;		//筹码的多少
+	optional int32 gamekey = 6;	//彩种
+}
+
+
+//桌子信息
+message caipiaoinfo
+{
+	optional int32 tableid = 1;			//牌桌id，固定
+	optional int32 frameid = 2;			//变化，没完一局增加1
+	optional int32 state = 3;			//状态
+	repeated int32 standuser = 4;		//站立的玩家的列表
+	optional int32 usernum = 5;			//牌桌中玩家的数量，包括庄家
+	optional int32 tabletype = 6;		//1，2，3，4，5，6
+	optional string openawarddate = 7;	//开奖日期 2019-05-15
+	optional string fengpantime =	8;	//封盘时间  时间戳
+	optional string openawardtime = 9;	//开奖时间	2019-05-15 17:52:21 时间戳 
+	optional string gid	=			10;	//期号	20190515001
+	optional string  award	=       11; //开奖结果	01,03,09,08,05,02,07,06,04
+	optional string nextopenissue = 12;	//下一期开奖期号	20190515002	
+	optional string nextOpenTime =	13;	//下一期开奖时间	2019-05-15 17:52:21 时间戳
+	optional string secondOpenIssue=14; //下下期开奖期号	20190515003
+	optional string secondOpenTime =15; //下下期开奖时间	2019-05-15 17:52:21 时间戳
+	optional int32 gamekey =		16;	//彩种
+}
+
+//开奖结果
+message caipiaohistory 
+{
+	optional int32 tableid	= 1;  //牌桌id，固定
+	optional string gid		= 2;  //期号
+	optional string award	= 3;  //开奖结果
+	optional int32 gamekey = 4;  //彩种
+	optional string openawardtime = 5; //开奖时间
+}
+
+message caipiaopersonhistory 
+{
+	optional int32	 orderid		= 1;  //订单id，固定
+	optional int32	 tableid		= 2;  //牌桌id，固定
+	optional string	 gid			= 3;  //期号
+	optional string	 award			= 4;  //开奖结果
+	optional int32	 gamekey		= 5;  //彩种 1:幸运飞艇 2：香港六合彩 3;北京赛车
+	optional string	 pourjetton		= 6;  //押注金额
+	optional string	 pourcontent	= 7;  //押注内容
+	optional string	 opentimes		= 8;  //开奖日期
+	optional int32	 win			= 9;  //盈利情况
+	optional int32	 state			= 10;  //订单状态 1:等待开奖 2：已结算 3;已撤单
+
+}
+
+

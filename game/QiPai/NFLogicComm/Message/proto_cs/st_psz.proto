@@ -1,0 +1,128 @@
+package progame;
+import "st_human.proto";
+
+
+
+message pszuser   //拼三张 
+{
+	optional int32 userid = 1;
+	repeated int32 handpoker = 2;          	//手上的牌列表
+	optional int32 psztype = 3;				//手牌的类型 如单排，对子 	
+	optional int32 chairid = 4;           	//座位ID，取值为1,2,3,4
+	optional string jifen = 5;        		//每局玩家的积分 初始化是都为，用string表示int64的数据类型
+	optional int32 jetton = 6;   			//已投注的量
+	optional int32 state = 7;				//玩家状态标志位
+	optional int32 pokerstate = 8;			//牌的状态，0 还没看牌 1 看了牌
+	optional int32 pokerstate_discard = 9;	//是否弃牌，1 没弃 2 弃牌了
+	optional int32 compare = 10;			//0 为普通状态  1 为比牌输的状态
+	optional int32 endshow = 11;			//0 没亮牌  1 亮牌了
+	optional int32 winnum = 12;				//胜利次数
+	optional int32 maxdntype = 13;			//最大牌型
+	optional int32 maxscore	 = 14;			//单局最高的分（锅底 - 自己的投注）
+	optional int32 audocingl = 15;			//1 自动跟注 0 不自动跟注
+	repeated int32 jettonlist = 16; 		//玩家的下注列表
+	optional int32 callNum = 17;			//跟注的值
+	optional int32 thanNum = 18;			//比牌的值
+	repeated int32 filList	= 19;			//加注的列表
+	repeated int32 thanuserid = 20;			//跟自己比过牌的玩家
+	optional int32 timeoutSum = 21;			//超时弃牌的次数
+	optional string nickname = 22;			//昵称
+	optional int32 sex = 23;				//性别
+	optional string face_1 = 24;				//头像
+	optional string location = 25;			//位置
+	
+}
+
+message pszinfo
+{
+	
+	optional int32 tableid = 1;				//牌桌ID
+	optional int32 tablemark = 2;   		//牌桌的一个标签
+	optional int32 tabletime = 3;
+	optional int32 state = 4;       		//桌子的状态
+	optional int32 timemark = 5;      		//时间的标签
+
+	optional int32 tabletype = 6;   		//场次类型：初级场：101；中级场：102；高级场：103；专家场：104；私人场：201
+	optional int32 difen = 7;  	 			//低分
+	optional int32 doublecomp = 8;			//双倍比牌 0 双倍比牌 1 单倍比牌
+	optional int32 boutcapp = 9; 			//最大投注回合  5 五轮封顶 10 十轮封顶 15 十五轮封顶
+	optional int32 mincomp = 10;			//比牌起始回合： 0 一轮可比 1 二轮可比 2 三轮可比
+	optional int32 menpai = 11;				//闷牌： 0 不闷牌 2 闷两轮 3 闷三轮 5 闷五轮
+	optional int32 maxplaynum = 12;     	//最大的场次 	10局或20局
+	optional int32 paytype = 13;			//支付类型：暂时提供由钻石来支付的，后期可能提供其他的支付方式
+	optional int32 restrict = 14;			//限制  		游戏开始后不加人
+	optional int32 autoready = 15;			//自动准备
+	
+	optional int32 ownerid = 16;      		//房主ID
+	optional int32 bankerID = 17;			//庄家ID：每局开始优先投注
+	repeated pszuser situser = 18;      	//坐下的玩家列表
+	repeated int32 standuser = 19;    		//无座玩家列表
+	optional int32 usevipnum = 20;     		//已经玩了几局
+	optional int32 guodi = 21;				//锅底
+	optional int32 oncepour = 22; 			//单注
+	optional int32 presentbout = 23; 		//当前投注回合
+	optional int32 dissolveinfo = 24;       //这个是退出时候的位数运行：总共五位，2~5位分别表示1~4号玩家的状态：0：等待操作；1：申请退出，2：已经同意
+	optional string straction = 25;        	//通常的情况下，这个变量是空串，只有在有玩家申请解散房间时，会被用来保存【玩家["..pInfo.nickname.."]申请解散房间，请问是否同意？(超过5分钟未做选择，则默认同意)"】
+	
+	optional int32 payway = 26;   			//支付类型：1：房主支付，2：均摊
+	optional int32 paynum = 27;   			//需要支付的费用
+
+	optional int32 maxuser = 29;			//最大人数
+	
+	repeated int32 actionlist = 30;			//玩家行动列表
+	optional int32 deluser = 31;		
+	optional int32 actionuser = 32; 		//当前行动玩家
+	optional int32 usernum = 33;			//玩家数量
+	
+	optional int32 julebuid = 34;        	//俱乐部ID，如果是属于俱乐部的，就有值
+	optional int32 flag = 35; 				//用来标记 结算后需要亮赢家牌的
+
+	optional int32 psztype = 36;			//拼三张的玩法: 普通玩法:g_PszType.type_psz 
+	optional int32 pourcount = 37;          //玩家下注的总额。用于统计奖池
+}
+
+message pszhandpoker
+{
+	repeated int32 handpoker = 1;
+}
+
+
+message pszhistoryitem    //单局牌的结算信息
+{
+	optional int32 leg = 1;		  				//第几局
+	optional int32 guodi = 2;		  			//锅底
+	optional int32 presentbout = 3;		  		//下注回合
+	optional int32 oncepour = 4;		  		//单注
+	optional int32 winerid = 5;		  			//赢家
+	repeated int32 useridlist = 6;    			//对应的userid
+	repeated string nicklist = 7;     			//对应的昵称
+	repeated int32 jetton = 8;       			//对应的玩家投注的量
+	repeated pszhandpoker pokerlist = 9; 		//对应的玩家的手牌列表
+	repeated int32 psztypelist = 10;   			//对应的玩家的手牌类型
+	repeated int32 winlist = 11;       			//对应的赢输单局积分
+	repeated int32 resultlist = 17;				//0： 赢家 1： 比牌输  2： 弃牌
+}
+
+message pszhistory	//一整个牌局的结算信息
+{
+	optional int32 tableid = 1;   	//房间号
+	optional int32 playnummax= 2;   //最大局数
+	optional int32 playnum = 3;     //已完局数
+	optional int32 difen = 4;		//底分 
+	optional int32 gametime = 6;   	//时间
+	optional int32 ownerid = 7;		//房主ID
+	repeated string nicklist = 8;   //对应的昵称
+	repeated int32 useridlist = 9;  //对应的userid
+	repeated int32 winlist = 10;     //对应的赢输总积分
+	repeated pszhistoryitem hitemlist = 11;   //详细的列表
+}
+
+message pszcomparepoker   //比牌的结构体
+{
+	optional int32 winnerid = 1;  //赢家
+	optional int32 loserid = 2;   //输家
+}
+
+
+
+
