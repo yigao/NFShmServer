@@ -39,7 +39,7 @@ function NFAccountLogin.Tick(timeId, callCount, dataStr)
     local now = LuaNFrame.GetSecTime();
     local removeAccount = {}
     for key, value in pairs(NFAccountLogin.mapData.map) do
-        if now - valuev.mLastLoginTime >= NFAccountLoginMgr.MAX_ACCOUNT_EXIST_TIME then
+        if now - value.mLastLoginTime >= NFAccountLogin.MAX_ACCOUNT_EXIST_TIME then
             removeAccount[key] = 0
         end
     end

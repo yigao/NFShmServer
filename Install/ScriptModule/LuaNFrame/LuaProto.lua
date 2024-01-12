@@ -80,13 +80,11 @@ function LuaNFrame.CreatePbClass(pbTable, protoName, className)
             end
 
             local instance = setmetatable(data, cls)
-            instance.class = cls
             instance:Ctor()
             return instance
         else            
             local data = LuaNFrame.pb.defaults(cls.__pbName)
             local instance = setmetatable(data, cls)
-            instance.class = cls
             instance:Ctor()
             return instance
         end
