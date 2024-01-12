@@ -393,6 +393,8 @@ public:
 	virtual std::tuple<std::string, int> GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string& reqType,
 																		const std::string& request, const std::vector<std::string>& vecFields = std::vector<std::string>(),
 																		uint32_t dstBusId = 0, const std::string& tbname = "", const std::string& dbname = "");
+
+	virtual int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key,  const std::string& reqType, const std::string& request, uint32_t dstBusId = 0, const std::string& dbname = "");
 public:
 	virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage);
 public:

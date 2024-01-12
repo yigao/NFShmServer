@@ -61,7 +61,7 @@
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/ANONYMOUS_METHOD_DECLARATION_BRACES/@EntryValue" value="" type="string" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INITIALIZER_BRACES/@EntryValue" value="" type="string" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_SIZE/@EntryValue" value="4" type="int" />
-    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/CONTINUOUS_LINE_INDENT/@EntryValue" value="Single" type="string" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/CONTINUOUS_LINE_INDENT/@EntryValue" value="Double" type="string" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/TAB_WIDTH/@EntryValue" value="4" type="int" />
     <option name="/Default/CodeStyle/Naming/CppNaming/Rules/=_7C7B_548C_7ED3_6784/@EntryIndexedValue" value="&lt;NamingElement Priority=&quot;1&quot;&gt;&lt;Descriptor Static=&quot;Indeterminate&quot; Constexpr=&quot;Indeterminate&quot; Const=&quot;Indeterminate&quot; Volatile=&quot;Indeterminate&quot; Accessibility=&quot;NOT_APPLICABLE&quot;&gt;&lt;type Name=&quot;__interface&quot; /&gt;&lt;type Name=&quot;class&quot; /&gt;&lt;type Name=&quot;struct&quot; /&gt;&lt;/Descriptor&gt;&lt;Policy Inspect=&quot;True&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Style=&quot;AaBb&quot; /&gt;&lt;/NamingElement&gt;" type="string" />
     <option name="/Default/CodeStyle/Naming/CppNaming/Rules/=_6982_5FF5/@EntryIndexedValue" value="&lt;NamingElement Priority=&quot;2&quot;&gt;&lt;Descriptor Static=&quot;Indeterminate&quot; Constexpr=&quot;Indeterminate&quot; Const=&quot;Indeterminate&quot; Volatile=&quot;Indeterminate&quot; Accessibility=&quot;NOT_APPLICABLE&quot;&gt;&lt;type Name=&quot;concept&quot; /&gt;&lt;/Descriptor&gt;&lt;Policy Inspect=&quot;True&quot; Prefix=&quot;&quot; Suffix=&quot;&quot; Style=&quot;AaBb&quot; /&gt;&lt;/NamingElement&gt;" type="string" />
@@ -109,15 +109,14 @@
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/BLANK_LINES_BEFORE_ACCESS_SPECIFIER/@EntryValue" value="0" type="long" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/BLANK_LINES_AROUND_SINGLE_LINE_FUNCTION_DEFINITION/@EntryValue" value="1" type="long" />
     <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/LINKAGE_SPECIFICATION_INDENTATION/@EntryValue" value="All" type="string" />
-    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_METHOD_DECL_PARS/@EntryValue" value="OUTSIDE" type="string" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Windows_0020Form_0020Designer_0020generated_0020code/@EntryIndexedValue" value="Windows Form Designer generated code" type="string" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Windows_0020Form_0020Designer_0020generated_0020code/@EntryIndexRemoved" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Component_0020Designer_0020generated_0020code/@EntryIndexedValue" value="Component Designer generated code" type="string" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Component_0020Designer_0020generated_0020code/@EntryIndexRemoved" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Designer_0020generated_0020code/@EntryIndexedValue" value="Designer generated code" type="string" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Designer_0020generated_0020code/@EntryIndexRemoved" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Web_0020Form_0020Designer_0020generated_0020code/@EntryIndexedValue" value="Web Form Designer generated code" type="string" />
-    <option name="/Default/CodeInspection/GeneratedCode/GeneratedCodeRegions/=Web_0020Form_0020Designer_0020generated_0020code/@EntryIndexRemoved" />
-    <option name="/Default/Housekeeping/GlobalSettingsUpgraded/IsUpgraded/@EntryValue" value="true" type="bool" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_METHOD_DECL_PARS/@EntryValue" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/USE_CONTINUOUS_LINE_INDENT_IN_METHOD_PARS/@EntryValue" value="true" type="bool" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/USE_CONTINUOUS_LINE_INDENT_IN_EXPRESSION_BRACES/@EntryValue" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_MEMBER_INITIALIZER_LIST/@EntryValue" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INDENT_STATEMENT_PARS/@EntryValue" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INT_ALIGN_EQ/@EntryValue" value="true" type="bool" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/INT_ALIGN_DECLARATION_NAMES/@EntryValue" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/DISABLE_SPACE_CHANGES_BEFORE_TRAILING_COMMENT/@EntryValue" value="true" type="bool" />
+    <option name="/Default/CodeStyle/CodeFormatting/CppFormatting/ALLOW_COMMENT_AFTER_LBRACE/@EntryValue" />
   </component>
 </project>

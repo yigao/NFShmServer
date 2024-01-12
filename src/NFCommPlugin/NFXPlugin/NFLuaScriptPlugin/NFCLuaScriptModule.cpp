@@ -484,6 +484,7 @@ bool NFCLuaScriptModule::Register()
 									   .addFunction("GetSuitServerByStr", &NFCLuaScriptModule::GetSuitServerByStr)
 									   .addFunction("GetSuitServerByStrCross", &NFCLuaScriptModule::GetSuitServerByStrCross)
 									   .addFunction("GetRpcSelectObjService", &NFCLuaScriptModule::GetRpcSelectObjService)
+									   .addFunction("GetRpcInsertObjService", &NFCLuaScriptModule::GetRpcInsertObjService)
 									   .endClass();
 	return true;
 }
@@ -556,8 +557,8 @@ uint32_t NFCLuaScriptModule::AddTimer(const std::string& strLuaFunc, uint64_t nI
 	NFLuaTimer* luaTimer = m_luaTimerPool->MallocObjWithArgs(this, m_pObjPluginManager);
 
 	luaTimer->m_strLuaFunc = strLuaFunc;
-	luaTimer->mInterVal = nInterVal;
-	luaTimer->mDataStr = dataStr;
+	luaTimer->mInterVal    = nInterVal;
+	luaTimer->mDataStr     = dataStr;
 
 	if (nCallCount == 0)
 	{
@@ -569,7 +570,7 @@ uint32_t NFCLuaScriptModule::AddTimer(const std::string& strLuaFunc, uint64_t nI
 	}
 
 	luaTimer->mCurCallCount = 0;
-	luaTimer->mTimerId = ++m_luaTimerIndex;
+	luaTimer->mTimerId      = ++m_luaTimerIndex;
 
 	luaTimer->SetTimer(luaTimer->mTimerId, luaTimer->mInterVal, luaTimer->mCallCount);
 	m_luaTimerMap.emplace(luaTimer->mTimerId, luaTimer);
@@ -585,7 +586,7 @@ uint32_t NFCLuaScriptModule::AddClocker(const std::string& strLuaFunc, uint64_t 
 	NFLuaTimer* luaTimer = m_luaTimerPool->MallocObjWithArgs(this, m_pObjPluginManager);
 
 	luaTimer->m_strLuaFunc = strLuaFunc;
-	luaTimer->mDataStr = dataStr;
+	luaTimer->mDataStr     = dataStr;
 
 	if (nCallCount == 0)
 	{
@@ -596,7 +597,7 @@ uint32_t NFCLuaScriptModule::AddClocker(const std::string& strLuaFunc, uint64_t 
 		luaTimer->mCallCount = nCallCount;
 	}
 	luaTimer->mCurCallCount = 0;
-	luaTimer->mTimerId = ++m_luaTimerIndex;
+	luaTimer->mTimerId      = ++m_luaTimerIndex;
 
 	luaTimer->SetFixTimer(luaTimer->mTimerId, nStartTime, nInterDays, luaTimer->mCallCount);
 	m_luaTimerMap.emplace(luaTimer->mTimerId, luaTimer);
@@ -776,7 +777,7 @@ int NFCLuaScriptModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage& pac
 	if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
 	{
 		NetLuaReceiveFunctor& functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId];
-		LuaIntf::LuaRef luaFunc = GetGlobal(functor.m_strLuaFunc);
+		LuaIntf::LuaRef luaFunc       = GetGlobal(functor.m_strLuaFunc);
 		TryRunGlobalScriptFunc("LuaNFrame.DispatchClientMessage", luaFunc, functor.m_strLuaFunc, msgId, packet, param1, param2);
 	}
 	return 0;
@@ -800,7 +801,7 @@ int NFCLuaScriptModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& pac
 	if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
 	{
 		NetLuaReceiveFunctor& functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId];
-		LuaIntf::LuaRef luaFunc = GetGlobal(functor.m_strLuaFunc);
+		LuaIntf::LuaRef luaFunc       = GetGlobal(functor.m_strLuaFunc);
 		TryRunGlobalScriptFunc("LuaNFrame.DispatchServerMessage", luaFunc, functor.m_strLuaFunc, msgId, packet, param1, param2);
 	}
 	return 0;
@@ -934,7 +935,7 @@ void NFCLuaScriptModule::LuaTrace(uint32_t logId, uint64_t guid, const std::stri
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
 	std::string tempFile = "/" + file;
-	const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+	const char* pFile    = strrchr(tempFile.c_str(), '/') + 1;
 #endif
 
 	NFLogMgr::Instance()->LogDefault(NLL_TRACE_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
@@ -947,7 +948,7 @@ void NFCLuaScriptModule::LuaDebug(uint32_t logId, uint64_t guid, const std::stri
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
 	std::string tempFile = "/" + file;
-	const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+	const char* pFile    = strrchr(tempFile.c_str(), '/') + 1;
 #endif
 	NFLogMgr::Instance()->LogDefault(NLL_DEBUG_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
@@ -959,7 +960,7 @@ void NFCLuaScriptModule::LuaInfo(uint32_t logId, uint64_t guid, const std::strin
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
 	std::string tempFile = "/" + file;
-	const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+	const char* pFile    = strrchr(tempFile.c_str(), '/') + 1;
 #endif
 	NFLogMgr::Instance()->LogDefault(NLL_INFO_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
@@ -971,7 +972,7 @@ void NFCLuaScriptModule::LuaWarn(uint32_t logId, uint64_t guid, const std::strin
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
 	std::string tempFile = "/" + file;
-	const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+	const char* pFile    = strrchr(tempFile.c_str(), '/') + 1;
 #endif
 	NFLogMgr::Instance()->LogDefault(NLL_WARING_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
@@ -983,7 +984,7 @@ void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::stri
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
 	std::string tempFile = "/" + file;
-	const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+	const char* pFile    = strrchr(tempFile.c_str(), '/') + 1;
 #endif
 	NFLogMgr::Instance()->LogDefault(NLL_ERROR_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
@@ -1034,7 +1035,7 @@ std::tuple<std::string, int> NFCLuaScriptModule::GetRpcSelectObjService(NF_SERVE
 	}
 
 	storesvr_sqldata::storesvr_selobj selobj;
-	std::string clsname = NFProtobufCommon::GetProtoBaseName(reqType);
+	std::string clsname     = NFProtobufCommon::GetProtoBaseName(reqType);
 	std::string packageName = NFProtobufCommon::GetProtoPackageName(reqType);
 	std::string tempTbName;
 	if (tbname.empty())
@@ -1075,6 +1076,56 @@ std::tuple<std::string, int> NFCLuaScriptModule::GetRpcSelectObjService(NF_SERVE
 	return std::tuple<std::string, int>("", iRet);
 }
 
+int NFCLuaScriptModule::GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string& reqType, const std::string& request, uint32_t dstBusId, const std::string& dbname)
+{
+	std::string tempDBName = dbname;
+	if (dbname.empty())
+	{
+		NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+		if (pConfig)
+		{
+			tempDBName = pConfig->DefaultDBName;
+		}
+	}
+	CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+	if (dstBusId == 0)
+	{
+		auto pDbServer = FindModule<NFIMessageModule>()->GetSuitDbServer(eType, tempDBName, mod_key);
+		if (pDbServer)
+		{
+			dstBusId = pDbServer->mServerInfo.bus_id();
+		}
+	}
+
+	storesvr_sqldata::storesvr_insertobj selobj;
+	std::string tbname      = NFProtobufCommon::GetProtoBaseName(reqType);
+	std::string packageName = NFProtobufCommon::GetProtoPackageName(reqType);
+	CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+	NFStoreProtoCommon::storesvr_insertobj(selobj, tempDBName, tbname, mod_key, request, tbname, packageName);
+
+	storesvr_sqldata::storesvr_insertobj_res selobjRes;
+	int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_INSERTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+																								  selobjRes);
+	if (iRet == 0 && selobjRes.opres().err_code() == 0)
+	{
+	}
+	else
+	{
+		if (iRet == 0)
+		{
+			iRet = selobjRes.opres().err_code();
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_INSERTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+					   selobjRes.opres().errmsg());
+		}
+		else
+		{
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+		}
+	}
+	return iRet;
+}
+
 std::tuple<std::string, int> NFCLuaScriptModule::GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId,
 															   const std::string& reqType,
 															   const std::string& request, const std::string& rspType)
@@ -1092,7 +1143,7 @@ int NFCLuaScriptModule::OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId,
 	if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
 	{
 		NetLuaRpcService& service = mxLuaCallBack[eServerType].mxRpcCallBack[msgId];
-		LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+		LuaIntf::LuaRef luaFunc   = GetGlobal(service.m_strLuaFunc);
 		TryRunGlobalScriptFunc("LuaNFrame.DispatchRpcMessage", luaFunc, service.m_strLuaFunc, reqType, request, rspType, respone);
 	}
 	return 0;
@@ -1104,9 +1155,9 @@ int NFCLuaScriptModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32
 
 	SEventKey skey;
 	skey.nServerType = serverType;
-	skey.nEventID = nEventID;
-	skey.bySrcType = bySrcType;
-	skey.nSrcID = nSrcID;
+	skey.nEventID    = nEventID;
+	skey.bySrcType   = bySrcType;
+	skey.nSrcID      = nSrcID;
 
 	bool bRes = m_eventTemplate.Fire(skey, pMessage->GetTypeName(), pMessage->SerializeAsString());
 	if (!bRes)
@@ -1134,9 +1185,9 @@ void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uin
 {
 	SEventKey skey;
 	skey.nServerType = serverType;
-	skey.nEventID = nEventID;
-	skey.bySrcType = bySrcType;
-	skey.nSrcID = nSrcID;
+	skey.nEventID    = nEventID;
+	skey.bySrcType   = bySrcType;
+	skey.nSrcID      = nSrcID;
 
 	/**
 	* @brief 先执行完全匹配的
@@ -1156,7 +1207,7 @@ void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uin
 	* 订阅时将nSrcId=0，会受到所有玩家产生的该类事件
 	*/
 	skey.nSrcID = 0;
-	bool bRes = m_eventTemplate.Fire(skey, luaData);
+	bool bRes   = m_eventTemplate.Fire(skey, luaData);
 	if (!bRes)
 	{
 		return;
@@ -1168,9 +1219,9 @@ bool NFCLuaScriptModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uin
 {
 	SEventKey skey;
 	skey.nServerType = serverType;
-	skey.nEventID = nEventID;
-	skey.bySrcType = bySrcType;
-	skey.nSrcID = nSrcID;
+	skey.nEventID    = nEventID;
+	skey.bySrcType   = bySrcType;
+	skey.nSrcID      = nSrcID;
 
 	auto iter = m_luaEventMap.find(strLuaFunc);
 	if (iter != m_luaEventMap.end())
@@ -1212,9 +1263,9 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
 {
 	SEventKey skey;
 	skey.nServerType = serverType;
-	skey.nEventID = nEventID;
-	skey.bySrcType = bySrcType;
-	skey.nSrcID = nSrcID;
+	skey.nEventID    = nEventID;
+	skey.bySrcType   = bySrcType;
+	skey.nSrcID      = nSrcID;
 
 	LuaIntf::LuaRef ref = GetGlobal(strLuaFunc);
 	CHECK_EXPR(ref.isFunction(), false, "strLuaFunc:{} is not lua function", strLuaFunc);
@@ -1309,7 +1360,7 @@ int NFCLuaScriptModule::OnHandleServerSocketEvent(eMsgType nEvent, uint64_t unLi
 		if (iter != mxLuaCallBack[eServerType].mxEventCallBack.end())
 		{
 			NetLuaEventFunctor& service = iter->second;
-			LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+			LuaIntf::LuaRef luaFunc     = GetGlobal(service.m_strLuaFunc);
 			TryRunGlobalScriptFunc("LuaNFrame.DispatchSocketEvent", luaFunc, service.m_strLuaFunc, nEvent, unLinkId);
 		}
 	}
@@ -1325,7 +1376,7 @@ int NFCLuaScriptModule::OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPack
 		if (iter != mxLuaCallBack[eServerType].mxOtherMsgCallBackList.end())
 		{
 			NetLuaReceiveFunctor& service = iter->second;
-			LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+			LuaIntf::LuaRef luaFunc       = GetGlobal(service.m_strLuaFunc);
 			TryRunGlobalScriptFunc("LuaNFrame.DispatchOtherMessage", luaFunc, service.m_strLuaFunc, unLinkId, packet);
 		}
 	}
@@ -1338,7 +1389,7 @@ int NFCLuaScriptModule::OnHandleAllOtherMessage(uint64_t unLinkId, NFDataPackage
 	if (eServerType < mxLuaCallBack.size())
 	{
 		NetLuaReceiveFunctor& service = mxLuaCallBack[eServerType].mxAllMsgCallBackList;
-		LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+		LuaIntf::LuaRef luaFunc       = GetGlobal(service.m_strLuaFunc);
 		TryRunGlobalScriptFunc("LuaNFrame.DispatchAllOtherMessage", luaFunc, service.m_strLuaFunc, unLinkId, packet);
 	}
 	return 0;

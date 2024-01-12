@@ -1020,3 +1020,32 @@ function LuaNFrame.GetRpcSelectObjService(serverType, mod_key, request, vecField
 	end
 	return iRet
 end
+
+function LuaNFrame.GetRpcInsertObjService(serverType, mod_key,  request, dstBusId, dbname)
+	if LuaNFrame.IsDebug() then
+		if type(serverType) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+			return
+	    end
+
+		if type(mod_key) ~= "number" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "mod_key Para Error")
+			return
+	    end
+
+		if type(request) ~= "table" then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "request Para Error")
+			return
+	    end
+	end
+
+	if type(dstBusId) ~= "number" then
+		dstBusId = 0
+	end
+
+	if type(dbname) ~= "string" then
+		dbname = ""
+	end
+
+    return CPPNFrame:GetRpcInsertObjService(serverType, mod_key, request:GetTypeName(), request:SerializeToString(), dstBusId, dbname)
+end

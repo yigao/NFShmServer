@@ -10,6 +10,10 @@ LuaNFrame.pb_conv   = require "pb_conv"
 LuaNFrame.protoc = require "protoc"
 LuaNFrame.serpent = require "serpent"
 
+function GetErrorStr(iRet)
+    return iRet
+end
+
 function LuaNFrame.CreatePb(protoPackageName)
     _G[protoPackageName] = _G[protoPackageName] or {}
 end
@@ -36,19 +40,22 @@ function LuaNFrame.CreatePbClass(pbTable, protoName, className)
             else
                 LuaNFrame.TraceWithThread(NF_LOG_SYSTEMLOG, 0, 3,  LuaNFrame.serpent.block(data))
             end
-            return data
+            for k,v in pairs(data) do self[k] = v end
         else
-            data = LuaNFrame.Decode(self.__pbName, dataPackage)
+            local data = LuaNFrame.Decode(self.__pbName, dataPackage)
             if data == nil then
                 LuaNFrame.ErrorWithThread(NF_LOG_SYSTEMLOG, 0,  3, "LuaNFrame.DecodePackage Fail,  package:"..dataPackage:ToString())
             else
                 LuaNFrame.TraceWithThread(NF_LOG_SYSTEMLOG, 0, 3,  LuaNFrame.serpent.block(data))
             end
-            return data
+            for k,v in pairs(data) do self[k] = v end
         end
     end
     cls.SerializeToString = function(self)
         return LuaNFrame.Encode(self.__pbName, self)
+    end
+    cls.DebugString = function(self)
+        return LuaNFrame.serpent.block(self)
     end
     cls.GetTypeName = function(self)
         return self.__pbName
@@ -60,13 +67,24 @@ function LuaNFrame.CreatePbClass(pbTable, protoName, className)
 
     function cls.New(dataPackage)
         if dataPackage ~= nil then
-            local data = cls:ParseFromString(dataPackage)
+            local result = type(dataPackage)
+            local data = {}
+            if result == "userdata" then
+                data = LuaNFrame.Decode(cls.__pbName, dataPackage:GetData())
+            else
+                data = LuaNFrame.Decode(cls.__pbName, dataPackage)
+            end
+
+            if data == nil then
+                return nil
+            end
+
             local instance = setmetatable(data, cls)
             instance.class = cls
             instance:Ctor()
             return instance
         else            
-            local data = LuaNFrame.Defaults(cls.__pbName)
+            local data = LuaNFrame.pb.defaults(cls.__pbName)
             local instance = setmetatable(data, cls)
             instance.class = cls
             instance:Ctor()

@@ -366,3 +366,7 @@ end
 function CPPNFrame:GetRpcSelectObjService(eType, mod_key, reqType, request, vecFields, dstBusId, tbname, dbname)
     return self.luaModule:GetRpcSelectObjService(eType, mod_key, reqType, request, vecFields, dstBusId, tbname, dbname)
 end
+
+function CPPNFrame:GetRpcInsertObjService(eType, mod_key, reqType, request, dstBusId, dbname)
+    return self.luaModule:GetRpcInsertObjService(eType, mod_key, reqType, request, dstBusId, dbname)
+end
