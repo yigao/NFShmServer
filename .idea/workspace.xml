@@ -37,19 +37,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="tutorial">
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialModule.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialPlugin.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialPlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialShmObj.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialShmObj.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/TutorialPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TutorialPlugin/Plugin.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFrame/NFComm/NFPluginModule/NFIDynamicModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFrame/NFComm/NFPluginModule/NFIDynamicModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFrame/NFComm/NFPluginModule/NFIPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFrame/NFComm/NFPluginModule/NFIPlugin.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFrame/NFCommPlugin/NFDBPlugin/NFDBPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFrame/NFCommPlugin/NFDBPlugin/NFDBPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialPlugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +109,7 @@
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/gaoyi/NFShmServer/src/NFTest/NFTutorialPlugin",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C++"
+    "settings.editor.selected.configurable": "fileTemplates"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -283,7 +277,7 @@
       <workItem from="1704789171735" duration="7789000" />
       <workItem from="1704952160690" duration="35406000" />
       <workItem from="1705111918106" duration="7118000" />
-      <workItem from="1705124004940" duration="9350000" />
+      <workItem from="1705124004940" duration="12067000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -573,7 +567,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705126819713</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="tutorial">
+      <option name="closed" value="true" />
+      <created>1705133382446</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1705133382446</updated>
+    </task>
+    <task id="LOCAL-00038" summary="tutorial">
+      <option name="closed" value="true" />
+      <created>1705133567217</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1705133567217</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VCPKGProject">

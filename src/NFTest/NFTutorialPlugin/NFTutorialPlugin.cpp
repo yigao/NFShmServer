@@ -10,6 +10,7 @@
 #include "NFTutorialPlugin.h"
 
 #include "NFTutorialModule.h"
+#include "NFTutorialShmObj.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -49,5 +50,6 @@ void NFTutorialPlugin::Uninstall()
 
 bool NFTutorialPlugin::InitShmObjectRegister()
 {
+	REGISTER_SINGLETON_SHM_OBJ(NFTutorialShmObj);//
 	return true;
 }

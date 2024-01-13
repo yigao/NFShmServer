@@ -7,7 +7,8 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			"NFTutorialPlugin",
+			--"NFTutorialPlugin",
+			--"NFShmPlugin",
 		};
 		ServerType = NF_ST_NONE;
 	},
