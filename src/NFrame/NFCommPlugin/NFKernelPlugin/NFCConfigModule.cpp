@@ -360,11 +360,19 @@ bool NFCConfigModule::LoadServerConfig()
                 }
             }
             CHECK_EXPR_ASSERT(flag, false, "all server config error..........");
+            if (pAllServer->ServerList.size() > 0)
+            {
+                CHECK_EXPR_ASSERT(m_appConfig != NULL, false, "m_appConfig is NULL, maybe ServerID:{} error, not match the config",
+                   m_pObjPluginManager->GetAppName());
+            }
         }
     }
+    else
+    {
+        CHECK_EXPR_ASSERT(m_appConfig != NULL, false, "m_appConfig is NULL, maybe ServerID:{} error, not match the config",
+                          m_pObjPluginManager->GetAppName());
+    }
 
-    CHECK_EXPR_ASSERT(m_appConfig != NULL, false, "m_appConfig is NULL, maybe ServerID:{} error, not match the config",
-                      m_pObjPluginManager->GetAppName());
 
     return true;
 }
