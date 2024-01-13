@@ -37,13 +37,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="tutorial">
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialShmObj.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialShmObj.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/LuaScript/Tutorial/InitTutorial.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Install/LuaScript/Tutorial/TutorialModule.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/LuaScript/LuaNFrame/LuaProto.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/LuaScript/LuaNFrame/LuaProto.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/TutorialPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TutorialPlugin/Plugin.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin/NFTutorialPlugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,17 +108,17 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer/src/NFTest/NFTutorialPlugin",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/Install/LuaScript/Tutorial",
     "settings.editor.selected.configurable": "fileTemplates"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Install/LuaScript/Tutorial" />
       <recent name="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin" />
       <recent name="$PROJECT_DIR$/Install/TutorialPlugin" />
       <recent name="$PROJECT_DIR$/Install/TestPlugin" />
       <recent name="$PROJECT_DIR$/src/NFrame" />
-      <recent name="$PROJECT_DIR$/game/QiPai/NFLogicComm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/NFServer" />
@@ -191,7 +191,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFTestPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Plugin=../../TutorialPlugin --Server=TutorialAllServer --ID=1.13.1.1" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFTestPlugin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFTestPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Plugin=../../TutorialPlugin --Server=TutorialAllServer --game=Tutorial --ID=1.13.1.1" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFTestPlugin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -277,7 +277,7 @@
       <workItem from="1704789171735" duration="7789000" />
       <workItem from="1704952160690" duration="35406000" />
       <workItem from="1705111918106" duration="7118000" />
-      <workItem from="1705124004940" duration="12067000" />
+      <workItem from="1705124004940" duration="15030000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -583,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705133567217</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="tutorial">
+      <option name="closed" value="true" />
+      <created>1705136280321</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1705136280321</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VCPKGProject">

@@ -122,7 +122,7 @@ function LuaNFrame.LoadPbFile(pbPckageName, pbfile)
     local result = LuaNFrame.pb.loadfile(pbfile)
     if result == nil or result == false then
         LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "LuaNFrame.LoadPbFile Failed, can 't load file fail:"..pbfile)
-        assert(false)
+        return
     end
 
     for proto_name, base_name, type_name in LuaNFrame.pb.types() do

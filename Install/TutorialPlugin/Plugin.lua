@@ -9,6 +9,7 @@ LoadPlugin =
 			"NFKernelPlugin",
 			--"NFTutorialPlugin",
 			--"NFShmPlugin",
+			--"NFLuaScriptPlugin",
 		};
 		ServerType = NF_ST_NONE;
 	},
