@@ -61,5 +61,5 @@ void NFDBPlugin::Uninstall()
     UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyNosqlModule, NFCAsyNosqlModule);
-    UNREGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFINosqlModule, NFCNoSqlModule);
 }

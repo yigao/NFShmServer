@@ -25,7 +25,7 @@
     pManager->AddModule(#classBaseName, pRegisterModule##className );AddModule(#classBaseName, pRegisterModule##className );
 
 #define UNREGISTER_MODULE(pManager, classBaseName, className) \
-   NFIModule* pUnRegisterModule##className =  dynamic_cast<NFIModule*>( pManager->FindModule( #classBaseName )); \
+   NFIModule* pUnRegisterModule##className =  dynamic_cast<NFIModule*>(pManager->FindModule(typeid(classBaseName).name())); \
 	pManager->RemoveModule( #classBaseName );RemoveModule(#classBaseName); delete pUnRegisterModule##className;
 
 #define REGISTER_STATIC_PLUGIN(pManager, className)  pManager->RegisteredStaticPlugin(#className, [] (NFIPluginManager* pMan) ->NFIPlugin* { return NF_NEW className(pMan);});
