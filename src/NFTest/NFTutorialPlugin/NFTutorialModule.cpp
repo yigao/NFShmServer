@@ -65,7 +65,7 @@ int NFTutorialModule::OnTimer(uint32_t nTimerID)
 	{
 		m_idCount++;
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "id count:{}.......", m_idCount);
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "xxxxxxxxxxxxxxxxxxxxx");
+		//NFLogError(NF_LOG_SYSTEMLOG, 0, "xxxxxxxxxxxxxxxxxxxxx");
 	}
 	return 0;
 }
