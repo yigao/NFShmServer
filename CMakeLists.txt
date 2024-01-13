@@ -176,9 +176,11 @@ if (UNIX)
             "${CMAKE_SOURCE_DIR}/thirdparty/zookeeper/include"
             "${CMAKE_SOURCE_DIR}/thirdparty/common/hiredis/hiredis_linux"
             "${CMAKE_SOURCE_DIR}/src"
-            "${CMAKE_SOURCE_DIR}/src/NFComm/NFKernelMessage"
-            "${CMAKE_SOURCE_DIR}/src/NFComm/NFMessageDefine"
-            "${CMAKE_SOURCE_DIR}/src/NFServerComm/NFServerMessage")
+            "${CMAKE_SOURCE_DIR}/src/NFrame"
+            "${CMAKE_SOURCE_DIR}/src/NFServer"
+            "${CMAKE_SOURCE_DIR}/src/NFrame/NFComm/NFKernelMessage"
+            "${CMAKE_SOURCE_DIR}/src/NFrame/NFComm/NFMessageDefine"
+            "${CMAKE_SOURCE_DIR}/src/NFServer/NFServerComm/NFServerMessage")
 else (WIN32)
     SET(INCLUDE_DIR "/usr/local/include"
             "${CMAKE_SOURCE_DIR}/thirdparty"
@@ -194,9 +196,11 @@ else (WIN32)
             "${CMAKE_SOURCE_DIR}/thirdparty/zookeeper/include"
             "${CMAKE_SOURCE_DIR}/thirdparty/common/hiredis/hiredis_win"
             "${CMAKE_SOURCE_DIR}/src"
-            "${CMAKE_SOURCE_DIR}/src/NFComm/NFKernelMessage"
-            "${CMAKE_SOURCE_DIR}/src/NFComm/NFMessageDefine"
-            "${CMAKE_SOURCE_DIR}/src/NFServerComm/NFServerMessage")
+            "${CMAKE_SOURCE_DIR}/src/NFrame"
+            "${CMAKE_SOURCE_DIR}/src/NFServer"
+            "${CMAKE_SOURCE_DIR}/src/NFrame/NFComm/NFKernelMessage"
+            "${CMAKE_SOURCE_DIR}/src/NFrame/NFComm/NFMessageDefine"
+            "${CMAKE_SOURCE_DIR}/src/NFServer/NFServerComm/NFServerMessage")
 endif ()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
@@ -281,26 +285,18 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
     ADD_SUBDIRECTORY("thirdparty")
     ADD_SUBDIRECTORY("src")
     ADD_SUBDIRECTORY("game")
-    ADD_SUBDIRECTORY("src/NFPluginLoader")
-    ADD_SUBDIRECTORY("src/NFTools")
 elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
     ADD_SUBDIRECTORY("thirdparty")
     ADD_SUBDIRECTORY("src")
     ADD_SUBDIRECTORY("game")
-    ADD_SUBDIRECTORY("src/NFPluginLoader")
-    ADD_SUBDIRECTORY("src/NFTools")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
     ADD_SUBDIRECTORY("thirdparty")
     ADD_SUBDIRECTORY("src")
-    #ADD_SUBDIRECTORY("game")
-    #ADD_SUBDIRECTORY("src/NFPluginLoader")
-    ADD_SUBDIRECTORY("src/NFTools")
+    ADD_SUBDIRECTORY("game")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
     ADD_SUBDIRECTORY("thirdparty")
     ADD_SUBDIRECTORY("src")
     ADD_SUBDIRECTORY("game")
-    ADD_SUBDIRECTORY("src/NFPluginLoader")
-    ADD_SUBDIRECTORY("src/NFTools")
 endif ()
 
 
