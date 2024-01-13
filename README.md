@@ -120,7 +120,13 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - evpp
 - openssl
 - theron
-
+  
+**教程文档 Tutorial Chapters**:
+* [**Tutorial 1: 初步认识NFShmFrame架构**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-LearnFrame)
+* [**Tutorial 2: 初步使用NFShmFrame架构**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-UseFrame)
+* [**Tutorial 3: 添加新的so文件**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-AddNewSo)
+* [**Tutorial 3: 添加module开发功能，并执行so热更**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-AddModule
+  
 ## unity3d捕鱼demo && Documents
 
 **unity3d捕鱼demo游戏**:
