@@ -2,7 +2,7 @@
 
 <p align="right">当前版本: <strong>v1.0.0</strong></p>
 <p align="center"><img src="https://github.com/yigao/NFShmServer/blob/master/doc/logo.png" alt="nfshmserver" width="300"/></p>
-NFShmServer 是一个使用C++开发的轻量级,敏捷型,弹性的,分布式的共享内存（C++热更）/多进程lua(lua热更)的插件开发框架, 让你更快更简单的开发服务端应用. 部分思路来自UE4和Ogre.(当前主要用在游戏领域) . 实现了一款unity3d捕鱼demo游戏，有兴趣的可以加群762414765学习
+NFShmServer 是一个使用C++开发的轻量级,敏捷型,弹性的,分布式的插件开发框架, 共有三种主要使用模式:1.传统使用STL的纯C++开发;2.使用共享内存作为内存池进行热更的纯C++开发(腾讯系公司大量使用这种模式开发);3.使用lua,python脚本进行游戏逻辑开发。已经用共享内存模式和lua脚本模式各自实现一款unity3d捕鱼游戏，有兴趣的可以加群762414765学习
 ---
 
 [![License](https://img.shields.io/github/license/yigao/NFShmServer.svg?colorB=f48041&style=flat-square)](https://opensource.org/licenses/Apache-2.0)
