@@ -37,13 +37,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="tutorial">
-      <change afterPath="$PROJECT_DIR$/Install/LuaScript/Tutorial/InitTutorial.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Install/LuaScript/Tutorial/TutorialModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/LuaScript/LuaNFrame/LuaProto.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/LuaScript/LuaNFrame/LuaProto.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TutorialPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TutorialPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,21 +92,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "CMake 应用程序.NFPluginLoader.executor": "Debug",
-    "CMake 应用程序.NFTestPlugin.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer/Install/LuaScript/Tutorial",
-    "settings.editor.selected.configurable": "fileTemplates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;CMake 应用程序.NFPluginLoader.executor&quot;: &quot;Debug&quot;,
+    &quot;CMake 应用程序.NFTestPlugin.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/Install/LuaScript/Tutorial&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Install/LuaScript/Tutorial" />
@@ -128,11 +123,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFTestPlugin">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -277,7 +267,8 @@
       <workItem from="1704789171735" duration="7789000" />
       <workItem from="1704952160690" duration="35406000" />
       <workItem from="1705111918106" duration="7118000" />
-      <workItem from="1705124004940" duration="15030000" />
+      <workItem from="1705124004940" duration="15315000" />
+      <workItem from="1705365592371" duration="132000" />
     </task>
     <task id="LOCAL-00001" summary="bug">
       <option name="closed" value="true" />
@@ -591,7 +582,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705136280321</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="tutorial">
+      <option name="closed" value="true" />
+      <created>1705139843758</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1705139843759</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VCPKGProject">
