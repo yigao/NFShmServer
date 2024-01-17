@@ -33,6 +33,11 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 
 [PVS-Studio](https://pvs-studio.com/pvs-studio/?utm_source=website&utm_medium=github&utm_campaign=open_source) - static analyzer for C, C++, C#, and Java code.
 
+# Use case
+
+### 若您的项目使用了NFShmServer，欢迎联系作者，作者很乐意把您的作品展示出来.
+
+  * 中青龙图(网友联系的，貌似项目后来被砍了)
 
 ## 为什么要写NFShmFrame开源服务器
 * 最近参加了一下面试，面试官问为什么要写开源服务器，你写的和别人的开源有什么区别。我说因为兴趣所以写，要写世界最屌的服务器.
