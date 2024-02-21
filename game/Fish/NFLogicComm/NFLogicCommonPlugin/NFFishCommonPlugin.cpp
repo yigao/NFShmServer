@@ -49,7 +49,7 @@ void NFFishCommonPlugin::Install()
 
 void NFFishCommonPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFCommLogicModule, NFCommLogicModule)
+	UNREGISTER_MODULE(m_pObjPluginManager, NFFishCommonModule, NFFishCommonModule)
 }
 
 bool NFFishCommonPlugin::InitShmObjectRegister()

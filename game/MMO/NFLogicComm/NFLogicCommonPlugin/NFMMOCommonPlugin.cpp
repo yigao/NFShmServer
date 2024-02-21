@@ -51,7 +51,7 @@ void NFMMOCommonPlugin::Install()
 
 void NFMMOCommonPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFCommLogicModule, NFCommLogicModule)
+	UNREGISTER_MODULE(m_pObjPluginManager, NFMMOCommonModule, NFMMOCommonModule)
 }
 
 bool NFMMOCommonPlugin::InitShmObjectRegister()
