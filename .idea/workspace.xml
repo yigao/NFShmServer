@@ -12,8 +12,6 @@
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="ShmNFrame" targetName="NFLuaScriptPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOCommonPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOProxyPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishWorldPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameCommon" />
       <config projectName="ShmNFrame" targetName="NFLogicServerPlugin" />
@@ -25,11 +23,9 @@
       <config projectName="ShmNFrame" targetName="NFShmCore" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameFishPlugin" />
-      <config projectName="ShmNFrame" targetName="NFCore" />
       <config projectName="ShmNFrame" targetName="NFFishLoginPlayerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicPlayerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFCore" />
       <config projectName="ShmNFrame" targetName="NFCenterServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOCenterPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFTutorialPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishSnsPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFExcelProcess" />
@@ -47,26 +43,20 @@
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
       <config projectName="ShmNFrame" targetName="evpp" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFServerMessage" />
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishLogicMessage" />
-      <config projectName="ShmNFrame" targetName="NFMMOWorldPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
       <config projectName="ShmNFrame" targetName="RecastNavigation" />
       <config projectName="ShmNFrame" targetName="NFFishLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMODescStore" />
       <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginModule" />
       <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicMessage" />
       <config projectName="ShmNFrame" targetName="NFFishGamePlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFDBPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommon" />
       <config projectName="ShmNFrame" targetName="NFFishRobotPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOSnsPlayerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOGamePlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishDescStore" />
       <config projectName="ShmNFrame" targetName="NFPluginManager" />
       <config projectName="ShmNFrame" targetName="NFWebServerPlugin" />
@@ -74,29 +64,23 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR="Build/build64_debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicDebug" BUILD_OPTIONS="-- -j 4" NO_GENERATOR="true" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR="Build/build64_debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicDebug" NO_GENERATOR="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="tutorial">
+    <list default="true" id="bf52a576-2ff4-44f5-8280-5ec018815a4f" name="更改" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFFishCommonPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFFishCommonPlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/LuaScript/Fish/ProxyServer/ProxyPlayerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/LuaScript/Fish/ProxyServer/ProxyPlayerModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/LuaScript/LuaNFrame/LuaNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/LuaScript/LuaNFrame/LuaNFrame.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
-  </component>
-  <component name="ClangdSettings">
-    <option name="parameterInfoViaClangd" value="false" />
-    <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
@@ -109,9 +93,9 @@
   }
 }</component>
   <component name="GitHubPullRequestState">{
-  &quot;prStates&quot;: [
-  ]
+  &quot;prStates&quot;: []
 }</component>
+  <component name="GitLabMergeRequestsSettings">{}</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/yigao/NFShmServer.git&quot;,
@@ -119,22 +103,23 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file:///usr/include/c++/4.8.2/bits/hashtable_policy.h" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file:///usr/include/c++/4.8.2/bits/move.h" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+    <setting file="file://$PROJECT_DIR$/game/Fish/NFFishLoader/NFCLoadStaticPlugin.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/Com.pb.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/NFrame/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFCLuaScriptComponent.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/NFrame/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFCLuaThreadModule.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///usr/include/c++/4.8.2/functional" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
-    <option name="majorVersion" value="2023" />
-    <option name="minorVersion" value="3.1" />
+    <option name="majorVersion" value="2024" />
+    <option name="minorVersion" value="1" />
+    <option name="productBranch" value="Nova" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
 }</component>
-  <component name="ProjectId" id="2ZW6SB1bjD3LjmIWkRHOoNU38K5" />
+  <component name="ProjectId" id="2chlPjCVKt01csHnN1EvJACAQDJ" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -142,47 +127,17 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "CMake 应用程序.NFPluginLoader.executor": "Debug",
-    "CMake 应用程序.NFTestPlugin.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.RadMigrateCodeStyle": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++",
-    "vue.rearranger.settings.migration": "true"
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/Build/build64_debug",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Install/LuaScript/Tutorial" />
-      <recent name="$PROJECT_DIR$/src/NFTest/NFTutorialPlugin" />
-      <recent name="$PROJECT_DIR$/Install/TutorialPlugin" />
-      <recent name="$PROJECT_DIR$/Install/TestPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFrame" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/NFServer" />
-      <recent name="$PROJECT_DIR$/src/NFrame" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/Server" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/Map" />
-    </key>
-  </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
-    <configuration default="true" type="lua.app" factoryName="Lua Application">
-      <option name="program" value="/usr/local/bin/lua" />
-      <option name="file" value="" />
-      <option name="workingDir" value="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFMath.cpp" />
-      <option name="debuggerType" value="2" />
-      <option name="params" value="" />
-      <option name="charset" value="UTF-8" />
-      <option name="showConsole" value="true" />
-      <method v="2" />
-    </configuration>
     <configuration name="NFCenterServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCenterServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -303,56 +258,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFMMOCenterPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOCenterPlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOCommonPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOCommonPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMODescStore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMODescStore" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOGamePlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOGamePlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOLogicCommon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOLogicCommon" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOLogicMessage" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOLogicMessage" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOLogicPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOLogicPlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOProxyPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOProxyPlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOSnsPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOSnsPlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMMOWorldPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOWorldPlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFMasterServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMasterServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -363,8 +268,10 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishPlugin --Game=Fish --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
-      <method v="2" />
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.1.13.1 --Config=../../Config/Fish --Plugin=../../FishPlugin --restart --game=Fish" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
     </configuration>
     <configuration name="NFPluginManager" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginManager" CONFIG_NAME="Debug">
       <method v="2">
@@ -436,7 +343,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFTestPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Plugin=../../TutorialPlugin --Server=TutorialAllServer --game=Tutorial --ID=1.13.1.1" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFTestPlugin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFTestPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFTestPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -482,474 +389,94 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake 应用程序.NFCenterServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFCore" />
-      <item itemvalue="CMake 应用程序.NFDBPlugin" />
-      <item itemvalue="CMake 应用程序.NFDescStorePlugin" />
-      <item itemvalue="CMake 应用程序.NFExcelProcess" />
-      <item itemvalue="CMake 应用程序.NFFishCommonPlugin" />
+      <item itemvalue="CMake 应用程序.NFFishRobotPlugin" />
       <item itemvalue="CMake 应用程序.NFFishDescStore" />
-      <item itemvalue="CMake 应用程序.NFFishGamePlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFFishLogicCommon" />
+      <item itemvalue="CMake 应用程序.NFFishCommonPlugin" />
       <item itemvalue="CMake 应用程序.NFFishLogicMessage" />
+      <item itemvalue="CMake 应用程序.NFGameFishPlugin" />
+      <item itemvalue="CMake 应用程序.NFFishGamePlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFFishLogicPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFFishLoginPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFFishProxyPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFFishRobotPlugin" />
       <item itemvalue="CMake 应用程序.NFFishSnsPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFFishWorldPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFGameCommon" />
-      <item itemvalue="CMake 应用程序.NFGameFishPlugin" />
-      <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
+      <item itemvalue="CMake 应用程序.RecastNavigation" />
+      <item itemvalue="CMake 应用程序.NFCore" />
       <item itemvalue="CMake 应用程序.NFKernelMessage" />
+      <item itemvalue="CMake 应用程序.NFPluginModule" />
+      <item itemvalue="CMake 应用程序.NFShmCore" />
+      <item itemvalue="CMake 应用程序.NFDBPlugin" />
       <item itemvalue="CMake 应用程序.NFKernelPlugin" />
-      <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLuaScriptPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOCenterPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOCommonPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMODescStore" />
-      <item itemvalue="CMake 应用程序.NFMMOGamePlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOLogicCommon" />
-      <item itemvalue="CMake 应用程序.NFMMOLogicMessage" />
-      <item itemvalue="CMake 应用程序.NFMMOLogicPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOProxyPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOSnsPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOWorldPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
       <item itemvalue="CMake 应用程序.NFNetPlugin" />
+      <item itemvalue="CMake 应用程序.NFShmPlugin" />
+      <item itemvalue="CMake 应用程序.NFLuaScriptPlugin" />
       <item itemvalue="CMake 应用程序.NFPluginLoader" />
       <item itemvalue="CMake 应用程序.NFPluginManager" />
-      <item itemvalue="CMake 应用程序.NFPluginModule" />
+      <item itemvalue="CMake 应用程序.NFCenterServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFServerCommonPlugin" />
+      <item itemvalue="CMake 应用程序.NFDescStorePlugin" />
       <item itemvalue="CMake 应用程序.NFServerCommon" />
+      <item itemvalue="CMake 应用程序.NFServerCommonPlugin" />
       <item itemvalue="CMake 应用程序.NFServerMessage" />
-      <item itemvalue="CMake 应用程序.NFShmCore" />
-      <item itemvalue="CMake 应用程序.NFShmPlugin" />
       <item itemvalue="CMake 应用程序.NFSnsServerPlugin" />
       <item itemvalue="CMake 应用程序.NFStoreServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFTestPlugin" />
-      <item itemvalue="CMake 应用程序.NFTutorialPlugin" />
       <item itemvalue="CMake 应用程序.NFWebServerPlugin" />
       <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
-      <item itemvalue="CMake 应用程序.RecastNavigation" />
-      <item itemvalue="CMake 应用程序.Sqlite3" />
+      <item itemvalue="CMake 应用程序.NFTestPlugin" />
+      <item itemvalue="CMake 应用程序.NFTutorialPlugin" />
+      <item itemvalue="CMake 应用程序.NFExcelProcess" />
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
+      <item itemvalue="CMake 应用程序.Sqlite3" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="536cd2b1-a71f-4f42-97f2-df128995f242" name="更改" comment="" />
-      <created>1702525487780</created>
+      <changelist id="bf52a576-2ff4-44f5-8280-5ec018815a4f" name="更改" comment="" />
+      <created>1708571669230</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702525487780</updated>
-      <workItem from="1702525495405" duration="11384000" />
-      <workItem from="1702601249832" duration="5979000" />
-      <workItem from="1702617231423" duration="1996000" />
-      <workItem from="1702637884467" duration="30927000" />
-      <workItem from="1702860560061" duration="6983000" />
-      <workItem from="1703033033695" duration="406000" />
-      <workItem from="1703061079917" duration="7458000" />
-      <workItem from="1703135371289" duration="5932000" />
-      <workItem from="1703293343611" duration="16388000" />
-      <workItem from="1703380303247" duration="6000" />
-      <workItem from="1703646081430" duration="18640000" />
-      <workItem from="1704244131115" duration="227000" />
-      <workItem from="1704244561335" duration="18818000" />
-      <workItem from="1704354581384" duration="6149000" />
-      <workItem from="1704417058404" duration="32687000" />
-      <workItem from="1704696832712" duration="977000" />
-      <workItem from="1704698083630" duration="828000" />
-      <workItem from="1704701856210" duration="642000" />
-      <workItem from="1704702772827" duration="2272000" />
-      <workItem from="1704705594431" duration="14607000" />
-      <workItem from="1704789171735" duration="7789000" />
-      <workItem from="1704952160690" duration="35406000" />
-      <workItem from="1705111918106" duration="7118000" />
-      <workItem from="1705124004940" duration="15315000" />
-      <workItem from="1705365592371" duration="1291000" />
-      <workItem from="1706061844959" duration="717000" />
-      <workItem from="1708476572980" duration="407000" />
-      <workItem from="1708477490727" duration="143000" />
-      <workItem from="1708477680685" duration="1163000" />
+      <updated>1708571669230</updated>
+      <workItem from="1708571672175" duration="212000" />
+      <workItem from="1708908797067" duration="20000" />
+      <workItem from="1708928942402" duration="184000" />
+      <workItem from="1708929133186" duration="133000" />
+      <workItem from="1708929279260" duration="74000" />
+      <workItem from="1708930693469" duration="605000" />
+      <workItem from="1708932642251" duration="56000" />
+      <workItem from="1708932927275" duration="59000" />
+      <workItem from="1708939163957" duration="32000" />
+      <workItem from="1708995571936" duration="162000" />
+      <workItem from="1708996293022" duration="117000" />
+      <workItem from="1708996463634" duration="34000" />
+      <workItem from="1708997998944" duration="88000" />
+      <workItem from="1709255637009" duration="2462000" />
+      <workItem from="1709341111771" duration="3935000" />
+      <workItem from="1709687603913" duration="263000" />
+      <workItem from="1709688563406" duration="134000" />
+      <workItem from="1710068962379" duration="15000" />
+      <workItem from="1710207307713" duration="2130000" />
+      <workItem from="1710221857267" duration="1229000" />
+      <workItem from="1710229588362" duration="3689000" />
+      <workItem from="1710292127686" duration="3731000" />
+      <workItem from="1710297190775" duration="7024000" />
     </task>
-    <task id="LOCAL-00001" summary="bug">
-      <option name="closed" value="true" />
-      <created>1702534780918</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1702534780919</updated>
-    </task>
-    <task id="LOCAL-00002" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702538214470</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1702538214470</updated>
-    </task>
-    <task id="LOCAL-00003" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702538526747</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1702538526747</updated>
-    </task>
-    <task id="LOCAL-00004" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702547307372</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1702547307372</updated>
-    </task>
-    <task id="LOCAL-00005" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702602195941</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1702602195941</updated>
-    </task>
-    <task id="LOCAL-00006" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702606378670</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1702606378670</updated>
-    </task>
-    <task id="LOCAL-00007" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702704952173</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1702704952173</updated>
-    </task>
-    <task id="LOCAL-00008" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702721435953</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1702721435953</updated>
-    </task>
-    <task id="LOCAL-00009" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702865012139</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1702865012139</updated>
-    </task>
-    <task id="LOCAL-00010" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1702866980865</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1702866980865</updated>
-    </task>
-    <task id="LOCAL-00011" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1703138634538</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1703138634539</updated>
-    </task>
-    <task id="LOCAL-00012" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1703322208605</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1703322208635</updated>
-    </task>
-    <task id="LOCAL-00013" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1703322230989</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1703322230989</updated>
-    </task>
-    <task id="LOCAL-00014" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1703728198969</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1703728198969</updated>
-    </task>
-    <task id="LOCAL-00015" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1703730413684</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1703730413684</updated>
-    </task>
-    <task id="LOCAL-00016" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1703731785659</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1703731785659</updated>
-    </task>
-    <task id="LOCAL-00017" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1704245679737</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1704245679737</updated>
-    </task>
-    <task id="LOCAL-00018" summary="route cross server">
-      <option name="closed" value="true" />
-      <created>1704259958742</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1704259958742</updated>
-    </task>
-    <task id="LOCAL-00019" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704335719454</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1704335719454</updated>
-    </task>
-    <task id="LOCAL-00020" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704336629842</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1704336629842</updated>
-    </task>
-    <task id="LOCAL-00021" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704443347403</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1704443347404</updated>
-    </task>
-    <task id="LOCAL-00022" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704703037980</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1704703037980</updated>
-    </task>
-    <task id="LOCAL-00023" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704772748045</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1704772748045</updated>
-    </task>
-    <task id="LOCAL-00024" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704789747079</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1704789747079</updated>
-    </task>
-    <task id="LOCAL-00025" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1704850590740</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1704850590740</updated>
-    </task>
-    <task id="LOCAL-00026" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1705026237018</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1705026237018</updated>
-    </task>
-    <task id="LOCAL-00027" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1705026248166</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1705026248166</updated>
-    </task>
-    <task id="LOCAL-00028" summary="lua script">
-      <option name="closed" value="true" />
-      <created>1705036810969</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1705036810969</updated>
-    </task>
-    <task id="LOCAL-00029" summary="lua account login">
-      <option name="closed" value="true" />
-      <created>1705044119461</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1705044119461</updated>
-    </task>
-    <task id="LOCAL-00030" summary="lua account login">
-      <option name="closed" value="true" />
-      <created>1705044146518</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1705044146518</updated>
-    </task>
-    <task id="LOCAL-00031" summary="lua account login">
-      <option name="closed" value="true" />
-      <created>1705051380845</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1705051380845</updated>
-    </task>
-    <task id="LOCAL-00032" summary="lua account login">
-      <option name="closed" value="true" />
-      <created>1705057878761</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1705057878761</updated>
-    </task>
-    <task id="LOCAL-00033" summary="lua account login">
-      <option name="closed" value="true" />
-      <created>1705059395548</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1705059395548</updated>
-    </task>
-    <task id="LOCAL-00034" summary="QiPai.proto.ds">
-      <option name="closed" value="true" />
-      <created>1705060623011</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1705060623011</updated>
-    </task>
-    <task id="LOCAL-00035" summary="dir change">
-      <option name="closed" value="true" />
-      <created>1705112961192</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1705112961192</updated>
-    </task>
-    <task id="LOCAL-00036" summary="tutorial">
-      <option name="closed" value="true" />
-      <created>1705126819713</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1705126819713</updated>
-    </task>
-    <task id="LOCAL-00037" summary="tutorial">
-      <option name="closed" value="true" />
-      <created>1705133382446</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1705133382446</updated>
-    </task>
-    <task id="LOCAL-00038" summary="tutorial">
-      <option name="closed" value="true" />
-      <created>1705133567217</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1705133567217</updated>
-    </task>
-    <task id="LOCAL-00039" summary="tutorial">
-      <option name="closed" value="true" />
-      <created>1705136280321</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1705136280321</updated>
-    </task>
-    <task id="LOCAL-00040" summary="tutorial">
-      <option name="closed" value="true" />
-      <created>1705139843758</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1705139843759</updated>
-    </task>
-    <task id="LOCAL-00041" summary="tutorial">
-      <option name="closed" value="true" />
-      <created>1705365754180</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1705365754180</updated>
-    </task>
-    <option name="localTasksCounter" value="42" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="VCPKGProject">
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
     <isAutomaticReloadCMake value="true" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="bug" />
-    <MESSAGE value="route cross server" />
-    <MESSAGE value="lua script" />
-    <MESSAGE value="lua account login" />
-    <MESSAGE value="QiPai.proto.ds" />
-    <MESSAGE value="dir change" />
-    <MESSAGE value="tutorial" />
-    <option name="LAST_COMMIT_MESSAGE" value="tutorial" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFrame/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp</url>
-          <line>3355</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

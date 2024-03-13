@@ -120,6 +120,14 @@ function LuaNFrame.GetSecTime()
     return CPPNFrame:GetSecTime()
 end
 
+function LuaNFrame.UnixSec()
+    return LuaNFrame.GetSecTime()
+end
+
+function LuaNFrame.UnixMSec()
+    return LuaNFrame.GetMsecTime()
+end
+
 --通过字符串获得MD5, 返回MD5字符串
 function LuaNFrame.GetMD5(str)
 	if type(str) ~= "string" then

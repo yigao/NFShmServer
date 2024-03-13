@@ -152,6 +152,61 @@ function ProxyPlayerModule.OnHandleRegisterLoginFromClient(msgId, packet, param1
 end
 
 function ProxyPlayerModule.OnHandlePlayerLoginFromClient(msgId, packet, param1, param2)
+    local cgMsg = proto_ff.Proto_CSUserLoginReq.New(packet);
+    local rspMsg = proto_ff.Proto_SCUserLoginRsp.New()
+
+    local unLinkId = packet:GetObjectLinkId()
+    local now = LuaNFrame.GetSecTime()
+    if now - cgMsg.login_time >= 30 then
+        rspMsg.result = proto_ff.ERR_CODE_TOKEN_TIMEOUT
+        LuaNFrame.SendMsgByLinkId(unLinkId, proto_ff.NF_SC_MSG_UserLoginRsp, rspMsg)
+
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "account user:{} token timeout", cgMsg.account, cgMsg.user_id)
+        return 0;
+    end
+
+    local token = LoginCommon.GetLoginToken(cgMsg.account, cgMsg.user_id, cgMsg.login_time)
+    if cgMsg.token ~= token then
+        rspMsg.result = proto_ff.ERR_CODE_TOKEN_ERROR
+        LuaNFrame.SendMsgByLinkId(unLinkId, proto_ff.NF_SC_MSG_UserLoginRsp, rspMsg)
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "account user:{} token:{} error, real token:{}", cgMsg.account, cgMsg.user_id, cgMsg.token, token);
+        return 0;
+    end
+
+    local pLinkInfo = NFProxySession.GetSession(unLinkId);
+    if pLinkInfo == nil then
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "clientLinkId:{} not exist, client maybe disconnect!", unLinkId)
+        return
+    end
+
+    local pPlayerInfo = NFProxyPlayerInfo.GetPlayerInfo(cgMsg.user_id)
+    if pPlayerInfo == nil then
+        pPlayerInfo = NFProxyPlayerInfo.Create(cgMsg.user_id)
+        pPlayerInfo:SetLinkId(unLinkId);
+        pPlayerInfo:SetIpAddr(pLinkInfo:GetIpAddr());
+        pPlayerInfo:SetIsLogin(true);
+        pPlayerInfo:SetPlayerId(cgMsg.user_id);
+        pPlayerInfo:SetAccount(cgMsg.account);
+
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "create player:{} link:{}............", pPlayerInfo:GetPlayerId(), unLinkId);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "new link, player:{} link:{}............", pPlayerInfo:GetPlayerId(), unLinkId);
+    else
+        if pPlayerInfo:GetLinkId() > 0 and pPlayerInfo:GetLinkId() ~= unLinkId then
+            local pOtherInfo = NFProxySession.GetSession(pPlayerInfo:GetLinkId())
+            if pOtherInfo then
+                ProxyPlayerModule.KickPlayer(pPlayerInfo:GetLinkId());
+                pOtherInfo:SetPlayerId(0);
+            end
+        end
+
+        pPlayerInfo:SetLinkId(unLinkId);
+        pPlayerInfo:SetIpAddr(pLinkInfo:GetIpAddr());
+        pPlayerInfo:SetIsLogin(true);
+        pPlayerInfo:SetPlayerId(cgMsg.user_id);
+        pPlayerInfo:SetAccount(cgMsg.account);
+
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "new link, player:{} link:{}............", pPlayerInfo:GetPlayerId(), unLinkId);
+    end
 end
 
 function ProxyPlayerModule.OnHandlePlayerReconnectFromClient(msgId, packet, param1, param2)
